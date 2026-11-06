@@ -1,0 +1,10 @@
+mcat,LCAP,MCAP,SCAP,classifier
+LCAP,168,0,0,production_membership
+MCAP,0,244,0,production_membership
+SCAP,0,0,664,production_membership
+LCAP,168,0,0,pit_semiannual
+MCAP,18,226,0,pit_semiannual
+SCAP,0,28,636,pit_semiannual
+LCAP,168,0,0,pit_monthly
+MCAP,21,219,4,pit_monthly
+SCAP,0,88,576,pit_monthly

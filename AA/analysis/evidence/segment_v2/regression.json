@@ -1,0 +1,130 @@
+{
+  "cases": [
+    {
+      "aa": "SCMO_0042",
+      "book": "parent",
+      "v1_cagr_today": 0.13177803794908804,
+      "v1_cagr_archived": 0.131778037949088,
+      "cagr_vs_archive_diff": 5.551115123125783e-17,
+      "target_mismatches": 0,
+      "nav_max_abs_diff": 4.440892098500626e-16,
+      "nav_max_abs_diff_20p8bps": NaN
+    },
+    {
+      "aa": "SCMO_0042",
+      "book": "production_v2",
+      "v1_cagr_today": 0.18631972843685074,
+      "v1_cagr_archived": 0.1863197284368507,
+      "cagr_vs_archive_diff": 2.7755575615628914e-17,
+      "target_mismatches": 0,
+      "nav_max_abs_diff": 8.881784197001252e-16,
+      "nav_max_abs_diff_20p8bps": NaN
+    },
+    {
+      "aa": "SCMO_0042",
+      "book": "sleeve",
+      "v1_cagr_today": 0.17222006337832862,
+      "v1_cagr_archived": 0.1722200633783286,
+      "cagr_vs_archive_diff": 2.7755575615628914e-17,
+      "target_mismatches": 0,
+      "nav_max_abs_diff": 8.881784197001252e-16,
+      "nav_max_abs_diff_20p8bps": 1.1102230246251565e-15
+    },
+    {
+      "aa": "SCMO_0043",
+      "book": "parent",
+      "v1_cagr_today": 0.06202006471350163,
+      "v1_cagr_archived": 0.0620200647135016,
+      "cagr_vs_archive_diff": 3.469446951953614e-17,
+      "target_mismatches": 0,
+      "nav_max_abs_diff": 4.440892098500626e-16,
+      "nav_max_abs_diff_20p8bps": NaN
+    },
+    {
+      "aa": "SCMO_0043",
+      "book": "production_v2",
+      "v1_cagr_today": 0.16314255790454024,
+      "v1_cagr_archived": 0.1631425579045402,
+      "cagr_vs_archive_diff": 5.551115123125783e-17,
+      "target_mismatches": 0,
+      "nav_max_abs_diff": 4.440892098500626e-16,
+      "nav_max_abs_diff_20p8bps": NaN
+    },
+    {
+      "aa": "SCMO_0043",
+      "book": "sleeve",
+      "v1_cagr_today": 0.15631177049273148,
+      "v1_cagr_archived": 0.1563117704927314,
+      "cagr_vs_archive_diff": 8.326672684688674e-17,
+      "target_mismatches": 0,
+      "nav_max_abs_diff": 4.440892098500626e-16,
+      "nav_max_abs_diff_20p8bps": 6.661338147750939e-16
+    },
+    {
+      "aa": "SCMO_0044",
+      "book": "parent",
+      "v1_cagr_today": 0.20246502788651366,
+      "v1_cagr_archived": 0.2024650278865136,
+      "cagr_vs_archive_diff": 5.551115123125783e-17,
+      "target_mismatches": 0,
+      "nav_max_abs_diff": 8.881784197001252e-16,
+      "nav_max_abs_diff_20p8bps": NaN
+    },
+    {
+      "aa": "SCMO_0044",
+      "book": "production_v2",
+      "v1_cagr_today": 0.19751775705358732,
+      "v1_cagr_archived": 0.1975177570535873,
+      "cagr_vs_archive_diff": 2.7755575615628914e-17,
+      "target_mismatches": 0,
+      "nav_max_abs_diff": 8.881784197001252e-16,
+      "nav_max_abs_diff_20p8bps": NaN
+    },
+    {
+      "aa": "SCMO_0044",
+      "book": "sleeve",
+      "v1_cagr_today": 0.22120722185623776,
+      "v1_cagr_archived": 0.2212072218562377,
+      "cagr_vs_archive_diff": 5.551115123125783e-17,
+      "target_mismatches": 0,
+      "nav_max_abs_diff": 1.7763568394002505e-15,
+      "nav_max_abs_diff_20p8bps": 2.6645352591003757e-15
+    },
+    {
+      "aa": "SCMO_0045",
+      "book": "parent",
+      "v1_cagr_today": 0.1502282277466489,
+      "v1_cagr_archived": 0.1502282277466489,
+      "cagr_vs_archive_diff": 0.0,
+      "target_mismatches": 0,
+      "nav_max_abs_diff": 6.661338147750939e-16,
+      "nav_max_abs_diff_20p8bps": NaN
+    },
+    {
+      "aa": "SCMO_0045",
+      "book": "production_v2",
+      "v1_cagr_today": 0.1325258164705576,
+      "v1_cagr_archived": 0.1325258164705576,
+      "cagr_vs_archive_diff": 0.0,
+      "target_mismatches": 0,
+      "nav_max_abs_diff": 4.440892098500626e-16,
+      "nav_max_abs_diff_20p8bps": NaN
+    },
+    {
+      "aa": "SCMO_0045",
+      "book": "sleeve",
+      "v1_cagr_today": 0.1563564076728161,
+      "v1_cagr_archived": 0.1563564076728161,
+      "cagr_vs_archive_diff": 0.0,
+      "target_mismatches": 0,
+      "nav_max_abs_diff": 3.9968028886505635e-15,
+      "nav_max_abs_diff_20p8bps": 3.1086244689504383e-15
+    }
+  ],
+  "max_nav_abs_diff": 3.9968028886505635e-15,
+  "max_cagr_vs_archive_abs_diff": 8.326672684688674e-17,
+  "target_mismatches": 0,
+  "passed_a_archive": true,
+  "passed_b_engine": true,
+  "seconds": 23.6
+}

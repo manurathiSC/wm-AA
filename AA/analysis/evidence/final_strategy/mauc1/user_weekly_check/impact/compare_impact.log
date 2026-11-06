@@ -1,0 +1,79 @@
+REPRO: 9 of 22 files value-identical; 9 byte-identical
+                               file  baseline_exists  byte_identical  values_identical  max_abs_numeric_diff
+      daily_SCMO_0042_2014_2021.csv             True           False             False          2.664535e-15
+           daily_SCMO_0042_live.csv             True           False             False          8.881784e-16
+      daily_SCMO_0043_2014_2021.csv             True           False             False          1.332268e-15
+           daily_SCMO_0043_live.csv             True           False             False          6.661338e-16
+      daily_SCMO_0044_2014_2021.csv             True           False             False          2.664535e-15
+           daily_SCMO_0044_live.csv             True           False             False          1.332268e-15
+      daily_SCMO_0045_2014_2021.csv             True           False             False          2.664535e-15
+           daily_SCMO_0045_live.csv             True           False             False          8.881784e-16
+          gold_daily_ohlc_eikon.csv             True            True              True          0.000000e+00
+        gold_signal_daily_mauc1.csv             True            True              True          0.000000e+00
+  gold_signal_mauc1_vs_goldbees.csv             True            True              True          0.000000e+00
+         gold_supertrend_weekly.csv             True            True              True          0.000000e+00
+gold_supertrend_weekly_goldbees.csv             True            True              True          0.000000e+00
+         goldbees_fill_despiked.csv             True            True              True          0.000000e+00
+               nav_curves_daily.csv             True           False             False          1.110223e-15
+                   position_log.csv             True           False             False          1.493087e+04
+                    run_config.json             True            True              True                   NaN
+                  summary_stats.csv             True           False             False          4.440892e-16
+                      trade_log.csv             True           False             False          3.552714e-15
+       weekly_signals_2014_2021.csv             True            True              True          0.000000e+00
+            weekly_signals_live.csv             True            True              True          0.000000e+00
+                 yearly_returns.csv             True           False             False          9.714451e-17
+
+NOISE FLOOR (max |diff| per pair over all files):
+                files  text_same  shapes_same       max_abs  byte_identical_files
+a        b                                                                       
+baseline seed1     21       True         True  2.664535e-15                     9
+         seed2     21       True         True  3.552714e-15                     9
+         stpy      21       True         True  3.552714e-15                     8
+seed1    seed2     21       True         True  2.664535e-15                     9
+       a     b              file  shape_same  text_cols_same  max_abs_numeric_diff  byte_identical
+baseline  stpy summary_stats.csv        True            True          4.440892e-16           False
+baseline seed1 summary_stats.csv        True            True          7.216450e-16           False
+baseline seed2 summary_stats.csv        True            True          4.440892e-16           False
+   seed1 seed2 summary_stats.csv        True            True          7.216450e-16           False
+
+reviews: 631 | signal differs at 7 | gold_w differs at 5 | variant gold_w differs at 0
+reviews on/after 2015-03-06 whose user read is the same ISO week: 596 of 596
+   window     review  weekday entry_session decision  gold_signal_stpy  gold_signal_user  gold_w_stpy  gold_w_user  cash_w_stpy  cash_w_user  variant_gold_w_stpy  variant_gold_w_user  signal_differs  gold_w_differs  variant_gold_w_differs user_week_read  same_iso_week
+     live 2023-06-23   Friday    2023-06-26   EQUITY               1.0               0.0          0.0          0.0          0.0          0.0                  0.0                  0.0            True           False                   False     2023-06-23           True
+2014_2021 2015-03-05 Thursday    2015-03-09   EQUITY               NaN               0.0          0.0          0.0          0.0          0.0                  0.0                  0.0            True           False                   False     2015-03-06           True
+2014_2021 2018-12-07   Friday    2018-12-10   SLEEVE               1.0               0.0          0.8          0.2          0.2          0.8                  0.8                  0.8            True            True                   False     2018-12-07           True
+2014_2021 2018-12-14   Friday    2018-12-17   SLEEVE               1.0               0.0          0.8          0.2          0.2          0.8                  0.8                  0.8            True            True                   False     2018-12-14           True
+2014_2021 2018-12-21   Friday    2018-12-24   SLEEVE               1.0               0.0          0.8          0.2          0.2          0.8                  0.8                  0.8            True            True                   False     2018-12-21           True
+2014_2021 2018-12-28   Friday    2018-12-31   SLEEVE               1.0               0.0          0.8          0.2          0.2          0.8                  0.8                  0.8            True            True                   False     2018-12-28           True
+2014_2021 2019-01-04   Friday    2019-01-07   SLEEVE               1.0               0.0          0.8          0.2          0.2          0.8                  0.8                  0.8            True            True                   False     2019-01-04           True
+
+    window           book  cagr_stpy  max_dd_daily_stpy  max_dd_friday_stpy  switches_equity_sleeve_stpy  sleeve_resplits_stpy  trades_stpy  cagr_user  max_dd_daily_user  max_dd_friday_user  switches_equity_sleeve_user  sleeve_resplits_user  trades_user  cagr_diff  max_dd_daily_diff  max_dd_friday_diff  switches_equity_sleeve_diff  sleeve_resplits_diff  trades_diff
+     live      SCMO_0042   0.274525          -0.203840           -0.143999                          9.0                   5.0        25.00   0.274525          -0.203840           -0.143999                          9.0                   5.0        25.00   0.000000           0.000000            0.000000                          0.0                   0.0          0.0
+     live      SCMO_0043   0.221570          -0.203840           -0.129281                          9.0                   5.0        25.00   0.221570          -0.203840           -0.129281                          9.0                   5.0        25.00   0.000000           0.000000            0.000000                          0.0                   0.0          0.0
+     live      SCMO_0044   0.292784          -0.214604           -0.122314                          9.0                   5.0        25.00   0.292784          -0.214604           -0.122314                          9.0                   5.0        25.00   0.000000           0.000000            0.000000                          0.0                   0.0          0.0
+     live      SCMO_0045   0.275192          -0.203840           -0.119220                          9.0                   5.0        25.00   0.275192          -0.203840           -0.119220                          9.0                   5.0        25.00   0.000000           0.000000            0.000000                          0.0                   0.0          0.0
+     live 4-book average   0.266018          -0.206531           -0.128703                          9.0                   5.0        25.00   0.266018          -0.206531           -0.128703                          9.0                   5.0        25.00   0.000000           0.000000            0.000000                          0.0                   0.0          0.0
+2014_2021      SCMO_0042   0.240382          -0.216589           -0.207276                         22.0                  11.0        49.00   0.238648          -0.224569           -0.215350                         22.0                  11.0        49.00  -0.001733          -0.007980           -0.008075                          0.0                   0.0          0.0
+2014_2021      SCMO_0043   0.116148          -0.210925           -0.210284                         22.0                  11.0        47.00   0.114588          -0.210925           -0.210284                         22.0                  11.0        47.00  -0.001560           0.000000            0.000000                          0.0                   0.0          0.0
+2014_2021      SCMO_0044   0.189839          -0.267253           -0.259457                         22.0                  11.0        49.00   0.188176          -0.274717           -0.267000                         22.0                  11.0        49.00  -0.001663          -0.007464           -0.007543                          0.0                   0.0          0.0
+2014_2021      SCMO_0045   0.187889          -0.257137           -0.249318                         22.0                  11.0        48.00   0.186229          -0.262982           -0.254457                         22.0                  11.0        48.00  -0.001660          -0.005844           -0.005139                          0.0                   0.0          0.0
+2014_2021 4-book average   0.183564          -0.237976           -0.231584                         22.0                  11.0        48.25   0.181910          -0.243298           -0.236773                         22.0                  11.0        48.25  -0.001654          -0.005322           -0.005189                          0.0                   0.0          0.0
+
+ status
+both                                       285
+removed (ST.py only)                         4
+added (user only)                            4
+same target, different size (NAV drift)      4
+                             period        aa      entry     review                                  status       kind_stpy       kind_user  gold_share_of_sleeve_stpy  gold_share_of_sleeve_user  sleeve_weight_stpy  sleeve_weight_user  turnover_frac_stpy  turnover_frac_user  cost_stpy  cost_user  nav_stpy  nav_user
+before the books 2014-07 -> 2021-10 SCMO_0042 2018-12-10 2018-12-07                    removed (ST.py only) sleeve re-split             NaN                        0.8                        NaN                 1.0                 NaN            1.192978                 NaN   0.002312        NaN  1.868107       NaN
+before the books 2014-07 -> 2021-10 SCMO_0042 2019-01-14 2019-01-11                       added (user only)             NaN sleeve re-split                        NaN                        0.8                 NaN                 1.0                 NaN            1.187366        NaN   0.002318       NaN  1.877306
+before the books 2014-07 -> 2021-10 SCMO_0042 2019-03-11 2019-03-08 same target, different size (NAV drift) sleeve re-split sleeve re-split                        0.2                        0.2                 1.0                 1.0            1.202889            1.197379   0.002369   0.002334  1.891345  1.872079
+before the books 2014-07 -> 2021-10 SCMO_0043 2018-12-10 2018-12-07                    removed (ST.py only) sleeve re-split             NaN                        0.8                        NaN                 1.0                 NaN            1.192978                 NaN   0.001460        NaN  1.179866       NaN
+before the books 2014-07 -> 2021-10 SCMO_0043 2019-01-14 2019-01-11                       added (user only)             NaN sleeve re-split                        NaN                        0.8                 NaN                 1.0                 NaN            1.187366        NaN   0.001464       NaN  1.185677
+before the books 2014-07 -> 2021-10 SCMO_0043 2019-03-11 2019-03-08 same target, different size (NAV drift) sleeve re-split sleeve re-split                        0.2                        0.2                 1.0                 1.0            1.202889            1.197379   0.001496   0.001474  1.194543  1.182375
+before the books 2014-07 -> 2021-10 SCMO_0044 2018-12-10 2018-12-07                    removed (ST.py only) sleeve re-split             NaN                        0.8                        NaN                 1.0                 NaN            1.192978                 NaN   0.001766        NaN  1.427242       NaN
+before the books 2014-07 -> 2021-10 SCMO_0044 2019-01-14 2019-01-11                       added (user only)             NaN sleeve re-split                        NaN                        0.8                 NaN                 1.0                 NaN            1.187366        NaN   0.001771       NaN  1.434270
+before the books 2014-07 -> 2021-10 SCMO_0044 2019-03-11 2019-03-08 same target, different size (NAV drift) sleeve re-split sleeve re-split                        0.2                        0.2                 1.0                 1.0            1.202889            1.197379   0.001810   0.001783  1.444995  1.430277
+before the books 2014-07 -> 2021-10 SCMO_0045 2018-12-10 2018-12-07                    removed (ST.py only) sleeve re-split             NaN                        0.8                        NaN                 1.0                 NaN            1.192978                 NaN   0.002106        NaN  1.701751       NaN
+before the books 2014-07 -> 2021-10 SCMO_0045 2019-01-14 2019-01-11                       added (user only)             NaN sleeve re-split                        NaN                        0.8                 NaN                 1.0                 NaN            1.187366        NaN   0.002112       NaN  1.710131
+before the books 2014-07 -> 2021-10 SCMO_0045 2019-03-11 2019-03-08 same target, different size (NAV drift) sleeve re-split sleeve re-split                        0.2                        0.2                 1.0                 1.0            1.202889            1.197379   0.002158   0.002126  1.722919  1.705369

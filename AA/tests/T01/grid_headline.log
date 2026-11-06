@@ -1,0 +1,20 @@
+[own_momentum] run=headline sleeve=gold_cash (GOLDBEES share of sleeve 0.5) out=AA/tests/T01/evidence/headline
+  calendar 2993 sessions 2014-07-04 .. 2026-08-21; splice V4 harness 0.000e+00 published 4.441e-16 (n=11964)
+  W1: T0 2015-07-31 end 2021-10-29 sessions 1545 weekly decisions 327
+  W2: T0 2021-11-01 end 2026-08-21 sessions 1186 weekly decisions 252
+  signals SCMO_0042 done (5.7s)
+  signals SCMO_0043 done (11.9s)
+  signals SCMO_0044 done (18.0s)
+  signals SCMO_0045 done (25.0s)
+  decisions: 78088 rows; PIT so far {'inputs_end_at_or_before_d': [78088, 0], 'truncated_equals_full_history': [78088, 0], 'master_label_at_or_before_d': [13896, 0], 'trade_session_after_d': [7504, 0], 'trade_session_after_d_in_ledgers': [0, 0]}
+  books SCMO_0042 W1 done (19.2s, null draws so far 21028)
+  books SCMO_0042 W2 done (33.0s, null draws so far 36988)
+  books SCMO_0043 W1 done (53.0s, null draws so far 58016)
+  books SCMO_0043 W2 done (67.4s, null draws so far 73976)
+  books SCMO_0044 W1 done (85.9s, null draws so far 95004)
+  books SCMO_0044 W2 done (99.7s, null draws so far 110964)
+  books SCMO_0045 W1 done (118.0s, null draws so far 131992)
+  books SCMO_0045 W2 done (131.9s, null draws so far 147952)
+  realisations 148440 (null 147952), decisions 78088, trades 15488, daily_reference 21848
+  PIT checks 192584 violations 0; closed-form self-check max rel diff 2.442e-15 on 240; B&H tie-out W2 max abs diff 4.441e-16; supertrend line zero 0
+[own_momentum] done in 173.4s

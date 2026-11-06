@@ -1,0 +1,13 @@
+parent,basis,index_picked,value_add_ann
+0003,3-factor regression (published),smallcap250,0.0574385067334982
+0003,4-factor regression (corrected),microcap250,0.0406896670131659
+0003,"holdings, 2026 snapshot",smallcap250,0.0574385067334982
+0007,3-factor regression (published),smallcap250,0.1067092923904832
+0007,4-factor regression (corrected),smallcap250,0.1067092923904832
+0007,"holdings, 2026 snapshot",smallcap250,0.1067092923904832
+0010,3-factor regression (published),midcap150,0.0006516229855646
+0010,4-factor regression (corrected),midcap150,0.0006516229855646
+0010,"holdings, 2026 snapshot",smallcap250,0.019629081201546
+0029,3-factor regression (published),midcap150,-0.0268309392243195
+0029,4-factor regression (corrected),midcap150,-0.0268309392243195
+0029,"holdings, 2026 snapshot",nifty100,0.0114170079990245

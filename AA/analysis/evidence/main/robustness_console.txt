@@ -1,0 +1,57 @@
+=== RANDOM-TIMING NULL (episodes relocated, count/duration preserved) ===
+aa_label  observed_value_add_return  null_mean_return  percentile  z_vs_null  null_sd_over_observed_sd  mde_return
+    0042                     0.3499            0.0793      0.7758     0.7916                    0.9701      1.2062
+    0043                     0.5918            0.2395      0.8433     1.0133                    0.7486      0.9961
+    0044                    -0.0096           -0.0654      0.6018     0.2535                    0.9964      0.8971
+    0045                    -0.0627           -0.0507      0.4846    -0.0492                    0.9212      1.0633
+
+=== STATIC-MIX CONTROL (same average exposure, no timing) ===
+aa_label  avg_defensive_weight  overlay_value_add_return  static_same_exposure_value_add_return  timing_premium_over_static_return
+    0042                0.4503                    0.3499                                 0.0553                             0.2791
+    0043                0.4545                    0.5918                                 0.2302                             0.2940
+    0044                0.3950                   -0.0096                                -0.0436                             0.0356
+    0045                0.3895                   -0.0627                                -0.0270                            -0.0367
+
+=== LAG SHIFT (value-add by weeks shifted) ===
+aa_label      0042   0043   0044   0045
+shift_weeks                            
+-5           2.039  2.322  1.456  1.467
+-4           2.008  2.270  1.655  1.729
+-3           1.997  1.963  1.484  1.471
+-2           1.516  1.820  0.997  1.188
+-1           1.238  1.589  0.747  0.736
+ 0           0.350  0.592 -0.010 -0.063
+ 1           0.650  0.662  0.114  0.056
+ 2           0.356  0.570  0.054  0.061
+ 3           0.113  0.393 -0.069 -0.065
+ 4           0.360  0.691  0.224  0.299
+ 5           0.492  0.636  0.076  0.139
+
+=== SLEEVE SWAP ===
+aa_label          0042   0043   0044   0045
+sleeve                                     
+50/50 gold+cash  0.350  0.592 -0.010 -0.063
+all cash        -0.013  0.148 -0.184 -0.227
+all gold         0.792  1.143  0.174  0.109
+
+=== CROSS GRID: value-add p.a. (rows = signal, cols = parent) ===
+parent       0003   0007  0010  0029
+signal_from                         
+0042         6.45   9.73  2.24  3.79
+0043         7.61  10.16  2.50  4.14
+0044         0.46   3.17 -0.20 -2.60
+0045         1.04   3.90  0.75 -1.34
+
+=== SIGNAL AGREEMENT (fraction of sessions in the same state) ===
+       0042   0043   0044   0045
+0042  1.000  0.996  0.948  0.923
+0043  0.996  1.000  0.944  0.919
+0044  0.948  0.944  1.000  0.976
+0045  0.923  0.919  0.976  1.000
+
+=== SKILL vs OPPORTUNITY ===
+aa_label parent  off_sessions  parent_daily_mean_all_bps  parent_daily_mean_on_off_days_bps  avoidance_edge_bps  parent_ann_vol
+    0042   0003           534                       5.65                               2.04                3.61            0.23
+    0043   0007           539                       2.61                              -0.77                3.38            0.18
+    0044   0010           482                       7.60                               5.12                2.47            0.21
+    0045   0029           491                       7.25                               4.49                2.76            0.21

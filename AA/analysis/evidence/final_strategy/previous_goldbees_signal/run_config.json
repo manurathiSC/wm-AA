@@ -1,0 +1,13 @@
+{
+ "primary_bps": 20.8,
+ "gold_weekly_candle": "Mon-Fri; weekend sessions roll to next week",
+ "gold_fill": "entry-session OHLC4 (Eikon)",
+ "stock_fill": "entry-session OHLC4, close fallback",
+ "gold_buy_share": 0.8,
+ "gold_sell_share": 0.2,
+ "gold_signal_missing_share": 0.5,
+ "live_start": "2021-11-03",
+ "live_end": "2026-08-21",
+ "oos_start": "2014-07-04",
+ "oos_end": "2021-10-29"
+}

@@ -1,0 +1,228 @@
+{
+  "prereg_sha256": "113a5133c18af1cc1e4dfcf86a77c1e48247bfa41f52af0acb4dceb170b97b71",
+  "price_source": "eikon",
+  "window": [
+    "2021-11-03",
+    "2026-08-21"
+  ],
+  "reviews": 251,
+  "sessions_in_window": 1187,
+  "microcap_fallback_reviews": 15,
+  "per_book": {
+    "SCMO_0042": {
+      "ctx": {
+        "reviews_no_parent_basket": 0,
+        "reviews_past_calendar_end": 1,
+        "pit_signal_before_entry_ok": 250,
+        "pit_basket_not_future_ok": 250
+      },
+      "events": 48,
+      "event_triggers": {
+        "first review": 1,
+        "N100": 12,
+        "parent rebalance": 19,
+        "MC150": 14,
+        "SC250": 12,
+        "Micro250": 12
+      },
+      "sim": {
+        "sleeve": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 212
+        },
+        "production_v2": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 226
+        },
+        "n100_and_sc100": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 230
+        },
+        "sc100_only": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 228
+        },
+        "sc250_only": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 226
+        },
+        "parent": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 230
+        }
+      }
+    },
+    "SCMO_0043": {
+      "ctx": {
+        "reviews_no_parent_basket": 0,
+        "reviews_past_calendar_end": 1,
+        "pit_signal_before_entry_ok": 250,
+        "pit_basket_not_future_ok": 250
+      },
+      "events": 48,
+      "event_triggers": {
+        "first review": 1,
+        "N100": 12,
+        "parent rebalance": 19,
+        "MC150": 14,
+        "SC250": 12,
+        "Micro250": 12
+      },
+      "sim": {
+        "sleeve": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 218
+        },
+        "production_v2": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 226
+        },
+        "n100_and_sc100": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 230
+        },
+        "sc100_only": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 228
+        },
+        "sc250_only": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 226
+        },
+        "parent": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 230
+        }
+      }
+    },
+    "SCMO_0044": {
+      "ctx": {
+        "reviews_no_parent_basket": 0,
+        "reviews_past_calendar_end": 1,
+        "pit_signal_before_entry_ok": 250,
+        "pit_basket_not_future_ok": 250
+      },
+      "events": 48,
+      "event_triggers": {
+        "first review": 1,
+        "N100": 12,
+        "parent rebalance": 19,
+        "MC150": 14,
+        "SC250": 12,
+        "Micro250": 12
+      },
+      "sim": {
+        "sleeve": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 209
+        },
+        "production_v2": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 223
+        },
+        "n100_and_sc100": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 230
+        },
+        "sc100_only": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 228
+        },
+        "sc250_only": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 226
+        },
+        "parent": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 230
+        }
+      }
+    },
+    "SCMO_0045": {
+      "ctx": {
+        "reviews_no_parent_basket": 0,
+        "reviews_past_calendar_end": 1,
+        "pit_signal_before_entry_ok": 250,
+        "pit_basket_not_future_ok": 250
+      },
+      "events": 48,
+      "event_triggers": {
+        "first review": 1,
+        "N100": 12,
+        "parent rebalance": 19,
+        "MC150": 14,
+        "SC250": 12,
+        "Micro250": 12
+      },
+      "sim": {
+        "sleeve": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 210
+        },
+        "production_v2": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 225
+        },
+        "n100_and_sc100": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 230
+        },
+        "sc100_only": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 228
+        },
+        "sc250_only": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 226
+        },
+        "parent": {
+          "target_rows_no_price": 0,
+          "entries_nothing_fillable": 0,
+          "reviews_no_trade": 230
+        }
+      }
+    }
+  },
+  "tag_accuracy": {
+    "holdings_rows": 324,
+    "holdings_agree_share": 0.7870370370370371,
+    "holdings_agree_weighted": 0.7944444444444444,
+    "universe_rows": 16907,
+    "universe_agree_share_members_only": 0.768973959492544
+  },
+  "close_fallback_cells": 14,
+  "unfillable_holdings": {
+    "rows": 0,
+    "by_name": {},
+    "avg_book_share": {
+      "SCMO_0042": 0.0,
+      "SCMO_0043": 0.0,
+      "SCMO_0044": 0.0,
+      "SCMO_0045": 0.0
+    }
+  },
+  "seconds": 15.6
+}

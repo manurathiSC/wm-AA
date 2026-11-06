@@ -1,0 +1,479 @@
+{
+ "books": {
+  "SCMO_0003": {
+   "calendar_first": "2019-01-02",
+   "calendar_last": "2026-10-22",
+   "full": {
+    "start": "2019-01-02",
+    "end": "2026-10-22",
+    "weeks": 409,
+    "first_state": 0,
+    "last_state": 0,
+    "in_spells": 9,
+    "out_spells": 10,
+    "S_in": 201,
+    "S_out": 208,
+    "in_lengths": [
+     8,
+     13,
+     33,
+     23,
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     11,
+     29,
+     15,
+     16,
+     40,
+     18,
+     5,
+     30,
+     37,
+     7
+    ],
+    "longest_in": 46,
+    "longest_out": 40,
+    "round_trips": 9,
+    "t03_shared_decisions": 400,
+    "t03_state_mismatches": 0,
+    "t03_date_mismatches": 0
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-22",
+    "weeks": 261,
+    "first_state": 0,
+    "last_state": 0,
+    "in_spells": 5,
+    "out_spells": 6,
+    "S_in": 124,
+    "S_out": 137,
+    "in_lengths": [
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     40,
+     18,
+     5,
+     30,
+     37,
+     7
+    ],
+    "longest_in": 46,
+    "longest_out": 40,
+    "round_trips": 5
+   }
+  },
+  "SCMO_0007": {
+   "calendar_first": "2019-01-04",
+   "calendar_last": "2026-10-22",
+   "full": {
+    "start": "2019-01-04",
+    "end": "2026-10-22",
+    "weeks": 408,
+    "first_state": 0,
+    "last_state": 0,
+    "in_spells": 9,
+    "out_spells": 10,
+    "S_in": 201,
+    "S_out": 207,
+    "in_lengths": [
+     8,
+     13,
+     33,
+     23,
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     10,
+     29,
+     15,
+     16,
+     40,
+     18,
+     5,
+     30,
+     37,
+     7
+    ],
+    "longest_in": 46,
+    "longest_out": 40,
+    "round_trips": 9,
+    "t03_shared_decisions": 399,
+    "t03_state_mismatches": 0,
+    "t03_date_mismatches": 0
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-22",
+    "weeks": 261,
+    "first_state": 0,
+    "last_state": 0,
+    "in_spells": 5,
+    "out_spells": 6,
+    "S_in": 124,
+    "S_out": 137,
+    "in_lengths": [
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     40,
+     18,
+     5,
+     30,
+     37,
+     7
+    ],
+    "longest_in": 46,
+    "longest_out": 40,
+    "round_trips": 5
+   }
+  },
+  "SCMO_0010": {
+   "calendar_first": "2019-01-02",
+   "calendar_last": "2026-10-22",
+   "full": {
+    "start": "2019-01-02",
+    "end": "2026-10-22",
+    "weeks": 409,
+    "first_state": 0,
+    "last_state": 0,
+    "in_spells": 9,
+    "out_spells": 10,
+    "S_in": 201,
+    "S_out": 208,
+    "in_lengths": [
+     8,
+     13,
+     33,
+     23,
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     11,
+     29,
+     15,
+     16,
+     40,
+     18,
+     5,
+     30,
+     37,
+     7
+    ],
+    "longest_in": 46,
+    "longest_out": 40,
+    "round_trips": 9,
+    "t03_shared_decisions": 400,
+    "t03_state_mismatches": 0,
+    "t03_date_mismatches": 0
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-22",
+    "weeks": 261,
+    "first_state": 0,
+    "last_state": 0,
+    "in_spells": 5,
+    "out_spells": 6,
+    "S_in": 124,
+    "S_out": 137,
+    "in_lengths": [
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     40,
+     18,
+     5,
+     30,
+     37,
+     7
+    ],
+    "longest_in": 46,
+    "longest_out": 40,
+    "round_trips": 5
+   }
+  },
+  "SCMO_0029": {
+   "calendar_first": "2019-01-02",
+   "calendar_last": "2026-10-22",
+   "full": {
+    "start": "2019-01-02",
+    "end": "2026-10-22",
+    "weeks": 409,
+    "first_state": 0,
+    "last_state": 0,
+    "in_spells": 9,
+    "out_spells": 10,
+    "S_in": 201,
+    "S_out": 208,
+    "in_lengths": [
+     8,
+     13,
+     33,
+     23,
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     11,
+     29,
+     15,
+     16,
+     40,
+     18,
+     5,
+     30,
+     37,
+     7
+    ],
+    "longest_in": 46,
+    "longest_out": 40,
+    "round_trips": 9,
+    "t03_shared_decisions": 400,
+    "t03_state_mismatches": 0,
+    "t03_date_mismatches": 0
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-22",
+    "weeks": 261,
+    "first_state": 0,
+    "last_state": 0,
+    "in_spells": 5,
+    "out_spells": 6,
+    "S_in": 124,
+    "S_out": 137,
+    "in_lengths": [
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     40,
+     18,
+     5,
+     30,
+     37,
+     7
+    ],
+    "longest_in": 46,
+    "longest_out": 40,
+    "round_trips": 5
+   }
+  }
+ },
+ "bounds": {
+  "lo": 2,
+  "hi_in": 46,
+  "hi_out": 40
+ },
+ "feasibility": [
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "state": "in",
+   "k": 9,
+   "S": 201,
+   "lo": 2,
+   "hi": 46,
+   "feasible": true,
+   "n_ways": "7107131351925"
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "state": "out",
+   "k": 10,
+   "S": 208,
+   "lo": 2,
+   "hi": 40,
+   "feasible": true,
+   "n_ways": "89734761224680"
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "live",
+   "state": "in",
+   "k": 5,
+   "S": 124,
+   "lo": 2,
+   "hi": 46,
+   "feasible": true,
+   "n_ways": "2436435"
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "live",
+   "state": "out",
+   "k": 6,
+   "S": 137,
+   "lo": 2,
+   "hi": 40,
+   "feasible": true,
+   "n_ways": "46175688"
+  },
+  {
+   "book": "SCMO_0007",
+   "window": "full",
+   "state": "in",
+   "k": 9,
+   "S": 201,
+   "lo": 2,
+   "hi": 46,
+   "feasible": true,
+   "n_ways": "7107131351925"
+  },
+  {
+   "book": "SCMO_0007",
+   "window": "full",
+   "state": "out",
+   "k": 10,
+   "S": 207,
+   "lo": 2,
+   "hi": 40,
+   "feasible": true,
+   "n_ways": "89568225513130"
+  },
+  {
+   "book": "SCMO_0007",
+   "window": "live",
+   "state": "in",
+   "k": 5,
+   "S": 124,
+   "lo": 2,
+   "hi": 46,
+   "feasible": true,
+   "n_ways": "2436435"
+  },
+  {
+   "book": "SCMO_0007",
+   "window": "live",
+   "state": "out",
+   "k": 6,
+   "S": 137,
+   "lo": 2,
+   "hi": 40,
+   "feasible": true,
+   "n_ways": "46175688"
+  },
+  {
+   "book": "SCMO_0010",
+   "window": "full",
+   "state": "in",
+   "k": 9,
+   "S": 201,
+   "lo": 2,
+   "hi": 46,
+   "feasible": true,
+   "n_ways": "7107131351925"
+  },
+  {
+   "book": "SCMO_0010",
+   "window": "full",
+   "state": "out",
+   "k": 10,
+   "S": 208,
+   "lo": 2,
+   "hi": 40,
+   "feasible": true,
+   "n_ways": "89734761224680"
+  },
+  {
+   "book": "SCMO_0010",
+   "window": "live",
+   "state": "in",
+   "k": 5,
+   "S": 124,
+   "lo": 2,
+   "hi": 46,
+   "feasible": true,
+   "n_ways": "2436435"
+  },
+  {
+   "book": "SCMO_0010",
+   "window": "live",
+   "state": "out",
+   "k": 6,
+   "S": 137,
+   "lo": 2,
+   "hi": 40,
+   "feasible": true,
+   "n_ways": "46175688"
+  },
+  {
+   "book": "SCMO_0029",
+   "window": "full",
+   "state": "in",
+   "k": 9,
+   "S": 201,
+   "lo": 2,
+   "hi": 46,
+   "feasible": true,
+   "n_ways": "7107131351925"
+  },
+  {
+   "book": "SCMO_0029",
+   "window": "full",
+   "state": "out",
+   "k": 10,
+   "S": 208,
+   "lo": 2,
+   "hi": 40,
+   "feasible": true,
+   "n_ways": "89734761224680"
+  },
+  {
+   "book": "SCMO_0029",
+   "window": "live",
+   "state": "in",
+   "k": 5,
+   "S": 124,
+   "lo": 2,
+   "hi": 46,
+   "feasible": true,
+   "n_ways": "2436435"
+  },
+  {
+   "book": "SCMO_0029",
+   "window": "live",
+   "state": "out",
+   "k": 6,
+   "S": 137,
+   "lo": 2,
+   "hi": 40,
+   "feasible": true,
+   "n_ways": "46175688"
+  }
+ ]
+}

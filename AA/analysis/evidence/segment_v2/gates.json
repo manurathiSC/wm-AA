@@ -1,0 +1,122 @@
+{
+  "G0": {
+    "rule": "|CAGR(harness parent) - CAGR(published parent)| <= 1.00 pp/yr on all 4 books",
+    "per_book_gap_pp": {
+      "SCMO_0042": -0.9635,
+      "SCMO_0043": -0.1889,
+      "SCMO_0044": -0.9055,
+      "SCMO_0045": -2.8788
+    },
+    "passed": false
+  },
+  "G1": {
+    "rule": "D > 0 on >= 3 of 4 books AND on both SCMO_0044 and SCMO_0045",
+    "D_per_book": {
+      "SCMO_0042": -0.025139463228070147,
+      "SCMO_0043": -0.004328192835861611,
+      "SCMO_0044": 0.020922185412785455,
+      "SCMO_0045": 0.029686020961390724
+    },
+    "books_positive": 2,
+    "passed": false
+  },
+  "G2": {
+    "rule": "CAGR(sleeve @20.8) - CAGR(static mix) > 0 on >= 3 books",
+    "books_positive": 2,
+    "passed": false
+  },
+  "G3": {
+    "rule": "D with all-cash sleeve > 0 on >= 3 books",
+    "books_positive": 2,
+    "passed": false
+  },
+  "G4": {
+    "rule": "share(D_k > 0) >= 0.70 on >= 3 books",
+    "per_book": {
+      "SCMO_0042": {
+        "D_observed": -0.025139463228070147,
+        "share_D_positive": 0.4957627118644068,
+        "D_percentile_of_observed": 0.025423728813559324,
+        "timing_percentile_vs_parent_info": 0.576271186440678,
+        "D_median": -0.0003838780090625882,
+        "draws": 236,
+        "n100gate_D_observed_exploratory": 0.031369358388291246,
+        "n100gate_share_D_positive_exploratory": 0.5211864406779662
+      },
+      "SCMO_0043": {
+        "D_observed": -0.004328192835861611,
+        "share_D_positive": 0.5084745762711864,
+        "D_percentile_of_observed": 0.2627118644067797,
+        "timing_percentile_vs_parent_info": 0.7796610169491526,
+        "D_median": 0.00011504328405675945,
+        "draws": 236,
+        "n100gate_D_observed_exploratory": 0.03391598015752284,
+        "n100gate_share_D_positive_exploratory": 0.6059322033898306
+      },
+      "SCMO_0044": {
+        "D_observed": 0.020922185412785455,
+        "share_D_positive": 0.4491525423728814,
+        "D_percentile_of_observed": 0.8601694915254238,
+        "timing_percentile_vs_parent_info": 0.7584745762711864,
+        "D_median": -0.0033368792434196326,
+        "draws": 236,
+        "n100gate_D_observed_exploratory": 0.056832422824353745,
+        "n100gate_share_D_positive_exploratory": 0.423728813559322
+      },
+      "SCMO_0045": {
+        "D_observed": 0.029686020961390724,
+        "share_D_positive": 0.6779661016949152,
+        "D_percentile_of_observed": 0.788135593220339,
+        "timing_percentile_vs_parent_info": 0.5932203389830508,
+        "D_median": 0.015036622227220242,
+        "draws": 236,
+        "n100gate_D_observed_exploratory": 0.058432352336397875,
+        "n100gate_share_D_positive_exploratory": 0.6016949152542372
+      }
+    },
+    "books_passing": 0,
+    "passed": false
+  },
+  "G5": {
+    "rule": "p10 of D > 0 on >= 3 books",
+    "per_book": {
+      "SCMO_0042": {
+        "D_observed": -0.025139463228070147,
+        "D_p10": -0.0337647877392099,
+        "D_p50": -0.02613110399852059,
+        "D_p90": -0.019290556336651554,
+        "share_D_positive": 0.0,
+        "draws": 500
+      },
+      "SCMO_0043": {
+        "D_observed": -0.004328192835861611,
+        "D_p10": -0.016306808387110495,
+        "D_p50": -0.009274343717090683,
+        "D_p90": -0.0017401265643451217,
+        "share_D_positive": 0.052,
+        "draws": 500
+      },
+      "SCMO_0044": {
+        "D_observed": 0.020922185412785455,
+        "D_p10": 0.004966170485508004,
+        "D_p50": 0.017961007317844557,
+        "D_p90": 0.028192185151962423,
+        "share_D_positive": 0.96,
+        "draws": 500
+      },
+      "SCMO_0045": {
+        "D_observed": 0.029686020961390724,
+        "D_p10": 0.009742175250054852,
+        "D_p50": 0.024447085740018304,
+        "D_p90": 0.038057144051898334,
+        "share_D_positive": 0.966,
+        "draws": 500
+      }
+    },
+    "books_passing": 2,
+    "passed": false
+  },
+  "verdict": "REJECTED",
+  "verdict_conditional_on_G0": true,
+  "prereg_sha256": "113a5133c18af1cc1e4dfcf86a77c1e48247bfa41f52af0acb4dceb170b97b71"
+}

@@ -1,0 +1,5 @@
+parent,first,last,rows,stocks,sessions,src_db,src_export,src_carried,duplicates,blank_close,blank_open_high_low,nonpos_close,ohlc_violations,needed_stock_sessions,missing,partial,carried,carried_on_D17_sessions,carried_in_T03_window,d17_sessions_absent_from_d18,d18_sessions_not_in_d17
+SCMO_0003,2014-07-01,2026-11-04,542621,197,3052,540789,1829,3,0,0,7,0,98,33900,0,0,3,2,2,0,8
+SCMO_0007,2014-07-01,2026-11-04,429824,154,3052,426528,3284,12,0,0,2,0,99,31094,0,0,12,7,7,0,8
+SCMO_0010,2014-07-01,2026-11-04,700169,250,3052,694039,6125,5,0,0,0,0,104,42115,0,0,5,2,2,0,8
+SCMO_0029,2014-07-01,2026-11-04,619680,229,3052,617935,1734,11,0,0,1,0,2,40058,0,0,11,8,8,0,8

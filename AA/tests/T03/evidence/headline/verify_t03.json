@@ -1,0 +1,614 @@
+{
+ "verifier": "analysis/verify_t03.py",
+ "evidence": "C:\\Users\\manur\\Repos\\wm-AA\\AA\\tests\\T03\\evidence\\headline",
+ "gate_compared": 119999,
+ "gate_failures_and_missing": 0,
+ "checks": {
+  "C-dec": {
+   "compared": 1599,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": []
+  },
+  "C-pit": {
+   "compared": 12988,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": []
+  },
+  "C-nav0": {
+   "compared": 7542,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 7.760474505062791e-16,
+   "first_fail": null,
+   "gate": true,
+   "notes": []
+  },
+  "C-nav0-closed-form": {
+   "compared": 24,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 2.705313103133503e-15,
+   "first_fail": null,
+   "gate": true,
+   "notes": []
+  },
+  "C-cost": {
+   "compared": 15084,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 7.374004125741785e-16,
+   "first_fail": null,
+   "gate": true,
+   "notes": []
+  },
+  "C-cost-paid": {
+   "compared": 12,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 3.2109979939958013e-16,
+   "first_fail": null,
+   "gate": true,
+   "notes": []
+  },
+  "C-comp-hold-sleeve": {
+   "compared": 45252,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 1.2008220057885999e-15,
+   "first_fail": null,
+   "gate": true,
+   "notes": []
+  },
+  "C-comp-mix": {
+   "compared": 22626,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 1.5545061210609108e-15,
+   "first_fail": null,
+   "gate": false,
+   "notes": []
+  },
+  "C-comp-mix-nofirst-rebalance": {
+   "compared": 22626,
+   "failed": 22614,
+   "missing": 0,
+   "worst_rel": 0.0012842056820829173,
+   "first_fail": "first differing row {'book': 'SCMO_0003', 'cost_bps': np.float64(0.0), 'kind': 'constant_mix'} col end_nav: verifier=np.float64(3.122136411351638) evidence=np.float64(3.1261510322703283)",
+   "gate": false,
+   "notes": []
+  },
+  "C-trades": {
+   "compared": 381,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 2.4065574736552616e-16,
+   "first_fail": null,
+   "gate": true,
+   "notes": []
+  },
+  "C-trades-count": {
+   "compared": 24,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": []
+  },
+  "C-null": {
+   "compared": 200,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 4.587014598485931e-14,
+   "first_fail": null,
+   "gate": true,
+   "notes": []
+  },
+  "C-null-all": {
+   "compared": 32000,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": []
+  },
+  "C-draw-states": {
+   "compared": 4797,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": []
+  },
+  "C-always-in": {
+   "compared": 36,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": []
+  },
+  "C-audit": {
+   "compared": 60,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": []
+  }
+ },
+ "always_in": [
+  {
+   "book": "SCMO_0003",
+   "scope": "overall",
+   "gap_pp": 0.04619358404944762,
+   "limit_pp": 0.25
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2019",
+   "gap_pp": -0.21950615822005082,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2020",
+   "gap_pp": 0.001402416153495345,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2021",
+   "gap_pp": 0.06469384756251362,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2022",
+   "gap_pp": 0.42550398202619855,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2023",
+   "gap_pp": -1.8526184142331203e-06,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2024",
+   "gap_pp": -0.00011901684986437289,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2025",
+   "gap_pp": 0.007878470365518808,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2026",
+   "gap_pp": -1.2256196058046953e-08,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "overall",
+   "gap_pp": 0.10529348984216202,
+   "limit_pp": 0.25
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2019",
+   "gap_pp": 0.3909223497191361,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2020",
+   "gap_pp": 0.15804658735203425,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2021",
+   "gap_pp": 0.16758308971944746,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2022",
+   "gap_pp": 0.011335340564233576,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2023",
+   "gap_pp": -0.00016779464209193407,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2024",
+   "gap_pp": 0.00010537217094430673,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2025",
+   "gap_pp": -0.0001858705374613301,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2026",
+   "gap_pp": 4.401567998968403e-09,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "overall",
+   "gap_pp": 0.10316288678198227,
+   "limit_pp": 0.25
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2019",
+   "gap_pp": 0.4469434456772836,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2020",
+   "gap_pp": -0.10969098209052675,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2021",
+   "gap_pp": 0.20551634977210576,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2022",
+   "gap_pp": 0.025682053261477655,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2023",
+   "gap_pp": 0.06396266719548294,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2024",
+   "gap_pp": 6.423338059224903e-05,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2025",
+   "gap_pp": -6.69798534858046e-05,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2026",
+   "gap_pp": -1.104283331443412e-08,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "overall",
+   "gap_pp": 0.03946574911166678,
+   "limit_pp": 0.25
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2019",
+   "gap_pp": 0.18888038964057774,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2020",
+   "gap_pp": 0.0495945807918563,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2021",
+   "gap_pp": 0.009261594765086478,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2022",
+   "gap_pp": -2.1166103225667143e-05,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2023",
+   "gap_pp": 0.0147947092543399,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2024",
+   "gap_pp": 0.013501010094341126,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2025",
+   "gap_pp": 0.014188450913854567,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2026",
+   "gap_pp": 9.608847051367775e-09,
+   "limit_pp": 0.5
+  }
+ ],
+ "meta": {
+  "SCMO_0003": {
+   "sessions": 1885,
+   "decisions": 400,
+   "invested_weeks": 199,
+   "t0": "2019-01-02",
+   "stale": 5,
+   "initial_basket_switch_session": "2018-12-17",
+   "cash": {
+    "file_last": "2026-08-09",
+    "daily_rate": 0.00018330200003613406,
+    "accrued_sessions": 10,
+    "s_date": "2026-08-07"
+   },
+   "dropped": [],
+   "in_spells": 9,
+   "out_spells": 9,
+   "f": 0.4975,
+   "always_in_end": "2026-10-22"
+  },
+  "SCMO_0007": {
+   "sessions": 1883,
+   "decisions": 399,
+   "invested_weeks": 199,
+   "t0": "2019-01-04",
+   "stale": 5,
+   "initial_basket_switch_session": "2018-12-17",
+   "cash": {
+    "file_last": "2026-08-09",
+    "daily_rate": 0.00018330200003613406,
+    "accrued_sessions": 10,
+    "s_date": "2026-08-07"
+   },
+   "dropped": [
+    "2020-03-16",
+    "2021-09-16"
+   ],
+   "in_spells": 9,
+   "out_spells": 9,
+   "f": 0.49874686716791977,
+   "always_in_end": "2026-10-22"
+  },
+  "SCMO_0010": {
+   "sessions": 1885,
+   "decisions": 400,
+   "invested_weeks": 199,
+   "t0": "2019-01-02",
+   "stale": 5,
+   "initial_basket_switch_session": "2018-12-17",
+   "cash": {
+    "file_last": "2026-08-09",
+    "daily_rate": 0.00018330200003613406,
+    "accrued_sessions": 10,
+    "s_date": "2026-08-07"
+   },
+   "dropped": [],
+   "in_spells": 9,
+   "out_spells": 9,
+   "f": 0.4975,
+   "always_in_end": "2026-10-22"
+  },
+  "SCMO_0029": {
+   "sessions": 1885,
+   "decisions": 400,
+   "invested_weeks": 199,
+   "t0": "2019-01-02",
+   "stale": 5,
+   "initial_basket_switch_session": "2018-12-17",
+   "cash": {
+    "file_last": "2026-08-09",
+    "daily_rate": 0.00018330200003613406,
+    "accrued_sessions": 10,
+    "s_date": "2026-08-07"
+   },
+   "dropped": [
+    "2020-03-16"
+   ],
+   "in_spells": 9,
+   "out_spells": 9,
+   "f": 0.4975,
+   "always_in_end": "2026-10-22"
+  }
+ },
+ "selftest": {
+  "dir": "C:\\Users\\manur\\AppData\\Local\\Temp\\claude\\d384933f9ddb0ecb\\9eaaf486-295a-41b5-9378-c07664070b83\\scratchpad\\corrupt_evidence",
+  "flipped_rows": [
+   10,
+   404,
+   799,
+   1194,
+   1589
+  ],
+  "gate_compared": 119999,
+  "gate_failures": 7543,
+  "detected": true,
+  "checks": {
+   "C-dec": {
+    "compared": 1599,
+    "failed": 5,
+    "missing": 0,
+    "worst_rel": 1000000000000.0,
+    "first_fail": "first differing row {'book': 'SCMO_0003', 'j': np.int64(10)} col state: verifier=np.float64(0.0) evidence=np.float64(1.0)",
+    "gate": true,
+    "notes": []
+   },
+   "C-pit": {
+    "compared": 12988,
+    "failed": 0,
+    "missing": 0,
+    "worst_rel": 0.0,
+    "first_fail": null,
+    "gate": true,
+    "notes": []
+   },
+   "C-nav0": {
+    "compared": 7542,
+    "failed": 7538,
+    "missing": 0,
+    "worst_rel": 0.0009990009990013316,
+    "first_fail": "first differing row {'book': 'SCMO_0003', 'date': '2019-01-02', 'cost_bps': np.float64(0.0), 'run': 'strategy'} col nav: verifier=np.float64(1.0) evidence=np.float64(1.001)",
+    "gate": true,
+    "notes": []
+   },
+   "C-nav0-closed-form": {
+    "compared": 24,
+    "failed": 0,
+    "missing": 0,
+    "worst_rel": 2.705313103133503e-15,
+    "first_fail": null,
+    "gate": true,
+    "notes": []
+   },
+   "C-cost": {
+    "compared": 15084,
+    "failed": 0,
+    "missing": 0,
+    "worst_rel": 7.374004125741785e-16,
+    "first_fail": null,
+    "gate": true,
+    "notes": []
+   },
+   "C-cost-paid": {
+    "compared": 12,
+    "failed": 0,
+    "missing": 0,
+    "worst_rel": 3.2109979939958013e-16,
+    "first_fail": null,
+    "gate": true,
+    "notes": []
+   },
+   "C-comp-hold-sleeve": {
+    "compared": 45252,
+    "failed": 0,
+    "missing": 0,
+    "worst_rel": 1.2008220057885999e-15,
+    "first_fail": null,
+    "gate": true,
+    "notes": []
+   },
+   "C-comp-mix": {
+    "compared": 22626,
+    "failed": 0,
+    "missing": 0,
+    "worst_rel": 1.5545061210609108e-15,
+    "first_fail": null,
+    "gate": false,
+    "notes": []
+   },
+   "C-comp-mix-nofirst-rebalance": {
+    "compared": 22626,
+    "failed": 22614,
+    "missing": 0,
+    "worst_rel": 0.0012842056820829173,
+    "first_fail": "first differing row {'book': 'SCMO_0003', 'cost_bps': np.float64(0.0), 'kind': 'constant_mix'} col end_nav: verifier=np.float64(3.122136411351638) evidence=np.float64(3.1261510322703283)",
+    "gate": false,
+    "notes": []
+   },
+   "C-trades": {
+    "compared": 381,
+    "failed": 0,
+    "missing": 0,
+    "worst_rel": 2.4065574736552616e-16,
+    "first_fail": null,
+    "gate": true,
+    "notes": []
+   },
+   "C-trades-count": {
+    "compared": 24,
+    "failed": 0,
+    "missing": 0,
+    "worst_rel": 0.0,
+    "first_fail": null,
+    "gate": true,
+    "notes": []
+   },
+   "C-null": {
+    "compared": 200,
+    "failed": 0,
+    "missing": 0,
+    "worst_rel": 4.587014598485931e-14,
+    "first_fail": null,
+    "gate": true,
+    "notes": []
+   },
+   "C-null-all": {
+    "compared": 32000,
+    "failed": 0,
+    "missing": 0,
+    "worst_rel": 0.0,
+    "first_fail": null,
+    "gate": true,
+    "notes": []
+   },
+   "C-draw-states": {
+    "compared": 4797,
+    "failed": 0,
+    "missing": 0,
+    "worst_rel": 0.0,
+    "first_fail": null,
+    "gate": true,
+    "notes": []
+   },
+   "C-always-in": {
+    "compared": 36,
+    "failed": 0,
+    "missing": 0,
+    "worst_rel": 0.0,
+    "first_fail": null,
+    "gate": true,
+    "notes": []
+   },
+   "C-audit": {
+    "compared": 60,
+    "failed": 0,
+    "missing": 0,
+    "worst_rel": 0.0,
+    "first_fail": null,
+    "gate": true,
+    "notes": []
+   }
+  }
+ },
+ "exit_ok": true,
+ "closed_form": "NAV_end = prod over segments of (trade-day jump x fixed-unit segment growth); segment cumprod of daily growth reproduces the segment's NAV"
+}

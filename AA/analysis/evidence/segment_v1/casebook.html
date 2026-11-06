@@ -1,0 +1,485 @@
+<title>The Overlay Casebook</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap">
+<style>
+:root{
+  --page:#f6f7f9; --surface-1:#fcfcfd; --band:#eceff4;
+  --text-primary:#101319; --text-secondary:#4a5160; --muted:#7d8595;
+  --grid:#e3e6ec; --baseline:#c4c9d4; --border:rgba(16,19,25,.11);
+  --pos:#2a78d6; --neg:#e34948;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+  --hm-pos-1:#e7effa; --hm-pos-2:#9ec5f4; --hm-pos-3:#2a78d6; --hm-pos-4:#184f95;
+  --hm-neg-1:#fbeceb; --hm-neg-2:#f2b3b2; --hm-neg-3:#e34948; --hm-neg-4:#a52c2b;
+  --hm-ink:#101319; --hm-ink-deep:#ffffff;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --page:#0c0e12; --surface-1:#16181d; --band:#22252c;
+  --text-primary:#f2f4f8; --text-secondary:#b3bac7; --muted:#7d8595;
+  --grid:#262a32; --baseline:#3a3f4a; --border:rgba(242,244,248,.12);
+  --pos:#3987e5; --neg:#e66767;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+  --hm-pos-1:#16273a; --hm-pos-2:#1c5cab; --hm-pos-3:#3987e5; --hm-pos-4:#86b6ef;
+  --hm-neg-1:#33201f; --hm-neg-2:#8f3230; --hm-neg-3:#e66767; --hm-neg-4:#f2b3b2;
+  --hm-ink:#f2f4f8; --hm-ink-deep:#101319;
+}}
+:root[data-theme="dark"]{
+  --page:#0c0e12; --surface-1:#16181d; --band:#22252c;
+  --text-primary:#f2f4f8; --text-secondary:#b3bac7; --muted:#7d8595;
+  --grid:#262a32; --baseline:#3a3f4a; --border:rgba(242,244,248,.12);
+  --pos:#3987e5; --neg:#e66767;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+  --hm-pos-1:#16273a; --hm-pos-2:#1c5cab; --hm-pos-3:#3987e5; --hm-pos-4:#86b6ef;
+  --hm-neg-1:#33201f; --hm-neg-2:#8f3230; --hm-neg-3:#e66767; --hm-neg-4:#f2b3b2;
+  --hm-ink:#f2f4f8; --hm-ink-deep:#101319;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--text-primary);
+  font-family:var(--sans);font-size:15.5px;line-height:1.65;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:52px 24px 96px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+h1{font-family:var(--serif);font-size:44px;font-weight:500;line-height:1.08;
+  margin:0 0 12px;letter-spacing:-.018em;text-wrap:balance;max-width:22ch}
+.sub{font-family:var(--serif);font-size:20px;font-weight:400;line-height:1.4;
+  color:var(--text-secondary);margin:0 0 14px;max-width:56ch}
+.meta{font-family:var(--mono);color:var(--muted);font-size:11.5px;
+  letter-spacing:.03em;margin:0 0 30px;padding-bottom:26px;
+  border-bottom:1px solid var(--border)}
+h2{font-family:var(--serif);font-size:28px;font-weight:500;margin:60px 0 10px;
+  letter-spacing:-.012em;text-wrap:balance;max-width:34ch}
+h3{font-size:15.5px;font-weight:600;margin:34px 0 8px;letter-spacing:-.002em}
+h4{font-family:var(--mono);font-size:11.5px;font-weight:500;margin:30px 0 8px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--text-secondary);
+  max-width:68ch}
+h3.fine{font-weight:600;color:var(--text-primary)}
+p{margin:12px 0;max-width:68ch}
+.lede{font-size:17.5px;line-height:1.6;color:var(--text-secondary);max-width:64ch}
+ul,ol{margin:12px 0;padding-left:24px;max-width:68ch}
+li{margin:7px 0}
+.card{background:var(--surface-1);border:1px solid var(--border);border-radius:10px;
+  padding:22px 22px 14px;margin:22px 0}
+.chart{width:100%;height:auto;display:block;overflow:visible}
+.grid{stroke:var(--grid);stroke-width:1}
+.baseline{stroke:var(--baseline);stroke-width:1}
+.marker-v{stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3}
+.trend{stroke:var(--baseline);stroke-width:1.5;stroke-dasharray:5 4;fill:none}
+.tick{fill:var(--muted);font-family:var(--mono);font-size:10.5px}
+.tick-y{text-anchor:end}.tick-x{text-anchor:middle}
+.axis-title{fill:var(--text-secondary);font-family:var(--mono);font-size:10px;
+  text-transform:uppercase;letter-spacing:.11em}
+.panel-title{fill:var(--text-secondary);font-size:12px;font-weight:500}
+.dlabel{fill:var(--text-secondary);font-family:var(--mono);font-size:10px;
+  text-anchor:middle}
+.dlabel-lg{fill:var(--text-primary);font-size:13px;text-anchor:middle;font-weight:600}
+.slabel{font-family:var(--mono);font-size:11px;font-weight:500}
+.anno{fill:var(--muted);font-family:var(--mono);font-size:10px}
+.bar{stroke:var(--surface-1);stroke-width:2}
+.bar.pos,.pt.pos{fill:var(--pos)}.bar.neg,.pt.neg{fill:var(--neg)}
+.bar.s1,.pt.s1,.dot.s1{fill:var(--s1)}.bar.s2,.pt.s2,.dot.s2{fill:var(--s2)}
+.bar.s3,.pt.s3,.dot.s3{fill:var(--s3)}.bar.s4,.pt.s4,.dot.s4{fill:var(--s4)}
+.line{fill:none;stroke-width:2}.line.thin{stroke-width:1.6}
+.line.s1{stroke:var(--s1)}.line.s2{stroke:var(--s2)}
+.line.s3{stroke:var(--s3)}.line.s4{stroke:var(--s4)}
+.slabel.s1{fill:var(--s1)}.slabel.s2{fill:var(--s2)}
+.slabel.s3{fill:var(--s3)}.slabel.s4{fill:var(--s4)}
+.dot,.pt{stroke:var(--surface-1);stroke-width:2}
+.cell{stroke:var(--surface-1);stroke-width:2}
+.cell[data-own="1"]{stroke:var(--text-primary);stroke-width:2}
+.hm-pos-1{fill:var(--hm-pos-1)}.hm-pos-2{fill:var(--hm-pos-2)}
+.hm-pos-3{fill:var(--hm-pos-3)}.hm-pos-4{fill:var(--hm-pos-4)}
+.hm-neg-1{fill:var(--hm-neg-1)}.hm-neg-2{fill:var(--hm-neg-2)}
+.hm-neg-3{fill:var(--hm-neg-3)}.hm-neg-4{fill:var(--hm-neg-4)}
+.cellv{font-family:var(--mono);font-size:11.5px;text-anchor:middle;font-weight:500}
+.hm-ink{fill:var(--hm-ink)}.hm-ink-deep{fill:var(--hm-ink-deep)}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin:2px 0 14px;
+  font-family:var(--mono);font-size:11px;color:var(--text-secondary);
+  letter-spacing:.02em}
+.key{display:inline-flex;align-items:center;gap:7px}
+.sw{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none}
+.tw{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%;font-size:13px;
+  font-variant-numeric:tabular-nums}
+th,td{text-align:right;padding:8px 11px;border-bottom:1px solid var(--border);
+  white-space:nowrap}
+td{font-family:var(--mono);font-size:12.5px}
+th{color:var(--muted);font-family:var(--mono);font-weight:500;font-size:10.5px;
+  text-transform:uppercase;letter-spacing:.08em;
+  border-bottom:1px solid var(--baseline)}
+th:first-child,td:first-child{text-align:left}
+td:first-child{font-family:var(--sans);font-weight:500}
+tbody tr:hover{background:var(--band)}
+details{margin:14px 0}
+summary{cursor:pointer;color:var(--text-secondary);font-size:13px;padding:6px 0;
+  user-select:none;border-bottom:1px solid var(--border);max-width:68ch}
+summary:hover{color:var(--text-primary)}
+summary:focus-visible,a:focus-visible{outline:2px solid var(--pos);
+  outline-offset:2px;border-radius:2px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));
+  gap:14px;margin:28px 0 34px}
+.tile{background:var(--surface-1);border:1px solid var(--border);
+  border-radius:10px;padding:17px 18px}
+.tile .k{font-family:var(--mono);font-size:10px;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;line-height:1.4}
+.tile .v{font-family:var(--serif);font-size:32px;font-weight:500;
+  letter-spacing:-.02em;line-height:1.05}
+.tile .n{font-size:12.5px;color:var(--text-secondary);margin-top:7px;
+  line-height:1.45}
+.callout{border-left:2px solid var(--pos);background:var(--surface-1);
+  padding:16px 20px;margin:24px 0;border-radius:0 8px 8px 0;max-width:70ch}
+.callout.warn{border-left-color:var(--neg)}
+.callout p{margin:7px 0;max-width:none}
+.cap{color:var(--muted);font-size:12.5px;margin:10px 0 2px;max-width:72ch;
+  line-height:1.55}
+code{background:var(--band);padding:2px 5px;border-radius:3px;
+  font-family:var(--mono);font-size:12px}
+.formula{background:var(--surface-1);border:1px solid var(--border);
+  border-radius:8px;padding:16px 20px;margin:18px 0;font-family:var(--mono);
+  font-size:12.5px;line-height:1.7;overflow-x:auto;max-width:none}
+.fine{color:var(--text-secondary);font-size:13.5px}
+hr{border:0;border-top:1px solid var(--border);margin:52px 0}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;
+  animation:none!important}}
+@media (max-width:640px){
+  h1{font-size:33px}h2{font-size:23px}.wrap{padding:36px 18px 70px}
+  .sub{font-size:17px}
+}
+
+.status{display:inline-block;font-family:var(--mono);font-size:10px;
+  letter-spacing:.09em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+  border:1px solid var(--border);color:var(--text-secondary);
+  background:var(--band);vertical-align:middle;margin-left:10px}
+.status.done{color:var(--pos);border-color:var(--pos)}
+.status.open{color:var(--neg);border-color:var(--neg)}
+.stepper{display:flex;flex-direction:column;gap:0;margin:24px 0;max-width:70ch}
+.step{display:grid;grid-template-columns:132px 1fr;gap:18px;padding:14px 0;
+  border-top:1px solid var(--border)}
+.step:last-child{border-bottom:1px solid var(--border)}
+.step .amt{font-family:var(--serif);font-size:23px;font-weight:500;
+  line-height:1.1;letter-spacing:-.02em}
+.step .amt.dn{color:var(--neg)}.step .amt.up{color:var(--pos)}
+.step .amt small{display:block;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  margin-top:5px;font-weight:400}
+.step .txt{font-size:14.5px;line-height:1.55;color:var(--text-secondary);
+  align-self:center}
+.step .txt b{color:var(--text-primary);font-weight:600}
+.ledger td{text-align:left;white-space:normal;font-family:var(--sans);
+  font-size:13px;line-height:1.5;vertical-align:top}
+.ledger th{text-align:left}
+.ledger td:first-child{min-width:170px;font-weight:600}
+.ledger td:nth-child(2){font-family:var(--mono);font-size:11.5px;
+  color:var(--text-secondary);min-width:150px}
+</style>
+<div class="wrap">
+<p class="eyebrow">Research casebook &middot; SCMO_0042&ndash;0045</p>
+<h1>The Overlay Casebook</h1>
+<p class="sub">Two studies on the same asset-allocation overlay: what was asked, what was found, what was wrong, and what is still open.</p>
+<p class="meta">Study 1 COMPLETE &nbsp;&middot;&nbsp; Study 2 IN PROGRESS &nbsp;&middot;&nbsp; 2021-11-01 &rarr; 2026-08-21 &nbsp;&middot;&nbsp; 1,186 sessions</p>
+<p class="lede">One pattern runs through all of it: <strong>every control we added made the claim smaller.</strong> Nothing here was overturned by an outside objection &mdash; each reduction came from a test we chose to run. That is the most useful thing to take from this document, and it is why the open items at the end matter more than the headline numbers.</p>
+<div class="stepper">
+<div class="step"><div class="amt ">&ldquo;All four<br>outperformed&rdquo;<small>the brief</small></div><div class="txt"><b>Where it started.</b> Explain the outperformance of the four AA smallcases against their parents.</div></div>
+<div class="step"><div class="amt dn">2 of 4<small>cut to</small></div><div class="txt"><b>First finding, first deflation.</b> The overlay <i>added</i> 5.8 and 7.1 points a year to 0042/0043 and <i>cost</i> 0044/0045 4.5 and 3.7. The question changed from &ldquo;why did it work?&rdquo; to &ldquo;when does it pay?&rdquo;</div></div>
+<div class="step"><div class="amt dn">84%<small>cause reassigned</small></div><div class="txt"><b>It was the asset, not the timing.</b> Gold supplied 84% of everything the defensive sleeve earned. Swap gold for cash and every positive result collapses.</div></div>
+<div class="step"><div class="amt dn">z &le; 1.01<small>not significant</small></div><div class="txt"><b>And the timing never cleared a null.</b> Against episodes relocated at random, no book beat the noise. The MDE was around +100% cumulative value-add &mdash; this history cannot distinguish skill from luck.</div></div>
+<div class="step"><div class="amt up">+8.16pp<small>study 2 opens</small></div><div class="txt"><b>A genuinely better rule appears.</b> Segment-level selection plus a large-cap gate beats the parent on all four books at every cost level, and flips both books the old overlay had damaged.</div></div>
+<div class="step"><div class="amt dn">+5.25pp<small>deflated to</small></div><div class="txt"><b>Then the static-mix control.</b> Of that 8.16pp, +2.90pp is just holding a sleeve that out-returned equity by ~4.8pp/yr. Only the remainder is timing &mdash; though see the per-book split below, which cuts the other way.</div></div>
+<div class="step"><div class="amt ">?<small>pending</small></div><div class="txt"><b>And one control is still outstanding.</b> A plain large-cap regime filter with <i>no segment selection at all</i> may capture most of what is left. Until that runs, the segment mechanic is unproven.</div></div>
+</div>
+<h2>Study 1 &mdash; Where the overlay's returns came from<span class="status done">complete</span></h2>
+<p>The AA version holds <em>exactly</em> its parent when risk-on, so the difference between them is earned only on the days they differ. In log space that split is additive and therefore exact &mdash; it reconciles to ~1e-17, with no residual:</p>
+<div class="formula">log(AA) &minus; log(parent)<br>&nbsp;&nbsp;= &Sigma;<sub>risk-on</sub> excess &nbsp;&rarr;&nbsp; TRACKING<br>&nbsp;&nbsp;+ &Sigma;<sub>risk-off</sub> excess &nbsp;&rarr;&nbsp; TIMING</div>
+<div class="card">
+<div class="legend"><span class="key"><span class="sw" style="background:var(--s3)"></span>Tracking (risk-on)</span><span class="key"><span class="sw" style="background:var(--s4)"></span>Timing (risk-off)</span></div>
+<svg viewBox="0 0 760 290" role="img" class="chart">
+<line class="grid" x1="64" y1="244.0" x2="744" y2="244.0"/>
+<text class="tick tick-y" x="56" y="248.0">-5.0%</text>
+<line class="grid" x1="64" y1="208.0" x2="744" y2="208.0"/>
+<text class="tick tick-y" x="56" y="212.0">-2.5%</text>
+<line class="grid" x1="64" y1="172.0" x2="744" y2="172.0"/>
+<text class="tick tick-y" x="56" y="176.0">+0.0%</text>
+<line class="grid" x1="64" y1="136.0" x2="744" y2="136.0"/>
+<text class="tick tick-y" x="56" y="140.0">+2.5%</text>
+<line class="grid" x1="64" y1="100.0" x2="744" y2="100.0"/>
+<text class="tick tick-y" x="56" y="104.0">+5.0%</text>
+<line class="grid" x1="64" y1="64.0" x2="744" y2="64.0"/>
+<text class="tick tick-y" x="56" y="68.0">+7.5%</text>
+<line class="grid" x1="64" y1="28.0" x2="744" y2="28.0"/>
+<text class="tick tick-y" x="56" y="32.0">+10.0%</text>
+<line class="baseline" x1="64" y1="172.0" x2="744" y2="172.0"/>
+<rect class="bar s3" x="110.0" y="164.8" width="38.0" height="7.2" rx="4"><title>0042 · Tracking: +0.5%</title></rect>
+<text class="dlabel" x="129.0" y="158.8">+0.5%</text>
+<rect class="bar s4" x="150.0" y="96.7" width="38.0" height="75.3" rx="4"><title>0042 · Timing: +5.2%</title></rect>
+<text class="dlabel" x="169.0" y="90.7">+5.2%</text>
+<text class="tick tick-x" x="149.0" y="264">0042</text>
+<rect class="bar s3" x="280.0" y="172.0" width="38.0" height="16.0" rx="4"><title>0043 · Tracking: -1.1%</title></rect>
+<text class="dlabel" x="299.0" y="201.0">-1.1%</text>
+<rect class="bar s4" x="320.0" y="52.5" width="38.0" height="119.5" rx="4"><title>0043 · Timing: +8.3%</title></rect>
+<text class="dlabel" x="339.0" y="46.5">+8.3%</text>
+<text class="tick tick-x" x="319.0" y="264">0043</text>
+<rect class="bar s3" x="450.0" y="172.0" width="38.0" height="42.7" rx="4"><title>0044 · Tracking: -3.0%</title></rect>
+<text class="dlabel" x="469.0" y="227.7">-3.0%</text>
+<rect class="bar s4" x="490.0" y="172.0" width="38.0" height="23.2" rx="4"><title>0044 · Timing: -1.6%</title></rect>
+<text class="dlabel" x="509.0" y="208.2">-1.6%</text>
+<text class="tick tick-x" x="489.0" y="264">0044</text>
+<rect class="bar s3" x="620.0" y="172.0" width="38.0" height="5.8" rx="4"><title>0045 · Tracking: -0.4%</title></rect>
+<text class="dlabel" x="639.0" y="190.8">-0.4%</text>
+<rect class="bar s4" x="660.0" y="172.0" width="38.0" height="47.7" rx="4"><title>0045 · Timing: -3.3%</title></rect>
+<text class="dlabel" x="679.0" y="232.7">-3.3%</text>
+<text class="tick tick-x" x="659.0" y="264">0045</text>
+<text class="axis-title" x="64" y="16">Contribution p.a.</text>
+</svg>
+<p class="cap">Two books gained, two lost &mdash; and for different reasons. 0044 lost mostly to tracking, 0045 almost entirely to timing.</p>
+</div>
+<p><strong>Tracking should have been zero</strong> &mdash; while both are in equities they hold the same basket. It was not. The cause turned out to be narrower than a general drift: the parents reconstitute quarterly, and the AA books intermittently <em>failed to adopt a reconstitution</em>. On 2022-09-15 parent 0010 rotated six of fifteen names and 0044 kept the old six until end-October &mdash; 40% of the book wrong for ten weeks. All four desynchronised first on the same date. That is an operational defect, not a property of the strategy.</p>
+<h3>The overlay helped exactly where the stock picking was bad</h3>
+<div class="tw"><table class=""><thead><tr><th>Parent</th><th>N100</th><th>MC150</th><th>SC250</th><th>Micro250</th><th>Selection alpha</th></tr></thead><tbody><tr><td>0003</td><td>0%</td><td>20%</td><td>22%</td><td>58%</td><td>-4.8%</td></tr><tr><td>0007</td><td>21%</td><td>14%</td><td>43%</td><td>22%</td><td>-7.7%</td></tr><tr><td>0010</td><td>7%</td><td>49%</td><td>19%</td><td>24%</td><td>+3.0%</td></tr><tr><td>0029</td><td>5%</td><td>46%</td><td>26%</td><td>23%</td><td>+2.4%</td></tr></tbody></table></div>
+<p>Selection alpha runs almost perfectly <em>inverse</em> to the overlay's value: 0007 gave up 7.7 points a year against its own market-cap blend and gained most from the overlay; 0010 and 0029 beat theirs and were hurt by it. That is the signature of a blunt de-risking rule, not a timing rule &mdash; and it is the observation that motivated Study 2.</p>
+<h3>While out of equity, equity mostly went up</h3>
+<div class="tw"><table class=""><thead><tr><th>AA</th><th>Sessions out</th><th>Parent did</th><th>Sleeve did</th><th>Gold did</th><th>Cash did</th></tr></thead><tbody><tr><td>0042</td><td>534</td><td>+11.5%</td><td>+46.3%</td><td>+99.7%</td><td>+10.0%</td></tr><tr><td>0043</td><td>539</td><td>-4.1%</td><td>+48.7%</td><td>+105.6%</td><td>+10.1%</td></tr><tr><td>0044</td><td>482</td><td>+28.0%</td><td>+28.8%</td><td>+58.2%</td><td>+9.0%</td></tr><tr><td>0045</td><td>491</td><td>+24.6%</td><td>+27.9%</td><td>+57.0%</td><td>+9.1%</td></tr></tbody></table></div>
+<div class="callout warn"><p>This is the table that reframed the study. The switch did not, in general, dodge a fall &mdash; in three of four cases the parent <em>rose</em> while the book sat out of it. It earned a better asset instead, because gold nearly doubled. Strip gold out and the edge goes with it.</p></div>
+<h3>Which trend predicts gold: monotonic in market cap</h3>
+<div class="card">
+<svg viewBox="0 0 820 280" role="img" class="chart">
+<line class="grid" x1="64" y1="234.0" x2="804" y2="234.0"/>
+<text class="tick tick-y" x="56" y="238.0">-10%</text>
+<line class="grid" x1="64" y1="204.6" x2="804" y2="204.6"/>
+<text class="tick tick-y" x="56" y="208.6">-5%</text>
+<line class="grid" x1="64" y1="175.1" x2="804" y2="175.1"/>
+<text class="tick tick-y" x="56" y="179.1">+0%</text>
+<line class="grid" x1="64" y1="145.7" x2="804" y2="145.7"/>
+<text class="tick tick-y" x="56" y="149.7">+5%</text>
+<line class="grid" x1="64" y1="116.3" x2="804" y2="116.3"/>
+<text class="tick tick-y" x="56" y="120.3">+10%</text>
+<line class="grid" x1="64" y1="86.9" x2="804" y2="86.9"/>
+<text class="tick tick-y" x="56" y="90.9">+15%</text>
+<line class="grid" x1="64" y1="57.4" x2="804" y2="57.4"/>
+<text class="tick tick-y" x="56" y="61.4">+20%</text>
+<line class="grid" x1="64" y1="28.0" x2="804" y2="28.0"/>
+<text class="tick tick-y" x="56" y="32.0">+25%</text>
+<line class="baseline" x1="64" y1="175.1" x2="804" y2="175.1"/>
+<rect class="bar pos" x="91.2" y="41.8" width="38.0" height="133.3" rx="4"><title>Micro250 · edge: +23%</title></rect>
+<text class="dlabel" x="110.2" y="35.8">+23%</text>
+<text class="tick tick-x" x="110.2" y="254">Micro250</text>
+<rect class="bar pos" x="183.8" y="52.0" width="38.0" height="123.2" rx="4"><title>SC250 · edge: +21%</title></rect>
+<text class="dlabel" x="202.8" y="46.0">+21%</text>
+<text class="tick tick-x" x="202.8" y="254">SC250</text>
+<rect class="bar pos" x="276.2" y="103.5" width="38.0" height="71.6" rx="4"><title>SC100 · edge: +12%</title></rect>
+<text class="dlabel" x="295.2" y="97.5">+12%</text>
+<text class="tick tick-x" x="295.2" y="254">SC100</text>
+<rect class="bar pos" x="368.8" y="165.5" width="38.0" height="9.6" rx="4"><title>MC150 · edge: +2%</title></rect>
+<text class="dlabel" x="387.8" y="159.5">+2%</text>
+<text class="tick tick-x" x="387.8" y="254">MC150</text>
+<rect class="bar pos" x="461.2" y="167.9" width="38.0" height="7.2" rx="4"><title>MC100 · edge: +1%</title></rect>
+<text class="dlabel" x="480.2" y="161.9">+1%</text>
+<text class="tick tick-x" x="480.2" y="254">MC100</text>
+<rect class="bar neg" x="553.8" y="175.1" width="38.0" height="6.8" rx="4"><title>N500* · edge: -1%</title></rect>
+<text class="dlabel" x="572.8" y="194.9">-1%</text>
+<text class="tick tick-x" x="572.8" y="254">N500*</text>
+<rect class="bar neg" x="646.2" y="175.1" width="38.0" height="14.9" rx="4"><title>N100 · edge: -3%</title></rect>
+<text class="dlabel" x="665.2" y="203.0">-3%</text>
+<text class="tick tick-x" x="665.2" y="254">N100</text>
+<rect class="bar neg" x="738.8" y="175.1" width="38.0" height="49.2" rx="4"><title>N50 · edge: -8%</title></rect>
+<text class="dlabel" x="757.8" y="237.4">-8%</text>
+<text class="tick tick-x" x="757.8" y="254">N50</text>
+<text class="axis-title" x="64" y="16">Gold's excess return p.a. while that signal is defensive</text>
+</svg>
+<p class="cap">Perfectly ordered by market cap. The smaller the companies whose trend you follow, the better it marks gold's good periods &mdash; and a broad cap-weighted index (N500*) lands at the 50th percentile, no better than random.</p>
+</div>
+<p>Two conclusions followed. Going <em>broader</em> is not the answer: Nifty 500 is ~76% Nifty 100 by weight, so its trend is a large-cap trend. And requiring two indices to agree beat every single index &mdash; <strong>Nifty 100 AND Smallcap 100</strong> averaged +10.6%/yr and won on all four books, while signalling off each book's own largest bucket averaged +3.0 to +4.9 and was worse than what was already running.</p>
+<details><summary>Study 1 &mdash; significance testing, in full</summary><div class="tw"><table class=""><thead><tr><th>AA</th><th>Observed</th><th>Null mean</th><th>Percentile</th><th>z</th><th>null sd / obs sd</th><th>MDE</th></tr></thead><tbody><tr><td>0042</td><td>+35.0%</td><td>+7.9%</td><td>78th</td><td>0.79</td><td>0.97</td><td>+121%</td></tr><tr><td>0043</td><td>+59.2%</td><td>+24.0%</td><td>84th</td><td>1.01</td><td>0.75</td><td>+100%</td></tr><tr><td>0044</td><td>-1.0%</td><td>-6.5%</td><td>60th</td><td>0.25</td><td>1.00</td><td>+90%</td></tr><tr><td>0045</td><td>-6.3%</td><td>-5.1%</td><td>48th</td><td>-0.05</td><td>0.92</td><td>+106%</td></tr></tbody></table></div></details>
+<h2>Study 2 &mdash; Segment-level selection<span class="status open">in progress</span></h2>
+<p>If the overlay is blunt, the obvious fix is to stop flipping the whole book. Classify each holding into a market-cap bucket, hold the stocks whose <em>own</em> bucket is trending, and send the rest to the sleeve. Three arms were built: <code>sleeve</code> (freed weight to gold+cash), <code>rotate</code> (freed weight redistributed, stays in equity), and <code>sleeve_n100gate</code> (also requires Nifty 100 to be trending).</p>
+<h3>Getting a trustworthy classifier was most of the work</h3>
+<p>Point-in-time classification was the binding constraint. The membership table holds only five snapshots, all from 2026 &mdash; using it would tag 2022 holdings with 2026 membership, mis-tagging precisely the stocks that changed size. That bias sits directly on the mechanism being tested. It was resolved by finding a market-cap table carrying 412 snapshot dates back to 2005 &mdash; every month from 2021-01 to 2026-08 present &mdash; then validating the rank-band proxy against production's own bucket output rather than assuming it.</p>
+<div class="tw"><table class=""><thead><tr><th>Classifier</th><th>vs membership, 3-bucket</th><th>vs membership, 4-bucket</th><th>Large recall</th><th>Small recall</th><th>Micro recall</th></tr></thead><tbody><tr><td>pit_monthly</td><td>91.6%</td><td>74.8%</td><td>87.0%</td><td>66.4%</td><td>76.0%</td></tr><tr><td>pit_semiannual</td><td>94.0%</td><td>86.7%</td><td>88.0%</td><td>81.6%</td><td>92.0%</td></tr></tbody></table></div>
+<p>Semi-annual ranking on NSE's own methodology beat naive monthly re-ranking by ~6 points, so it became the default. Unmappable holdings fell from 12&ndash;33% a year to under 2%.</p>
+<details><summary>The Microcap band had to be widened &mdash; band sweep</summary><div class="tw"><table class=""><thead><tr><th>Band</th><th>Micro precision</th><th>Micro recall</th><th>Micro F1</th><th>4-bucket acc</th><th>Unknown share</th></tr></thead><tbody><tr><td>501-750</td><td>68.2%</td><td>68.5%</td><td>0.684</td><td>79.1%</td><td>73.0%</td></tr><tr><td>501-900</td><td>57.5%</td><td>92.4%</td><td>0.709</td><td>87.0%</td><td>67.6%</td></tr><tr><td>501-1000</td><td>46.6%</td><td>93.6%</td><td>0.622</td><td>87.4%</td><td>64.0%</td></tr><tr><td>501-1250</td><td>31.1%</td><td>93.6%</td><td>0.466</td><td>87.4%</td><td>55.0%</td></tr><tr><td>501+ (unbounded)</td><td>10.2%</td><td>93.6%</td><td>0.184</td><td>87.4%</td><td>0.0%</td></tr></tbody></table></div></details>
+<p>Nifty Microcap 250 draws from beyond rank 750 &mdash; 62 of its 250 members sit outside the original band &mdash; so <code>501&ndash;750</code> was mis-specified rather than merely noisy. Widening to <code>501&ndash;900</code> lifted microcap recall from 68% to 92%.</p>
+<h3>The gate passed, and found spec drift on the way</h3>
+<p>Reproducing production's own intermediates &mdash; its bucket distribution and signal score across 22 Fridays and 4 books &mdash; matched at <strong>100%</strong> (max abs error 3.8e-05) with the signal score exact. Three corrections were needed to get there, and each is a finding.</p>
+<ul>
+<li><strong>The signal input set is not constant.</strong> Production's own log shows it computing the score from <code>Nifty100 | MC100 | SC100</code> until 2026-04-17, then switching to <code>Nifty100 | Midcap150 | Smallcap250</code> on 2026-04-24.</li>
+<li><strong>The rebalance history is not always what production ran on.</strong> On 6 book-weeks it held a basket differing from any row in the history file &mdash; adopting a reconstitution early, then reverting. The same defect class Study 1 found.</li>
+<li><strong>8 rows are untestable, not failing</strong> &mdash; they predate the first membership snapshot, so production's own classification source no longer exists.</li>
+</ul>
+<div class="card">
+<div class="legend"><span class="key"><span class="sw" style="background:var(--s1)"></span>v2's rule (Smallcap 250)</span><span class="key"><span class="sw" style="background:var(--s2)"></span>earlier rule (Smallcap 100)</span></div>
+<svg viewBox="0 0 760 300" role="img" class="chart">
+<line class="grid" x1="64" y1="256.0" x2="684" y2="256.0"/>
+<text class="tick tick-y" x="56" y="260.0">0%</text>
+<line class="grid" x1="64" y1="210.4" x2="684" y2="210.4"/>
+<text class="tick tick-y" x="56" y="214.4">20%</text>
+<line class="grid" x1="64" y1="164.8" x2="684" y2="164.8"/>
+<text class="tick tick-y" x="56" y="168.8">40%</text>
+<line class="grid" x1="64" y1="119.2" x2="684" y2="119.2"/>
+<text class="tick tick-y" x="56" y="123.2">60%</text>
+<line class="grid" x1="64" y1="73.6" x2="684" y2="73.6"/>
+<text class="tick tick-y" x="56" y="77.6">80%</text>
+<line class="grid" x1="64" y1="28.0" x2="684" y2="28.0"/>
+<text class="tick tick-y" x="56" y="32.0">100%</text>
+<line class="baseline" x1="64" y1="256.0" x2="684" y2="256.0"/>
+<text class="tick tick-x" x="64.0" y="276">2021</text>
+<text class="tick tick-x" x="188.0" y="276">2022</text>
+<text class="tick tick-x" x="312.0" y="276">2023</text>
+<text class="tick tick-x" x="436.0" y="276">2024</text>
+<text class="tick tick-x" x="560.0" y="276">2025</text>
+<text class="tick tick-x" x="684.0" y="276">2026</text>
+<path class="line s1" d="M64.0,224.3 L188.0,56.5 L312.0,28.0 L436.0,68.9 L560.0,34.6 L684.0,28.0"/>
+<circle class="dot s1" cx="64.0" cy="224.3" r="4"><title>SC250 · 14%</title></circle>
+<circle class="dot s1" cx="188.0" cy="56.5" r="4"><title>SC250 · 88%</title></circle>
+<circle class="dot s1" cx="312.0" cy="28.0" r="4"><title>SC250 · 100%</title></circle>
+<circle class="dot s1" cx="436.0" cy="68.9" r="4"><title>SC250 · 82%</title></circle>
+<circle class="dot s1" cx="560.0" cy="34.6" r="4"><title>SC250 · 97%</title></circle>
+<circle class="dot s1" cx="684.0" cy="28.0" r="4"><title>SC250 · 100%</title></circle>
+<path class="line s2" d="M64.0,34.3 L188.0,36.8 L312.0,28.0 L436.0,28.0 L560.0,30.2 L684.0,28.0"/>
+<circle class="dot s2" cx="64.0" cy="34.3" r="4"><title>SC100 · 97%</title></circle>
+<circle class="dot s2" cx="188.0" cy="36.8" r="4"><title>SC100 · 96%</title></circle>
+<circle class="dot s2" cx="312.0" cy="28.0" r="4"><title>SC100 · 100%</title></circle>
+<circle class="dot s2" cx="436.0" cy="28.0" r="4"><title>SC100 · 100%</title></circle>
+<circle class="dot s2" cx="560.0" cy="30.2" r="4"><title>SC100 · 99%</title></circle>
+<circle class="dot s2" cx="684.0" cy="28.0" r="4"><title>SC100 · 100%</title></circle>
+<text class="slabel s1" x="692.0" y="32.0">SC250</text>
+<text class="slabel s2" x="692.0" y="46.0">SC100</text>
+<text class="axis-title" x="64" y="16">Agreement with the realized live states</text>
+<text class="axis-title" x="374" y="292" text-anchor="middle">Year</text>
+</svg>
+<p class="cap">Mean across the four books. The live track record was produced by the Smallcap 100 rule (98.9% overall), not by the Smallcap 250 rule in production today (89.9%).</p>
+</div>
+<div class="callout"><p>This matters beyond bookkeeping. It means the published track record and any backtest of the current engine are not measuring the same strategy, and it retroactively explains why Study 1 found two books reconciling as pure Smallcap 100 rules. The gate was redefined around production's own intermediates precisely because reproducing history was unachievable.</p></div>
+<h3>The headline &mdash; and immediately, the deflation</h3>
+<div class="card">
+<div class="legend"><span class="key"><span class="sw" style="background:var(--s1)"></span>production v2</span><span class="key"><span class="sw" style="background:var(--s2)"></span>sleeve</span><span class="key"><span class="sw" style="background:var(--s3)"></span>rotate</span><span class="key"><span class="sw" style="background:var(--s4)"></span>sleeve + N100 gate</span></div>
+<svg viewBox="0 0 820 310" role="img" class="chart">
+<line class="grid" x1="64" y1="264.0" x2="804" y2="264.0"/>
+<text class="tick tick-y" x="56" y="268.0">-8%</text>
+<line class="grid" x1="64" y1="237.8" x2="804" y2="237.8"/>
+<text class="tick tick-y" x="56" y="241.8">-5%</text>
+<line class="grid" x1="64" y1="211.6" x2="804" y2="211.6"/>
+<text class="tick tick-y" x="56" y="215.6">-3%</text>
+<line class="grid" x1="64" y1="185.3" x2="804" y2="185.3"/>
+<text class="tick tick-y" x="56" y="189.3">+0%</text>
+<line class="grid" x1="64" y1="159.1" x2="804" y2="159.1"/>
+<text class="tick tick-y" x="56" y="163.1">+2%</text>
+<line class="grid" x1="64" y1="132.9" x2="804" y2="132.9"/>
+<text class="tick tick-y" x="56" y="136.9">+5%</text>
+<line class="grid" x1="64" y1="106.7" x2="804" y2="106.7"/>
+<text class="tick tick-y" x="56" y="110.7">+8%</text>
+<line class="grid" x1="64" y1="80.4" x2="804" y2="80.4"/>
+<text class="tick tick-y" x="56" y="84.4">+10%</text>
+<line class="grid" x1="64" y1="54.2" x2="804" y2="54.2"/>
+<text class="tick tick-y" x="56" y="58.2">+12%</text>
+<line class="grid" x1="64" y1="28.0" x2="804" y2="28.0"/>
+<text class="tick tick-y" x="56" y="32.0">+15%</text>
+<line class="baseline" x1="64" y1="185.3" x2="804" y2="185.3"/>
+<rect class="bar s1" x="77.5" y="131.9" width="38.0" height="53.4" rx="4"><title>0042 · production_v2: +5%</title></rect>
+<text class="dlabel" x="96.5" y="125.9">+5%</text>
+<rect class="bar s2" x="117.5" y="147.5" width="38.0" height="37.8" rx="4"><title>0042 · sleeve: +4%</title></rect>
+<text class="dlabel" x="136.5" y="141.5">+4%</text>
+<rect class="bar s3" x="157.5" y="165.9" width="38.0" height="19.5" rx="4"><title>0042 · rotate: +2%</title></rect>
+<text class="dlabel" x="176.5" y="159.9">+2%</text>
+<rect class="bar s4" x="197.5" y="96.1" width="38.0" height="89.3" rx="4"><title>0042 · gate: +9%</title></rect>
+<text class="dlabel" x="216.5" y="90.1">+9%</text>
+<text class="tick tick-x" x="156.5" y="284">0042</text>
+<rect class="bar s1" x="262.5" y="83.8" width="38.0" height="101.5" rx="4"><title>0043 · production_v2: +10%</title></rect>
+<text class="dlabel" x="281.5" y="77.8">+10%</text>
+<rect class="bar s2" x="302.5" y="91.3" width="38.0" height="94.0" rx="4"><title>0043 · sleeve: +9%</title></rect>
+<text class="dlabel" x="321.5" y="85.3">+9%</text>
+<rect class="bar s3" x="342.5" y="100.7" width="38.0" height="84.6" rx="4"><title>0043 · rotate: +8%</title></rect>
+<text class="dlabel" x="361.5" y="94.7">+8%</text>
+<rect class="bar s4" x="382.5" y="48.4" width="38.0" height="136.9" rx="4"><title>0043 · gate: +13%</title></rect>
+<text class="dlabel" x="401.5" y="42.4">+13%</text>
+<text class="tick tick-x" x="341.5" y="284">0043</text>
+<rect class="bar s1" x="447.5" y="185.3" width="38.0" height="11.2" rx="4"><title>0044 · production_v2: -1%</title></rect>
+<text class="dlabel" x="466.5" y="209.5">-1%</text>
+<rect class="bar s2" x="487.5" y="172.2" width="38.0" height="13.2" rx="4"><title>0044 · sleeve: +1%</title></rect>
+<text class="dlabel" x="506.5" y="166.2">+1%</text>
+<rect class="bar s3" x="527.5" y="185.3" width="38.0" height="5.2" rx="4"><title>0044 · rotate: -0%</title></rect>
+<text class="dlabel" x="546.5" y="203.5">-0%</text>
+<rect class="bar s4" x="567.5" y="133.6" width="38.0" height="51.7" rx="4"><title>0044 · gate: +5%</title></rect>
+<text class="dlabel" x="586.5" y="127.6">+5%</text>
+<text class="tick tick-x" x="526.5" y="284">0044</text>
+<rect class="bar s1" x="632.5" y="185.3" width="38.0" height="23.0" rx="4"><title>0045 · production_v2: -2%</title></rect>
+<text class="dlabel" x="651.5" y="221.3">-2%</text>
+<rect class="bar s2" x="672.5" y="184.0" width="38.0" height="1.3" rx="4"><title>0045 · sleeve: +0%</title></rect>
+<text class="dlabel" x="691.5" y="178.0">+0%</text>
+<rect class="bar s3" x="712.5" y="185.3" width="38.0" height="56.2" rx="4"><title>0045 · rotate: -5%</title></rect>
+<text class="dlabel" x="731.5" y="254.5">-5%</text>
+<rect class="bar s4" x="752.5" y="141.7" width="38.0" height="43.6" rx="4"><title>0045 · gate: +4%</title></rect>
+<text class="dlabel" x="771.5" y="135.7">+4%</text>
+<text class="tick tick-x" x="711.5" y="284">0045</text>
+<text class="axis-title" x="64" y="16">Excess over parent p.a., net @ 20.8bps</text>
+</svg>
+<p class="cap">The hypothesis held: segment selection flips 0044 and 0045 from negative to positive, and the gate arm wins on all four books at every cost level. <code>rotate</code> is the weakest arm.</p>
+</div>
+<p>But the sleeve returned <strong>17.98%/yr</strong> over this window against parents averaging 13.20%. A defensive asset out-returning equity means any rule that sits in it more wins mechanically, so the static-mix control &mdash; each arm's average equity share held constant, no timing at all &mdash; was run immediately rather than deferred:</p>
+<div class="card">
+<div class="legend"><span class="key"><span class="sw" style="background:var(--s1)"></span>Static mix (mechanical)</span><span class="key"><span class="sw" style="background:var(--s4)"></span>Timing</span></div>
+<svg viewBox="0 0 760 300" role="img" class="chart">
+<line class="grid" x1="64" y1="254.0" x2="744" y2="254.0"/>
+<text class="tick tick-y" x="56" y="258.0">-1.0%</text>
+<line class="grid" x1="64" y1="225.8" x2="744" y2="225.8"/>
+<text class="tick tick-y" x="56" y="229.8">+0.0%</text>
+<line class="grid" x1="64" y1="197.5" x2="744" y2="197.5"/>
+<text class="tick tick-y" x="56" y="201.5">+1.0%</text>
+<line class="grid" x1="64" y1="169.2" x2="744" y2="169.2"/>
+<text class="tick tick-y" x="56" y="173.2">+2.0%</text>
+<line class="grid" x1="64" y1="141.0" x2="744" y2="141.0"/>
+<text class="tick tick-y" x="56" y="145.0">+3.0%</text>
+<line class="grid" x1="64" y1="112.8" x2="744" y2="112.8"/>
+<text class="tick tick-y" x="56" y="116.8">+4.0%</text>
+<line class="grid" x1="64" y1="84.5" x2="744" y2="84.5"/>
+<text class="tick tick-y" x="56" y="88.5">+5.0%</text>
+<line class="grid" x1="64" y1="56.2" x2="744" y2="56.2"/>
+<text class="tick tick-y" x="56" y="60.2">+6.0%</text>
+<line class="grid" x1="64" y1="28.0" x2="744" y2="28.0"/>
+<text class="tick tick-y" x="56" y="32.0">+7.0%</text>
+<line class="baseline" x1="64" y1="225.8" x2="744" y2="225.8"/>
+<rect class="bar s1" x="110.0" y="134.9" width="38.0" height="90.8" rx="4"><title>0042 · Static: +3.2%</title></rect>
+<text class="dlabel" x="129.0" y="128.9">+3.2%</text>
+<rect class="bar s4" x="150.0" y="63.3" width="38.0" height="162.4" rx="4"><title>0042 · Timing: +5.7%</title></rect>
+<text class="dlabel" x="169.0" y="57.3">+5.7%</text>
+<text class="tick tick-x" x="149.0" y="274">0042</text>
+<rect class="bar s1" x="280.0" y="41.0" width="38.0" height="184.7" rx="4"><title>0043 · Static: +6.5%</title></rect>
+<text class="dlabel" x="299.0" y="35.0">+6.5%</text>
+<rect class="bar s4" x="320.0" y="28.8" width="38.0" height="197.0" rx="4"><title>0043 · Timing: +7.0%</title></rect>
+<text class="dlabel" x="339.0" y="22.8">+7.0%</text>
+<text class="tick tick-x" x="319.0" y="274">0043</text>
+<rect class="bar s1" x="450.0" y="225.8" width="38.0" height="7.9" rx="4"><title>0044 · Static: -0.3%</title></rect>
+<text class="dlabel" x="469.0" y="246.6">-0.3%</text>
+<rect class="bar s4" x="490.0" y="61.8" width="38.0" height="163.9" rx="4"><title>0044 · Timing: +5.8%</title></rect>
+<text class="dlabel" x="509.0" y="55.8">+5.8%</text>
+<text class="tick tick-x" x="489.0" y="274">0044</text>
+<rect class="bar s1" x="620.0" y="165.3" width="38.0" height="60.4" rx="4"><title>0045 · Static: +2.1%</title></rect>
+<text class="dlabel" x="639.0" y="159.3">+2.1%</text>
+<rect class="bar s4" x="660.0" y="155.6" width="38.0" height="70.2" rx="4"><title>0045 · Timing: +2.5%</title></rect>
+<text class="dlabel" x="679.0" y="149.6">+2.5%</text>
+<text class="tick tick-x" x="659.0" y="274">0045</text>
+<text class="axis-title" x="64" y="16">Decomposition of the gate arm's excess</text>
+</svg>
+<p class="cap">Gate arm only. Mean across books: +2.90pp mechanical, +5.25pp timing.</p>
+</div>
+<div class="callout"><p><strong>The per-book split is more interesting than the average, and it cuts the other way.</strong> The mechanical component is huge for 0043 (+6.54pp, whose parent returned only 6.2%) but <em>negative</em> for 0044 (&minus;0.28pp, whose parent returned 20.3%). So for 0044 &mdash; the book whose flip is the whole point of Study 2 &mdash; essentially all of the +5.52pp is timing, not sleeve exposure. &ldquo;Most of the headline is mechanical&rdquo; is true on average and false where it matters most.</p></div>
+<details><summary>Static-mix control, every book and arm</summary><div class="tw"><table class=""><thead><tr><th>Book</th><th>Arm</th><th>Avg equity</th><th>Parent CAGR</th><th>Arm CAGR</th><th>Static vs parent</th><th>Timing</th><th>Total</th></tr></thead><tbody><tr><td>0042</td><td>sleeve</td><td>59.8%</td><td>13.18%</td><td>17.22%</td><td>+2.76pp</td><td>+1.28pp</td><td>+4.04pp</td></tr><tr><td>0042</td><td>rotate</td><td>70.0%</td><td>13.18%</td><td>15.72%</td><td>+2.16pp</td><td>+0.38pp</td><td>+2.54pp</td></tr><tr><td>0042</td><td>sleeve_n100gate</td><td>51.1%</td><td>13.18%</td><td>22.14%</td><td>+3.22pp</td><td>+5.75pp</td><td>+8.96pp</td></tr><tr><td>0043</td><td>sleeve</td><td>57.5%</td><td>6.20%</td><td>15.63%</td><td>+5.44pp</td><td>+3.99pp</td><td>+9.43pp</td></tr><tr><td>0043</td><td>rotate</td><td>66.0%</td><td>6.20%</td><td>14.97%</td><td>+4.40pp</td><td>+4.36pp</td><td>+8.77pp</td></tr><tr><td>0043</td><td>sleeve_n100gate</td><td>48.3%</td><td>6.20%</td><td>19.71%</td><td>+6.54pp</td><td>+6.97pp</td><td>+13.51pp</td></tr><tr><td>0044</td><td>sleeve</td><td>62.1%</td><td>20.25%</td><td>22.12%</td><td>-0.14pp</td><td>+2.02pp</td><td>+1.87pp</td></tr><tr><td>0044</td><td>rotate</td><td>70.0%</td><td>20.25%</td><td>20.54%</td><td>-0.04pp</td><td>+0.33pp</td><td>+0.29pp</td></tr><tr><td>0044</td><td>sleeve_n100gate</td><td>54.4%</td><td>20.25%</td><td>25.77%</td><td>-0.28pp</td><td>+5.80pp</td><td>+5.52pp</td></tr><tr><td>0045</td><td>sleeve</td><td>60.5%</td><td>15.02%</td><td>15.64%</td><td>+1.90pp</td><td>-1.28pp</td><td>+0.61pp</td></tr><tr><td>0045</td><td>rotate</td><td>70.0%</td><td>15.02%</td><td>10.41%</td><td>+1.53pp</td><td>-6.14pp</td><td>-4.62pp</td></tr><tr><td>0045</td><td>sleeve_n100gate</td><td>53.4%</td><td>15.02%</td><td>19.64%</td><td>+2.14pp</td><td>+2.48pp</td><td>+4.62pp</td></tr></tbody></table></div></details>
+<h3>The structural claim is weaker than we assumed</h3>
+<p>Segment selection was supposed to rarely sit at either extreme. It does so less than an all-or-nothing rule &mdash; but not much less:</p>
+<div class="tw"><table class=""><thead><tr><th>Arm</th><th>0% equity</th><th>Partial</th><th>100% equity</th><th>Avg equity</th></tr></thead><tbody><tr><td>rotate</td><td>31.0%</td><td>0.0%</td><td>69.0%</td><td>69.0%</td></tr><tr><td>sleeve</td><td>31.0%</td><td>18.0%</td><td>51.0%</td><td>60.0%</td></tr><tr><td>sleeve_n100gate</td><td>41.4%</td><td>11.0%</td><td>47.6%</td><td>51.8%</td></tr></tbody></table></div>
+<p>The reason is in the hold rates, which are near-identical across buckets &mdash; Largecap 57.8%, Microcap 58.8%, Midcap 61.3%, Smallcap 60.6%, Unknown 48.8% &mdash; because the bucket signals move together. The same fact made the dedicated-microcap-signal variant differ from the production convention on only 2% of weeks, which is why that arm was demoted to a sensitivity. <strong>The actionable size distinction in this data is small-versus-large, not micro-versus-small.</strong></p>
+<h2>Corrections ledger</h2>
+<p>Six substantive errors were found and fixed across the two studies. This is the section that should calibrate how much weight to put on everything above &mdash; both because the errors were material, and because they were found by controls rather than by readers.</p>
+<div class="tw"><table class="ledger"><thead><tr><th>Error</th><th>Effect</th><th>What happened</th></tr></thead><tbody><tr><td>LIQUIDBEES priced at zero return</td><td>Cash leg credited with nothing</td><td>The fund holds a constant NAV and distributes its yield, so its price history returns exactly 0.00% over any window. Fixed with a dividend-reinvested series: +4.99%/yr over the window.</td></tr><tr><td>Microcap omitted from the factor set</td><td>Selection alpha overstated 2–5pp/yr</td><td>The blend regression offered only Nifty 100 / Midcap 150 / Smallcap 250, so genuine microcap exposure was forced onto the nearest factor. Parent 0003 read 93% smallcap without it and 58% microcap with it. Microcap also compounded fastest, so every benchmark was understated.</td></tr><tr><td>Tracking drift attributed to the wrong cause</td><td>Mechanism wrong, magnitude right</td><td>Reported as the AA book going stale against a parent that reconstitutes more often. The parents reconstitute quarterly and the books match on 97–98% of holdings. The real cause was specific missed reconstitutions — an operational defect, and a cheaper fix.</td></tr><tr><td>A signal-agreement bar set too high to reach</td><td>Would have read as a failed test</td><td>A 97% bar was set by analogy to a check whose series had intraday range. A series built from daily closes has none: weekly true range shrinks ~26%, bands narrow, the latch flips more. ~10 of the ~13 points of shortfall were pure artifact.</td></tr><tr><td>simulate() re-trimmed to target every week</td><td>−1.18pp → −0.34pp on the parent leg</td><td>Manufactured turnover in every held name and suppressed within-period weight drift. Rebalancing only when the target actually changes closed most of the gap against the published parent series.</td></tr><tr><td>Audit counters triple-counted</td><td>Every handling event reported 3×</td><td>The simulator runs once per cost level into a shared counter, so all data-handling events were inflated by the number of cost levels.</td></tr></tbody></table></div>
+<p>Two further items are limitations rather than errors, and both remain live: the window contains a single uninterrupted gold bull market, and the published NAV carries two known divergences from any backtest of the current engine &mdash; the equity-leg desync and the spec drift above.</p>
+<h2>Still open<span class="status open">provisional</span></h2>
+<div class="callout warn"><p><strong>Study 2's headline should not be cited as settled.</strong> One outstanding control can materially deflate it, and it has been pre-registered precisely so the conclusion cannot drift to fit the number once it exists.</p></div>
+<ol>
+<li><strong>The <code>n100_only</code> control.</strong> Hold the whole parent when Nifty 100 is trending and the sleeve when it is not, with no bucket selection at all. Nifty 100's hold rate is 59.9% and the gate arm is 41% fully defensive, so the exposure profiles are nearly identical &mdash; a plain regime filter may capture most of the edge. <b>Pre-registered:</b> if it captures &ge;70%, the finding becomes &ldquo;a large-cap regime filter works&rdquo; and the segment mechanic is reported as <em>not proven</em>.</li>
+<li><strong>The all-cash sleeve.</strong> Cash returned ~4.99%/yr against the sleeve's 17.98%, so a 30% allocation swings from roughly +2.0pp of tailwind to &minus;2.5pp of drag. The static component reverses sign and the arm ranking may invert, with the most defensive arm hurt worst. Actual-sleeve and all-cash will be reported as co-equal headlines.</li>
+<li><strong>A null on the timing term.</strong> The +5.25pp still has no null beside it. Because the bucket signals move together, permuting <em>which</em> bucket is trending is low-powered; the primary null block-relocates the whole signal panel in time instead.</li>
+<li><strong>Classifier distribution uncertainty.</strong> The gate validated the <em>formula</em> using production's own classification. Our point-in-time classifier reproduces production's exact bucket distribution on only <strong>64%</strong> of book-weeks &mdash; per-holding accuracy is 95.7%, but the aggregate that actually feeds the signal score diverges more often. The arms rest on that classifier.</li>
+<li><strong>Two unpriceable names.</strong> EQUITAS and SHRIRAMCIT are pre-merger entities with no rows in the price table, at 13.3% weight of one 0010 rebalance &mdash; and 0010's flip is the headline. That flip needs confirming without them.</li>
+</ol>
+<hr>
+<p class="fine">Study 1 is complete: code in <code>AA/analysis/</code>, evidence in <code>evidence/main/</code>, report published separately as &ldquo;Gold, Not Timing&rdquo;. Study 2 is in progress: <code>evidence/segment_v1/</code>. Conventions throughout: Sharpe is CAGR/volatility at a zero risk-free rate; costs are round-trip, half per side, reported at 0 / 20.8 / 50 bps; point-in-time is asserted rather than assumed, with assertion and violation counts in <code>audit.json</code>; and every return is reported against a null where one exists.</p>
+</div>

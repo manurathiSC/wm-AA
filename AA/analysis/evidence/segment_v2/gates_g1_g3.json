@@ -1,0 +1,71 @@
+{
+  "G1": {
+    "rule": "D > 0 on >= 3 of 4 books AND on both SCMO_0044 and SCMO_0045",
+    "D_per_book": {
+      "SCMO_0042": -0.025139463228070147,
+      "SCMO_0043": -0.004328192835861611,
+      "SCMO_0044": 0.020922185412785455,
+      "SCMO_0045": 0.029686020961390724
+    },
+    "books_positive": 2,
+    "passed": false
+  },
+  "G2": {
+    "rule": "CAGR(sleeve @20.8) - CAGR(static mix) > 0 on >= 3 books",
+    "per_book": {
+      "SCMO_0042": {
+        "avg_equity_weight": 0.6035747758530928,
+        "cagr_sleeve_20p8": 0.15229027203670542,
+        "cagr_static": 0.15406640332145827,
+        "timing_part": -0.0017761312847528465
+      },
+      "SCMO_0043": {
+        "avg_equity_weight": 0.5772812293715832,
+        "cagr_sleeve_20p8": 0.15125960696452,
+        "cagr_static": 0.10962041189774152,
+        "timing_part": 0.04163919506677849
+      },
+      "SCMO_0044": {
+        "avg_equity_weight": 0.6312358239906868,
+        "cagr_sleeve_20p8": 0.2149580550312402,
+        "cagr_static": 0.19015927362386842,
+        "timing_part": 0.024798781407371795
+      },
+      "SCMO_0045": {
+        "avg_equity_weight": 0.6157939596208606,
+        "cagr_sleeve_20p8": 0.16758148836487918,
+        "cagr_static": 0.17006855593630354,
+        "timing_part": -0.0024870675714243617
+      }
+    },
+    "books_positive": 2,
+    "passed": false
+  },
+  "G3": {
+    "rule": "D with all-cash sleeve > 0 on >= 3 books",
+    "per_book": {
+      "SCMO_0042": {
+        "cagr_sleeve": 0.0797506412735558,
+        "cagr_production_v2": 0.08744465963642978,
+        "D": -0.007694018362873978
+      },
+      "SCMO_0043": {
+        "cagr_sleeve": 0.06546707692334852,
+        "cagr_production_v2": 0.06727199424036034,
+        "D": -0.0018049173170118227
+      },
+      "SCMO_0044": {
+        "cagr_sleeve": 0.15657565462706313,
+        "cagr_production_v2": 0.1438572340509079,
+        "D": 0.012718420576155243
+      },
+      "SCMO_0045": {
+        "cagr_sleeve": 0.10774355853886775,
+        "cagr_production_v2": 0.08708298532109882,
+        "D": 0.02066057321776893
+      }
+    },
+    "books_positive": 2,
+    "passed": false
+  }
+}

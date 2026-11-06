@@ -1,0 +1,22 @@
+series,date,value_here,value_found,source,status
+index Nifty100,2016-12-30,8382.5,,,not yet checked
+index Nifty100,2020-03-23,7719.1,,,not yet checked
+index Nifty100,2024-06-04,22739.6,,,not yet checked
+index MC100,2016-12-30,14351.45,,,not yet checked
+index MC100,2020-03-23,10990.8,,,not yet checked
+index MC100,2024-06-04,49150.8,,,not yet checked
+index SC100,2016-12-30,5780.85,,,not yet checked
+index SC100,2020-03-23,3372.65,,,not yet checked
+index SC100,2024-06-04,15692.15,,,not yet checked
+GOLDBEES Eikon,2016-12-30,25.646,,,not yet checked
+GOLDBEES Eikon,2020-03-23,35.02,,,not yet checked
+GOLDBEES Eikon,2026-01-30,131.12,,,not yet checked
+LBES adjusted (cash),2016-12-30,1617.09472791,,,not yet checked
+LBES adjusted (cash),2021-11-01,1894.05371297,,,not yet checked
+LBES adjusted (cash),2026-08-07,2388.62695031,,,not yet checked
+MAUc1 cleaned,2016-12-30,27445.0,,,not yet checked
+MAUc1 cleaned,2024-07-23,68510.0,,,not yet checked
+MAUc1 cleaned,2026-01-30,149653.0,,,not yet checked
+published parent SCMO_0003,2022-12-30,88.1851860822923,,,not yet checked
+published parent SCMO_0003,2024-06-04,123.7728423597681,,,not yet checked
+published parent SCMO_0003,2026-08-21,195.29870264935016,,,not yet checked

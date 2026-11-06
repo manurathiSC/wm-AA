@@ -1,0 +1,26 @@
+truth,Largecap,Microcap,Midcap,Smallcap,Unknown,band
+Largecap,88,0,11,0,0.0,501-750
+Microcap,0,171,0,16,62.0,501-750
+Midcap,10,0,128,12,0.0,501-750
+Smallcap,1,34,10,204,0.0,501-750
+Unknown,1,45,1,18,1965.0,501-750
+Largecap,88,0,11,0,0.0,501-900
+Microcap,0,230,0,16,3.0,501-900
+Midcap,10,0,128,12,0.0,501-900
+Smallcap,1,34,10,204,0.0,501-900
+Unknown,1,136,1,18,1874.0,501-900
+Largecap,88,0,11,0,0.0,501-1000
+Microcap,0,233,0,16,0.0,501-1000
+Midcap,10,0,128,12,0.0,501-1000
+Smallcap,1,34,10,204,0.0,501-1000
+Unknown,1,233,1,18,1777.0,501-1000
+Largecap,88,0,11,0,0.0,501-1250
+Microcap,0,233,0,16,0.0,501-1250
+Midcap,10,0,128,12,0.0,501-1250
+Smallcap,1,34,10,204,0.0,501-1250
+Unknown,1,483,1,18,1527.0,501-1250
+Largecap,88,0,11,0,,501+ (unbounded)
+Microcap,0,233,0,16,,501+ (unbounded)
+Midcap,10,0,128,12,,501+ (unbounded)
+Smallcap,1,34,10,204,,501+ (unbounded)
+Unknown,1,2010,1,18,,501+ (unbounded)

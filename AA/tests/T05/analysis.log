@@ -1,0 +1,203 @@
+# T05 analysis of evidence/headline
+
+**Filter reviews in SELL: 56** (55 traded; the last decision of the window, 2026-11-04, is a flagged SELL review that is not traded). Of the 56: 46 monthly only, 10 forced (a SELL spell's first decision), 4 of those also month-end. The flag is set on 101 of 411 weekly decisions (`review_mask_count` in audit.json: 101); 45 flagged decisions fall in BUY weeks and have no effect. T04 filtered at all 210 SELL decisions.
+First reviews: 2019-01-02, 2019-01-25, 2019-02-22, 2019-05-10, 2019-05-31. Last reviews: 2026-03-27, 2026-09-11, 2026-09-25, 2026-10-30, 2026-11-04.
+
+## Validity gates
+| gate | what | result | detail |
+|---|---|---|---|
+| V1 | independent check verify_t05.py | PASS | 683,010 comparisons, 0 failures; corrupted copy detected: True; I5 SuperTrend branch: desk reading |
+| V2 | point in time | PASS | 411 decisions, 0 labels after the decision; 410 trades, 0 not after their decision; 75,292 indicator stock-dates, 0 bars after the query date; 351 weekly-candle recomputations on bars up to the query date |
+| V3 | null holds its table | PASS | 10,000 draws x 2 windows; 3,640,000 SELL decisions with k mismatches 0; 3,460,000 BUY events with mismatches 0; review flag mismatch 0 |
+| V4 | always-in reproduces the published NAV | PASS | 2019-01-02 -> 2026-10-22: CAGR gap +0.045 pp/yr (limit 0.25); worst calendar year 2022 +0.426 pp (limit 0.5) |
+| V5 | indicator reproducibility | PASS | 50 stock-date pairs vs a hand computation, 0 failed |
+
+Cross-checks (not gates): regime series equals T04's headline decisions on 411 shared decision dates with 0 mismatches (411 decisions here, 411 in T04); the engine's review flag equals the calendar rule (T05.md 5a) on all but 0 of 411 decisions; regime series equals T03's on 400 shared dates with 0 mismatches; the full-switch comparator reproduces T03's SCMO_0003 strategy NAV (cost 0 / 20.8 / 50) to a maximum relative difference of 3.1e-15 up to 2026-08-07 (after that T03 accrued cash by a 90-session rate; this run reads the extended LBES).
+
+## 4.0 The decision series
+- Window 2019-01-02 -> 2026-11-04: 1,935 sessions, 411 weekly decisions (T0 plus the last session of each later ISO week), the last one not traded.
+- BUY 201 weeks, SELL 210 weeks; 10 SELL spells (the independent unit) of [5, 9, 11, 15, 16, 18, 29, 30, 37, 40] decisions, 9 BUY spells.
+- Live window starts 2021-11-01: 263 decisions.
+- Reviews in SELL: 56 (46 monthly, 10 forced, of which 4 also month-end); 55 before the last, untraded decision. The filter is evaluated only on these dates; every other SELL week reuses the stored pass set of the latest review.
+
+First and last five reviews in SELL (n = stocks in the basket in force, k = stocks the indicator keeps):
+
+| review # | decision date | kind | SELL spell | n | k I1 | k I2 | k I3 | k I4 | k I5 |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 2019-01-02 | forced (first SELL decision) | 1 | 10 | 5 | 5 | 6 | 5 | 4 |
+| 2 | 2019-01-25 | monthly | 1 | 10 | 2 | 3 | 2 | 2 | 2 |
+| 3 | 2019-02-22 | monthly | 1 | 10 | 2 | 3 | 3 | 3 | 3 |
+| 4 | 2019-05-10 | forced (BUY to SELL flip) | 2 | 9 | 1 | 4 | 1 | 5 | 7 |
+| 5 | 2019-05-31 | monthly | 2 | 9 | 6 | 5 | 6 | 5 | 8 |
+| 52 | 2026-03-27 | monthly | 9 | 15 | 5 | 6 | 5 | 5 | 3 |
+| 53 | 2026-09-11 | forced (BUY to SELL flip) | 10 | 15 | 14 | 15 | 11 | 15 | 15 |
+| 54 | 2026-09-25 | monthly | 10 | 15 | 12 | 15 | 12 | 15 | 15 |
+| 55 | 2026-10-30 | monthly | 10 | 15 | 3 | 11 | 3 | 12 | 8 |
+| 56 | 2026-11-04 | monthly | 10 | 15 | 6 | 14 | 5 | 14 | 8 |
+
+## 4.0b Reportability and selection counts (review decisions in SELL)
+| window | indicator | SELL decisions | reviews in SELL | 1 <= k < n | k = 0 | k = n | mean k | mean n | mean k, all SELL weeks | reportable (>= 20) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| full | I1 50-day EMA | 210 | 55 | 47 | 8 | 0 | 4.11 | 10.16 | 4.19 | yes |
+| full | I2 200-day EMA | 210 | 55 | 44 | 1 | 10 | 6.78 | 10.16 | 6.94 | yes |
+| full | I3 50-day SMA | 210 | 55 | 47 | 8 | 0 | 4.07 | 10.16 | 4.12 | yes |
+| full | I4 200-day SMA | 210 | 55 | 47 | 0 | 8 | 6.36 | 10.16 | 6.49 | yes |
+| full | I5 weekly SuperTrend | 210 | 55 | 51 | 1 | 3 | 5.69 | 10.16 | 5.76 | yes |
+| live | I1 50-day EMA | 139 | 37 | 32 | 5 | 0 | 4.73 | 11.59 | 4.87 | yes |
+| live | I2 200-day EMA | 139 | 37 | 31 | 0 | 6 | 8.24 | 11.59 | 8.55 | yes |
+| live | I3 50-day SMA | 139 | 37 | 33 | 4 | 0 | 4.57 | 11.59 | 4.70 | yes |
+| live | I4 200-day SMA | 139 | 37 | 32 | 0 | 5 | 7.54 | 11.59 | 7.77 | yes |
+| live | I5 weekly SuperTrend | 139 | 37 | 34 | 0 | 3 | 6.46 | 11.59 | 6.61 | yes |
+
+The gate counts review decisions in SELL with 1 <= k < n (T04 counted every SELL decision); the last decision of each window is not traded and is left out of the count (counted with it, the 1 <= k < n totals are 48, 45, 48, 48, 52 for the full window, an upper bound). These counts equal the engine's own `reviews_1_le_k_lt_n_traded_only` in audit.json.
+
+Stock-dates where an indicator could not be computed (valid bar, too little history) and the stock was excluded: I1 208, I2 897, I3 208, I4 897, I5 80.
+
+## 4.0a The worked example (one SELL review, the weeks after it, one trade, one null draw)
+**The review.** Decision j = 187, 2022-07-29 (the last session of its week), a review (monthly). Master SIGN rows: Nifty 100 BUY (2022-07-29), Midcap 100 BUY (2022-07-29), Smallcap 100 SELL (2022-07-29); not all three BUY, so the regime is SELL.
+The basket in force (effective 2022-06-16) has n = 8 stocks. Indicator I1 (close > 50-day EMA) on their closes up to 2022-07-29:
+
+| stock | basket weight | close | ema50 | EMA50 test: close > EMA50 |
+|---|---|---|---|---|
+| SIYSIL.NS | 0.1250 | 528.56 | 519.70 | keep |
+| GHCL.NS | 0.1250 | 604.68 | 581.26 | keep |
+| VTL.NS | 0.1250 | 302.65 | 304.48 | drop |
+| OIL.NS | 0.1250 | 126.67 | 141.91 | drop |
+| HINDALCO.NS | 0.1250 | 415.05 | 384.45 | keep |
+| NATIONALUM.NS | 0.1250 | 77.80 | 80.43 | drop |
+| RKFORGE.NS | 0.1250 | 178.30 | 166.84 | keep |
+| HGINFRA.NS | 0.1250 | 594.50 | 557.72 | keep |
+
+k = 5 kept, with basket weights adding to 0.6250; the other 0.3750 of the book goes to the sleeve, half GOLDBEES and half LBES cash (0.1875 each).
+**The trade** (next session, 2022-08-01, at each instrument's OHLC4): portfolio value before V = 1.794254; value traded = 2.242817; cost = traded x 20.8 / 2 / 10,000 = 0.002333; every target is then scaled by (V - cost) / V = 0.998700. Kept after the trade: SIYSIL.NS;GHCL.NS;HINDALCO.NS;RKFORGE.NS;HGINFRA.NS. NAV at that day's close 1.790574.
+**The path.** I1 at 20.8 bps: NAV 1.0000 on 2019-01-02 -> 3.8245 on 2026-11-04; 1,935 sessions, years = (1,935 - 1) / 252 = 7.675; CAGR = 3.8245^(1/7.675) - 1 = 19.10%.
+**One null draw** (I1, draw_id 0, seed `default_rng([5, 1, 0])`, u of shape (411, 197)): on the same review the draw keeps the k = 5 stocks of the 8 with the smallest u in row 187 (the review's own row, never the current week's): RKFORGE.NS, HINDALCO.NS, GHCL.NS, NATIONALUM.NS, SIYSIL.NS (the indicator kept SIYSIL.NS, GHCL.NS, HINDALCO.NS, RKFORGE.NS, HGINFRA.NS). It keeps those same stocks, those still in the basket, until the next review; everything else is as the strategy. That draw's after-cost CAGR is 20.59%.
+
+## 4.1 Headline: after cost at 20.8 bps, full window, 50/50 sleeve, LBES cash
+Window 2019-01-02 -> 2026-11-04; 2,000 draws per indicator; pass mark percentile >= 98 (Bonferroni, 5 indicators, alpha 0.10). The 0 bps percentile (R2) is the turnover-free reading.
+
+| indicator | CAGR % | null mean % | null SD pp | C1 percentile | p | C1 | 0 bps percentile | max DD % | null mean DD % | C2 percentile | C2 | end NAV | trades |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| I1 50-day EMA | 19.10 | 20.03 | 1.62 | 28.0 | 0.7206 | FAIL | 26.1 | -33.34 | -30.48 | 18.7 | FAIL | 3.825 | 88 |
+| I2 200-day EMA | 19.94 | 19.32 | 1.54 | 65.0 | 0.3508 | FAIL | 62.0 | -32.09 | -33.14 | 62.7 | FAIL | 4.036 | 79 |
+| I3 50-day SMA | 17.38 | 19.74 | 1.49 | 5.1 | 0.9485 | FAIL | 4.6 | -34.98 | -31.43 | 11.3 | FAIL | 3.420 | 89 |
+| I4 200-day SMA | 19.75 | 19.05 | 1.68 | 67.8 | 0.3223 | FAIL | 63.5 | -34.50 | -33.92 | 42.5 | FAIL | 3.987 | 78 |
+| I5 weekly SuperTrend | 17.99 | 18.84 | 1.65 | 29.8 | 0.7021 | FAIL | 27.0 | -34.65 | -35.24 | 58.9 | FAIL | 3.559 | 80 |
+
+### Secondary statistics (percentile against the same draws; direction: higher is better for Calmar, lower is better for the rest)
+| indicator | vol | Ulcer | days >=10% below peak | longest under water | Calmar |
+|---|---|---|---|---|---|
+| I1 50-day EMA | 0.186 (pct 3.7) | 9.65 (pct 19.4) | 604 (pct 7.1) | 382 (pct 73.8) | 0.573 (pct 20.7) |
+| I2 200-day EMA | 0.202 (pct 23.4) | 10.3 (pct 29.1) | 587 (pct 50.1) | 392 (pct 84.9) | 0.621 (pct 65.9) |
+| I3 50-day SMA | 0.186 (pct 17.3) | 10.8 (pct 6.0) | 648 (pct 5.7) | 445 (pct 19.0) | 0.497 (pct 5.5) |
+| I4 200-day SMA | 0.201 (pct 7.7) | 10.2 (pct 43.2) | 630 (pct 39.8) | 392 (pct 91.9) | 0.572 (pct 53.9) |
+| I5 weekly SuperTrend | 0.196 (pct 32.3) | 10.4 (pct 28.3) | 589 (pct 18.6) | 399 (pct 60.3) | 0.519 (pct 44.0) |
+
+### What the null does not hold: trades and cost paid, and the 0 bps percentile (20.8 bps unless stated)
+| indicator | strategy trades | null mean trades | null trades / strategy | strategy cost paid (NAV) | null mean cost paid | CAGR gap pp (strategy - null mean) | C1 pct at 20.8 bps | C1 pct at 0 bps |
+|---|---|---|---|---|---|---|---|---|
+| I1 50-day EMA | 88 | 90 | 1.02 | 0.146 | 0.164 | -0.93 | 28.0 | 26.1 |
+| I2 200-day EMA | 79 | 82 | 1.03 | 0.123 | 0.140 | +0.62 | 65.0 | 62.0 |
+| I3 50-day SMA | 89 | 89 | 1.00 | 0.128 | 0.161 | -2.36 | 5.1 | 4.6 |
+| I4 200-day SMA | 78 | 84 | 1.08 | 0.116 | 0.139 | +0.69 | 67.8 | 63.5 |
+| I5 weekly SuperTrend | 80 | 88 | 1.10 | 0.108 | 0.140 | -0.85 | 29.8 | 27.0 |
+
+Both the strategy and the null now change the kept set only at reviews and on basket changes, but a random set at each review is unrelated to the last one while a moving-average filter's passers overlap heavily month to month, so the null can still trade more. The 0 bps percentile is the turnover-free reading: the gap between the two percentile columns is the part of an indicator's after-cost standing that is turnover.
+
+### T04 (weekly filter) beside T05 (monthly filter), copied from T04's stored output
+| indicator | T04 C1 pct | T05 C1 pct | T04 0 bps pct | T05 0 bps pct | T04 C2 pct | T05 C2 pct | T04 trades (strategy / null) | T05 trades (strategy / null) | T04 CAGR % | T05 CAGR % | T04 status | T05 status |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| I1 50-day EMA | 58.7 | 28.0 | 37.0 | 26.1 | 15.7 | 18.7 | 208 / 231 | 88 / 90 | 19.61 | 19.10 | no C1 pass | no C1 pass |
+| I2 200-day EMA | 94.8 | 65.0 | 83.7 | 62.0 | 89.4 | 62.7 | 151 / 210 | 79 / 82 | 21.01 | 19.94 | no C1 pass | no C1 pass |
+| I3 50-day SMA | 34.5 | 5.1 | 18.0 | 4.6 | 3.0 | 11.3 | 206 / 227 | 89 / 89 | 20.24 | 17.38 | no C1 pass | no C1 pass |
+| I4 200-day SMA | 98.3 | 67.8 | 93.7 | 63.5 | 85.1 | 42.5 | 144 / 217 | 78 / 84 | 21.48 | 19.75 | turnover-driven | no C1 pass |
+| I5 weekly SuperTrend | 77.9 | 29.8 | 49.8 | 27.0 | 87.5 | 58.9 | 110 / 226 | 80 / 88 | 21.61 | 17.99 | no C1 pass | no C1 pass |
+
+Filter evaluations: T04 filtered at all 210 SELL decisions of 411; T05 filters at 56 reviews (55 traded) of the same 411 decisions. T04's percentiles are those printed in its section 4.1 and Robustness table (the 0 bps column is its R2); T04's status column applies T05's status rule to those printed numbers. T04's best-of-sweep R5 was percentile 52.4. The two cadences are judged each against its own null; they are shown side by side, not tested against each other.
+
+## 4.2 Comparators (benchmarks, not nulls), full window
+| run | cost bps | CAGR % | max DD % | vol % | Calmar | end NAV | trades |
+|---|---|---|---|---|---|---|---|
+| hold the parent | 0.00 | 17.14 | -46.12 | 24.48 | 0.37 | 3.367 | 31 |
+| hold the parent | 20.80 | 16.66 | -46.32 | 24.48 | 0.36 | 3.263 | 31 |
+| hold the parent | 50.00 | 16.00 | -46.61 | 24.49 | 0.34 | 3.123 | 31 |
+| full AA switch (100% sleeve in SELL; T03's rule) | 0.00 | 29.36 | -18.25 | 17.30 | 1.61 | 7.213 | 34 |
+| full AA switch (100% sleeve in SELL; T03's rule) | 20.80 | 28.45 | -18.42 | 17.30 | 1.54 | 6.829 | 34 |
+| full AA switch (100% sleeve in SELL; T03's rule) | 50.00 | 27.16 | -18.65 | 17.32 | 1.46 | 6.324 | 34 |
+| constant mix at I1's equity share f = 0.693 | 20.80 | 15.29 | -33.21 | 17.11 | 0.46 | 2.981 | 433 |
+| constant mix at I2's equity share f = 0.824 | 20.80 | 15.45 | -38.41 | 20.11 | 0.40 | 3.012 | 433 |
+| constant mix at I3's equity share f = 0.691 | 20.80 | 15.29 | -33.15 | 17.08 | 0.46 | 2.980 | 433 |
+| constant mix at I4's equity share f = 0.807 | 20.80 | 15.44 | -37.74 | 19.71 | 0.41 | 3.009 | 433 |
+| constant mix at I5's equity share f = 0.782 | 20.80 | 15.41 | -36.78 | 19.14 | 0.42 | 3.005 | 433 |
+| strategy I1 50-day EMA | 20.80 | 19.10 | -33.34 | 18.65 | 0.57 | 3.825 | 88 |
+| strategy I2 200-day EMA | 20.80 | 19.94 | -32.09 | 20.23 | 0.62 | 4.036 | 79 |
+| strategy I3 50-day SMA | 20.80 | 17.38 | -34.98 | 18.56 | 0.50 | 3.420 | 89 |
+| strategy I4 200-day SMA | 20.80 | 19.75 | -34.50 | 20.07 | 0.57 | 3.987 | 78 |
+| strategy I5 weekly SuperTrend | 20.80 | 17.99 | -34.65 | 19.64 | 0.52 | 3.559 | 80 |
+
+Published NAV SCMO_0003 (D17, rebased): 2019-01-02 -> 2026-10-22, 16.48% a year (calendar-day years). Published SCMO_0042 (production overlay, `indices.csv`, descriptive only): 2021-11-01 -> 2026-08-21, 21.57% a year.
+
+### Calendar-year returns at 20.8 bps (strategy NAV, % ; first and last years are part years)
+| year | hold parent | full AA switch | I1 | I2 | I3 | I4 | I5 |
+|---|---|---|---|---|---|---|---|
+| 2019 | -10.1 | 8.3 | -14.7 | -5.4 | -16.8 | -11.1 | -11.3 |
+| 2020 | 37.9 | 78.3 | 70.2 | 58.0 | 57.0 | 60.4 | 43.6 |
+| 2021 | 47.8 | 15.9 | 30.0 | 46.5 | 25.8 | 46.5 | 49.3 |
+| 2022 | -13.7 | -0.1 | -8.3 | -12.4 | -11.2 | -11.6 | -11.2 |
+| 2023 | 32.0 | 29.9 | 30.0 | 33.1 | 30.6 | 35.6 | 32.8 |
+| 2024 | 30.0 | 31.6 | 26.6 | 28.5 | 29.2 | 29.8 | 29.1 |
+| 2025 | -3.6 | 36.9 | 11.5 | 3.0 | 13.9 | 1.6 | 7.4 |
+| 2026 | 24.8 | 30.7 | 20.4 | 19.4 | 21.9 | 20.6 | 14.4 |
+
+## 4.3 Power and the minimum detectable edge (80% power, pass mark 98)
+| indicator | SD of null CAGR pp | MDE CAGR pp | SD of null max DD pp | MDE max DD pp | strategy minus null mean, CAGR pp |
+|---|---|---|---|---|---|
+| I1 50-day EMA | 1.62 | 4.69 | 3.12 | 9.02 | -0.93 |
+| I2 200-day EMA | 1.54 | 4.47 | 2.74 | 7.94 | +0.62 |
+| I3 50-day SMA | 1.49 | 4.31 | 3.01 | 8.72 | -2.36 |
+| I4 200-day SMA | 1.68 | 4.86 | 2.95 | 8.53 | +0.69 |
+| I5 weekly SuperTrend | 1.65 | 4.76 | 3.01 | 8.71 | -0.85 |
+
+MDE = (z_0.98 + z_0.80) x SD = 2.894 x SD of the null. With 10 SELL spells (and 56 reviews) the effective sample is small, and the MDE is the edge the test could have seen at 80% power. T04's null SD of CAGR (pp, copied): I1 1.34, I2 1.42, I3 1.41, I4 1.50, I5 1.50; T05's: I1 1.62, I2 1.54, I3 1.49, I4 1.68, I5 1.65 (fewer re-draws were expected to widen it).
+
+## 4.4 Verdict against each pre-registered criterion
+| indicator | reportable | C1 CAGR pct | C1 | C2 max-DD pct | C2 |
+|---|---|---|---|---|---|
+| I1 50-day EMA | yes | 28.0 | FAIL | 18.7 | FAIL |
+| I2 200-day EMA | yes | 65.0 | FAIL | 62.7 | FAIL |
+| I3 50-day SMA | yes | 5.1 | FAIL | 11.3 | FAIL |
+| I4 200-day SMA | yes | 67.8 | FAIL | 42.5 | FAIL |
+| I5 weekly SuperTrend | yes | 29.8 | FAIL | 58.9 | FAIL |
+
+- Passing C1 (selection): none. Passing C2 (protection): none. Passing both: none.
+- Best indicator by after-cost CAGR: I2 200-day EMA at 19.94% against the full AA switch's 28.45% and holding the parent's 16.66%.
+
+### Status rule for the turnover confound (T05.md section 2, F-AA-M03)
+| indicator | C1 pct at 20.8 bps | C1 | 0 bps percentile | 0 bps >= 98 | status of the C1 result |
+|---|---|---|---|---|---|
+| I1 50-day EMA | 28.0 | FAIL | 26.1 | no | no C1 pass |
+| I2 200-day EMA | 65.0 | FAIL | 62.0 | no | no C1 pass |
+| I3 50-day SMA | 5.1 | FAIL | 4.6 | no | no C1 pass |
+| I4 200-day SMA | 67.8 | FAIL | 63.5 | no | no C1 pass |
+| I5 weekly SuperTrend | 29.8 | FAIL | 27.0 | no | no C1 pass |
+
+- A C1 pass is classed *selection* only if its 0 bps percentile is also >= 98, else *turnover-driven*. Selection: none. Turnover-driven: none. (A classification of a pass, not a new pass criterion.)
+
+## Robustness (R1 to R5)
+| indicator | R2 0 bps C1 pct | R2 50 bps C1 pct | R3 LIQUIDCASE C1 pct | R1 C1 pct | R1 C2 pct | R4 live CAGR % | R4 C1 pct | R4 C2 pct |
+|---|---|---|---|---|---|---|---|---|
+| I1 50-day EMA | 26.1 | 30.3 | 28.0 | 27.8 | 23.2 | 15.3 | 15.8 | 9.8 |
+| I2 200-day EMA | 62.0 | 70.2 | 65.0 | 64.2 | 56.0 | 13.7 | 38.6 | 5.7 |
+| I3 50-day SMA | 4.6 | 6.1 | 5.1 | 5.0 | 11.3 | 15.9 | 21.0 | 28.1 |
+| I4 200-day SMA | 63.5 | 72.5 | 67.8 | 66.5 | 47.4 | 14.5 | 71.2 | 42.0 |
+| I5 weekly SuperTrend | 27.0 | 36.9 | 29.8 | 28.9 | 58.2 | 14.4 | 39.2 | 22.2 |
+
+R1 uses a 100% GOLDBEES sleeve (own null); R2 changes the cost; R3 swaps LBES for LIQUIDCASE from 2024-01-24; R4 is the live window 2021-11 onward with its own review flags, k counts and its own null (reportability on its own reviews). Percentiles at or above 98 are marked in section 4.4's logic; here every column is just the percentile.
+
+**R5 best-of-sweep null.** The best of the five indicators (I2 200-day EMA, after-cost CAGR 19.94%) is ranked against the best of five random indicators per draw id: percentile 10.3, p = 0.8971 (pass mark 98); the null's best-of-five averages 21.34% (SD 1.14 pp). R5: **FAIL**. (T04's R5 percentile: 52.4.)
+
+READINGS (engine): E1: calendar = D17's dates 2019-01-02 -> 2026-10-22, then the D18 sessions after it up to 2026-11-04; E2: stock bars used for indicators: every D18 bar up to 2019-01-02, after that only bars on calendar sessions (F-AA-D15); E3: indicator tables are computed at the decision dates and at the live window's first date only; for a stock whose weekly candle has a bar after the query date the supertrend is recomputed on bars up to the query date (the live first date, a Monday); E4: I5 sign BUY iff ST sits on the final lower band (|ST-FLB|<1e-9); NaN or neither band = not computable = excluded; E5: n and k of a decision are measured on the basket in force at its trade session (at the decision session for the last decision); k = |P(j) & basket| with P(j) the pass set stored at the review r(j), so at a non-review SELL decision only the basket intersection can change k; E6: the null draws one uniform per stock per decision (J x N), but only the review rows are used: the k_{r(j)}(b) smallest of u[r(j)] within basket b are kept (uniform k-subset), k_{r(j)}(b) = |P(j) & b|; never u[j] at a non-review decision; E7: R5 = per draw_id the best of the five indicators' draws of that id (the plan's 'shared permutation seed' read as 'same draw id'); E8: initial position: basket at T0 as drifted since its availableDate scaled to 1 at T0's close; stocks outside the T0 kept set are sold at T0's close into the sleeve at no cost; BUY = whole basket (sleeve exactly 0); E9: basket weights normalised to sum 1 over the whole basket; kept stocks keep their normalised weights; E10: constant mix: stock share f = mean over decisions of sum of kept weights (BUY = 1), rebalanced at the next session of every decision (T0's included) and at every basket change; initial stock holding = drifted basket scaled by f; E11: full AA switch comparator = this engine with k = 0 on every SELL decision (T03's rule on this window); E12: review flag (T05.md 5a) computed for every decision of the window by `_review_mask`: last decision of each (year, month) by the decision's own date, or first SELL decision of a SELL spell (j = 0 if SELL); it has effect only where the regime is SELL; E13: stateless review: r(j) = latest flagged decision <= j is precomputed (np.maximum.accumulate), not tracked with a running variable; for a SELL decision r(j) lies in the same SELL spell because the first SELL decision of every spell is flagged. For a BUY decision before any flag (only j = 0 in BUY) r(j) is read as j; BUY targets never use it; E14: the last decision of the window (2026-11-04) is a month-end and carries the flag, but it is not traded: audit.json reports n_reviews (flagged SELL decisions, last included, as 5a defines it) and n_reviews_traded (last excluded); the reportability count uses the 5a definition (last included) and the traded-only count is printed beside it; E15: the live window (R4) is its own Book: its own decision series, review flags, stored pass sets and u (J_live x N, same seed); E16: selections.csv keeps T04's long format (one row per window, indicator and decision) plus review_j = r(j); decisions.csv keeps T04's columns plus review, and PLAN.md's trade_session (= trade_date) and basket (effective date of the basket in force at the trade session)
+
+GOLDBEES trade sessions after the MCX file's end (2026-09-28), fill = raw OHLC4: 2026-11-02 +0.27% from close.
+
+Run: headline, 2000 draws per indicator, 76 s, seed numpy default_rng([5, i, draw_id]), i = 1..5 for I1..I5; the same draw ids for every cost, sleeve, cash variant; the null uses u[r(j)] (the review row), never u[j]; pre-registration sha256 90dc7c4dff77ee2f8bad2147e3032075e46cd1275f3b34cf1a0c3ddb7f66ba72.

@@ -1,0 +1,8 @@
+date,action,open,high,low,close
+2015-10-02,dropped: no close,25827.0,25875.0,25711.0,
+2015-11-11,dropped: no close,25508.0,25529.0,25460.0,
+2020-04-14,dropped: no close,45800.0,,45622.0,
+2021-10-04,close only: open/high/low set to close,,,,46286.0
+2025-01-02,close only: open/high/low set to close,,,,77717.0
+2026-02-04,close only: open/high/low set to close,,,,149244.0
+2023-10-16,bar widened to span open/high/low/close,59209.0,59280.0,58880.0,59408.0

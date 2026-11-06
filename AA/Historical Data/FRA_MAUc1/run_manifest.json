@@ -1,0 +1,172 @@
+{
+  "what": "MAUc1 run through production ST.py + analysis_master.py, unmodified",
+  "production_root": "G:\\.shortcut-targets-by-id\\0B7f_UMMZHM_JNXljMVVXY2VPcHM\\Investment Research_N\\Shubham_Shreshtha\\Friday Rebalance Automation",
+  "code_sha256": {
+    "Python_Scripts/ST.py": "0c26ca97ed0474887eac77267085e6a576c62ecc5e1e97510821f6ef09873933",
+    "Python_Scripts/QuantBacktester.py": "d3515f10cb2389e6412d3a6a632bde19afb2ebefde2a1c86a237764ed2b2b364",
+    "Python_Scripts/ProspectTheory.py": "80715de73ad26774e929a58438d79a6be286836ce6609ebd670dfb3b65afeba7",
+    "analysis_master.py": "beaaa4195971913eb0bf28c49b447810a8bad683eaf4ca78ad4584df920b5df8"
+  },
+  "call": "ST.run(scrip, freq='W', mul=2, newRun=True, out_d, out_w, out_m, exist, TradingDays.xlsx[, lastDate])",
+  "input_csv": "C:\\Users\\manur\\Downloads\\MAUc1_daily1.csv",
+  "input_csv_sha256": "5650c7f9829d80527dfcc05ea4323ef79979bb8d970790c4049067bbd7a97425",
+  "input_sheet": {
+    "rows": 2997,
+    "first": "2015-02-02",
+    "last": "2026-09-28",
+    "cleaning": "mauc1_signal.load_clean (see evidence/final_strategy/mauc1/mauc1_cleaning_log.csv)"
+  },
+  "trading_days_sha256": "c8a889aeff49f1ead5cad52cc7005b79addff30ae81bbfaf800eb2ec1b4023c2",
+  "trading_days_last": "2026-09-25",
+  "sd": "2015-02-02",
+  "runs": [
+    {
+      "dateCode": "030726",
+      "last_week": "2026-07-03",
+      "sign": "SELL",
+      "ST": 160322.7,
+      "Index": 147378.0,
+      "permanent_file_written": false
+    },
+    {
+      "dateCode": "100726",
+      "last_week": "2026-07-10",
+      "sign": "SELL",
+      "ST": 159336.2,
+      "Index": 143478.0,
+      "permanent_file_written": false
+    },
+    {
+      "dateCode": "170726",
+      "last_week": "2026-07-17",
+      "sign": "SELL",
+      "ST": 153130.3,
+      "Index": 140906.0,
+      "permanent_file_written": false
+    },
+    {
+      "dateCode": "240726",
+      "last_week": "2026-07-24",
+      "sign": "SELL",
+      "ST": 153130.3,
+      "Index": 143106.0,
+      "permanent_file_written": false
+    },
+    {
+      "dateCode": "310726",
+      "last_week": "2026-07-31",
+      "sign": "SELL",
+      "ST": 151389.0,
+      "Index": 141511.0,
+      "permanent_file_written": false
+    },
+    {
+      "dateCode": "070826",
+      "last_week": "2026-08-07",
+      "sign": "BUY",
+      "ST": 133421.0,
+      "Index": 151820.0,
+      "permanent_file_written": false
+    },
+    {
+      "dateCode": "140826",
+      "last_week": "2026-08-14",
+      "sign": "BUY",
+      "ST": 141099.06666666665,
+      "Index": 154506.0,
+      "permanent_file_written": false
+    },
+    {
+      "dateCode": "210826",
+      "last_week": "2026-08-21",
+      "sign": "BUY",
+      "ST": 143129.46666666667,
+      "Index": 162438.0,
+      "permanent_file_written": false
+    },
+    {
+      "dateCode": "280826",
+      "last_week": "2026-08-28",
+      "sign": "BUY",
+      "ST": 144291.4,
+      "Index": 156281.0,
+      "permanent_file_written": false
+    },
+    {
+      "dateCode": "040926",
+      "last_week": "2026-09-04",
+      "sign": "BUY",
+      "ST": 144291.4,
+      "Index": 152767.0,
+      "permanent_file_written": false
+    },
+    {
+      "dateCode": "110926",
+      "last_week": "2026-09-11",
+      "sign": "BUY",
+      "ST": 144291.4,
+      "Index": 152784.0,
+      "permanent_file_written": false
+    },
+    {
+      "dateCode": "180926",
+      "last_week": "2026-09-18",
+      "sign": "BUY",
+      "ST": 144291.4,
+      "Index": 154381.0,
+      "permanent_file_written": false
+    },
+    {
+      "dateCode": "250926",
+      "last_week": "2026-09-25",
+      "sign": "BUY",
+      "ST": 144291.4,
+      "Index": 150881.0,
+      "permanent_file_written": true
+    }
+  ],
+  "master_rows": 603,
+  "master_first": "2015-03-13",
+  "master_last": "2026-09-25",
+  "pandas": "2.0.2",
+  "numpy": "1.26.4",
+  "production_pins": "pandas 2.2.3, numpy 1.26.4 (requirements.txt)",
+  "repro": [
+    {
+      "index": "Nifty100",
+      "input_sha256": "6f205d558781bcd45c909ee446387398cd1fef9d5b33e6974b3c28bce3742f25",
+      "rows_mine": 1087,
+      "rows_prod": 1087,
+      "same_dates": true,
+      "max_abs_diff": 0.0,
+      "nan_pattern_mismatches": 0,
+      "wgh_srt_mismatches": 0,
+      "sign_rows": 1082,
+      "sign_mismatches": 0
+    },
+    {
+      "index": "MC100",
+      "input_sha256": "6f205d558781bcd45c909ee446387398cd1fef9d5b33e6974b3c28bce3742f25",
+      "rows_mine": 1106,
+      "rows_prod": 1106,
+      "same_dates": true,
+      "max_abs_diff": 0.0,
+      "nan_pattern_mismatches": 0,
+      "wgh_srt_mismatches": 0,
+      "sign_rows": 1101,
+      "sign_mismatches": 0
+    },
+    {
+      "index": "SC100",
+      "input_sha256": "6f205d558781bcd45c909ee446387398cd1fef9d5b33e6974b3c28bce3742f25",
+      "rows_mine": 1187,
+      "rows_prod": 1187,
+      "same_dates": true,
+      "max_abs_diff": 0.0,
+      "nan_pattern_mismatches": 0,
+      "wgh_srt_mismatches": 0,
+      "sign_rows": 1182,
+      "sign_mismatches": 0
+    }
+  ]
+}

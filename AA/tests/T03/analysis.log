@@ -1,0 +1,129 @@
+T03 analysis. Run: headline  engine seconds: 82  draws per book and cost: 2000
+Pre-registration sha256 in the header: 792215fe6ebcd9c0 | recomputed now: 792215fe6ebcd9c0 | match: True
+Evidence read: audit.json, daily_nav.csv, decisions.csv, draw_curves_20.8.npz, draw_states_example.csv, draws.csv, g_engine.csv, inputs.csv, positions.csv, stats.csv, trades.csv, v5_regression.json, verify_t03.json
+
+====================================================================================================
+4.0b  GATES
+====================================================================================================
+V1 independent check (verify_t03.py):  PASS | gate comparisons 119,999, failures and missing 0, corrupted copy detected: True, worst relative NAV difference 1.2e-15
+V2 point in time: violations 0 of 3194 checks (labels dated after the decision: 0 required; trade not after its decision: 0 required)
+V3 null holds its table: N4.9 draws 40,000, spell signature mismatches 0, invested-weeks mismatches 0; circular shifts 4,924, invested-weeks mismatches 0, largest spell-count gap 1 (a rotation can cut one spell at the wrap)
+V4 always-in at 0 cost vs the published NAV (G0: +-0.25 pp/yr overall, +-0.5 pp every calendar year) and vs the Step 1 rebuild:
+     book cagr_gap_pp_yr overall  worst_year worst_year_gap_pp yearly max_rel_diff_vs_step1_rebuild  rebuild_dates_compared
+SCMO_0003         +0.045    PASS        2022            +0.426   PASS                       1.6e-13                    1926
+SCMO_0007         +0.103    PASS        2019            +0.391   PASS                       2.7e-11                    1924
+SCMO_0010         +0.101    PASS        2019            +0.447   PASS                       5.7e-15                    1926
+SCMO_0029         +0.038    PASS        2019            +0.189   PASS                       3.2e-15                    1926
+V5 regression: g0_gate.csv identical after rerunning data/parent_rebuild_hm.py: True
+Gates: {'V1': 'PASS', 'V2': 'PASS', 'V3': 'PASS', 'V4': 'PASS', 'V5': 'PASS'} -> ALL PASS
+Reportability: round trips per book (need 4): {'SCMO_0003': 9, 'SCMO_0007': 9, 'SCMO_0010': 9, 'SCMO_0029': 9} | live window: {'SCMO_0003': {'t0': '2021-11-01', 'decisions': 252, 'round_trips': 5, 'reportable': True}, 'SCMO_0007': {'t0': '2021-11-01', 'decisions': 252, 'round_trips': 5, 'reportable': True}, 'SCMO_0010': {'t0': '2021-11-01', 'decisions': 252, 'round_trips': 5, 'reportable': True}, 'SCMO_0029': {'t0': '2021-11-01', 'decisions': 252, 'round_trips': 5, 'reportable': True}}
+Weeks that use the previous week's Master row (age >= 5 days, T0 excluded): {'SCMO_0003': 5, 'SCMO_0007': 5, 'SCMO_0010': 5, 'SCMO_0029': 5}
+Decisions: weekly, 400 (0007: 399); invested weeks 199 of 400 (49.8%); spells: 9 in, 9 out; cash accrual: {'file_last': '2026-08-09', 'daily_rate': 0.00018330200003613406, 'accrued_sessions': 10}
+
+====================================================================================================
+4.0a  THE WORKED EXAMPLE (SCMO_0003, 20.8 bps)
+====================================================================================================
+One decision: week 11, decision date 2019-03-15. Latest Master rows: Nifty100 BUY (2019-03-15), MC100 BUY (2019-03-15), SC100 BUY (2019-03-15). All three BUY: True -> target parent; previous week's state 0. Trade session: 2019-03-18.
+One trade: switch_in on 2019-03-18 at OHLC4: value before 1.001895, traded 2.003791 (both sides), cost 0.002084 = traded x 20.8/2/10,000, NAV at the close after: 0.996409
+NAV around the trade (strategy, 20.8 bps):
+      date      nav
+2019-03-14 1.005258
+2019-03-15 1.005128
+2019-03-18 0.996409
+2019-03-19 0.995156
+2019-03-20 0.992833
+One path: start 1.000000 on 2019-01-02, end 7.155723 on 2026-08-21, 1885 sessions -> years 7.4762, CAGR 30.112%, max drawdown -18.42%
+One null draw (N4.9, draw_id 0; seed numpy default_rng([3, 0])): the first 20 weekly decisions, real and shuffled state (1 = parent, 0 = sleeve):
+ j decision_date  real_state  draw_state
+ 0    2019-01-02           0           0
+ 1    2019-01-04           0           0
+ 2    2019-01-11           0           0
+ 3    2019-01-18           0           0
+ 4    2019-01-25           0           0
+ 5    2019-02-01           0           0
+ 6    2019-02-08           0           0
+ 7    2019-02-15           0           0
+ 8    2019-02-22           0           0
+ 9    2019-03-01           0           0
+10    2019-03-08           0           0
+11    2019-03-15           1           1
+12    2019-03-22           1           1
+13    2019-03-29           1           1
+14    2019-04-05           1           1
+15    2019-04-12           1           1
+16    2019-04-18           1           1
+17    2019-04-26           1           1
+18    2019-05-03           1           1
+19    2019-05-10           0           1
+  that draw: CAGR 18.854%, max drawdown -29.91%, invested weeks 199 (strategy 199), spells 9 in / 9 out
+One ranking (CAGR, 2000 draws): below 1919, equal 0, above 81 -> percentile 95.95, p-value 0.04098; null median 18.09%, edge +12.02 pp
+
+====================================================================================================
+4.1  HEADLINE: strategy against the N4.9 null (full window 2019 -> 2026-08-21, LBES cash)
+====================================================================================================
+ cost      book CAGR% null_med% edge_pp   pct       p  draws maxDD% null_med_DD% DD_pct    DD_p shift_pct shift_DD_pct  shifts
+  0.0 SCMO_0003 31.02     18.86  +12.16 95.95 0.04098   2000 -18.25       -31.85  97.45 0.02649     96.43        97.24     308
+  0.0 SCMO_0007 22.38     14.96   +7.41 86.35 0.13693   2000 -19.37       -32.25  94.65 0.05597     94.14        93.81     307
+  0.0 SCMO_0010 32.30     21.55  +10.75 95.05 0.04998   2000 -15.22       -26.69  97.40 0.02649     94.16        98.05     308
+  0.0 SCMO_0029 28.61     20.75   +7.86 92.45 0.07596   2000 -15.22       -28.95  97.50 0.02599     93.18        94.16     308
+ 20.8 SCMO_0003 30.11     18.09  +12.02 95.95 0.04098   2000 -18.42       -31.99  97.45 0.02649     96.43        97.24     308
+ 20.8 SCMO_0007 21.61     14.26   +7.35 86.35 0.13693   2000 -19.54       -32.39  94.73 0.05547     94.14        93.81     307
+ 20.8 SCMO_0010 31.41     20.73  +10.68 95.05 0.04998   2000 -15.22       -26.84  97.55 0.02499     94.48        98.05     308
+ 20.8 SCMO_0029 27.78     19.97   +7.81 92.40 0.07646   2000 -15.22       -28.95  97.60 0.02499     93.18        94.48     308
+ 50.0 SCMO_0003 28.85     17.00  +11.86 95.90 0.04148   2000 -18.65       -32.19  97.45 0.02649     96.75        97.24     308
+ 50.0 SCMO_0007 20.53     13.25   +7.28 86.25 0.13793   2000 -19.78       -33.54  95.17 0.05097     94.14        94.14     307
+ 50.0 SCMO_0010 30.16     19.62  +10.54 95.05 0.04998   2000 -15.22       -27.05  98.20 0.01849     94.48        98.38     308
+ 50.0 SCMO_0029 26.63     18.88   +7.74 92.40 0.07646   2000 -15.22       -29.15  97.78 0.02299     93.51        95.45     308
+pct = percentile of the strategy's after-cost CAGR among the N4.9 draws; DD_pct = same for max drawdown (shallower is better); shift_* = against the circular-shift null.
+
+Secondary statistics at 20.8 bps, percentile against the N4.9 draws (each statistic's better direction):
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 96.0   97.5   98.0 72.3  96.4             97.0               99.9
+SCMO_0007 86.4   94.7   94.2 64.1  96.9             97.9               95.8
+SCMO_0010 95.0   97.5   98.5 62.6  95.3             97.3               90.6
+SCMO_0029 92.4   97.6   97.7 75.2  91.1             92.6               89.5
+
+====================================================================================================
+4.2  COMPARATORS (benchmarks, not nulls), same window, T0 = 1.000
+====================================================================================================
+ cost      book strategy_CAGR% strategy_DD% hold_parent_CAGR% hold_parent_DD% constant_mix_CAGR% constant_mix_DD% sleeve_only_CAGR% sleeve_only_DD% published_CAGR% published_DD%
+  0.0 SCMO_0003          31.02       -18.25             18.49          -46.12              16.47           -24.78             15.86          -19.31           18.44        -46.12
+  0.0 SCMO_0007          22.38       -19.37             11.61          -54.37              12.90           -26.90             15.87          -19.31           11.50        -54.63
+  0.0 SCMO_0010          32.30       -15.22             26.34          -44.63              19.75           -24.19             15.86          -19.31           26.24        -44.88
+  0.0 SCMO_0029          28.61       -15.22             25.26          -36.92              19.76           -21.43             15.86          -19.31           25.22        -36.92
+ 20.8 SCMO_0003          30.11       -18.42             18.01          -46.32              16.08           -24.82             15.86          -19.31           18.44        -46.12
+ 20.8 SCMO_0007          21.61       -19.54             11.24          -54.65              12.57           -27.23             15.87          -19.31           11.50        -54.63
+ 20.8 SCMO_0010          31.41       -15.22             25.85          -44.98              19.36           -24.23             15.86          -19.31           26.24        -44.88
+ 20.8 SCMO_0029          27.78       -15.22             24.83          -36.92              19.40           -21.45             15.86          -19.31           25.22        -36.92
+ 50.0 SCMO_0003          28.85       -18.65             17.34          -46.61              15.54           -24.89             15.86          -19.31           18.44        -46.12
+ 50.0 SCMO_0007          20.53       -19.78             10.73          -55.03              12.12           -27.70             15.87          -19.31           11.50        -54.63
+ 50.0 SCMO_0010          30.16       -15.22             25.16          -45.46              18.82           -24.29             15.86          -19.31           26.24        -44.88
+ 50.0 SCMO_0029          26.63       -15.22             24.23          -36.92              18.90           -21.47             15.86          -19.31           25.22        -36.92
+Constant mix holds 49.8% in the parent (the strategy's average); hold_parent is the engine with the decision fixed IN; published_D17 is the published NAV rebased to 1.000 on the same dates.
+
+====================================================================================================
+4.3  POWER: round trips and the minimum detectable edge (MDE = 2.8 x null SD; 80% power, two-sided 5%)
+====================================================================================================
+     book  round_trips null_sd_CAGR_pp MDE_CAGR_pp shift_sd_CAGR_pp(pilot) null_sd_DD_pp MDE_DD_pp shift_sd_DD_pp(pilot)
+SCMO_0003            9            6.92       19.38                    9.00          9.62     26.94                 10.09
+SCMO_0007            9            6.37       17.84                    7.61         10.81     30.27                 11.81
+SCMO_0010            9            6.18       17.31                    7.87         10.49     29.37                 10.96
+SCMO_0029            9            5.45       15.25                    6.76          7.09     19.84                  8.16
+T03.md section 3 step 12: the thresholds in section 2 do not depend on these numbers, which did not exist when it was written.
+
+====================================================================================================
+4.4  VERDICT against the pre-registered criteria (after cost, 20.8 bps)
+====================================================================================================
+C1 timing (H1)         PASS   CAGR percentile >= 90 in >= 3 of 4 books: 3 of 4 (0003 96.0, 0007 86.4, 0010 95.0, 0029 92.4)   
+C2 protection (H2)     PASS   max-drawdown percentile >= 90 in >= 3 of 4 books: 4 of 4 (0003 97.5, 0007 94.7, 0010 97.5, 0029 97.6)   
+
+Robustness (decide a finding's status, not the verdicts):
+R1 circular-shift null, percentile >= 75 in >= 3 of 4: CAGR 4 of 4 -> PASS; max drawdown 4 of 4 -> PASS
+R2 C1 at 0.0 bps: 3 of 4 books >= 90 -> PASS  (0003 96.0, 0007 86.4, 0010 95.0, 0029 92.5)
+R2 C1 at 50.0 bps: 3 of 4 books >= 90 -> PASS  (0003 95.9, 0007 86.2, 0010 95.0, 0029 92.4)
+R3 LIQUIDCASE cash: C1 percentiles [96.0, 86.3, 95.0, 92.4] -> 3 of 4 >= 90 -> PASS
+R4 live window 2021-11 -> 2026-08: C1 percentiles [85.7, 80.1, 92.0, 84.9] -> 1 of 4 >= 90 -> FAIL
+
+Outcome map (T03.md section 2): C1 PASS / C2 PASS
+Hypotheses: H1 (timing) SUPPORTED in-sample (PROVISIONAL: nothing is unseen) | H2 (protection) SUPPORTED in-sample (PROVISIONAL)
+Gates: all pass

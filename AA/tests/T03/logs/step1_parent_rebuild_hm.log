@@ -1,0 +1,10 @@
+   parent                               variant  cagr_gap_pp_yr overall  worst_year  worst_year_gap_pp yearly
+SCMO_0003           listed_weights_skip_dropped           0.045    PASS        2022              0.426   PASS
+SCMO_0003 listed_weights_skip_dropped_corrected           0.045    PASS        2022              0.426   PASS
+SCMO_0007           listed_weights_skip_dropped           0.271    FAIL        2021              2.036   FAIL
+SCMO_0007 listed_weights_skip_dropped_corrected           0.103    PASS        2019              0.391   PASS
+SCMO_0010           listed_weights_skip_dropped           0.101    PASS        2019              0.447   PASS
+SCMO_0010 listed_weights_skip_dropped_corrected           0.101    PASS        2019              0.447   PASS
+SCMO_0029           listed_weights_skip_dropped           0.038    PASS        2019              0.189   PASS
+SCMO_0029 listed_weights_skip_dropped_corrected           0.038    PASS        2019              0.189   PASS
+done -> C:\Users\manur\Repos\wm-AA\AA\data\parent_rebuild_hm

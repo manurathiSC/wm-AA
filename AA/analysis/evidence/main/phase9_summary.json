@@ -1,0 +1,1125 @@
+{
+  "gold_prediction": [
+    {
+      "signal": "microcap250",
+      "off_sessions": 509,
+      "pct_defensive": 0.4291736930860034,
+      "gold_ann_while_defensive": 0.5054438861225565,
+      "gold_ann_unconditional": 0.27896975905496263,
+      "edge_pp": 22.64741270675939,
+      "percentile": 0.9806666666666667,
+      "z_vs_null": 2.188762306148923,
+      "mde_pp": 28.752248508525646,
+      "episodes": 6
+    },
+    {
+      "signal": "smallcap250",
+      "off_sessions": 510,
+      "pct_defensive": 0.4300168634064081,
+      "gold_ann_while_defensive": 0.4882716469610845,
+      "gold_ann_unconditional": 0.27896975905496263,
+      "edge_pp": 20.930188790612185,
+      "percentile": 0.964,
+      "z_vs_null": 1.886331285617868,
+      "mde_pp": 30.028297267003268,
+      "episodes": 6
+    },
+    {
+      "signal": "smallcap100",
+      "off_sessions": 539,
+      "pct_defensive": 0.45446880269814505,
+      "gold_ann_while_defensive": 0.400679925964899,
+      "gold_ann_unconditional": 0.27896975905496263,
+      "edge_pp": 12.171016690993635,
+      "percentile": 0.8766666666666667,
+      "z_vs_null": 1.1911767299101395,
+      "mde_pp": 27.430581376020296,
+      "episodes": 6
+    },
+    {
+      "signal": "midcap150",
+      "off_sessions": 398,
+      "pct_defensive": 0.33558178752107926,
+      "gold_ann_while_defensive": 0.2952914596691668,
+      "gold_ann_unconditional": 0.27896975905496263,
+      "edge_pp": 1.6321700614204182,
+      "percentile": 0.5853333333333334,
+      "z_vs_null": 0.14593049768665842,
+      "mde_pp": 35.73089776647459,
+      "episodes": 7
+    },
+    {
+      "signal": "midcap100",
+      "off_sessions": 437,
+      "pct_defensive": 0.3684654300168634,
+      "gold_ann_while_defensive": 0.29125984205807015,
+      "gold_ann_unconditional": 0.27896975905496263,
+      "edge_pp": 1.2290083003107521,
+      "percentile": 0.564,
+      "z_vs_null": 0.14488016492225395,
+      "mde_pp": 32.311380796313685,
+      "episodes": 7
+    },
+    {
+      "signal": "nifty500_synth",
+      "off_sessions": 458,
+      "pct_defensive": 0.38617200674536256,
+      "gold_ann_while_defensive": 0.2674159879269513,
+      "gold_ann_unconditional": 0.27896975905496263,
+      "edge_pp": -1.1553771128011314,
+      "percentile": 0.496,
+      "z_vs_null": -0.07385897951906174,
+      "mde_pp": 30.970996948388073,
+      "episodes": 7
+    },
+    {
+      "signal": "nifty100",
+      "off_sessions": 475,
+      "pct_defensive": 0.40050590219224286,
+      "gold_ann_while_defensive": 0.2536491341972677,
+      "gold_ann_unconditional": 0.27896975905496263,
+      "edge_pp": -2.532062485769493,
+      "percentile": 0.42133333333333334,
+      "z_vs_null": -0.26561695568427296,
+      "mde_pp": 31.467969071691005,
+      "episodes": 6
+    },
+    {
+      "signal": "nifty50",
+      "off_sessions": 528,
+      "pct_defensive": 0.4451939291736931,
+      "gold_ann_while_defensive": 0.19532557800406425,
+      "gold_ann_unconditional": 0.27896975905496263,
+      "edge_pp": -8.364418105089838,
+      "percentile": 0.22133333333333333,
+      "z_vs_null": -0.7935102504452574,
+      "mde_pp": 29.673696794995852,
+      "episodes": 7
+    }
+  ],
+  "signal_by_parent": [
+    {
+      "signal": "nifty50",
+      "parent": "0003",
+      "value_add_ann": -0.02996435457056803,
+      "cagr": 0.115122136516155,
+      "max_drawdown": -0.24468545969891675
+    },
+    {
+      "signal": "nifty50",
+      "parent": "0007",
+      "value_add_ann": 0.0025695226441357602,
+      "cagr": 0.06937245461664365,
+      "max_drawdown": -0.2381642430793025
+    },
+    {
+      "signal": "nifty50",
+      "parent": "0010",
+      "value_add_ann": 0.002103051582666072,
+      "cagr": 0.20876753596020214,
+      "max_drawdown": -0.22717999406208278
+    },
+    {
+      "signal": "nifty50",
+      "parent": "0029",
+      "value_add_ann": -0.05797360200882571,
+      "cagr": 0.1266311256818946,
+      "max_drawdown": -0.28155209216564636
+    },
+    {
+      "signal": "nifty100",
+      "parent": "0003",
+      "value_add_ann": 0.05497816195225934,
+      "cagr": 0.21276935283474896,
+      "max_drawdown": -0.17116094203468335
+    },
+    {
+      "signal": "nifty100",
+      "parent": "0007",
+      "value_add_ann": 0.06982756211077257,
+      "cagr": 0.14111201295415632,
+      "max_drawdown": -0.2342301145245128
+    },
+    {
+      "signal": "nifty100",
+      "parent": "0010",
+      "value_add_ann": 0.06397254074500949,
+      "cagr": 0.28339641753856903,
+      "max_drawdown": -0.1320659301646817
+    },
+    {
+      "signal": "nifty100",
+      "parent": "0029",
+      "value_add_ann": 0.011417007999024559,
+      "cagr": 0.2096199052231138,
+      "max_drawdown": -0.17381582631900483
+    },
+    {
+      "signal": "midcap100",
+      "parent": "0003",
+      "value_add_ann": 0.00607008904452752,
+      "cagr": 0.15654618721116642,
+      "max_drawdown": -0.1956427917121656
+    },
+    {
+      "signal": "midcap100",
+      "parent": "0007",
+      "value_add_ann": 0.037639479252491476,
+      "cagr": 0.10677918276320453,
+      "max_drawdown": -0.20932551336659222
+    },
+    {
+      "signal": "midcap100",
+      "parent": "0010",
+      "value_add_ann": 0.010763184813192104,
+      "cagr": 0.21921365513888214,
+      "max_drawdown": -0.172786092134123
+    },
+    {
+      "signal": "midcap100",
+      "parent": "0029",
+      "value_add_ann": -0.0026396002606647287,
+      "cagr": 0.19280868589778044,
+      "max_drawdown": -0.18773031369520954
+    },
+    {
+      "signal": "midcap150",
+      "parent": "0003",
+      "value_add_ann": -0.002112973208069443,
+      "cagr": 0.14713919901918016,
+      "max_drawdown": -0.22271341184498716
+    },
+    {
+      "signal": "midcap150",
+      "parent": "0007",
+      "value_add_ann": 0.017332822534932447,
+      "cagr": 0.08511945857585701,
+      "max_drawdown": -0.228345662656392
+    },
+    {
+      "signal": "midcap150",
+      "parent": "0010",
+      "value_add_ann": 0.0006516229855646382,
+      "cagr": 0.20701677812529806,
+      "max_drawdown": -0.19624936721222142
+    },
+    {
+      "signal": "midcap150",
+      "parent": "0029",
+      "value_add_ann": -0.026830939224319596,
+      "cagr": 0.163876677722113,
+      "max_drawdown": -0.2651732839982023
+    },
+    {
+      "signal": "smallcap100",
+      "parent": "0003",
+      "value_add_ann": 0.07609627875846872,
+      "cagr": 0.23704606848236032,
+      "max_drawdown": -0.17814714279369936
+    },
+    {
+      "signal": "smallcap100",
+      "parent": "0007",
+      "value_add_ann": 0.10164785078299453,
+      "cagr": 0.17505254219972866,
+      "max_drawdown": -0.20332798007779518
+    },
+    {
+      "signal": "smallcap100",
+      "parent": "0010",
+      "value_add_ann": 0.025022138053934533,
+      "cagr": 0.236413243291977,
+      "max_drawdown": -0.1734293163580799
+    },
+    {
+      "signal": "smallcap100",
+      "parent": "0029",
+      "value_add_ann": 0.04141029840623524,
+      "cagr": 0.24549084748803973,
+      "max_drawdown": -0.17606443154611684
+    },
+    {
+      "signal": "smallcap250",
+      "parent": "0003",
+      "value_add_ann": 0.057438506733498255,
+      "cagr": 0.2155976869706624,
+      "max_drawdown": -0.2203276391644825
+    },
+    {
+      "signal": "smallcap250",
+      "parent": "0007",
+      "value_add_ann": 0.10670929239048321,
+      "cagr": 0.1804512363685129,
+      "max_drawdown": -0.22650363836957044
+    },
+    {
+      "signal": "smallcap250",
+      "parent": "0010",
+      "value_add_ann": 0.019629081201546095,
+      "cagr": 0.22990797216995196,
+      "max_drawdown": -0.18249248228259474
+    },
+    {
+      "signal": "smallcap250",
+      "parent": "0029",
+      "value_add_ann": 0.019371751222284152,
+      "cagr": 0.21913350413206323,
+      "max_drawdown": -0.26630851548673284
+    },
+    {
+      "signal": "microcap250",
+      "parent": "0003",
+      "value_add_ann": 0.040689667013165925,
+      "cagr": 0.1963437533434762,
+      "max_drawdown": -0.22620135731341973
+    },
+    {
+      "signal": "microcap250",
+      "parent": "0007",
+      "value_add_ann": 0.10406733780397369,
+      "cagr": 0.17763324380305945,
+      "max_drawdown": -0.22608943841116746
+    },
+    {
+      "signal": "microcap250",
+      "parent": "0010",
+      "value_add_ann": 0.01120287072044449,
+      "cagr": 0.21974401780953268,
+      "max_drawdown": -0.19859446252724955
+    },
+    {
+      "signal": "microcap250",
+      "parent": "0029",
+      "value_add_ann": 0.023195149097840814,
+      "cagr": 0.22370615630152835,
+      "max_drawdown": -0.2509835864293707
+    },
+    {
+      "signal": "nifty500_synth",
+      "parent": "0003",
+      "value_add_ann": 0.012454368062648356,
+      "cagr": 0.16388535138760285,
+      "max_drawdown": -0.1711609420346838
+    },
+    {
+      "signal": "nifty500_synth",
+      "parent": "0007",
+      "value_add_ann": 0.043248251112119024,
+      "cagr": 0.11276167674037718,
+      "max_drawdown": -0.23423011452451215
+    },
+    {
+      "signal": "nifty500_synth",
+      "parent": "0010",
+      "value_add_ann": 0.029496700706418962,
+      "cagr": 0.24181059844761976,
+      "max_drawdown": -0.13761801250632388
+    },
+    {
+      "signal": "nifty500_synth",
+      "parent": "0029",
+      "value_add_ann": -0.016914280744071343,
+      "cagr": 0.1757366597039669,
+      "max_drawdown": -0.1764614822157159
+    }
+  ],
+  "sleeve_trend": [
+    {
+      "aa": "0042",
+      "signal_used": "smallcap100",
+      "sleeve_rule": "fixed 50/50",
+      "value_add_ann": 0.07609627875846872,
+      "cagr": 0.23704606848236032,
+      "max_drawdown": -0.17814714279369936,
+      "pct_gold_when_defensive": 0.7495361781076066
+    },
+    {
+      "aa": "0042",
+      "signal_used": "smallcap100",
+      "sleeve_rule": "all gold",
+      "value_add_ann": 0.14479404433544402,
+      "cagr": 0.31601883560183053,
+      "max_drawdown": -0.24573564390078173,
+      "pct_gold_when_defensive": 0.7495361781076066
+    },
+    {
+      "aa": "0042",
+      "signal_used": "smallcap100",
+      "sleeve_rule": "gold when gold trends, else cash",
+      "value_add_ann": 0.10522341727060136,
+      "cagr": 0.27052970084297523,
+      "max_drawdown": -0.21549061677969406,
+      "pct_gold_when_defensive": 0.7495361781076066
+    },
+    {
+      "aa": "0043",
+      "signal_used": "smallcap250",
+      "sleeve_rule": "fixed 50/50",
+      "value_add_ann": 0.10670929239048321,
+      "cagr": 0.1804512363685129,
+      "max_drawdown": -0.22650363836957044,
+      "pct_gold_when_defensive": 0.7666666666666667
+    },
+    {
+      "aa": "0043",
+      "signal_used": "smallcap250",
+      "sleeve_rule": "all gold",
+      "value_add_ann": 0.18727120535687367,
+      "cagr": 0.2663811281831683,
+      "max_drawdown": -0.24573564390078206,
+      "pct_gold_when_defensive": 0.7666666666666667
+    },
+    {
+      "aa": "0043",
+      "signal_used": "smallcap250",
+      "sleeve_rule": "gold when gold trends, else cash",
+      "value_add_ann": 0.15199848241006914,
+      "cagr": 0.2287581230282174,
+      "max_drawdown": -0.22971319968337323,
+      "pct_gold_when_defensive": 0.7666666666666667
+    },
+    {
+      "aa": "0044",
+      "signal_used": "nifty100",
+      "sleeve_rule": "fixed 50/50",
+      "value_add_ann": 0.06397254074500949,
+      "cagr": 0.28339641753856903,
+      "max_drawdown": -0.1320659301646817,
+      "pct_gold_when_defensive": 0.6463157894736842
+    },
+    {
+      "aa": "0044",
+      "signal_used": "nifty100",
+      "sleeve_rule": "all gold",
+      "value_add_ann": 0.09974187939639532,
+      "cagr": 0.3265424944577806,
+      "max_drawdown": -0.24573564390078173,
+      "pct_gold_when_defensive": 0.6463157894736842
+    },
+    {
+      "aa": "0044",
+      "signal_used": "nifty100",
+      "sleeve_rule": "gold when gold trends, else cash",
+      "value_add_ann": 0.05818832424033596,
+      "cagr": 0.2764193176078056,
+      "max_drawdown": -0.20557990174882435,
+      "pct_gold_when_defensive": 0.6463157894736842
+    },
+    {
+      "aa": "0045",
+      "signal_used": "smallcap100",
+      "sleeve_rule": "fixed 50/50",
+      "value_add_ann": 0.04141029840623524,
+      "cagr": 0.24549084748803973,
+      "max_drawdown": -0.17606443154611684,
+      "pct_gold_when_defensive": 0.7495361781076066
+    },
+    {
+      "aa": "0045",
+      "signal_used": "smallcap100",
+      "sleeve_rule": "all gold",
+      "value_add_ann": 0.1078937181165057,
+      "cagr": 0.3250027275660188,
+      "max_drawdown": -0.24573564390078162,
+      "pct_gold_when_defensive": 0.7495361781076066
+    },
+    {
+      "aa": "0045",
+      "signal_used": "smallcap100",
+      "sleeve_rule": "gold when gold trends, else cash",
+      "value_add_ann": 0.06959857728834089,
+      "cagr": 0.2792030581391478,
+      "max_drawdown": -0.21946286242329538,
+      "pct_gold_when_defensive": 0.7495361781076066
+    }
+  ],
+  "param_sweep": [
+    {
+      "days": 3,
+      "mul": 1.0,
+      "aa": "0042",
+      "value_add_ann": 0.034456942648854905,
+      "pct_defensive": 0.41652613827993257,
+      "switches": 28
+    },
+    {
+      "days": 3,
+      "mul": 1.0,
+      "aa": "0043",
+      "value_add_ann": 0.06397537988138094,
+      "pct_defensive": 0.41652613827993257,
+      "switches": 28
+    },
+    {
+      "days": 3,
+      "mul": 1.0,
+      "aa": "0044",
+      "value_add_ann": -0.010107205706159226,
+      "pct_defensive": 0.41652613827993257,
+      "switches": 28
+    },
+    {
+      "days": 3,
+      "mul": 1.0,
+      "aa": "0045",
+      "value_add_ann": -0.011809614583745196,
+      "pct_defensive": 0.41652613827993257,
+      "switches": 28
+    },
+    {
+      "days": 3,
+      "mul": 1.5,
+      "aa": "0042",
+      "value_add_ann": 0.026227860611046566,
+      "pct_defensive": 0.42411467116357504,
+      "switches": 20
+    },
+    {
+      "days": 3,
+      "mul": 1.5,
+      "aa": "0043",
+      "value_add_ann": 0.057264894708874095,
+      "pct_defensive": 0.42411467116357504,
+      "switches": 20
+    },
+    {
+      "days": 3,
+      "mul": 1.5,
+      "aa": "0044",
+      "value_add_ann": -0.0010478337875247188,
+      "pct_defensive": 0.42411467116357504,
+      "switches": 20
+    },
+    {
+      "days": 3,
+      "mul": 1.5,
+      "aa": "0045",
+      "value_add_ann": -0.0011136164494978476,
+      "pct_defensive": 0.42411467116357504,
+      "switches": 20
+    },
+    {
+      "days": 3,
+      "mul": 2.0,
+      "aa": "0042",
+      "value_add_ann": 0.07609627875846872,
+      "pct_defensive": 0.45446880269814505,
+      "switches": 12
+    },
+    {
+      "days": 3,
+      "mul": 2.0,
+      "aa": "0043",
+      "value_add_ann": 0.10164785078299453,
+      "pct_defensive": 0.45446880269814505,
+      "switches": 12
+    },
+    {
+      "days": 3,
+      "mul": 2.0,
+      "aa": "0044",
+      "value_add_ann": 0.025022138053934533,
+      "pct_defensive": 0.45446880269814505,
+      "switches": 12
+    },
+    {
+      "days": 3,
+      "mul": 2.0,
+      "aa": "0045",
+      "value_add_ann": 0.04141029840623524,
+      "pct_defensive": 0.45446880269814505,
+      "switches": 12
+    },
+    {
+      "days": 3,
+      "mul": 2.5,
+      "aa": "0042",
+      "value_add_ann": 0.08206534472098874,
+      "pct_defensive": 0.4139966273187184,
+      "switches": 11
+    },
+    {
+      "days": 3,
+      "mul": 2.5,
+      "aa": "0043",
+      "value_add_ann": 0.09457775726748735,
+      "pct_defensive": 0.4139966273187184,
+      "switches": 11
+    },
+    {
+      "days": 3,
+      "mul": 2.5,
+      "aa": "0044",
+      "value_add_ann": 0.03515497865508222,
+      "pct_defensive": 0.4139966273187184,
+      "switches": 11
+    },
+    {
+      "days": 3,
+      "mul": 2.5,
+      "aa": "0045",
+      "value_add_ann": 0.031638365222488966,
+      "pct_defensive": 0.4139966273187184,
+      "switches": 11
+    },
+    {
+      "days": 3,
+      "mul": 3.0,
+      "aa": "0042",
+      "value_add_ann": 0.0882730995445472,
+      "pct_defensive": 0.45868465430016864,
+      "switches": 9
+    },
+    {
+      "days": 3,
+      "mul": 3.0,
+      "aa": "0043",
+      "value_add_ann": 0.12220030179114191,
+      "pct_defensive": 0.45868465430016864,
+      "switches": 9
+    },
+    {
+      "days": 3,
+      "mul": 3.0,
+      "aa": "0044",
+      "value_add_ann": 0.045138121236822815,
+      "pct_defensive": 0.45868465430016864,
+      "switches": 9
+    },
+    {
+      "days": 3,
+      "mul": 3.0,
+      "aa": "0045",
+      "value_add_ann": 0.057956710985589584,
+      "pct_defensive": 0.45868465430016864,
+      "switches": 9
+    },
+    {
+      "days": 5,
+      "mul": 1.0,
+      "aa": "0042",
+      "value_add_ann": 0.04961294925265882,
+      "pct_defensive": 0.40809443507588533,
+      "switches": 28
+    },
+    {
+      "days": 5,
+      "mul": 1.0,
+      "aa": "0043",
+      "value_add_ann": 0.07805313772141619,
+      "pct_defensive": 0.40809443507588533,
+      "switches": 28
+    },
+    {
+      "days": 5,
+      "mul": 1.0,
+      "aa": "0044",
+      "value_add_ann": 0.011553289171009864,
+      "pct_defensive": 0.40809443507588533,
+      "switches": 28
+    },
+    {
+      "days": 5,
+      "mul": 1.0,
+      "aa": "0045",
+      "value_add_ann": 0.00840067694997381,
+      "pct_defensive": 0.40809443507588533,
+      "switches": 28
+    },
+    {
+      "days": 5,
+      "mul": 1.5,
+      "aa": "0042",
+      "value_add_ann": 0.02466385881251903,
+      "pct_defensive": 0.41989881956155145,
+      "switches": 20
+    },
+    {
+      "days": 5,
+      "mul": 1.5,
+      "aa": "0043",
+      "value_add_ann": 0.04931599990164159,
+      "pct_defensive": 0.41989881956155145,
+      "switches": 20
+    },
+    {
+      "days": 5,
+      "mul": 1.5,
+      "aa": "0044",
+      "value_add_ann": -0.0070800414364826725,
+      "pct_defensive": 0.41989881956155145,
+      "switches": 20
+    },
+    {
+      "days": 5,
+      "mul": 1.5,
+      "aa": "0045",
+      "value_add_ann": -0.002163002248222011,
+      "pct_defensive": 0.41989881956155145,
+      "switches": 20
+    },
+    {
+      "days": 5,
+      "mul": 2.0,
+      "aa": "0042",
+      "value_add_ann": 0.07609627875846872,
+      "pct_defensive": 0.45446880269814505,
+      "switches": 12
+    },
+    {
+      "days": 5,
+      "mul": 2.0,
+      "aa": "0043",
+      "value_add_ann": 0.10164785078299453,
+      "pct_defensive": 0.45446880269814505,
+      "switches": 12
+    },
+    {
+      "days": 5,
+      "mul": 2.0,
+      "aa": "0044",
+      "value_add_ann": 0.025022138053934533,
+      "pct_defensive": 0.45446880269814505,
+      "switches": 12
+    },
+    {
+      "days": 5,
+      "mul": 2.0,
+      "aa": "0045",
+      "value_add_ann": 0.04141029840623524,
+      "pct_defensive": 0.45446880269814505,
+      "switches": 12
+    },
+    {
+      "days": 5,
+      "mul": 2.5,
+      "aa": "0042",
+      "value_add_ann": 0.09187157223015756,
+      "pct_defensive": 0.4460370994940978,
+      "switches": 9
+    },
+    {
+      "days": 5,
+      "mul": 2.5,
+      "aa": "0043",
+      "value_add_ann": 0.1265546917033593,
+      "pct_defensive": 0.4460370994940978,
+      "switches": 9
+    },
+    {
+      "days": 5,
+      "mul": 2.5,
+      "aa": "0044",
+      "value_add_ann": 0.04532445517838431,
+      "pct_defensive": 0.4460370994940978,
+      "switches": 9
+    },
+    {
+      "days": 5,
+      "mul": 2.5,
+      "aa": "0045",
+      "value_add_ann": 0.05874916874772277,
+      "pct_defensive": 0.4460370994940978,
+      "switches": 9
+    },
+    {
+      "days": 5,
+      "mul": 3.0,
+      "aa": "0042",
+      "value_add_ann": 0.07267129039965499,
+      "pct_defensive": 0.45784148397976393,
+      "switches": 9
+    },
+    {
+      "days": 5,
+      "mul": 3.0,
+      "aa": "0043",
+      "value_add_ann": 0.11507926408230282,
+      "pct_defensive": 0.45784148397976393,
+      "switches": 9
+    },
+    {
+      "days": 5,
+      "mul": 3.0,
+      "aa": "0044",
+      "value_add_ann": 0.037726986194493745,
+      "pct_defensive": 0.45784148397976393,
+      "switches": 9
+    },
+    {
+      "days": 5,
+      "mul": 3.0,
+      "aa": "0045",
+      "value_add_ann": 0.04584084574406393,
+      "pct_defensive": 0.45784148397976393,
+      "switches": 9
+    },
+    {
+      "days": 8,
+      "mul": 1.0,
+      "aa": "0042",
+      "value_add_ann": 0.04439214596039714,
+      "pct_defensive": 0.40387858347386174,
+      "switches": 26
+    },
+    {
+      "days": 8,
+      "mul": 1.0,
+      "aa": "0043",
+      "value_add_ann": 0.07953350522907857,
+      "pct_defensive": 0.40387858347386174,
+      "switches": 26
+    },
+    {
+      "days": 8,
+      "mul": 1.0,
+      "aa": "0044",
+      "value_add_ann": 0.010611678394439876,
+      "pct_defensive": 0.40387858347386174,
+      "switches": 26
+    },
+    {
+      "days": 8,
+      "mul": 1.0,
+      "aa": "0045",
+      "value_add_ann": 0.00893971606282559,
+      "pct_defensive": 0.40387858347386174,
+      "switches": 26
+    },
+    {
+      "days": 8,
+      "mul": 1.5,
+      "aa": "0042",
+      "value_add_ann": 0.04369085348775213,
+      "pct_defensive": 0.3760539629005059,
+      "switches": 18
+    },
+    {
+      "days": 8,
+      "mul": 1.5,
+      "aa": "0043",
+      "value_add_ann": 0.06696768328195626,
+      "pct_defensive": 0.3760539629005059,
+      "switches": 18
+    },
+    {
+      "days": 8,
+      "mul": 1.5,
+      "aa": "0044",
+      "value_add_ann": 0.015052239484549292,
+      "pct_defensive": 0.3760539629005059,
+      "switches": 18
+    },
+    {
+      "days": 8,
+      "mul": 1.5,
+      "aa": "0045",
+      "value_add_ann": 0.005782116859494048,
+      "pct_defensive": 0.3760539629005059,
+      "switches": 18
+    },
+    {
+      "days": 8,
+      "mul": 2.0,
+      "aa": "0042",
+      "value_add_ann": 0.058653340470037695,
+      "pct_defensive": 0.4797639123102867,
+      "switches": 14
+    },
+    {
+      "days": 8,
+      "mul": 2.0,
+      "aa": "0043",
+      "value_add_ann": 0.10141483575707544,
+      "pct_defensive": 0.4797639123102867,
+      "switches": 14
+    },
+    {
+      "days": 8,
+      "mul": 2.0,
+      "aa": "0044",
+      "value_add_ann": 0.0041911208539099215,
+      "pct_defensive": 0.4797639123102867,
+      "switches": 14
+    },
+    {
+      "days": 8,
+      "mul": 2.0,
+      "aa": "0045",
+      "value_add_ann": 0.018421954517478845,
+      "pct_defensive": 0.4797639123102867,
+      "switches": 14
+    },
+    {
+      "days": 8,
+      "mul": 2.5,
+      "aa": "0042",
+      "value_add_ann": 0.08078751158563562,
+      "pct_defensive": 0.4451939291736931,
+      "switches": 9
+    },
+    {
+      "days": 8,
+      "mul": 2.5,
+      "aa": "0043",
+      "value_add_ann": 0.11541507669698081,
+      "pct_defensive": 0.4451939291736931,
+      "switches": 9
+    },
+    {
+      "days": 8,
+      "mul": 2.5,
+      "aa": "0044",
+      "value_add_ann": 0.038393805579731405,
+      "pct_defensive": 0.4451939291736931,
+      "switches": 9
+    },
+    {
+      "days": 8,
+      "mul": 2.5,
+      "aa": "0045",
+      "value_add_ann": 0.046213290648922586,
+      "pct_defensive": 0.4451939291736931,
+      "switches": 9
+    },
+    {
+      "days": 8,
+      "mul": 3.0,
+      "aa": "0042",
+      "value_add_ann": 0.07227664787999326,
+      "pct_defensive": 0.4468802698145025,
+      "switches": 9
+    },
+    {
+      "days": 8,
+      "mul": 3.0,
+      "aa": "0043",
+      "value_add_ann": 0.11610674713879236,
+      "pct_defensive": 0.4468802698145025,
+      "switches": 9
+    },
+    {
+      "days": 8,
+      "mul": 3.0,
+      "aa": "0044",
+      "value_add_ann": 0.033441274612279547,
+      "pct_defensive": 0.4468802698145025,
+      "switches": 9
+    },
+    {
+      "days": 8,
+      "mul": 3.0,
+      "aa": "0045",
+      "value_add_ann": 0.04552829063799895,
+      "pct_defensive": 0.4468802698145025,
+      "switches": 9
+    },
+    {
+      "days": 10,
+      "mul": 1.0,
+      "aa": "0042",
+      "value_add_ann": 0.04439214596039714,
+      "pct_defensive": 0.40387858347386174,
+      "switches": 26
+    },
+    {
+      "days": 10,
+      "mul": 1.0,
+      "aa": "0043",
+      "value_add_ann": 0.07953350522907857,
+      "pct_defensive": 0.40387858347386174,
+      "switches": 26
+    },
+    {
+      "days": 10,
+      "mul": 1.0,
+      "aa": "0044",
+      "value_add_ann": 0.010611678394439876,
+      "pct_defensive": 0.40387858347386174,
+      "switches": 26
+    },
+    {
+      "days": 10,
+      "mul": 1.0,
+      "aa": "0045",
+      "value_add_ann": 0.00893971606282559,
+      "pct_defensive": 0.40387858347386174,
+      "switches": 26
+    },
+    {
+      "days": 10,
+      "mul": 1.5,
+      "aa": "0042",
+      "value_add_ann": 0.03660255116041942,
+      "pct_defensive": 0.3718381112984823,
+      "switches": 18
+    },
+    {
+      "days": 10,
+      "mul": 1.5,
+      "aa": "0043",
+      "value_add_ann": 0.06456099091605964,
+      "pct_defensive": 0.3718381112984823,
+      "switches": 18
+    },
+    {
+      "days": 10,
+      "mul": 1.5,
+      "aa": "0044",
+      "value_add_ann": 0.010989372469141659,
+      "pct_defensive": 0.3718381112984823,
+      "switches": 18
+    },
+    {
+      "days": 10,
+      "mul": 1.5,
+      "aa": "0045",
+      "value_add_ann": 0.002436037679569451,
+      "pct_defensive": 0.3718381112984823,
+      "switches": 18
+    },
+    {
+      "days": 10,
+      "mul": 2.0,
+      "aa": "0042",
+      "value_add_ann": 0.048125862342027925,
+      "pct_defensive": 0.47133220910623946,
+      "switches": 14
+    },
+    {
+      "days": 10,
+      "mul": 2.0,
+      "aa": "0043",
+      "value_add_ann": 0.08778923603007137,
+      "pct_defensive": 0.47133220910623946,
+      "switches": 14
+    },
+    {
+      "days": 10,
+      "mul": 2.0,
+      "aa": "0044",
+      "value_add_ann": -0.00453527029926957,
+      "pct_defensive": 0.47133220910623946,
+      "switches": 14
+    },
+    {
+      "days": 10,
+      "mul": 2.0,
+      "aa": "0045",
+      "value_add_ann": -0.0063828022964586475,
+      "pct_defensive": 0.47133220910623946,
+      "switches": 14
+    },
+    {
+      "days": 10,
+      "mul": 2.5,
+      "aa": "0042",
+      "value_add_ann": 0.08078751158563562,
+      "pct_defensive": 0.4451939291736931,
+      "switches": 9
+    },
+    {
+      "days": 10,
+      "mul": 2.5,
+      "aa": "0043",
+      "value_add_ann": 0.11541507669698081,
+      "pct_defensive": 0.4451939291736931,
+      "switches": 9
+    },
+    {
+      "days": 10,
+      "mul": 2.5,
+      "aa": "0044",
+      "value_add_ann": 0.038393805579731405,
+      "pct_defensive": 0.4451939291736931,
+      "switches": 9
+    },
+    {
+      "days": 10,
+      "mul": 2.5,
+      "aa": "0045",
+      "value_add_ann": 0.046213290648922586,
+      "pct_defensive": 0.4451939291736931,
+      "switches": 9
+    },
+    {
+      "days": 10,
+      "mul": 3.0,
+      "aa": "0042",
+      "value_add_ann": 0.009238044703869434,
+      "pct_defensive": 0.37015177065767285,
+      "switches": 9
+    },
+    {
+      "days": 10,
+      "mul": 3.0,
+      "aa": "0043",
+      "value_add_ann": 0.021520039372886098,
+      "pct_defensive": 0.37015177065767285,
+      "switches": 9
+    },
+    {
+      "days": 10,
+      "mul": 3.0,
+      "aa": "0044",
+      "value_add_ann": -0.0022974960860162636,
+      "pct_defensive": 0.37015177065767285,
+      "switches": 9
+    },
+    {
+      "days": 10,
+      "mul": 3.0,
+      "aa": "0045",
+      "value_add_ann": -0.005490431962869358,
+      "pct_defensive": 0.37015177065767285,
+      "switches": 9
+    }
+  ],
+  "own_nav": [
+    {
+      "aa": "0042",
+      "parent": "0003",
+      "value_add_ann": 0.02755161175566074,
+      "cagr": 0.18124066273289263,
+      "max_drawdown": -0.20594562411505724,
+      "pct_defensive": 0.3996627318718381
+    },
+    {
+      "aa": "0043",
+      "parent": "0007",
+      "value_add_ann": 0.09917700051227647,
+      "cagr": 0.17241705492497128,
+      "max_drawdown": -0.15218009632458673,
+      "pct_defensive": 0.5446880269814502
+    },
+    {
+      "aa": "0044",
+      "parent": "0010",
+      "value_add_ann": 0.015310331557777352,
+      "cagr": 0.22469856345985817,
+      "max_drawdown": -0.14669520975710204,
+      "pct_defensive": 0.39038785834738615
+    },
+    {
+      "aa": "0045",
+      "parent": "0029",
+      "value_add_ann": 0.01488635529955893,
+      "cagr": 0.213769125099454,
+      "max_drawdown": -0.2396939645269749,
+      "pct_defensive": 0.35160202360876897
+    }
+  ],
+  "best_signal_per_parent": {
+    "0042": "smallcap100",
+    "0043": "smallcap250",
+    "0044": "nifty100",
+    "0045": "smallcap100"
+  },
+  "n500_weights": {
+    "Nifty100": 0.76,
+    "NiftyMidcap150": 0.16,
+    "NiftySmallcap250": 0.08
+  },
+  "mul": 2.0,
+  "days": 5
+}

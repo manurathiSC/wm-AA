@@ -1,0 +1,16 @@
+{
+ "primary_bps": 20.8,
+ "gold_signal": "MAUc1 weekly supertrend from production ST.py (Master_MAUc1.xlsx, mauc1_st_production.py)",
+ "gold_weekly_candle": "ST.py: NSE trading days (TradingDays.xlsx) grouped by ISO week, forward-filled",
+ "gold_st_run": "Historical Data/FRA_MAUc1, dateCode 250926",
+ "gold_fill": "GOLDBEES trade-session OHLC4 after pulling O/H/L into close +/- (MCX range + 0.5%)",
+ "despike_tol": 0.005,
+ "stock_fill": "entry-session OHLC4, close fallback",
+ "gold_buy_share": 0.8,
+ "gold_sell_share": 0.2,
+ "gold_signal_missing_share": 0.5,
+ "live_start": "2021-11-03",
+ "live_end": "2026-08-21",
+ "oos_start": "2014-07-04",
+ "oos_end": "2021-10-29"
+}

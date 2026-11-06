@@ -1,0 +1,14 @@
+check,rows,mismatches,max_abs_diff
+Gold_ST signal (formula) = ST.py SIGN (Master_MAUc1),603,0,
+"Gold_ST weekly high = MAXIFS(daily), first 59 weeks",59,0,
+GOLDBEES_fill de-spiked OHLC4 (formula) = python,3019,0,
+Signals_live gold weight (formula) = python,250,0,
+Signals_1421 gold weight (formula) = python,381,0,
+"D_0042_live daily NAV (formula) = Python replica, |diff| < 1e-12",1185,0,7.105427357601002e-15
+"D_0043_live daily NAV (formula) = Python replica, |diff| < 1e-12",1185,0,1.509903313490213e-14
+"D_0044_live daily NAV (formula) = Python replica, |diff| < 1e-12",1185,0,7.105427357601002e-15
+"D_0045_live daily NAV (formula) = Python replica, |diff| < 1e-12",1185,0,2.220446049250313e-14
+"D_0042_1421 daily NAV (formula) = Python replica, |diff| < 1e-12",1801,0,1.509903313490213e-14
+"D_0043_1421 daily NAV (formula) = Python replica, |diff| < 1e-12",1801,0,1.4210854715202004e-14
+"D_0044_1421 daily NAV (formula) = Python replica, |diff| < 1e-12",1801,0,8.881784197001252e-15
+"D_0045_1421 daily NAV (formula) = Python replica, |diff| < 1e-12",1801,0,4.440892098500626e-15

@@ -1,0 +1,426 @@
+{
+  "test": "T01",
+  "run": "cash_sleeve",
+  "sleeve": "cash",
+  "partial_dev_run": false,
+  "purpose": "T01 engine run: does a smallcase's own index momentum (percentile of its own 65-day range and the sweep of 28 rules on the parent's own index path) time a move of the book's weight into a GOLDBEES/LBES sleeve better than circularly shifted exits with the same exposure? Robustness R4: 100% LBES sleeve of the non-equity part.",
+  "spec": "AA/tests/T01/T01.md sections 1-3 (frozen)",
+  "engine": "AA/analysis/own_momentum.py",
+  "engine_sha256": "56f3c6b4d7f155c41de991c2c5a1a1e5f278767c12e7d57b559d628e2cd2bb1c",
+  "inputs": {
+    "published_parents": {
+      "path": "AA/Historical Data/parentIndices.csv",
+      "size_bytes": 327497,
+      "sha256": "71dec6b60fdc70c79621771d6aa9a1017440b8fa98d276b71d7ad1a70717a445"
+    },
+    "harness_parents": {
+      "path": "AA/analysis/evidence/final_strategy/nav_curves_daily.csv",
+      "size_bytes": 2116765,
+      "sha256": "a77951a0587c80ce5fb88e4e125ed6139b5855cdfc88ecb5c5569b78cfa20962"
+    },
+    "goldbees": {
+      "path": "AA/analysis/evidence/final_strategy/gold_daily_ohlc_eikon.csv",
+      "size_bytes": 113154,
+      "sha256": "62ee1277717be698909ecda9c57aca43d09e13e9ac251f600a696a34c190d5cf"
+    },
+    "lbes": {
+      "path": "AA/Historical Data/LBES_Adjusted_Price_data_2026_08_10.csv",
+      "size_bytes": 170686,
+      "sha256": "f3a3c0f12065fcf77c611bd5a6d29a171007c1ce638167ac21cb2e4156476527"
+    },
+    "master_nifty100": {
+      "path": "AA/Historical Data/frozen_2026-09-25/Master/Master_Nifty100.xlsx",
+      "size_bytes": 203327,
+      "sha256": "8a80c502a85098b2c4138530d5b68ef7878bbd8157ce82beadfb5d9081788895"
+    },
+    "master_mc100": {
+      "path": "AA/Historical Data/frozen_2026-09-25/Master/Master_MC100.xlsx",
+      "size_bytes": 199749,
+      "sha256": "114e654a28a950bd9b1b7d0c0386a760424dc927b139ef7518f86b0f29b3e8a7"
+    },
+    "master_sc100": {
+      "path": "AA/Historical Data/frozen_2026-09-25/Master/Master_SC100.xlsx",
+      "size_bytes": 208298,
+      "sha256": "63ad46a9cb9104b2bc0b1c916a2ebc9baffbeaabc0e1a08533ae3b42b641cca2"
+    }
+  },
+  "rules": {
+    "splice": "P_t = harness rebuild for t <= 2021-10-29; for t >= 2021-11-01 P_t = P_2021-10-29 x published_t / published_2021-11-01 (the 2021-10-29 -> 2021-11-01 return is 0). The session calendar is the union of the two sources' dates.",
+    "sleeve_prices": "GOLDBEES close and LBES level on the same calendar, gaps carried forward as-of (the latest observation dated on or before the session).",
+    "decision_sessions": "weekly: the last session of each ISO week of the whole calendar in (T0, end], plus T0; daily config: every session T0..end.",
+    "signals": {
+      "pct": "p_d = 100 x (count of the W previous closes P[d-W..d-1] strictly below P_d) / W; equity 0 if p_d < q else 1",
+      "hyst": "p_d with W=65; exit to the sleeve when p_d < 25; re-enter equity only when p_d >= 50; otherwise keep the previous state (starts as equity at the window's T0)",
+      "step": "p_d with W=65; equity 1 if p_d >= 50, 0.5 if 25 <= p_d < 50, 0 if p_d < 25",
+      "sma": "equity 0 if P_d < mean(P[d-n+1..d]) else 1; value = P_d / SMA - 1",
+      "tsmom": "value = P_d / P[d-L] - 1; equity 0 if value < 0 else 1",
+      "ddhigh": "value = P_d / max(P[d-249..d]) - 1; equity 0 if value < -X/100 else 1",
+      "st": "production ST.py getSupertrend on ISO-week candles of the spliced closes (H = max close, L = min close, C = last close; TR = max(H-L,|H-PC|,|L-PC|), first week H-L; 5-candle linear weights 1..5/15; multiplier 2; bands (H+L)/2 +- 2 ATR; production ratchet; starts on the 6th candle); equity 0 when the line is on the upper band (SELL), else 1; value = weekly close - line; a decision at d reads the latest completed week with label <= d",
+      "triple": "equity 1 if Nifty100, MC100 and SC100 Master SIGN are all BUY on each file's latest week label <= d, else 0; value = number of the 3 that are BUY",
+      "triple_pct": "triple AND p_d >= 25 (W = 65); value = p_d"
+    },
+    "targets": "equity e_d; GOLDBEES (1 - e_d)/2 and LBES (1 - e_d)/2 (gold_cash sleeve) or GOLDBEES 0 and LBES 1 - e_d (cash sleeve).",
+    "execution": "a trade only when the new target differs from the target last traded; filled at the close of the session after the decision; nav_now = cash + sum units x close; every trim first (units -= |D|/px, cash += |D|(1-ow)); then top-ups in the order equity, GOLDBEES, LBES: v = min(D, cash), units += v(1-ow)/px, cash -= v; ow = cost_bps/2/10000. The first trade is the build on T0's next session from cash; at the last session everything is sold at its close paying the sell-side cost; a target decided on the last session is not traded. Weights drift between trades.",
+    "nav": "NAV = cash account + sum units x close; 1.0 at T0's close; a trade session is stamped after trading",
+    "statistics": "years = (sessions - 1)/252; CAGR = NAV_end^(1/years) - 1; vol = sample SD (ddof=1) of daily NAV returns x sqrt(252); Sharpe = CAGR/vol (r_f = 0); max_dd on daily NAV; Calmar = CAGR/|max_dd|; B&H = P_t/P_T0 close to close, no cost.",
+    "null": "the target series w_0 (T0) .. w_n is rotated: w'_j = w_{(j-k) mod (n+1)} (numpy.roll by k), for every 8 <= k <= n+1-8 (weekly) and 40 <= k <= n+1-40 sessions (pct_w65_q25_daily), and run through the identical engine at the same cost and sleeve. Every config, including the descriptive ones, at both cost levels.",
+    "observed_se": "Newey-West (Bartlett, 4 lags) SE of the mean weekly after-cost return difference between the strategy NAV and a static mix (equity = the strategy's avg_equity_weight across its decision sessions, the rest split as the sleeve), rebalanced weekly at no cost, on the window's weekly decision sessions (also for the daily config); x 52.",
+    "realisation_fields": "share_sleeve_weeks = fraction of decision sessions (all n+1, T0 and the last included) with equity target < 1; avg_equity_weight = their mean equity target; n_switches = trades excluding build and final liquidation; n_spells = maximal runs of decision sessions with target < 1 (not circular); target_level_counts = counts of each target level over the n+1 decision sessions."
+  },
+  "parameters": {
+    "configs": {
+      "pct_w20_q10": {
+        "kind": "pct",
+        "W": 20,
+        "q": 10,
+        "freq": "W"
+      },
+      "pct_w20_q25": {
+        "kind": "pct",
+        "W": 20,
+        "q": 25,
+        "freq": "W"
+      },
+      "pct_w20_q40": {
+        "kind": "pct",
+        "W": 20,
+        "q": 40,
+        "freq": "W"
+      },
+      "pct_w40_q10": {
+        "kind": "pct",
+        "W": 40,
+        "q": 10,
+        "freq": "W"
+      },
+      "pct_w40_q25": {
+        "kind": "pct",
+        "W": 40,
+        "q": 25,
+        "freq": "W"
+      },
+      "pct_w40_q40": {
+        "kind": "pct",
+        "W": 40,
+        "q": 40,
+        "freq": "W"
+      },
+      "pct_w65_q10": {
+        "kind": "pct",
+        "W": 65,
+        "q": 10,
+        "freq": "W"
+      },
+      "pct_w65_q25": {
+        "kind": "pct",
+        "W": 65,
+        "q": 25,
+        "freq": "W"
+      },
+      "pct_w65_q40": {
+        "kind": "pct",
+        "W": 65,
+        "q": 40,
+        "freq": "W"
+      },
+      "pct_w130_q10": {
+        "kind": "pct",
+        "W": 130,
+        "q": 10,
+        "freq": "W"
+      },
+      "pct_w130_q25": {
+        "kind": "pct",
+        "W": 130,
+        "q": 25,
+        "freq": "W"
+      },
+      "pct_w130_q40": {
+        "kind": "pct",
+        "W": 130,
+        "q": 40,
+        "freq": "W"
+      },
+      "pct_w250_q10": {
+        "kind": "pct",
+        "W": 250,
+        "q": 10,
+        "freq": "W"
+      },
+      "pct_w250_q25": {
+        "kind": "pct",
+        "W": 250,
+        "q": 25,
+        "freq": "W"
+      },
+      "pct_w250_q40": {
+        "kind": "pct",
+        "W": 250,
+        "q": 40,
+        "freq": "W"
+      },
+      "pct_w65_hyst": {
+        "kind": "hyst",
+        "W": 65,
+        "lo": 25,
+        "hi": 50,
+        "freq": "W"
+      },
+      "pct_w65_step": {
+        "kind": "step",
+        "W": 65,
+        "lo": 25,
+        "hi": 50,
+        "freq": "W"
+      },
+      "pct_w65_q25_daily": {
+        "kind": "pct",
+        "W": 65,
+        "q": 25,
+        "freq": "D"
+      },
+      "sma_50": {
+        "kind": "sma",
+        "n": 50,
+        "freq": "W"
+      },
+      "sma_100": {
+        "kind": "sma",
+        "n": 100,
+        "freq": "W"
+      },
+      "sma_200": {
+        "kind": "sma",
+        "n": 200,
+        "freq": "W"
+      },
+      "tsmom_65": {
+        "kind": "tsmom",
+        "L": 65,
+        "freq": "W"
+      },
+      "tsmom_130": {
+        "kind": "tsmom",
+        "L": 130,
+        "freq": "W"
+      },
+      "tsmom_250": {
+        "kind": "tsmom",
+        "L": 250,
+        "freq": "W"
+      },
+      "ddhigh_250_x7p5": {
+        "kind": "ddhigh",
+        "N": 250,
+        "X": 7.5,
+        "freq": "W"
+      },
+      "ddhigh_250_x10": {
+        "kind": "ddhigh",
+        "N": 250,
+        "X": 10.0,
+        "freq": "W"
+      },
+      "ddhigh_250_x15": {
+        "kind": "ddhigh",
+        "N": 250,
+        "X": 15.0,
+        "freq": "W"
+      },
+      "st_weekly": {
+        "kind": "st",
+        "mult": 2.0,
+        "atr_n": 5,
+        "freq": "W"
+      },
+      "triple": {
+        "kind": "triple",
+        "freq": "W",
+        "descriptive": true
+      },
+      "triple_and_pct25": {
+        "kind": "triple_pct",
+        "W": 65,
+        "q": 25,
+        "freq": "W",
+        "descriptive": true
+      }
+    },
+    "reference_config": "pct_w65_q25",
+    "books": {
+      "SCMO_0042": "SCMO_0003",
+      "SCMO_0043": "SCMO_0007",
+      "SCMO_0044": "SCMO_0010",
+      "SCMO_0045": "SCMO_0029"
+    },
+    "windows": {
+      "W1": {
+        "T0": "2015-07-31",
+        "end": "2021-10-29",
+        "sessions": 1545,
+        "weekly_decisions": 327,
+        "years": 6.126984126984127,
+        "parent_source": "harness rebuild"
+      },
+      "W2": {
+        "T0": "2021-11-01",
+        "end": "2026-08-21",
+        "sessions": 1186,
+        "weekly_decisions": 252,
+        "years": 4.7023809523809526,
+        "parent_source": "published parent NAV"
+      }
+    },
+    "sleeve_gold_share": 0.0,
+    "null_min_k_weekly": 8,
+    "null_min_k_daily": 40,
+    "nw_lags": 4
+  },
+  "cost_levels_bps_round_trip": [
+    0.0,
+    20.8
+  ],
+  "seeds": "none: every rotation offset is run; deterministic",
+  "point_in_time": {
+    "rule": "a decision at d reads P only up to and including d (each value is computed from the truncated array P[:i+1] and must equal an independent full-history computation at d), and the Master SIGN only up to the latest label <= d; the supertrend reads the latest completed week with label <= d; the trade is on d's next session.",
+    "checks": 192584,
+    "violations": 0,
+    "by_check": {
+      "inputs_end_at_or_before_d": {
+        "checks": 78088,
+        "violations": 0
+      },
+      "truncated_equals_full_history": {
+        "checks": 78088,
+        "violations": 0
+      },
+      "master_label_at_or_before_d": {
+        "checks": 13896,
+        "violations": 0
+      },
+      "trade_session_after_d": {
+        "checks": 7504,
+        "violations": 0
+      },
+      "trade_session_after_d_in_ledgers": {
+        "checks": 15008,
+        "violations": 0
+      }
+    }
+  },
+  "splice_check": {
+    "max_abs_diff_harness_side": 0.0,
+    "max_abs_diff_published_side": 4.440892098500626e-16,
+    "n_compared": 11964,
+    "splice_session_return_2021_11_01": {
+      "SCMO_0003": -1.1102230246251565e-16,
+      "SCMO_0007": 0.0,
+      "SCMO_0010": 0.0,
+      "SCMO_0029": -1.1102230246251565e-16
+    },
+    "rule": "harness rebuild returns up to and including 2021-10-29; published returns from 2021-11-02; the 2021-10-29 -> 2021-11-01 session return is 0 by construction",
+    "pass_threshold": 1e-12,
+    "pass": true
+  },
+  "bh_tieout_W2": {
+    "SCMO_0042": {
+      "parent": "SCMO_0003",
+      "engine_bh_total_return": 0.9529870264935019,
+      "published_parent_return": 0.9529870264935016,
+      "from": "2021-11-01",
+      "to": "2026-08-21",
+      "abs_diff": 2.220446049250313e-16
+    },
+    "SCMO_0043": {
+      "parent": "SCMO_0007",
+      "engine_bh_total_return": 0.3631100981081048,
+      "published_parent_return": 0.3631100981081048,
+      "from": "2021-11-01",
+      "to": "2026-08-21",
+      "abs_diff": 0.0
+    },
+    "SCMO_0044": {
+      "parent": "SCMO_0010",
+      "engine_bh_total_return": 1.460618526392715,
+      "published_parent_return": 1.4606185263927145,
+      "from": "2021-11-01",
+      "to": "2026-08-21",
+      "abs_diff": 4.440892098500626e-16
+    },
+    "SCMO_0045": {
+      "parent": "SCMO_0029",
+      "engine_bh_total_return": 1.3616734825260792,
+      "published_parent_return": 1.3616734825260788,
+      "from": "2021-11-01",
+      "to": "2026-08-21",
+      "abs_diff": 4.440892098500626e-16
+    }
+  },
+  "engine_self_checks": {
+    "zero_cost_closed_form_vs_engine_end_nav": {
+      "n": 240,
+      "max_rel_diff": 2.3314683517128287e-15
+    },
+    "supertrend_line_zero_count": 0,
+    "pass": true
+  },
+  "sleeve_price_info": {
+    "gold_first_date": "2014-07-01",
+    "gold_last_date": "2026-09-24",
+    "lbes_first_date": "2007-06-29",
+    "lbes_last_date": "2026-08-09",
+    "lbes_sessions_forward_filled_past_file_end": 10,
+    "gold_sessions_without_own_obs": 4,
+    "lbes_sessions_without_own_obs": 112
+  },
+  "row_counts": {
+    "realisations": 148440,
+    "strategy_rows": 480,
+    "null_rows": 147952,
+    "bh_rows": 8,
+    "decisions_all_configs": 78088,
+    "decisions_reference": 2316,
+    "trades": 15488,
+    "daily_reference": 21848,
+    "spliced_inputs": 2993
+  },
+  "interpretations": [
+    "Reference config R 'pct_w65_q25_weekly' in T01.md is written as config 'pct_w65_q25' (weekly) in every file.",
+    "Sleeve prices: 'gaps carried forward' is read as as-of alignment (level at a session = the latest observation dated on or before it, including observations on non-calendar dates), the repo convention in final_strategy.py / prices.py / why_n100sc100.py. For LBES this differs from reindex(calendar).ffill() on 31 sessions inside the windows (max level difference 0.84 on ~2000, 0.04%). The LBES tail after 2026-08-09 is a plain forward fill (no accrual).",
+    "Calendar = union of the harness dates (non-null rows of the four parent columns) and the published parentIndices.csv dates. Five dates present in nav_curves_daily.csv but absent from parentIndices.csv (2021-11-04, 2022-10-24, 2024-05-18, 2024-11-01, 2025-10-21) are therefore not sessions.",
+    "Weekly decision sessions: the last session of each ISO (year, week) of the whole calendar falling in (T0, end], plus T0. Weekend special sessions (e.g. Sunday muhurat 2016-10-30, Saturday 2020-11-14, 2024-01-20) are sessions and can be a week's last session.",
+    "History requirement read literally: pct needs W previous closes, sma_n needs n previous closes (one more than its mean uses), tsmom_L needs L, ddhigh needs 250 previous closes, st needs >= 6 completed weekly candles, triple needs a Master label <= d. All are met at every decision in both windows (W1 T0 = global session index 262).",
+    "Rotation direction: w'_j = w_{(j-k) mod (n+1)} (numpy.roll(w, k)). The set of k (8..n+1-8; daily 40..n+1-40) is symmetric, so the set of draws does not depend on the direction, only the shift_k label does.",
+    "If a target is decided on the session before the last (possible only for the daily config), it is traded at the last session's close and then everything is liquidated at the same close (both legs pay cost), because T01 only exempts a target decided on the last session itself.",
+    "n_decisions, share_sleeve_weeks, avg_equity_weight, n_spells and target_level_counts are computed over all n+1 decision sessions, T0 and the (untraded) last session included; n_spells is not circular.",
+    "observed_se uses the window's weekly decision sessions as the weekly grid for every config, including pct_w65_q25_daily; the static mix's equity weight is the config's avg_equity_weight; annualised by multiplying the weekly SE by 52 (the SE of an annual arithmetic mean difference).",
+    "Volatility uses the sample SD (ddof = 1) of daily NAV returns.",
+    "data_last_date is the last input date actually used: the decision date for every P-based config; for st_weekly the label of the weekly candle read (= the decision date on every weekly decision, 2021-10-29 at W2's T0 2021-11-01, whose own week is not complete); for triple the latest Master week label used (it reads no P).",
+    "triple / triple_and_pct25 read each Master file's latest week label <= d. On three of our week-end sessions the Master label is a later date (2021-11-03 vs label 2021-11-04, 2024-05-17 vs 2024-05-18, 2024-10-31 vs 2024-11-01), so those decisions read the previous week's SIGN (point-in-time safe, one week stale).",
+    "st_weekly: candles run over the whole spliced history from 2014-07-04; the supertrend starts on candle index 5 (the 6th), with the production branch order kept verbatim including its 'pst == pflb and close < fub' sell branch and its st = 0 fallback (the fallback never fired: see engine_self_checks.supertrend_line_zero_count). SELL = line equal to the upper band (FUB).",
+    "B&H realisation rows: config 'bh', cost 0, n_decisions = weekly decision count, share_sleeve_weeks 0, avg_equity_weight 1, n_switches 0, n_spells 0.",
+    "trades.csv: from_equity is empty for the build (the book is all cash) and to_equity is empty for the final liquidation; value_traded_frac = (sum of trims at pre-cost value + sum of cash committed to top-ups) / nav_before (for the liquidation, the gross value sold / nav_before).",
+    "daily_reference.csv: weights are fractions of NAV at the close, after that session's trading; w_cash = LBES plus the cash account, so the three sum to 1 (w_cash = 1 at T0, before the build, and at the last session, after the liquidation).",
+    "The hysteresis state starts as equity at each window's T0 (the state machine is run over that window's decision sessions only)."
+  ],
+  "caveats": [
+    "W1 parents are the harness rebuild (price return, no dividends); B&H is understated by roughly the dividend yield there (T01.md section 3, known contaminants).",
+    "W2 signals in its first year read simulated (pre-2021-11) closes; every lookback is at most 250 sessions.",
+    "The 2021-10-29 -> 2021-11-01 splice session has a return of 0 by construction.",
+    "LBES ends 2026-08-09 and is forward-filled for the last sessions of W2 (cash earns 0 there).",
+    "The null does not match which weeks the sleeve is held (gold's 2024-26 rally); the cash_sleeve run (R4) removes gold's path.",
+    "The four books share one market; '3 of 4' is a consistency requirement, not four independent tests."
+  ],
+  "run_timing": {
+    "started": "2026-10-01 13:46:00",
+    "finished": "2026-10-01 13:48:47",
+    "total_s": 167.51,
+    "load_and_splice_s": 1.3,
+    "signals_s": 23.53,
+    "books_and_nulls_s": 127.24,
+    "write_s": 13.98,
+    "python": "3.11.2",
+    "pandas": "2.0.2",
+    "numpy": "1.26.4"
+  }
+}

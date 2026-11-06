@@ -1,0 +1,414 @@
+series,threshold,date,move,from,to,beyond_threshold,second_source,second_source_agrees,explanation
+index Nifty100,0.05,2006-05-18,-0.06976973869857217,3543.8,3296.55,True,Nifty 50 same day -6.8%,True,real move: a second source agrees
+index Nifty100,0.05,2006-05-22,-0.05357482411104775,3155.4,2986.35,True,Nifty 50 same day -5.1%,True,real move: a second source agrees
+index Nifty100,0.05,2006-06-08,-0.053146726862302485,2768.75,2621.6,True,Nifty 50 same day -4.8%,True,real move: a second source agrees
+index Nifty100,0.05,2006-06-09,0.056301495270064006,2621.6,2769.2,True,Nifty 50 same day +5.2%,True,real move: a second source agrees
+index Nifty100,0.05,2006-06-15,0.06271213197568848,2533.8,2692.7,True,Nifty 50 same day +6.3%,True,real move: a second source agrees
+index Nifty100,0.05,2007-10-23,0.05751232264373085,5011.1,5299.3,True,Nifty 50 same day +5.6%,True,real move: a second source agrees
+index Nifty100,0.05,2008-01-21,-0.09255135308474816,5613.1,5093.6,True,Nifty 50 same day -8.7%,True,real move: a second source agrees
+index Nifty100,0.05,2008-01-22,-0.06053675200251307,5093.6,4785.25,True,Nifty 50 same day -5.9%,True,real move: a second source agrees
+index Nifty100,0.05,2008-01-23,0.06564965257823507,4785.25,5099.4,True,Nifty 50 same day +6.2%,True,real move: a second source agrees
+index Nifty100,0.05,2008-01-25,0.07148649744546276,4932.4,5285.0,True,Nifty 50 same day +7.0%,True,real move: a second source agrees
+index Nifty100,0.05,2008-02-11,-0.051837020722794946,4994.5,4735.6,True,Nifty 50 same day -5.1%,True,real move: a second source agrees
+index Nifty100,0.05,2008-02-14,0.05567429494865239,4795.75,5062.75,True,Nifty 50 same day +5.5%,True,real move: a second source agrees
+index Nifty100,0.05,2008-03-03,-0.052916416115453946,5072.15,4803.75,True,Nifty 50 same day -5.2%,True,real move: a second source agrees
+index Nifty100,0.05,2008-03-13,-0.05346427203472781,4699.4,4448.15,True,Nifty 50 same day -5.1%,True,real move: a second source agrees
+index Nifty100,0.05,2008-03-17,-0.05478041835505432,4565.5,4315.4,True,Nifty 50 same day -5.1%,True,real move: a second source agrees
+index Nifty100,0.05,2008-03-25,0.06143601555284417,4385.05,4654.45,True,Nifty 50 same day +5.8%,True,real move: a second source agrees
+index Nifty100,0.05,2008-07-02,0.051829723674383876,3682.25,3873.1,True,Nifty 50 same day +5.0%,True,real move: a second source agrees
+index Nifty100,0.05,2008-07-23,0.058784060834234264,4024.05,4260.6,True,Nifty 50 same day +5.6%,True,real move: a second source agrees
+index Nifty100,0.05,2008-09-19,0.050431467773730754,3829.95,4023.1,True,Nifty 50 same day +5.1%,True,real move: a second source agrees
+index Nifty100,0.05,2008-10-06,-0.057510373443983465,3615.0,3407.1,True,Nifty 50 same day -5.7%,True,real move: a second source agrees
+index Nifty100,0.05,2008-10-10,-0.0692404278171943,3305.15,3076.3,True,Nifty 50 same day -6.7%,True,real move: a second source agrees
+index Nifty100,0.05,2008-10-13,0.06421675389266324,3076.3,3273.85,True,Nifty 50 same day +6.4%,True,real move: a second source agrees
+index Nifty100,0.05,2008-10-15,-0.051415087204465304,3305.45,3135.5,True,Nifty 50 same day -5.1%,True,real move: a second source agrees
+index Nifty100,0.05,2008-10-17,-0.05622613922508335,3077.75,2904.7,True,Nifty 50 same day -6.0%,True,real move: a second source agrees
+index Nifty100,0.05,2008-10-22,-0.05024796634859319,3054.85,2901.35,True,Nifty 50 same day -5.2%,True,real move: a second source agrees
+index Nifty100,0.05,2008-10-24,-0.11877600803558619,2787.6,2456.5,True,Nifty 50 same day -12.2%,True,real move: a second source agrees
+index Nifty100,0.05,2008-10-28,0.06346814033324955,2388.6,2540.2,True,Nifty 50 same day +6.4%,True,real move: a second source agrees
+index Nifty100,0.05,2008-10-31,0.06785686228297583,2545.8,2718.55,True,Nifty 50 same day +7.0%,True,real move: a second source agrees
+index Nifty100,0.05,2008-11-03,0.05429364918798618,2718.55,2866.15,True,Nifty 50 same day +5.5%,True,real move: a second source agrees
+index Nifty100,0.05,2008-11-10,0.057448206075023656,2816.45,2978.25,True,Nifty 50 same day +5.9%,True,real move: a second source agrees
+index Nifty100,0.05,2008-11-11,-0.0642491395953999,2978.25,2786.9,True,Nifty 50 same day -6.7%,True,real move: a second source agrees
+index Nifty100,0.05,2009-01-07,-0.06460550768710926,2959.5,2768.3,True,Nifty 50 same day -6.2%,True,real move: a second source agrees
+index Nifty100,0.05,2009-05-04,0.0504446068579083,3283.8,3449.45,True,Nifty 50 same day +5.2%,True,real move: a second source agrees
+index Nifty100,0.05,2009-05-18,0.17282639885222384,3485.0,4087.3,True,Nifty 50 same day +17.7%,True,real move: a second source agrees
+index Nifty100,0.05,2009-07-06,-0.05861775440478545,4287.95,4036.6,True,Nifty 50 same day -5.8%,True,real move: a second source agrees
+index Nifty100,0.05,2015-08-24,-0.06299040461334837,8462.4,7929.35,True,Nifty 50 same day -5.9%,True,global sell-off after China's yuan devaluation
+index Nifty100,0.05,2019-09-20,0.053752241020937674,10848.85,11432.0,True,Nifty 50 same day +5.3%,True,corporate tax cut announced
+index Nifty100,0.05,2020-03-12,-0.08357439969748526,10578.0,9693.95,True,Nifty 50 same day -8.3%,True,Covid-19 crash
+index Nifty100,0.05,2020-03-16,-0.07296335912041985,10050.25,9316.95,True,Nifty 50 same day -7.6%,True,Covid-19 crash
+index Nifty100,0.05,2020-03-18,-0.054632415929009026,9105.4,8607.95,True,Nifty 50 same day -5.6%,True,Covid-19 crash
+index Nifty100,0.05,2020-03-20,0.055235018536841096,8388.7,8852.05,True,Nifty 50 same day +5.8%,True,Covid-19 crash and rebound
+index Nifty100,0.05,2020-03-23,-0.12798730237628564,8852.05,7719.1,True,Nifty 50 same day -13.0%,True,Covid-19 crash
+index Nifty100,0.05,2020-03-25,0.0621470357332794,7897.4,8388.2,True,Nifty 50 same day +6.6%,True,Covid-19 rebound
+index Nifty100,0.05,2020-04-07,0.08426979927671652,8240.2,8934.6,True,Nifty 50 same day +8.8%,True,Covid-19 rebound
+index Nifty100,0.05,2020-05-04,-0.05524687965303943,10006.9,9454.05,True,Nifty 50 same day -5.7%,True,Covid-19 lockdown extension
+index Nifty100,0.05,2024-06-04,-0.06591303061920306,24344.2,22739.6,True,Nifty 50 same day -5.9%,True,general-election results day
+index MC100,0.05,2006-05-18,-0.06555086567397506,5117.4,4781.95,True,Nifty 50 same day -6.8%; Smallcap 100 same day -6.7%,True,real move: a second source agrees
+index MC100,0.05,2006-05-22,-0.0660394861776551,4581.35,4278.8,True,Nifty 50 same day -5.1%; Smallcap 100 same day -6.7%,True,real move: a second source agrees
+index MC100,0.05,2006-06-07,-0.06292351176884425,4050.95,3796.05,True,Nifty 50 same day -2.6%; Smallcap 100 same day -6.4%,True,real move: a second source agrees
+index MC100,0.05,2006-06-08,-0.08117648608421912,3796.05,3487.9,True,Nifty 50 same day -4.8%; Smallcap 100 same day -8.9%,True,real move: a second source agrees
+index MC100,0.05,2006-06-09,0.06850827145273652,3487.9,3726.85,True,Nifty 50 same day +5.2%; Smallcap 100 same day +5.3%,True,real move: a second source agrees
+index MC100,0.05,2006-06-13,-0.062416437010559656,3664.9,3436.15,True,Nifty 50 same day -4.1%; Smallcap 100 same day -6.3%,True,real move: a second source agrees
+index MC100,0.05,2006-06-15,0.06291599208490739,3335.4,3545.25,True,Nifty 50 same day +6.3%; Smallcap 100 same day +4.6%,True,real move: a second source agrees
+index MC100,0.05,2007-03-05,-0.05075021154520887,4845.3,4599.4,True,Nifty 50 same day -4.0%; Smallcap 100 same day -5.0%,True,real move: a second source agrees
+index MC100,0.05,2008-01-18,-0.05262174722767865,8832.85,8368.05,True,Nifty 50 same day -3.5%; Smallcap 100 same day -4.8%,True,real move: a second source agrees
+index MC100,0.05,2008-01-21,-0.11883294196377892,8368.05,7373.65,True,Nifty 50 same day -8.7%; Smallcap 100 same day -12.1%,True,real move: a second source agrees
+index MC100,0.05,2008-01-22,-0.07090789500450922,7373.65,6850.8,True,Nifty 50 same day -5.9%; Smallcap 100 same day -8.9%,True,real move: a second source agrees
+index MC100,0.05,2008-01-23,0.07511531499970792,6850.8,7365.4,True,Nifty 50 same day +6.2%; Smallcap 100 same day +7.9%,True,real move: a second source agrees
+index MC100,0.05,2008-01-25,0.06521708634355039,7128.5,7593.4,True,Nifty 50 same day +7.0%; Smallcap 100 same day +6.0%,True,real move: a second source agrees
+index MC100,0.05,2008-02-11,-0.05549268619808034,7157.7,6760.5,True,Nifty 50 same day -5.1%; Smallcap 100 same day -4.9%,True,real move: a second source agrees
+index MC100,0.05,2008-02-14,0.05302142211801941,6696.35,7051.4,True,Nifty 50 same day +5.5%; Smallcap 100 same day +5.0%,True,real move: a second source agrees
+index MC100,0.05,2008-03-13,-0.057200226919861374,6698.4,6315.25,True,Nifty 50 same day -5.1%; Smallcap 100 same day -5.5%,True,real move: a second source agrees
+index MC100,0.05,2008-03-17,-0.07605508245947412,6394.05,5907.75,True,Nifty 50 same day -5.1%; Smallcap 100 same day -6.7%,True,real move: a second source agrees
+index MC100,0.05,2008-03-25,0.06154860882092583,5761.3,6115.9,True,Nifty 50 same day +5.8%; Smallcap 100 same day +6.0%,True,real move: a second source agrees
+index MC100,0.05,2008-07-23,0.061136901942207444,5277.5,5600.15,True,Nifty 50 same day +5.6%; Smallcap 100 same day +4.4%,True,real move: a second source agrees
+index MC100,0.05,2008-10-06,-0.05836904501235585,4795.35,4515.45,True,Nifty 50 same day -5.7%; Smallcap 100 same day -7.4%,True,real move: a second source agrees
+index MC100,0.05,2008-10-08,-0.05198452532680653,4433.05,4202.6,True,Nifty 50 same day -2.6%; Smallcap 100 same day -5.3%,True,real move: a second source agrees
+index MC100,0.05,2008-10-10,-0.07007566744396332,4202.6,3908.1,True,Nifty 50 same day -6.7%; Smallcap 100 same day -9.0%,True,real move: a second source agrees
+index MC100,0.05,2008-10-13,0.05767508507970631,3908.1,4133.5,True,Nifty 50 same day +6.4%; Smallcap 100 same day +3.7%,True,real move: a second source agrees
+index MC100,0.05,2008-10-24,-0.08110000808037277,3712.7,3411.6,True,Nifty 50 same day -12.2%; Smallcap 100 same day -9.5%,True,real move: a second source agrees
+index MC100,0.05,2008-10-28,0.05057816765328327,3260.3,3425.2,True,Nifty 50 same day +6.4%; Smallcap 100 same day +8.0%,True,real move: a second source agrees
+index MC100,0.05,2009-01-07,-0.07003072529546006,3921.85,3647.2,True,Nifty 50 same day -6.2%; Smallcap 100 same day -6.7%,True,real move: a second source agrees
+index MC100,0.05,2009-05-18,0.12139684225773761,4142.2,4645.05,True,Nifty 50 same day +17.7%; Smallcap 100 same day +9.3%,True,real move: a second source agrees
+index MC100,0.05,2009-05-20,0.0576781313844017,4747.9,5021.75,True,Nifty 50 same day -1.1%; Smallcap 100 same day +8.2%,True,real move: a second source agrees
+index MC100,0.05,2015-08-24,-0.0877145132608198,13749.15,12543.15,True,Nifty 50 same day -5.9%; Smallcap 100 same day -10.6%,True,global sell-off after China's yuan devaluation
+index MC100,0.05,2019-09-20,0.05860659854885064,15429.15,16333.4,True,Nifty 50 same day +5.3%; Midcap 150 same day +5.6%; Smallcap 100 same day +3.9%,True,corporate tax cut announced
+index MC100,0.05,2020-03-12,-0.0807881328312311,15494.85,14243.05,True,Nifty 50 same day -8.3%; Midcap 150 same day -7.8%; Smallcap 100 same day -9.5%,True,Covid-19 crash
+index MC100,0.05,2020-03-16,-0.062485881120748155,14608.1,13695.3,True,Nifty 50 same day -7.6%; Midcap 150 same day -5.9%; Smallcap 100 same day -6.4%,True,Covid-19 crash
+index MC100,0.05,2020-03-18,-0.056522081103249855,13349.65,12595.1,True,Nifty 50 same day -5.6%; Midcap 150 same day -5.4%; Smallcap 100 same day -6.3%,True,Covid-19 crash
+index MC100,0.05,2020-03-23,-0.13193405074538456,12661.25,10990.8,True,Nifty 50 same day -13.0%; Midcap 150 same day -13.0%; Smallcap 100 same day -13.2%,True,Covid-19 crash
+index MC100,0.05,2020-04-07,0.054149822166257966,11316.75,11929.55,True,Nifty 50 same day +8.8%; Midcap 150 same day +4.8%; Smallcap 100 same day +3.7%,True,Covid-19 rebound
+index MC100,0.05,2021-04-12,-0.05678474803821154,24505.7,23114.15,True,Nifty 50 same day -3.5%; Midcap 150 same day -5.2%; Smallcap 100 same day -5.5%,True,second Covid-19 wave in India
+index MC100,0.05,2022-02-24,-0.057412091193311476,28467.0,26832.65,True,Nifty 50 same day -4.8%; Midcap 150 same day -5.4%; Smallcap 100 same day -6.2%,True,Russia invades Ukraine
+index MC100,0.05,2024-06-04,-0.07876824979125019,53353.35,49150.8,True,Nifty 50 same day -5.9%; Midcap 150 same day -7.1%; Smallcap 100 same day -8.2%,True,general-election results day
+index SC100,0.05,2004-01-21,-0.07529069460989479,948.59,877.17,True,Nifty 50 same day -3.6%,True,real move: a second source agrees
+index SC100,0.05,2004-01-23,0.0542802655742336,849.48,895.59,True,Nifty 50 same day +4.4%,True,real move: a second source agrees
+index SC100,0.05,2004-02-03,-0.06062963301912694,874.16,821.16,True,Nifty 50 same day -2.3%,True,real move: a second source agrees
+index SC100,0.05,2004-05-14,-0.07877434278746998,877.57,808.44,True,Nifty 50 same day -7.9%,True,real move: a second source agrees
+index SC100,0.05,2004-05-17,-0.11088021374499046,808.44,718.8,True,Nifty 50 same day -12.2%,True,real move: a second source agrees
+index SC100,0.05,2004-05-18,0.07374791318864782,718.8,771.81,True,Nifty 50 same day +8.3%,True,real move: a second source agrees
+index SC100,0.05,2005-09-22,-0.06262013685991075,2080.96,1950.65,True,Nifty 50 same day -3.5%; Midcap 100 same day -4.7%,True,real move: a second source agrees
+index SC100,0.05,2006-05-18,-0.06693475116357639,3048.79,2844.72,True,Nifty 50 same day -6.8%; Midcap 100 same day -6.6%,True,real move: a second source agrees
+index SC100,0.05,2006-05-22,-0.0672545052257707,2747.92,2563.11,True,Nifty 50 same day -5.1%; Midcap 100 same day -6.6%,True,real move: a second source agrees
+index SC100,0.05,2006-06-07,-0.06372898088656542,2471.56,2314.05,True,Nifty 50 same day -2.6%; Midcap 100 same day -6.3%,True,real move: a second source agrees
+index SC100,0.05,2006-06-08,-0.08861951988937156,2314.05,2108.98,True,Nifty 50 same day -4.8%; Midcap 100 same day -8.1%,True,real move: a second source agrees
+index SC100,0.05,2006-06-09,0.05277432692581252,2108.98,2220.28,True,Nifty 50 same day +5.2%; Midcap 100 same day +6.9%,True,real move: a second source agrees
+index SC100,0.05,2006-06-13,-0.06268423790532329,2191.46,2054.09,True,Nifty 50 same day -4.1%; Midcap 100 same day -6.2%,True,real move: a second source agrees
+index SC100,0.05,2008-01-21,-0.12086893990701075,5256.52,4621.17,True,Nifty 50 same day -8.7%; Midcap 100 same day -11.9%,True,real move: a second source agrees
+index SC100,0.05,2008-01-22,-0.08901425396598706,4621.17,4209.82,True,Nifty 50 same day -5.9%; Midcap 100 same day -7.1%,True,real move: a second source agrees
+index SC100,0.05,2008-01-23,0.0788561031112971,4209.82,4541.79,True,Nifty 50 same day +6.2%; Midcap 100 same day +7.5%,True,real move: a second source agrees
+index SC100,0.05,2008-01-25,0.05950582920763825,4383.1,4643.92,True,Nifty 50 same day +7.0%; Midcap 100 same day +6.5%,True,real move: a second source agrees
+index SC100,0.05,2008-02-14,0.05001093161666459,4116.5,4322.37,True,Nifty 50 same day +5.5%; Midcap 100 same day +5.3%,True,real move: a second source agrees
+index SC100,0.05,2008-03-13,-0.05516293051069676,4065.23,3840.98,True,Nifty 50 same day -5.1%; Midcap 100 same day -5.7%,True,real move: a second source agrees
+index SC100,0.05,2008-03-17,-0.0665418362451835,3877.26,3619.26,True,Nifty 50 same day -5.1%; Midcap 100 same day -7.6%,True,real move: a second source agrees
+index SC100,0.05,2008-03-25,0.059865235599915634,3364.39,3565.8,True,Nifty 50 same day +5.8%; Midcap 100 same day +6.2%,True,real move: a second source agrees
+index SC100,0.05,2008-10-06,-0.0738293486915047,2687.82,2489.38,True,Nifty 50 same day -5.7%; Midcap 100 same day -5.8%,True,real move: a second source agrees
+index SC100,0.05,2008-10-08,-0.05343690857588157,2425.29,2295.69,True,Nifty 50 same day -2.6%; Midcap 100 same day -5.2%,True,real move: a second source agrees
+index SC100,0.05,2008-10-10,-0.08980742173377065,2295.69,2089.52,True,Nifty 50 same day -6.7%; Midcap 100 same day -7.0%,True,real move: a second source agrees
+index SC100,0.05,2008-10-15,-0.050327178666232486,2211.33,2100.04,True,Nifty 50 same day -5.1%; Midcap 100 same day -4.6%,True,real move: a second source agrees
+index SC100,0.05,2008-10-24,-0.0946665535200959,1885.46,1706.97,True,Nifty 50 same day -12.2%; Midcap 100 same day -8.1%,True,real move: a second source agrees
+index SC100,0.05,2008-10-27,-0.06373867144706702,1706.97,1598.17,True,Nifty 50 same day -2.3%; Midcap 100 same day -4.4%,True,real move: a second source agrees
+index SC100,0.05,2008-10-28,0.08044826270046368,1598.17,1726.74,True,Nifty 50 same day +6.4%; Midcap 100 same day +5.1%,True,real move: a second source agrees
+index SC100,0.05,2009-01-07,-0.06652152199895645,1782.13,1663.58,True,Nifty 50 same day -6.2%; Midcap 100 same day -7.0%,True,real move: a second source agrees
+index SC100,0.05,2009-05-18,0.09294115879763853,1997.07,2182.68,True,Nifty 50 same day +17.7%; Midcap 100 same day +12.1%,True,real move: a second source agrees
+index SC100,0.05,2009-05-20,0.0815354591517019,2234.12,2416.28,True,Nifty 50 same day -1.1%; Midcap 100 same day +5.8%,True,real move: a second source agrees
+index SC100,0.05,2009-06-08,-0.05063895240645744,2912.58,2765.09,True,Nifty 50 same day -3.4%; Midcap 100 same day -4.8%,True,real move: a second source agrees
+index SC100,0.05,2014-05-19,0.06623677676711837,4249.15,4530.6,True,Nifty 50 same day +0.8%; Midcap 100 same day +4.4%,True,first session after the 2014 general-election results
+index SC100,0.05,2014-07-08,-0.05039460181089983,5505.55,5228.1,True,Nifty 50 same day -2.1%; Midcap 100 same day -4.3%,True,real move: a second source agrees
+index SC100,0.05,2015-08-24,-0.10609628585716235,5499.25,4915.8,True,Nifty 50 same day -5.9%; Midcap 100 same day -8.8%,True,global sell-off after China's yuan devaluation
+index SC100,0.05,2016-02-11,-0.054067656854031254,4669.15,4416.7,True,Nifty 50 same day -3.3%; Midcap 100 same day -3.7%,True,real move: a second source agrees
+index SC100,0.05,2016-09-29,-0.05809578420668149,6365.35,5995.55,True,Nifty 50 same day -1.8%; Midcap 100 same day -3.8%,True,India's surgical-strike announcement
+index SC100,0.05,2018-02-02,-0.060603645554632046,8783.3,8251.0,True,Nifty 50 same day -2.3%; Midcap 100 same day -4.3%,True,Union Budget reintroduces long-term capital-gains tax
+index SC100,0.05,2018-09-28,-0.05088917177795782,6480.75,6150.95,True,Nifty 50 same day -0.4%; Midcap 100 same day -2.0%,True,real move: a second source agrees
+index SC100,0.05,2020-03-12,-0.09546862896979091,5164.0,4671.0,True,Nifty 50 same day -8.3%; Smallcap 250 same day -8.9%; Midcap 100 same day -8.1%,True,Covid-19 crash
+index SC100,0.05,2020-03-16,-0.06410962385632002,4721.6,4418.9,True,Nifty 50 same day -7.6%; Smallcap 250 same day -5.4%; Midcap 100 same day -6.2%,True,Covid-19 crash
+index SC100,0.05,2020-03-18,-0.06272301126425517,4287.9,4018.95,True,Nifty 50 same day -5.6%; Smallcap 250 same day -6.1%; Midcap 100 same day -5.7%,True,Covid-19 crash
+index SC100,0.05,2020-03-19,-0.05561154032769755,4018.95,3795.45,True,Nifty 50 same day -2.4%; Smallcap 250 same day -5.2%; Midcap 100 same day -4.2%,True,Covid-19 crash
+index SC100,0.05,2020-03-23,-0.13193488192523006,3885.25,3372.65,True,Nifty 50 same day -13.0%; Smallcap 250 same day -12.4%; Midcap 100 same day -13.2%,True,Covid-19 crash
+index SC100,0.05,2020-09-14,0.054441032538959266,5650.15,5957.75,True,Nifty 50 same day -0.2%; Smallcap 250 same day +5.1%; Midcap 100 same day +2.6%,True,SEBI rule requiring multi-cap funds to hold at least 25% in small caps
+index SC100,0.05,2020-12-21,-0.05025367578366413,6957.7,6608.05,True,Nifty 50 same day -3.1%; Smallcap 250 same day -4.9%; Midcap 100 same day -4.8%,True,sell-off on a new Covid-19 variant in the UK
+index SC100,0.05,2021-04-12,-0.05549064738114995,8559.1,8084.15,True,Nifty 50 same day -3.5%; Smallcap 250 same day -5.4%; Midcap 100 same day -5.7%,True,second Covid-19 wave in India
+index SC100,0.05,2022-02-24,-0.062474577803220965,9956.85,9334.8,True,Nifty 50 same day -4.8%; Midcap 100 same day -5.7%,True,Russia invades Ukraine
+index SC100,0.05,2024-03-13,-0.052812398539633376,15092.1,14295.05,True,Nifty 50 same day -1.5%; Smallcap 250 same day -5.2%; Midcap 100 same day -4.4%,True,small-cap sell-off after SEBI warned of froth in small and mid caps
+index SC100,0.05,2024-06-04,-0.08226063969775488,17098.7,15692.15,True,Nifty 50 same day -5.9%; Smallcap 250 same day -7.4%; Midcap 100 same day -7.9%,True,general-election results day
+index NiftyMidcap150,0.05,2019-09-20,0.05637148453772722,5641.15,5959.15,True,Nifty 50 same day +5.3%; Midcap 100 same day +5.9%; Smallcap 250 same day +3.5%,True,corporate tax cut announced
+index NiftyMidcap150,0.05,2020-03-12,-0.0782670539746193,5835.15,5378.45,True,Nifty 50 same day -8.3%; Midcap 100 same day -8.1%; Smallcap 250 same day -8.9%,True,Covid-19 crash
+index NiftyMidcap150,0.05,2020-03-16,-0.058581360476212097,5501.75,5179.45,True,Nifty 50 same day -7.6%; Midcap 100 same day -6.2%; Smallcap 250 same day -5.4%,True,Covid-19 crash
+index NiftyMidcap150,0.05,2020-03-18,-0.053742270591145225,5053.75,4782.15,True,Nifty 50 same day -5.6%; Midcap 100 same day -5.7%; Smallcap 250 same day -6.1%,True,Covid-19 crash
+index NiftyMidcap150,0.05,2020-03-20,0.04359287177029336,4590.2,4790.3,False,Nifty 50 same day +5.8%; Midcap 100 same day +4.9%; Smallcap 250 same day +2.2%,True,Covid-19 crash and rebound
+index NiftyMidcap150,0.05,2020-03-23,-0.1303467423752167,4790.3,4165.9,True,Nifty 50 same day -13.0%; Midcap 100 same day -13.2%; Smallcap 250 same day -12.4%,True,Covid-19 crash
+index NiftyMidcap150,0.05,2020-04-07,0.048134915620297036,4352.35,4561.85,False,Nifty 50 same day +8.8%; Midcap 100 same day +5.4%; Smallcap 250 same day +3.5%,True,Covid-19 rebound
+index NiftyMidcap150,0.05,2021-04-12,-0.051776100424749116,9240.75,8762.3,True,Nifty 50 same day -3.5%; Midcap 100 same day -5.7%; Smallcap 250 same day -5.4%,True,second Covid-19 wave in India
+index NiftyMidcap150,0.05,2022-02-24,-0.0539889894560045,10717.0,10138.4,True,Nifty 50 same day -4.8%; Midcap 100 same day -5.7%,True,Russia invades Ukraine
+index NiftyMidcap150,0.05,2024-06-04,-0.07107142587802318,19889.85,18476.25,True,Nifty 50 same day -5.9%; Midcap 100 same day -7.9%; Smallcap 250 same day -7.4%,True,general-election results day
+index NiftySmallcap250,0.05,2020-03-12,-0.0885237032528573,4436.1,4043.4,True,Nifty 50 same day -8.3%; Smallcap 100 same day -9.5%,True,Covid-19 crash
+index NiftySmallcap250,0.05,2020-03-16,-0.054287749637672245,4070.9,3849.9,True,Nifty 50 same day -7.6%; Smallcap 100 same day -6.4%,True,Covid-19 crash
+index NiftySmallcap250,0.05,2020-03-18,-0.06091431306845374,3760.2,3531.15,True,Nifty 50 same day -5.6%; Smallcap 100 same day -6.3%,True,Covid-19 crash
+index NiftySmallcap250,0.05,2020-03-19,-0.05246166263115415,3531.15,3345.9,True,Nifty 50 same day -2.4%; Smallcap 100 same day -5.6%,True,Covid-19 crash
+index NiftySmallcap250,0.05,2020-03-23,-0.1241157556270096,3421.0,2996.4,True,Nifty 50 same day -13.0%; Smallcap 100 same day -13.2%,True,Covid-19 crash
+index NiftySmallcap250,0.05,2020-09-14,0.05074878630790747,4861.2,5107.9,True,Nifty 50 same day -0.2%; Smallcap 100 same day +5.4%,True,SEBI rule requiring multi-cap funds to hold at least 25% in small caps
+index NiftySmallcap250,0.05,2020-12-21,-0.04907810703525606,5957.85,5665.45,False,Nifty 50 same day -3.1%; Smallcap 100 same day -5.0%,True,sell-off on a new Covid-19 variant in the UK
+index NiftySmallcap250,0.05,2021-04-12,-0.05393034140969166,7264.0,6872.25,True,Nifty 50 same day -3.5%; Smallcap 100 same day -5.5%,True,second Covid-19 wave in India
+index NiftySmallcap250,0.05,2024-03-13,-0.05176072322141789,14208.65,13473.2,True,Nifty 50 same day -1.5%; Smallcap 100 same day -5.3%; Microcap 250 same day -6.2%,True,small-cap sell-off after SEBI warned of froth in small and mid caps
+index NiftySmallcap250,0.05,2024-06-04,-0.074466650991457,15948.75,14761.1,True,Nifty 50 same day -5.9%; Smallcap 100 same day -8.2%; Microcap 250 same day -7.3%,True,general-election results day
+index NSEI,0.05,2000-04-04,-0.0694901449747517,1534.75,1428.1,True,,False,no second source
+index NSEI,0.05,2000-04-07,0.07171616366702227,1452.95,1557.15,True,,False,no second source
+index NSEI,0.05,2000-04-26,0.05638309610504244,1359.45,1436.1,True,,False,no second source
+index NSEI,0.05,2000-05-02,-0.051971135046745554,1406.55,1333.45,True,,False,no second source
+index NSEI,0.05,2000-07-24,-0.05689747718733229,1397.25,1317.75,True,,False,no second source
+index NSEI,0.05,2001-03-13,-0.06114612462957547,1197.95,1124.7,True,,False,no second source
+index NSEI,0.05,2001-03-14,0.06179425624611001,1124.7,1194.2,True,,False,no second source
+index NSEI,0.05,2001-09-14,-0.053514459195224906,971.7,919.7,True,,False,no second source
+index NSEI,0.05,2001-09-17,-0.05159291073176042,919.7,872.25,True,,False,no second source
+index NSEI,0.05,2004-05-14,-0.07866084425036379,1717.5,1582.4,True,,False,no second source
+index NSEI,0.05,2004-05-17,-0.1223774014155713,1582.4,1388.75,True,,False,no second source
+index NSEI,0.05,2004-05-18,0.08295229522952297,1388.75,1503.95,True,,False,no second source
+index NSEI,0.05,2006-05-18,-0.0677285356661439,3635.1,3388.9,True,Nifty 100 same day -7.0%,True,real move: a second source agrees
+index NSEI,0.05,2006-05-22,-0.050987095383288716,3246.9,3081.35,True,Nifty 100 same day -5.4%,True,real move: a second source agrees
+index NSEI,0.05,2006-06-09,0.052104171637271435,2724.35,2866.3,True,Nifty 100 same day +5.6%,True,real move: a second source agrees
+index NSEI,0.05,2006-06-15,0.06305074445457315,2632.8,2798.8,True,Nifty 100 same day +6.3%,True,real move: a second source agrees
+index NSEI,0.05,2007-10-23,0.05588348765432105,5184.0,5473.7,True,Nifty 100 same day +5.8%,True,real move: a second source agrees
+index NSEI,0.05,2008-01-21,-0.08702434578374496,5705.3,5208.8,True,Nifty 100 same day -9.3%,True,real move: a second source agrees
+index NSEI,0.05,2008-01-22,-0.05941867608662266,5208.8,4899.3,True,Nifty 100 same day -6.1%,True,real move: a second source agrees
+index NSEI,0.05,2008-01-23,0.062070091645745284,4899.3,5203.4,True,Nifty 100 same day +6.6%,True,real move: a second source agrees
+index NSEI,0.05,2008-01-25,0.06951494501783073,5033.45,5383.35,True,Nifty 100 same day +7.1%,True,real move: a second source agrees
+index NSEI,0.05,2008-02-11,-0.05143203101350502,5120.35,4857.0,True,Nifty 100 same day -5.2%,True,real move: a second source agrees
+index NSEI,0.05,2008-02-14,0.05529014393086462,4929.45,5202.0,True,Nifty 100 same day +5.6%,True,real move: a second source agrees
+index NSEI,0.05,2008-03-03,-0.05178520149325161,5223.5,4953.0,True,Nifty 100 same day -5.3%,True,real move: a second source agrees
+index NSEI,0.05,2008-03-13,-0.050985221674876735,4872.0,4623.6,True,Nifty 100 same day -5.3%,True,real move: a second source agrees
+index NSEI,0.05,2008-03-17,-0.05113995532892235,4745.8,4503.1,True,Nifty 100 same day -5.5%,True,real move: a second source agrees
+index NSEI,0.05,2008-03-25,0.05806045749861699,4609.85,4877.5,True,Nifty 100 same day +6.1%,True,real move: a second source agrees
+index NSEI,0.05,2008-07-02,0.05045229999358436,3896.75,4093.35,True,Nifty 100 same day +5.2%,True,real move: a second source agrees
+index NSEI,0.05,2008-07-23,0.055824155090681726,4240.1,4476.8,True,Nifty 100 same day +5.9%,True,real move: a second source agrees
+index NSEI,0.05,2008-09-19,0.051285861099761076,4038.15,4245.25,True,Nifty 100 same day +5.0%,True,real move: a second source agrees
+index NSEI,0.05,2008-10-06,-0.056556582772438024,3818.3,3602.35,True,Nifty 100 same day -5.8%,True,real move: a second source agrees
+index NSEI,0.05,2008-10-10,-0.06651203164800146,3513.65,3279.95,True,Nifty 100 same day -6.9%,True,real move: a second source agrees
+index NSEI,0.05,2008-10-13,0.06425402826262605,3279.95,3490.7,True,Nifty 100 same day +6.4%,True,real move: a second source agrees
+index NSEI,0.05,2008-10-15,-0.05122703309507903,3518.65,3338.4,True,Nifty 100 same day -5.1%,True,real move: a second source agrees
+index NSEI,0.05,2008-10-17,-0.0596305019423119,3269.3,3074.35,True,Nifty 100 same day -5.6%,True,real move: a second source agrees
+index NSEI,0.05,2008-10-22,-0.05247457417539958,3234.9,3065.15,True,Nifty 100 same day -5.0%,True,real move: a second source agrees
+index NSEI,0.05,2008-10-24,-0.12202911846151232,2943.15,2584.0,True,Nifty 100 same day -11.9%,True,real move: a second source agrees
+index NSEI,0.05,2008-10-28,0.06354488550827986,2524.2,2684.6,True,Nifty 100 same day +6.3%,True,real move: a second source agrees
+index NSEI,0.05,2008-10-31,0.06990971617137243,2697.05,2885.6,True,Nifty 100 same day +6.8%,True,real move: a second source agrees
+index NSEI,0.05,2008-11-03,0.054841280842805595,2885.6,3043.85,True,Nifty 100 same day +5.4%,True,real move: a second source agrees
+index NSEI,0.05,2008-11-10,0.05894719138916926,2973.0,3148.25,True,Nifty 100 same day +5.7%,True,real move: a second source agrees
+index NSEI,0.05,2008-11-11,-0.06657666957833719,3148.25,2938.65,True,Nifty 100 same day -6.4%,True,real move: a second source agrees
+index NSEI,0.05,2008-11-21,0.05495172629888567,2553.15,2693.45,True,Nifty 100 same day +4.8%,True,real move: a second source agrees
+index NSEI,0.05,2008-12-10,0.05181393678160928,2784.0,2928.25,True,Nifty 100 same day +4.9%,True,real move: a second source agrees
+index NSEI,0.05,2009-01-07,-0.061809303520945824,3112.8,2920.4,True,Nifty 100 same day -6.5%,True,real move: a second source agrees
+index NSEI,0.05,2009-05-04,0.051828610083622495,3473.95,3654.0,True,Nifty 100 same day +5.0%,True,real move: a second source agrees
+index NSEI,0.05,2009-05-18,0.1774406601936458,3671.65,4323.15,True,Nifty 100 same day +17.3%,True,real move: a second source agrees
+index NSEI,0.05,2009-07-06,-0.05843928349437766,4424.25,4165.7,True,Nifty 100 same day -5.9%,True,real move: a second source agrees
+index NSEI,0.05,2015-08-24,-0.05915095874071541,8299.95,7809.0,True,Nifty 100 same day -6.3%,True,global sell-off after China's yuan devaluation
+index NSEI,0.05,2019-09-20,0.053191091846648275,10704.8,11274.2,True,Nifty 100 same day +5.4%,True,corporate tax cut announced
+index NSEI,0.05,2020-03-12,-0.08301939111145107,10458.4,9590.15,True,Nifty 100 same day -8.4%,True,Covid-19 crash
+index NSEI,0.05,2020-03-16,-0.07612102217936367,9955.2,9197.4,True,Nifty 100 same day -7.3%,True,Covid-19 crash
+index NSEI,0.05,2020-03-18,-0.0555645390624564,8967.05,8468.8,True,Nifty 100 same day -5.5%,True,Covid-19 crash
+index NSEI,0.05,2020-03-20,0.058329148237116435,8263.45,8745.45,True,Nifty 100 same day +5.5%,True,Covid-19 crash and rebound
+index NSEI,0.05,2020-03-23,-0.12980464127060365,8745.45,7610.25,True,Nifty 100 same day -12.8%,True,Covid-19 crash
+index NSEI,0.05,2020-03-25,0.06624749232475113,7801.05,8317.85,True,Nifty 100 same day +6.2%,True,Covid-19 rebound
+index NSEI,0.05,2020-04-07,0.08763205423192066,8083.8,8792.2,True,Nifty 100 same day +8.4%,True,Covid-19 rebound
+index NSEI,0.05,2020-05-04,-0.05744480167141652,9859.9,9293.5,True,Nifty 100 same day -5.5%,True,Covid-19 lockdown extension
+index NSEI,0.05,2024-06-04,-0.05929358362097503,23263.9,21884.5,True,Nifty 100 same day -6.6%,True,general-election results day
+index NiftyMicrocap250,0.05,2022-01-24,-0.051200303546309334,10805.6,10252.35,True,Nifty 50 same day -2.7%; Smallcap 250 same day -4.6%; Smallcap 100 same day -4.8%,True,real move: a second source agrees
+index NiftyMicrocap250,0.05,2022-02-14,-0.04563457895643186,10452.6,9975.6,False,Nifty 50 same day -3.1%; Smallcap 250 same day -4.3%; Smallcap 100 same day -4.4%,True,real move: a second source agrees
+index NiftyMicrocap250,0.05,2022-02-24,-0.06720417651329114,9711.45,9058.8,True,Nifty 50 same day -4.8%; Smallcap 100 same day -6.2%,True,Russia invades Ukraine
+index NiftyMicrocap250,0.05,2023-09-12,-0.051627901345182914,16518.2,15665.4,True,Nifty 50 same day -0.0%; Smallcap 250 same day -3.9%; Smallcap 100 same day -4.1%,True,real move: a second source agrees
+index NiftyMicrocap250,0.05,2023-10-23,-0.051067602866112116,16691.6,15839.2,True,Nifty 50 same day -1.3%; Smallcap 250 same day -3.8%; Smallcap 100 same day -3.6%,True,real move: a second source agrees
+index NiftyMicrocap250,0.05,2024-03-13,-0.0617097580651601,18779.85,17620.95,True,Nifty 50 same day -1.5%; Smallcap 250 same day -5.2%; Smallcap 100 same day -5.3%,True,small-cap sell-off after SEBI warned of froth in small and mid caps
+index NiftyMicrocap250,0.05,2024-06-04,-0.07259164555638453,21040.3,19512.95,True,Nifty 50 same day -5.9%; Smallcap 250 same day -7.4%; Smallcap 100 same day -8.2%,True,general-election results day
+index NiftyMicrocap250,0.05,2025-05-12,0.04634655431722656,20744.8,21706.25,False,Nifty 50 same day +3.8%; Smallcap 250 same day +4.0%; Smallcap 100 same day +4.2%,True,real move: a second source agrees
+index NiftyMicrocap250,0.05,2026-03-23,-0.04619746581357409,19927.5,19006.9,False,Nifty 50 same day -2.6%; Smallcap 250 same day -3.8%; Smallcap 100 same day -3.9%,True,real move: a second source agrees
+index NiftyMicrocap250,0.05,2026-04-01,0.046223591339626724,18892.95,19766.25,False,Nifty 50 same day +1.6%; Smallcap 250 same day +3.2%; Smallcap 100 same day +3.3%,True,real move: a second source agrees
+published parent SCMO_0003,0.08,2022-02-24,-0.06528579646000832,94.0863583735137,87.94385553107709,False,harness SCMO_0003 same day -6.3%; Nifty 50 same day -4.8%,True,Russia invades Ukraine
+published parent SCMO_0003,0.08,2022-06-20,-0.060003254762051816,80.20747227022231,75.39476287777195,False,harness SCMO_0003 same day -5.3%; Nifty 50 same day +0.4%,True,real move: a second source agrees
+published parent SCMO_0003,0.08,2022-12-23,-0.05368501065060083,86.1678087646354,81.54188903336701,False,harness SCMO_0003 same day -5.4%; Nifty 50 same day -1.8%,True,real move: a second source agrees
+published parent SCMO_0003,0.08,2022-12-26,0.048610521232693715,81.54188903336701,85.50568276157745,False,harness SCMO_0003 same day +4.8%; Nifty 50 same day +1.2%,True,real move: a second source agrees
+published parent SCMO_0003,0.08,2023-09-12,-0.05173105684754398,115.63268342323056,109.65088250362936,False,harness SCMO_0003 same day -5.2%; Nifty 50 same day -0.0%,True,real move: a second source agrees
+published parent SCMO_0003,0.08,2024-03-13,-0.06376359220036909,109.85292655452379,102.84830934368404,False,harness SCMO_0003 same day -6.3%; Nifty 50 same day -1.5%,True,small-cap sell-off after SEBI warned of froth in small and mid caps
+published parent SCMO_0003,0.08,2024-03-14,0.057767009949057035,102.84830934368404,108.78954865278432,False,harness SCMO_0003 same day +5.8%; Nifty 50 same day +0.7%,True,real move: a second source agrees
+published parent SCMO_0003,0.08,2024-06-04,-0.08100461102162693,134.68276755704252,123.7728423597681,True,harness SCMO_0003 same day -9.3%; Nifty 50 same day -5.9%,True,general-election results day
+published parent SCMO_0003,0.08,2024-06-05,0.04720984903450254,123.7728423597681,129.61613956214404,False,harness SCMO_0003 same day +4.0%; Nifty 50 same day +3.4%,True,real move: a second source agrees
+published parent SCMO_0003,0.08,2024-08-05,-0.04994002427700006,156.60965044344104,148.7885606982831,False,harness SCMO_0003 same day -5.0%; Nifty 50 same day -2.7%,True,real move: a second source agrees
+published parent SCMO_0007,0.08,2022-02-14,-0.04059692418552696,94.79239575488307,90.94411605105762,False,harness SCMO_0007 same day -4.1%; Nifty 50 same day -3.1%,True,real move: a second source agrees
+published parent SCMO_0007,0.08,2022-02-24,-0.0463248364457014,88.55300259659195,84.45079923452906,False,harness SCMO_0007 same day -4.6%; Nifty 50 same day -4.8%,True,Russia invades Ukraine
+published parent SCMO_0007,0.08,2022-02-25,0.04341957915311423,84.45079923452906,88.11761739643644,False,harness SCMO_0007 same day +4.4%; Nifty 50 same day +2.5%,True,real move: a second source agrees
+published parent SCMO_0007,0.08,2024-03-13,-0.04908794206838352,108.66722440597363,103.33297398960116,False,harness SCMO_0007 same day -4.9%; Nifty 50 same day -1.5%,True,small-cap sell-off after SEBI warned of froth in small and mid caps
+published parent SCMO_0007,0.08,2024-03-14,0.038782765922261264,103.33297398960116,107.34051253189098,False,harness SCMO_0007 same day +3.9%; Nifty 50 same day +0.7%,True,real move: a second source agrees
+published parent SCMO_0007,0.08,2024-06-04,-0.054144548627019895,115.40804449997401,109.15932802259589,False,harness SCMO_0007 same day -5.0%; Nifty 50 same day -5.9%,True,general-election results day
+published parent SCMO_0007,0.08,2024-06-05,0.03988302241804642,109.15932802259589,113.51293194925995,False,harness SCMO_0007 same day +2.7%; Nifty 50 same day +3.4%,True,real move: a second source agrees
+published parent SCMO_0007,0.08,2025-03-18,0.04012700926483315,106.68995831555068,110.97110726134345,False,harness SCMO_0007 same day +3.9%; Nifty 50 same day +1.4%,True,real move: a second source agrees
+published parent SCMO_0007,0.08,2025-04-07,-0.039862873906116314,114.40759137862726,109.84697598959856,False,harness SCMO_0007 same day -3.9%; Nifty 50 same day -3.2%,True,real move: a second source agrees
+published parent SCMO_0007,0.08,2026-03-23,-0.03919366908245803,103.15645918585807,99.11337906080946,False,harness SCMO_0007 same day -3.6%; Nifty 50 same day -2.6%,True,real move: a second source agrees
+published parent SCMO_0010,0.08,2022-01-24,-0.05714020789470797,106.7236110647149,100.62540174120313,False,harness SCMO_0010 same day -5.7%; Nifty 50 same day -2.7%,True,real move: a second source agrees
+published parent SCMO_0010,0.08,2022-02-24,-0.06393914566276482,95.78656142666995,89.66205052307473,False,harness SCMO_0010 same day -6.4%; Nifty 50 same day -4.8%,True,Russia invades Ukraine
+published parent SCMO_0010,0.08,2022-06-20,-0.043695938133377576,86.70234403905181,82.91380377790259,False,harness SCMO_0010 same day -4.4%; Nifty 50 same day +0.4%,True,real move: a second source agrees
+published parent SCMO_0010,0.08,2022-09-26,-0.04392727950893649,98.02496429595159,93.71899429046981,False,harness SCMO_0010 same day -4.4%; Nifty 50 same day -1.8%,True,real move: a second source agrees
+published parent SCMO_0010,0.08,2024-03-13,-0.052789361661233714,180.56640365073298,171.03441846454612,False,harness SCMO_0010 same day -5.3%; Nifty 50 same day -1.5%,True,small-cap sell-off after SEBI warned of froth in small and mid caps
+published parent SCMO_0010,0.08,2024-06-03,0.047737636838793396,209.6717427182357,219.68097622747575,False,harness SCMO_0010 same day +4.3%; Nifty 50 same day +3.3%,True,real move: a second source agrees
+published parent SCMO_0010,0.08,2024-06-04,-0.13206593016468193,219.68097622747575,190.66860376250878,True,harness SCMO_0010 same day -10.4%; Nifty 50 same day -5.9%,True,general-election results day
+published parent SCMO_0010,0.08,2024-06-05,0.051106669288269346,190.66860376250878,200.41304103865536,False,harness SCMO_0010 same day +4.6%; Nifty 50 same day +3.4%,True,real move: a second source agrees
+published parent SCMO_0010,0.08,2026-02-01,-0.049499897180134145,219.88434574540986,209.000093239491,False,,False,no second source
+published parent SCMO_0010,0.08,2026-04-08,0.043922457807173965,206.54946395182972,215.62162406734836,False,harness SCMO_0010 same day +4.4%; Nifty 50 same day +3.8%,True,real move: a second source agrees
+published parent SCMO_0029,0.08,2022-01-24,-0.048684672116402594,105.11001358013135,99.99276703283203,False,harness SCMO_0029 same day -4.8%; Nifty 50 same day -2.7%,True,real move: a second source agrees
+published parent SCMO_0029,0.08,2022-02-24,-0.05326036506915366,91.48899451505243,86.61625726737094,False,harness SCMO_0029 same day -5.3%; Nifty 50 same day -4.8%,True,Russia invades Ukraine
+published parent SCMO_0029,0.08,2024-03-13,-0.04687431489192495,143.80378458068773,137.06308069960204,False,harness SCMO_0029 same day -4.7%; Nifty 50 same day -1.5%,True,small-cap sell-off after SEBI warned of froth in small and mid caps
+published parent SCMO_0029,0.08,2024-06-04,-0.11598120160218262,175.8735878780112,155.4755578258324,True,harness SCMO_0029 same day -8.6%; Nifty 50 same day -5.9%,True,general-election results day
+published parent SCMO_0029,0.08,2025-01-13,-0.05714339591904183,226.57748001528358,213.63007336843145,False,harness SCMO_0029 same day -5.7%; Nifty 50 same day -1.5%,True,real move: a second source agrees
+published parent SCMO_0029,0.08,2025-01-28,-0.053744998366172525,197.43219351457927,186.82120059670834,False,harness SCMO_0029 same day -5.4%; Nifty 50 same day +0.6%,True,real move: a second source agrees
+published parent SCMO_0029,0.08,2025-03-18,0.04917774709954181,186.46498811828644,195.63491614688658,False,harness SCMO_0029 same day +4.9%; Nifty 50 same day +1.4%,True,real move: a second source agrees
+published parent SCMO_0029,0.08,2025-04-15,0.043137086624404075,185.8208383811184,193.83660798298408,False,harness SCMO_0029 same day +4.3%; Nifty 50 same day +2.2%,True,real move: a second source agrees
+published parent SCMO_0029,0.08,2025-05-12,0.053116580265294866,189.52183391860288,199.58858562196622,False,harness SCMO_0029 same day +5.3%; Nifty 50 same day +3.8%,True,real move: a second source agrees
+published parent SCMO_0029,0.08,2026-04-08,0.055987323675062095,186.23511035337225,196.6619157563874,False,harness SCMO_0029 same day +5.6%; Nifty 50 same day +3.8%,True,real move: a second source agrees
+published AA SCMO_0042,0.08,2022-12-23,-0.05352042839067295,94.79955805706314,89.72584509860265,False,Nifty 50 same day -1.8%,True,real move: a second source agrees
+published AA SCMO_0042,0.08,2023-09-12,-0.05168732049704339,125.02916729505328,118.5667446535954,False,Nifty 50 same day -0.0%,False,UNCONFIRMED: check
+published AA SCMO_0042,0.08,2024-03-13,-0.06376359220036909,118.9091099529894,111.32703795703813,False,Nifty 50 same day -1.5%,False,small-cap sell-off after SEBI warned of froth in small and mid caps
+published AA SCMO_0042,0.08,2024-03-14,0.057767009949057035,111.32703795703813,117.7580680663014,False,Nifty 50 same day +0.7%,False,UNCONFIRMED: check
+published AA SCMO_0042,0.08,2024-06-04,-0.08100461102162693,145.78590228330864,133.97657197641232,True,Nifty 50 same day -5.9%,True,general-election results day
+published AA SCMO_0042,0.08,2024-06-05,0.04720984903450254,133.97657197641232,140.3015857135789,False,Nifty 50 same day +3.4%,True,real move: a second source agrees
+published AA SCMO_0042,0.08,2024-08-05,-0.04994002427699995,169.52041905807098,161.05456521486371,False,Nifty 50 same day -2.7%,True,real move: a second source agrees
+published AA SCMO_0042,0.08,2026-01-30,-0.05173375188683327,218.46045123562527,207.1586724543158,False,Nifty 50 same day -0.4%,False,UNCONFIRMED: check
+published AA SCMO_0042,0.08,2026-02-01,-0.057752027406077655,207.1586724543158,195.1948391253275,False,,False,no second source
+published AA SCMO_0042,0.08,2026-03-23,-0.048443554754559526,195.10112948976493,185.6497372406511,False,Nifty 50 same day -2.6%,True,real move: a second source agrees
+published AA SCMO_0043,0.08,2024-03-13,-0.04908794206838363,115.12324853891135,109.47208518390914,False,Nifty 50 same day -1.5%,True,small-cap sell-off after SEBI warned of froth in small and mid caps
+published AA SCMO_0043,0.08,2024-03-14,0.038782765922261486,109.47208518390914,113.71771543861855,False,Nifty 50 same day +0.7%,False,UNCONFIRMED: check
+published AA SCMO_0043,0.08,2024-06-04,-0.05414454862702023,122.26454722653142,115.64458850386387,False,Nifty 50 same day -5.9%,True,general-election results day
+published AA SCMO_0043,0.08,2024-06-05,0.03988302241804664,115.64458850386387,120.25684421968926,False,Nifty 50 same day +3.4%,True,real move: a second source agrees
+published AA SCMO_0043,0.08,2026-01-21,0.04700078425866705,155.70475160799998,163.02299704637693,False,Nifty 50 same day -0.3%,False,UNCONFIRMED: check
+published AA SCMO_0043,0.08,2026-01-22,-0.04723453666998867,163.02299704637693,155.32268131433838,False,Nifty 50 same day +0.5%,False,UNCONFIRMED: check
+published AA SCMO_0043,0.08,2026-01-29,0.04748209638181655,164.17926278040503,171.9748383596398,False,Nifty 50 same day +0.3%,False,UNCONFIRMED: check
+published AA SCMO_0043,0.08,2026-01-30,-0.05245196190661383,171.9748383596398,162.9544206891039,False,Nifty 50 same day -0.4%,False,UNCONFIRMED: check
+published AA SCMO_0043,0.08,2026-02-01,-0.058593986797624065,162.9544206891039,153.40627151463207,False,,False,no second source
+published AA SCMO_0043,0.08,2026-03-23,-0.049199085037052726,153.3169429009726,145.7738895895667,False,Nifty 50 same day -2.6%,True,real move: a second source agrees
+published AA SCMO_0044,0.08,2022-01-24,-0.05593343442437482,95.75442640794157,90.39855247760934,False,Nifty 50 same day -2.7%,True,real move: a second source agrees
+published AA SCMO_0044,0.08,2022-09-26,-0.03968199709957987,88.8475074610403,85.32186092766639,False,Nifty 50 same day -1.8%,True,real move: a second source agrees
+published AA SCMO_0044,0.08,2024-03-13,-0.052789361661233714,140.25601501167674,132.8519895100619,False,Nifty 50 same day -1.5%,False,small-cap sell-off after SEBI warned of froth in small and mid caps
+published AA SCMO_0044,0.08,2024-06-03,0.04773763683879384,162.86375815013864,170.6384890909111,False,Nifty 50 same day +3.3%,True,real move: a second source agrees
+published AA SCMO_0044,0.08,2024-06-04,-0.13206593016468215,170.6384890909111,148.10295830722396,True,Nifty 50 same day -5.9%,True,general-election results day
+published AA SCMO_0044,0.08,2024-06-05,0.051106669288269346,148.10295830722396,155.6720072180456,False,Nifty 50 same day +3.4%,True,real move: a second source agrees
+published AA SCMO_0044,0.08,2024-08-05,-0.0411419972533722,171.84765742123165,164.7775015716089,False,Nifty 50 same day -2.7%,True,real move: a second source agrees
+published AA SCMO_0044,0.08,2026-01-30,-0.043284893472461894,192.6176889303814,184.28025278411803,False,Nifty 50 same day -0.4%,False,UNCONFIRMED: check
+published AA SCMO_0044,0.08,2026-02-01,-0.047942313912230805,184.28025278411803,175.4454310573166,False,,False,no second source
+published AA SCMO_0044,0.08,2026-03-23,-0.03975044905210501,175.56781209614343,168.58891272622614,False,Nifty 50 same day -2.6%,True,real move: a second source agrees
+published AA SCMO_0045,0.08,2024-03-13,-0.04687431489192506,125.36037173688884,119.48419019712513,False,Nifty 50 same day -1.5%,True,small-cap sell-off after SEBI warned of froth in small and mid caps
+published AA SCMO_0045,0.08,2024-06-04,-0.11598120160218273,153.3170939789631,135.53519319312818,True,Nifty 50 same day -5.9%,True,general-election results day
+published AA SCMO_0045,0.08,2024-08-05,-0.03927923578367365,175.1395389194017,168.26019167514264,False,Nifty 50 same day -2.7%,True,real move: a second source agrees
+published AA SCMO_0045,0.08,2024-10-07,-0.036104493615730204,184.3491895032753,177.69335536778928,False,Nifty 50 same day -0.9%,False,UNCONFIRMED: check
+published AA SCMO_0045,0.08,2024-10-08,0.04167433391970121,177.69335536778928,185.09860759469868,False,Nifty 50 same day +0.9%,False,UNCONFIRMED: check
+published AA SCMO_0045,0.08,2025-01-13,-0.0358468611717202,165.94802854966898,159.99931260852833,False,Nifty 50 same day -1.5%,True,real move: a second source agrees
+published AA SCMO_0045,0.08,2026-01-29,0.03895200067712823,180.59436540534054,187.6288772488949,False,Nifty 50 same day +0.3%,False,UNCONFIRMED: check
+published AA SCMO_0045,0.08,2026-01-30,-0.043284893472461894,187.6288772488949,179.50738128481885,False,Nifty 50 same day -0.4%,False,UNCONFIRMED: check
+published AA SCMO_0045,0.08,2026-02-01,-0.047942313912230805,179.50738128481885,170.90138206169956,False,,False,no second source
+published AA SCMO_0045,0.08,2026-03-23,-0.039750449052104786,171.02059342301914,164.2224480372967,False,Nifty 50 same day -2.6%,True,real move: a second source agrees
+D17 published parent SCMO_0003,0.08,2020-03-12,-0.08042272567708797,76.45125389595711,70.30283567621315,True,rebuild D18 SCMO_0003 same day -8.0%; Nifty 50 same day -8.3%,True,Covid-19 crash
+D17 published parent SCMO_0003,0.08,2020-03-16,-0.058269234196949515,72.51159142635112,68.28639652353554,False,rebuild D18 SCMO_0003 same day -5.8%; Nifty 50 same day -7.6%,True,Covid-19 crash
+D17 published parent SCMO_0003,0.08,2020-03-20,0.06125325490807354,61.27158748941762,65.02467165652925,False,rebuild D18 SCMO_0003 same day +6.1%; Nifty 50 same day +5.8%,True,Covid-19 crash and rebound
+D17 published parent SCMO_0003,0.08,2020-03-23,-0.1643204760895156,65.02467165652925,54.339786652363934,True,rebuild D18 SCMO_0003 same day -16.4%; Nifty 50 same day -13.0%,True,Covid-19 crash
+D17 published parent SCMO_0003,0.08,2020-08-24,0.06277420183466531,109.80307606487273,116.69587652383616,False,rebuild D18 SCMO_0003 same day +6.3%; Nifty 50 same day +0.8%,True,real move: a second source agrees
+D17 published parent SCMO_0003,0.08,2020-08-31,-0.06511691591666047,110.56460684700568,103.36498063959058,False,rebuild D18 SCMO_0003 same day -6.5%; Nifty 50 same day -2.2%,True,real move: a second source agrees
+D17 published parent SCMO_0003,0.08,2022-02-24,-0.0652857964600082,170.76677673629797,159.61813170816035,False,rebuild D18 SCMO_0003 same day -6.3%; Nifty 50 same day -4.8%,True,Russia invades Ukraine
+D17 published parent SCMO_0003,0.08,2022-06-20,-0.060003254762051816,145.57659310584657,136.8415237023249,False,rebuild D18 SCMO_0003 same day -6.0%; Nifty 50 same day +0.4%,True,real move: a second source agrees
+D17 published parent SCMO_0003,0.08,2024-03-13,-0.0637635922003692,199.383104065873,186.6697211265729,False,rebuild D18 SCMO_0003 same day -6.4%; Nifty 50 same day -1.5%,True,small-cap sell-off after SEBI warned of froth in small and mid caps
+D17 published parent SCMO_0003,0.08,2024-06-04,-0.08100461102162704,244.44927506211948,224.6477566211938,True,rebuild D18 SCMO_0003 same day -8.1%; Nifty 50 same day -5.9%,True,general-election results day
+D17 published parent SCMO_0007,0.08,2019-02-11,-0.049040545675849145,92.72347584323555,88.17626599092186,False,rebuild D18 SCMO_0007 same day -4.9%; Nifty 50 same day -0.5%,True,real move: a second source agrees
+D17 published parent SCMO_0007,0.08,2019-03-05,0.05251124557057785,91.42673548822486,96.22766724716331,False,rebuild D18 SCMO_0007 same day +5.2%; Nifty 50 same day +1.1%,True,real move: a second source agrees
+D17 published parent SCMO_0007,0.08,2020-03-12,-0.08052603541343972,64.97943121464603,59.74689523551027,True,rebuild D18 SCMO_0007 same day -8.1%; Nifty 50 same day -8.3%,True,Covid-19 crash
+D17 published parent SCMO_0007,0.08,2020-03-19,-0.06477213202542309,54.09307204066601,50.58934843678727,False,rebuild D18 SCMO_0007 same day -6.5%; Nifty 50 same day -2.4%,True,Covid-19 crash
+D17 published parent SCMO_0007,0.08,2020-03-23,-0.12318222792413991,53.0294245464408,46.49714188527515,True,rebuild D18 SCMO_0007 same day -12.3%; Nifty 50 same day -13.0%,True,Covid-19 crash
+D17 published parent SCMO_0007,0.08,2020-08-06,0.06113222910745719,78.66221677693574,83.47101343504383,False,rebuild D18 SCMO_0007 same day +6.1%; Nifty 50 same day +0.9%,True,real move: a second source agrees
+D17 published parent SCMO_0007,0.08,2020-08-20,0.05798900369705229,92.18806769480446,97.53396189318258,False,rebuild D18 SCMO_0007 same day +5.8%; Nifty 50 same day -0.8%,True,real move: a second source agrees
+D17 published parent SCMO_0007,0.08,2020-08-31,-0.06606269964655709,99.67883285499846,93.09378005897933,False,rebuild D18 SCMO_0007 same day -6.6%; Nifty 50 same day -2.2%,True,real move: a second source agrees
+D17 published parent SCMO_0007,0.08,2024-03-13,-0.04908794206838363,179.6917856526087,170.87108568832903,False,rebuild D18 SCMO_0007 same day -4.9%; Nifty 50 same day -1.5%,True,small-cap sell-off after SEBI warned of froth in small and mid caps
+D17 published parent SCMO_0007,0.08,2024-06-04,-0.054144548627020006,190.83838487859694,180.50552666863578,False,rebuild D18 SCMO_0007 same day -5.4%; Nifty 50 same day -5.9%,True,general-election results day
+D17 published parent SCMO_0010,0.08,2019-01-28,-0.06054316167095597,90.07744814499084,84.6238746390415,False,rebuild D18 SCMO_0010 same day -6.0%; Nifty 50 same day -1.1%,True,real move: a second source agrees
+D17 published parent SCMO_0010,0.08,2020-03-12,-0.09904010119703344,82.8930817505818,74.68334254547021,True,rebuild D18 SCMO_0010 same day -9.9%; Nifty 50 same day -8.3%,True,Covid-19 crash
+D17 published parent SCMO_0010,0.08,2020-03-16,-0.07675418684867175,76.81461397727924,70.91877074335855,False,rebuild D18 SCMO_0010 same day -7.6%; Nifty 50 same day -7.6%,True,Covid-19 crash
+D17 published parent SCMO_0010,0.08,2020-03-18,-0.05913857526521782,67.83090615444007,63.81948300551779,False,rebuild D18 SCMO_0010 same day -5.9%; Nifty 50 same day -5.6%,True,Covid-19 crash
+D17 published parent SCMO_0010,0.08,2020-03-20,0.06829822093405724,61.59404688941876,65.80081071209497,False,rebuild D18 SCMO_0010 same day +6.8%; Nifty 50 same day +5.8%,True,Covid-19 crash and rebound
+D17 published parent SCMO_0010,0.08,2020-03-23,-0.1622721757851754,65.80081071209497,55.12316998941485,True,rebuild D18 SCMO_0010 same day -16.2%; Nifty 50 same day -13.0%,True,Covid-19 crash
+D17 published parent SCMO_0010,0.08,2020-03-25,0.06627921489311484,56.25007638257147,59.97828728288605,False,rebuild D18 SCMO_0010 same day +6.6%; Nifty 50 same day +6.6%,True,Covid-19 rebound
+D17 published parent SCMO_0010,0.08,2020-04-07,0.0642752536770348,61.16546865068954,65.09689466448732,False,rebuild D18 SCMO_0010 same day +6.4%; Nifty 50 same day +8.8%,True,Covid-19 rebound
+D17 published parent SCMO_0010,0.08,2022-02-24,-0.06393914566276482,222.19326635957503,207.98641873652466,False,rebuild D18 SCMO_0010 same day -6.4%; Nifty 50 same day -4.8%,True,Russia invades Ukraine
+D17 published parent SCMO_0010,0.08,2024-06-04,-0.13206593016468193,509.58749262975755,442.28834641532063,True,rebuild D18 SCMO_0010 same day -13.2%; Nifty 50 same day -5.9%,True,general-election results day
+D17 published parent SCMO_0029,0.08,2019-09-20,0.05883615855772173,99.90414474131998,105.78212084189386,False,rebuild D18 SCMO_0029 same day +5.9%; Nifty 50 same day +5.3%,True,corporate tax cut announced
+D17 published parent SCMO_0029,0.08,2020-03-12,-0.07357770577844769,119.55819551302994,110.76137778017011,False,rebuild D18 SCMO_0029 same day -7.4%; Nifty 50 same day -8.3%,True,Covid-19 crash
+D17 published parent SCMO_0029,0.08,2020-03-16,-0.06411373809254517,113.58107047704462,106.29896347220847,False,rebuild D18 SCMO_0029 same day -6.4%; Nifty 50 same day -7.6%,True,Covid-19 crash
+D17 published parent SCMO_0029,0.08,2020-03-18,-0.07762495547992743,102.93243398668938,94.94230838103205,False,rebuild D18 SCMO_0029 same day -7.8%; Nifty 50 same day -5.6%,True,Covid-19 crash
+D17 published parent SCMO_0029,0.08,2020-03-20,0.05733997563112103,89.94203340146902,95.09930740492273,False,rebuild D18 SCMO_0029 same day +5.7%; Nifty 50 same day +5.8%,True,Covid-19 crash and rebound
+D17 published parent SCMO_0029,0.08,2020-03-23,-0.11313385026998124,95.09930740492273,84.34035660019528,True,rebuild D18 SCMO_0029 same day -11.3%; Nifty 50 same day -13.0%,True,Covid-19 crash
+D17 published parent SCMO_0029,0.08,2020-04-07,0.06196978935630759,91.7571510100915,97.44332233012179,False,rebuild D18 SCMO_0029 same day +6.2%; Nifty 50 same day +8.8%,True,Covid-19 rebound
+D17 published parent SCMO_0029,0.08,2024-06-04,-0.11598120160218262,400.04709753807646,353.6491544681448,True,rebuild D18 SCMO_0029 same day -11.6%; Nifty 50 same day -5.9%,True,general-election results day
+D17 published parent SCMO_0029,0.08,2025-01-13,-0.05714339591904183,515.3796220412372,485.92908025032864,False,rebuild D18 SCMO_0029 same day -5.7%; Nifty 50 same day -1.5%,True,real move: a second source agrees
+D17 published parent SCMO_0029,0.08,2026-04-08,0.055987323675062095,423.61571316908777,447.33282321612774,False,rebuild D18 SCMO_0029 same day +5.6%; Nifty 50 same day +3.8%,True,real move: a second source agrees
+GOLDBEES Eikon,0.05,2026-01-21,0.07238201175909742,125.86,134.97,True,GOLDBEES Kite same day +6.9%; MAUc1 same day +1.5%,True,real move: a second source agrees
+GOLDBEES Eikon,0.05,2026-01-22,-0.07875824257242348,134.97,124.34,True,GOLDBEES Kite same day -8.1%; MAUc1 same day +2.3%,True,real move: a second source agrees
+GOLDBEES Eikon,0.05,2026-01-29,0.07885436607274343,135.82,146.53,True,GOLDBEES Kite same day +8.5%; MAUc1 same day +2.1%,True,real move: a second source agrees
+GOLDBEES Eikon,0.05,2026-01-30,-0.10516617757455804,146.53,131.12,True,GOLDBEES Kite same day -10.1%; MAUc1 same day -11.7%,True,real move: a second source agrees
+GOLDBEES Eikon,0.05,2026-02-01,-0.06719035997559486,131.12,122.31,True,GOLDBEES Kite same day -7.6%; MAUc1 same day -5.0%,True,real move: a second source agrees
+GOLDBEES Eikon,0.05,2026-02-03,0.05502654419819675,118.67,125.2,True,GOLDBEES Kite same day +4.9%; MAUc1 same day +5.3%,True,real move: a second source agrees
+GOLDBEES Eikon,0.05,2026-03-02,0.051063829787234116,131.6,138.32,True,GOLDBEES Kite same day +5.2%; MAUc1 same day +2.4%,True,real move: a second source agrees
+GOLDBEES Eikon,0.05,2026-03-19,-0.05152060042217188,127.91,121.32,True,GOLDBEES Kite same day -4.8%; MAUc1 same day -5.3%,True,real move: a second source agrees
+GOLDBEES Eikon,0.05,2026-03-23,-0.08541219230133823,121.06,110.72,True,GOLDBEES Kite same day -8.4%; MAUc1 same day -3.6%,True,real move: a second source agrees
+GOLDBEES Eikon,0.05,2026-05-13,0.05721852178797859,124.61,131.74,True,GOLDBEES Kite same day +5.9%; MAUc1 same day +5.7%,True,real move: a second source agrees
+GOLDBEES Kite (parquet),0.05,2026-01-21,0.0688348594884749,126.68,135.4,True,GOLDBEES Eikon same day +7.2%,True,real move: a second source agrees
+GOLDBEES Kite (parquet),0.05,2026-01-22,-0.08124076809453473,135.4,124.4,True,GOLDBEES Eikon same day -7.9%,True,real move: a second source agrees
+GOLDBEES Kite (parquet),0.05,2026-01-29,0.08477699963140428,135.65,147.15,True,GOLDBEES Eikon same day +7.9%,True,real move: a second source agrees
+GOLDBEES Kite (parquet),0.05,2026-01-30,-0.10057764186204565,147.15,132.35,True,GOLDBEES Eikon same day -10.5%,True,real move: a second source agrees
+GOLDBEES Kite (parquet),0.05,2026-02-01,-0.07593502077823955,132.35,122.3,True,GOLDBEES Eikon same day -6.7%,True,real move: a second source agrees
+GOLDBEES Kite (parquet),0.05,2026-02-03,0.04897446630389268,119.45,125.3,False,GOLDBEES Eikon same day +5.5%,True,real move: a second source agrees
+GOLDBEES Kite (parquet),0.05,2026-03-02,0.05195199756949731,131.66,138.5,True,GOLDBEES Eikon same day +5.1%,True,real move: a second source agrees
+GOLDBEES Kite (parquet),0.05,2026-03-19,-0.048252131070618653,127.87,121.7,False,GOLDBEES Eikon same day -5.2%,True,real move: a second source agrees
+GOLDBEES Kite (parquet),0.05,2026-03-23,-0.0840141949327392,121.17,110.99,True,GOLDBEES Eikon same day -8.5%,True,real move: a second source agrees
+GOLDBEES Kite (parquet),0.05,2026-05-13,0.05859688553539888,124.58,131.88,True,GOLDBEES Eikon same day +5.7%,True,real move: a second source agrees
+GOLDBEES Kite (DB closes),0.05,2026-01-21,0.0688348594884749,126.68,135.4,True,GOLDBEES Eikon same day +7.2%,True,real move: a second source agrees
+GOLDBEES Kite (DB closes),0.05,2026-01-22,-0.08124076809453473,135.4,124.4,True,GOLDBEES Eikon same day -7.9%,True,real move: a second source agrees
+GOLDBEES Kite (DB closes),0.05,2026-01-29,0.08477699963140428,135.65,147.15,True,GOLDBEES Eikon same day +7.9%,True,real move: a second source agrees
+GOLDBEES Kite (DB closes),0.05,2026-01-30,-0.10057764186204565,147.15,132.35,True,GOLDBEES Eikon same day -10.5%,True,real move: a second source agrees
+GOLDBEES Kite (DB closes),0.05,2026-02-01,-0.07593502077823955,132.35,122.3,True,GOLDBEES Eikon same day -6.7%,True,real move: a second source agrees
+GOLDBEES Kite (DB closes),0.05,2026-02-03,0.04897446630389268,119.45,125.3,False,GOLDBEES Eikon same day +5.5%,True,real move: a second source agrees
+GOLDBEES Kite (DB closes),0.05,2026-03-02,0.05195199756949731,131.66,138.5,True,GOLDBEES Eikon same day +5.1%,True,real move: a second source agrees
+GOLDBEES Kite (DB closes),0.05,2026-03-19,-0.048252131070618653,127.87,121.7,False,GOLDBEES Eikon same day -5.2%,True,real move: a second source agrees
+GOLDBEES Kite (DB closes),0.05,2026-03-23,-0.0840141949327392,121.17,110.99,True,GOLDBEES Eikon same day -8.5%,True,real move: a second source agrees
+GOLDBEES Kite (DB closes),0.05,2026-05-13,0.05859688553539888,124.58,131.88,True,GOLDBEES Eikon same day +5.7%,True,real move: a second source agrees
+LIQUIDBEES Kite (DB closes),0.005,2023-03-31,2.000020000192393e-05,999.99,1000.01,False,,False,no second source
+LIQUIDBEES Kite (DB closes),0.005,2023-07-06,2.999999999997449e-05,1000.0,1000.03,False,,False,no second source
+LIQUIDBEES Kite (DB closes),0.005,2023-07-07,-2.9999100026989467e-05,1000.03,1000.0,False,,False,no second source
+LIQUIDBEES Kite (DB closes),0.005,2023-09-29,3.0000300002885893e-05,999.99,1000.02,False,,False,no second source
+LIQUIDBEES Kite (DB closes),0.005,2025-11-26,2.000020000192393e-05,999.99,1000.01,False,,False,no second source
+LIQUIDBEES Kite (DB closes),0.005,2025-12-18,2.000020000192393e-05,999.99,1000.01,False,,False,no second source
+LIQUIDBEES Kite (DB closes),0.005,2026-05-19,2.000020000192393e-05,999.99,1000.01,False,,False,no second source
+LIQUIDBEES Kite (DB closes),0.005,2026-05-22,2.000020000192393e-05,999.99,1000.01,False,,False,no second source
+LIQUIDBEES Kite (DB closes),0.005,2026-06-02,2.000020000192393e-05,999.99,1000.01,False,,False,no second source
+LIQUIDBEES Kite (DB closes),0.005,2026-06-24,2.000020000192393e-05,999.99,1000.01,False,,False,no second source
+LBES adjusted (cash),0.005,2008-01-27,0.0005254994989563055,1028.93529123,1029.47599621,False,,False,no second source
+LBES adjusted (cash),0.005,2008-03-23,0.0009193699995160287,1037.58346531,1038.53738842,False,,False,no second source
+LBES adjusted (cash),0.005,2008-10-02,0.0005603509983957977,1074.30055755,1074.90254294,False,,False,no second source
+LBES adjusted (cash),0.005,2010-12-19,0.000624637499898606,1166.64798402,1167.3767161,False,,False,no second source
+LBES adjusted (cash),0.005,2011-04-17,0.000530618097750013,1190.58411818,1191.21586366,False,,False,no second source
+LBES adjusted (cash),0.005,2015-04-03,0.0005380813985949029,1496.60438384,1497.40967882,False,,False,no second source
+LBES adjusted (cash),0.005,2016-03-27,0.0006352876002340135,1566.25847826,1567.25350285,False,,False,no second source
+LBES adjusted (cash),0.005,2016-04-17,0.0005340404027640577,1570.3671214,1571.20576089,False,,False,no second source
+LBES adjusted (cash),0.005,2016-06-22,0.0005575167995095498,1582.62800471,1583.51034641,False,,False,no second source
+LBES adjusted (cash),0.005,2017-10-22,0.0005257167985890376,1666.73937822,1667.61561111,False,,False,no second source
+MAUc1 raw export,0.05,2015-02-06,-0.05212901400480974,28276.0,26802.0,True,GOLDBEES Eikon same day +0.0%; GOLDBEES Eikon next session 2015-02-09 -1.7%,True,real move: a second source agrees
+MAUc1 raw export,0.05,2016-02-11,0.05205353674471169,28317.0,29791.0,True,GOLDBEES Eikon same day +2.2%; GOLDBEES Eikon next session 2016-02-12 +1.3%,True,real move: a second source agrees
+MAUc1 raw export,0.05,2020-08-11,-0.05490845557456414,54946.0,51929.0,True,GOLDBEES Eikon same day -2.3%; GOLDBEES Eikon next session 2020-08-12 -3.4%,True,real move: a second source agrees
+MAUc1 raw export,0.05,2024-07-23,-0.05786737809070652,72718.0,68510.0,True,GOLDBEES Eikon same day -3.1%; GOLDBEES Eikon next session 2024-07-24 -0.9%,True,Union Budget cuts the customs duty on gold
+MAUc1 raw export,0.05,2025-10-22,-0.05000350819748811,128271.0,121857.0,True,GOLDBEES Eikon next session 2025-10-23 -3.8%,True,real move: a second source agrees
+MAUc1 raw export,0.05,2026-01-28,0.05209925237319202,157699.0,165915.0,True,GOLDBEES Eikon same day +3.3%; GOLDBEES Eikon next session 2026-01-29 +7.9%,True,real move: a second source agrees
+MAUc1 raw export,0.05,2026-01-30,-0.11658589281181564,169403.0,149653.0,True,GOLDBEES Eikon same day -10.5%; GOLDBEES Eikon next session 2026-02-01 -6.7%,True,real move: a second source agrees
+MAUc1 raw export,0.05,2026-02-03,0.053291270563824655,141693.0,149244.0,True,GOLDBEES Eikon same day +5.5%; GOLDBEES Eikon next session 2026-02-04 +3.5%,True,real move: a second source agrees
+MAUc1 raw export,0.05,2026-03-19,-0.05274301584708385,153025.0,144954.0,True,GOLDBEES Eikon same day -5.2%; GOLDBEES Eikon next session 2026-03-20 -0.2%,True,real move: a second source agrees
+MAUc1 raw export,0.05,2026-05-13,0.05698570143767667,153442.0,162186.0,True,GOLDBEES Eikon same day +5.7%; GOLDBEES Eikon next session 2026-05-14 +0.0%,True,real move: a second source agrees
+MAUc1 cleaned,0.05,2015-02-06,-0.05212901400480974,28276.0,26802.0,True,GOLDBEES Eikon same day +0.0%; GOLDBEES Eikon next session 2015-02-09 -1.7%,True,real move: a second source agrees
+MAUc1 cleaned,0.05,2016-02-11,0.05205353674471169,28317.0,29791.0,True,GOLDBEES Eikon same day +2.2%; GOLDBEES Eikon next session 2016-02-12 +1.3%,True,real move: a second source agrees
+MAUc1 cleaned,0.05,2020-08-11,-0.05490845557456414,54946.0,51929.0,True,GOLDBEES Eikon same day -2.3%; GOLDBEES Eikon next session 2020-08-12 -3.4%,True,real move: a second source agrees
+MAUc1 cleaned,0.05,2024-07-23,-0.05786737809070652,72718.0,68510.0,True,GOLDBEES Eikon same day -3.1%; GOLDBEES Eikon next session 2024-07-24 -0.9%,True,Union Budget cuts the customs duty on gold
+MAUc1 cleaned,0.05,2025-10-22,-0.05000350819748811,128271.0,121857.0,True,GOLDBEES Eikon next session 2025-10-23 -3.8%,True,real move: a second source agrees
+MAUc1 cleaned,0.05,2026-01-28,0.05209925237319202,157699.0,165915.0,True,GOLDBEES Eikon same day +3.3%; GOLDBEES Eikon next session 2026-01-29 +7.9%,True,real move: a second source agrees
+MAUc1 cleaned,0.05,2026-01-30,-0.11658589281181564,169403.0,149653.0,True,GOLDBEES Eikon same day -10.5%; GOLDBEES Eikon next session 2026-02-01 -6.7%,True,real move: a second source agrees
+MAUc1 cleaned,0.05,2026-02-03,0.053291270563824655,141693.0,149244.0,True,GOLDBEES Eikon same day +5.5%; GOLDBEES Eikon next session 2026-02-04 +3.5%,True,real move: a second source agrees
+MAUc1 cleaned,0.05,2026-03-19,-0.05274301584708385,153025.0,144954.0,True,GOLDBEES Eikon same day -5.2%; GOLDBEES Eikon next session 2026-03-20 -0.2%,True,real move: a second source agrees
+MAUc1 cleaned,0.05,2026-05-13,0.05698570143767667,153442.0,162186.0,True,GOLDBEES Eikon same day +5.7%; GOLDBEES Eikon next session 2026-05-14 +0.0%,True,real move: a second source agrees

@@ -1,0 +1,1078 @@
+Date,R1_phase,R2_trend,R3_vol,R4_leadership,R5_state,R6_breadth,R7_comove
+2006-01-06,bull,above 40w avg,high,,only SC100 BUY,3 of 4 BUY,
+2006-01-13,bull,above 40w avg,mid,,only SC100 BUY,3 of 4 BUY,
+2006-01-20,bull,above 40w avg,mid,,only SC100 BUY,3 of 4 BUY,
+2006-01-27,bull,above 40w avg,low,,only SC100 BUY,3 of 4 BUY,
+2006-02-03,bull,above 40w avg,low,,only SC100 BUY,3 of 4 BUY,
+2006-02-10,bull,above 40w avg,low,,only SC100 BUY,3 of 4 BUY,
+2006-02-17,bull,above 40w avg,low,,only SC100 BUY,3 of 4 BUY,
+2006-02-24,bull,above 40w avg,low,,only SC100 BUY,3 of 4 BUY,
+2006-03-03,bull,above 40w avg,low,,both BUY,4 of 4 BUY,
+2006-03-10,bull,above 40w avg,low,,both BUY,4 of 4 BUY,
+2006-03-17,bull,above 40w avg,low,,both BUY,4 of 4 BUY,
+2006-03-24,bull,above 40w avg,low,,both BUY,4 of 4 BUY,
+2006-03-31,bull,above 40w avg,low,,both BUY,4 of 4 BUY,
+2006-04-07,bull,above 40w avg,low,,both BUY,4 of 4 BUY,
+2006-04-13,bull,above 40w avg,low,,both BUY,4 of 4 BUY,
+2006-04-21,bull,above 40w avg,mid,,both BUY,4 of 4 BUY,
+2006-04-29,bull,above 40w avg,mid,,both BUY,4 of 4 BUY,
+2006-05-05,bull,above 40w avg,mid,,both BUY,4 of 4 BUY,
+2006-05-12,bull,above 40w avg,mid,,both BUY,4 of 4 BUY,
+2006-05-19,bear,above 40w avg,high,,both SELL,0 of 4 BUY,
+2006-05-26,bear,above 40w avg,high,,both SELL,0 of 4 BUY,
+2006-06-02,bear,above 40w avg,high,small-led,both SELL,0 of 4 BUY,
+2006-06-09,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,
+2006-06-16,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,
+2006-06-23,recovery,above 40w avg,high,neutral,both SELL,0 of 4 BUY,
+2006-06-30,recovery,above 40w avg,high,neutral,both SELL,0 of 4 BUY,
+2006-07-07,recovery,above 40w avg,high,neutral,both SELL,0 of 4 BUY,
+2006-07-14,recovery,above 40w avg,high,neutral,both SELL,0 of 4 BUY,
+2006-07-21,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,
+2006-07-28,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,
+2006-08-04,recovery,above 40w avg,high,neutral,both SELL,0 of 4 BUY,
+2006-08-11,recovery,above 40w avg,high,neutral,only SC100 BUY,1 of 4 BUY,
+2006-08-18,recovery,above 40w avg,high,neutral,both BUY,3 of 4 BUY,
+2006-08-25,recovery,above 40w avg,high,small-led,both BUY,3 of 4 BUY,
+2006-09-01,recovery,above 40w avg,high,neutral,both BUY,4 of 4 BUY,
+2006-09-08,recovery,above 40w avg,high,small-led,both BUY,4 of 4 BUY,
+2006-09-15,recovery,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,
+2006-09-22,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,
+2006-09-29,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,
+2006-10-06,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,
+2006-10-13,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,
+2006-10-20,recovery,above 40w avg,low,small-led,both BUY,4 of 4 BUY,
+2006-10-27,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,
+2006-11-03,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,
+2006-11-10,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,
+2006-11-17,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,
+2006-11-24,bull,above 40w avg,low,large-led,both BUY,4 of 4 BUY,
+2006-12-01,bull,above 40w avg,low,large-led,both BUY,4 of 4 BUY,
+2006-12-08,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,
+2006-12-15,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,
+2006-12-22,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,
+2006-12-29,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,
+2007-01-05,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,
+2007-01-12,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,
+2007-01-19,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,
+2007-01-25,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,
+2007-02-02,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,
+2007-02-09,correction,above 40w avg,low,neutral,both BUY,4 of 4 BUY,
+2007-02-15,correction,above 40w avg,low,neutral,both BUY,4 of 4 BUY,
+2007-02-23,correction,above 40w avg,low,neutral,both SELL,0 of 4 BUY,
+2007-03-02,correction,above 40w avg,low,neutral,both SELL,0 of 4 BUY,
+2007-03-09,correction,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,
+2007-03-16,correction,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,
+2007-03-23,recovery,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,
+2007-03-30,recovery,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,
+2007-04-05,recovery,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,
+2007-04-13,recovery,above 40w avg,mid,neutral,only SC100 BUY,1 of 4 BUY,
+2007-04-20,recovery,above 40w avg,mid,neutral,only SC100 BUY,2 of 4 BUY,
+2007-04-27,recovery,above 40w avg,mid,neutral,only SC100 BUY,2 of 4 BUY,
+2007-05-04,recovery,above 40w avg,mid,neutral,both BUY,3 of 4 BUY,
+2007-05-11,recovery,above 40w avg,mid,neutral,both BUY,3 of 4 BUY,
+2007-05-18,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,
+2007-05-25,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,
+2007-06-01,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,
+2007-06-08,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,
+2007-06-15,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,
+2007-06-22,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,
+2007-06-29,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,
+2007-07-06,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,
+2007-07-13,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,
+2007-07-20,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,
+2007-07-27,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,
+2007-08-03,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,
+2007-08-10,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,
+2007-08-17,bull,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,
+2007-08-24,bull,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,
+2007-08-31,bull,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,
+2007-09-07,bull,above 40w avg,mid,small-led,only SC100 BUY,1 of 4 BUY,
+2007-09-14,bull,above 40w avg,mid,small-led,only SC100 BUY,1 of 4 BUY,
+2007-09-21,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,
+2007-09-28,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,
+2007-10-05,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,
+2007-10-12,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,
+2007-10-19,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,
+2007-10-26,bull,above 40w avg,high,neutral,both BUY,4 of 4 BUY,
+2007-11-02,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,
+2007-11-09,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,
+2007-11-16,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,
+2007-11-23,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,
+2007-11-30,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,high
+2007-12-07,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,mid
+2007-12-14,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,mid
+2007-12-20,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,mid
+2007-12-28,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2008-01-04,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2008-01-11,bear,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2008-01-18,bear,above 40w avg,high,small-led,only N100 BUY,3 of 4 BUY,mid
+2008-01-25,bear,above 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2008-02-01,bear,above 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2008-02-08,bear,above 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2008-02-15,bear,above 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2008-02-22,bear,above 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2008-02-29,bear,above 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2008-03-07,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2008-03-14,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2008-03-19,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2008-03-28,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2008-04-04,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2008-04-11,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2008-04-17,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2008-04-25,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2008-05-02,recovery,below 40w avg,high,neutral,only SC100 BUY,1 of 4 BUY,mid
+2008-05-09,bear,below 40w avg,high,neutral,only SC100 BUY,1 of 4 BUY,mid
+2008-05-16,bear,below 40w avg,high,neutral,only SC100 BUY,1 of 4 BUY,mid
+2008-05-23,bear,below 40w avg,high,neutral,only SC100 BUY,1 of 4 BUY,mid
+2008-05-30,bear,below 40w avg,high,neutral,only SC100 BUY,1 of 4 BUY,mid
+2008-06-06,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2008-06-13,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2008-06-20,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2008-06-27,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2008-07-04,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2008-07-11,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2008-07-18,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,mid
+2008-07-25,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2008-08-01,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,high
+2008-08-08,recovery,below 40w avg,high,large-led,only SC100 BUY,1 of 4 BUY,high
+2008-08-14,recovery,below 40w avg,high,large-led,only SC100 BUY,1 of 4 BUY,high
+2008-08-22,bear,below 40w avg,mid,large-led,only SC100 BUY,1 of 4 BUY,high
+2008-08-29,bear,below 40w avg,mid,large-led,only SC100 BUY,1 of 4 BUY,mid
+2008-09-05,bear,below 40w avg,mid,large-led,only SC100 BUY,1 of 4 BUY,mid
+2008-09-12,bear,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2008-09-19,bear,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2008-09-26,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2008-10-03,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2008-10-10,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2008-10-17,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2008-10-24,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2008-10-31,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2008-11-07,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2008-11-14,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2008-11-21,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2008-11-28,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2008-12-05,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2008-12-12,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2008-12-19,recovery,below 40w avg,high,large-led,only SC100 BUY,1 of 4 BUY,high
+2008-12-26,recovery,below 40w avg,high,large-led,only SC100 BUY,1 of 4 BUY,high
+2009-01-02,recovery,below 40w avg,high,large-led,only SC100 BUY,2 of 4 BUY,high
+2009-01-09,bear,below 40w avg,high,large-led,only SC100 BUY,2 of 4 BUY,high
+2009-01-16,bear,below 40w avg,high,large-led,only SC100 BUY,2 of 4 BUY,high
+2009-01-23,bear,below 40w avg,high,large-led,only SC100 BUY,2 of 4 BUY,high
+2009-01-30,bear,below 40w avg,high,large-led,only SC100 BUY,2 of 4 BUY,high
+2009-02-06,bear,below 40w avg,high,large-led,only SC100 BUY,2 of 4 BUY,high
+2009-02-13,bear,below 40w avg,high,large-led,only SC100 BUY,2 of 4 BUY,high
+2009-02-20,bear,below 40w avg,high,large-led,both SELL,1 of 4 BUY,high
+2009-02-27,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2009-03-06,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2009-03-13,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2009-03-20,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2009-03-27,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2009-04-02,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2009-04-09,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2009-04-17,bull,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2009-04-24,bull,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2009-04-29,bull,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2009-05-08,bull,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2009-05-15,bull,above 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2009-05-22,bull,above 40w avg,high,neutral,both BUY,4 of 4 BUY,high
+2009-05-29,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2009-06-05,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2009-06-12,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2009-06-19,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2009-06-26,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2009-07-03,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2009-07-10,correction,above 40w avg,high,small-led,only N100 BUY,3 of 4 BUY,high
+2009-07-17,recovery,above 40w avg,high,small-led,only N100 BUY,3 of 4 BUY,high
+2009-07-24,recovery,above 40w avg,high,small-led,only N100 BUY,3 of 4 BUY,high
+2009-07-31,recovery,above 40w avg,high,small-led,only N100 BUY,3 of 4 BUY,high
+2009-08-07,recovery,above 40w avg,high,small-led,only N100 BUY,3 of 4 BUY,high
+2009-08-14,recovery,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2009-08-21,recovery,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2009-08-28,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2009-09-04,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2009-09-11,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2009-09-18,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,high
+2009-09-25,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,high
+2009-10-01,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,high
+2009-10-09,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,high
+2009-10-17,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,high
+2009-10-23,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,high
+2009-10-30,bull,above 40w avg,mid,small-led,only N100 BUY,3 of 4 BUY,high
+2009-11-06,bull,above 40w avg,mid,small-led,only N100 BUY,3 of 4 BUY,high
+2009-11-13,bull,above 40w avg,mid,small-led,only N100 BUY,3 of 4 BUY,high
+2009-11-20,bull,above 40w avg,mid,small-led,only N100 BUY,3 of 4 BUY,high
+2009-11-27,bull,above 40w avg,mid,neutral,only N100 BUY,3 of 4 BUY,high
+2009-12-04,bull,above 40w avg,mid,neutral,only N100 BUY,3 of 4 BUY,high
+2009-12-11,bull,above 40w avg,mid,small-led,only N100 BUY,3 of 4 BUY,high
+2009-12-18,bull,above 40w avg,mid,small-led,only N100 BUY,3 of 4 BUY,high
+2009-12-24,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,high
+2009-12-31,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,high
+2010-01-08,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,high
+2010-01-15,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,high
+2010-01-22,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,high
+2010-01-29,bull,above 40w avg,low,small-led,only SC100 BUY,1 of 4 BUY,high
+2010-02-05,bull,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,high
+2010-02-11,bull,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,high
+2010-02-19,bull,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,high
+2010-02-26,bull,above 40w avg,low,small-led,both SELL,0 of 4 BUY,high
+2010-03-05,bull,above 40w avg,low,small-led,both SELL,0 of 4 BUY,high
+2010-03-12,bull,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,high
+2010-03-19,bull,above 40w avg,mid,small-led,both BUY,3 of 4 BUY,high
+2010-03-26,bull,above 40w avg,low,neutral,both BUY,3 of 4 BUY,high
+2010-04-01,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,high
+2010-04-09,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,high
+2010-04-16,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,high
+2010-04-23,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,high
+2010-04-30,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,high
+2010-05-07,bull,above 40w avg,low,small-led,both SELL,1 of 4 BUY,high
+2010-05-14,bull,above 40w avg,low,small-led,both SELL,1 of 4 BUY,high
+2010-05-21,bull,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,high
+2010-05-28,bull,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,high
+2010-06-04,bull,above 40w avg,low,neutral,both SELL,0 of 4 BUY,high
+2010-06-11,bull,above 40w avg,low,neutral,both SELL,0 of 4 BUY,high
+2010-06-18,bull,above 40w avg,low,neutral,both SELL,0 of 4 BUY,high
+2010-06-25,bull,above 40w avg,low,neutral,both SELL,0 of 4 BUY,high
+2010-07-02,bull,above 40w avg,low,neutral,only SC100 BUY,1 of 4 BUY,high
+2010-07-09,bull,above 40w avg,low,neutral,only SC100 BUY,2 of 4 BUY,mid
+2010-07-16,bull,above 40w avg,low,neutral,only SC100 BUY,2 of 4 BUY,mid
+2010-07-23,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2010-07-30,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2010-08-06,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2010-08-13,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2010-08-20,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2010-08-27,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2010-09-03,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2010-09-09,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2010-09-17,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2010-09-24,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2010-10-01,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2010-10-08,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2010-10-15,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2010-10-22,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2010-10-29,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2010-11-05,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2010-11-12,bear,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2010-11-19,bear,above 40w avg,low,neutral,only N100 BUY,3 of 4 BUY,low
+2010-11-26,bear,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2010-12-03,bear,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2010-12-10,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2010-12-16,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2010-12-24,bear,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2010-12-31,bear,above 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-01-07,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-01-14,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-01-21,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-01-28,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-02-04,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-02-11,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-02-18,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-02-25,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-03-04,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-03-11,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-03-18,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-03-25,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-04-01,recovery,below 40w avg,mid,large-led,both BUY,3 of 4 BUY,mid
+2011-04-08,recovery,below 40w avg,mid,large-led,both BUY,4 of 4 BUY,low
+2011-04-15,recovery,below 40w avg,mid,large-led,both BUY,4 of 4 BUY,low
+2011-04-21,recovery,below 40w avg,mid,large-led,both BUY,4 of 4 BUY,low
+2011-04-29,bear,below 40w avg,mid,large-led,both BUY,4 of 4 BUY,low
+2011-05-06,bear,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,low
+2011-05-13,bear,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,low
+2011-05-20,bear,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,low
+2011-05-27,bear,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,low
+2011-06-03,bear,below 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,low
+2011-06-10,bear,below 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,low
+2011-06-17,bear,below 40w avg,mid,neutral,both SELL,1 of 4 BUY,low
+2011-06-24,bear,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2011-07-01,bear,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2011-07-08,bear,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2011-07-15,bear,below 40w avg,mid,neutral,only SC100 BUY,1 of 4 BUY,low
+2011-07-22,bear,below 40w avg,mid,neutral,only SC100 BUY,1 of 4 BUY,low
+2011-07-29,bear,below 40w avg,mid,neutral,only SC100 BUY,1 of 4 BUY,low
+2011-08-05,bear,below 40w avg,low,neutral,only SC100 BUY,1 of 4 BUY,low
+2011-08-12,bear,below 40w avg,mid,small-led,both SELL,0 of 4 BUY,low
+2011-08-19,bear,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2011-08-26,bear,below 40w avg,mid,small-led,both SELL,0 of 4 BUY,low
+2011-09-02,bear,below 40w avg,mid,small-led,both SELL,0 of 4 BUY,low
+2011-09-09,bear,below 40w avg,mid,small-led,both SELL,0 of 4 BUY,low
+2011-09-16,bear,below 40w avg,mid,small-led,both SELL,0 of 4 BUY,low
+2011-09-23,bear,below 40w avg,mid,small-led,both SELL,0 of 4 BUY,low
+2011-09-30,bear,below 40w avg,mid,small-led,both SELL,0 of 4 BUY,low
+2011-10-07,bear,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2011-10-14,bear,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2011-10-21,bear,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2011-10-28,bear,below 40w avg,mid,neutral,only SC100 BUY,2 of 4 BUY,low
+2011-11-04,bear,below 40w avg,mid,neutral,only SC100 BUY,2 of 4 BUY,low
+2011-11-11,bear,below 40w avg,mid,neutral,only SC100 BUY,2 of 4 BUY,low
+2011-11-18,bear,below 40w avg,mid,neutral,both SELL,1 of 4 BUY,low
+2011-11-25,bear,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2011-12-02,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-12-09,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2011-12-16,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2011-12-23,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2011-12-30,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2012-01-06,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2012-01-13,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2012-01-20,recovery,below 40w avg,high,large-led,only SC100 BUY,2 of 4 BUY,low
+2012-01-27,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,low
+2012-02-03,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,low
+2012-02-10,recovery,above 40w avg,high,large-led,both BUY,4 of 4 BUY,low
+2012-02-17,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2012-02-24,correction,above 40w avg,mid,large-led,both BUY,4 of 4 BUY,low
+2012-03-02,correction,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2012-03-09,correction,above 40w avg,mid,large-led,both BUY,4 of 4 BUY,low
+2012-03-16,correction,above 40w avg,mid,large-led,both BUY,4 of 4 BUY,low
+2012-03-23,correction,above 40w avg,mid,large-led,both BUY,4 of 4 BUY,low
+2012-03-30,correction,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2012-04-04,correction,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2012-04-13,correction,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2012-04-20,correction,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2012-04-27,correction,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2012-05-04,correction,above 40w avg,low,neutral,both BUY,2 of 4 BUY,low
+2012-05-11,correction,below 40w avg,low,neutral,both SELL,0 of 4 BUY,low
+2012-05-18,correction,below 40w avg,low,neutral,both SELL,0 of 4 BUY,low
+2012-05-25,correction,below 40w avg,low,neutral,both SELL,0 of 4 BUY,low
+2012-06-01,correction,below 40w avg,low,small-led,both SELL,0 of 4 BUY,low
+2012-06-08,correction,above 40w avg,low,neutral,both SELL,0 of 4 BUY,low
+2012-06-15,correction,above 40w avg,low,small-led,both SELL,0 of 4 BUY,low
+2012-06-22,correction,above 40w avg,low,small-led,both SELL,0 of 4 BUY,low
+2012-06-29,correction,above 40w avg,low,small-led,only N100 BUY,2 of 4 BUY,low
+2012-07-06,correction,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2012-07-13,correction,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2012-07-20,correction,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2012-07-27,correction,below 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,low
+2012-08-03,recovery,above 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,low
+2012-08-10,recovery,above 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,low
+2012-08-17,recovery,above 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,low
+2012-08-24,recovery,above 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,low
+2012-08-31,recovery,below 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,low
+2012-09-07,recovery,above 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,mid
+2012-09-14,recovery,above 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,mid
+2012-09-21,recovery,above 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,mid
+2012-09-28,recovery,above 40w avg,mid,large-led,both BUY,4 of 4 BUY,mid
+2012-10-05,bull,above 40w avg,mid,large-led,both BUY,4 of 4 BUY,mid
+2012-10-12,recovery,above 40w avg,mid,large-led,both BUY,4 of 4 BUY,mid
+2012-10-19,bull,above 40w avg,mid,large-led,both BUY,4 of 4 BUY,mid
+2012-10-26,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,mid
+2012-11-02,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,mid
+2012-11-09,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,mid
+2012-11-16,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2012-11-23,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,low
+2012-11-30,bull,above 40w avg,low,large-led,both BUY,4 of 4 BUY,mid
+2012-12-07,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2012-12-14,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2012-12-21,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2012-12-28,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2013-01-04,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2013-01-11,bear,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2013-01-18,bear,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2013-01-25,bear,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2013-02-01,bear,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2013-02-08,bear,above 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,low
+2013-02-15,bear,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,low
+2013-02-22,bear,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,low
+2013-03-01,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-03-08,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-03-15,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-03-22,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-03-28,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-04-05,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-04-12,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-04-18,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-04-26,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-05-03,bear,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,low
+2013-05-10,bear,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,low
+2013-05-17,bear,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,low
+2013-05-24,bear,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,low
+2013-05-31,bear,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,low
+2013-06-07,bear,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,low
+2013-06-14,bear,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,low
+2013-06-21,bear,below 40w avg,low,large-led,both SELL,0 of 4 BUY,low
+2013-06-28,bear,below 40w avg,low,large-led,both SELL,0 of 4 BUY,low
+2013-07-05,bear,below 40w avg,low,large-led,both SELL,0 of 4 BUY,low
+2013-07-12,bear,below 40w avg,low,large-led,both SELL,0 of 4 BUY,low
+2013-07-19,bear,below 40w avg,low,large-led,both SELL,0 of 4 BUY,low
+2013-07-26,bear,below 40w avg,low,large-led,both SELL,0 of 4 BUY,low
+2013-08-02,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-08-08,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-08-16,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-08-23,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-08-30,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-09-06,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-09-13,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2013-09-20,recovery,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,low
+2013-09-27,recovery,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,low
+2013-10-04,recovery,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,low
+2013-10-11,recovery,below 40w avg,mid,large-led,both BUY,4 of 4 BUY,low
+2013-10-18,recovery,below 40w avg,mid,large-led,both BUY,4 of 4 BUY,low
+2013-10-25,recovery,below 40w avg,mid,large-led,both BUY,4 of 4 BUY,low
+2013-11-03,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,low
+2013-11-08,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,low
+2013-11-14,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,low
+2013-11-22,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2013-11-29,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2013-12-06,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2013-12-13,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2013-12-20,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2013-12-27,recovery,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2014-01-03,recovery,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2014-01-10,recovery,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2014-01-17,recovery,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2014-01-24,recovery,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2014-01-31,recovery,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2014-02-07,recovery,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2014-02-14,recovery,above 40w avg,low,small-led,both SELL,1 of 4 BUY,low
+2014-02-21,recovery,above 40w avg,low,small-led,both SELL,1 of 4 BUY,low
+2014-02-28,recovery,above 40w avg,low,small-led,both SELL,1 of 4 BUY,low
+2014-03-07,recovery,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2014-03-14,recovery,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2014-03-21,recovery,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2014-03-28,recovery,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2014-04-04,recovery,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2014-04-11,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2014-04-17,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2014-04-25,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2014-05-02,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2014-05-09,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2014-05-16,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2014-05-23,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-05-30,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-06-06,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-06-13,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-06-20,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-06-27,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-07-04,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-07-11,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-07-18,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-07-25,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-08-01,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-08-08,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-08-14,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-08-22,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-08-28,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-09-05,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-09-12,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-09-19,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-09-26,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-10-01,correction,above 40w avg,high,small-led,both BUY,4 of 4 BUY,low
+2014-10-10,correction,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2014-10-17,correction,above 40w avg,mid,small-led,both SELL,1 of 4 BUY,low
+2014-10-23,correction,above 40w avg,mid,small-led,both SELL,1 of 4 BUY,low
+2014-10-31,recovery,above 40w avg,mid,small-led,only N100 BUY,3 of 4 BUY,low
+2014-11-07,recovery,above 40w avg,mid,small-led,only N100 BUY,3 of 4 BUY,low
+2014-11-14,recovery,above 40w avg,mid,small-led,only N100 BUY,3 of 4 BUY,low
+2014-11-21,recovery,above 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,low
+2014-11-28,recovery,above 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,low
+2014-12-05,recovery,above 40w avg,mid,large-led,both BUY,4 of 4 BUY,low
+2014-12-12,recovery,above 40w avg,mid,large-led,only SC100 BUY,2 of 4 BUY,low
+2014-12-19,recovery,above 40w avg,mid,large-led,both SELL,1 of 4 BUY,low
+2014-12-26,recovery,above 40w avg,low,large-led,both SELL,1 of 4 BUY,low
+2015-01-02,recovery,above 40w avg,mid,large-led,both SELL,1 of 4 BUY,low
+2015-01-09,recovery,above 40w avg,mid,large-led,both SELL,1 of 4 BUY,low
+2015-01-16,recovery,above 40w avg,mid,large-led,both SELL,1 of 4 BUY,low
+2015-01-23,recovery,above 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,low
+2015-01-30,recovery,above 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,low
+2015-02-06,recovery,above 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,low
+2015-02-13,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2015-02-20,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2015-02-27,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2015-03-05,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2015-03-13,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2015-03-20,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2015-03-27,recovery,above 40w avg,low,small-led,only SC100 BUY,2 of 4 BUY,low
+2015-04-01,recovery,above 40w avg,low,small-led,only SC100 BUY,2 of 4 BUY,low
+2015-04-10,bull,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,low
+2015-04-17,correction,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,low
+2015-04-24,correction,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,low
+2015-04-30,correction,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,low
+2015-05-08,correction,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-05-15,correction,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2015-05-22,correction,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-05-29,correction,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,mid
+2015-06-05,correction,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-06-12,correction,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2015-06-19,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2015-06-26,recovery,above 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2015-07-03,recovery,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-07-10,recovery,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2015-07-17,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2015-07-24,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,mid
+2015-07-31,recovery,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,mid
+2015-08-07,recovery,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,mid
+2015-08-14,correction,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,mid
+2015-08-21,correction,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,mid
+2015-08-28,correction,below 40w avg,high,neutral,both SELL,1 of 4 BUY,mid
+2015-09-04,correction,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-09-11,recovery,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-09-18,recovery,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-09-24,recovery,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-10-01,recovery,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-10-09,recovery,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-10-16,recovery,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-10-23,recovery,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-10-30,recovery,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-11-06,recovery,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-11-13,recovery,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-11-20,recovery,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2015-11-27,recovery,above 40w avg,low,neutral,both SELL,0 of 4 BUY,mid
+2015-12-04,recovery,above 40w avg,low,small-led,both SELL,0 of 4 BUY,high
+2015-12-11,recovery,below 40w avg,low,small-led,both SELL,0 of 4 BUY,high
+2015-12-18,recovery,above 40w avg,low,small-led,both SELL,0 of 4 BUY,high
+2015-12-24,recovery,above 40w avg,low,small-led,only SC100 BUY,1 of 4 BUY,high
+2016-01-01,recovery,above 40w avg,low,small-led,only SC100 BUY,1 of 4 BUY,high
+2016-01-08,bear,above 40w avg,low,small-led,only SC100 BUY,1 of 4 BUY,high
+2016-01-15,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2016-01-22,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2016-01-29,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2016-02-05,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2016-02-12,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2016-02-19,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2016-02-26,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2016-03-04,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2016-03-11,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2016-03-18,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2016-03-23,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2016-04-01,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2016-04-08,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2016-04-13,recovery,below 40w avg,high,neutral,only N100 BUY,3 of 4 BUY,high
+2016-04-22,recovery,above 40w avg,high,neutral,both BUY,4 of 4 BUY,high
+2016-04-29,recovery,above 40w avg,high,neutral,both BUY,4 of 4 BUY,high
+2016-05-06,recovery,below 40w avg,high,neutral,both BUY,4 of 4 BUY,high
+2016-05-13,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,high
+2016-05-20,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,high
+2016-05-27,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,mid
+2016-06-03,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,mid
+2016-06-10,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2016-06-17,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2016-06-24,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2016-07-01,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2016-07-08,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2016-07-15,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2016-07-22,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-07-29,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-08-05,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-08-12,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-08-19,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-08-26,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-09-02,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-09-09,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-09-16,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-09-23,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-09-30,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-10-07,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-10-14,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-10-21,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-10-30,correction,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2016-11-04,correction,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,mid
+2016-11-11,correction,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,mid
+2016-11-18,correction,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2016-11-25,correction,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,mid
+2016-12-02,correction,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,mid
+2016-12-09,correction,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,mid
+2016-12-16,correction,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2016-12-23,correction,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2016-12-30,recovery,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2017-01-06,recovery,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2017-01-13,recovery,above 40w avg,mid,small-led,only SC100 BUY,1 of 4 BUY,high
+2017-01-20,recovery,above 40w avg,mid,small-led,only SC100 BUY,1 of 4 BUY,high
+2017-01-27,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,high
+2017-02-03,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,high
+2017-02-10,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,mid
+2017-02-17,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2017-02-23,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2017-03-03,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-03-10,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2017-03-17,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2017-03-24,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2017-03-31,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-04-07,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2017-04-13,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2017-04-21,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-04-28,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-05-05,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-05-12,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-05-19,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-05-26,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-06-02,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-06-09,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-06-16,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-06-23,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-06-30,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-07-07,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-07-14,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2017-07-21,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-07-28,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-08-04,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2017-08-11,bull,above 40w avg,mid,neutral,both SELL,1 of 4 BUY,mid
+2017-08-18,bull,above 40w avg,mid,neutral,both SELL,1 of 4 BUY,mid
+2017-08-24,bull,above 40w avg,mid,neutral,both SELL,1 of 4 BUY,mid
+2017-09-01,bull,above 40w avg,mid,neutral,both SELL,2 of 4 BUY,mid
+2017-09-08,bull,above 40w avg,mid,small-led,both SELL,2 of 4 BUY,mid
+2017-09-15,bull,above 40w avg,mid,small-led,both SELL,2 of 4 BUY,mid
+2017-09-22,bull,above 40w avg,mid,neutral,both SELL,2 of 4 BUY,mid
+2017-09-29,bull,above 40w avg,mid,neutral,both SELL,2 of 4 BUY,mid
+2017-10-06,bull,above 40w avg,mid,neutral,both SELL,2 of 4 BUY,mid
+2017-10-13,bull,above 40w avg,mid,neutral,both SELL,2 of 4 BUY,mid
+2017-10-19,bull,above 40w avg,mid,neutral,both SELL,2 of 4 BUY,mid
+2017-10-27,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,mid
+2017-11-03,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2017-11-10,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2017-11-17,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2017-11-24,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-12-01,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-12-08,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-12-15,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-12-22,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2017-12-29,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2018-01-05,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2018-01-12,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2018-01-19,bear,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2018-01-25,bear,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2018-02-02,bear,above 40w avg,high,neutral,only N100 BUY,2 of 4 BUY,low
+2018-02-09,bear,above 40w avg,high,small-led,both SELL,0 of 4 BUY,low
+2018-02-16,bear,above 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2018-02-23,bear,above 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2018-03-01,bear,above 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2018-03-09,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2018-03-16,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2018-03-23,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2018-03-28,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2018-04-06,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2018-04-13,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2018-04-20,bear,above 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2018-04-27,bear,above 40w avg,high,neutral,only N100 BUY,3 of 4 BUY,low
+2018-05-04,bear,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,low
+2018-05-11,bear,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,low
+2018-05-18,bear,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,low
+2018-05-25,bear,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,low
+2018-06-01,bear,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,low
+2018-06-08,bear,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,low
+2018-06-15,bear,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,low
+2018-06-22,bear,below 40w avg,low,large-led,only N100 BUY,2 of 4 BUY,low
+2018-06-29,bear,below 40w avg,low,large-led,only N100 BUY,2 of 4 BUY,low
+2018-07-06,bear,below 40w avg,low,large-led,only N100 BUY,2 of 4 BUY,low
+2018-07-13,bear,below 40w avg,low,large-led,only N100 BUY,2 of 4 BUY,low
+2018-07-20,bear,below 40w avg,low,large-led,only N100 BUY,2 of 4 BUY,low
+2018-07-27,bear,below 40w avg,low,large-led,only N100 BUY,2 of 4 BUY,low
+2018-08-03,bear,below 40w avg,low,large-led,only N100 BUY,2 of 4 BUY,low
+2018-08-10,bear,below 40w avg,low,large-led,only N100 BUY,2 of 4 BUY,low
+2018-08-17,bear,below 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,low
+2018-08-24,bear,below 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,low
+2018-08-31,bear,below 40w avg,low,large-led,both BUY,4 of 4 BUY,low
+2018-09-07,bear,below 40w avg,low,large-led,both BUY,4 of 4 BUY,low
+2018-09-14,bear,below 40w avg,low,large-led,both BUY,4 of 4 BUY,low
+2018-09-21,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2018-09-28,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2018-10-05,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2018-10-12,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2018-10-19,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2018-10-26,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2018-11-02,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2018-11-09,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2018-11-16,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2018-11-22,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2018-11-30,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2018-12-07,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2018-12-14,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2018-12-21,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2018-12-28,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2019-01-04,correction,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2019-01-11,correction,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2019-01-18,correction,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2019-01-25,correction,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2019-02-01,correction,below 40w avg,low,large-led,both SELL,0 of 4 BUY,low
+2019-02-08,correction,below 40w avg,low,large-led,both SELL,0 of 4 BUY,low
+2019-02-15,correction,below 40w avg,low,large-led,both SELL,0 of 4 BUY,low
+2019-02-22,recovery,below 40w avg,low,large-led,both SELL,0 of 4 BUY,low
+2019-03-01,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2019-03-08,recovery,below 40w avg,mid,large-led,only SC100 BUY,2 of 4 BUY,low
+2019-03-15,bull,below 40w avg,mid,large-led,both BUY,4 of 4 BUY,mid
+2019-03-22,bull,below 40w avg,mid,large-led,both BUY,4 of 4 BUY,low
+2019-03-29,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2019-04-05,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2019-04-12,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2019-04-18,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2019-04-26,bear,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2019-05-03,bear,below 40w avg,mid,large-led,both BUY,4 of 4 BUY,low
+2019-05-10,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,low
+2019-05-17,bear,below 40w avg,low,large-led,both SELL,0 of 4 BUY,low
+2019-05-24,bear,above 40w avg,mid,large-led,only N100 BUY,1 of 4 BUY,low
+2019-05-31,bear,above 40w avg,mid,neutral,only N100 BUY,3 of 4 BUY,mid
+2019-06-07,bear,above 40w avg,mid,neutral,only N100 BUY,3 of 4 BUY,mid
+2019-06-14,bear,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,mid
+2019-06-21,bear,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,mid
+2019-06-28,bear,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,mid
+2019-07-05,bear,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,mid
+2019-07-12,bear,below 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,mid
+2019-07-19,bear,below 40w avg,mid,large-led,only N100 BUY,1 of 4 BUY,mid
+2019-07-26,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,mid
+2019-08-02,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,mid
+2019-08-09,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,mid
+2019-08-16,bear,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,mid
+2019-08-23,bear,below 40w avg,low,large-led,both SELL,0 of 4 BUY,mid
+2019-08-30,recovery,below 40w avg,low,large-led,both SELL,0 of 4 BUY,mid
+2019-09-06,recovery,below 40w avg,low,large-led,both SELL,0 of 4 BUY,mid
+2019-09-13,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,mid
+2019-09-20,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,mid
+2019-09-27,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,mid
+2019-10-04,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,mid
+2019-10-11,recovery,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,mid
+2019-10-18,recovery,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,mid
+2019-10-27,recovery,below 40w avg,mid,large-led,only N100 BUY,2 of 4 BUY,mid
+2019-11-01,recovery,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,mid
+2019-11-08,recovery,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,mid
+2019-11-15,recovery,below 40w avg,mid,large-led,only N100 BUY,3 of 4 BUY,mid
+2019-11-22,recovery,below 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,mid
+2019-11-29,recovery,below 40w avg,low,large-led,both BUY,4 of 4 BUY,mid
+2019-12-06,recovery,below 40w avg,low,large-led,both BUY,4 of 4 BUY,mid
+2019-12-13,recovery,below 40w avg,low,large-led,both BUY,4 of 4 BUY,mid
+2019-12-20,recovery,below 40w avg,low,large-led,both BUY,4 of 4 BUY,mid
+2019-12-27,recovery,below 40w avg,low,large-led,both BUY,4 of 4 BUY,mid
+2020-01-03,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,mid
+2020-01-10,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,mid
+2020-01-17,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2020-01-24,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2020-01-31,bear,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2020-02-07,bear,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2020-02-14,bear,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2020-02-20,bear,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2020-02-28,bear,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2020-03-06,bear,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,high
+2020-03-13,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2020-03-20,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2020-03-27,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2020-04-03,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2020-04-09,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2020-04-17,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2020-04-24,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2020-04-30,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2020-05-08,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2020-05-15,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2020-05-22,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2020-05-29,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,high
+2020-06-05,recovery,below 40w avg,high,large-led,both BUY,3 of 4 BUY,high
+2020-06-12,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2020-06-19,recovery,below 40w avg,high,neutral,both BUY,4 of 4 BUY,high
+2020-06-26,recovery,below 40w avg,high,neutral,both BUY,4 of 4 BUY,high
+2020-07-03,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2020-07-10,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2020-07-17,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2020-07-24,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2020-07-31,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2020-08-07,recovery,above 40w avg,mid,large-led,both BUY,4 of 4 BUY,high
+2020-08-14,recovery,above 40w avg,mid,large-led,both BUY,4 of 4 BUY,high
+2020-08-21,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,high
+2020-08-28,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,high
+2020-09-04,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,high
+2020-09-11,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,high
+2020-09-18,recovery,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,high
+2020-09-25,recovery,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2020-10-01,recovery,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2020-10-09,recovery,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2020-10-16,recovery,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2020-10-23,recovery,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2020-10-30,recovery,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2020-11-06,recovery,above 40w avg,high,small-led,both BUY,4 of 4 BUY,mid
+2020-11-14,recovery,above 40w avg,high,small-led,both BUY,4 of 4 BUY,high
+2020-11-20,recovery,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,high
+2020-11-27,bull,above 40w avg,high,small-led,both BUY,4 of 4 BUY,mid
+2020-12-04,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,mid
+2020-12-11,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,mid
+2020-12-18,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,mid
+2020-12-24,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,mid
+2021-01-01,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,high
+2021-01-08,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,high
+2021-01-15,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,high
+2021-01-22,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,high
+2021-01-29,bull,above 40w avg,low,small-led,only SC100 BUY,2 of 4 BUY,high
+2021-02-05,bull,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,high
+2021-02-12,bull,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,high
+2021-02-19,bull,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,high
+2021-02-26,bull,above 40w avg,low,small-led,only SC100 BUY,2 of 4 BUY,mid
+2021-03-05,bull,above 40w avg,low,small-led,only SC100 BUY,2 of 4 BUY,mid
+2021-03-12,bull,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,mid
+2021-03-19,bull,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,low
+2021-03-26,bull,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,low
+2021-04-01,bull,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,low
+2021-04-09,bull,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,low
+2021-04-16,bull,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,low
+2021-04-23,bull,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,low
+2021-04-30,bull,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,low
+2021-05-07,bull,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,low
+2021-05-14,bull,above 40w avg,mid,small-led,only SC100 BUY,2 of 4 BUY,low
+2021-05-21,bull,above 40w avg,mid,small-led,both BUY,3 of 4 BUY,low
+2021-05-28,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2021-06-04,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2021-06-11,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2021-06-18,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2021-06-25,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-07-02,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-07-09,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-07-16,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-07-23,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-07-30,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-08-06,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-08-13,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-08-20,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-08-27,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-09-03,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-09-09,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-09-17,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-09-24,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-10-01,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-10-08,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-10-14,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2021-10-22,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2021-10-29,bull,above 40w avg,mid,neutral,only N100 BUY,3 of 4 BUY,low
+2021-11-04,bull,above 40w avg,mid,neutral,only N100 BUY,3 of 4 BUY,low
+2021-11-12,bull,above 40w avg,mid,neutral,only N100 BUY,3 of 4 BUY,low
+2021-11-18,bull,above 40w avg,mid,neutral,only N100 BUY,3 of 4 BUY,low
+2021-11-26,bull,above 40w avg,mid,small-led,both SELL,1 of 4 BUY,low
+2021-12-03,bull,above 40w avg,mid,neutral,both SELL,1 of 4 BUY,low
+2021-12-10,bull,above 40w avg,mid,neutral,both SELL,1 of 4 BUY,low
+2021-12-17,bull,above 40w avg,mid,neutral,both SELL,1 of 4 BUY,low
+2021-12-24,bull,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2021-12-31,bull,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2022-01-07,bull,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2022-01-14,bull,above 40w avg,mid,neutral,only SC100 BUY,2 of 4 BUY,low
+2022-01-21,correction,above 40w avg,mid,neutral,only SC100 BUY,2 of 4 BUY,low
+2022-01-28,correction,above 40w avg,mid,neutral,only SC100 BUY,2 of 4 BUY,low
+2022-02-04,correction,above 40w avg,mid,neutral,only SC100 BUY,2 of 4 BUY,low
+2022-02-11,correction,above 40w avg,mid,neutral,both SELL,1 of 4 BUY,low
+2022-02-18,correction,below 40w avg,mid,neutral,both SELL,1 of 4 BUY,low
+2022-02-25,correction,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2022-03-04,correction,below 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2022-03-11,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2022-03-17,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2022-03-25,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2022-04-01,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2022-04-08,recovery,above 40w avg,high,neutral,both SELL,1 of 4 BUY,low
+2022-04-13,recovery,above 40w avg,high,neutral,both SELL,1 of 4 BUY,low
+2022-04-22,bear,below 40w avg,mid,neutral,both SELL,1 of 4 BUY,low
+2022-04-29,bear,below 40w avg,mid,neutral,both SELL,1 of 4 BUY,low
+2022-05-06,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2022-05-13,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2022-05-20,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2022-05-27,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2022-06-03,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2022-06-10,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2022-06-17,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2022-06-24,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2022-07-01,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2022-07-08,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2022-07-15,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2022-07-22,recovery,below 40w avg,high,large-led,only N100 BUY,2 of 4 BUY,high
+2022-07-29,recovery,below 40w avg,high,large-led,only N100 BUY,3 of 4 BUY,high
+2022-08-05,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2022-08-12,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2022-08-19,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,high
+2022-08-26,recovery,below 40w avg,mid,large-led,both BUY,4 of 4 BUY,high
+2022-09-02,recovery,below 40w avg,mid,large-led,both BUY,4 of 4 BUY,high
+2022-09-09,recovery,below 40w avg,mid,large-led,both BUY,4 of 4 BUY,high
+2022-09-16,recovery,below 40w avg,low,large-led,both BUY,4 of 4 BUY,high
+2022-09-23,recovery,below 40w avg,low,large-led,both BUY,4 of 4 BUY,high
+2022-09-30,recovery,below 40w avg,low,large-led,both BUY,4 of 4 BUY,high
+2022-10-07,recovery,below 40w avg,low,large-led,both BUY,4 of 4 BUY,high
+2022-10-14,recovery,below 40w avg,low,large-led,both BUY,4 of 4 BUY,high
+2022-10-21,recovery,below 40w avg,low,large-led,both BUY,4 of 4 BUY,high
+2022-10-28,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,high
+2022-11-04,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,high
+2022-11-11,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,high
+2022-11-18,recovery,above 40w avg,low,large-led,both BUY,4 of 4 BUY,high
+2022-11-25,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,high
+2022-12-02,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,high
+2022-12-09,correction,above 40w avg,low,neutral,both BUY,4 of 4 BUY,high
+2022-12-16,correction,above 40w avg,low,neutral,both BUY,4 of 4 BUY,high
+2022-12-23,correction,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,high
+2022-12-30,correction,above 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2023-01-06,correction,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,high
+2023-01-13,correction,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,high
+2023-01-20,correction,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,high
+2023-01-27,correction,below 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2023-02-03,correction,above 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2023-02-10,correction,above 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2023-02-17,correction,above 40w avg,high,neutral,both SELL,0 of 4 BUY,high
+2023-02-24,correction,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2023-03-03,correction,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,high
+2023-03-10,correction,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,high
+2023-03-17,correction,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,high
+2023-03-24,correction,below 40w avg,low,neutral,both SELL,0 of 4 BUY,high
+2023-03-31,recovery,below 40w avg,low,neutral,both SELL,0 of 4 BUY,high
+2023-04-06,recovery,below 40w avg,low,neutral,both SELL,0 of 4 BUY,high
+2023-04-13,recovery,below 40w avg,low,neutral,both SELL,0 of 4 BUY,high
+2023-04-21,recovery,below 40w avg,low,neutral,both SELL,0 of 4 BUY,high
+2023-04-28,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,high
+2023-05-05,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,high
+2023-05-12,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2023-05-19,recovery,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2023-05-26,recovery,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2023-06-02,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,mid
+2023-06-09,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2023-06-16,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-06-23,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-06-30,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-07-07,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-07-14,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-07-21,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-07-28,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-08-04,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-08-11,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-08-18,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-08-25,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-09-01,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-09-08,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-09-15,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-09-22,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-09-29,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-10-06,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-10-13,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-10-20,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-10-27,bull,above 40w avg,low,small-led,only SC100 BUY,2 of 4 BUY,low
+2023-11-03,bull,above 40w avg,low,small-led,only SC100 BUY,2 of 4 BUY,low
+2023-11-10,bull,above 40w avg,low,small-led,only SC100 BUY,2 of 4 BUY,mid
+2023-11-17,bull,above 40w avg,low,small-led,only SC100 BUY,2 of 4 BUY,mid
+2023-11-24,bull,above 40w avg,low,small-led,only SC100 BUY,2 of 4 BUY,mid
+2023-12-01,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,mid
+2023-12-08,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-12-15,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-12-22,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2023-12-29,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-01-05,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-01-12,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-01-20,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-01-25,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-02-02,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-02-09,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-02-16,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-02-23,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-03-01,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-03-07,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-03-15,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2024-03-22,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2024-03-28,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2024-04-05,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2024-04-12,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2024-04-19,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2024-04-26,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2024-05-03,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2024-05-10,bull,above 40w avg,high,neutral,both BUY,4 of 4 BUY,low
+2024-05-18,bull,above 40w avg,high,neutral,both BUY,4 of 4 BUY,low
+2024-05-24,bull,above 40w avg,high,neutral,both BUY,4 of 4 BUY,low
+2024-05-31,bull,above 40w avg,high,neutral,both BUY,4 of 4 BUY,low
+2024-06-07,bull,above 40w avg,high,neutral,both BUY,4 of 4 BUY,low
+2024-06-14,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2024-06-21,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2024-06-28,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2024-07-05,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2024-07-12,bull,above 40w avg,mid,small-led,both BUY,4 of 4 BUY,low
+2024-07-19,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2024-07-26,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2024-08-02,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2024-08-09,bull,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,low
+2024-08-16,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2024-08-23,bull,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2024-08-30,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-09-06,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-09-13,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-09-20,bear,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-09-27,bear,above 40w avg,low,small-led,both BUY,4 of 4 BUY,low
+2024-10-04,bear,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2024-10-11,bear,above 40w avg,low,neutral,both BUY,4 of 4 BUY,low
+2024-10-18,bear,above 40w avg,low,neutral,only SC100 BUY,2 of 4 BUY,low
+2024-10-25,bear,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2024-11-01,bear,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2024-11-08,bear,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,low
+2024-11-14,bear,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,low
+2024-11-22,bear,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,low
+2024-11-29,bear,above 40w avg,high,small-led,both SELL,0 of 4 BUY,low
+2024-12-06,bear,above 40w avg,high,small-led,only SC100 BUY,1 of 4 BUY,low
+2024-12-13,bear,above 40w avg,high,neutral,only SC100 BUY,2 of 4 BUY,low
+2024-12-20,bear,above 40w avg,high,neutral,only SC100 BUY,2 of 4 BUY,low
+2024-12-27,bear,above 40w avg,high,neutral,only SC100 BUY,2 of 4 BUY,low
+2025-01-03,bear,above 40w avg,high,neutral,only SC100 BUY,2 of 4 BUY,low
+2025-01-10,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2025-01-17,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2025-01-24,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2025-01-31,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2025-02-07,bear,below 40w avg,high,neutral,both SELL,0 of 4 BUY,low
+2025-02-14,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2025-02-21,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,low
+2025-02-28,bear,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2025-03-07,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2025-03-13,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2025-03-21,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2025-03-28,recovery,below 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2025-04-04,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2025-04-11,recovery,below 40w avg,high,large-led,both SELL,0 of 4 BUY,mid
+2025-04-17,recovery,below 40w avg,high,large-led,only N100 BUY,2 of 4 BUY,mid
+2025-04-25,recovery,below 40w avg,high,large-led,only N100 BUY,2 of 4 BUY,mid
+2025-05-02,recovery,below 40w avg,high,large-led,only N100 BUY,2 of 4 BUY,mid
+2025-05-09,recovery,below 40w avg,high,large-led,only N100 BUY,2 of 4 BUY,mid
+2025-05-16,recovery,below 40w avg,high,large-led,both BUY,4 of 4 BUY,mid
+2025-05-23,recovery,above 40w avg,high,neutral,both BUY,4 of 4 BUY,mid
+2025-05-30,recovery,above 40w avg,high,large-led,both BUY,4 of 4 BUY,mid
+2025-06-06,recovery,above 40w avg,high,neutral,both BUY,4 of 4 BUY,mid
+2025-06-13,recovery,above 40w avg,high,neutral,both BUY,4 of 4 BUY,mid
+2025-06-20,recovery,above 40w avg,mid,large-led,both BUY,4 of 4 BUY,mid
+2025-06-27,recovery,above 40w avg,mid,large-led,both BUY,4 of 4 BUY,mid
+2025-07-04,recovery,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,mid
+2025-07-11,correction,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,mid
+2025-07-18,correction,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,mid
+2025-07-25,correction,above 40w avg,mid,neutral,both BUY,4 of 4 BUY,mid
+2025-08-01,correction,above 40w avg,high,neutral,only N100 BUY,3 of 4 BUY,mid
+2025-08-08,correction,above 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2025-08-14,correction,above 40w avg,high,neutral,both SELL,0 of 4 BUY,mid
+2025-08-22,correction,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,mid
+2025-08-29,correction,below 40w avg,mid,small-led,both SELL,0 of 4 BUY,mid
+2025-09-05,correction,above 40w avg,mid,neutral,both SELL,0 of 4 BUY,mid
+2025-09-12,correction,above 40w avg,mid,small-led,both SELL,0 of 4 BUY,high
+2025-09-19,correction,above 40w avg,mid,small-led,only N100 BUY,2 of 4 BUY,high
+2025-09-26,correction,above 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,high
+2025-10-03,correction,above 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,high
+2025-10-10,correction,above 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,high
+2025-10-17,correction,above 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,high
+2025-10-24,correction,above 40w avg,mid,neutral,only N100 BUY,2 of 4 BUY,high
+2025-10-31,correction,above 40w avg,mid,small-led,only N100 BUY,3 of 4 BUY,high
+2025-11-07,correction,above 40w avg,mid,small-led,only N100 BUY,3 of 4 BUY,high
+2025-11-14,correction,above 40w avg,mid,neutral,only N100 BUY,3 of 4 BUY,high
+2025-11-21,correction,above 40w avg,mid,neutral,only N100 BUY,3 of 4 BUY,high
+2025-11-28,correction,above 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,high
+2025-12-05,correction,below 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,high
+2025-12-12,correction,below 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,high
+2025-12-19,correction,below 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,high
+2025-12-26,correction,above 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,high
+2026-01-02,correction,above 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,high
+2026-01-09,correction,below 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,high
+2026-01-16,correction,below 40w avg,low,large-led,only N100 BUY,3 of 4 BUY,high
+2026-01-23,correction,below 40w avg,low,large-led,both SELL,0 of 4 BUY,high
+2026-01-30,correction,below 40w avg,low,large-led,both SELL,0 of 4 BUY,high
+2026-02-06,correction,below 40w avg,low,large-led,both SELL,0 of 4 BUY,high
+2026-02-13,correction,below 40w avg,low,large-led,both SELL,0 of 4 BUY,high
+2026-02-20,correction,below 40w avg,low,large-led,both SELL,0 of 4 BUY,high
+2026-02-27,correction,below 40w avg,low,large-led,both SELL,0 of 4 BUY,high
+2026-03-06,correction,below 40w avg,low,large-led,both SELL,0 of 4 BUY,high
+2026-03-13,correction,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,high
+2026-03-20,correction,below 40w avg,mid,large-led,both SELL,0 of 4 BUY,mid
+2026-03-27,correction,below 40w avg,low,neutral,both SELL,0 of 4 BUY,mid
+2026-04-02,correction,below 40w avg,low,neutral,both SELL,0 of 4 BUY,mid
+2026-04-10,recovery,below 40w avg,mid,neutral,both SELL,0 of 4 BUY,high
+2026-04-17,recovery,above 40w avg,high,neutral,both BUY,3 of 4 BUY,high
+2026-04-24,recovery,above 40w avg,mid,neutral,both BUY,3 of 4 BUY,high
+2026-04-30,recovery,above 40w avg,mid,neutral,both BUY,3 of 4 BUY,high
+2026-05-08,recovery,above 40w avg,mid,small-led,both BUY,3 of 4 BUY,mid
+2026-05-15,recovery,above 40w avg,high,small-led,both BUY,3 of 4 BUY,mid
+2026-05-22,recovery,above 40w avg,high,small-led,both BUY,3 of 4 BUY,mid
+2026-05-29,recovery,above 40w avg,high,small-led,both BUY,3 of 4 BUY,mid
+2026-06-05,recovery,above 40w avg,mid,small-led,both BUY,3 of 4 BUY,mid
+2026-06-12,recovery,above 40w avg,mid,small-led,both BUY,3 of 4 BUY,mid
+2026-06-19,recovery,above 40w avg,mid,small-led,both BUY,3 of 4 BUY,high
+2026-06-25,recovery,above 40w avg,mid,small-led,both BUY,3 of 4 BUY,high
+2026-07-03,bull,above 40w avg,mid,small-led,both BUY,3 of 4 BUY,mid
+2026-07-10,bull,above 40w avg,low,small-led,both BUY,3 of 4 BUY,mid
+2026-07-17,bull,above 40w avg,low,small-led,both BUY,3 of 4 BUY,mid
+2026-07-24,recovery,above 40w avg,low,small-led,both BUY,3 of 4 BUY,high
+2026-07-31,bull,above 40w avg,low,small-led,both BUY,3 of 4 BUY,high
+2026-08-07,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,high
+2026-08-14,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,high
+2026-08-21,bull,above 40w avg,low,small-led,both BUY,4 of 4 BUY,high

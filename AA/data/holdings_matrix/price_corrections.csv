@@ -1,0 +1,2 @@
+stock,ex_date,factor,applies_to,finding,reason
+POLYPLEX.NS,2021-02-17,1.123274,SCMO_0007,F-AA-D14,"Rs 100/share special dividend (3rd interim FY21; ex-date 2021-02-17, cum close 911.20). Eikon back-adjusts it, so ohlcv_eikon prices before the ex-date are 811.20/911.20 = 0.8903 of the traded prices. The published parent index is a price return and takes the drop. Multiply open/high/low/close dated BEFORE ex_date by factor (911.20/811.20) to restore it. Verified: factor equals the step in ohlcv_eikon / merged_historical_data_with_rics on the two sessions around the ex-date."

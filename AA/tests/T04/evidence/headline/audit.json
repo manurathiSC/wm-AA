@@ -1,0 +1,737 @@
+{
+ "readings": {
+  "E1": "calendar = D17's dates 2019-01-02 -> 2026-10-22, then the D18 sessions after it up to 2026-11-04",
+  "E2": "stock bars used for indicators: every D18 bar up to 2019-01-02, after that only bars on calendar sessions (F-AA-D15)",
+  "E3": "indicator tables are computed at the decision dates and at the live window's first date only; for a stock whose weekly candle has a bar after the query date the supertrend is recomputed on bars up to the query date (the live first date, a Monday)",
+  "E4": "I5 sign BUY iff ST sits on the final lower band (|ST-FLB|<1e-9); NaN or neither band = not computable = excluded",
+  "E5": "n and k of a decision are measured on the basket in force at its trade session (at the decision session for the last decision)",
+  "E6": "the null draws one uniform per stock per decision: the k_j(b) smallest of u[j] within basket b are kept (uniform k-subset)",
+  "E7": "R5 = per draw_id the best of the five indicators' draws of that id (the plan's 'shared permutation seed' read as 'same draw id')",
+  "E8": "initial position: basket at T0 as drifted since its availableDate scaled to 1 at T0's close; stocks outside the T0 kept set are sold at T0's close into the sleeve at no cost; BUY = whole basket (sleeve exactly 0)",
+  "E9": "basket weights normalised to sum 1 over the whole basket; kept stocks keep their normalised weights",
+  "E10": "constant mix: stock share f = mean over decisions of sum of kept weights (BUY = 1), rebalanced at the next session of every decision (T0's included) and at every basket change; initial stock holding = drifted basket scaled by f",
+  "E11": "full AA switch comparator = this engine with k = 0 on every SELL decision (T03's rule on this window)"
+ },
+ "t03_regime_crosscheck": {
+  "shared_dates": 400,
+  "mismatches": 0,
+  "t03_dates_missing_here": 0
+ },
+ "v2": {
+  "decisions_checked": 411,
+  "label_after_decision": 0,
+  "trades_checked": 410,
+  "trade_not_after_decision": 0,
+  "indicator_bars_after_query_date": 0,
+  "indicator_stock_dates_checked": 75292,
+  "weekly_candle_recomputed_stock_dates": 351,
+  "stale_label_weeks(age>=5d, excluding T0)": 6
+ },
+ "decisions": {
+  "n": 411,
+  "buy": 201,
+  "sell": 210,
+  "t0": "2019-01-02",
+  "sessions": 1935,
+  "end": "2026-11-04",
+  "live_t0": "2021-11-01",
+  "live_decisions": 263,
+  "skipped_baskets_dropped": [],
+  "initial_basket_switch_session": "2018-12-17"
+ },
+ "indicators_not_computable_stock_dates": {
+  "I1": 208,
+  "I2": 897,
+  "I3": 208,
+  "I4": 897,
+  "I5": 80
+ },
+ "reportability": {
+  "full|I1": {
+   "sell_decisions": 210,
+   "nontrivial": 190,
+   "k_zero": 18,
+   "k_all": 2,
+   "mean_k": 4.3238095238095235,
+   "mean_n": 10.147619047619047,
+   "reportable": true
+  },
+  "full|I2": {
+   "sell_decisions": 210,
+   "nontrivial": 175,
+   "k_zero": 3,
+   "k_all": 32,
+   "mean_k": 6.671428571428572,
+   "mean_n": 10.147619047619047,
+   "reportable": true
+  },
+  "full|I3": {
+   "sell_decisions": 210,
+   "nontrivial": 185,
+   "k_zero": 22,
+   "k_all": 3,
+   "mean_k": 4.185714285714286,
+   "mean_n": 10.147619047619047,
+   "reportable": true
+  },
+  "full|I4": {
+   "sell_decisions": 210,
+   "nontrivial": 184,
+   "k_zero": 1,
+   "k_all": 25,
+   "mean_k": 6.2,
+   "mean_n": 10.147619047619047,
+   "reportable": true
+  },
+  "full|I5": {
+   "sell_decisions": 210,
+   "nontrivial": 198,
+   "k_zero": 7,
+   "k_all": 5,
+   "mean_k": 5.5476190476190474,
+   "mean_n": 10.147619047619047,
+   "reportable": true
+  },
+  "live|I1": {
+   "sell_decisions": 139,
+   "nontrivial": 129,
+   "k_zero": 9,
+   "k_all": 1,
+   "mean_k": 4.942446043165468,
+   "mean_n": 11.661870503597122,
+   "reportable": true
+  },
+  "live|I2": {
+   "sell_decisions": 139,
+   "nontrivial": 119,
+   "k_zero": 0,
+   "k_all": 20,
+   "mean_k": 8.201438848920864,
+   "mean_n": 11.661870503597122,
+   "reportable": true
+  },
+  "live|I3": {
+   "sell_decisions": 139,
+   "nontrivial": 127,
+   "k_zero": 10,
+   "k_all": 2,
+   "mean_k": 4.784172661870503,
+   "mean_n": 11.661870503597122,
+   "reportable": true
+  },
+  "live|I4": {
+   "sell_decisions": 139,
+   "nontrivial": 122,
+   "k_zero": 0,
+   "k_all": 17,
+   "mean_k": 7.467625899280575,
+   "mean_n": 11.661870503597122,
+   "reportable": true
+  },
+  "live|I5": {
+   "sell_decisions": 139,
+   "nontrivial": 134,
+   "k_zero": 0,
+   "k_all": 5,
+   "mean_k": 6.366906474820144,
+   "mean_n": 11.661870503597122,
+   "reportable": true
+  }
+ },
+ "v5": {
+  "checked": 50,
+  "failed": 0,
+  "rows": [
+   {
+    "indicator": "I1",
+    "stock": "CMSINFO.NS",
+    "date": "2026-04-02",
+    "engine_value": 303.28548695702466,
+    "hand_value": 303.28548695702466,
+    "engine_pass": false,
+    "hand_pass": false,
+    "ok": true
+   },
+   {
+    "indicator": "I1",
+    "stock": "BLUESTARCO.NS",
+    "date": "2024-12-27",
+    "engine_value": 1949.313997608251,
+    "hand_value": 1949.313997608251,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I1",
+    "stock": "DEEPAKFERT.NS",
+    "date": "2019-10-18",
+    "engine_value": 90.64745616753572,
+    "hand_value": 90.64745616753572,
+    "engine_pass": false,
+    "hand_pass": false,
+    "ok": true
+   },
+   {
+    "indicator": "I1",
+    "stock": "ENDURANCE.NS",
+    "date": "2024-07-19",
+    "engine_value": 2456.5986068421794,
+    "hand_value": 2456.5986068421794,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I1",
+    "stock": "ATUL.NS",
+    "date": "2025-04-25",
+    "engine_value": 5878.579071579686,
+    "hand_value": 5878.579071579686,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I1",
+    "stock": "HEIDELBERG.NS",
+    "date": "2020-10-23",
+    "engine_value": 185.6317581794504,
+    "hand_value": 185.6317581794504,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I1",
+    "stock": "BALKRISIND.NS",
+    "date": "2024-04-05",
+    "engine_value": 2348.151361868118,
+    "hand_value": 2348.151361868118,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I1",
+    "stock": "IOC.NS",
+    "date": "2024-07-05",
+    "engine_value": 166.38222360373317,
+    "hand_value": 166.38222360373317,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I1",
+    "stock": "GABRIEL.NS",
+    "date": "2019-04-26",
+    "engine_value": 146.8255523823897,
+    "hand_value": 146.8255523823897,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I1",
+    "stock": "ASTRAMICRO.NS",
+    "date": "2020-01-24",
+    "engine_value": 84.72303625859092,
+    "hand_value": 84.72303625859092,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I2",
+    "stock": "HINDPETRO.NS",
+    "date": "2020-05-22",
+    "engine_value": 157.5331529636305,
+    "hand_value": 157.5331529636305,
+    "engine_pass": false,
+    "hand_pass": false,
+    "ok": true
+   },
+   {
+    "indicator": "I2",
+    "stock": "MRF.NS",
+    "date": "2019-11-01",
+    "engine_value": 60006.915608899355,
+    "hand_value": 60006.915608899355,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I2",
+    "stock": "LUPIN.NS",
+    "date": "2024-01-20",
+    "engine_value": 1091.5936323131523,
+    "hand_value": 1091.5936323131523,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I2",
+    "stock": "INDIGO.NS",
+    "date": "2026-07-31",
+    "engine_value": 4922.387492704049,
+    "hand_value": 4922.387492704049,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I2",
+    "stock": "KALYANKJIL.NS",
+    "date": "2026-11-04",
+    "engine_value": 505.78089881814316,
+    "hand_value": 505.78089881814316,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I2",
+    "stock": "GAEL.NS",
+    "date": "2026-04-24",
+    "engine_value": 127.85817750606704,
+    "hand_value": 127.85817750606704,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I2",
+    "stock": "MAHSEAMLES.NS",
+    "date": "2024-04-12",
+    "engine_value": 781.5897592175157,
+    "hand_value": 781.5897592175157,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I2",
+    "stock": "ACCELYA.NS",
+    "date": "2021-11-12",
+    "engine_value": 1167.2987608027772,
+    "hand_value": 1167.2987608027772,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I2",
+    "stock": "JINDALSAW.NS",
+    "date": "2024-05-31",
+    "engine_value": 220.36836966138574,
+    "hand_value": 220.36836966138574,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I2",
+    "stock": "GOKEX.NS",
+    "date": "2025-07-04",
+    "engine_value": 916.6151549457245,
+    "hand_value": 916.6151549457245,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I3",
+    "stock": "NOCIL.NS",
+    "date": "2021-05-28",
+    "engine_value": 186.13900000000197,
+    "hand_value": 186.13899999999998,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I3",
+    "stock": "MANAPPURAM.NS",
+    "date": "2021-01-29",
+    "engine_value": 168.5390000000008,
+    "hand_value": 168.539,
+    "engine_pass": false,
+    "hand_pass": false,
+    "ok": true
+   },
+   {
+    "indicator": "I3",
+    "stock": "GODREJAGRO.NS",
+    "date": "2024-07-12",
+    "engine_value": 620.1669999999949,
+    "hand_value": 620.167,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I3",
+    "stock": "GAEL.NS",
+    "date": "2026-10-23",
+    "engine_value": 166.7627999999997,
+    "hand_value": 166.7628,
+    "engine_pass": false,
+    "hand_pass": false,
+    "ok": true
+   },
+   {
+    "indicator": "I3",
+    "stock": "GMBREW.NS",
+    "date": "2019-10-25",
+    "engine_value": 298.86800000000045,
+    "hand_value": 298.8680000000001,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I3",
+    "stock": "DEEPAKFERT.NS",
+    "date": "2022-07-15",
+    "engine_value": 614.5599999999988,
+    "hand_value": 614.56,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I3",
+    "stock": "MRF.NS",
+    "date": "2023-12-22",
+    "engine_value": 112005.15800000011,
+    "hand_value": 112005.15800000004,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I3",
+    "stock": "CHOLAHLDNG.NS",
+    "date": "2026-02-27",
+    "engine_value": 1752.7460000000196,
+    "hand_value": 1752.7460000000003,
+    "engine_pass": false,
+    "hand_pass": false,
+    "ok": true
+   },
+   {
+    "indicator": "I3",
+    "stock": "NOCIL.NS",
+    "date": "2026-02-06",
+    "engine_value": 149.053200000003,
+    "hand_value": 149.0532,
+    "engine_pass": false,
+    "hand_pass": false,
+    "ok": true
+   },
+   {
+    "indicator": "I3",
+    "stock": "HEIDELBERG.NS",
+    "date": "2024-02-02",
+    "engine_value": 220.0850000000035,
+    "hand_value": 220.085,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I4",
+    "stock": "INDIGO.NS",
+    "date": "2023-08-04",
+    "engine_value": 2108.3365000000035,
+    "hand_value": 2108.3365000000003,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I4",
+    "stock": "HIMATSEIDE.NS",
+    "date": "2019-01-11",
+    "engine_value": 283.6057449999989,
+    "hand_value": 283.605745,
+    "engine_pass": false,
+    "hand_pass": false,
+    "ok": true
+   },
+   {
+    "indicator": "I4",
+    "stock": "GRAPHITE.NS",
+    "date": "2025-11-07",
+    "engine_value": 515.223999999999,
+    "hand_value": 515.224,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I4",
+    "stock": "FINPIPE.NS",
+    "date": "2021-10-22",
+    "engine_value": 155.46391557999974,
+    "hand_value": 155.46391558000002,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I4",
+    "stock": "JKIL.NS",
+    "date": "2022-04-08",
+    "engine_value": 181.18874999999971,
+    "hand_value": 181.18875000000003,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I4",
+    "stock": "AMBUJACEM.NS",
+    "date": "2022-08-05",
+    "engine_value": 363.9662500000015,
+    "hand_value": 363.9662499999998,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I4",
+    "stock": "FIEMIND.NS",
+    "date": "2020-10-01",
+    "engine_value": 207.59437500000058,
+    "hand_value": 207.59437499999993,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I4",
+    "stock": "IOC.NS",
+    "date": "2026-02-20",
+    "engine_value": 153.80255000000005,
+    "hand_value": 153.80254999999997,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I4",
+    "stock": "JYOTHYLAB.NS",
+    "date": "2022-04-22",
+    "engine_value": 154.43200000000158,
+    "hand_value": 154.43200000000007,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I4",
+    "stock": "JKLAKSHMI.NS",
+    "date": "2021-05-28",
+    "engine_value": 346.01074999999895,
+    "hand_value": 346.01075,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I5",
+    "stock": "COSMOFIRST.NS",
+    "date": "2020-11-06",
+    "engine_value": 1.0,
+    "hand_value": 1.0,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I5",
+    "stock": "RAJESHEXPO.NS",
+    "date": "2022-08-12",
+    "engine_value": 1.0,
+    "hand_value": 1.0,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I5",
+    "stock": "IOC.NS",
+    "date": "2024-06-14",
+    "engine_value": 1.0,
+    "hand_value": 1.0,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I5",
+    "stock": "VINDHYATEL.NS",
+    "date": "2025-10-03",
+    "engine_value": 0.0,
+    "hand_value": 0.0,
+    "engine_pass": false,
+    "hand_pass": false,
+    "ok": true
+   },
+   {
+    "indicator": "I5",
+    "stock": "SJVN.NS",
+    "date": "2025-12-12",
+    "engine_value": 0.0,
+    "hand_value": 0.0,
+    "engine_pass": false,
+    "hand_pass": false,
+    "ok": true
+   },
+   {
+    "indicator": "I5",
+    "stock": "DEEPAKNTR.NS",
+    "date": "2020-09-25",
+    "engine_value": 1.0,
+    "hand_value": 1.0,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I5",
+    "stock": "NILKAMAL.NS",
+    "date": "2024-07-12",
+    "engine_value": 1.0,
+    "hand_value": 1.0,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I5",
+    "stock": "ADANIPOWER.NS",
+    "date": "2021-05-21",
+    "engine_value": 1.0,
+    "hand_value": 1.0,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   },
+   {
+    "indicator": "I5",
+    "stock": "SUVEN.NS",
+    "date": "2023-02-10",
+    "engine_value": 0.0,
+    "hand_value": 0.0,
+    "engine_pass": false,
+    "hand_pass": false,
+    "ok": true
+   },
+   {
+    "indicator": "I5",
+    "stock": "AJANTPHARM.NS",
+    "date": "2019-11-01",
+    "engine_value": 1.0,
+    "hand_value": 1.0,
+    "engine_pass": true,
+    "hand_pass": true,
+    "ok": true
+   }
+  ]
+ },
+ "t03_nav_crosscheck": [
+  {
+   "cost_bps": 0.0,
+   "dates": 1875,
+   "max_rel_diff_to_2026-08-07": 2.6645352591003757e-15,
+   "rel_diff_at_2026-08-21": 2.220446049250313e-15
+  },
+  {
+   "cost_bps": 20.8,
+   "dates": 1875,
+   "max_rel_diff_to_2026-08-07": 3.1086244689504383e-15,
+   "rel_diff_at_2026-08-21": 2.4424906541753444e-15
+  },
+  {
+   "cost_bps": 50.0,
+   "dates": 1875,
+   "max_rel_diff_to_2026-08-07": 2.6645352591003757e-15,
+   "rel_diff_at_2026-08-21": 2.6645352591003757e-15
+  }
+ ],
+ "goldbees_fills_not_despiked": [
+  {
+   "date": "2026-10-05",
+   "goldbees_fill_raw_ohlc4": 121.3175,
+   "goldbees_close": 121.58,
+   "fill_over_close_pct": -0.21590722158250086
+  },
+  {
+   "date": "2026-10-12",
+   "goldbees_fill_raw_ohlc4": 121.8925,
+   "goldbees_close": 121.24,
+   "fill_over_close_pct": 0.5381887165951893
+  },
+  {
+   "date": "2026-10-19",
+   "goldbees_fill_raw_ohlc4": 120.005,
+   "goldbees_close": 119.83,
+   "fill_over_close_pct": 0.1460402236501679
+  },
+  {
+   "date": "2026-10-26",
+   "goldbees_fill_raw_ohlc4": 115.9,
+   "goldbees_close": 116.13,
+   "fill_over_close_pct": -0.19805390510633236
+  },
+  {
+   "date": "2026-11-02",
+   "goldbees_fill_raw_ohlc4": 112.83500000000001,
+   "goldbees_close": 112.53,
+   "fill_over_close_pct": 0.27103883408869933
+  }
+ ],
+ "v4": {
+  "book": "SCMO_0003",
+  "first": "2019-01-02",
+  "last": "2026-10-22",
+  "cagr_gap_pp_yr": 0.04507475357373725,
+  "overall": "PASS",
+  "worst_year": 2022,
+  "worst_year_gap_pp": 0.42550398202625406,
+  "yearly": "PASS",
+  "yearly_gaps_pp": {
+   "2019": -0.21950615822005082,
+   "2020": 0.001402416153539754,
+   "2021": 0.06469384756251362,
+   "2022": 0.42550398202625406,
+   "2023": -1.8526183698241994e-06,
+   "2024": -0.0001190168497977595,
+   "2025": 0.007878470365585422,
+   "2026": -1.2256240466967938e-08
+  }
+ },
+ "v3": {
+  "decisions_checked": 3336681,
+  "k_mismatch": 0,
+  "buy_events_checked": 398000,
+  "buy_mismatch": 0,
+  "draws": 10000,
+  "draws_per_indicator": 2000,
+  "pass": true
+ },
+ "run": {
+  "name": "headline",
+  "draws": 2000,
+  "seconds": 109,
+  "quick": false,
+  "workers": 12,
+  "seed": "numpy default_rng([4, i, draw_id]), i = 1..5 for I1..I5; the same draw ids for every cost, sleeve, cash variant"
+ },
+ "prereg_sha256": "47e48a835b8fffb3a04dbe0ee325a8c168aa795d917d0aa5f948f707a68a1610"
+}

@@ -1,0 +1,447 @@
+{
+ "reproduction": {
+  "user_candles_rebuilt_mismatch": {
+   "Open": 0,
+   "High": 0,
+   "Low": 0,
+   "Close": 0,
+   "Volume": 0,
+   "TR": 0
+  },
+  "user_weeks": 609,
+  "rebuilt_weeks": 609,
+  "user_file_vs_ST.py_formula_from_5th_candle": {
+   "max_abs_diff": {
+    "LW_ATR5": 0.03333333333466726,
+    "UpperBand": 0.03333333335467614,
+    "LowerBand": 0.03333333335467614,
+    "Supertrend": 0.03333333335467614
+   },
+   "signal_mismatches": 0
+  },
+  "master_vs_replica_on_st_py_candles": {
+   "max_abs_diff": {
+    "ST": 5.820766091346741e-11,
+    "FUB": 5.820766091346741e-11,
+    "FLB": 5.820766091346741e-11,
+    "BUB": 5.820766091346741e-11,
+    "BLB": 5.820766091346741e-11
+   },
+   "sign_mismatches": 0,
+   "weeks": 603
+  },
+  "st_py_candles_rebuilt_mismatch": {
+   "High": 0,
+   "Low": 0,
+   "Close": 0,
+   "TR": 0
+  }
+ },
+ "weeks": {
+  "user": 609,
+  "st_py_master": 603,
+  "common": 603,
+  "user_only": [
+   "2015-02-06",
+   "2015-02-13",
+   "2015-02-20",
+   "2015-02-27",
+   "2015-03-06",
+   "2026-10-02"
+  ],
+  "st_only": []
+ },
+ "sign_differences": [
+  {
+   "week": "2018-12-07",
+   "user": "SELL",
+   "st_py": "BUY",
+   "close": 31595.0,
+   "user_ST": 31618.9,
+   "st_py_ST": 29259.97,
+   "user_Upper": 31618.9,
+   "st_py_FUB": 31535.73,
+   "user_Lower": 29197.6,
+   "st_py_FLB": 29259.97
+  },
+  {
+   "week": "2018-12-14",
+   "user": "SELL",
+   "st_py": "BUY",
+   "close": 31553.0,
+   "user_ST": 31618.9,
+   "st_py_ST": 30008.13,
+   "user_Upper": 31618.9,
+   "st_py_FUB": 33595.87,
+   "user_Lower": 29966.5,
+   "st_py_FLB": 30008.13
+  },
+  {
+   "week": "2018-12-21",
+   "user": "SELL",
+   "st_py": "BUY",
+   "close": 31193.0,
+   "user_ST": 31618.9,
+   "st_py_ST": 30008.13,
+   "user_Upper": 31618.9,
+   "st_py_FUB": 33028.63,
+   "user_Lower": 29966.5,
+   "st_py_FLB": 30008.13
+  },
+  {
+   "week": "2018-12-28",
+   "user": "SELL",
+   "st_py": "BUY",
+   "close": 31598.0,
+   "user_ST": 31618.9,
+   "st_py_ST": 30008.13,
+   "user_Upper": 31618.9,
+   "st_py_FUB": 33028.63,
+   "user_Lower": 29983.7,
+   "st_py_FLB": 30008.13
+  },
+  {
+   "week": "2019-01-04",
+   "user": "SELL",
+   "st_py": "BUY",
+   "close": 31456.0,
+   "user_ST": 31618.9,
+   "st_py_ST": 30218.2,
+   "user_Upper": 31618.9,
+   "st_py_FUB": 33019.8,
+   "user_Lower": 30218.2,
+   "st_py_FLB": 30218.2
+  },
+  {
+   "week": "2023-06-23",
+   "user": "SELL",
+   "st_py": "BUY",
+   "close": 58307.0,
+   "user_ST": 61026.1,
+   "st_py_ST": 58215.47,
+   "user_Upper": 61026.1,
+   "st_py_FUB": 61026.13,
+   "user_Lower": 58361.9,
+   "st_py_FLB": 58215.47
+  }
+ ],
+ "stretches": [
+  {
+   "weeks": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04"
+   ],
+   "last_week_all_paths_equal": "2018-11-16",
+   "first_divergent_week": "2018-11-23",
+   "first_divergent_st_label": "2018-11-22",
+   "composition_differences_last_agree_to_stretch_end": {
+    "2018-11-23": "2018-11-23 MCX session on an NSE holiday (Fri): dropped by ST.py"
+   }
+  },
+  {
+   "weeks": [
+    "2023-06-23"
+   ],
+   "last_week_all_paths_equal": "2023-03-31",
+   "first_divergent_week": "2023-04-07",
+   "first_divergent_st_label": "2023-04-06",
+   "composition_differences_last_agree_to_stretch_end": {
+    "2023-03-31": "2023-03-30 MCX session on an NSE holiday (Thu): dropped by ST.py",
+    "2023-04-07": "2023-04-04 MCX session on an NSE holiday (Tue): dropped by ST.py",
+    "2023-04-14": "2023-04-14 MCX session on an NSE holiday (Fri): dropped by ST.py",
+    "2023-05-05": "2023-05-01 MCX session on an NSE holiday (Mon): dropped by ST.py"
+   }
+  }
+ ],
+ "prod_code_sha256": {
+  "ST.py": "0c26ca97ed0474887eac77267085e6a576c62ecc5e1e97510821f6ef09873933",
+  "QuantBacktester.py": "d3515f10cb2389e6412d3a6a632bde19afb2ebefde2a1c86a237764ed2b2b364",
+  "ProspectTheory.py": "80715de73ad26774e929a58438d79a6be286836ce6609ebd670dfb3b65afeba7"
+ },
+ "prod_engine_checks": {
+  "prod_ST.run_user_WFRI_vs_replica_start6th_max_abs_ST": 0.0,
+  "prod_ST.run_NSE_cleaned_vs_Master_max_abs_ST": 5.820766091346741e-11,
+  "prod_ST.run_NSE_cleaned_vs_Master_sign_mismatch": 0
+ },
+ "counterfactual_grid": [
+  {
+   "candles": "A user W-FRI, all MCX sessions",
+   "start": "5th candle (user)",
+   "engine": "replica",
+   "n_vs_user": 0,
+   "n_vs_st_py": 6,
+   "weeks_vs_user": "",
+   "weeks_vs_st_py": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23"
+  },
+  {
+   "candles": "A user W-FRI, all MCX sessions",
+   "start": "6th candle (ST.py)",
+   "engine": "replica",
+   "n_vs_user": 0,
+   "n_vs_st_py": 6,
+   "weeks_vs_user": "",
+   "weeks_vs_st_py": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23"
+  },
+  {
+   "candles": "B ST.py: NSE calendar + ffill, ISO weeks, cleaned daily",
+   "start": "5th candle (user)",
+   "engine": "replica",
+   "n_vs_user": 6,
+   "n_vs_st_py": 0,
+   "weeks_vs_user": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23",
+   "weeks_vs_st_py": ""
+  },
+  {
+   "candles": "B ST.py: NSE calendar + ffill, ISO weeks, cleaned daily",
+   "start": "6th candle (ST.py)",
+   "engine": "replica",
+   "n_vs_user": 6,
+   "n_vs_st_py": 0,
+   "weeks_vs_user": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23",
+   "weeks_vs_st_py": ""
+  },
+  {
+   "candles": "C ISO Mon-Sun weeks, all MCX sessions",
+   "start": "5th candle (user)",
+   "engine": "replica",
+   "n_vs_user": 0,
+   "n_vs_st_py": 6,
+   "weeks_vs_user": "",
+   "weeks_vs_st_py": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23"
+  },
+  {
+   "candles": "C ISO Mon-Sun weeks, all MCX sessions",
+   "start": "6th candle (ST.py)",
+   "engine": "replica",
+   "n_vs_user": 0,
+   "n_vs_st_py": 6,
+   "weeks_vs_user": "",
+   "weeks_vs_st_py": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23"
+  },
+  {
+   "candles": "D W-FRI, only MCX sessions on NSE days",
+   "start": "5th candle (user)",
+   "engine": "replica",
+   "n_vs_user": 6,
+   "n_vs_st_py": 0,
+   "weeks_vs_user": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23",
+   "weeks_vs_st_py": ""
+  },
+  {
+   "candles": "D W-FRI, only MCX sessions on NSE days",
+   "start": "6th candle (ST.py)",
+   "engine": "replica",
+   "n_vs_user": 6,
+   "n_vs_st_py": 0,
+   "weeks_vs_user": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23",
+   "weeks_vs_st_py": ""
+  },
+  {
+   "candles": "E NSE calendar + ffill, ISO weeks, user's daily rows",
+   "start": "5th candle (user)",
+   "engine": "replica",
+   "n_vs_user": 6,
+   "n_vs_st_py": 0,
+   "weeks_vs_user": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23",
+   "weeks_vs_st_py": ""
+  },
+  {
+   "candles": "E NSE calendar + ffill, ISO weeks, user's daily rows",
+   "start": "6th candle (ST.py)",
+   "engine": "replica",
+   "n_vs_user": 6,
+   "n_vs_st_py": 0,
+   "weeks_vs_user": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23",
+   "weeks_vs_st_py": ""
+  },
+  {
+   "candles": "A user W-FRI, all MCX sessions",
+   "start": "6th candle (ST.py)",
+   "engine": "production ST.run",
+   "n_vs_user": 0,
+   "n_vs_st_py": 6,
+   "weeks_vs_user": "",
+   "weeks_vs_st_py": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23"
+  },
+  {
+   "candles": "B ST.py: NSE calendar + ffill, ISO weeks, cleaned daily",
+   "start": "6th candle (ST.py)",
+   "engine": "production ST.run",
+   "n_vs_user": 6,
+   "n_vs_st_py": 0,
+   "weeks_vs_user": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23",
+   "weeks_vs_st_py": ""
+  },
+  {
+   "candles": "E NSE calendar + ffill, ISO weeks, user's daily rows",
+   "start": "6th candle (ST.py)",
+   "engine": "production ST.run",
+   "n_vs_user": 6,
+   "n_vs_st_py": 0,
+   "weeks_vs_user": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23",
+   "weeks_vs_st_py": ""
+  }
+ ],
+ "session_toggles": {
+  "sessions_tested": 120,
+  "sessions_that_flip_any_week": [
+   {
+    "session": "2018-11-23",
+    "dow": "Fri",
+    "high": 30548.0,
+    "low": 30412.0,
+    "close": 30495.0,
+    "n_st_py_weeks_flipped_when_added": 5,
+    "st_py_weeks_flipped": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04",
+    "n_user_weeks_flipped_when_dropped": 5,
+    "user_weeks_flipped": "2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04"
+   },
+   {
+    "session": "2021-11-05",
+    "dow": "Fri",
+    "high": 48014.0,
+    "low": 47294.0,
+    "close": 47972.0,
+    "n_st_py_weeks_flipped_when_added": 11,
+    "st_py_weeks_flipped": "2021-12-03;2021-12-10;2021-12-17;2021-12-24;2021-12-31;2022-01-07;2022-01-14;2022-01-21;2022-01-28;2022-02-04;2022-02-11",
+    "n_user_weeks_flipped_when_dropped": 0,
+    "user_weeks_flipped": ""
+   },
+   {
+    "session": "2021-11-19",
+    "dow": "Fri",
+    "high": 49308.0,
+    "low": 48710.0,
+    "close": 48828.0,
+    "n_st_py_weeks_flipped_when_added": 0,
+    "st_py_weeks_flipped": "",
+    "n_user_weeks_flipped_when_dropped": 11,
+    "user_weeks_flipped": "2021-12-03;2021-12-10;2021-12-17;2021-12-24;2021-12-31;2022-01-07;2022-01-14;2022-01-21;2022-01-28;2022-02-04;2022-02-11"
+   },
+   {
+    "session": "2023-04-14",
+    "dow": "Fri",
+    "high": 61170.0,
+    "low": 60088.0,
+    "close": 60329.0,
+    "n_st_py_weeks_flipped_when_added": 1,
+    "st_py_weeks_flipped": "2023-06-23",
+    "n_user_weeks_flipped_when_dropped": 1,
+    "user_weeks_flipped": "2023-06-23"
+   }
+  ]
+ },
+ "minimal_set": {
+  "sessions": [
+   "2018-11-23",
+   "2021-11-05",
+   "2021-11-19",
+   "2023-04-14"
+  ],
+  "st_py_plus_these_sessions_vs_user_mismatch": [],
+  "user_minus_these_sessions_vs_st_py_mismatch": [],
+  "2018-11-23 + 2023-04-14 only": {
+   "st_py_plus_vs_user": [],
+   "st_py_plus_vs_st_py": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ],
+   "user_minus_vs_st_py": [],
+   "user_minus_vs_user": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  },
+  "2021-11-05 + 2021-11-19 together": {
+   "st_py_plus_vs_user": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ],
+   "st_py_plus_vs_st_py": [],
+   "user_minus_vs_st_py": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ],
+   "user_minus_vs_user": []
+  }
+ },
+ "st_line_categories": {
+  "rounding only (0 < |diff| <= 0.05)": 257,
+  "composition: band held by the ratchet from an earlier week": 132,
+  "equal": 125,
+  "composition: band reset this week, ATR differs (a TR in the 5-week window)": 58,
+  "composition: band reset this week, this week's high/low differ": 25,
+  "signal differs (ST on opposite bands)": 6
+ },
+ "st_line_episodes": {
+  "n": 29,
+  "weeks": 221,
+  "episodes_without_a_differing_candle_in_or_6wk_before": 0
+ },
+ "st_line_weeks_diff_gt_0.05": 221,
+ "st_line_max_file_rounding": 0.03333333335467614,
+ "start_offset": {
+  "weeks_ST_differs_user_candles_start5th_vs_6th": 0,
+  "first": null,
+  "last": null,
+  "sign_changes_user_candles": [],
+  "sign_changes_st_py_candles": [],
+  "ST_weeks_differ": 0,
+  "ST_last_week_differs": null,
+  "ST_weeks_differ_on_st_py_candles": 0,
+  "ST_last_week_differs_on_st_py_candles": null,
+  "FUB_weeks_differ": 0,
+  "FUB_last_week_differs": null,
+  "FUB_weeks_differ_on_st_py_candles": 0,
+  "FUB_last_week_differs_on_st_py_candles": null,
+  "FLB_weeks_differ": 2,
+  "FLB_last_week_differs": "2015-03-20",
+  "FLB_weeks_differ_on_st_py_candles": 4,
+  "FLB_last_week_differs_on_st_py_candles": "2015-04-03",
+  "ATR_weeks_differ": 0,
+  "ATR_last_week_differs": null,
+  "ATR_weeks_differ_on_st_py_candles": 0,
+  "ATR_last_week_differs_on_st_py_candles": null
+ },
+ "candle_differences": {
+  "weeks_close_differs": 27,
+  "weeks_high_differs": 19,
+  "weeks_low_differs": 29,
+  "weeks_tr_differs": 54,
+  "weeks_any_of_hlc_differs": 62,
+  "weeks_tr_differs_via_prev_close_only": 11,
+  "close_differs_by_cause": {
+   "MCX session on an NSE holiday": 24,
+   "weekend session": 2,
+   "MCX session on an NSE holiday; weekend session": 1
+  },
+  "hlc_differs_by_cause": {
+   "MCX session on an NSE holiday": 54,
+   "weekend session": 4,
+   "MCX session on an NSE holiday; weekend session": 3,
+   "MCX session on an NSE holiday; ST.py cleaned/ffilled bar differs from export row": 1
+  },
+  "weeks_with_a_composition_difference": 118,
+  "of_which_candle_identical": 56,
+  "candle_differs_without_composition_difference": 0
+ }
+}

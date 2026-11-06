@@ -1,0 +1,203 @@
+{
+  "run": "main",
+  "window": {
+    "start": "2021-11-01",
+    "end": "2026-08-21",
+    "sessions": 1186,
+    "years": 4.802
+  },
+  "pairs": {
+    "SCMO_0042": "SCMO_0003",
+    "SCMO_0043": "SCMO_0007",
+    "SCMO_0044": "SCMO_0010",
+    "SCMO_0045": "SCMO_0029"
+  },
+  "state_shift_used": 0,
+  "state": {
+    "SCMO_0042": {
+      "review_dates": 241,
+      "executed_rebalances": 22,
+      "first_effective": "2021-11-01",
+      "last_effective": "2026-06-15",
+      "sessions_state_stale": 48,
+      "pct_sessions_defensive": 0.4502529510961214,
+      "avg_defensive_weight": 0.4502529510961214,
+      "reviews_at_partial_defensive": 0,
+      "equity_basket_changes": 15,
+      "missing_sleeve_prices": []
+    },
+    "SCMO_0043": {
+      "review_dates": 251,
+      "executed_rebalances": 22,
+      "first_effective": "2021-11-01",
+      "last_effective": "2026-08-24",
+      "sessions_state_stale": 0,
+      "pct_sessions_defensive": 0.45446880269814505,
+      "avg_defensive_weight": 0.45446880269814505,
+      "reviews_at_partial_defensive": 0,
+      "equity_basket_changes": 15,
+      "missing_sleeve_prices": []
+    },
+    "SCMO_0044": {
+      "review_dates": 252,
+      "executed_rebalances": 28,
+      "first_effective": "2021-11-01",
+      "last_effective": "2026-08-24",
+      "sessions_state_stale": 0,
+      "pct_sessions_defensive": 0.40640809443507586,
+      "avg_defensive_weight": 0.3950252951098651,
+      "reviews_at_partial_defensive": 6,
+      "equity_basket_changes": 18,
+      "missing_sleeve_prices": []
+    },
+    "SCMO_0045": {
+      "review_dates": 252,
+      "executed_rebalances": 30,
+      "first_effective": "2021-11-01",
+      "last_effective": "2026-08-24",
+      "sessions_state_stale": 0,
+      "pct_sessions_defensive": 0.4139966273187184,
+      "avg_defensive_weight": 0.38954468802899667,
+      "reviews_at_partial_defensive": 13,
+      "equity_basket_changes": 19,
+      "missing_sleeve_prices": []
+    }
+  },
+  "tracking": {
+    "finding": "The AA equity leg does not exactly replicate its parent. The residual is ~0 at the median but heavy-tailed and it compounds, so it is carried as its own attribution term rather than treated as noise.",
+    "per_portfolio": {
+      "SCMO_0042": {
+        "ann_tracking_drift": 0.008671441289655357,
+        "cum_tracking_drift": 0.042333969758223455,
+        "median_abs_diff": 4.061181931491742e-05,
+        "risk_on_sessions": 640
+      },
+      "SCMO_0043": {
+        "ann_tracking_drift": -0.006415823706435564,
+        "cum_tracking_drift": -0.03043645932784833,
+        "median_abs_diff": 5.438837445970179e-06,
+        "risk_on_sessions": 635
+      },
+      "SCMO_0044": {
+        "ann_tracking_drift": -0.025827772449922626,
+        "cum_tracking_drift": -0.11808509753725183,
+        "median_abs_diff": 4.2959398787623115e-05,
+        "risk_on_sessions": 690
+      },
+      "SCMO_0045": {
+        "ann_tracking_drift": -0.00046452710037037104,
+        "cum_tracking_drift": -0.0022287783851622223,
+        "median_abs_diff": 3.0980910616706936e-05,
+        "risk_on_sessions": 683
+      }
+    }
+  },
+  "log_reconciliation": {
+    "SCMO_0042": {
+      "total_log_spread": 0.26864525279211376,
+      "tracking_log": 0.038739401805982725,
+      "timing_log": 0.27754106985842597,
+      "switch_log": -0.04763521887229497,
+      "switch_sessions": 11,
+      "reconciliation_error": 5.551115123125783e-17
+    },
+    "SCMO_0043": {
+      "total_log_spread": 0.32912260164694734,
+      "tracking_log": -0.030628418135583584,
+      "timing_log": 0.391512505790132,
+      "switch_log": -0.03176148600760109,
+      "switch_sessions": 11,
+      "reconciliation_error": 0.0
+    },
+    "SCMO_0044": {
+      "total_log_spread": -0.2224529517680314,
+      "tracking_log": -0.12622688123254933,
+      "timing_log": -0.05444169064860806,
+      "switch_log": -0.041784379886874,
+      "switch_sessions": 16,
+      "reconciliation_error": -2.7755575615628914e-17
+    },
+    "SCMO_0045": {
+      "total_log_spread": -0.18100138463235482,
+      "tracking_log": -0.002406607205782816,
+      "timing_log": -0.19725678070830166,
+      "switch_log": 0.01866200328172955,
+      "switch_sessions": 18,
+      "reconciliation_error": 1.1102230246251565e-16
+    }
+  },
+  "index_splice": {
+    "db_last_session": "2025-09-15",
+    "method": "chained on returns, not levels",
+    "per_index": [
+      {
+        "index": "nifty100",
+        "overlap_sessions": 53,
+        "overlap_start": "2025-07-01",
+        "overlap_end": "2025-09-15",
+        "max_rel_level_diff": 0.0013358055705086,
+        "max_abs_return_diff": 0.0017267310772651,
+        "median_abs_return_diff": 6.781819495860208e-05
+      },
+      {
+        "index": "midcap150",
+        "overlap_sessions": 53,
+        "overlap_start": "2025-07-01",
+        "overlap_end": "2025-09-15",
+        "max_rel_level_diff": 0.0013981988895951,
+        "max_abs_return_diff": 0.0022753693862387,
+        "median_abs_return_diff": 6.955791449769766e-06
+      },
+      {
+        "index": "smallcap250",
+        "overlap_sessions": 53,
+        "overlap_start": "2025-07-01",
+        "overlap_end": "2025-09-15",
+        "max_rel_level_diff": 0.002254880031919,
+        "max_abs_return_diff": 0.0035243043880244,
+        "median_abs_return_diff": 6.649604072073156e-05
+      },
+      {
+        "index": "nifty50",
+        "overlap_sessions": 53,
+        "overlap_start": "2025-07-01",
+        "overlap_end": "2025-09-15",
+        "max_rel_level_diff": 0.0013142374361756,
+        "max_abs_return_diff": 0.0017323208261211,
+        "median_abs_return_diff": 7.573586509290742e-05
+      }
+    ]
+  },
+  "defensive_sleeve": {
+    "note": "Composition changed across the history; per-instrument realized weights are used, not an assumed 50/50.",
+    "coverage": {
+      "EBBETF0431": {
+        "first": "2021-10-01",
+        "last": "2026-08-21"
+      },
+      "GOLDBEES": {
+        "first": "2021-10-01",
+        "last": "2026-08-21"
+      },
+      "GOLDCASE": {
+        "first": "2024-03-01",
+        "last": "2026-08-21"
+      },
+      "LIQUIDBEES": {
+        "first": "2021-10-01",
+        "last": "2026-08-21"
+      },
+      "LIQUIDCASE": {
+        "first": "2024-01-24",
+        "last": "2026-08-21"
+      }
+    }
+  },
+  "dropped_and_caveats": [
+    "SCMO_0042's weight history ends before its NAV does; trailing sessions hold the last known state, flagged by stale_SCMO_0042.",
+    "Market-cap index levels are spliced at 2025-09-15 from a second source.",
+    "Gross of costs and taxes, per study scope.",
+    "The 60% signal threshold is untested: the realized weight files are the only state source, so supertrend is never re-derived.",
+    "On partially-defensive sessions the tracking and timing terms cannot be separated; the whole excess is booked to timing. This affects 6 reviews for SCMO_0044 and 13 for SCMO_0045, none elsewhere."
+  ]
+}

@@ -1,0 +1,637 @@
+{
+ "user_rows": 609,
+ "user_all_friday": true,
+ "user_dup_labels": 0,
+ "master_rows": 603,
+ "master_dup_labels": 0,
+ "master_label_weekday_counts": {
+  "Friday": 558,
+  "Thursday": 35,
+  "Wednesday": 5,
+  "Saturday": 3,
+  "Sunday": 2
+ },
+ "weekIndex_rows": 608,
+ "raw_rows": 3000,
+ "raw_dup_dates": 0,
+ "master_sign_values": {
+  "BUY": 386,
+  "SELL": 217
+ },
+ "user_signal_values": {
+  "BUY": 381,
+  "SELL": 224,
+  "NaN": 4
+ },
+ "stpy_candles_myST_vs_master": {
+  "rows": 603,
+  "max_abs_ST": 5.820766091346741e-11,
+  "max_abs_FUB": 5.820766091346741e-11,
+  "max_abs_FLB": 5.820766091346741e-11,
+  "max_abs_ATR": 3.637978807091713e-12,
+  "sign_mismatch": 0,
+  "ST0_rows": 0,
+  "master_label_equals_first_sig_row": "2015-03-13"
+ },
+ "stpy_candles_start5_vs_start6": {
+  "sign_diff": 0,
+  "ST_diff_rows": 0,
+  "FUB_diff_rows": 0,
+  "FLB_diff_rows": 4,
+  "FLB_diff_dates": [
+   "2015-03-13",
+   "2015-03-20",
+   "2015-03-27",
+   "2015-04-01"
+  ],
+  "start5_first_signal": "2015-03-05 SELL"
+ },
+ "user_candles_myST_start5": {
+  "user_signal_rows": 605,
+  "my_signal_rows": 605,
+  "signal_match_on_both": 605,
+  "both": 605,
+  "max_abs_TR": 0.0,
+  "max_abs_ATR": 0.03333333333466726,
+  "max_abs_UB": 0.03333333335467614,
+  "max_abs_LB": 0.03333333335467614,
+  "LB_rows_gt_0p05": [],
+  "max_abs_ST": 0.03333333335467614,
+  "ST0_rows": 0,
+  "round1_equal_ST": 605
+ },
+ "user_candles_myST_start6": {
+  "user_signal_rows": 605,
+  "my_signal_rows": 604,
+  "signal_match_on_both": 604,
+  "both": 604,
+  "max_abs_TR": 0.0,
+  "max_abs_ATR": 0.03333333333466726,
+  "max_abs_UB": 0.03333333335467614,
+  "max_abs_LB": 334.2333333333336,
+  "LB_rows_gt_0p05": [
+   "2015-03-13",
+   "2015-03-20"
+  ],
+  "max_abs_ST": 0.03333333335467614,
+  "ST0_rows": 0,
+  "round1_equal_ST": 604
+ },
+ "user_min_flip_margin": 0.5333333333328483,
+ "myWFRI_vs_user": {
+  "weeks_mine": 609,
+  "weeks_user": 609,
+  "only_mine": [],
+  "only_user": [],
+  "Open_mismatch": [],
+  "High_mismatch": [],
+  "Low_mismatch": [],
+  "Close_mismatch": [],
+  "Volume_mismatch": []
+ },
+ "myWFRI_plainHL_Low_mismatch": [
+  "2021-10-08"
+ ],
+ "myWFRI_plainHL_High_mismatch": [],
+ "mcx_sessions_not_nse_days": 121,
+ "mcx_not_nse_weekend": [
+  "2015-02-28 Sat",
+  "2020-02-01 Sat",
+  "2023-11-12 Sun",
+  "2025-02-01 Sat",
+  "2026-02-01 Sun"
+ ],
+ "mcx_not_nse_weekday_count": 116,
+ "nse_days_without_mcx_row": [
+  "2024-01-20",
+  "2024-05-18"
+ ],
+ "nse_days_where_raw_has_no_close": [
+  "2015-11-11"
+ ],
+ "nse_weekend_days_in_window": [
+  "2016-10-30 Sun",
+  "2019-10-27 Sun",
+  "2020-11-14 Sat",
+  "2024-01-20 Sat",
+  "2024-05-18 Sat"
+ ],
+ "my_stpy_candles_vs_weekIndexDf": {
+  "rows_mine": 608,
+  "rows_W": 608,
+  "same_index": true,
+  "max_abs_HLC": 0.0
+ },
+ "user_vs_master": {
+  "fri_iso": {
+   "dup_after_map": 0,
+   "common": 603,
+   "agree": 597,
+   "diff": [
+    "2018-12-07 (ST.py label 2018-12-07): user SELL, ST.py BUY",
+    "2018-12-14 (ST.py label 2018-12-14): user SELL, ST.py BUY",
+    "2018-12-21 (ST.py label 2018-12-21): user SELL, ST.py BUY",
+    "2018-12-28 (ST.py label 2018-12-28): user SELL, ST.py BUY",
+    "2019-01-04 (ST.py label 2019-01-04): user SELL, ST.py BUY",
+    "2023-06-23 (ST.py label 2023-06-23): user SELL, ST.py BUY"
+   ],
+   "close_diff_weeks": 27,
+   "st_line_diff_gt_0p05": 221
+  },
+  "fri_wfri": {
+   "dup_after_map": 5,
+   "common": 593,
+   "agree": 587,
+   "diff": [
+    "2018-12-07 (ST.py label 2018-12-07): user SELL, ST.py BUY",
+    "2018-12-14 (ST.py label 2018-12-14): user SELL, ST.py BUY",
+    "2018-12-21 (ST.py label 2018-12-21): user SELL, ST.py BUY",
+    "2018-12-28 (ST.py label 2018-12-28): user SELL, ST.py BUY",
+    "2019-01-04 (ST.py label 2019-01-04): user SELL, ST.py BUY",
+    "2023-06-23 (ST.py label 2023-06-23): user SELL, ST.py BUY"
+   ],
+   "close_diff_weeks": 24,
+   "st_line_diff_gt_0p05": 220
+  }
+ },
+ "user_only_weeks": [
+  "2015-02-06 nan",
+  "2015-02-13 nan",
+  "2015-02-20 nan",
+  "2015-02-27 nan",
+  "2015-03-06 SELL",
+  "2026-10-02 BUY"
+ ],
+ "master_only_weeks": [],
+ "non_friday_labels_sign_check": [
+  "2015-04-01 Wednesday: ST.py SELL user SELL",
+  "2016-03-23 Wednesday: ST.py BUY user BUY",
+  "2016-04-13 Wednesday: ST.py BUY user BUY",
+  "2016-10-30 Sunday: ST.py SELL user SELL",
+  "2018-03-28 Wednesday: ST.py BUY user BUY",
+  "2019-10-27 Sunday: ST.py BUY user BUY",
+  "2020-11-14 Saturday: ST.py SELL user SELL",
+  "2022-04-13 Wednesday: ST.py BUY user BUY",
+  "2024-01-20 Saturday: ST.py BUY user BUY",
+  "2024-05-18 Saturday: ST.py BUY user BUY"
+ ],
+ "counterfactuals": [
+  {
+   "name": "ST.py-style, raw data, NSE cal, start5 vs USER",
+   "shared": 603,
+   "mismatch": 6,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "ST.py-style, raw data, NSE cal, start5 vs MASTER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "ST.py-style, raw data, NSE cal, start6 vs USER",
+   "shared": 603,
+   "mismatch": 6,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "ST.py-style, raw data, NSE cal, start6 vs MASTER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "NSE cal + MCX holiday sessions (ISO weeks), start5 vs USER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "NSE cal + MCX holiday sessions (ISO weeks), start5 vs MASTER",
+   "shared": 603,
+   "mismatch": 6,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "NSE cal + MCX holiday sessions (ISO weeks), start6 vs USER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "NSE cal + MCX holiday sessions (ISO weeks), start6 vs MASTER",
+   "shared": 603,
+   "mismatch": 6,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "NSE cal + all non-NSE MCX sessions (ISO weeks), start6 vs USER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "W-FRI, NSE-day sessions only, start5 vs USER",
+   "shared": 603,
+   "mismatch": 6,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "W-FRI, NSE-day sessions only, start5 vs MASTER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "my W-FRI all sessions, start5 vs USER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "my W-FRI all sessions, start5 vs MASTER",
+   "shared": 603,
+   "mismatch": 6,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "ST.py-style + ['2018-11-23'] vs MASTER",
+   "shared": 603,
+   "mismatch": 5,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04"
+   ]
+  },
+  {
+   "name": "ST.py-style + ['2018-11-23'] vs USER",
+   "shared": 603,
+   "mismatch": 1,
+   "dates": [
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "user W-FRI minus ['2018-11-23'] vs USER",
+   "shared": 603,
+   "mismatch": 5,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04"
+   ]
+  },
+  {
+   "name": "user W-FRI minus ['2018-11-23'] vs MASTER",
+   "shared": 603,
+   "mismatch": 1,
+   "dates": [
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "ST.py-style + ['2023-04-14'] vs MASTER",
+   "shared": 603,
+   "mismatch": 1,
+   "dates": [
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "ST.py-style + ['2023-04-14'] vs USER",
+   "shared": 603,
+   "mismatch": 5,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04"
+   ]
+  },
+  {
+   "name": "user W-FRI minus ['2023-04-14'] vs USER",
+   "shared": 603,
+   "mismatch": 1,
+   "dates": [
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "user W-FRI minus ['2023-04-14'] vs MASTER",
+   "shared": 603,
+   "mismatch": 5,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04"
+   ]
+  },
+  {
+   "name": "ST.py-style + ['2018-11-23', '2023-04-14'] vs MASTER",
+   "shared": 603,
+   "mismatch": 6,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "ST.py-style + ['2018-11-23', '2023-04-14'] vs USER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "user W-FRI minus ['2018-11-23', '2023-04-14'] vs USER",
+   "shared": 603,
+   "mismatch": 6,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "user W-FRI minus ['2018-11-23', '2023-04-14'] vs MASTER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "ST.py-style + ['2021-11-05'] vs MASTER",
+   "shared": 603,
+   "mismatch": 11,
+   "dates": [
+    "2021-12-03",
+    "2021-12-10",
+    "2021-12-17",
+    "2021-12-24",
+    "2021-12-31",
+    "2022-01-07",
+    "2022-01-14",
+    "2022-01-21",
+    "2022-01-28",
+    "2022-02-04",
+    "2022-02-11"
+   ]
+  },
+  {
+   "name": "ST.py-style + ['2021-11-05'] vs USER",
+   "shared": 603,
+   "mismatch": 17,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2021-12-03",
+    "2021-12-10",
+    "2021-12-17",
+    "2021-12-24",
+    "2021-12-31",
+    "2022-01-07",
+    "2022-01-14",
+    "2022-01-21",
+    "2022-01-28",
+    "2022-02-04",
+    "2022-02-11",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "user W-FRI minus ['2021-11-05'] vs USER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "user W-FRI minus ['2021-11-05'] vs MASTER",
+   "shared": 603,
+   "mismatch": 6,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "ST.py-style + ['2021-11-19'] vs MASTER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "ST.py-style + ['2021-11-19'] vs USER",
+   "shared": 603,
+   "mismatch": 6,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "user W-FRI minus ['2021-11-19'] vs USER",
+   "shared": 603,
+   "mismatch": 11,
+   "dates": [
+    "2021-12-03",
+    "2021-12-10",
+    "2021-12-17",
+    "2021-12-24",
+    "2021-12-31",
+    "2022-01-07",
+    "2022-01-14",
+    "2022-01-21",
+    "2022-01-28",
+    "2022-02-04",
+    "2022-02-11"
+   ]
+  },
+  {
+   "name": "user W-FRI minus ['2021-11-19'] vs MASTER",
+   "shared": 603,
+   "mismatch": 17,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2021-12-03",
+    "2021-12-10",
+    "2021-12-17",
+    "2021-12-24",
+    "2021-12-31",
+    "2022-01-07",
+    "2022-01-14",
+    "2022-01-21",
+    "2022-01-28",
+    "2022-02-04",
+    "2022-02-11",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "ST.py-style + ['2021-11-05', '2021-11-19'] vs MASTER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "ST.py-style + ['2021-11-05', '2021-11-19'] vs USER",
+   "shared": 603,
+   "mismatch": 6,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "user W-FRI minus ['2021-11-05', '2021-11-19'] vs USER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "user W-FRI minus ['2021-11-05', '2021-11-19'] vs MASTER",
+   "shared": 603,
+   "mismatch": 6,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "ST.py-style + ['2023-04-04'] vs MASTER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "ST.py-style + ['2023-04-04'] vs USER",
+   "shared": 603,
+   "mismatch": 6,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  },
+  {
+   "name": "user W-FRI minus ['2023-04-04'] vs USER",
+   "shared": 603,
+   "mismatch": 0,
+   "dates": []
+  },
+  {
+   "name": "user W-FRI minus ['2023-04-04'] vs MASTER",
+   "shared": 603,
+   "mismatch": 6,
+   "dates": [
+    "2018-12-07",
+    "2018-12-14",
+    "2018-12-21",
+    "2018-12-28",
+    "2019-01-04",
+    "2023-06-23"
+   ]
+  }
+ ],
+ "single_add_toggles_nonzero": [
+  {
+   "session": "2018-11-23",
+   "dow": "Fri",
+   "weeks_flipped": 5,
+   "first": "2018-12-07"
+  },
+  {
+   "session": "2021-11-05",
+   "dow": "Fri",
+   "weeks_flipped": 11,
+   "first": "2021-12-03"
+  },
+  {
+   "session": "2023-04-14",
+   "dow": "Fri",
+   "weeks_flipped": 1,
+   "first": "2023-06-23"
+  }
+ ],
+ "single_add_toggles_tested": 121
+}

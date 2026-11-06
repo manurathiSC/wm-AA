@@ -1,0 +1,33 @@
+period,aa,strategy,target_rows_no_price,entries_nothing_fillable,reviews_no_trade,reviews_no_parent_basket,reviews_past_calendar_end,pit_signal_before_entry_ok,pit_basket_not_future_ok
+2014_2021,SCMO_0042,Stock index BUY,82,0,310,0,0,381,381
+2014_2021,SCMO_0042,All-three BUY,73,0,332,0,0,381,381
+2014_2021,SCMO_0042,Parent,122,0,350,0,0,381,381
+2014_2021,SCMO_0042,Stock index BUY; unknown to sleeve,82,0,310,0,0,381,381
+2014_2021,SCMO_0043,Stock index BUY,5,0,310,0,0,381,381
+2014_2021,SCMO_0043,All-three BUY,5,0,334,0,0,381,381
+2014_2021,SCMO_0043,Parent,26,0,353,0,0,381,381
+2014_2021,SCMO_0043,Stock index BUY; unknown to sleeve,5,0,310,0,0,381,381
+2014_2021,SCMO_0044,Stock index BUY,76,0,310,0,0,381,381
+2014_2021,SCMO_0044,All-three BUY,70,0,332,0,0,381,381
+2014_2021,SCMO_0044,Parent,118,0,350,0,0,381,381
+2014_2021,SCMO_0044,Stock index BUY; unknown to sleeve,61,0,310,0,0,381,381
+2014_2021,SCMO_0045,Stock index BUY,17,0,306,0,0,381,381
+2014_2021,SCMO_0045,All-three BUY,14,0,333,0,0,381,381
+2014_2021,SCMO_0045,Parent,26,0,352,0,0,381,381
+2014_2021,SCMO_0045,Stock index BUY; unknown to sleeve,17,0,306,0,0,381,381
+live,SCMO_0042,Stock index BUY,0,0,208,0,0,250,250
+live,SCMO_0042,All-three BUY,0,0,225,0,0,250,250
+live,SCMO_0042,Parent,0,0,230,0,0,250,250
+live,SCMO_0042,Stock index BUY; unknown to sleeve,0,0,208,0,0,250,250
+live,SCMO_0043,Stock index BUY,0,0,212,0,0,250,250
+live,SCMO_0043,All-three BUY,0,0,225,0,0,250,250
+live,SCMO_0043,Parent,0,0,230,0,0,250,250
+live,SCMO_0043,Stock index BUY; unknown to sleeve,0,0,212,0,0,250,250
+live,SCMO_0044,Stock index BUY,0,0,204,0,0,250,250
+live,SCMO_0044,All-three BUY,0,0,225,0,0,250,250
+live,SCMO_0044,Parent,0,0,230,0,0,250,250
+live,SCMO_0044,Stock index BUY; unknown to sleeve,0,0,204,0,0,250,250
+live,SCMO_0045,Stock index BUY,0,0,205,0,0,250,250
+live,SCMO_0045,All-three BUY,0,0,225,0,0,250,250
+live,SCMO_0045,Parent,0,0,230,0,0,250,250
+live,SCMO_0045,Stock index BUY; unknown to sleeve,0,0,205,0,0,250,250

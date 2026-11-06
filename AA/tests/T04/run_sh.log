@@ -1,0 +1,1014 @@
+OK   47e48a835b8fffb3a04dbe0ee325a8c168aa795d917d0aa5f948f707a68a1610 recorded 47e48a835b8fffb3a04dbe0ee325a8c168aa795d917d0aa5f948f707a68a1610
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "C:\Users\manur\Repos\wm-AA\AA\analysis\t04_engine.py", line 32, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+world built in 5s; stocks 197, sessions 1935, decisions 411
+reportability {'full|I1': (190, True), 'full|I2': (175, True), 'full|I3': (185, True), 'full|I4': (184, True), 'full|I5': (198, True), 'live|I1': (129, True), 'live|I2': (119, True), 'live|I3': (127, True), 'live|I4': (122, True), 'live|I5': (134, True)}
+V5 50 checked 0 failed
+V4 {'cagr_gap_pp_yr': 0.04507475357373725, 'overall': 'PASS', 'worst_year': 2022, 'worst_year_gap_pp': 0.42550398202625406, 'yearly': 'PASS'}
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 129, in _main
+    prepare(preparation_data)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 240, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 291, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\manur\Repos\wm-AA\AA\analysis\t04_engine.py", line 32, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 129, in _main
+    prepare(preparation_data)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 240, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 291, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\manur\Repos\wm-AA\AA\analysis\t04_engine.py", line 32, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 129, in _main
+    prepare(preparation_data)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 240, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 291, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\manur\Repos\wm-AA\AA\analysis\t04_engine.py", line 32, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 129, in _main
+    prepare(preparation_data)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 240, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 291, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\manur\Repos\wm-AA\AA\analysis\t04_engine.py", line 32, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 129, in _main
+    prepare(preparation_data)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 240, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 291, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\manur\Repos\wm-AA\AA\analysis\t04_engine.py", line 32, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 129, in _main
+    prepare(preparation_data)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 240, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 291, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\manur\Repos\wm-AA\AA\analysis\t04_engine.py", line 32, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 129, in _main
+    prepare(preparation_data)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 240, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 291, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\manur\Repos\wm-AA\AA\analysis\t04_engine.py", line 32, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 129, in _main
+    prepare(preparation_data)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 240, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 291, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\manur\Repos\wm-AA\AA\analysis\t04_engine.py", line 32, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 129, in _main
+    prepare(preparation_data)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 240, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 291, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\manur\Repos\wm-AA\AA\analysis\t04_engine.py", line 32, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 129, in _main
+    prepare(preparation_data)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 240, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 291, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\manur\Repos\wm-AA\AA\analysis\t04_engine.py", line 32, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 129, in _main
+    prepare(preparation_data)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 240, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 291, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\manur\Repos\wm-AA\AA\analysis\t04_engine.py", line 32, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 129, in _main
+    prepare(preparation_data)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 240, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\spawn.py", line 291, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\manur\Repos\wm-AA\AA\analysis\t04_engine.py", line 32, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+draws done in 101s (60000 rows)
+indicator  cost_bps   cagr  max_dd  end_nav  trades
+       I1       0.0 0.2140 -0.2351   4.4297     208
+       I1      20.8 0.1961 -0.2554   3.9523     208
+       I1      50.0 0.1714 -0.2832   3.3671     208
+       I2       0.0 0.2218 -0.2460   4.6522     151
+       I2      20.8 0.2101 -0.2475   4.3200     151
+       I2      50.0 0.1938 -0.2511   3.8930     151
+       I3       0.0 0.2193 -0.2607   4.5796     206
+       I3      20.8 0.2024 -0.2775   4.1152     206
+       I3      50.0 0.1791 -0.3006   3.5412     206
+       I4       0.0 0.2257 -0.2531   4.7679     144
+       I4      20.8 0.2148 -0.2546   4.4506     144
+       I4      50.0 0.1995 -0.2567   4.0402     144
+       I5       0.0 0.2252 -0.2358   4.7528     110
+       I5      20.8 0.2161 -0.2373   4.4884     110
+       I5      50.0 0.2034 -0.2394   4.1415     110
+          kind  cost_bps   cagr  max_dd  end_nav  trades
+   hold_parent       0.0 0.1714 -0.4612   3.3671      31
+full_aa_switch       0.0 0.2936 -0.1825   7.2135      34
+   hold_parent      20.8 0.1666 -0.4632   3.2635      31
+full_aa_switch      20.8 0.2845 -0.1842   6.8295      34
+   hold_parent      50.0 0.1600 -0.4661   3.1231      31
+full_aa_switch      50.0 0.2716 -0.1865   6.3236      34
+V3 {'decisions_checked': 3336681, 'k_mismatch': 0, 'buy_events_checked': 398000, 'buy_mismatch': 0, 'draws': 10000, 'draws_per_indicator': 2000, 'pass': True}
+done in 109s -> C:\Users\manur\Repos\wm-AA\AA\tests\T04\evidence\headline
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "C:\Users\manur\Repos\wm-AA\AA\analysis\verify_t04.py", line 26, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+[    5.2s] indicator tables built: 412 dates x 197 stocks (5.2s)
+[    5.7s] strategy / comparator simulations done (0.5s)
+[  110.0s] null draws reproduced: 1200 simulations (104.3s)
+[  152.5s] always-in: CAGR gap +0.0462 pp/yr, worst year 2022 +0.4255 pp
+[  152.5s] diagnostic: I5 st_sign mismatches against evidence rows by SuperTrend branch reading: {'A': 0, 'B': 1965}
+
+REAL RUN
+check                        compared   failed  missing
+C-dec                            5343        0        0
+C-ind                           57177        0        0
+C-ind-brute                      2100        0        0
+C-sel                           23590        0        0
+C-pit                           86462        0        0
+C-nav0                           9690        0        0
+C-cost                          19425        0        0
+C-comp                          40698        0        0
+X-stats-trades-costpaid           102        0        0
+X-mean-equity-share                20        0        0
+X-published-nav                  1926        0        0
+C-trades                        29193        0        0
+C-null                           3600        0        0
+C-null-k                       293446        0        0
+X-null-trades-costpaid           2400        0        0
+C-always-in                      1944        0        0
+  note C-ind: basket stocks with a fresh close on a decision date but no evidence row: 0
+  note C-pit: trade rows whose date is not after their decision date: 0 (all must be basket-change sessions)
+  note C-always-in: engine g_engine.csv: gap 0.0451 pp/yr, worst year 2022 0.4255 pp; mine: gap 0.0462, worst year 2022 0.4255
+
+SELF-TEST: corrupted copy in C:\Users\manur\AppData\Local\Temp\claude\d384933f9ddb0ecb\7a6d038d-13f6-45c4-9bbc-6398be3adaed\scratchpad\corrupt_evidence (5 decisions flipped at rows [10, 50, 100, 150, 200], I1 cost-0 NAV x 1.001, selections row 501 k+1)
+check                        compared   failed  missing
+C-dec                            5343       10        0
+C-ind                           57177        0        0
+C-ind-brute                      2100        0        0
+C-sel                           23590        1        0
+C-pit                           86462        0        0
+C-nav0                           9690     1935        0
+C-cost                          19425        0        0
+C-comp                          40698        0        0
+X-stats-trades-costpaid           102        0        0
+X-mean-equity-share                20        0        0
+X-published-nav                  1926        0        0
+C-trades                        29193        0        0
+C-null                           3600        0        0
+C-null-k                       293446        0        0
+X-null-trades-costpaid           2400        0        0
+C-always-in                      1944        0        0
+corrupted copy detected: True {'C-dec': 10, 'C-nav0': 1935, 'C-sel': 1}
+[  192.2s] exit_ok = True
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "C:\Users\manur\Repos\wm-AA\AA\tests\T04\analyse.py", line 12, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+# T04 analysis of evidence/headline
+
+## Validity gates
+| gate | what | result | detail |
+|---|---|---|---|
+| V1 | independent check verify_t04.py | PASS | 577,117 comparisons, 0 failures; corrupted copy detected: True; I5 SuperTrend branch: desk reading |
+| V2 | point in time | PASS | 411 decisions, 0 labels after the decision; 410 trades, 0 not after their decision; 75,292 indicator stock-dates, 0 bars after the query date; 351 weekly-candle recomputations on bars up to the query date |
+| V3 | null holds its table | PASS | 10,000 draws x 2 windows; 3,336,681 SELL decisions with k mismatches 0; 398,000 BUY events with mismatches 0 |
+| V4 | always-in reproduces the published NAV | PASS | 2019-01-02 -> 2026-10-22: CAGR gap +0.045 pp/yr (limit 0.25); worst calendar year 2022 +0.426 pp (limit 0.5) |
+| V5 | indicator reproducibility | PASS | 50 stock-date pairs vs a hand computation, 0 failed |
+
+Cross-checks against T03 (not gates): regime series equals T03's on 400 shared decision dates with 0 mismatches; the full-switch comparator reproduces T03's SCMO_0003 strategy NAV (cost 0 / 20.8 / 50) to a maximum relative difference of 3.1e-15 up to 2026-08-07 (after that T03 accrued cash by a 90-session rate; this run reads the extended LBES).
+
+## 4.0 The decision series
+- Window 2019-01-02 -> 2026-11-04: 1,935 sessions, 411 weekly decisions (T0 plus the last session of each later ISO week), the last one not traded.
+- BUY 201 weeks, SELL 210 weeks; 10 SELL spells (the independent unit) of [5, 9, 11, 15, 16, 18, 29, 30, 37, 40] decisions, 9 BUY spells.
+- Live window starts 2021-11-01: 263 decisions.
+
+## 4.0b Reportability and selection counts (SELL decisions only)
+| window | indicator | SELL decisions | 1 <= k < n | k = 0 | k = n | mean k | mean n | reportable (>= 20) |
+|---|---|---|---|---|---|---|---|---|
+| full | I1 50-day EMA | 210 | 190 | 18 | 2 | 4.32 | 10.15 | yes |
+| full | I2 200-day EMA | 210 | 175 | 3 | 32 | 6.67 | 10.15 | yes |
+| full | I3 50-day SMA | 210 | 185 | 22 | 3 | 4.19 | 10.15 | yes |
+| full | I4 200-day SMA | 210 | 184 | 1 | 25 | 6.20 | 10.15 | yes |
+| full | I5 weekly SuperTrend | 210 | 198 | 7 | 5 | 5.55 | 10.15 | yes |
+| live | I1 50-day EMA | 139 | 129 | 9 | 1 | 4.94 | 11.66 | yes |
+| live | I2 200-day EMA | 139 | 119 | 0 | 20 | 8.20 | 11.66 | yes |
+| live | I3 50-day SMA | 139 | 127 | 10 | 2 | 4.78 | 11.66 | yes |
+| live | I4 200-day SMA | 139 | 122 | 0 | 17 | 7.47 | 11.66 | yes |
+| live | I5 weekly SuperTrend | 139 | 134 | 0 | 5 | 6.37 | 11.66 | yes |
+
+Stock-dates where an indicator could not be computed (valid bar, too little history) and the stock was excluded: I1 208, I2 897, I3 208, I4 897, I5 80.
+
+## 4.0a The worked example (one SELL decision, one trade, one null draw)
+**The decision.** Decision j = 181, 2022-06-17 (the last session of its week). Master SIGN rows: Nifty 100 SELL (2022-06-17), Midcap 100 SELL (2022-06-17), Smallcap 100 SELL (2022-06-17); not all three BUY, so the regime is SELL.
+The basket in force (effective 2022-06-16) has n = 8 stocks. Indicator I1 (close > 50-day EMA) on their closes up to 2022-06-17:
+
+| stock | basket weight | close | ema50 | EMA50 test: close > EMA50 |
+|---|---|---|---|---|
+| SIYSIL.NS | 0.1250 | 502.09 | 523.45 | drop |
+| GHCL.NS | 0.1250 | 549.36 | 559.94 | drop |
+| VTL.NS | 0.1250 | 255.75 | 341.54 | drop |
+| OIL.NS | 0.1250 | 169.77 | 164.83 | keep |
+| HINDALCO.NS | 0.1250 | 333.70 | 435.79 | drop |
+| NATIONALUM.NS | 0.1250 | 75.70 | 97.54 | drop |
+| RKFORGE.NS | 0.1250 | 156.05 | 167.20 | drop |
+| HGINFRA.NS | 0.1250 | 555.70 | 573.25 | drop |
+
+k = 1 kept, with basket weights adding to 0.1250; the other 0.8750 of the book goes to the sleeve, half GOLDBEES and half LBES cash (0.4375 each).
+**The trade** (next session, 2022-06-20, at each instrument's OHLC4): portfolio value before V = 1.995009; value traded = 0.959202; cost = traded x 20.8 / 2 / 10,000 = 0.000998; every target is then scaled by (V - cost) / V = 0.999500. Kept after the trade: OIL.NS. NAV at that day's close 1.983437.
+**The path.** I1 at 20.8 bps: NAV 1.0000 on 2019-01-02 -> 3.9523 on 2026-11-04; 1,935 sessions, years = (1,935 - 1) / 252 = 7.675; CAGR = 3.9523^(1/7.675) - 1 = 19.61%.
+**One null draw** (I1, draw_id 0, seed `default_rng([4, 1, 0])`, u of shape (411, 197)): on the same decision the draw keeps the k = 1 stocks of the 8 with the smallest u: SIYSIL.NS (the indicator kept OIL.NS). Everything else is as the strategy. That draw's after-cost CAGR is 20.78%.
+
+## 4.1 Headline: after cost at 20.8 bps, full window, 50/50 sleeve, LBES cash
+Window 2019-01-02 -> 2026-11-04; 2,000 draws per indicator; pass mark percentile >= 98 (Bonferroni, 5 indicators, alpha 0.10).
+
+| indicator | CAGR % | null mean % | null SD pp | C1 percentile | p | C1 | max DD % | null mean DD % | C2 percentile | C2 | end NAV | trades |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| I1 50-day EMA | 19.61 | 19.33 | 1.34 | 58.7 | 0.4133 | FAIL | -25.54 | -23.01 | 15.7 | FAIL | 3.952 | 208 |
+| I2 200-day EMA | 21.01 | 18.77 | 1.42 | 94.8 | 0.0520 | FAIL | -24.75 | -27.41 | 89.4 | FAIL | 4.320 | 151 |
+| I3 50-day SMA | 20.24 | 20.78 | 1.41 | 34.5 | 0.6552 | FAIL | -27.75 | -22.92 | 3.0 | FAIL | 4.115 | 206 |
+| I4 200-day SMA | 21.48 | 18.19 | 1.50 | 98.3 | 0.0175 | PASS | -25.46 | -27.94 | 85.1 | FAIL | 4.451 | 144 |
+| I5 weekly SuperTrend | 21.61 | 20.48 | 1.50 | 77.9 | 0.2214 | FAIL | -23.73 | -26.47 | 87.5 | FAIL | 4.488 | 110 |
+
+### Secondary statistics (percentile against the same draws; direction: higher is better for Calmar, lower is better for the rest)
+| indicator | vol | Ulcer | days >=10% below peak | longest under water | Calmar |
+|---|---|---|---|---|---|
+| I1 50-day EMA | 0.183 (pct 39.0) | 9.66 (pct 34.9) | 541 (pct 65.5) | 470 (pct 26.4) | 0.768 (pct 27.3) |
+| I2 200-day EMA | 0.196 (pct 16.7) | 10.5 (pct 60.7) | 691 (pct 79.0) | 421 (pct 93.8) | 0.849 (pct 96.0) |
+| I3 50-day SMA | 0.182 (pct 53.3) | 10.3 (pct 10.9) | 533 (pct 52.9) | 474 (pct 6.2) | 0.729 (pct 7.5) |
+| I4 200-day SMA | 0.195 (pct 0.5) | 9.65 (pct 89.5) | 670 (pct 84.2) | 446 (pct 64.3) | 0.844 (pct 98.0) |
+| I5 weekly SuperTrend | 0.19 (pct 13.4) | 8.76 (pct 67.3) | 469 (pct 84.4) | 318 (pct 90.9) | 0.911 (pct 87.0) |
+
+### What the null does not hold: trades and cost paid (20.8 bps)
+| indicator | strategy trades | null mean trades | strategy cost paid (NAV) | null mean cost paid | CAGR gap pp (strategy - null mean) |
+|---|---|---|---|---|---|
+| I1 50-day EMA | 208 | 231 | 0.257 | 0.342 | +0.28 |
+| I2 200-day EMA | 151 | 210 | 0.180 | 0.269 | +2.23 |
+| I3 50-day SMA | 206 | 227 | 0.236 | 0.352 | -0.53 |
+| I4 200-day SMA | 144 | 217 | 0.170 | 0.267 | +3.29 |
+| I5 weekly SuperTrend | 110 | 226 | 0.137 | 0.299 | +1.13 |
+
+A random pick changes every week, so a null draw trades far more than a moving-average filter does. The null is built to hold *how many* stocks are kept, not *how often the kept set changes*; the 0 bps row of R2 shows how much of each indicator's after-cost edge is this turnover difference.
+
+## 4.2 Comparators (benchmarks, not nulls), full window
+| run | cost bps | CAGR % | max DD % | vol % | Calmar | end NAV | trades |
+|---|---|---|---|---|---|---|---|
+| hold the parent | 0.00 | 17.14 | -46.12 | 24.48 | 0.37 | 3.367 | 31 |
+| hold the parent | 20.80 | 16.66 | -46.32 | 24.48 | 0.36 | 3.263 | 31 |
+| hold the parent | 50.00 | 16.00 | -46.61 | 24.49 | 0.34 | 3.123 | 31 |
+| full AA switch (100% sleeve in SELL; T03's rule) | 0.00 | 29.36 | -18.25 | 17.30 | 1.61 | 7.213 | 34 |
+| full AA switch (100% sleeve in SELL; T03's rule) | 20.80 | 28.45 | -18.42 | 17.30 | 1.54 | 6.829 | 34 |
+| full AA switch (100% sleeve in SELL; T03's rule) | 50.00 | 27.16 | -18.65 | 17.32 | 1.46 | 6.324 | 34 |
+| constant mix at I1's equity share f = 0.705 | 20.80 | 15.31 | -33.70 | 17.38 | 0.45 | 2.985 | 433 |
+| constant mix at I2's equity share f = 0.811 | 20.80 | 15.44 | -37.90 | 19.80 | 0.41 | 3.010 | 433 |
+| constant mix at I3's equity share f = 0.699 | 20.80 | 15.30 | -33.45 | 17.24 | 0.46 | 2.983 | 433 |
+| constant mix at I4's equity share f = 0.791 | 20.80 | 15.42 | -37.12 | 19.34 | 0.42 | 3.006 | 433 |
+| constant mix at I5's equity share f = 0.770 | 20.80 | 15.40 | -36.32 | 18.87 | 0.42 | 3.002 | 433 |
+| strategy I1 50-day EMA | 20.80 | 19.61 | -25.54 | 18.30 | 0.77 | 3.952 | 208 |
+| strategy I2 200-day EMA | 20.80 | 21.01 | -24.75 | 19.63 | 0.85 | 4.320 | 151 |
+| strategy I3 50-day SMA | 20.80 | 20.24 | -27.75 | 18.22 | 0.73 | 4.115 | 206 |
+| strategy I4 200-day SMA | 20.80 | 21.48 | -25.46 | 19.48 | 0.84 | 4.451 | 144 |
+| strategy I5 weekly SuperTrend | 20.80 | 21.61 | -23.73 | 18.98 | 0.91 | 4.488 | 110 |
+
+Published NAV SCMO_0003 (D17, rebased): 2019-01-02 -> 2026-10-22, 16.48% a year (calendar-day years). Published SCMO_0042 (production overlay, `indices.csv`, descriptive only): 2021-11-01 -> 2026-08-21, 21.57% a year.
+
+### Calendar-year returns at 20.8 bps (strategy NAV, % ; first and last years are part years)
+| year | hold parent | full AA switch | I1 | I2 | I3 | I4 | I5 |
+|---|---|---|---|---|---|---|---|
+| 2019.00 | -10.1 | 8.3 | -5.4 | -1.6 | -4.8 | -1.8 | -3.5 |
+| 2020.00 | 37.9 | 78.3 | 83.0 | 77.8 | 81.4 | 78.4 | 66.9 |
+| 2021.00 | 47.8 | 15.9 | 28.1 | 41.5 | 27.7 | 38.6 | 44.2 |
+| 2022.00 | -13.7 | -0.1 | -12.4 | -11.0 | -15.0 | -10.1 | -11.5 |
+| 2023.00 | 32.0 | 29.9 | 29.0 | 30.7 | 29.3 | 34.2 | 32.9 |
+| 2024.00 | 30.0 | 31.6 | 23.4 | 24.5 | 25.7 | 24.3 | 27.7 |
+| 2025.00 | -3.6 | 36.9 | 9.6 | 0.3 | 12.2 | -0.1 | 8.9 |
+| 2026.00 | 24.8 | 30.7 | 16.6 | 20.3 | 20.4 | 22.5 | 18.0 |
+
+## 4.3 Power and the minimum detectable edge (80% power, pass mark 98)
+| indicator | SD of null CAGR pp | MDE CAGR pp | SD of null max DD pp | MDE max DD pp | strategy minus null mean, CAGR pp |
+|---|---|---|---|---|---|
+| I1 50-day EMA | 1.34 | 3.87 | 2.39 | 6.91 | +0.28 |
+| I2 200-day EMA | 1.42 | 4.10 | 2.30 | 6.65 | +2.23 |
+| I3 50-day SMA | 1.41 | 4.07 | 2.28 | 6.60 | -0.53 |
+| I4 200-day SMA | 1.50 | 4.34 | 2.41 | 6.97 | +3.29 |
+| I5 weekly SuperTrend | 1.50 | 4.34 | 2.54 | 7.34 | +1.13 |
+
+MDE = (z_0.98 + z_0.80) x SD = 2.894 x SD of the null. With 10 SELL spells the effective sample is small, and the MDE is the edge the test could have seen at 80% power.
+
+## 4.4 Verdict against each pre-registered criterion
+| indicator | reportable | C1 CAGR pct | C1 | C2 max-DD pct | C2 |
+|---|---|---|---|---|---|
+| I1 50-day EMA | yes | 58.7 | FAIL | 15.7 | FAIL |
+| I2 200-day EMA | yes | 94.8 | FAIL | 89.4 | FAIL |
+| I3 50-day SMA | yes | 34.5 | FAIL | 3.0 | FAIL |
+| I4 200-day SMA | yes | 98.3 | PASS | 85.1 | FAIL |
+| I5 weekly SuperTrend | yes | 77.9 | FAIL | 87.5 | FAIL |
+
+- Passing C1 (selection): I4. Passing C2 (protection): none. Passing both: none.
+- Best indicator by after-cost CAGR: I5 weekly SuperTrend at 21.61% against the full AA switch's 28.45% and holding the parent's 16.66%.
+
+## Robustness (R1 to R5)
+| indicator | R2 0 bps C1 pct | R2 50 bps C1 pct | R3 LIQUIDCASE C1 pct | R1 C1 pct | R1 C2 pct | R4 live CAGR % | R4 C1 pct | R4 C2 pct |
+|---|---|---|---|---|---|---|---|---|
+| I1 50-day EMA | 37.0 | 82.7 | 58.7 | 58.2 | 26.1 | 11.9 | 20.6 | 10.2 |
+| I2 200-day EMA | 83.7 | 99.5 | 94.8 | 94.8 | 81.8 | 12.0 | 57.6 | 43.7 |
+| I3 50-day SMA | 18.0 | 64.8 | 34.5 | 33.8 | 2.9 | 12.8 | 17.2 | 7.1 |
+| I4 200-day SMA | 93.7 | 99.9 | 98.3 | 98.2 | 77.7 | 12.8 | 85.1 | 87.1 |
+| I5 weekly SuperTrend | 49.8 | 96.5 | 77.9 | 77.1 | 79.1 | 14.6 | 58.0 | 27.6 |
+
+R1 uses a 100% GOLDBEES sleeve (own null); R2 changes the cost; R3 swaps LBES for LIQUIDCASE from 2024-01-24; R4 is the live window 2021-11 onward with its own k counts and its own null. Percentiles at or above 98 are marked in section 4.4's logic; here every column is just the percentile.
+
+**R5 best-of-sweep null.** The best of the five indicators (I5 weekly SuperTrend, after-cost CAGR 21.61%) is ranked against the best of five random indicators per draw id: percentile 52.4, p = 0.4758 (pass mark 98); the null's best-of-five averages 21.62% (SD 1.10 pp). R5: **FAIL**.
+
+READINGS (engine): E1: calendar = D17's dates 2019-01-02 -> 2026-10-22, then the D18 sessions after it up to 2026-11-04; E2: stock bars used for indicators: every D18 bar up to 2019-01-02, after that only bars on calendar sessions (F-AA-D15); E3: indicator tables are computed at the decision dates and at the live window's first date only; for a stock whose weekly candle has a bar after the query date the supertrend is recomputed on bars up to the query date (the live first date, a Monday); E4: I5 sign BUY iff ST sits on the final lower band (|ST-FLB|<1e-9); NaN or neither band = not computable = excluded; E5: n and k of a decision are measured on the basket in force at its trade session (at the decision session for the last decision); E6: the null draws one uniform per stock per decision: the k_j(b) smallest of u[j] within basket b are kept (uniform k-subset); E7: R5 = per draw_id the best of the five indicators' draws of that id (the plan's 'shared permutation seed' read as 'same draw id'); E8: initial position: basket at T0 as drifted since its availableDate scaled to 1 at T0's close; stocks outside the T0 kept set are sold at T0's close into the sleeve at no cost; BUY = whole basket (sleeve exactly 0); E9: basket weights normalised to sum 1 over the whole basket; kept stocks keep their normalised weights; E10: constant mix: stock share f = mean over decisions of sum of kept weights (BUY = 1), rebalanced at the next session of every decision (T0's included) and at every basket change; initial stock holding = drifted basket scaled by f; E11: full AA switch comparator = this engine with k = 0 on every SELL decision (T03's rule on this window)
+
+GOLDBEES trade sessions after the MCX file's end (2026-09-28), fill = raw OHLC4: 2026-10-05 -0.22% from close; 2026-10-12 +0.54% from close; 2026-10-19 +0.15% from close; 2026-10-26 -0.20% from close; 2026-11-02 +0.27% from close.
+
+Run: headline, 2000 draws per indicator, 109 s, seed numpy default_rng([4, i, draw_id]), i = 1..5 for I1..I5; the same draw ids for every cost, sleeve, cash variant; pre-registration sha256 47e48a835b8fffb3a04dbe0ee325a8c168aa795d917d0aa5f948f707a68a1610.
+section 4 written; sections 1-3 hash unchanged 47e48a835b8fffb3a04dbe0ee325a8c168aa795d917d0aa5f948f707a68a1610
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "C:\Users\manur\Repos\wm-AA\AA\tests\T04\report.py", line 19, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+wrote C:\Users\manur\Repos\wm-AA\AA\tests\T04\evidence\headline\report.html 0.40 MB
+OK   47e48a835b8fffb3a04dbe0ee325a8c168aa795d917d0aa5f948f707a68a1610 recorded 47e48a835b8fffb3a04dbe0ee325a8c168aa795d917d0aa5f948f707a68a1610
+
+real	5m6.031s
+user	0m0.231s
+sys	0m0.230s

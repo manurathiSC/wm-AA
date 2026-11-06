@@ -1,0 +1,104 @@
+{
+  "what": "D03 three-index supertrend, recomputed with the vendored production code",
+  "call": "ST.run(scrip, 'W', 2, True, ...) + analysis_master.build_analysis_master",
+  "input": "G:\\.shortcut-targets-by-id\\0B7f_UMMZHM_JNXljMVVXY2VPcHM\\Investment Research_N\\Shubham_Shreshtha\\Friday Rebalance Automation\\Data\\indices_ohlcv.xlsx",
+  "input_sha256": "c6c79a48bacdc71f13fd0ed3e42790e23c96e6a0662566bc29b4da8f41e309a3",
+  "calendar": "G:\\.shortcut-targets-by-id\\0B7f_UMMZHM_JNXljMVVXY2VPcHM\\Investment Research_N\\Shubham_Shreshtha\\Friday Rebalance Automation\\Data\\TradingDays.xlsx",
+  "calendar_sha256": "d4cead94bb1cb031bd051679c1496356d382af018040d918ea5a5f05274aab85",
+  "calendar_last": "2026-10-30",
+  "code_sha256": {
+    "Python_Scripts/ST.py": "0c26ca97ed0474887eac77267085e6a576c62ecc5e1e97510821f6ef09873933",
+    "Python_Scripts/QuantBacktester.py": "d3515f10cb2389e6412d3a6a632bde19afb2ebefde2a1c86a237764ed2b2b364",
+    "Python_Scripts/ProspectTheory.py": "80715de73ad26774e929a58438d79a6be286836ce6609ebd670dfb3b65afeba7",
+    "analysis_master.py": "beaaa4195971913eb0bf28c49b447810a8bad683eaf4ca78ad4584df920b5df8"
+  },
+  "frozen_inputs": {
+    "Nifty100": "8a80c502a85098b2c4138530d5b68ef7878bbd8157ce82beadfb5d9081788895",
+    "MC100": "114e654a28a950bd9b1b7d0c0386a760424dc927b139ef7518f86b0f29b3e8a7",
+    "SC100": "63ad46a9cb9104b2bc0b1c916a2ebc9baffbeaabc0e1a08533ae3b42b641cca2"
+  },
+  "outputs": {
+    "Nifty100": "4285f9f1832f3da2d388a5cc28216066c3c93d15fb807cbd93a60395b6faec78",
+    "MC100": "b191eb973994922898e50a63aa597599980670587126f43aba820241024c0b86",
+    "SC100": "c7f4acdbe414363730008e65623eb75823d06777b6df8f693f46ff068fe26f76"
+  },
+  "pandas": "2.2.3",
+  "numpy": "1.26.4",
+  "checks": [
+    {
+      "index": "Nifty100",
+      "rows_frozen": 1081,
+      "rows_new": 1087,
+      "overlap": 1081,
+      "overlap_max_abs_diff": 0.0,
+      "overlap_sign_mismatches": 0,
+      "dates_only_in_frozen": [],
+      "dates_added": [
+        "2026-09-25",
+        "2026-10-01",
+        "2026-10-09",
+        "2026-10-16",
+        "2026-10-23",
+        "2026-10-30"
+      ],
+      "vs_production_master": {
+        "rows": 1087,
+        "sign_mismatches": 0,
+        "max_abs_diff": 0.0,
+        "dates_only_in_production": [],
+        "dates_only_here": []
+      },
+      "pass": true
+    },
+    {
+      "index": "MC100",
+      "rows_frozen": 1100,
+      "rows_new": 1106,
+      "overlap": 1100,
+      "overlap_max_abs_diff": 0.0,
+      "overlap_sign_mismatches": 0,
+      "dates_only_in_frozen": [],
+      "dates_added": [
+        "2026-09-25",
+        "2026-10-01",
+        "2026-10-09",
+        "2026-10-16",
+        "2026-10-23",
+        "2026-10-30"
+      ],
+      "vs_production_master": {
+        "rows": 1106,
+        "sign_mismatches": 0,
+        "max_abs_diff": 0.0,
+        "dates_only_in_production": [],
+        "dates_only_here": []
+      },
+      "pass": true
+    },
+    {
+      "index": "SC100",
+      "rows_frozen": 1181,
+      "rows_new": 1187,
+      "overlap": 1181,
+      "overlap_max_abs_diff": 0.0,
+      "overlap_sign_mismatches": 0,
+      "dates_only_in_frozen": [],
+      "dates_added": [
+        "2026-09-25",
+        "2026-10-01",
+        "2026-10-09",
+        "2026-10-16",
+        "2026-10-23",
+        "2026-10-30"
+      ],
+      "vs_production_master": {
+        "rows": 1187,
+        "sign_mismatches": 0,
+        "max_abs_diff": 0.0,
+        "dates_only_in_production": [],
+        "dates_only_here": []
+      },
+      "pass": true
+    }
+  ]
+}

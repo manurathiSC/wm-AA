@@ -1,0 +1,218 @@
+T06 analysis. Run: headline | draws per book, cost and null: 2,000 | deciding null: N4.10; N4.9 re-run on this window shown beside it
+Window: 2019-01-02 -> 2026-10-22 (SCMO_0007 from 2019-01-04), 409 weekly decisions (SCMO_0007 408); live window from 2021-11-01
+Pre-registration sha256 in the header: a3851d402acdcff0 | recomputed now: a3851d402acdcff0 | match: True
+Bounds: lengths in [2, 46] weeks (in-spells) and [2, 40] (out-spells), the rule's longest spells on the full window
+Evidence read: audit.json, count_table.json, daily_nav.csv, decisions.csv, draw_curves_20.8.npz, draw_states.npz, draws.csv, g_engine.csv, inputs.csv, positions.csv, regression_t03.json, sampler_selftest.json, stats.csv, trades.csv, verify_t06.json
+
+====================================================================================================
+4.0b  GATES
+(V1 independent check, V2 point in time, V3 the nulls hold their tables, V4 regression to T03 and always-in, V5 the sampler is exact)
+====================================================================================================
+V1 independent check (verify_t06.py):  PASS | gate comparisons 973,395, failures and missing 0, corrupted copy detected: True
+V2 point in time: violations 0 of 3,266 checks (labels dated after the decision: 0 required; trade not after its decision: 0 required)
+V3 the nulls hold their tables: 32,000 saved draws checked over 16 state arrays (weeks, first state, spell counts, sums, N4.9 sorted lengths, N4.10 bounds), bad 0; 80,000 draws.csv rows checked (invested weeks, spell counts, ids), bad 0; in_lengths/out_lengths strings against the states: 0 differ 
+   sessions_invested recomputed from the states (full window): 16,000 draws, 0 differ (informational: a difference means the definition here and the engine's differ; the verifier owns the exact definition)
+   audit.json v3 block (the engine's own check): 25 pass flags, all true: True; draws per type 2000
+   the rule's own lengths lie within the bounds (so every N4.9 draw is an allowed N4.10 configuration): {'0003/full': True, '0003/live': True, '0007/full': True, '0007/live': True, '0010/full': True, '0010/live': True, '0029/full': True, '0029/live': True}
+V4 always-in at 0 cost vs the published NAV (G0: +-0.25 pp/yr overall, +-0.5 pp every calendar year) and vs the Step 1 rebuild:
+     book cagr_gap_pp_yr overall  worst_year worst_year_gap_pp yearly max_rel_diff_vs_step1_rebuild  rebuild_dates_compared window_first window_last
+SCMO_0003         +0.045    PASS        2022            +0.426   PASS                                                     0   2019-01-02  2026-10-22
+SCMO_0007         +0.103    PASS        2019            +0.391   PASS                                                     0   2019-01-04  2026-10-22
+SCMO_0010         +0.101    PASS        2019            +0.447   PASS                                                     0   2019-01-02  2026-10-22
+SCMO_0029         +0.038    PASS        2019            +0.189   PASS                                                     0   2019-01-02  2026-10-22
+   (the always-in book runs over 2019-01-02 -> 2026-10-22, the whole window)
+   regression to T03 on the overlap: decisions 1,599 compared, 0 differ; NAVs (strategy, hold the parent, 100% sleeve; every cost; up to 2026-08-07) 67,482 compared, 0 differ, worst relative difference 0.0e+00 (limit 1e-12). The constant mix is not compared: its average share f is the new series' own.
+   regression_t03.json (the engine's own check): 54 pass flags, all true: True; rows compared: 52
+   sampler_selftest.json (the engine's own check): 18 pass flags, all true: True
+V5 the sampler is exact: (a) chi-square on k=3, S=12, bounds [2, 6]: p = 0.8280904016577683 (need > 0.001; from sampler_selftest.json, which this script cannot recompute; its own pass flag: True); (b) count_table.json against inclusion-exclusion: 16 entries, 0 differ or infeasible (bounds 2/46/40, feasibility 2k <= S <= hi k); (c) mean length at each spell position over the draws against S/k: worst |z| = 2.63 over 16 (book, window, state) sets (need < 4)
+Gates: {'V1': 'PASS', 'V2': 'PASS', 'V3': 'PASS', 'V4': 'PASS', 'V5': 'PASS'} -> ALL PASS
+Reportability: round trips per book, full window (need 4): {'SCMO_0003': 9, 'SCMO_0007': 9, 'SCMO_0010': 9, 'SCMO_0029': 9} | live window: {'SCMO_0003': 5, 'SCMO_0007': 5, 'SCMO_0010': 5, 'SCMO_0029': 5} | feasible (2k <= S <= hi k): True | NOT REPORTABLE: none
+Spell structure of the rule: SCMO_0003 first state OUT, in-spells [8, 13, 33, 23, 20, 26, 46, 11, 21] (sum 201), out-spells [11, 29, 15, 16, 40, 18, 5, 30, 37, 7] (sum 208); SCMO_0007 in [8, 13, 33, 23, 20, 26, 46, 11, 21] (sum 201), out [10, 29, 15, 16, 40, 18, 5, 30, 37, 7] (sum 207)
+Number of allowed N4.10 tuples (count_table.json, exact):
+     book window state  k   S  bounds             n_ways
+SCMO_0003   full    in  9 201 [2, 46]  7,107,131,351,925
+SCMO_0003   full   out 10 208 [2, 40] 89,734,761,224,680
+SCMO_0003   live    in  5 124 [2, 46]          2,436,435
+SCMO_0003   live   out  6 137 [2, 40]         46,175,688
+SCMO_0007   full    in  9 201 [2, 46]  7,107,131,351,925
+SCMO_0007   full   out 10 207 [2, 40] 89,568,225,513,130
+SCMO_0007   live    in  5 124 [2, 46]          2,436,435
+SCMO_0007   live   out  6 137 [2, 40]         46,175,688
+SCMO_0010   full    in  9 201 [2, 46]  7,107,131,351,925
+SCMO_0010   full   out 10 208 [2, 40] 89,734,761,224,680
+SCMO_0010   live    in  5 124 [2, 46]          2,436,435
+SCMO_0010   live   out  6 137 [2, 40]         46,175,688
+SCMO_0029   full    in  9 201 [2, 46]  7,107,131,351,925
+SCMO_0029   full   out 10 208 [2, 40] 89,734,761,224,680
+SCMO_0029   live    in  5 124 [2, 46]          2,436,435
+SCMO_0029   live   out  6 137 [2, 40]         46,175,688
+Cash: {'file_last': '2026-11-05', 'accrued_sessions': 0}
+
+====================================================================================================
+4.0a  THE WORKED EXAMPLE (SCMO_0003, 20.8 bps), with one N4.10 draw
+====================================================================================================
+One decision: week 11, decision date 2019-03-15. Latest Master rows: Nifty100 BUY (2019-03-15), MC100 BUY (2019-03-15), SC100 BUY (2019-03-15). All three BUY: True -> target parent; previous week's state 0. Trade session: 2019-03-18.
+One trade: switch_in on 2019-03-18 at OHLC4: value before 1.001895, traded 2.003791 (both sides), cost 0.002084 = traded x 20.8/2/10,000, NAV at the close after: 0.996409
+NAV around the trade (strategy, 20.8 bps):
+      date      nav
+2019-03-14 1.005258
+2019-03-15 1.005128
+2019-03-18 0.996409
+2019-03-19 0.995156
+2019-03-20 0.992833
+One path: start 1.000000 on 2019-01-02, end 6.849074 on 2026-10-22, 1926 sessions -> years 7.6389, CAGR 28.645%, max drawdown -18.42%
+One N4.10 draw (draw_id 0; seed numpy default_rng([6, 0]); in-spell lengths first, then out-spell lengths from the same generator):
+  sampler: in-spells k = 9, total S = 201 weeks, each length an integer in [2, 46]; allowed ordered tuples c(k, S) = 7,107,131,351,925 (DP count in count_table.json; inclusion-exclusion here: 7,107,131,351,925)
+           out-spells k = 10, total S = 208 weeks, each in [2, 40]; c(k, S) = 89,734,761,224,680 (inclusion-exclusion here: 89,734,761,224,680)
+  the rule's in-spell lengths: [8, 13, 33, 23, 20, 26, 46, 11, 21]; draw 0's: [23, 15, 18, 19, 46, 24, 24, 11, 21]
+  the rule's out-spell lengths: [11, 29, 15, 16, 40, 18, 5, 30, 37, 7]; draw 0's: [6, 4, 37, 2, 40, 35, 31, 3, 16, 34]
+The first 20 weekly states (1 = parent, 0 = sleeve): the real rule, N4.9 draw 0 (seed default_rng([3, 0])) and N4.10 draw 0:
+ j decision_date  rule  N4.9 draw 0  N4.10 draw 0
+ 0    2019-01-02     0            0             0
+ 1    2019-01-04     0            0             0
+ 2    2019-01-11     0            0             0
+ 3    2019-01-18     0            0             0
+ 4    2019-01-25     0            0             0
+ 5    2019-02-01     0            0             0
+ 6    2019-02-08     0            0             1
+ 7    2019-02-15     0            0             1
+ 8    2019-02-22     0            0             1
+ 9    2019-03-01     0            0             1
+10    2019-03-08     0            0             1
+11    2019-03-15     1            0             1
+12    2019-03-22     1            0             1
+13    2019-03-29     1            0             1
+14    2019-04-05     1            0             1
+15    2019-04-12     1            0             1
+16    2019-04-18     1            0             1
+17    2019-04-26     1            0             1
+18    2019-05-03     1            1             1
+19    2019-05-10     0            1             1
+  N4.10 draw 0: CAGR 9.259%, max drawdown -31.99%, invested weeks 201 (rule 201), spells 9 in / 10 out, sessions invested 946 (rule 961)
+  One ranking against N4.10 (CAGR, 2000 draws): below 1948, equal 0, above 52 -> percentile 97.40, p-value 0.02649; null median 14.68%, edge +13.97 pp
+  N4.9 draw 0: CAGR 17.100%, max drawdown -19.10%, invested weeks 201 (rule 201), spells 9 in / 10 out, sessions invested 945 (rule 961)
+  One ranking against N4.9 (CAGR, 2000 draws): below 1937, equal 0, above 63 -> percentile 96.85, p-value 0.03198; null median 14.93%, edge +13.71 pp
+
+====================================================================================================
+4.1  HEADLINE: strategy against N4.10 (deciding) and N4.9 (full window 2019 -> 2026-10-22, LBES cash; 2,000 draws each)
+====================================================================================================
+CAGR (C1): rule's after-cost CAGR, each null's median, the edge over it, the rule's percentile and p-value
+ cost      book CAGR% N10_med% N10_edge_pp N10_pct   N10_p N9_med% N9_edge_pp N9_pct    N9_p
+  0.0 SCMO_0003 29.57    15.46      +14.11   97.40 0.02649   15.73     +13.84  96.90 0.03148
+  0.0 SCMO_0007 21.74    11.94       +9.80   94.10 0.05947   12.04      +9.70  92.85 0.07196
+  0.0 SCMO_0010 31.32    19.52      +11.80   96.80 0.03248   19.98     +11.34  96.00 0.04048
+  0.0 SCMO_0029 27.45    18.28       +9.17   94.65 0.05397   18.51      +8.94  94.80 0.05247
+ 20.8 SCMO_0003 28.64    14.68      +13.97   97.40 0.02649   14.93     +13.71  96.85 0.03198
+ 20.8 SCMO_0007 20.96    11.20       +9.76   94.10 0.05947   11.35      +9.61  92.80 0.07246
+ 20.8 SCMO_0010 30.41    18.72      +11.69   96.75 0.03298   19.17     +11.25  96.00 0.04048
+ 20.8 SCMO_0029 26.61    17.50       +9.11   94.60 0.05447   17.73      +8.88  94.75 0.05297
+ 50.0 SCMO_0003 27.36    13.59      +13.77   97.40 0.02649   13.82     +13.54  96.85 0.03198
+ 50.0 SCMO_0007 19.87    10.19       +9.68   94.10 0.05947   10.34      +9.53  92.75 0.07296
+ 50.0 SCMO_0010 29.15    17.61      +11.55   96.85 0.03198   18.01     +11.14  95.95 0.04098
+ 50.0 SCMO_0029 25.44    16.42       +9.02   94.60 0.05447   16.63      +8.81  94.75 0.05297
+Maximum drawdown (C2): rule's worst fall, each null's median, the rule's percentile (shallower is better) and p-value
+ cost      book maxDD% N10_medDD% N10_DD_pct N10_DD_p N9_medDD% N9_DD_pct N9_DD_p
+  0.0 SCMO_0003 -18.25     -33.01      97.85  0.02349    -31.85     98.10 0.01999
+  0.0 SCMO_0007 -19.37     -32.70      97.78  0.02349    -34.44     96.95 0.03248
+  0.0 SCMO_0010 -15.22     -28.96      97.15  0.02899    -26.77     97.75 0.02299
+  0.0 SCMO_0029 -15.22     -30.28      98.55  0.01499    -29.04     98.30 0.01749
+ 20.8 SCMO_0003 -18.42     -33.54      97.90  0.02299    -32.37     98.15 0.01949
+ 20.8 SCMO_0007 -19.54     -33.37      97.78  0.02349    -34.58     96.92 0.03298
+ 20.8 SCMO_0010 -15.22     -29.43      97.20  0.02849    -27.09     98.15 0.01899
+ 20.8 SCMO_0029 -15.22     -30.43      98.75  0.01299    -29.08     98.35 0.01699
+ 50.0 SCMO_0003 -18.65     -34.31      98.02  0.02149    -32.89     98.20 0.01899
+ 50.0 SCMO_0007 -19.78     -34.58      98.02  0.02099    -34.87     97.28 0.02899
+ 50.0 SCMO_0010 -15.22     -29.98      97.80  0.02249    -27.60     98.65 0.01399
+ 50.0 SCMO_0029 -15.22     -30.63      98.85  0.01199    -29.29     98.55 0.01499
+N10 = N4.10 free-length random timing (decides); N9 = N4.9 spell shuffle re-run on this window. pct = percentile of the rule among the draws; DD = maximum drawdown.
+
+Secondary statistics at 20.8 bps, percentile against each null's draws (each statistic's better direction):
+  against N4.10:
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 97.4   97.9   98.4 79.5  97.8             98.0              100.0
+SCMO_0007 94.1   97.8   97.8 67.2  98.9             99.2               96.2
+SCMO_0010 96.8   97.2   98.9 68.7  96.9             98.2               91.9
+SCMO_0029 94.6   98.8   98.5 79.7  93.7             94.7               94.2
+  against N4.9:
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 96.9   98.2   98.4 77.8  97.5             97.7               99.8
+SCMO_0007 92.8   96.9   96.5 65.6  98.7             98.9               97.0
+SCMO_0010 96.0   98.2   98.8 65.1  96.2             97.9               92.0
+SCMO_0029 94.8   98.4   98.7 77.0  93.8             95.0               93.8
+
+====================================================================================================
+4.2  COMPARATORS (benchmarks, not nulls), same window, T0 = 1.000
+====================================================================================================
+ cost      book strategy_CAGR% strategy_DD% hold_parent_CAGR% hold_parent_DD% constant_mix_CAGR% constant_mix_DD% sleeve_only_CAGR% sleeve_only_DD% published_CAGR% published_DD%
+  0.0 SCMO_0003          29.57       -18.25             16.91          -46.12              15.10           -24.50             14.24          -19.31           16.86        -46.12
+  0.0 SCMO_0007          21.74       -19.37             10.58          -54.37              11.86           -26.49             14.25          -19.31           10.48        -54.63
+  0.0 SCMO_0010          31.32       -15.22             25.18          -44.63              18.57           -23.93             14.24          -19.31           25.08        -44.88
+  0.0 SCMO_0029          27.45       -15.22             24.05          -36.92              18.54           -21.23             14.24          -19.31           24.01        -36.92
+ 20.8 SCMO_0003          28.64       -18.42             16.43          -46.32              14.72           -24.55             14.24          -19.31           16.86        -46.12
+ 20.8 SCMO_0007          20.96       -19.54             10.22          -54.65              11.55           -26.82             14.25          -19.31           10.48        -54.63
+ 20.8 SCMO_0010          30.41       -15.22             24.69          -44.98              18.19           -23.97             14.24          -19.31           25.08        -44.88
+ 20.8 SCMO_0029          26.61       -15.22             23.63          -36.92              18.18           -21.25             14.24          -19.31           24.01        -36.92
+ 50.0 SCMO_0003          27.36       -18.65             15.76          -46.61              14.19           -24.61             14.24          -19.31           16.86        -46.12
+ 50.0 SCMO_0007          19.87       -19.78              9.72          -55.03              11.10           -27.29             14.25          -19.31           10.48        -54.63
+ 50.0 SCMO_0010          29.15       -15.22             24.00          -45.46              17.66           -24.03             14.24          -19.31           25.08        -44.88
+ 50.0 SCMO_0029          25.44       -15.22             23.04          -36.92              17.69           -21.28             14.24          -19.31           24.01        -36.92
+Constant mix holds 49.1% in the parent (the strategy's average); hold_parent is the engine with the decision fixed IN; published_D17 is the published NAV rebased to 1.000 on the same dates.
+
+====================================================================================================
+4.3  POWER: round trips, the minimum detectable edge (MDE = 2.8 x null SD; 80% power, two-sided 5%) per null, and sessions invested
+====================================================================================================
+     book  round_trips N10_sd_CAGR_pp N10_MDE_CAGR_pp N10_sd_DD_pp N10_MDE_DD_pp N9_sd_CAGR_pp N9_MDE_CAGR_pp N9_sd_DD_pp N9_MDE_DD_pp
+SCMO_0003            9           6.94           19.44         9.61         26.91          6.92          19.38        9.40        26.32
+SCMO_0007            9           6.04           16.90        10.10         28.29          6.21          17.39       10.52        29.44
+SCMO_0010            9           6.06           16.97        10.43         29.19          5.96          16.69       10.33        28.93
+SCMO_0029            9           5.40           15.12         6.76         18.92          5.33          14.93        6.74        18.86
+T06.md section 3 step 12: the thresholds in section 2 do not depend on these numbers, which did not exist when it was written. T03's N4.9 null SD of CAGR was 5.5 to 6.9 pp (MDE 15 to 19 pp), the prior.
+
+Sessions invested per draw (headline: full window, LBES, 20.8 bps; of 1,925 sessions for SCMO_0003; weeks are held exactly, sessions are not):
+     book  rule   of  N9_min N9_median  N9_max N9_sd  N9_equal_to_rule  N10_min N10_median  N10_max N10_sd  N10_equal_to_rule
+SCMO_0003   961 1925     933     949.0     964   4.9                11      934      949.0      965    4.5                  5
+SCMO_0007   961 1923     933     949.0     965   5.0                 9      933      949.0      965    4.5                  8
+SCMO_0010   961 1925     933     949.0     964   4.9                11      934      949.0      965    4.5                  5
+SCMO_0029   961 1925     933     949.0     964   4.9                11      934      949.0      965    4.5                  5
+
+====================================================================================================
+4.4  VERDICT against the pre-registered criteria (after cost, 20.8 bps; N4.10 decides)
+====================================================================================================
+Against N4.10 (decides):
+  C1 timing (H1)       PASS   percentile >= 90 in >= 3 of 4 books: 4 of 4 (0003 97.4, 0007 94.1, 0010 96.8, 0029 94.6)   
+  C2 protection (H2)   PASS   percentile >= 90 in >= 3 of 4 books: 4 of 4 (0003 97.9, 0007 97.8, 0010 97.2, 0029 98.8)   
+Against N4.9 (beside, not a criterion):
+  C1 timing (H1)       PASS   percentile >= 90 in >= 3 of 4 books: 4 of 4 (0003 96.9, 0007 92.8, 0010 96.0, 0029 94.8)   
+  C2 protection (H2)   PASS   percentile >= 90 in >= 3 of 4 books: 4 of 4 (0003 98.2, 0007 96.9, 0010 98.2, 0029 98.4)   
+
+Outcome map (T06.md section 2), rows that apply:
+  - C1 PASS, C2 PASS, and N4.9 also passes on this window: the result does not depend on the spell lengths. F-AA-S04 stays PROVISIONAL (nothing is unseen) but is better supported
+If N4.9 and N4.10 disagree on this window, both are reported and F-AA-S04's status note says so (T06.md section 2).
+
+====================================================================================================
+4.5  ROBUSTNESS (decide a finding's status, not the verdicts)
+====================================================================================================
+R1 at 0 bps against N4.10: C1 4 of 4 -> PASS (0003 97.4, 0007 94.1, 0010 96.8, 0029 94.7); C2 4 of 4 -> PASS (0003 97.9, 0007 97.8, 0010 97.2, 0029 98.6)
+R1 at 0 bps against N4.9: C1 4 of 4 -> PASS (0003 96.9, 0007 92.8, 0010 96.0, 0029 94.8); C2 4 of 4 -> PASS (0003 98.1, 0007 97.0, 0010 97.8, 0029 98.3)
+R1 at 50 bps against N4.10: C1 4 of 4 -> PASS (0003 97.4, 0007 94.1, 0010 96.9, 0029 94.6); C2 4 of 4 -> PASS (0003 98.0, 0007 98.0, 0010 97.8, 0029 98.9)
+R1 at 50 bps against N4.9: C1 4 of 4 -> PASS (0003 96.9, 0007 92.8, 0010 96.0, 0029 94.8); C2 4 of 4 -> PASS (0003 98.2, 0007 97.3, 0010 98.7, 0029 98.6)
+R2 LIQUIDCASE cash (full window, 20.8 bps), N4.10: C1 percentiles [97.4, 94.1, 96.8, 94.7] (rule's CAGR ['28.7%', '21.0%', '30.5%', '26.7%']) -> 4 of 4 >= 90 -> PASS
+R2 LIQUIDCASE cash (full window, 20.8 bps), N4.9: C1 percentiles [96.9, 92.8, 96.0, 94.8] (rule's CAGR ['28.7%', '21.0%', '30.5%', '26.7%']) -> 4 of 4 >= 90 -> PASS
+R3 live window 2021-11-01 -> 2026-10-22 (own spells, same bounds, 20.8 bps), N4.10: C1 percentiles [95.3, 95.7, 97.0, 92.5] (rule's CAGR ['26.0%', '20.7%', '27.6%', '26.4%']) -> 4 of 4 >= 90 -> PASS
+R3 live window 2021-11-01 -> 2026-10-22 (own spells, same bounds, 20.8 bps), N4.9: C1 percentiles [94.4, 94.2, 95.5, 93.3] (rule's CAGR ['26.0%', '20.7%', '27.6%', '26.4%']) -> 4 of 4 >= 90 -> PASS
+
+R4 agreement of the two nulls on this window (20.8 bps; no pass mark). Per book: the rule's percentile under each null, and each null's spread of after-cost CAGR:
+     book CAGR% N10_pct N10_DD_pct N10_median% N10_sd_pp N10_p5% N10_p95% N9_pct N9_DD_pct N9_median% N9_sd_pp N9_p5% N9_p95% pct_gap(N9-N10) sd_ratio(N10/N9)
+SCMO_0003 28.64   97.40      97.90       14.68      6.94    3.81    26.48  96.85     98.15      14.93     6.92   3.83   26.56           -0.55             1.00
+SCMO_0007 20.96   94.10      97.78       11.20      6.04    1.82    21.66  92.80     96.92      11.35     6.21   1.96   22.06           -1.30             0.97
+SCMO_0010 30.41   96.75      97.20       18.72      6.06    9.24    29.05  96.00     98.15      19.17     5.96   9.85   29.63           -0.75             1.02
+SCMO_0029 26.61   94.60      98.75       17.50      5.40    8.90    26.86  94.75     98.35      17.73     5.33   9.19   26.74            0.15             1.01
+Historical reference (a different window: 2019-01-02 -> 2026-08-21, T03's stored N4.9 draws, 20.8 bps, LBES cash; NOT comparable draw for draw, and no pass mark):
+     book T03_CAGR% T03_N9_pct T03_N9_DD_pct T03_N9_sd_pp T06_N9_pct T06_N10_pct
+SCMO_0003     30.11      95.95         97.45         6.92      96.85       97.40
+SCMO_0007     21.61      86.35         94.73         6.37      92.80       94.10
+SCMO_0010     31.41      95.05         97.55         6.18      96.00       96.75
+SCMO_0029     27.78      92.40         97.60         5.45      94.75       94.60
+
+Hypotheses: H1 (timing) SUPPORTED in-sample against N4.10 (PROVISIONAL: nothing is unseen) | H2 (protection) SUPPORTED in-sample against N4.10 (PROVISIONAL)
+Gates: all pass

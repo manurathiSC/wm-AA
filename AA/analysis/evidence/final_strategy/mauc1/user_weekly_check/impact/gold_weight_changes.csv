@@ -1,0 +1,6 @@
+window,review,weekday,entry_session,decision,gold_signal_stpy,gold_signal_user,gold_w_stpy,gold_w_user,cash_w_stpy,cash_w_user,variant_gold_w_stpy,variant_gold_w_user,signal_differs,gold_w_differs,variant_gold_w_differs,user_week_read,same_iso_week
+2014_2021,2018-12-07,Friday,2018-12-10,SLEEVE,1.0,0.0,0.8,0.2,0.1999999999999999,0.8,0.8,0.8,True,True,False,2018-12-07,True
+2014_2021,2018-12-14,Friday,2018-12-17,SLEEVE,1.0,0.0,0.8,0.2,0.1999999999999999,0.8,0.8,0.8,True,True,False,2018-12-14,True
+2014_2021,2018-12-21,Friday,2018-12-24,SLEEVE,1.0,0.0,0.8,0.2,0.1999999999999999,0.8,0.8,0.8,True,True,False,2018-12-21,True
+2014_2021,2018-12-28,Friday,2018-12-31,SLEEVE,1.0,0.0,0.8,0.2,0.1999999999999999,0.8,0.8,0.8,True,True,False,2018-12-28,True
+2014_2021,2019-01-04,Friday,2019-01-07,SLEEVE,1.0,0.0,0.8,0.2,0.1999999999999999,0.8,0.8,0.8,True,True,False,2019-01-04,True

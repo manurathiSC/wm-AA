@@ -1,0 +1,521 @@
+<title>Why Both Must Agree</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap">
+<style>
+:root{
+  --page:#f6f7f9; --surface-1:#fcfcfd; --band:#eceff4;
+  --text-primary:#101319; --text-secondary:#4a5160; --muted:#7d8595;
+  --grid:#e3e6ec; --baseline:#c4c9d4; --border:rgba(16,19,25,.11);
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300; --s7:#4a3aa7; --s8:#e34948;
+  --pos:#0a7d0a; --neg:#c23131;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  color-scheme:dark;
+  --page:#0c0e12; --surface-1:#16181d; --band:#22252c;
+  --text-primary:#f2f4f8; --text-secondary:#b3bac7; --muted:#8a92a2;
+  --grid:#262a32; --baseline:#3a3f4a; --border:rgba(242,244,248,.12);
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
+  --pos:#3fbf3f; --neg:#ef6b6b;
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#0c0e12; --surface-1:#16181d; --band:#22252c;
+  --text-primary:#f2f4f8; --text-secondary:#b3bac7; --muted:#8a92a2;
+  --grid:#262a32; --baseline:#3a3f4a; --border:rgba(242,244,248,.12);
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
+  --pos:#3fbf3f; --neg:#ef6b6b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--text-primary);font-family:var(--sans);font-size:15.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:24px;padding-block:52px 96px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+h1{font-family:var(--serif);font-size:40px;font-weight:500;line-height:1.1;margin:0 0 14px;letter-spacing:-.018em;text-wrap:balance;max-width:26ch}
+.sub{font-family:var(--serif);font-size:20px;line-height:1.45;color:var(--text-secondary);margin:0 0 16px;max-width:60ch}
+.meta{font-family:var(--mono);color:var(--muted);font-size:11.5px;letter-spacing:.03em;margin:0 0 30px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+h2{font-family:var(--serif);font-size:28px;font-weight:500;margin:64px 0 10px;letter-spacing:-.012em;text-wrap:balance;max-width:38ch}
+h3{font-size:15.5px;font-weight:600;margin:30px 0 8px}
+h4{font-family:var(--mono);font-size:11.5px;font-weight:500;margin:26px 0 8px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-secondary)}
+p{margin:12px 0;max-width:70ch}
+ul,ol{margin:12px 0;padding-left:22px;max-width:72ch} li{margin:7px 0}
+.cap{font-size:13px;color:var(--muted);max-width:78ch;margin:10px 0 0}
+code{font-family:var(--mono);font-size:.86em;background:var(--band);padding:1px 5px;border-radius:4px}
+.card{background:var(--surface-1);border:1px solid var(--border);border-radius:10px;padding:18px 18px 12px;margin:18px 0}
+.findings{background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin:8px 0 26px}
+.findings ol{margin:0;padding-left:20px;max-width:none} .findings li{margin:10px 0}
+.callout{border-left:3px solid var(--baseline);padding:4px 0 4px 18px;margin:22px 0;max-width:74ch}
+.callout.warn{border-left-color:var(--neg)} .callout p{margin:8px 0}
+.controls{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:4px 0 12px}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.seg button{font:500 12px var(--mono);color:var(--text-secondary);background:transparent;border:0;padding:6px 11px;cursor:pointer;border-right:1px solid var(--border)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--band);color:var(--text-primary)}
+button:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:4px 0 8px;font-family:var(--mono);font-size:11px;color:var(--text-secondary)}
+.key{display:inline-flex;align-items:center;gap:7px} .sw{width:10px;height:10px;border-radius:2px;display:inline-block}
+.chart{display:block;width:100%;overflow:visible} .chart text{font-family:var(--mono)}
+.grid{stroke:var(--grid);stroke-width:1} .base{stroke:var(--baseline);stroke-width:1}
+.tick{fill:var(--muted);font-size:10.5px} .elabel{fill:var(--text-secondary);font-size:10.5px}
+.xhair{stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3}
+.chartbox{position:relative}
+.tip{position:absolute;pointer-events:none;background:var(--surface-1);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font:11.5px/1.5 var(--mono);color:var(--text-primary);box-shadow:0 4px 16px rgba(0,0,0,.12);min-width:190px;z-index:3}
+.tip .d{color:var(--muted);margin-bottom:3px} .tip .r{display:flex;justify-content:space-between;gap:14px}
+.tip .r span:first-child{display:inline-flex;gap:6px;align-items:center;color:var(--text-secondary)}
+.panel-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-secondary);margin:4px 0 4px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+.tw{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{text-align:right;padding:7px 10px;border-bottom:1px solid var(--border);white-space:nowrap}
+td{font-family:var(--mono);font-size:12.5px}
+th{color:var(--muted);font-family:var(--mono);font-weight:500;font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--baseline);vertical-align:bottom}
+th:first-child,td:first-child{text-align:left} td.l{text-align:left;font-family:var(--sans);font-size:13px}
+tr.hl td{background:var(--band)} td.pos{color:var(--pos)} td.neg{color:var(--neg)}
+.truth td{font-family:var(--sans)} .truth td b{font-weight:600}
+.foot{margin-top:70px;padding-top:22px;border-top:1px solid var(--border);font-size:13.5px;color:var(--text-secondary)}
+@media (max-width:560px){h1{font-size:30px}.sub{font-size:17px}h2{font-size:24px}}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">AA overlay · N100 AND SC100 · three-index rule · gold in the sleeve · forensic study</p>
+  <h1>Requiring large caps to confirm small caps makes a better risk filter, not a reliably better return signal</h1>
+  <p class="sub" id="sub"></p>
+  <p class="meta">In-sample 2021-11 → 2026-08 on the four AA books · out of sample 2007-07 → 2021-10 on the indices and 2014-07 → 2021-10 on the actual parents · production supertrend SIGN · Eikon prices · 20.8 bps round trip</p>
+
+  <div class="findings" id="findings"></div>
+
+  <h2>How the three rules decide</h2>
+  <p>All three switch the <em>whole</em> book between the parent basket and the 50/50 gold/cash sleeve once a week, filling on the next session. They differ only in which weekly supertrend readings they look at.</p>
+  <div class="tw"><table class="truth">
+    <thead><tr><th>Nifty 100</th><th style="text-align:left">Smallcap 100</th><th style="text-align:left">N100 AND SC100</th><th style="text-align:left">Smallcap 100 only</th><th style="text-align:left">Current rule</th></tr></thead>
+    <tbody>
+      <tr><td>BUY</td><td class="l">BUY</td><td class="l"><b>equity</b></td><td class="l"><b>equity</b></td><td class="l" rowspan="4">Count-weighted vote over the book's holdings. Large caps read Nifty 100, mid caps Midcap 150, everything smaller Smallcap 250. Equity if the vote is at least 0.60. For these small-cap-heavy parents it behaves much like "Smallcap 250 only".</td></tr>
+      <tr><td>SELL</td><td class="l">BUY</td><td class="l">sleeve</td><td class="l"><b>equity</b></td></tr>
+      <tr><td>BUY</td><td class="l">SELL</td><td class="l">sleeve</td><td class="l">sleeve</td></tr>
+      <tr><td>SELL</td><td class="l">SELL</td><td class="l">sleeve</td><td class="l">sleeve</td></tr>
+    </tbody></table></div>
+  <p><b>So N100 AND SC100 and Smallcap 100 only disagree in exactly one state:</b> small caps trending up while large caps trend down. Everything that separates them happens in those weeks. The AND rule exits on whichever index breaks first and re-enters only when the second one turns.</p>
+
+  <h2>Where the 2021–26 gap comes from</h2>
+  <p>Two rules earn different returns only on the sessions where one holds equity and the other holds the sleeve. So the gap between them is exactly the sum, over those sessions, of equity return minus sleeve return, signed by whichever rule held equity. That pins the edge to specific weeks.</p>
+  <div class="tw"><table id="att"></table></div>
+  <h4>Against Smallcap 100 only: every stretch where they disagreed</h4>
+  <div class="tw"><table id="str"></table></div>
+  <p class="cap" id="strcap"></p>
+
+  <h2>The mechanism: what each signal state predicts</h2>
+  <p>This is the test of <em>why</em>. For every week, take the state of the two signals and look at what small caps, large caps and gold did over the following four weeks (about a month), starting from the next session. If the AND rule works for a reason, the one state where it disagrees with Smallcap 100 alone ("only Smallcap 100 BUY") should be followed by poor equity returns.</p>
+  <div class="controls"><div class="seg" id="stSel"></div></div>
+  <div class="card"><div class="legend" id="stLeg"></div><div id="stChart"></div></div>
+  <div class="tw"><table id="stTab"></table></div>
+  <div id="stNote"></div>
+
+  <h2>Out of sample on the indices, 2007–2021</h2>
+  <p>This is fourteen years before the AA books existed and before Study 1 picked the rule. It includes 2008, the 2011 small-cap slump, 2015–16, the 2018 small-cap crash and COVID. Gold prices start only in 2014-07, so the main test uses an <b>all-cash sleeve</b>. That is the harder test, because gold cannot flatter the result. Each rule is applied to an index held as the equity leg.</p>
+  <div class="controls"><div class="seg" id="ixSel"></div></div>
+  <div class="card"><div class="legend" id="ixLeg"></div><div id="ixChart"></div></div>
+  <div class="tw"><table id="ixTab"></table></div>
+  <p class="cap">The pairs below the line test whether the <em>idea</em> works, a large-cap index confirming a small-cap one, or only this exact pair. "N100 OR SC100" is the opposite logic: equity if either index is BUY.</p>
+  <div id="ixNote"></div>
+
+  <h2>Out of sample on the actual parents, 2014–2021</h2>
+  <p>This is the four parents' real rebalance histories from 2014-07, before the window any study used, priced from Eikon and run through the same harness as the main report. The current rule and the segment rule are marked * because their Midcap 150 / Smallcap 250 signals do not exist before 2019. Midcap 100 / Smallcap 100 stand in, which are the inputs the production engine itself used until 2026-04.</p>
+  <div class="grid2" id="poCurves"></div>
+  <div class="legend" id="poLeg" style="margin-top:10px"></div>
+  <div class="tw"><table id="poTab"></table></div>
+  <div id="poNote"></div>
+
+  <h2>When it wins and when it loses</h2>
+  <p>Year by year, the AND rule's edge over Smallcap 100 only is close to zero most of the time. It is large in a few years, positive and negative. The positive years are the ones where a rally led by small caps alone failed. The negative years are the ones where it kept going.</p>
+  <h4>Index blend (N100 / MC100 / SC100), cash sleeve, 2007–2021</h4><div class="tw"><table id="yIdx"></table></div>
+  <h4>Actual parents, average of four, gold/cash sleeve, 2014–2021</h4><div class="tw"><table id="yPar"></table></div>
+  <h4>The four AA books, average, 2021–2026 (in-sample)</h4><div class="tw"><table id="yIs"></table></div>
+  <h4>Every "small caps up, large caps down" stretch, 2007–2021</h4>
+  <div class="tw"><table id="unc"></table></div>
+  <p class="cap">Small-cap and large-cap returns run from the first session after the stretch begins to one week after it ends. These are the only weeks in which the AND rule sat in the sleeve while Smallcap 100 only held equity.</p>
+
+  <h2>Why the 2021–26 curve looks so clean</h2>
+  <div id="clean"></div>
+
+  <h2>How robust is it in-sample?</h2>
+  <div class="tw"><table id="rob"></table></div>
+  <p class="cap">These are return-space runs on each book's harness parent and the 50/50 sleeve. <b>Shift null:</b> the joint N100/SC100 signal history is rolled through time by every offset of at least 8 weeks (236 runs), keeping the two signals' co-movement. <b>Delay:</b> every decision acts 1 or 2 weeks late. <b>Best stretch:</b> the single most helpful disagreement stretch against Smallcap 100 only.</p>
+
+  <h2 id="gold">Timing the gold inside the sleeve</h2>
+  <p>Study 1 tried putting gold's own trend into the sleeve. While the book is defensive, the sleeve holds <b>100% gold if gold's weekly supertrend is BUY, and 100% cash if it is SELL</b>. In 2021–26 that beat the fixed 50/50 sleeve on 3 of 4 books, and it made drawdown worse on all four. This re-tests it on the full harness, including costs on every gold/cash switch. It runs under every equity rule, in-sample and on the actual parents 2014–21, a stretch that includes four years when gold went nowhere. The gold signal is the production supertrend (5-bar weighted ATR, multiplier 2) on weekly GOLDBEES bars from Eikon, read on the same Friday as the index signals.</p>
+  <p>The key control is <b>"fixed, same gold share"</b>. It is a constant split holding exactly as much gold, on average, as the trend version ended up holding while defensive. If the trend sleeve beats the 50/50 only because it holds more gold, it will <em>not</em> beat this control. If it times gold well, it will.</p>
+  <div class="card"><div class="legend"><span class="key"><i class="sw" style="background:var(--s4)"></i>GOLDBEES, growth of 1 (daily closes)</span><span class="key"><i class="sw" style="background:var(--band);box-shadow:inset 0 0 0 1px var(--baseline)"></i>weeks gold's trend is SELL (sleeve goes to cash)</span></div><div id="gChart"></div><p class="cap" id="gCap"></p></div>
+  <div class="tw"><table id="gIt"></table></div>
+  <div class="controls"><span class="ctl-label" style="font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Period</span><div class="seg" id="gPer"></div></div>
+  <div class="tw"><table id="gTab"></table></div>
+  <p class="cap">Average across the four books. "Timing value" is the gold-trend sleeve minus the fixed sleeve holding the same average gold share: positive means the gold signal added something beyond more gold. The 2014–18 and 2019–21 rows are sub-periods of the same out-of-sample run.</p>
+  <div id="gNote"></div>
+
+  <h2 id="triple">Three must agree: N100 AND MC100 AND SC100</h2>
+  <p>This extends the confirmation to mid caps: hold equity only when <b>Nifty 100, Nifty Midcap 100 and Nifty Smallcap 100</b> are all BUY, otherwise the 50/50 sleeve. It is tested on the portfolios, the four AA books 2021–26 and the four parents' real baskets 2014–21, on the full harness. It is also tested on each index held on its own, against buy-and-hold, that index's own signal, Smallcap 100 alone and the pair.</p>
+  <div id="triNote1"></div>
+  <h4>On the portfolios (average of four; each cell shows CAGR above max drawdown)</h4>
+  <p class="cap" style="margin-top:0">The sleeve is what the book holds when the rule says SELL: 50/50 gold and cash, all cash, or all gold. The parent never goes to the sleeve, so its row is the same in every sleeve column.</p>
+  <div class="tw"><table id="triP"></table></div>
+  <h4>On individual indices</h4>
+  <div class="controls"><span class="ctl-label" style="font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Period</span><div class="seg" id="triPer"></div><span class="ctl-label" style="font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Sleeve</span><div class="seg" id="triSl"></div></div>
+  <div class="tw"><table id="triI"></table></div>
+  <p class="cap">Each index is held as the whole equity leg, in return space, with 20.8 bps per switch. "Own signal" is that index's own weekly supertrend. Midcap 150, Smallcap 250 and Microcap 250 have prices only from 2019 or 2022, so their rows cover shorter spans (the start column says which). The full-history rows chain the out-of-sample and in-sample periods into one run. <b>Gold</b> is GOLDBEES (Eikon, from 2014-07); its own signal is gold's weekly supertrend, and the equity rules hold gold whenever they would hold equity. Gold held with the all-gold sleeve never trades, so every rule equals buy-and-hold there. There are no gold prices before 2014-07, so the 2007 periods have only the cash sleeve.</p>
+  <div id="triNote3"></div>
+  <div class="controls"><span class="ctl-label" style="font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Index, 2007–26, cash sleeve</span><div class="seg" id="triIx"></div></div>
+  <div class="card"><div class="legend" id="triLeg"></div><div id="triChart"></div></div>
+  <h4>The only weeks where the triple and the pair disagree</h4>
+  <div class="tw"><table id="triM"></table></div>
+  <div id="triNote2"></div>
+
+  <h2>What this means for the books</h2>
+  <div id="means"></div>
+
+  <div class="foot">
+    <p><b>Sources.</b> Weekly <code>SIGN</code> from the frozen production <code>Master_*.xlsx</code>: Nifty 100 from 2006, Smallcap 100 from 2004. Index levels are from <code>indices_ohlcv.xlsx</code> and are price return. Stock prices are <code>ohlcv_eikon</code>, joined on <code>quote_id</code>. Gold is GOLDBEES (Eikon GBES.NS, from 2014-07); cash is the LBES total-return level.</p>
+    <p><b>Mechanics.</b> Index tests fill at the close of the session after the review and charge 20.8 bps per full switch. Parent tests use the v2 harness: units, next-session OHLC4, 20.8 bps round trip. Code: <code>why_n100sc100.py</code>, <code>why_parents_oos.py</code>, <code>why_report.py</code>. Evidence and formulas: <code>AA/analysis/evidence/why_n100sc100/</code> and its <code>METHODS.md</code>.</p>
+  </div>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(function(){
+"use strict";
+const D = JSON.parse(document.getElementById("data").textContent);
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pct = (x, d=1) => x == null ? "–" : (x*100).toFixed(d) + "%";
+const pp = (x, d=1) => x == null ? "–" : (x >= 0 ? "+" : "−") + Math.abs(x*100).toFixed(d);
+const cls = x => x == null ? "" : x > 0.0005 ? "pos" : x < -0.0005 ? "neg" : "";
+const BOOKS = ["SCMO_0042","SCMO_0043","SCMO_0044","SCMO_0045"];
+const LAB = {SCMO_0042:"0042",SCMO_0043:"0043",SCMO_0044:"0044",SCMO_0045:"0045"};
+const PAR = {SCMO_0042:"0003",SCMO_0043:"0007",SCMO_0044:"0010",SCMO_0045:"0029"};
+const COL = {"N100 AND SC100":"var(--s6)", "SC100 only":"var(--s8)", "current rule*":"var(--s4)", "segment rule*":"var(--s1)",
+  "parent":"var(--s5)", "buy_hold":"var(--s5)", "N100 only":"var(--s7)"};
+const NAME = {"buy_hold":"Buy and hold", "parent":"Parent (no overlay)"};
+const nm = k => NAME[k] || k;
+const avg = a => a.reduce((x, y) => x + y, 0) / a.length;
+
+function seg(host, vals, labels, get, set){
+  host.innerHTML = vals.map((v, i) => `<button type="button" aria-pressed="${v===get()}" data-i="${i}">${labels[i]}</button>`).join("");
+  host.querySelectorAll("button").forEach(b => b.addEventListener("click", () => { set(vals[+b.dataset.i]); host.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); }));
+}
+
+// ── charts ─────────────────────────────────────────────────────────────
+const NS = "http://www.w3.org/2000/svg";
+const el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+function logTicks(lo, hi){ const c = [0.25,0.5,0.75,1,1.5,2,3,4,5,6,8,10,15,20]; return c.filter(v => v >= lo && v <= hi); }
+function line(host, dates, series, opt = {}){
+  host.innerHTML = ""; host.classList.add("chartbox");
+  const T = dates.map(d => Date.parse(d + "T00:00:00Z"));
+  const W = Math.max(300, host.clientWidth || 800), H = opt.height || 300, narrow = W < 560;
+  const m = {l: 44, r: opt.endLabels && !narrow ? 170 : 12, t: 10, b: 22};
+  const svg = el("svg", {viewBox: `0 0 ${W} ${H}`, class: "chart", role: "img", "aria-label": opt.aria || "chart"}, host);
+  let lo = Infinity, hi = -Infinity; series.forEach(s => s.values.forEach(v => { if (v != null && v > 0){ lo = Math.min(lo, v); hi = Math.max(hi, v); } }));
+  lo = Math.min(lo, 1) / 1.04; hi = Math.max(hi, 1) * 1.04;
+  const X = t => m.l + (t - T[0]) / (T[T.length - 1] - T[0]) * (W - m.l - m.r);
+  const Y = v => m.t + (Math.log(hi) - Math.log(v)) / (Math.log(hi) - Math.log(lo)) * (H - m.t - m.b);
+  logTicks(lo, hi).forEach(v => { el("line", {x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), class: v === 1 ? "base" : "grid"}, svg);
+    el("text", {x: m.l - 6, y: Y(v) + 3.5, class: "tick", "text-anchor": "end"}, svg).textContent = v + "×"; });
+  const y0 = new Date(T[0]).getUTCFullYear(), y1 = new Date(T[T.length - 1]).getUTCFullYear(), step = (y1 - y0) > 9 ? 2 : 1;
+  for (let y = y0 + 1; y <= y1; y += step){ const x = X(Date.UTC(y, 0, 1)); el("text", {x, y: H - 6, class: "tick", "text-anchor": "middle"}, svg).textContent = y; }
+  series.forEach(s => { let d = "", pen = false; s.values.forEach((v, i) => { if (v == null || v <= 0){ pen = false; return; } d += (pen ? "L" : "M") + X(T[i]).toFixed(1) + "," + Y(v).toFixed(1); pen = true; });
+    el("path", {d, fill: "none", stroke: s.color, "stroke-width": s.width || 2, "stroke-dasharray": s.dash || "", "stroke-linejoin": "round"}, svg); });
+  if (opt.endLabels && !narrow){ const L = series.map(s => { let i = s.values.length - 1; while (i >= 0 && s.values[i] == null) i--; return {s, y: Y(s.values[i]), v: s.values[i]}; }).sort((a, b) => a.y - b.y);
+    for (let k = 1; k < L.length; k++) if (L[k].y - L[k-1].y < 13) L[k].y = L[k-1].y + 13;
+    L.forEach(l => { el("rect", {x: W - m.r + 8, y: l.y - 4, width: 8, height: 8, rx: 2, fill: l.s.color}, svg); el("text", {x: W - m.r + 21, y: l.y + 3.5, class: "elabel"}, svg).textContent = `${l.s.label} ${l.v.toFixed(2)}×`; }); }
+  const xh = el("line", {y1: m.t, y2: H - m.b, class: "xhair", visibility: "hidden"}, svg);
+  const tip = document.createElement("div"); tip.className = "tip"; tip.hidden = true; host.appendChild(tip);
+  const ov = el("rect", {x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: "transparent"}, svg);
+  const mv = ev => { const r = svg.getBoundingClientRect(); const px = (ev.clientX - r.left) / r.width * W; const t = T[0] + (px - m.l) / (W - m.l - m.r) * (T[T.length-1] - T[0]);
+    let i = 0; while (i < T.length - 1 && T[i+1] <= t) i++; const x = X(T[i]); xh.setAttribute("x1", x); xh.setAttribute("x2", x); xh.setAttribute("visibility", "visible");
+    const rows = series.map(s => ({s, v: s.values[i]})).filter(r => r.v != null).sort((a, b) => b.v - a.v);
+    tip.innerHTML = `<div class="d">${dates[i]}</div>` + rows.map(r => `<div class="r"><span><i class="sw" style="background:${r.s.color}"></i>${esc(r.s.label)}</span><b>${r.v.toFixed(2)}×</b></div>`).join("");
+    tip.hidden = false; const bw = host.clientWidth; let left = x / W * bw + 12; if (left + tip.offsetWidth > bw) left = x / W * bw - tip.offsetWidth - 12; tip.style.left = Math.max(0, left) + "px"; tip.style.top = "6px"; };
+  ov.addEventListener("pointermove", mv); ov.addEventListener("pointerdown", mv); ov.addEventListener("pointerleave", () => { tip.hidden = true; xh.setAttribute("visibility", "hidden"); });
+}
+function bars(host, groups, keys, opt = {}){
+  host.innerHTML = ""; host.classList.add("chartbox");
+  const W = Math.max(300, host.clientWidth || 800), H = opt.height || 260, m = {l: 48, r: 10, t: 14, b: 40};
+  const svg = el("svg", {viewBox: `0 0 ${W} ${H}`, class: "chart", role: "img", "aria-label": opt.aria || "bars"}, host);
+  let lo = 0, hi = 0; groups.forEach(g => keys.forEach(k => { const v = g.values[k.key]; if (v != null){ lo = Math.min(lo, v); hi = Math.max(hi, v); } }));
+  const pad = (hi - lo) * 0.12; lo -= pad; hi += pad;
+  const Y = v => m.t + (hi - v) / (hi - lo) * (H - m.t - m.b);
+  const step = Math.pow(10, Math.floor(Math.log10((hi - lo) / 4))); const st = [1, 2, 5, 10].map(f => f * step).find(s => (hi - lo) / s <= 6) || step * 10;
+  for (let v = Math.ceil(lo / st) * st; v <= hi; v += st){ el("line", {x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), class: Math.abs(v) < 1e-12 ? "base" : "grid"}, svg);
+    el("text", {x: m.l - 6, y: Y(v) + 3.5, class: "tick", "text-anchor": "end"}, svg).textContent = (v * 100).toFixed(step < 0.01 ? 1 : 0) + "%"; }
+  const gw = (W - m.l - m.r) / groups.length, bw = Math.min(28, (gw - 18) / keys.length);
+  groups.forEach((g, gi) => { const x0 = m.l + gi * gw + (gw - bw * keys.length) / 2;
+    keys.forEach((k, ki) => { const v = g.values[k.key]; if (v == null) return; const y = Y(Math.max(v, 0)), h = Math.abs(Y(v) - Y(0));
+      const r = el("rect", {x: x0 + ki * bw + 1, y, width: bw - 2, height: Math.max(1, h), rx: 3, fill: k.color}, svg);
+      el("title", {}, r).textContent = `${g.label} · ${k.label}: ${pp(v)}%`;
+      el("text", {x: x0 + ki * bw + bw / 2, y: v >= 0 ? y - 4 : y + h + 11, class: "tick", "text-anchor": "middle"}, svg).textContent = (v * 100).toFixed(1); });
+    el("text", {x: m.l + gi * gw + gw / 2, y: H - 20, class: "tick", "text-anchor": "middle", fill: "var(--text-secondary)"}, svg).textContent = g.label;
+    if (g.sub) el("text", {x: m.l + gi * gw + gw / 2, y: H - 7, class: "tick", "text-anchor": "middle"}, svg).textContent = g.sub; });
+}
+
+// ── numbers used in the copy ───────────────────────────────────────────
+const P = D.parents, IB = D.index;
+const pr = (rule, sl, f) => avg(BOOKS.map(b => P.find(r => r.aa === b && r.rule === rule && (rule === "parent" || r.sleeve === sl))[f]));
+const ix = (eq, sl, rule, f) => IB.find(r => r.equity === eq && r.sleeve === sl && r.rule === rule)[f];
+const isb = (s, f) => avg(BOOKS.map(b => D.is_books.find(r => r.aa === b && r.strategy === s)[f]));
+const so = D.states_oos.find(s => s.state === "only SC100 BUY"), si = D.states_is.find(s => s.state === "only SC100 BUY");
+const bo = D.states_oos.find(s => s.state === "both BUY");
+const att = (a, b) => avg(BOOKS.map(k => D.attribution.find(r => r.aa === k && r.a === a && r.b === b).gap_pp_yr)) / 100;
+
+$("#sub").textContent = `In 2021–26 on the four AA books, N100 AND SC100 averaged ${pct(isb("n100_and_sc100","cagr"))} a year against ${pct(isb("sc100_only","cagr"))} for Smallcap 100 alone and ${pct(isb("production_v2","cagr"))} for the current rule. This page takes that gap apart and tests it where it was never fitted.`;
+$("#findings").innerHTML = `<ol>
+<li><b>The mechanism is real.</b> The only weeks where the AND rule and Smallcap 100 alone disagree are weeks with small caps trending up and large caps trending down. Those weeks have been followed by losses. Out of sample (2007–21, ${so.weeks} weeks), Smallcap 100 averaged ${pp(so.SC100_4w_mean)}% over the next four weeks and rose only ${pct(so.SC100_4w_hit,0)} of the time. In-sample (${si.weeks} weeks), the parents averaged ${pp(si.parents_4w_mean)}%. The AND rule sits those weeks out.</li>
+<li><b>It holds out of sample on the indices.</b> On the Smallcap 100 index with an all-cash sleeve, 2007–2021: ${pct(ix("SC100","cash","N100 AND SC100","cagr"))} a year against ${pct(ix("SC100","cash","SC100 only","cagr"))} for Smallcap 100 alone and ${pct(ix("SC100","cash","buy_hold","cagr"))} buy-and-hold. The worst fall was ${pct(ix("SC100","cash","N100 AND SC100","max_dd"),0)} against ${pct(ix("SC100","cash","SC100 only","max_dd"),0)} and ${pct(ix("SC100","cash","buy_hold","max_dd"),0)}.</li>
+<li><b>It does not hold on return on the actual parents, 2014–2021.</b> There it had the best drawdown of any rule (${pct(pr("N100 AND SC100","gold+cash","max_dd"),0)} against ${pct(pr("SC100 only","gold+cash","max_dd"),0)} for Smallcap 100 alone) but the lowest return of the timing rules: ${pct(pr("N100 AND SC100","gold+cash","cagr"))} against ${pct(pr("SC100 only","gold+cash","cagr"))}. It sat out the 2021 small-cap boom. Every timing rule lagged simply holding the parent (${pct(pr("parent","","cagr"))}, with a ${pct(pr("parent","","max_dd"),0)} worst fall) in that bull market.</li>
+<li><b>The 2021–26 curve is clean for four stacking reasons.</b> The window's three big declines were exactly the kind the filter dodges. Gold compounded strongly while the rule sat in it 51% of the time. Its edge over Smallcap 100 came from just ${D.stretches.length} stretches (${Math.round(avg(BOOKS.map(b => D.attribution.find(r => r.aa === b && r.a === "n100_and_sc100" && r.b === "sc100_only").disagree_share)) * 100)}% of sessions). And Study 1 picked this rule as the best of fifteen on this same window.</li>
+<li><b>Verdict: defend it as a drawdown filter.</b> Across every test it has the shallowest or near-shallowest drawdown. Its return edge is regime-dependent: large when small-cap-only rallies fail (2008, 2011, 2016, 2022, 2024–25), negative when they run (2007, 2021, late 2023).</li></ol>`;
+
+// ── attribution ────────────────────────────────────────────────────────
+(function(){
+  const pairs = [["n100_and_sc100","sc100_only","N100 AND SC100 − Smallcap 100 only"],["n100_and_sc100","production_v2","N100 AND SC100 − current rule"],["sc100_only","production_v2","Smallcap 100 only − current rule"]];
+  let h = `<thead><tr><th>Gap, return space, pp/yr</th>${BOOKS.map(b => `<th>${LAB[b]}</th>`).join("")}<th>Average</th><th>Sessions they disagree</th></tr></thead><tbody>`;
+  pairs.forEach(([a, b, lab]) => { const rs = BOOKS.map(k => D.attribution.find(r => r.aa === k && r.a === a && r.b === b));
+    h += `<tr><td class="l">${lab}</td>${rs.map(r => `<td class="${cls(r.gap_pp_yr/100)}">${pp(r.gap_pp_yr/100)}</td>`).join("")}<td class="${cls(att(a,b))}"><b>${pp(att(a,b))}</b></td><td>${pct(avg(rs.map(r => r.disagree_share)),0)}</td></tr>`; });
+  $("#att").innerHTML = h + "</tbody>";
+  let s = `<thead><tr><th>From</th><th>To</th><th>Sessions</th><th style="text-align:left">Who held equity</th><th>Parents</th><th>50/50 sleeve</th><th>Gold</th><th>Effect on the gap</th></tr></thead><tbody>`;
+  D.stretches.forEach(r => { s += `<tr><td>${r.from}</td><td>${r.to}</td><td>${r.sessions}</td><td class="l">${r.a_in_equity ? "N100 AND SC100" : "Smallcap 100 only"}</td><td class="${cls(r.parent)}">${pp(r.parent)}%</td><td>${pp(r.sleeve)}%</td><td>${pp(r.gold)}%</td><td class="${cls(r.contrib)}"><b>${pp(Math.expm1(r.contrib))}%</b></td></tr>`; });
+  $("#str").innerHTML = s + "</tbody>";
+  const tot = D.stretches.reduce((a, r) => a + r.contrib, 0);
+  $("#strcap").innerHTML = `Parents' return is the average of the four books. In every stretch Nifty 100 was SELL while Smallcap 100 said BUY; that is the only state in which the two rules differ. In three of them the parents then fell 5–13% while the sleeve was flat to up. The fourth, Nov 2023, went the other way: small caps kept rising and the AND rule missed ${pp(D.stretches.find(r => r.from.startsWith("2023")).parent)}%. Together the stretches add ${pp(Math.expm1(tot))}% cumulatively. The gap to the current rule is spread over more sessions, because that rule reads Smallcap 250 and a count-weighted vote.`;
+})();
+
+// ── states ─────────────────────────────────────────────────────────────
+(function(){
+  const order = ["both BUY","only N100 BUY","only SC100 BUY","both SELL"];
+  const nice = {"both BUY":"both BUY","only N100 BUY":"only N100 BUY","only SC100 BUY":"only SC100 BUY","both SELL":"both SELL"};
+  let which = "oos";
+  const draw = () => {
+    const S = which === "oos" ? D.states_oos : D.states_is;
+    const keys = [{key: "SC100_4w_mean", label: "Smallcap 100", color: "var(--s8)"}, {key: "N100_4w_mean", label: "Nifty 100", color: "var(--s7)"}]
+      .concat(which === "is" ? [{key: "parents_4w_mean", label: "Parents (avg)", color: "var(--s5)"}] : [])
+      .concat([{key: "gold_4w_mean", label: "Gold", color: "var(--s4)"}]);
+    $("#stLeg").innerHTML = keys.map(k => `<span class="key"><i class="sw" style="background:${k.color}"></i>${k.label}</span>`).join("");
+    const groups = order.map(o => { const r = S.find(s => s.state === o); return {label: nice[o], sub: `${r.weeks} weeks`, values: Object.fromEntries(keys.map(k => [k.key, r[k.key]]))}; });
+    bars($("#stChart"), groups, keys, {aria: "Four-week forward returns by signal state"});
+    let h = `<thead><tr><th>State</th><th>Weeks</th><th>Smallcap 100 next 4w</th><th>rose</th><th>Nifty 100 next 4w</th><th>rose</th>${which === "is" ? "<th>Parents next 4w</th><th>rose</th>" : ""}<th>Gold next 4w</th><th>rose</th></tr></thead><tbody>`;
+    order.forEach(o => { const r = S.find(s => s.state === o); const hl = o === "only SC100 BUY" ? ' class="hl"' : "";
+      h += `<tr${hl}><td>${o}</td><td>${r.weeks}</td><td class="${cls(r.SC100_4w_mean)}">${pp(r.SC100_4w_mean,2)}%</td><td>${pct(r.SC100_4w_hit,0)}</td><td class="${cls(r.N100_4w_mean)}">${pp(r.N100_4w_mean,2)}%</td><td>${pct(r.N100_4w_hit,0)}</td>`
+        + (which === "is" ? `<td class="${cls(r.parents_4w_mean)}">${pp(r.parents_4w_mean,2)}%</td><td>${pct(r.parents_4w_hit,0)}</td>` : "")
+        + `<td>${pp(r.gold_4w_mean,2)}%</td><td>${r.gold_4w_hit == null ? "–" : pct(r.gold_4w_hit,0)}${which === "oos" ? ` <span style="color:var(--muted)">(n=${r.gold_4w_n})</span>` : ""}</td></tr>`; });
+    $("#stTab").innerHTML = h + "</tbody>";
+  };
+  seg($("#stSel"), ["oos","is"], ["Out of sample 2007–2021", "In-sample 2021–2026"], () => which, v => { which = v; draw(); });
+  draw();
+  $("#stNote").innerHTML = `<div class="callout"><p><b>Only the "small caps up, large caps down" state has a negative expected return, and it is negative in both periods.</b> Out of sample, Smallcap 100 averaged ${pp(so.SC100_4w_mean,1)}% over the next four weeks in that state, against ${pp(bo.SC100_4w_mean,1)}% after "both BUY". It rose only ${pct(so.SC100_4w_hit,0)} of the time, and large and mid caps fell too. Gold did well in exactly that state: ${pp(so.gold_4w_mean,1)}% out of sample (from 2014, when gold data starts) and ${pp(si.gold_4w_mean,1)}% in-sample. A small-cap uptrend that large caps do not share has usually been a bear-market rally or the last leg of a speculative run: 2008, 2009, 2011, 2015–16, 2022, 2024–25. The AND rule treats it as unconfirmed and stays out.</p></div>
+  <div class="callout warn"><p><b>What the table does not show is a clean "large caps warn first" story.</b> When Nifty 100 was the index that broke first, Smallcap 100 still rose on average over the next three months, as it did in 2021-01 and 2023-10. "Both SELL" weeks were followed by positive returns on average too. The rule's value in those weeks is avoiding the crash tail (2008, 2020, 2022), not a better average week.</p></div>`;
+})();
+
+// ── index OOS ──────────────────────────────────────────────────────────
+(function(){
+  let eq = "SC100";
+  const rules = ["N100 AND SC100", "SC100 only", "N100 only", "buy_hold"];
+  const draw = () => {
+    const C = D.idx_curves;
+    const ser = rules.map(r => ({label: nm(r), color: COL[r], width: r === "N100 AND SC100" ? 2.6 : 1.8, values: C.series[`${eq}|${r}`]}));
+    $("#ixLeg").innerHTML = ser.map(s => `<span class="key"><i class="sw" style="background:${s.color}"></i>${s.label}</span>`).join("") + `<span class="key" style="color:var(--muted)">all-cash sleeve · log scale · growth of 1</span>`;
+    line($("#ixChart"), C.dates, ser, {height: 320, endLabels: true, aria: "Index out-of-sample equity curves"});
+    const all = ["N100 AND SC100","SC100 only","N100 only","buy_hold","sep","N100 AND MC100 AND SC100","N50 AND SC100","MC100 AND SC100","N100 AND MC100","N100 OR SC100"];
+    let h = `<thead><tr><th>Rule, equity = ${eq === "SC100" ? "Smallcap 100" : "equal blend of N100 / MC100 / SC100"}</th><th>CAGR 2007–21, cash</th><th>Max DD</th><th>Vol</th><th>In equity</th><th>Switches</th><th>CAGR 2014–21, 50/50 gold/cash</th><th>Max DD</th></tr></thead><tbody>`;
+    all.forEach(r => { if (r === "sep"){ h += `<tr><td colspan="8" style="padding:4px;border-bottom:1px solid var(--baseline)"></td></tr>`; return; }
+      const a = IB.find(x => x.equity === eq && x.sleeve === "cash" && x.rule === r), g = IB.find(x => x.equity === eq && x.sleeve === "gold+cash" && x.rule === r);
+      const hl = r === "N100 AND SC100" ? ' class="hl"' : "";
+      h += `<tr${hl}><td class="l">${nm(r)}</td><td><b>${pct(a.cagr,2)}</b></td><td>${pct(a.max_dd,1)}</td><td>${pct(a.vol,1)}</td><td>${pct(a.time_in_equity,0)}</td><td>${a.switches}</td><td>${pct(g.cagr,2)}</td><td>${pct(g.max_dd,1)}</td></tr>`; });
+    $("#ixTab").innerHTML = h + "</tbody>";
+  };
+  seg($("#ixSel"), ["SC100", "blend N100/MC100/SC100"], ["Equity = Smallcap 100", "Equity = N100/MC100/SC100 blend"], () => eq, v => { eq = v; draw(); });
+  draw();
+  $("#ixNote").innerHTML = `<div class="callout"><p><b>Each leg does a different job.</b> On return, Nifty 100's trend alone gets most of the way: ${pct(ix("SC100","cash","N100 only","cagr"))} on the Smallcap 100 index against ${pct(ix("SC100","cash","N100 AND SC100","cagr"))} for the AND rule. But it falls much further, ${pct(ix("SC100","cash","N100 only","max_dd"),0)} against ${pct(ix("SC100","cash","N100 AND SC100","max_dd"),0)}. Adding Smallcap 100 supplies the exits that small-cap-specific slides need; adding Nifty 100 to Smallcap 100 removes the unconfirmed rallies.</p></div>
+  <div class="callout"><p><b>Large-cap confirmation is what does the work, not this exact pair.</b> Every "large AND small" variant beats Smallcap 100 alone by 4–6 pp a year out of sample, with a shallower drawdown: Nifty 50 AND SC100, and the triple N100 AND MC100 AND SC100. "N100 OR SC100", which takes equity whenever either says BUY, is as bad as Smallcap 100 alone. Smallcap 100's trend on its own whipsaws: it had the most switches (${ix("SC100","cash","SC100 only","switches")}). On the Smallcap 100 index it barely beat buy-and-hold, and on the blend it trailed it. With gold in the sleeve from 2014, the AND rule and Smallcap 100 alone are close on return. That was a strong bull market: holding the index outright beat most of the rules on return, but fell more than twice as far.</p></div>`;
+})();
+
+// ── parents OOS ────────────────────────────────────────────────────────
+(function(){
+  const rules = ["N100 AND SC100", "SC100 only", "current rule*", "segment rule*", "parent"];
+  const host = $("#poCurves"); host.innerHTML = "";
+  BOOKS.forEach(b => { const card = document.createElement("div"); card.className = "card"; card.style.margin = "0";
+    card.innerHTML = `<div class="panel-title">${LAB[b]} · parent ${PAR[b]} · 2014-07 → 2021-10</div><div></div>`; host.appendChild(card);
+    const C = D.par_curves;
+    line(card.lastElementChild, C.dates, rules.map(r => ({label: nm(r), color: COL[r], width: r === "N100 AND SC100" ? 2.4 : 1.6,
+      values: C.series[r === "parent" ? `${b}|parent|gold+cash` : `${b}|${r}|gold+cash`]})), {height: 230, aria: `Parent ${PAR[b]} out of sample`}); });
+  $("#poLeg").innerHTML = rules.map(r => `<span class="key"><i class="sw" style="background:${COL[r]}"></i>${nm(r)}</span>`).join("") + `<span class="key" style="color:var(--muted)">50/50 gold/cash sleeve · log scale</span>`;
+  let h = `<thead><tr><th>Rule</th>${BOOKS.map(b => `<th>CAGR ${LAB[b]}</th>`).join("")}<th>Avg CAGR</th><th>Avg max DD</th><th>Avg CAGR, all-cash sleeve</th><th>In equity</th></tr></thead><tbody>`;
+  rules.forEach(r => { const rs = BOOKS.map(b => P.find(x => x.aa === b && x.rule === r && (r === "parent" || x.sleeve === "gold+cash")));
+    const hl = r === "N100 AND SC100" ? ' class="hl"' : "";
+    h += `<tr${hl}><td class="l">${nm(r)}</td>${rs.map(x => `<td>${pct(x.cagr,1)}</td>`).join("")}<td><b>${pct(avg(rs.map(x => x.cagr)),2)}</b></td><td>${pct(avg(rs.map(x => x.max_dd)),1)}</td><td>${r === "parent" ? "–" : pct(pr(r,"cash","cagr"),2)}</td><td>${pct(avg(rs.map(x => x.avg_equity)),0)}</td></tr>`; });
+  $("#poTab").innerHTML = h + "</tbody>";
+  const cov = D.parents_cov;
+  $("#poNote").innerHTML = `<p class="cap">Price coverage: ${cov.map(c => `${c.parent.slice(-4)} ${pct(1 - c.unfillable_share,1)}`).join(", ")} of holding-entries could be filled. The rest are renormalised at each rebalance, as in the main report.</p>
+  <div class="callout warn"><p><b>This is the result that stops the rule being called "the best signal".</b> On the same four parents, in the seven years before the window it was chosen on, N100 AND SC100 made ${pp(pr("SC100 only","gold+cash","cagr") - pr("N100 AND SC100","gold+cash","cagr"),2).replace("+","")} pp a year less than Smallcap 100 alone. That nets two big years. The AND rule was ${pp(D.yr_par["N100 AND SC100"]["2016"] - D.yr_par["SC100 only"]["2016"],0)} pp ahead in 2016, and ${pp(D.yr_par["N100 AND SC100"]["2021"] - D.yr_par["SC100 only"]["2021"],0)} pp behind in 2021, when small caps boomed while Nifty 100 went sideways and the rule sat in the sleeve from January to May. It still had the shallowest drawdown of any rule: ${pct(pr("N100 AND SC100","gold+cash","max_dd"),1)} against ${pct(pr("SC100 only","gold+cash","max_dd"),1)} for Smallcap 100 alone and ${pct(pr("current rule*","gold+cash","max_dd"),1)} for the current rule. Caveat: the parents' pre-2021 baskets may include pre-launch backtest history, which would flatter "parent" but not change the comparison between the timing rules.</p></div>`;
+})();
+
+// ── yearly ─────────────────────────────────────────────────────────────
+function ytab(host, Y, rows, aKey, bKey){
+  const yrs = Object.keys(Y[rows[0][0]]);
+  let h = `<thead><tr><th>Rule</th>${yrs.map(y => `<th>${y}</th>`).join("")}</tr></thead><tbody>`;
+  rows.forEach(([k, l]) => { h += `<tr><td class="l">${l}</td>${yrs.map(y => `<td>${pct(Y[k][y],1)}</td>`).join("")}</tr>`; });
+  h += `<tr class="hl"><td class="l"><b>AND − SC100 only</b></td>${yrs.map(y => { const d = Y[aKey][y] - Y[bKey][y]; return `<td class="${cls(d)}"><b>${pp(d,1)}</b></td>`; }).join("")}</tr>`;
+  $(host).innerHTML = h + "</tbody>";
+}
+ytab("#yIdx", D.yr_idx, [["N100 AND SC100","N100 AND SC100"],["SC100 only","Smallcap 100 only"],["N100 only","Nifty 100 only"],["buy_hold","Buy and hold"]], "N100 AND SC100", "SC100 only");
+ytab("#yPar", D.yr_par, [["N100 AND SC100","N100 AND SC100"],["SC100 only","Smallcap 100 only"],["current rule*","Current rule*"],["segment rule*","Segment rule*"],["parent","Parent (no overlay)"]], "N100 AND SC100", "SC100 only");
+ytab("#yIs", D.yr_is, [["N100 AND SC100","N100 AND SC100"],["SC100 only","Smallcap 100 only"],["current rule","Current rule"],["segment rule","Segment rule"],["parent","Parent (harness)"]], "N100 AND SC100", "SC100 only");
+(function(){
+  let h = `<thead><tr><th>From</th><th>To</th><th>Weeks</th><th>Smallcap 100</th><th>Nifty 100</th><th style="text-align:left">Outcome for the AND rule</th></tr></thead><tbody>`;
+  D.unconfirmed.forEach(u => { h += `<tr><td>${u.start}</td><td>${u.end}</td><td>${u.weeks}</td><td class="${cls(u.sc100)}">${pp(u.sc100)}%</td><td class="${cls(u.n100)}">${pp(u.n100)}%</td><td class="l">${u.sc100 < 0 ? "stayed out of a fall" : "missed a rise"}</td></tr>`; });
+  const n = D.unconfirmed.length, bad = D.unconfirmed.filter(u => u.sc100 < 0).length;
+  $("#unc").innerHTML = h + `</tbody><tfoot><tr><td colspan="6" style="text-align:left;font-family:var(--sans);color:var(--text-secondary)">${bad} of ${n} stretches were followed by small caps falling. The longest, 2021-01 → 2021-05 (16 weeks), was the costliest miss.</td></tr></tfoot>`;
+})();
+
+// ── why so clean ───────────────────────────────────────────────────────
+$("#clean").innerHTML = `<ol>
+<li><b>Its two long defensive spells covered the window's two big equity declines.</b> From 2021-11 to 2022-08 (39 weeks) the parents fell 12.5%, with a 26% worst fall inside the spell, while gold rose 7.5%. From 2024-10 to 2025-05 (30 weeks, starting when Nifty 100 broke) the parents fell 7.5%, with a 26% worst fall, while gold rose 19%. In 2022 the parents lost ${pct(Math.abs(D.yr_is.parent["2022"]),0)} while the AND rule made ${pp(D.yr_is["N100 AND SC100"]["2022"],1)}%.</li>
+<li><b>Gold did the heavy lifting in the third spell.</b> From 2025-08 to 2026-04 (37 weeks) the parents ended just 1.1% up, after an 18% dip, while gold rose 50%. Overall the rule sat in the 50/50 sleeve 51% of the time while GOLDBEES compounded about 27% a year. With an all-cash sleeve its in-sample average falls from 25.7% to 16.7%. Rising, steady gold during equity weakness is what makes the curve look smooth.</li>
+<li><b>Its edge over Smallcap 100 is concentrated.</b> Four disagreement stretches, about 6% of sessions, produced all of it. The single best stretch is 53–77% of the gap on every book.</li>
+<li><b>It was selected on this window.</b> Study 1 picked N100 AND SC100 as the best of fifteen rules on 2021-11 → 2026-08. A rule picked as the winner on a window will look better on that window than it will elsewhere. The 2014–21 parent test shows how much better.</li></ol>`;
+
+// ── robustness ─────────────────────────────────────────────────────────
+(function(){
+  const R = D.rob, g = (t, b) => { const r = R.find(x => x.test === t && x.aa === b); return r ? r.cagr : null; };
+  const rows = [["return-space AND","N100 AND SC100, CAGR", v => pct(v,1)], ["return-space SC100 only","Smallcap 100 only, CAGR", v => pct(v,1)],
+    ["AND, 1-week delay","AND, acting 1 week late", v => pct(v,1)], ["AND, 2-week delay","AND, acting 2 weeks late", v => pct(v,1)],
+    ["SC100 only, 1-week delay","SC100 only, 1 week late", v => pct(v,1)],
+    ["shift null: AND percentile","AND vs 236 shifted histories: percentile", v => pct(v,0)],
+    ["shift null: share AND > SC100-only","Shifted histories where AND beats SC100 only", v => pct(v,0)],
+    ["best stretch share of AND minus SC100-only","Share of the AND − SC100 gap from the best stretch", v => pct(v,0)]];
+  let h = `<thead><tr><th>Test (in-sample, 2021–26)</th>${BOOKS.map(b => `<th>${LAB[b]}</th>`).join("")}</tr></thead><tbody>`;
+  rows.forEach(([t, l, f]) => { h += `<tr><td class="l">${l}</td>${BOOKS.map(b => `<td>${f(g(t, b))}</td>`).join("")}</tr>`; });
+  $("#rob").innerHTML = h + "</tbody>";
+})();
+
+// ── gold inside the sleeve ─────────────────────────────────────────────
+(function(){
+  const G = D.gold_chart, host = $("#gChart"); host.innerHTML = ""; host.classList.add("chartbox");
+  const T = G.dates.map(d => Date.parse(d + "T00:00:00Z"));
+  const W = Math.max(300, host.clientWidth || 800), H = 240, m = {l: 44, r: 12, t: 10, b: 22};
+  const svg = el("svg", {viewBox: `0 0 ${W} ${H}`, class: "chart", role: "img", "aria-label": "GOLDBEES with its trend signal"}, host);
+  const v = G.level, lo = Math.min(...v) / 1.04, hi = Math.max(...v) * 1.04;
+  const X = t => m.l + (t - T[0]) / (T[T.length - 1] - T[0]) * (W - m.l - m.r), Y = x => m.t + (Math.log(hi) - Math.log(x)) / (Math.log(hi) - Math.log(lo)) * (H - m.t - m.b);
+  let i0 = null; G.signal.forEach((s, i) => { if (s === 0 && i0 == null) i0 = i; if ((s !== 0 || i === G.signal.length - 1) && i0 != null){ el("rect", {x: X(T[i0]), y: m.t, width: Math.max(1, X(T[i]) - X(T[i0])), height: H - m.t - m.b, fill: "var(--band)"}, svg); i0 = null; } });
+  logTicks(lo, hi).forEach(t => { el("line", {x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), class: t === 1 ? "base" : "grid"}, svg); el("text", {x: m.l - 6, y: Y(t) + 3.5, class: "tick", "text-anchor": "end"}, svg).textContent = t + "×"; });
+  for (let y = new Date(T[0]).getUTCFullYear() + 1; y <= new Date(T[T.length - 1]).getUTCFullYear(); y += 2) el("text", {x: X(Date.UTC(y, 0, 1)), y: H - 6, class: "tick", "text-anchor": "middle"}, svg).textContent = y;
+  let d = ""; v.forEach((x, i) => { d += (i ? "L" : "M") + X(T[i]).toFixed(1) + "," + Y(x).toFixed(1); });
+  el("path", {d, fill: "none", stroke: "var(--s4)", "stroke-width": 2}, svg);
+
+  let g = `<thead><tr><th>Period</th><th>Gold CAGR</th><th>Gold worst fall,<br>daily closes</th><th>Gold worst fall,<br>Friday closes</th><th>Weeks gold trend BUY</th><th>Signal switches</th></tr></thead><tbody>`;
+  D.gold_itself.forEach(r => { g += `<tr><td>${r.period}</td><td>${pct(r.gold_cagr,1)}</td><td>${pct(r.gold_max_dd,1)}</td><td>${pct(r.gold_max_dd_friday,1)}</td><td>${pct(r.gold_signal_buy_share,0)}</td><td>${r.gold_signal_switches}</td></tr>`; });
+  $("#gIt").innerHTML = g + "</tbody>";
+  const g26 = D.gold_itself.find(r => r.period.startsWith("2021-11"));
+  $("#gCap").innerHTML = `The worst fall in 2021–26 (${pct(g26.gold_max_dd,1)} on daily closes) runs from a one-day high on 29 Jan 2026 (GOLDBEES +7.9% that day, −10.5% the next) to a one-day low on Monday 23 Mar (−8.5%, then +4.3%). Friday closes, which the weekly signals see, show ${pct(g26.gold_max_dd_friday,1)} for 2021–26. Gold's deepest Friday-close fall is the 2020-08 to 2021-03 decline (−21.4%), which the signal sat out from September 2020.`;
+
+  const pers = ["in-sample 2021–26", "out of sample 2014–21", "2014–18 (gold flat)", "2019–21 (gold rising)"];
+  const sl = ["50/50", "gold trend 100%", "static, same gold share", "gold trend 50/50", "all cash", "all gold"];
+  const SLN = {"50/50": "Fixed 50/50", "gold trend 100%": "Gold trend: 100% gold / cash", "static, same gold share": "Fixed, same gold share",
+    "gold trend 50/50": "Gold trend: 50/50 / cash", "all cash": "All cash", "all gold": "All gold"};
+  const rules = ["N100 AND SC100", "SC100 only", "current rule", "segment rule"];
+  let per = pers[1];
+  const f = (p, r, s, k) => { const x = D.gold_sum.find(z => z.period === p && z.rule === r && z.sleeve === s); return x ? x[k] : null; };
+  const draw = () => {
+    let h = `<thead><tr><th>Equity rule</th>${sl.map(s => `<th>${SLN[s].replace(": ", ":<br>")}</th>`).join("")}<th>Timing value</th></tr></thead><tbody>`;
+    rules.forEach(r => {
+      const tv = f(per, r, "gold trend 100%", "cagr") - f(per, r, "static, same gold share", "cagr");
+      h += `<tr><td class="l">${r === "current rule" || r === "segment rule" ? r + (per.startsWith("in") ? "" : "*") : r}</td>${sl.map(s => `<td>${pct(f(per, r, s, "cagr"),2)}<br><span style="color:var(--muted)">${pct(f(per, r, s, "max_dd"),1)}</span></td>`).join("")}<td class="${cls(tv)}"><b>${pp(tv,2)}</b></td></tr>`; });
+    $("#gTab").innerHTML = h + `</tbody><tfoot><tr><td colspan="8" style="text-align:left;font-family:var(--sans);color:var(--muted)">Each cell shows CAGR above max drawdown.</td></tr></tfoot>`;
+  };
+  seg($("#gPer"), pers, ["In-sample 2021–26", "Out of sample 2014–21", "2014–18", "2019–21"], () => per, v => { per = v; draw(); });
+  draw();
+  const tv = p => rules.map(r => f(p, r, "gold trend 100%", "cagr") - f(p, r, "static, same gold share", "cagr"));
+  const rng = a => `${pp(Math.min(...a),1)} to ${pp(Math.max(...a),1)}`;
+  const mag = a => { const b = a.map(Math.abs); return `${(Math.min(...b)*100).toFixed(1)}–${(Math.max(...b)*100).toFixed(1)}`; };
+  const ddd = p => rules.map(r => f(p, r, "gold trend 100%", "max_dd") - f(p, r, "50/50", "max_dd"));
+  const dddw = p => rules.map(r => f(p, r, "gold trend 100%", "max_dd_friday") - f(p, r, "50/50", "max_dd_friday"));
+  $("#gNote").innerHTML = `<div class="callout warn"><p><b>The gold signal does not time gold. It just holds more of it.</b> In 2021–26 the trend sleeve beat the fixed 50/50 because it sat in gold 74–86% of the defensive time while gold compounded 27% a year. Against a fixed sleeve holding that same average share of gold, it <em>lost</em> ${mag(tv(pers[0]))} pp a year. Its worst fall on daily marks was also ${mag(ddd(pers[0]))} pp deeper than the 50/50's under every rule, because the sleeve became one volatile asset with no cash half. Under N100 AND SC100 most of that gap is one event: gold's January–March 2026 spike and crash, which caught those books while they were defensive. On Friday closes the gap there is ${(Math.abs(dddw(pers[0])[0])*100).toFixed(1)} pp, against ${mag(dddw(pers[0]).slice(1))} pp under the other three rules.</p>
+  <p><b>Out of sample it depends entirely on what gold did.</b> In 2014–18 gold made 2% a year and its trend flipped 13 times; the filter bought high and sold low, lost ${mag(tv(pers[2]))} pp a year against the same-gold control, and was barely better than holding all gold. In 2019–21 gold broke out and trended, and the filter gained ${rng(tv(pers[3]))} pp. Over the whole period it netted a small ${rng(tv(pers[1]))} pp a year, while its worst fall was deeper than the same-gold control's on three of the four rules.</p></div>
+  <div class="callout"><p><b>The milder version is not better.</b> The "50/50 when gold is BUY, cash when SELL" sleeve is almost identical to the fixed 50/50 out of sample, and ${mag(rules.map(r => f(pers[0], r, "gold trend 50/50", "cagr") - f(pers[0], r, "50/50", "cagr")))} pp a year worse in-sample, because it holds less gold. Neither version beats the fixed 50/50 on drawdown in a way that holds across periods. <b>Keep the fixed 50/50 sleeve.</b> A bigger gold weight is a bet on gold, not a signal, and should be decided as one.</p></div>`;
+})();
+
+// ── three must agree ───────────────────────────────────────────────────
+(function(){
+  const TR = "N100 AND MC100 AND SC100";
+  const TP = D.tri_p, TI = D.tri_i;
+  const pa = (per, rule, sl, k) => { const x = TP.filter(r => r.period === per && r.rule === rule && (rule === "parent" || r.sleeve === sl)); return x.length ? avg(x.map(r => r[k])) : null; };
+  const M = D.tri_m.find(r => r.mc100_sell === true), N = D.tri_m.find(r => r.mc100_sell === false);
+  $("#triNote1").innerHTML = `<div class="callout"><p><b>In practice this is the same rule as N100 AND SC100.</b> The two can only disagree when Midcap 100 is SELL while Nifty 100 and Smallcap 100 are both BUY. Since 2006 that happened in <b>${M.weeks} of ${M.weeks + N.weeks}</b> such weeks, and never once in 2021–26. When large and small caps are both trending up, mid caps almost always are too, so the third index adds almost no new information.</p></div>`;
+  const rules = [TR, "N100 AND SC100", "SC100 only", "current rule", "parent"];
+  const RN = {[TR]: "N100 AND MC100 AND SC100", "N100 AND SC100": "N100 AND SC100", "SC100 only": "Smallcap 100 only", "current rule": "Current rule", "parent": "Parent (no overlay)"};
+  const cols = [["in-sample 2021-26","gold+cash","Books 2021–26, 50/50"],["in-sample 2021-26","cash","Books 2021–26, all cash"],["in-sample 2021-26","gold","Books 2021–26, all gold"],["out-of-sample 2014-21","gold+cash","Parents 2014–21, 50/50"],["out-of-sample 2014-21","cash","Parents 2014–21, all cash"],["out-of-sample 2014-21","gold","Parents 2014–21, all gold"]];
+  let h = `<thead><tr><th>Rule</th>${cols.map(c => `<th>${c[2]}</th>`).join("")}</tr></thead><tbody>`;
+  rules.forEach(r => { const hl = r === TR ? ' class="hl"' : "";
+    h += `<tr${hl}><td class="l">${RN[r]}${r === "current rule" ? "<span style='color:var(--muted)'> (* before 2019)</span>" : ""}</td>${cols.map(c => `<td>${pct(pa(c[0], r, c[1], "cagr"),2)}<br><span style="color:var(--muted)">${pct(pa(c[0], r, c[1], "max_dd"),1)}</span></td>`).join("")}</tr>`; });
+  $("#triP").innerHTML = h + "</tbody>";
+
+  const PK = {"2007-21": {"cash": "2007-21, cash"},
+              "2014-21": {"cash": "2014-21, cash", "gold+cash": "2014-21, gold+cash", "gold": "2014-21, gold"},
+              "2021-26": {"cash": "2021-26, cash (in-sample)", "gold+cash": "2021-26, gold+cash (in-sample)", "gold": "2021-26, gold (in-sample)"},
+              "2007-26": {"cash": "2007-26 full, cash"},
+              "2014-26": {"cash": "2014-26 full, cash", "gold+cash": "2014-26 full, gold+cash", "gold": "2014-26 full, gold"}};
+  const pers = ["2007-21", "2014-21", "2021-26", "2007-26", "2014-26"], PL = ["2007–21", "2014–21", "2021–26", "2007–26", "2014–26"];
+  const sls = ["cash", "gold+cash", "gold"], SL = ["All cash", "50/50", "All gold"];
+  const IR = [TR, "N100 AND SC100", "SC100 only", "own signal", "buy & hold"];
+  const IRN = {[TR]: "Triple", "N100 AND SC100": "Pair", "SC100 only": "SC100 only", "own signal": "Own signal", "buy & hold": "Buy & hold"};
+  const EQ = ["N50", "N100", "MC100", "SC100", "MC150", "SC250", "Micro250", "blend N100/MC100/SC100", "gold"];
+  const EQN = {"N50": "Nifty 50", "N100": "Nifty 100", "MC100": "Midcap 100", "SC100": "Smallcap 100", "MC150": "Midcap 150", "SC250": "Smallcap 250", "Micro250": "Microcap 250", "blend N100/MC100/SC100": "N100/MC100/SC100 blend", "gold": "Gold (GOLDBEES)"};
+  let per = "2007-26", slv = "cash";
+  const drawI = () => {
+    const key = PK[per][slv];
+    if (!key) { $("#triI").innerHTML = `<tbody><tr><td class="l" style="color:var(--muted)">No gold prices before 2014-07, so ${PL[pers.indexOf(per)]} has only the all-cash sleeve.</td></tr></tbody>`; return; }
+    let g = `<thead><tr><th>Index held</th><th>From</th>${IR.map(r => `<th>${IRN[r]}</th>`).join("")}<th>Triple − pair</th></tr></thead><tbody>`;
+    EQ.forEach(e => { const rs = IR.map(r => TI.find(x => x.period === key && x.equity === e && x.rule === r)); if (!rs[0]) return;
+      const d = rs[0].cagr - rs[1].cagr;
+      g += `<tr><td class="l">${EQN[e]}</td><td>${rs[0].start}</td>${rs.map(x => x ? `<td>${pct(x.cagr,1)}<br><span style="color:var(--muted)">${pct(x.max_dd,0)}</span></td>` : "<td>–</td>").join("")}<td class="${cls(d)}"><b>${pp(d,2)}</b></td></tr>`; });
+    $("#triI").innerHTML = g + "</tbody>";
+  };
+  seg($("#triPer"), pers, PL, () => per, v => { per = v; drawI(); });
+  seg($("#triSl"), sls, SL, () => slv, v => { slv = v; drawI(); });
+  drawI();
+  const ti = (p, e, r, k) => { const x = TI.find(z => z.period === p && z.equity === e && z.rule === r); return x ? x[k] : null; };
+  const P2 = "N100 AND SC100";
+  const bk = s => [pa("in-sample 2021-26", P2, s, "cagr"), pa("in-sample 2021-26", P2, s, "max_dd")];
+  const po = s => [pa("out-of-sample 2014-21", P2, s, "cagr"), pa("out-of-sample 2014-21", P2, s, "max_dd")];
+  const cd = a => `${pct(a[0],1)} (worst fall ${pct(a[1],0)})`;
+  const sc = (p, s) => ti(PK[p][s], "SC100", P2, "cagr");
+  $("#triNote3").innerHTML = `<div class="callout"><p><b>An all-gold sleeve adds return only where gold rallied, and it deepens the falls.</b> With the pair on the books 2021–26, the sleeve choice moves the result from ${cd(bk("cash"))} with cash, to ${cd(bk("gold+cash"))} with 50/50, to ${cd(bk("gold"))} with all gold. On the parents 2014–21 the same three are ${cd(po("cash"))}, ${cd(po("gold+cash"))} and ${cd(po("gold"))}. On the Smallcap 100 index, all gold added ${pp(sc("2014-21","gold") - sc("2014-21","gold+cash"),1)} pp a year over 50/50 in 2014–21, when gold made ${pct(ti(PK["2014-21"]["gold"], "gold", "buy & hold", "cagr"),1)} a year. It added ${pp(sc("2021-26","gold") - sc("2021-26","gold+cash"),1)} pp in 2021–26, when gold made ${pct(ti(PK["2021-26"]["gold"], "gold", "buy & hold", "cagr"),1)}. The extra return is gold's own rally, not anything the equity signal knows. The ${pct(ti(PK["2021-26"]["gold"], "SC100", P2, "max_dd"),0)} worst fall that every rule shows with the all-gold sleeve in 2021–26 is gold's January–March 2026 spike, measured on daily closes.</p>
+  <p><b>The equity rules do not time gold.</b> Held as the asset, over 2014–26 with a cash sleeve, gold made ${pct(ti(PK["2014-26"]["cash"], "gold", TR, "cagr"),1)} a year under the triple and ${pct(ti(PK["2014-26"]["cash"], "gold", P2, "cagr"),1)} under the pair, against ${pct(ti(PK["2014-26"]["cash"], "gold", "buy & hold", "cagr"),1)} for simply holding it. Gold's own trend signal made ${pct(ti(PK["2014-26"]["cash"], "gold", "own signal", "cagr"),1)}. The equity rules keep gold out about half the time for reasons unrelated to gold, and give up most of its return.</p></div>`;
+
+  let ek = "SC100";
+  const CR = [[TR, "Triple", "var(--s6)", 2.6], ["N100 AND SC100", "Pair", "var(--s3)", 1.6], ["SC100 only", "SC100 only", "var(--s8)", 1.6], ["own signal", "Own signal", "var(--s7)", 1.6], ["buy & hold", "Buy & hold", "var(--s5)", 1.6]];
+  const drawC = () => {
+    const C = D.tri_curves;
+    const ser = CR.filter(c => C.series[`${ek}|${c[0]}`]).map(c => ({label: c[1], color: c[2], width: c[3], dash: c[0] === "N100 AND SC100" ? "5 4" : "", values: C.series[`${ek}|${c[0]}`]}));
+    $("#triLeg").innerHTML = ser.map(s => `<span class="key"><i class="sw" style="background:${s.color}"></i>${s.label}</span>`).join("") + `<span class="key" style="color:var(--muted)">log scale · growth of 1</span>`;
+    line($("#triChart"), C.dates, ser, {height: 300, endLabels: true, aria: `Rules on ${EQN[ek]}, 2007–26`});
+  };
+  const ixs = ["N50", "N100", "MC100", "SC100", "blend N100/MC100/SC100"];
+  seg($("#triIx"), ixs, ["Nifty 50", "Nifty 100", "Midcap 100", "Smallcap 100", "Blend"], () => ek, v => { ek = v; drawC(); });
+  drawC();
+
+  let m = `<thead><tr><th>From</th><th>To</th><th>Weeks</th><th>Smallcap 100 next 4w</th></tr></thead><tbody>`;
+  D.tri_s.forEach(r => { m += `<tr><td>${String(r.start).slice(0,10)}</td><td>${String(r.end).slice(0,10)}</td><td>${r.weeks}</td><td class="${cls(r.SC100_4w_first)}">${pp(r.SC100_4w_first)}%</td></tr>`; });
+  $("#triM").innerHTML = m + "</tbody>";
+  const full = e => { const a = TI.find(x => x.period === "2007-26 full, cash" && x.equity === e && x.rule === TR), b = TI.find(x => x.period === "2007-26 full, cash" && x.equity === e && x.rule === "buy & hold"); return [a, b]; };
+  const [sa, sb] = full("SC100"), [ba, bb] = full("blend N100/MC100/SC100"), [na, nb] = full("N100");
+  $("#triNote2").innerHTML = `<div class="callout"><p><b>The triple is a hair better than the pair, and the edge is too small to matter.</b> Out of sample on the parents it made ${pp(pa("out-of-sample 2014-21", TR, "gold+cash", "cagr") - pa("out-of-sample 2014-21", "N100 AND SC100", "gold+cash", "cagr"),2)} pp a year more than the pair, with the same drawdown. That comes almost entirely from staying out one extra week in 2020-06. It still trailed Smallcap 100 alone on return there (${pct(pa("out-of-sample 2014-21", TR, "gold+cash", "cagr"),1)} against ${pct(pa("out-of-sample 2014-21", "SC100 only", "gold+cash", "cagr"),1)}). On the indices the triple is never behind the pair and at most about 1 pp a year ahead, with similar drawdowns. The biggest gaps are on the short 2019-onward Smallcap 250 and Midcap 150 spans, where the same 2020-06 week carries more weight.</p></div>
+  <div class="callout"><p><b>On the indices themselves, the confirmation rules do what they did on the portfolios.</b> Over the full 2007–26 history on the Smallcap 100 index, the triple made ${pct(sa.cagr,1)} a year against ${pct(sb.cagr,1)} buy-and-hold, and fell at most ${pct(sa.max_dd,0)} against ${pct(sb.max_dd,0)}. On the N100/MC100/SC100 blend it made ${pct(ba.cagr,1)} against ${pct(bb.cagr,1)}, with a ${pct(ba.max_dd,0)} worst fall against ${pct(bb.max_dd,0)}. On large caps alone it roughly matched buy-and-hold on return (Nifty 100: ${pct(na.cagr,1)} against ${pct(nb.cagr,1)}) while cutting the worst fall from ${pct(nb.max_dd,0)} to ${pct(na.max_dd,0)}. It does not win everywhere on return. On large-cap indices, buy-and-hold and the index's own signal edge it slightly. On Midcap 150 and Smallcap 250, whose data starts in 2019, the 2020–21 small-cap boom let buy-and-hold and Smallcap 100 alone beat it: the same 2021 pattern seen on the parents. Its worst fall is the shallowest, or within a few points of the shallowest, on every index.</p></div>`;
+})();
+
+// ── what it means ──────────────────────────────────────────────────────
+$("#means").innerHTML = `<ul>
+<li><b>If the goal is drawdown control, N100 AND SC100 is the strongest candidate tested.</b> It had the shallowest or near-shallowest worst fall in every test: on the indices 2007–21, on the actual parents 2014–21 (${pct(pr("N100 AND SC100","gold+cash","max_dd"),0)} against ${pct(pr("parent","","max_dd"),0)} for the parent) and on the books 2021–26 (${pct(isb("n100_and_sc100","max_dd"),0)}).</li>
+<li><b>If the goal is return, it is not proven better than Smallcap 100 alone.</b> It won big on the indices 2007–21 and on the books 2021–26, and lost on the actual parents 2014–21. The difference comes down to whether small-cap-led rallies failed (2008, 2011, 2016, 2022, 2024–25) or ran (2007, 2021).</li>
+<li><b>Expect it to lag in small-cap booms that large caps do not join.</b> 2021 is the template: small caps up strongly, Nifty 100 flat, and the rule in gold and cash for months.</li>
+<li><b>Adding Midcap 100 as a third condition changes almost nothing.</b> It disagrees with the pair in 5 weeks out of 502 since 2006 and never in 2021–26. Either rule works; the pair is simpler.</li>
+<li><b>Leave the sleeve at a fixed 50/50.</b> Timing gold with its own trend added nothing beyond holding more gold. It lost to a fixed sleeve with the same gold share in 2021–26 and in 2014–18, and made drawdowns deeper.</li>
+<li><b>Before moving a live book, pre-register it.</b> Use the same gates as the segment study, run on data it was not chosen on. The 2014–21 parent run above is the first such test, and on return it failed.</li></ul>`;
+})();
+</script>

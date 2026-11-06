@@ -1,0 +1,158 @@
+{
+  "step": "0 - unblock point-in-time cap classification",
+  "gate": "PASSED",
+  "source": {
+    "table": "public.mcap_based_universe",
+    "columns_used": [
+      "date",
+      "ticker",
+      "mcap",
+      "instrument_class"
+    ],
+    "filter": "instrument_class = 'ordinary' AND mcap IS NOT NULL",
+    "rationale": "ETFs, trusts (InvIT/REIT) and partly-paid special classes are not eligible for these indices; leaving them in the ranking pushes every ordinary stock down and breaks the band boundaries.",
+    "rows_pulled": 594914,
+    "date_range": [
+      "2019-08-30",
+      "2026-08-24"
+    ],
+    "snapshot_dates": 237,
+    "months_covered": 85,
+    "months_in_span": 85,
+    "months_missing": [],
+    "universe_size_first": 1667,
+    "universe_size_last": 3034
+  },
+  "sources_rejected": {
+    "index_constituents_monthly": "Production's own source, but only 5 snapshots 2026-04-09 -> 2026-08-01. No history; would stamp 2026 membership on 2021-2023 books.",
+    "rebal_data_bank": "Carries mcap_rank, but only 5 rebal_dates 2026-07-30 -> 2026-08-21.",
+    "local files": "Swept during planning and empty: no dated ticker->bucket or ticker->rank file before 2026-04-09 anywhere in wm-research, wm-aiReports or the Friday Rebalance Automation tree."
+  },
+  "cadences_built": {
+    "monthly": {
+      "path": "cache/mcap_ranks_monthly.csv",
+      "rows": 176742,
+      "snapshots": 85,
+      "range": [
+        "2019-08-30",
+        "2026-08-24"
+      ],
+      "construction": "point-in-time mcap, last snapshot of each calendar month"
+    },
+    "semiannual": {
+      "path": "cache/mcap_ranks_semiannual.csv",
+      "rows": 27848,
+      "snapshots": 13,
+      "range": [
+        "2020-03-31",
+        "2026-03-31"
+      ],
+      "construction": "NSE methodology: rank on mean full market cap over the 6 months ending 31-Jan / 31-Jul, effective end-March / end-September, held constant between.",
+      "reference_months_per_snapshot": [
+        6
+      ]
+    },
+    "chosen_for_backtest": "semiannual",
+    "why": "95.72% vs 89.50% agreement with production's own mcat on parent holdings, and it is the cadence the real indices actually follow."
+  },
+  "bands": {
+    "1-100": "Largecap",
+    "101-250": "Midcap",
+    "251-500": "Smallcap",
+    "501-900": "Microcap",
+    ">900": "Unknown"
+  },
+  "validation": {
+    "ground_truth": {
+      "source": "22 weekly rebalance_{DDMMYY}.xlsx workbooks, RSI + RSI_v1",
+      "holding_rows": 1076,
+      "review_dates": 19,
+      "range": [
+        "2026-04-17",
+        "2026-08-21"
+      ],
+      "caveat": "mcat collapses Small+Micro+Unknown into SCAP, so this validates the three-bucket mapping only, never the Micro split."
+    },
+    "production_classifier_reproduced": 1.0,
+    "pit_semiannual_vs_production_mcat": 0.9572490706319703,
+    "pit_monthly_vs_production_mcat": 0.8949814126394052,
+    "vs_real_index_membership_750_names": {
+      "pit_monthly": {
+        "agree_4bucket": 0.7792,
+        "agree_3bucket": 0.9197333333333333,
+        "recall_Largecap": 0.8800000000000001,
+        "recall_Midcap": 0.7973333333333332,
+        "recall_Smallcap": 0.7016,
+        "recall_Microcap": 0.8056000000000001
+      },
+      "pit_semiannual": {
+        "agree_4bucket": 0.8669333333333334,
+        "agree_3bucket": 0.9399999999999998,
+        "recall_Largecap": 0.8800000000000001,
+        "recall_Midcap": 0.8533333333333333,
+        "recall_Smallcap": 0.8168,
+        "recall_Microcap": 0.9200000000000002
+      }
+    }
+  },
+  "coverage_on_parent_holdings": {
+    "window": [
+      "2021-11-01",
+      "2026-08-21"
+    ],
+    "holding_rows": 968,
+    "rebalances_per_parent": {
+      "SCMO_0003": 19,
+      "SCMO_0007": 19,
+      "SCMO_0010": 19,
+      "SCMO_0029": 19
+    },
+    "unknown_share_by_year": {
+      "2021": 0.0,
+      "2022": 0.0,
+      "2023": 0.0,
+      "2024": 0.0,
+      "2025": 0.0142,
+      "2026": 0.0185
+    },
+    "unknown_share_overall": 0.0052,
+    "prior_approach_unknown_share": "12-33% of 2021-2023 holdings were unmappable under the 2026-snapshot approach the completed study used.",
+    "bucket_share_by_parent": {
+      "SCMO_0003": {
+        "Largecap": 0.0864,
+        "Microcap": 0.3773,
+        "Midcap": 0.1955,
+        "Smallcap": 0.3227,
+        "Unknown": 0.0182
+      },
+      "SCMO_0007": {
+        "Largecap": 0.0,
+        "Microcap": 0.2227,
+        "Midcap": 0.1616,
+        "Smallcap": 0.6157,
+        "Unknown": 0.0
+      },
+      "SCMO_0010": {
+        "Largecap": 0.2596,
+        "Microcap": 0.214,
+        "Midcap": 0.2211,
+        "Smallcap": 0.3053,
+        "Unknown": 0.0
+      },
+      "SCMO_0029": {
+        "Largecap": 0.3077,
+        "Microcap": 0.1624,
+        "Midcap": 0.2137,
+        "Smallcap": 0.312,
+        "Unknown": 0.0043
+      }
+    }
+  },
+  "known_limitations": [
+    "NSE buffer rules (incumbents retained near the boundary) are not modelled; this is most of the residual 4.3% disagreement with production.",
+    "Ranking uses full market cap, not free-float, and ignores the liquidity and listing-history eligibility filters NSE applies.",
+    "The Microcap band (ranks 501-750) is the weakest: of the 250 real Nifty Microcap 250 members on 2026-08-01, only 171 fall inside 501-750 and 62 rank beyond 750. Recall is 68% at best. Production folds Microcap into the Smallcap 250 signal so this never affects it -- but the micro_own arm depends on the split, and its classification error is materially larger than the other three buckets.",
+    "The four-bucket split is only testable over 2026, where real membership exists. Before 2026-04-09 there is no ground truth of any kind.",
+    "From 2026 the source turns daily; it is collapsed to month-end so the classification cadence is uniform across the window."
+  ]
+}

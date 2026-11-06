@@ -1,0 +1,157 @@
+{
+  "script": "C:\\Users\\manur\\Repos\\wm-research\\AA\\analysis\\verify_own_momentum.py",
+  "purpose": "T01 gate V1: independent re-derivation of splice, signals, decisions, trades and NAVs",
+  "imports_from_engine": "none",
+  "inputs": {
+    "published_parents": {
+      "path": "C:\\Users\\manur\\Repos\\wm-research\\AA\\Historical Data\\parentIndices.csv",
+      "size": 327497,
+      "sha256": "71dec6b60fdc70c79621771d6aa9a1017440b8fa98d276b71d7ad1a70717a445"
+    },
+    "harness_parents": {
+      "path": "C:\\Users\\manur\\Repos\\wm-research\\AA\\analysis\\evidence\\final_strategy\\nav_curves_daily.csv",
+      "size": 2116765,
+      "sha256": "a77951a0587c80ce5fb88e4e125ed6139b5855cdfc88ecb5c5569b78cfa20962"
+    },
+    "goldbees": {
+      "path": "C:\\Users\\manur\\Repos\\wm-research\\AA\\analysis\\evidence\\final_strategy\\gold_daily_ohlc_eikon.csv",
+      "size": 113154,
+      "sha256": "62ee1277717be698909ecda9c57aca43d09e13e9ac251f600a696a34c190d5cf"
+    },
+    "lbes": {
+      "path": "C:\\Users\\manur\\Repos\\wm-research\\AA\\Historical Data\\LBES_Adjusted_Price_data_2026_08_10.csv",
+      "size": 170686,
+      "sha256": "f3a3c0f12065fcf77c611bd5a6d29a171007c1ce638167ac21cb2e4156476527"
+    },
+    "master_nifty100": {
+      "path": "C:\\Users\\manur\\Repos\\wm-research\\AA\\Historical Data\\frozen_2026-09-25\\Master\\Master_Nifty100.xlsx",
+      "size": 203327,
+      "sha256": "8a80c502a85098b2c4138530d5b68ef7878bbd8157ce82beadfb5d9081788895"
+    },
+    "master_mc100": {
+      "path": "C:\\Users\\manur\\Repos\\wm-research\\AA\\Historical Data\\frozen_2026-09-25\\Master\\Master_MC100.xlsx",
+      "size": 199749,
+      "sha256": "114e654a28a950bd9b1b7d0c0386a760424dc927b139ef7518f86b0f29b3e8a7"
+    },
+    "master_sc100": {
+      "path": "C:\\Users\\manur\\Repos\\wm-research\\AA\\Historical Data\\frozen_2026-09-25\\Master\\Master_SC100.xlsx",
+      "size": 208298,
+      "sha256": "63ad46a9cb9104b2bc0b1c916a2ebc9baffbeaabc0e1a08533ae3b42b641cca2"
+    }
+  },
+  "interpretations": [
+    "Sleeve prices are carried forward AS OF each session: the last GOLDBEES close / LBES level dated on or before the session, including rows dated off the session calendar (LBES has Sunday rows). Reason: the data table says LBES runs '2007-06-29 -> 2026-08-09; forward-filled to 2026-08-21', i.e. the 2026-08-09 level is the one carried. The other reading (reindex to the calendar, then forward-fill along it) differs on 36 sessions for LBES (max 0.84 points, 5.3e-4 relative) and on none for GOLDBEES; check (a) reports the evidence's cash column against both readings.",
+    "Splice: P_t = P_2021-10-29 x (pub_t / pub_2021-11-01) for t >= 2021-11-01, so P_2021-11-01 equals P_2021-10-29 exactly (the zero-return session of step 1).",
+    "Percentile thresholds are compared exactly in integers (p_d < q  <=>  100 x count < q x W), because ties at the threshold occur (e.g. 26 of 65 = 40.0). The value column is p_d = 100 x count / W as a float.",
+    "Weekly decision sessions: the last calendar session of each ISO (year, week), including weekend special sessions (e.g. the Sunday 2016-10-30 Muhurat session is the last session of its ISO week), plus T0; only sessions in (T0, end] are added; the window's end is one of them.",
+    "pct_w65_hyst: the state before each window's T0 is equity; the state machine runs over that window's decision sessions from T0.",
+    "sma_n: weight 0 iff P_d < mean(P_d-n+1..P_d) (direct comparison); value = P_d / mean - 1. tsmom_L: value = P_d / P_d-L - 1, weight 0 iff value < 0. ddhigh_250_xX: value = P_d / max(P_d-249..P_d) - 1, weight 0 iff value < -X / 100.",
+    "st_weekly follows production ST.py: weekly candle H = max close, L = min close, C = last close of the ISO week; TR = max(H-L, |H-C_prev|, |L-C_prev|), and on the first candle TR = H-L (pandas max skips NaN); ATR = sum of weights 1..5/15 times TR on candles j-4..j; bands 0.5H + 0.5L +/- 2 ATR; the first value is on candle index 5 with ST = FUB; ratchet FUB = BUB if (BUB < FUB_prev or C_prev > FUB_prev) else FUB_prev, FLB = BLB if (BLB > FLB_prev or C_prev < FLB_prev) else FLB_prev; ST transitions as in ST.py, including its 'close < FUB' buy-to-sell test and ST = 0 otherwise. Weight 0 iff ST == FUB, else 1. Value = C - ST.",
+    "st_weekly at a decision session that is not the last session of its ISO week (only W2's T0, 2021-11-01, a Monday) reads the supertrend of the last COMPLETE weekly candle (the week ending 2021-10-29), whose last session is the last input used. T01.md section 3 defines each candle over a whole ISO week ('close = last close') and does not say how a decision mid-week reads it; both this reading and a partial candle of the current week (closes up to d) respect 'P up to and including d only'. This file first pre-declared the partial-candle reading; on 2026-10-01, after the engine evidence existed, the integrator ruled the spec ambiguous and kept the engine's reading (the same 'latest completed week label <= d' rule T01 states for the triple rows). The partial reading remains as the diagnostic --st-midweek partial; note that production ST.py, run with data only through d, would build the partial candle. Equity targets are identical under both readings on all 4 books; the value differs on 3 rows (SCMO_0043/0044/0045, W2, 2021-11-01).",
+    "triple: for each of Master_Nifty100 / MC100 / SC100, the SIGN on the row with the latest Date <= d; value = number of the three that are BUY; weight 1 iff all three are BUY. triple_and_pct25: triple AND p_d >= 25 with W = 65; value = p_d.",
+    "Trades: a target decided on any decision session except the window's last is traded on the next session when it differs (exactly) from the target last traded; T0's target is always traded (the build). For the daily config the second-last session's target therefore trades at the last session's close and the final liquidation follows at that same close.",
+    "Execution: at a trade every asset is reset to its target: delta_a = w_a x nav_now - units_a x close_a; delta < 0 trims (units -= |delta| / px, cash += |delta| (1 - ow)), then delta > 0 top-ups in the order equity, GOLDBEES, LBES (v = min(delta, cash), units += v (1 - ow) / px, cash -= v); delta == 0 does nothing. NAV is 1.0 in cash at T0's close and stays flat until the build session's close.",
+    "Null draws: the target series w_0..w_n on the window's decision sessions is rotated by k and run through the same schedule (build at T0's next session, trades on the next session after each changed target, last decision not traded, liquidation at the last close). The sign of the rotation is not fixed by the spec; both np.roll(w, +k) and np.roll(w, -k) are tried and the matching one is reported.",
+    "data_last_date is gated only as a point-in-time property (present and <= decision_date). The schema text says it equals decision_date; the gate does not require that, because for triple no P is read and the last input is the Master label (e.g. 2024-05-10 for d = 2024-05-17, whose week is labelled with the Saturday 2024-05-18 session). Equality counts are reported.",
+    "Statistics: sessions = end - T0 + 1, years = (sessions - 1) / 252, CAGR = nav_end^(1/years) - 1, daily returns on the daily NAV from T0 (1.0) to the last session (after liquidation), max_dd = min(NAV / running max - 1), calmar = CAGR / |max_dd|, sharpe = CAGR / vol. vol accepts SD with divisor n-1 or n."
+  ],
+  "tolerances": {
+    "splice_rel": 1e-12,
+    "value_abs": 1e-09,
+    "nav_rel": 1e-09,
+    "stats": 1e-09
+  },
+  "sleeve_price_carry_reading_used": "asof",
+  "st_weekly_midweek_reading_used": "last_complete",
+  "readings_changed_after_evidence": [
+    {
+      "reading": "st_weekly at a mid-week decision session (W2 T0, Monday 2021-11-01)",
+      "predeclared_by_verifier": "partial",
+      "adopted": "last_complete",
+      "date": "2026-10-01",
+      "by": "integrator",
+      "reason": "T01.md section 3 does not say how a weekly candle is formed at a decision session that is not its week's last; both readings respect 'P up to and including d only'. The integrator rule for a genuinely ambiguous spec is to keep the engine's reading and disclose it.",
+      "effect": "equity_target, trade_session, traded and every NAV identical under both readings; the decisions_all_configs.csv value differs on 3 rows (st_weekly, W2, 2021-11-01, SCMO_0043, SCMO_0044, SCMO_0045)"
+    }
+  ],
+  "diagnostic_reading_not_predeclared": false,
+  "mode": "corrupt-test",
+  "source_run_dir": "C:\\Users\\manur\\Repos\\wm-research\\AA\\tests\\T01\\evidence\\headline",
+  "planted": [
+    {
+      "file": "decisions_all_configs.csv",
+      "check": "b_decisions",
+      "key": [
+        "pct_w65_q25_daily",
+        "SCMO_0042",
+        "W1",
+        "2021-01-18"
+      ],
+      "change": "equity_target 1.0 -> 0.0",
+      "detected": true
+    },
+    {
+      "file": "decisions_all_configs.csv",
+      "check": "b_decisions",
+      "key": [
+        "pct_w20_q10",
+        "SCMO_0044",
+        "W1",
+        "2015-10-01"
+      ],
+      "change": "equity_target 1.0 -> 0.0",
+      "detected": true
+    },
+    {
+      "file": "decisions_all_configs.csv",
+      "check": "b_decisions",
+      "key": [
+        "pct_w250_q40",
+        "SCMO_0045",
+        "W1",
+        "2020-01-31"
+      ],
+      "change": "equity_target 1.0 -> 0.0",
+      "detected": true
+    },
+    {
+      "file": "realisations.csv",
+      "check": "c_closed_form_cost0",
+      "key": [
+        "sma_200",
+        "SCMO_0043",
+        "W1",
+        0.0
+      ],
+      "change": "nav_end x 1.001 (3.001752658385737 -> 3.004754411044122)",
+      "detected": true
+    },
+    {
+      "file": "realisations.csv",
+      "check": "d_cost_engine_20p8",
+      "key": [
+        "sma_200",
+        "SCMO_0043",
+        "W1",
+        20.8
+      ],
+      "change": "nav_end x 1.001 (2.779872956897916 -> 2.782652829854814)",
+      "detected": true
+    }
+  ],
+  "corrupted_copy_verdict": "FAIL",
+  "corrupted_copy_failures": {
+    "a_splice": 0,
+    "b_decisions": 3,
+    "b2_decisions_reference": 0,
+    "c_closed_form_cost0": 1,
+    "d_cost_engine_20p8": 1,
+    "e_bh": 0,
+    "f_null_rows": 0,
+    "g_trades": 0,
+    "h_strategy_fields": 0,
+    "i_daily_reference": 0
+  },
+  "verdict": "PASS (corrupted copy failed on every planted defect)",
+  "elapsed_total_s": 34.8
+}

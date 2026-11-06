@@ -1,0 +1,43 @@
+{
+  "st_py_weeks": 603,
+  "st_py_first": "2015-03-13",
+  "st_py_last": "2026-09-25",
+  "port_check": {
+    "weeks": 603,
+    "converged_from": "2015-04-10",
+    "weeks_after_convergence": 599,
+    "max_abs_diff_ST_after": 5.820766091346741e-11,
+    "sign_mismatch_after": 0,
+    "sign_mismatch_before": 0
+  },
+  "weekly": {
+    "weeks_compared": 603,
+    "agree": 603,
+    "candles_identical": 555
+  },
+  "backtest_reviews": {
+    "2014-21": {
+      "reviews": 347,
+      "agree": 346
+    },
+    "live 2021-26": {
+      "reviews": 250,
+      "agree": 250
+    }
+  },
+  "calendar": {
+    "mcx_sessions_dropped": 118,
+    "nse_days_filled": 3,
+    "window": [
+      "2015-02-02",
+      "2026-09-25"
+    ]
+  },
+  "disagreeing_weeks": [],
+  "latest": {
+    "week": "2026-09-25",
+    "SIGN": "BUY",
+    "ST": 144291.4,
+    "close": 150881.0
+  }
+}

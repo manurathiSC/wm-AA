@@ -1,0 +1,9 @@
+{
+  "rule": "Stock index BUY",
+  "weights": "parent weights; residual sleeve",
+  "tagging": "weekly point-in-time monthly market-cap ranks",
+  "unknown": "Smallcap 100 proxy",
+  "cost_round_trip_bps": 20.8,
+  "gold": "same MAUc1 signal as final_strategy",
+  "membership_test": false
+}

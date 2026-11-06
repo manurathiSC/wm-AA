@@ -1,0 +1,195 @@
+== A. SCMO_0007 daily model - published (bp), largest absolute days ==
+-- listed_weights_skip_dropped
+date
+2020-02-03    154.1
+2020-02-01    152.1
+2021-02-17    117.9
+2026-02-02     27.8
+2026-02-01     27.5
+2019-01-16     12.3
+   calendar 2021: sum of daily gaps +129.1 bp; excluding 2021-02-17: +11.2 bp
+-- listed_weights_skip_dropped_corrected
+date
+2020-02-03    154.1
+2020-02-01    152.1
+2026-02-02     27.8
+2026-02-01     27.5
+2019-01-16     12.3
+2019-01-25     11.5
+   calendar 2021: sum of daily gaps +10.8 bp; excluding 2021-02-17: +10.8 bp
+-- calendar-year gap, pp
+variant  listed_weights_skip_dropped  listed_weights_skip_dropped_corrected
+year                                                                       
+2019                           0.391                                  0.391
+2020                           0.158                                  0.158
+2021                           2.036                                  0.168
+2022                           0.011                                  0.011
+2023                          -0.000                                 -0.000
+2024                           0.000                                  0.000
+2025                          -0.000                                 -0.000
+2026                           0.000                                  0.000
+
+== B. Polyplex around the ex-date: ohlcv_eikon vs merged_historical_data_with_rics ==
+      date    close  merged  eikon/merged  eikon ret %  merged ret %
+2021-02-10 741.7143  883.50        0.8395          NaN           NaN
+2021-02-11 769.6703  916.80        0.8395       3.7691        3.7691
+2021-02-12 771.0974  918.50        0.8395       0.1854        0.1854
+2021-02-15 774.6234  922.70        0.8395       0.4573        0.4573
+2021-02-16 764.9690  911.20        0.8395      -1.2463       -1.2463
+2021-02-17 776.8505  823.80        0.9430       1.5532       -9.5917
+2021-02-18 752.8510  798.35        0.9430      -3.0893       -3.0893
+2021-02-19 742.1007  786.95        0.9430      -1.4279       -1.4279
+2021-02-22 727.5312  771.50        0.9430      -1.9633       -1.9633
+2021-02-23 746.0141  791.10        0.9430       2.5405        2.5405
+2021-02-24 744.0810  789.05        0.9430      -0.2591       -0.2591
+ratio step across the ex-date: 0.8395 -> 0.9430  (x1.12327)
+factor from the dividend: (cum close 911.20 - 100) / 911.20 = 0.89025; inverse (the correction) 1.123274
+factor in price_corrections.csv: 1.123274
+traded drop on the ex-date (merged close): -9.59%; Eikon-adjusted: +1.55%
+
+== D. SCMO_0007, steps >= 0.3% in ohlcv_eikon / merged while in the basket, 2020-12-17 .. 2021-12-31 ==
+       stock       date  ratio_step_%  basket_weight
+ POLYPLEX.NS 2021-02-17        12.327         0.1000
+REDINGTON.NS 2021-07-16         1.196         0.0769
+
+== C. every held stock: ohlcv_eikon / merged close, steps >= 2% while in the basket ==
+SCMO_0003: 197 stocks, no merged series for 5 (delisted names): ['DISH.NS', 'GEOM.NS', 'MOL.NS', 'OSCM.NS', 'TATASTLLP.NS']
+SCMO_0007: 154 stocks, no merged series for 4 (delisted names): ['CAIL.NS', 'GDL.NS', 'LAKSHVILAS.NS', 'PEL.NS']
+SCMO_0010: 250 stocks, no merged series for 19 (delisted names): ['ADHUNIK.NS', 'DISH.NS', 'EQUITAS.NS', 'GDL.NS', 'GEOM.NS', 'JMCPROJECT.NS', 'LAKSHVILAS.NS', 'METALFORGE.NS', 'MOL.NS', 'OSCM.NS', 'PEL.NS', 'POLA.NS', 'PRABHAT.NS', 'SHRIRAMCIT.NS', 'SINTEX.NS', 'SRIPIPES.NS', 'TALWALKARS.NS', 'TATASTLLP.NS', 'VJBK.NS']
+SCMO_0029: 229 stocks, no merged series for 6 (delisted names): ['BHAF.NS', 'GEOM.NS', 'GRUH.NS', 'MINDTREE.NS', 'MNSN.NS', 'SRIPIPES.NS']
+142 steps; pairs of opposite-sign steps on adjacent sessions are one-day glitches in merged
+   parent         stock       date  ratio_step_%  basket_weight
+SCMO_0003 ADANIPOWER.NS 2026-08-31         -3.18         0.0667
+SCMO_0003 ADANIPOWER.NS 2026-09-01          3.57         0.0667
+SCMO_0003 BHARTIHEXA.NS 2026-02-01          2.97         0.0635
+SCMO_0003 BHARTIHEXA.NS 2026-02-02         -2.12         0.0635
+SCMO_0003 BHARTIHEXA.NS 2026-03-30          2.25         0.0667
+SCMO_0003 COROMANDEL.NS 2025-12-19         -2.57         0.0635
+SCMO_0003 COROMANDEL.NS 2025-12-22          3.63         0.0635
+SCMO_0003   GRANULES.NS 2026-09-16         -2.20         0.0667
+SCMO_0003   GRANULES.NS 2026-09-17          2.08         0.0667
+SCMO_0003 HAPPYFORGE.NS 2026-05-14         -3.80         0.0667
+SCMO_0003 HAPPYFORGE.NS 2026-05-15          4.54         0.0667
+SCMO_0003  INOXINDIA.NS 2026-09-21         -2.29         0.0667
+SCMO_0003  KIRLOSENG.NS 2026-08-04         -2.25         0.0667
+SCMO_0003  KIRLOSENG.NS 2026-09-16         -2.53         0.0667
+SCMO_0003  KIRLOSENG.NS 2026-09-17          3.49         0.0667
+SCMO_0003  LUMAXTECH.NS 2026-01-27         -2.44         0.0635
+SCMO_0003   MANORAMA.NS 2026-04-01         -2.42         0.0667
+SCMO_0003   MANORAMA.NS 2026-04-02          2.01         0.0667
+SCMO_0003       PGIL.NS 2026-11-03          2.04         0.0667
+SCMO_0003   PRIVISCL.NS 2026-11-02          2.37         0.0667
+SCMO_0003 SHRIPISTON.NS 2026-08-04          6.89         0.0667
+SCMO_0003 SHRIPISTON.NS 2026-08-05         -5.93         0.0667
+SCMO_0003    SKYGOLD.NS 2026-10-27          3.22         0.0667
+SCMO_0003    SKYGOLD.NS 2026-10-28         -5.12         0.0667
+SCMO_0003    SKYGOLD.NS 2026-10-29          4.25         0.0667
+SCMO_0003   YATHARTH.NS 2025-11-24          3.64         0.0667
+SCMO_0003   YATHARTH.NS 2025-11-25         -3.00         0.0667
+SCMO_0007 AJANTPHARM.NS 2026-03-20         -3.72         0.0833
+SCMO_0007 AJANTPHARM.NS 2026-03-23          3.85         0.0833
+SCMO_0007 AJANTPHARM.NS 2026-06-29          2.89         0.1000
+SCMO_0007 AJANTPHARM.NS 2026-06-30         -2.48         0.1000
+SCMO_0007  COALINDIA.NS 2020-03-12          2.01         0.1097
+SCMO_0007  COALINDIA.NS 2020-03-19          4.96         0.1097
+SCMO_0007  COALINDIA.NS 2020-03-20         -2.28         0.1097
+SCMO_0007  COALINDIA.NS 2020-03-27         -2.11         0.1097
+SCMO_0007  COALINDIA.NS 2020-05-18          2.08         0.1097
+SCMO_0007     EMCURE.NS 2026-09-18         -3.88         0.0909
+SCMO_0007     EMCURE.NS 2026-09-21          4.38         0.0909
+SCMO_0007      GLAXO.NS 2026-05-26          2.54         0.0833
+SCMO_0007      GLAXO.NS 2026-05-29         -2.48         0.0833
+SCMO_0007       GNFC.NS 2019-02-12          2.12         0.1081
+SCMO_0007 GODREJAGRO.NS 2026-03-24         -2.16         0.0833
+SCMO_0007   GRANULES.NS 2026-09-16         -2.20         0.0909
+SCMO_0007   GRANULES.NS 2026-09-17          2.08         0.0909
+SCMO_0007 GULFOILLUB.NS 2025-09-19         -2.16         0.0909
+SCMO_0007      INDGN.NS 2026-03-23          2.14         0.0833
+SCMO_0007      INDGN.NS 2026-03-24         -3.19         0.0833
+SCMO_0007    IPCALAB.NS 2026-07-20          2.02         0.1000
+SCMO_0007       NMDC.NS 2020-02-03          2.26         0.1097
+SCMO_0007       NMDC.NS 2020-03-09          2.59         0.1097
+SCMO_0007       NMDC.NS 2020-03-12          3.49         0.1097
+SCMO_0007       NMDC.NS 2020-03-19          3.98         0.1097
+SCMO_0007       NMDC.NS 2020-03-20         -2.40         0.1097
+SCMO_0007       NMDC.NS 2020-03-23          4.47         0.1097
+SCMO_0007   POLYPLEX.NS 2021-02-17         12.33         0.1000
+SCMO_0007        TCI.NS 2026-04-02          3.80         0.0833
+SCMO_0007        TCI.NS 2026-04-06         -2.15         0.0833
+SCMO_0007        TCI.NS 2026-05-14         -2.16         0.0833
+SCMO_0007 TRITURBINE.NS 2026-04-20          2.48         0.0833
+SCMO_0007     VGUARD.NS 2026-03-10          2.14         0.0909
+SCMO_0007     VGUARD.NS 2026-05-13         -2.20         0.0833
+SCMO_0010  ABCAPITAL.NS 2026-08-31          2.97         0.0667
+SCMO_0010  ABCAPITAL.NS 2026-09-18          2.17         0.0667
+SCMO_0010  ABCAPITAL.NS 2026-09-21         -2.11         0.0667
+SCMO_0010 ADANIPORTS.NS 2026-08-31         -3.59         0.0667
+SCMO_0010 ADANIPORTS.NS 2026-09-01          3.55         0.0667
+SCMO_0010     AIAENG.NS 2026-04-27         -2.11         0.0667
+SCMO_0010  BANKINDIA.NS 2025-06-20         -3.50         0.0657
+SCMO_0010  BANKINDIA.NS 2026-05-26          3.28         0.0667
+SCMO_0010  BANKINDIA.NS 2026-05-29         -3.16         0.0667
+SCMO_0010       BPCL.NS 2025-11-07         -2.04         0.0667
+SCMO_0010      CANBK.NS 2024-06-14         -2.64         0.0667
+SCMO_0010     CEMPRO.NS 2026-10-23          2.20         0.0667
+SCMO_0010     CEMPRO.NS 2026-10-26         -2.76         0.0667
+SCMO_0010     EMMVEE.NS 2026-10-23         -2.26         0.0667
+SCMO_0010     EMMVEE.NS 2026-10-26          2.50         0.0667
+SCMO_0010   GRANULES.NS 2026-09-16         -2.20         0.0667
+SCMO_0010   GRANULES.NS 2026-09-17          2.08         0.0667
+SCMO_0010    HYUNDAI.NS 2025-11-25          2.07         0.0667
+SCMO_0010       IIFL.NS 2026-01-22          2.06         0.0667
+SCMO_0010       IIFL.NS 2026-01-23         -2.15         0.0667
+SCMO_0010    INDIANB.NS 2025-06-10         -2.49         0.0657
+SCMO_0010 KARURVYSYA.NS 2026-05-08          2.01         0.0667
+SCMO_0010 KARURVYSYA.NS 2026-10-30          2.13         0.0667
+SCMO_0010  KIRLOSENG.NS 2025-12-17          4.43         0.0667
+SCMO_0010  KIRLOSENG.NS 2025-12-18         -2.19         0.0667
+SCMO_0010  KIRLOSENG.NS 2026-02-09          2.12         0.0667
+SCMO_0010  KIRLOSENG.NS 2026-03-04          2.75         0.0667
+SCMO_0010  KIRLOSENG.NS 2026-03-05         -2.77         0.0667
+SCMO_0010  KIRLOSENG.NS 2026-05-13          2.06         0.0667
+SCMO_0010  KIRLOSENG.NS 2026-08-04         -2.25         0.0667
+SCMO_0010  MOTHERSON.NS 2026-09-29         -2.65         0.0666
+SCMO_0010  MOTHERSON.NS 2026-09-30          2.55         0.0666
+SCMO_0010 NATIONALUM.NS 2025-02-14         -2.09         0.0667
+SCMO_0010   PARADEEP.NS 2025-11-24          4.12         0.0667
+SCMO_0010   PARADEEP.NS 2025-11-25         -3.87         0.0667
+SCMO_0010       SAIL.NS 2026-08-03         -3.04         0.0667
+SCMO_0010       SAIL.NS 2026-08-04          2.77         0.0667
+SCMO_0010       SAIL.NS 2026-09-01          2.65         0.0667
+SCMO_0010       SAIL.NS 2026-09-21          2.11         0.0667
+SCMO_0010   TATACHEM.NS 2020-03-04        125.31         0.0833
+SCMO_0010  UNIONBANK.NS 2025-07-25         -3.28         0.0657
+SCMO_0029       ABDL.NS 2026-01-30         -2.11         0.0667
+SCMO_0029       ABDL.NS 2026-02-01          2.11         0.0667
+SCMO_0029    ABSLAMC.NS 2026-06-29          4.17         0.0769
+SCMO_0029    ABSLAMC.NS 2026-06-30         -4.39         0.0769
+SCMO_0029    ABSLAMC.NS 2026-09-11          2.20         0.0769
+SCMO_0029    ABSLAMC.NS 2026-10-26          2.94         0.0714
+SCMO_0029    ACUTAAS.NS 2026-07-28         -2.57         0.0769
+SCMO_0029    ACUTAAS.NS 2026-07-29          2.78         0.0769
+SCMO_0029 BHARTIHEXA.NS 2026-02-01          2.97         0.0667
+SCMO_0029 BHARTIHEXA.NS 2026-02-02         -2.12         0.0667
+SCMO_0029 BHARTIHEXA.NS 2026-03-30          2.25         0.0783
+SCMO_0029   GRANULES.NS 2026-09-16         -2.20         0.0714
+SCMO_0029   GRANULES.NS 2026-09-17          2.08         0.0714
+SCMO_0029  INOXINDIA.NS 2026-09-21         -2.29         0.0714
+SCMO_0029 KARURVYSYA.NS 2026-05-08          2.01         0.0783
+SCMO_0029 KARURVYSYA.NS 2026-10-30          2.13         0.0715
+SCMO_0029        KEI.NS 2026-08-31          2.80         0.0769
+SCMO_0029        KEI.NS 2026-09-01         -2.59         0.0769
+SCMO_0029 LAURUSLABS.NS 2026-08-31          2.56         0.0769
+SCMO_0029 LAURUSLABS.NS 2026-09-01         -2.48         0.0769
+SCMO_0029  MOTHERSON.NS 2026-08-31          2.71         0.0769
+SCMO_0029  MOTHERSON.NS 2026-09-01         -2.45         0.0769
+SCMO_0029  MOTHERSON.NS 2026-09-29         -2.65         0.0715
+SCMO_0029  MOTHERSON.NS 2026-09-30          2.55         0.0715
+SCMO_0029  NAM-INDIA.NS 2025-12-18          3.43         0.0667
+SCMO_0029  NAM-INDIA.NS 2025-12-19         -2.66         0.0667
+SCMO_0029  NAM-INDIA.NS 2026-08-31         -3.26         0.0769
+SCMO_0029  NAM-INDIA.NS 2026-09-01          3.83         0.0769
+SCMO_0029       PGIL.NS 2026-11-03          2.04         0.0714
+SCMO_0029    SKYGOLD.NS 2026-10-27          3.22         0.0714
+SCMO_0029    SKYGOLD.NS 2026-10-28         -5.12         0.0714
+SCMO_0029    SKYGOLD.NS 2026-10-29          4.25         0.0714

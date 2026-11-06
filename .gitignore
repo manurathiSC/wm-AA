@@ -1,0 +1,9 @@
+﻿# Python / OS junk
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Exceeds GitHub's 100 MB per-file limit (110 MB) - regenerate or store elsewhere
+AA/tests/T06/evidence/headline/draw_curves_20.8.npz

@@ -1,0 +1,3 @@
+series,rows_in,rows_out,changes,log,median_change,p01_change,p99_change,max_abs_change
+MAUc1 cleaned,3000,2997,7,analysis\evidence\final_strategy\mauc1\mauc1_cleaning_log.csv,,,,
+GOLDBEES fill (de-spiked OHLC4),3019,3019,552,analysis/evidence/final_strategy/goldbees_fill_despiked.csv,-0.00200726414579655,-0.04371034883043035,0.05615235958954694,0.06633724562510168

@@ -1,0 +1,11 @@
+axis,member,mean_value_add_ann
+signal (row),42,0.0555202380597826
+signal (row),43,0.06104414150040822
+signal (row),44,0.0020668078647682504
+signal (row),45,0.010895611018093124
+parent (column),3,0.03888967511717678
+parent (column),7,0.06742264935492677
+parent (column),10,0.013241501814949224
+parent (column),29,0.009972972155999425
+SPREAD,row spread (best signal - worst signal),0.058977333635639964
+SPREAD,column spread (best parent - worst parent),0.057449677198927344

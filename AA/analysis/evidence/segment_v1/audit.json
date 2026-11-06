@@ -1,0 +1,362 @@
+{
+  "window": [
+    "2021-11-01",
+    "2026-08-21"
+  ],
+  "sessions": 1190,
+  "review_dates": 251,
+  "classifier": "PIT semi-annual, Microcap band 501-900",
+  "microcap_signal": "micro_proxy (Smallcap 250) for all primary arms",
+  "arms": [
+    "sleeve",
+    "rotate",
+    "sleeve_n100gate"
+  ],
+  "cost_levels_bps": [
+    0.0,
+    20.8,
+    50.0
+  ],
+  "pit_violations": 0,
+  "per_book": {
+    "SCMO_0042|parent": {
+      "pit_signal_before_entry_ok": 0,
+      "pit_basket_not_future_ok": 0,
+      "pit_rank_not_future_ok": 0,
+      "reviews_past_calendar_end": 0,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 0,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 95,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 228
+    },
+    "SCMO_0042|production_v2": {
+      "pit_signal_before_entry_ok": 0,
+      "pit_basket_not_future_ok": 0,
+      "pit_rank_not_future_ok": 0,
+      "reviews_past_calendar_end": 0,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 0,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 37,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 226
+    },
+    "SCMO_0042|sleeve": {
+      "pit_signal_before_entry_ok": 250,
+      "pit_basket_not_future_ok": 250,
+      "pit_rank_not_future_ok": 250,
+      "reviews_past_calendar_end": 1,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 75,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 43,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 213
+    },
+    "SCMO_0042|rotate": {
+      "pit_signal_before_entry_ok": 250,
+      "pit_basket_not_future_ok": 250,
+      "pit_rank_not_future_ok": 250,
+      "reviews_past_calendar_end": 1,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 75,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 43,
+      "entries_nothing_fillable": 1,
+      "reviews_no_trade": 214
+    },
+    "SCMO_0042|sleeve_n100gate": {
+      "pit_signal_before_entry_ok": 250,
+      "pit_basket_not_future_ok": 250,
+      "pit_rank_not_future_ok": 250,
+      "reviews_past_calendar_end": 1,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 101,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 27,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 217
+    },
+    "SCMO_0043|parent": {
+      "pit_signal_before_entry_ok": 0,
+      "pit_basket_not_future_ok": 0,
+      "pit_rank_not_future_ok": 0,
+      "reviews_past_calendar_end": 0,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 0,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 8,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 228
+    },
+    "SCMO_0043|production_v2": {
+      "pit_signal_before_entry_ok": 0,
+      "pit_basket_not_future_ok": 0,
+      "pit_rank_not_future_ok": 0,
+      "reviews_past_calendar_end": 0,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 0,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 0,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 226
+    },
+    "SCMO_0043|sleeve": {
+      "pit_signal_before_entry_ok": 250,
+      "pit_basket_not_future_ok": 250,
+      "pit_rank_not_future_ok": 250,
+      "reviews_past_calendar_end": 1,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 85,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 1,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 218
+    },
+    "SCMO_0043|rotate": {
+      "pit_signal_before_entry_ok": 250,
+      "pit_basket_not_future_ok": 250,
+      "pit_rank_not_future_ok": 250,
+      "reviews_past_calendar_end": 1,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 85,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 1,
+      "entries_nothing_fillable": 1,
+      "reviews_no_trade": 219
+    },
+    "SCMO_0043|sleeve_n100gate": {
+      "pit_signal_before_entry_ok": 250,
+      "pit_basket_not_future_ok": 250,
+      "pit_rank_not_future_ok": 250,
+      "reviews_past_calendar_end": 1,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 111,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 1,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 221
+    },
+    "SCMO_0044|parent": {
+      "pit_signal_before_entry_ok": 0,
+      "pit_basket_not_future_ok": 0,
+      "pit_rank_not_future_ok": 0,
+      "reviews_past_calendar_end": 0,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 0,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 41,
+      "entries_nothing_fillable": 1,
+      "reviews_no_trade": 229
+    },
+    "SCMO_0044|production_v2": {
+      "pit_signal_before_entry_ok": 0,
+      "pit_basket_not_future_ok": 0,
+      "pit_rank_not_future_ok": 0,
+      "reviews_past_calendar_end": 0,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 0,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 33,
+      "entries_nothing_fillable": 1,
+      "reviews_no_trade": 222
+    },
+    "SCMO_0044|sleeve": {
+      "pit_signal_before_entry_ok": 250,
+      "pit_basket_not_future_ok": 250,
+      "pit_rank_not_future_ok": 250,
+      "reviews_past_calendar_end": 1,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 75,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 29,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 210
+    },
+    "SCMO_0044|rotate": {
+      "pit_signal_before_entry_ok": 250,
+      "pit_basket_not_future_ok": 250,
+      "pit_rank_not_future_ok": 250,
+      "reviews_past_calendar_end": 1,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 75,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 29,
+      "entries_nothing_fillable": 1,
+      "reviews_no_trade": 211
+    },
+    "SCMO_0044|sleeve_n100gate": {
+      "pit_signal_before_entry_ok": 250,
+      "pit_basket_not_future_ok": 250,
+      "pit_rank_not_future_ok": 250,
+      "reviews_past_calendar_end": 1,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 101,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 11,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 217
+    },
+    "SCMO_0045|parent": {
+      "pit_signal_before_entry_ok": 0,
+      "pit_basket_not_future_ok": 0,
+      "pit_rank_not_future_ok": 0,
+      "reviews_past_calendar_end": 0,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 0,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 64,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 228
+    },
+    "SCMO_0045|production_v2": {
+      "pit_signal_before_entry_ok": 0,
+      "pit_basket_not_future_ok": 0,
+      "pit_rank_not_future_ok": 0,
+      "reviews_past_calendar_end": 0,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 0,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 59,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 223
+    },
+    "SCMO_0045|sleeve": {
+      "pit_signal_before_entry_ok": 250,
+      "pit_basket_not_future_ok": 250,
+      "pit_rank_not_future_ok": 250,
+      "reviews_past_calendar_end": 1,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 75,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 54,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 209
+    },
+    "SCMO_0045|rotate": {
+      "pit_signal_before_entry_ok": 250,
+      "pit_basket_not_future_ok": 250,
+      "pit_rank_not_future_ok": 250,
+      "reviews_past_calendar_end": 1,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 75,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 54,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 209
+    },
+    "SCMO_0045|sleeve_n100gate": {
+      "pit_signal_before_entry_ok": 250,
+      "pit_basket_not_future_ok": 250,
+      "pit_rank_not_future_ok": 250,
+      "reviews_past_calendar_end": 1,
+      "reviews_no_parent_basket": 0,
+      "reviews_no_rank_snapshot": 0,
+      "reviews_empty_basket": 0,
+      "reviews_fully_defensive": 101,
+      "signal_fallback_rows": 0,
+      "target_rows_no_price": 49,
+      "entries_nothing_fillable": 0,
+      "reviews_no_trade": 216
+    }
+  },
+  "price_coverage": {
+    "tickers_requested": 478,
+    "tickers_priced": 463,
+    "tickers_unpriced": 15,
+    "unpriced_tickers": [
+      "ADHUNIK",
+      "EQUITAS",
+      "GDL",
+      "JMCPROJECT",
+      "LAKSHVILAS",
+      "METALFORGE",
+      "MINDTREE",
+      "NAN",
+      "PRABHAT",
+      "SHRIPISTONS",
+      "SHRIRAMCIT",
+      "SINTEX",
+      "SRIPIPES",
+      "TALWALKARS",
+      "TATASTLLP"
+    ],
+    "in_window_impact": {
+      "SCMO_0003": {
+        "tickers": [
+          "SHRIPISTONS"
+        ],
+        "holding_rows": 4,
+        "rebalances_affected": [
+          "2025-09-03",
+          "2025-12-03",
+          "2026-03-17",
+          "2026-06-15"
+        ],
+        "weight_affected": 0.26351538462999996
+      },
+      "SCMO_0010": {
+        "tickers": [
+          "EQUITAS",
+          "SHRIRAMCIT"
+        ],
+        "holding_rows": 2,
+        "rebalances_affected": [
+          "2021-12-16"
+        ],
+        "weight_affected": 0.13333333334
+      },
+      "SCMO_0029": {
+        "tickers": [
+          "NAN"
+        ],
+        "holding_rows": 1,
+        "rebalances_affected": [
+          "2025-06-03"
+        ],
+        "weight_affected": 0.07416666667
+      }
+    },
+    "note": "EQUITAS (delisted 2023-02-06) and SHRIRAMCIT (delisted 2022-11-30) are pre-merger entities with no rows in merged_historical_data_with_rics and no successor mapping in symbology_changes. Their weight is renormalised across the remaining names at that rebalance. This is a survivorship gap in the price table, not a modelling choice."
+  }
+}

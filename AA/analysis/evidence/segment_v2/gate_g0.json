@@ -1,0 +1,12 @@
+{
+  "gate": "G0",
+  "rule": "|CAGR(harness parent) - CAGR(published parent)| <= 1.00 pp/yr on all 4 books",
+  "per_book_gap_pp": {
+    "SCMO_0042": -0.9635,
+    "SCMO_0043": -0.1889,
+    "SCMO_0044": -0.9055,
+    "SCMO_0045": -2.8788
+  },
+  "passed": false,
+  "diagnosis": "No split/bonus artefacts: no held name moves beyond +/-25% in a day. On a common calendar the gap splits in two. (1) Index convention: the published index moves to the new basket on availableDate with its own execution prices, and the day's return is attributed differently depending on the convention (+/-2-3 pp/yr swing across conventions tested; no single one fits all four books). About half to two-thirds of the published-minus-replica gap sits on the ~39 rebalance sessions. It cannot be reproduced without the platform's fills. (2) Execution cadence: the harness picks up a new parent basket at the next Friday review and fills on the next session, exactly like the live AA books (which execute on Mondays after the review, and in 2022-23 often weeks later). That lag is a real cost that every simulated strategy shares; it is not a harness error."
+}

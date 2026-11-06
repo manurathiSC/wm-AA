@@ -1,0 +1,78 @@
+live window done
+2014-21 done
+gold signal: MAUc1 vs GOLDBEES agree on 493 of 598 reviews
+GOLDBEES fills changed by de-spiking: 552 of 3019 days
+                             period        aa                                                     strategy   cagr  max_dd_daily  max_dd_friday  calmar  avg_equity_weight  switches_equity_sleeve  sleeve_resplits
+            live 2021-11 -> 2026-08 SCMO_0042    FINAL: triple + 80/20 gold-timed sleeve (weekly re-check) 0.2745       -0.2038        -0.1440  1.3468             0.4869                     9.0              5.0
+            live 2021-11 -> 2026-08 SCMO_0042          variant: triple + 80/20 split fixed at sleeve entry 0.3073       -0.2125        -0.1440  1.4456             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0042 variant: final rule with the GOLDBEES gold signal (previous) 0.2813       -0.2125        -0.1440  1.3237             0.4869                     9.0              3.0
+            live 2021-11 -> 2026-08 SCMO_0042                                  triple + fixed 50/50 sleeve 0.2637       -0.1897        -0.1440  1.3903             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0042           triple + fixed 67% gold sleeve (same average gold) 0.2927       -0.1897        -0.1440  1.5432             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0042                                     triple + all-cash sleeve 0.1748       -0.1897        -0.1452  0.9214             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0042                       current rule (FS>=0.60) + 50/50 sleeve 0.1751       -0.2794        -0.2771  0.6266             0.5687                    12.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0042                                          parent (no overlay) 0.1316       -0.3195        -0.2908  0.4120             0.9983                     0.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0043    FINAL: triple + 80/20 gold-timed sleeve (weekly re-check) 0.2216       -0.2038        -0.1293  1.0870             0.4869                     9.0              5.0
+            live 2021-11 -> 2026-08 SCMO_0043          variant: triple + 80/20 split fixed at sleeve entry 0.2529       -0.2125        -0.1029  1.1901             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0043 variant: final rule with the GOLDBEES gold signal (previous) 0.2281       -0.2125        -0.1162  1.0732             0.4869                     9.0              3.0
+            live 2021-11 -> 2026-08 SCMO_0043                                  triple + fixed 50/50 sleeve 0.2112       -0.1522        -0.1076  1.3877             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0043           triple + fixed 67% gold sleeve (same average gold) 0.2390       -0.1885        -0.1127  1.2679             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0043                                     triple + all-cash sleeve 0.1260       -0.1151        -0.1029  1.0943             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0043                       current rule (FS>=0.60) + 50/50 sleeve 0.1533       -0.2666        -0.2641  0.5749             0.5687                    12.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0043                                          parent (no overlay) 0.0613       -0.2907        -0.2686  0.2109             0.9983                     0.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0044    FINAL: triple + 80/20 gold-timed sleeve (weekly re-check) 0.2928       -0.2146        -0.1223  1.3643             0.4869                     9.0              5.0
+            live 2021-11 -> 2026-08 SCMO_0044          variant: triple + 80/20 split fixed at sleeve entry 0.3260       -0.2125        -0.0915  1.5337             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0044 variant: final rule with the GOLDBEES gold signal (previous) 0.2997       -0.2125        -0.0915  1.4100             0.4869                     9.0              3.0
+            live 2021-11 -> 2026-08 SCMO_0044                                  triple + fixed 50/50 sleeve 0.2818       -0.1522        -0.0914  1.8516             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0044           triple + fixed 67% gold sleeve (same average gold) 0.3112       -0.1885        -0.0914  1.6511             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0044                                     triple + all-cash sleeve 0.1916       -0.1061        -0.0914  1.8061             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0044                       current rule (FS>=0.60) + 50/50 sleeve 0.1925       -0.2254        -0.2106  0.8541             0.6403                    14.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0044                                          parent (no overlay) 0.1927       -0.2837        -0.2594  0.6792             0.9983                     0.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0045    FINAL: triple + 80/20 gold-timed sleeve (weekly re-check) 0.2752       -0.2038        -0.1192  1.3500             0.4869                     9.0              5.0
+            live 2021-11 -> 2026-08 SCMO_0045          variant: triple + 80/20 split fixed at sleeve entry 0.3079       -0.2125        -0.1158  1.4488             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0045 variant: final rule with the GOLDBEES gold signal (previous) 0.2820       -0.2125        -0.1158  1.3268             0.4869                     9.0              3.0
+            live 2021-11 -> 2026-08 SCMO_0045                                  triple + fixed 50/50 sleeve 0.2644       -0.1522        -0.1158  1.7370             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0045           triple + fixed 67% gold sleeve (same average gold) 0.2934       -0.1885        -0.1158  1.5564             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0045                                     triple + all-cash sleeve 0.1754       -0.1323        -0.1158  1.3261             0.4869                     9.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0045                       current rule (FS>=0.60) + 50/50 sleeve 0.1376       -0.2241        -0.2193  0.6139             0.6108                    12.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0045                                          parent (no overlay) 0.1604       -0.3126        -0.2992  0.5130             0.9983                     0.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0042    FINAL: triple + 80/20 gold-timed sleeve (weekly re-check) 0.2404       -0.2166        -0.2073  1.1099             0.4676                    22.0             11.0
+before the books 2014-07 -> 2021-10 SCMO_0042          variant: triple + 80/20 split fixed at sleeve entry 0.2354       -0.2409        -0.2103  0.9769             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0042 variant: final rule with the GOLDBEES gold signal (previous) 0.2376       -0.2088        -0.1994  1.1378             0.4676                    22.0              9.0
+before the books 2014-07 -> 2021-10 SCMO_0042                                  triple + fixed 50/50 sleeve 0.2294       -0.2130        -0.2035  1.0766             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0042           triple + fixed 61% gold sleeve (same average gold) 0.2318       -0.2164        -0.2064  1.0712             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0042                                     triple + all-cash sleeve 0.2173       -0.2166        -0.2080  1.0032             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0042                       current rule (FS>=0.60) + 50/50 sleeve 0.2366       -0.2505        -0.2448  0.9448             0.5473                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0042                                          parent (no overlay) 0.2931       -0.6706        -0.6515  0.4370             0.9967                     0.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0043    FINAL: triple + 80/20 gold-timed sleeve (weekly re-check) 0.1161       -0.2109        -0.2103  0.5507             0.4676                    22.0             11.0
+before the books 2014-07 -> 2021-10 SCMO_0043          variant: triple + 80/20 split fixed at sleeve entry 0.1116       -0.2125        -0.1903  0.5253             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0043 variant: final rule with the GOLDBEES gold signal (previous) 0.1137       -0.2081        -0.2068  0.5461             0.4676                    22.0              9.0
+before the books 2014-07 -> 2021-10 SCMO_0043                                  triple + fixed 50/50 sleeve 0.1062       -0.1942        -0.1824  0.5469             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0043           triple + fixed 61% gold sleeve (same average gold) 0.1084       -0.1994        -0.1975  0.5436             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0043                                     triple + all-cash sleeve 0.0954       -0.1959        -0.1862  0.4871             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0043                       current rule (FS>=0.60) + 50/50 sleeve 0.1218       -0.3906        -0.3572  0.3118             0.5778                    24.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0043                                          parent (no overlay) 0.1771       -0.6018        -0.5617  0.2942             0.9967                     0.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0044    FINAL: triple + 80/20 gold-timed sleeve (weekly re-check) 0.1898       -0.2673        -0.2595  0.7103             0.4676                    22.0             11.0
+before the books 2014-07 -> 2021-10 SCMO_0044          variant: triple + 80/20 split fixed at sleeve entry 0.1850       -0.2671        -0.2593  0.6926             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0044 variant: final rule with the GOLDBEES gold signal (previous) 0.1872       -0.2600        -0.2521  0.7200             0.4676                    22.0              9.0
+before the books 2014-07 -> 2021-10 SCMO_0044                                  triple + fixed 50/50 sleeve 0.1793       -0.2644        -0.2559  0.6780             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0044           triple + fixed 61% gold sleeve (same average gold) 0.1816       -0.2673        -0.2586  0.6792             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0044                                     triple + all-cash sleeve 0.1677       -0.2540        -0.2444  0.6604             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0044                       current rule (FS>=0.60) + 50/50 sleeve 0.1936       -0.2636        -0.2581  0.7346             0.5473                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0044                                          parent (no overlay) 0.2758       -0.6290        -0.5838  0.4384             0.9967                     0.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0045    FINAL: triple + 80/20 gold-timed sleeve (weekly re-check) 0.1879       -0.2571        -0.2493  0.7307             0.4676                    22.0             11.0
+before the books 2014-07 -> 2021-10 SCMO_0045          variant: triple + 80/20 split fixed at sleeve entry 0.1831       -0.2635        -0.2558  0.6948             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0045 variant: final rule with the GOLDBEES gold signal (previous) 0.1852       -0.2614        -0.2536  0.7088             0.4676                    22.0              9.0
+before the books 2014-07 -> 2021-10 SCMO_0045                                  triple + fixed 50/50 sleeve 0.1773       -0.2533        -0.2455  0.7000             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0045           triple + fixed 61% gold sleeve (same average gold) 0.1796       -0.2571        -0.2493  0.6986             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0045                                     triple + all-cash sleeve 0.1658       -0.2400        -0.2314  0.6909             0.4676                    22.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0045                       current rule (FS>=0.60) + 50/50 sleeve 0.1689       -0.2771        -0.2648  0.6093             0.5523                    24.0              0.0
+before the books 2014-07 -> 2021-10 SCMO_0045                                          parent (no overlay) 0.2683       -0.4469        -0.3977  0.6005             0.9967                     0.0              0.0
+            live 2021-11 -> 2026-08 SCMO_0042                                         published parent NAV 0.1461       -0.3188        -0.2903  0.4584                NaN                     NaN              NaN
+            live 2021-11 -> 2026-08 SCMO_0042                                 published AA NAV (as traded) 0.2163       -0.2005        -0.1931  1.0788                NaN                     NaN              NaN
+            live 2021-11 -> 2026-08 SCMO_0043                                         published parent NAV 0.0664       -0.2729        -0.2536  0.2433                NaN                     NaN              NaN
+            live 2021-11 -> 2026-08 SCMO_0043                                 published AA NAV (as traded) 0.1428       -0.2346        -0.2287  0.6086                NaN                     NaN              NaN
+            live 2021-11 -> 2026-08 SCMO_0044                                         published parent NAV 0.2058       -0.2756        -0.2429  0.7468                NaN                     NaN              NaN
+            live 2021-11 -> 2026-08 SCMO_0044                                 published AA NAV (as traded) 0.1522       -0.1885        -0.1725  0.8071                NaN                     NaN              NaN
+            live 2021-11 -> 2026-08 SCMO_0045                                         published parent NAV 0.1933       -0.2894        -0.2891  0.6679                NaN                     NaN              NaN
+            live 2021-11 -> 2026-08 SCMO_0045                                 published AA NAV (as traded) 0.1507       -0.1964        -0.1941  0.7677                NaN                     NaN              NaN
+done stpy -> C:\Users\manur\Repos\wm-research\AA\analysis\evidence\final_strategy\mauc1\user_weekly_check\impact\stpy

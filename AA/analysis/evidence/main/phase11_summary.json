@@ -1,0 +1,597 @@
+{
+  "churn": [
+    {
+      "index_name": "NIFTY 100",
+      "snapshot": "2026-04-09",
+      "n": 100,
+      "added": NaN,
+      "removed": NaN
+    },
+    {
+      "index_name": "NIFTY 100",
+      "snapshot": "2026-05-04",
+      "n": 100,
+      "added": 0.0,
+      "removed": 0.0
+    },
+    {
+      "index_name": "NIFTY 100",
+      "snapshot": "2026-06-05",
+      "n": 100,
+      "added": 0.0,
+      "removed": 0.0
+    },
+    {
+      "index_name": "NIFTY 100",
+      "snapshot": "2026-07-03",
+      "n": 100,
+      "added": 0.0,
+      "removed": 0.0
+    },
+    {
+      "index_name": "NIFTY 100",
+      "snapshot": "2026-08-01",
+      "n": 100,
+      "added": 0.0,
+      "removed": 0.0
+    },
+    {
+      "index_name": "NIFTY MICROCAP 250",
+      "snapshot": "2026-04-09",
+      "n": 250,
+      "added": NaN,
+      "removed": NaN
+    },
+    {
+      "index_name": "NIFTY MICROCAP 250",
+      "snapshot": "2026-05-04",
+      "n": 250,
+      "added": 0.0,
+      "removed": 0.0
+    },
+    {
+      "index_name": "NIFTY MICROCAP 250",
+      "snapshot": "2026-06-05",
+      "n": 250,
+      "added": 2.0,
+      "removed": 2.0
+    },
+    {
+      "index_name": "NIFTY MICROCAP 250",
+      "snapshot": "2026-07-03",
+      "n": 250,
+      "added": 0.0,
+      "removed": 0.0
+    },
+    {
+      "index_name": "NIFTY MICROCAP 250",
+      "snapshot": "2026-08-01",
+      "n": 250,
+      "added": 1.0,
+      "removed": 1.0
+    },
+    {
+      "index_name": "NIFTY MIDCAP 150",
+      "snapshot": "2026-04-09",
+      "n": 150,
+      "added": NaN,
+      "removed": NaN
+    },
+    {
+      "index_name": "NIFTY MIDCAP 150",
+      "snapshot": "2026-05-04",
+      "n": 150,
+      "added": 0.0,
+      "removed": 0.0
+    },
+    {
+      "index_name": "NIFTY MIDCAP 150",
+      "snapshot": "2026-06-05",
+      "n": 150,
+      "added": 0.0,
+      "removed": 0.0
+    },
+    {
+      "index_name": "NIFTY MIDCAP 150",
+      "snapshot": "2026-07-03",
+      "n": 150,
+      "added": 0.0,
+      "removed": 0.0
+    },
+    {
+      "index_name": "NIFTY MIDCAP 150",
+      "snapshot": "2026-08-01",
+      "n": 150,
+      "added": 0.0,
+      "removed": 0.0
+    },
+    {
+      "index_name": "NIFTY SMALLCAP 250",
+      "snapshot": "2026-04-09",
+      "n": 250,
+      "added": NaN,
+      "removed": NaN
+    },
+    {
+      "index_name": "NIFTY SMALLCAP 250",
+      "snapshot": "2026-05-04",
+      "n": 250,
+      "added": 1.0,
+      "removed": 1.0
+    },
+    {
+      "index_name": "NIFTY SMALLCAP 250",
+      "snapshot": "2026-06-05",
+      "n": 250,
+      "added": 1.0,
+      "removed": 1.0
+    },
+    {
+      "index_name": "NIFTY SMALLCAP 250",
+      "snapshot": "2026-07-03",
+      "n": 250,
+      "added": 0.0,
+      "removed": 0.0
+    },
+    {
+      "index_name": "NIFTY SMALLCAP 250",
+      "snapshot": "2026-08-01",
+      "n": 250,
+      "added": 1.0,
+      "removed": 1.0
+    }
+  ],
+  "holdings": [
+    {
+      "parent": "0003",
+      "year": 2021,
+      "holdings": 9,
+      "unmapped_share": 0.3333333333333333,
+      "Large Cap": 0.0,
+      "Mid Cap": 0.16666666666666666,
+      "Small Cap": 0.3333333333333333,
+      "Micro Cap": 0.5
+    },
+    {
+      "parent": "0003",
+      "year": 2022,
+      "holdings": 29,
+      "unmapped_share": 0.2413793103448276,
+      "Large Cap": 0.045454545454545456,
+      "Mid Cap": 0.22727272727272727,
+      "Small Cap": 0.2727272727272727,
+      "Micro Cap": 0.45454545454545453
+    },
+    {
+      "parent": "0003",
+      "year": 2023,
+      "holdings": 32,
+      "unmapped_share": 0.125,
+      "Large Cap": 0.0,
+      "Mid Cap": 0.17857142857142858,
+      "Small Cap": 0.32142857142857145,
+      "Micro Cap": 0.5
+    },
+    {
+      "parent": "0003",
+      "year": 2024,
+      "holdings": 60,
+      "unmapped_share": 0.016666666666666666,
+      "Large Cap": 0.05084745762711865,
+      "Mid Cap": 0.3050847457627119,
+      "Small Cap": 0.423728813559322,
+      "Micro Cap": 0.22033898305084745
+    },
+    {
+      "parent": "0003",
+      "year": 2025,
+      "holdings": 60,
+      "unmapped_share": 0.06666666666666667,
+      "Large Cap": 0.17857142857142858,
+      "Mid Cap": 0.25,
+      "Small Cap": 0.2857142857142857,
+      "Micro Cap": 0.2857142857142857
+    },
+    {
+      "parent": "0003",
+      "year": 2026,
+      "holdings": 30,
+      "unmapped_share": 0.13333333333333333,
+      "Large Cap": 0.07692307692307693,
+      "Mid Cap": 0.15384615384615385,
+      "Small Cap": 0.38461538461538464,
+      "Micro Cap": 0.38461538461538464
+    },
+    {
+      "parent": "0003",
+      "year": 0,
+      "holdings": 220,
+      "unmapped_share": 0.10454545454545454,
+      "Large Cap": 0.08121827411167512,
+      "Mid Cap": 0.23857868020304568,
+      "Small Cap": 0.34517766497461927,
+      "Micro Cap": 0.3350253807106599
+    },
+    {
+      "parent": "0007",
+      "year": 2021,
+      "holdings": 11,
+      "unmapped_share": 0.36363636363636365,
+      "Large Cap": 0.0,
+      "Mid Cap": 0.2857142857142857,
+      "Small Cap": 0.14285714285714285,
+      "Micro Cap": 0.5714285714285714
+    },
+    {
+      "parent": "0007",
+      "year": 2022,
+      "holdings": 54,
+      "unmapped_share": 0.25925925925925924,
+      "Large Cap": 0.0,
+      "Mid Cap": 0.125,
+      "Small Cap": 0.6,
+      "Micro Cap": 0.275
+    },
+    {
+      "parent": "0007",
+      "year": 2023,
+      "holdings": 56,
+      "unmapped_share": 0.21428571428571427,
+      "Large Cap": 0.0,
+      "Mid Cap": 0.06818181818181818,
+      "Small Cap": 0.5681818181818182,
+      "Micro Cap": 0.36363636363636365
+    },
+    {
+      "parent": "0007",
+      "year": 2024,
+      "holdings": 46,
+      "unmapped_share": 0.08695652173913043,
+      "Large Cap": 0.0,
+      "Mid Cap": 0.16666666666666666,
+      "Small Cap": 0.47619047619047616,
+      "Micro Cap": 0.35714285714285715
+    },
+    {
+      "parent": "0007",
+      "year": 2025,
+      "holdings": 40,
+      "unmapped_share": 0.275,
+      "Large Cap": 0.0,
+      "Mid Cap": 0.13793103448275862,
+      "Small Cap": 0.6896551724137931,
+      "Micro Cap": 0.1724137931034483
+    },
+    {
+      "parent": "0007",
+      "year": 2026,
+      "holdings": 22,
+      "unmapped_share": 0.045454545454545456,
+      "Large Cap": 0.0,
+      "Mid Cap": 0.19047619047619047,
+      "Small Cap": 0.5238095238095238,
+      "Micro Cap": 0.2857142857142857
+    },
+    {
+      "parent": "0007",
+      "year": 0,
+      "holdings": 229,
+      "unmapped_share": 0.20087336244541484,
+      "Large Cap": 0.0,
+      "Mid Cap": 0.1366120218579235,
+      "Small Cap": 0.5519125683060109,
+      "Micro Cap": 0.3114754098360656
+    },
+    {
+      "parent": "0010",
+      "year": 2021,
+      "holdings": 15,
+      "unmapped_share": 0.2,
+      "Large Cap": 0.08333333333333333,
+      "Mid Cap": 0.08333333333333333,
+      "Small Cap": 0.6666666666666666,
+      "Micro Cap": 0.16666666666666666
+    },
+    {
+      "parent": "0010",
+      "year": 2022,
+      "holdings": 60,
+      "unmapped_share": 0.016666666666666666,
+      "Large Cap": 0.3728813559322034,
+      "Mid Cap": 0.2033898305084746,
+      "Small Cap": 0.2542372881355932,
+      "Micro Cap": 0.1694915254237288
+    },
+    {
+      "parent": "0010",
+      "year": 2023,
+      "holdings": 60,
+      "unmapped_share": 0.08333333333333333,
+      "Large Cap": 0.2727272727272727,
+      "Mid Cap": 0.14545454545454545,
+      "Small Cap": 0.41818181818181815,
+      "Micro Cap": 0.16363636363636364
+    },
+    {
+      "parent": "0010",
+      "year": 2024,
+      "holdings": 60,
+      "unmapped_share": 0.0,
+      "Large Cap": 0.35,
+      "Mid Cap": 0.3,
+      "Small Cap": 0.2833333333333333,
+      "Micro Cap": 0.06666666666666667
+    },
+    {
+      "parent": "0010",
+      "year": 2025,
+      "holdings": 60,
+      "unmapped_share": 0.0,
+      "Large Cap": 0.45,
+      "Mid Cap": 0.18333333333333332,
+      "Small Cap": 0.35,
+      "Micro Cap": 0.016666666666666666
+    },
+    {
+      "parent": "0010",
+      "year": 2026,
+      "holdings": 30,
+      "unmapped_share": 0.0,
+      "Large Cap": 0.2,
+      "Mid Cap": 0.36666666666666664,
+      "Small Cap": 0.36666666666666664,
+      "Micro Cap": 0.06666666666666667
+    },
+    {
+      "parent": "0010",
+      "year": 0,
+      "holdings": 285,
+      "unmapped_share": 0.031578947368421054,
+      "Large Cap": 0.3333333333333333,
+      "Mid Cap": 0.2210144927536232,
+      "Small Cap": 0.3442028985507246,
+      "Micro Cap": 0.10144927536231885
+    },
+    {
+      "parent": "0029",
+      "year": 2021,
+      "holdings": 10,
+      "unmapped_share": 0.2,
+      "Large Cap": 0.125,
+      "Mid Cap": 0.625,
+      "Small Cap": 0.0,
+      "Micro Cap": 0.25
+    },
+    {
+      "parent": "0029",
+      "year": 2022,
+      "holdings": 47,
+      "unmapped_share": 0.0425531914893617,
+      "Large Cap": 0.3333333333333333,
+      "Mid Cap": 0.35555555555555557,
+      "Small Cap": 0.2,
+      "Micro Cap": 0.1111111111111111
+    },
+    {
+      "parent": "0029",
+      "year": 2023,
+      "holdings": 48,
+      "unmapped_share": 0.041666666666666664,
+      "Large Cap": 0.32608695652173914,
+      "Mid Cap": 0.10869565217391304,
+      "Small Cap": 0.43478260869565216,
+      "Micro Cap": 0.13043478260869565
+    },
+    {
+      "parent": "0029",
+      "year": 2024,
+      "holdings": 51,
+      "unmapped_share": 0.0,
+      "Large Cap": 0.2549019607843137,
+      "Mid Cap": 0.27450980392156865,
+      "Small Cap": 0.3333333333333333,
+      "Micro Cap": 0.13725490196078433
+    },
+    {
+      "parent": "0029",
+      "year": 2025,
+      "holdings": 52,
+      "unmapped_share": 0.019230769230769232,
+      "Large Cap": 0.45098039215686275,
+      "Mid Cap": 0.21568627450980393,
+      "Small Cap": 0.23529411764705882,
+      "Micro Cap": 0.09803921568627451
+    },
+    {
+      "parent": "0029",
+      "year": 2026,
+      "holdings": 26,
+      "unmapped_share": 0.0,
+      "Large Cap": 0.38461538461538464,
+      "Mid Cap": 0.23076923076923078,
+      "Small Cap": 0.38461538461538464,
+      "Micro Cap": 0.0
+    },
+    {
+      "parent": "0029",
+      "year": 0,
+      "holdings": 234,
+      "unmapped_share": 0.029914529914529916,
+      "Large Cap": 0.3392070484581498,
+      "Mid Cap": 0.2511013215859031,
+      "Small Cap": 0.29955947136563876,
+      "Micro Cap": 0.11013215859030837
+    }
+  ],
+  "regression": [
+    {
+      "parent": "0003",
+      "spec": "3-factor",
+      "r_squared": 0.7116041980455414,
+      "sessions": 1185,
+      "nifty100": 0.0,
+      "midcap150": 0.26864843280145584,
+      "smallcap250": 0.7313515671985441,
+      "microcap250": NaN,
+      "top_factor": "smallcap250"
+    },
+    {
+      "parent": "0003",
+      "spec": "4-factor",
+      "r_squared": 0.7451368639963882,
+      "sessions": 1138,
+      "nifty100": 0.0,
+      "midcap150": 0.20161269296506565,
+      "smallcap250": 0.21540917591125838,
+      "microcap250": 0.582978131123676,
+      "top_factor": "microcap250"
+    },
+    {
+      "parent": "0007",
+      "spec": "3-factor",
+      "r_squared": 0.6943417251638614,
+      "sessions": 1185,
+      "nifty100": 0.17222504459232507,
+      "midcap150": 0.2193455864603137,
+      "smallcap250": 0.6084293689473612,
+      "microcap250": NaN,
+      "top_factor": "smallcap250"
+    },
+    {
+      "parent": "0007",
+      "spec": "4-factor",
+      "r_squared": 0.7063535799732339,
+      "sessions": 1138,
+      "nifty100": 0.2109097242931906,
+      "midcap150": 0.14370837281739338,
+      "smallcap250": 0.4282268198877115,
+      "microcap250": 0.21715508300170452,
+      "top_factor": "smallcap250"
+    },
+    {
+      "parent": "0010",
+      "spec": "3-factor",
+      "r_squared": 0.755536750754134,
+      "sessions": 1185,
+      "nifty100": 0.028331719422394708,
+      "midcap150": 0.551365624121253,
+      "smallcap250": 0.42030265645635223,
+      "microcap250": NaN,
+      "top_factor": "midcap150"
+    },
+    {
+      "parent": "0010",
+      "spec": "4-factor",
+      "r_squared": 0.7617512226669774,
+      "sessions": 1138,
+      "nifty100": 0.07231666580556079,
+      "midcap150": 0.49282508552054166,
+      "smallcap250": 0.1940427931509422,
+      "microcap250": 0.24081545552295536,
+      "top_factor": "midcap150"
+    },
+    {
+      "parent": "0029",
+      "spec": "3-factor",
+      "r_squared": 0.7204913647189826,
+      "sessions": 1185,
+      "nifty100": 0.005356871068164154,
+      "midcap150": 0.5431376655492807,
+      "smallcap250": 0.45150546338255515,
+      "microcap250": NaN,
+      "top_factor": "midcap150"
+    },
+    {
+      "parent": "0029",
+      "spec": "4-factor",
+      "r_squared": 0.725625682192319,
+      "sessions": 1138,
+      "nifty100": 0.04544236560284449,
+      "midcap150": 0.464387383493867,
+      "smallcap250": 0.2571077065804772,
+      "microcap250": 0.2330625443228113,
+      "top_factor": "midcap150"
+    }
+  ],
+  "highest_weight_by_basis": [
+    {
+      "parent": "0003",
+      "basis": "3-factor regression (published)",
+      "index_picked": "smallcap250",
+      "value_add_ann": 0.0574385067334982
+    },
+    {
+      "parent": "0003",
+      "basis": "4-factor regression (corrected)",
+      "index_picked": "microcap250",
+      "value_add_ann": 0.0406896670131659
+    },
+    {
+      "parent": "0003",
+      "basis": "holdings, 2026 snapshot",
+      "index_picked": "smallcap250",
+      "value_add_ann": 0.0574385067334982
+    },
+    {
+      "parent": "0007",
+      "basis": "3-factor regression (published)",
+      "index_picked": "smallcap250",
+      "value_add_ann": 0.1067092923904832
+    },
+    {
+      "parent": "0007",
+      "basis": "4-factor regression (corrected)",
+      "index_picked": "smallcap250",
+      "value_add_ann": 0.1067092923904832
+    },
+    {
+      "parent": "0007",
+      "basis": "holdings, 2026 snapshot",
+      "index_picked": "smallcap250",
+      "value_add_ann": 0.1067092923904832
+    },
+    {
+      "parent": "0010",
+      "basis": "3-factor regression (published)",
+      "index_picked": "midcap150",
+      "value_add_ann": 0.0006516229855646
+    },
+    {
+      "parent": "0010",
+      "basis": "4-factor regression (corrected)",
+      "index_picked": "midcap150",
+      "value_add_ann": 0.0006516229855646
+    },
+    {
+      "parent": "0010",
+      "basis": "holdings, 2026 snapshot",
+      "index_picked": "smallcap250",
+      "value_add_ann": 0.019629081201546
+    },
+    {
+      "parent": "0029",
+      "basis": "3-factor regression (published)",
+      "index_picked": "midcap150",
+      "value_add_ann": -0.0268309392243195
+    },
+    {
+      "parent": "0029",
+      "basis": "4-factor regression (corrected)",
+      "index_picked": "midcap150",
+      "value_add_ann": -0.0268309392243195
+    },
+    {
+      "parent": "0029",
+      "basis": "holdings, 2026 snapshot",
+      "index_picked": "nifty100",
+      "value_add_ann": 0.0114170079990245
+    }
+  ],
+  "snapshot_dates": [
+    "2026-04-09",
+    "2026-05-04",
+    "2026-06-05",
+    "2026-07-03",
+    "2026-08-01"
+  ]
+}

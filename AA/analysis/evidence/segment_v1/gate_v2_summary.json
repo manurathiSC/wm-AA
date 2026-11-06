@@ -1,0 +1,44 @@
+{
+  "rows": 92,
+  "testable_rows": 84,
+  "untestable_rows": 8,
+  "untestable_reasons": {
+    "no membership snapshot on or before this date": 8
+  },
+  "fridays": 22,
+  "books": 4,
+  "date_range": [
+    "2026-03-27",
+    "2026-08-21"
+  ],
+  "engine_fs_input_variants": [
+    {
+      "engine_fs_inputs": "Nifty100|MC100|SC100",
+      "min": "2026-03-27 00:00:00",
+      "max": "2026-04-17 00:00:00",
+      "size": 16
+    },
+    {
+      "engine_fs_inputs": "Nifty100|NiftyMidcap150|NiftySmallcap250",
+      "min": "2026-04-24 00:00:00",
+      "max": "2026-08-21 00:00:00",
+      "size": 76
+    }
+  ],
+  "basket_source_counts": {
+    "production_sheet": 80,
+    "rebalance_history": 12
+  },
+  "weeks_history_basket_disagreed": 6,
+  "signal_read_match": 1.0,
+  "mcat_dist_match": 1.0,
+  "fs_match": 1.0,
+  "equity_pct_match": 1.0,
+  "max_abs_err_lcap": 3.8461538461542766e-05,
+  "max_abs_err_mcap": 3.333333333332966e-05,
+  "max_abs_err_scap": 3.8461538461542766e-05,
+  "max_abs_err_fs": 0.0,
+  "tolerance": 0.0005,
+  "pit_classifier_mcat_dist_match": 0.6428571428571429,
+  "gate_passed": true
+}

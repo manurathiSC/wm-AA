@@ -1,0 +1,604 @@
+fri,st_label,Supertrend,ST,d_st,x_st,ST_u4,ST_u5,start_effect,candle_effect,candle_differs,tr_window_diff,sign_differs,st_category
+2015-03-13,2015-03-13,27086.8,27192.83333333333,-106.03333333332921,True,27086.833333333332,27086.833333333332,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2015-03-20,2015-03-20,27086.8,27192.83333333333,-106.03333333332921,True,27086.833333333332,27086.833333333332,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2015-03-27,2015-03-27,27086.8,27192.83333333333,-106.03333333332921,True,27086.833333333332,27086.833333333332,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2015-04-03,2015-04-01,27086.8,27192.83333333333,-106.03333333332921,True,27086.833333333332,27086.833333333332,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2015-04-10,2015-04-10,27086.8,27192.83333333333,-106.03333333332921,True,27086.833333333332,27086.833333333332,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2015-04-17,2015-04-17,27086.8,27192.83333333333,-106.03333333332921,True,27086.833333333332,27086.833333333332,False,True,True,True,False,composition: band held by the ratchet from an earlier week
+2015-04-24,2015-04-24,27086.8,27192.83333333333,-106.03333333332921,True,27086.833333333332,27086.833333333332,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2015-05-01,2015-04-30,27086.8,27192.83333333333,-106.03333333332921,True,27086.833333333332,27086.833333333332,False,True,True,True,False,composition: band held by the ratchet from an earlier week
+2015-05-08,2015-05-08,27086.8,27192.83333333333,-106.03333333332921,True,27086.833333333332,27086.833333333332,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2015-05-15,2015-05-15,25946.0,26056.36666666667,-110.3666666666686,True,25945.966666666667,25945.966666666667,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2015-05-22,2015-05-22,26086.2,26154.6,-68.39999999999782,True,26086.2,26086.2,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2015-05-29,2015-05-29,26086.2,26154.6,-68.39999999999782,True,26086.2,26086.2,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2015-06-05,2015-06-05,26086.2,26154.6,-68.39999999999782,True,26086.2,26086.2,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2015-06-12,2015-06-12,26086.2,26154.6,-68.39999999999782,True,26086.2,26086.2,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2015-06-19,2015-06-19,26086.2,26154.6,-68.39999999999782,True,26086.2,26086.2,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2015-06-26,2015-06-26,26086.2,26154.6,-68.39999999999782,True,26086.2,26086.2,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2015-07-03,2015-07-03,26086.2,26154.6,-68.39999999999782,True,26086.2,26086.2,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2015-07-10,2015-07-10,27324.3,27324.33333333333,-0.03333333332921029,False,27324.333333333332,27324.333333333332,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2015-07-17,2015-07-17,27034.0,27034.0,0.0,False,27034.0,27034.0,False,False,False,False,False,equal
+2015-07-24,2015-07-24,26497.4,26497.4,0.0,False,26497.4,26497.4,False,False,False,False,False,equal
+2015-07-31,2015-07-31,26151.3,26151.3,0.0,False,26151.3,26151.3,False,False,False,False,False,equal
+2015-08-07,2015-08-07,25983.8,25983.83333333333,-0.03333333332921029,False,25983.833333333332,25983.833333333332,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2015-08-14,2015-08-14,25983.8,25983.83333333333,-0.03333333332921029,False,25983.833333333332,25983.833333333332,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2015-08-21,2015-08-21,24542.0,24542.0,0.0,False,24542.0,24542.0,False,False,False,False,False,equal
+2015-08-28,2015-08-28,24542.0,24542.0,0.0,False,24542.0,24542.0,False,False,False,False,False,equal
+2015-09-04,2015-09-04,24542.0,24542.0,0.0,False,24542.0,24542.0,False,False,False,False,False,equal
+2015-09-11,2015-09-11,24542.0,24542.0,0.0,False,24542.0,24542.0,False,False,False,False,False,equal
+2015-09-18,2015-09-18,24542.0,24542.0,0.0,False,24542.0,24542.0,False,False,False,False,False,equal
+2015-09-25,2015-09-24,24992.2,24992.23333333333,-0.03333333332921029,False,24992.233333333334,24992.233333333334,False,False,True,False,False,rounding only (0 < |diff| <= 0.05)
+2015-10-02,2015-10-01,24992.2,24992.23333333333,-0.03333333332921029,False,24992.233333333334,24992.233333333334,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2015-10-09,2015-10-09,24992.2,24992.23333333333,-0.03333333332921029,False,24992.233333333334,24992.233333333334,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2015-10-16,2015-10-16,25219.9,25132.7,87.20000000000073,True,25219.9,25219.9,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2015-10-23,2015-10-23,25448.3,25390.16666666667,58.133333333327755,True,25448.3,25448.3,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2015-10-30,2015-10-30,25448.3,25390.16666666667,58.133333333327755,True,25448.3,25448.3,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2015-11-06,2015-11-06,25448.3,25390.16666666667,58.133333333327755,True,25448.3,25448.3,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2015-11-13,2015-11-13,26946.6,26924.3,22.299999999999272,True,26946.63333333333,26946.63333333333,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2015-11-20,2015-11-20,26839.0,26767.56666666667,71.43333333333067,True,26839.033333333333,26839.033333333333,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2015-11-27,2015-11-27,26464.4,26410.8,53.60000000000218,True,26464.4,26464.4,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2015-12-04,2015-12-04,26464.4,26410.8,53.60000000000218,True,26464.4,26464.4,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2015-12-11,2015-12-11,26464.4,26410.8,53.60000000000218,True,26464.4,26464.4,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2015-12-18,2015-12-18,26464.4,26410.8,53.60000000000218,True,26464.4,26464.4,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2015-12-25,2015-12-24,26464.4,26410.8,53.60000000000218,True,26464.4,26464.4,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2016-01-01,2016-01-01,26168.8,26168.76666666667,0.03333333332921029,False,26168.766666666666,26168.766666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-01-08,2016-01-08,26168.8,26168.76666666667,0.03333333332921029,False,26168.766666666666,26168.766666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-01-15,2016-01-15,26168.8,26168.76666666667,0.03333333332921029,False,26168.766666666666,26168.766666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-01-22,2016-01-22,26168.8,26168.76666666667,0.03333333332921029,False,26168.766666666666,26168.766666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-01-29,2016-01-29,24993.2,24993.16666666667,0.03333333332921029,False,24993.166666666668,24993.166666666668,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-02-05,2016-02-05,25376.7,25376.7,0.0,False,25376.7,25376.7,False,False,False,False,False,equal
+2016-02-12,2016-02-12,25920.6,25920.63333333333,-0.03333333333284827,False,25920.63333333333,25920.63333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-02-19,2016-02-19,26098.7,26098.7,0.0,False,26098.7,26098.7,False,False,False,False,False,equal
+2016-02-26,2016-02-26,26539.3,26539.3,0.0,False,26539.3,26539.3,False,False,False,False,False,equal
+2016-03-04,2016-03-04,26994.8,26994.83333333333,-0.03333333332921029,False,26994.833333333332,26994.833333333332,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-03-11,2016-03-11,27256.7,27256.73333333333,-0.03333333332921029,False,27256.733333333334,27256.733333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-03-18,2016-03-18,27317.3,27317.33333333333,-0.03333333332921029,False,27317.333333333332,27317.333333333332,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-03-25,2016-03-23,27317.3,27317.33333333333,-0.03333333332921029,False,27317.333333333332,27317.333333333332,False,False,True,True,False,rounding only (0 < |diff| <= 0.05)
+2016-04-01,2016-04-01,27317.3,27317.33333333333,-0.03333333332921029,False,27317.333333333332,27317.333333333332,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2016-04-08,2016-04-08,27317.3,27317.33333333333,-0.03333333332921029,False,27317.333333333332,27317.333333333332,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2016-04-15,2016-04-13,27317.3,27730.23333333333,-412.93333333333067,True,27317.333333333332,27317.333333333332,False,True,True,True,False,composition: band held by the ratchet from an earlier week
+2016-04-22,2016-04-22,27588.2,27779.4,-191.20000000000073,True,27588.2,27588.2,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2016-04-29,2016-04-29,27624.4,27779.4,-155.0,True,27624.4,27624.4,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2016-05-06,2016-05-06,28335.5,28427.0,-91.5,True,28335.533333333333,28335.533333333333,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2016-05-13,2016-05-13,28335.5,28427.0,-91.5,True,28335.533333333333,28335.533333333333,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2016-05-20,2016-05-20,28360.1,28427.0,-66.90000000000146,True,28360.13333333333,28360.13333333333,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2016-05-27,2016-05-27,28360.1,28427.0,-66.90000000000146,True,28360.13333333333,28360.13333333333,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2016-06-03,2016-06-03,28360.1,28427.0,-66.90000000000146,True,28360.13333333333,28360.13333333333,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2016-06-10,2016-06-10,28360.1,28427.0,-66.90000000000146,True,28360.13333333333,28360.13333333333,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2016-06-17,2016-06-17,28619.9,28619.9,0.0,False,28619.9,28619.9,False,False,False,False,False,equal
+2016-06-24,2016-06-24,28619.9,28619.9,0.0,False,28619.9,28619.9,False,False,False,False,False,equal
+2016-07-01,2016-07-01,29068.4,29068.43333333333,-0.03333333332921029,False,29068.433333333334,29068.433333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-07-08,2016-07-08,29529.4,29576.06666666667,-46.66666666666788,True,29529.4,29529.4,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2016-07-15,2016-07-15,29529.4,29576.06666666667,-46.66666666666788,True,29529.4,29529.4,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2016-07-22,2016-07-22,29529.4,29576.06666666667,-46.66666666666788,True,29529.4,29529.4,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2016-07-29,2016-07-29,29529.4,29576.06666666667,-46.66666666666788,True,29529.4,29529.4,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2016-08-05,2016-08-05,29529.4,29576.06666666667,-46.66666666666788,True,29529.4,29529.4,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2016-08-12,2016-08-12,29605.6,29605.56666666667,0.03333333332921029,False,29605.566666666666,29605.566666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-08-19,2016-08-19,30066.2,30066.2,0.0,False,30066.2,30066.2,False,False,False,False,False,equal
+2016-08-26,2016-08-26,30066.2,30066.2,0.0,False,30066.2,30066.2,False,False,False,False,False,equal
+2016-09-02,2016-09-02,30066.2,30066.2,0.0,False,30066.2,30066.2,False,False,False,False,False,equal
+2016-09-09,2016-09-09,30152.8,30155.3,-2.5,True,30152.8,30152.8,False,True,True,False,False,"composition: band reset this week, this week's high/low differ"
+2016-09-16,2016-09-16,30152.8,30155.3,-2.5,True,30152.8,30152.8,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2016-09-23,2016-09-23,30152.8,30155.3,-2.5,True,30152.8,30152.8,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2016-09-30,2016-09-30,30152.8,30155.3,-2.5,True,30152.8,30152.8,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2016-10-07,2016-10-07,31858.3,31858.26666666667,0.03333333332921029,False,31858.266666666666,31858.266666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-10-14,2016-10-14,31250.6,31250.63333333333,-0.03333333333284827,False,31250.63333333333,31250.63333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-10-21,2016-10-21,31235.0,31234.96666666667,0.03333333332921029,False,31234.966666666667,31234.966666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-10-28,2016-10-30,31144.9,31144.9,0.0,False,31144.9,31144.9,False,False,True,False,False,equal
+2016-11-04,2016-11-04,31144.9,31144.9,0.0,False,31144.9,31144.9,False,False,True,True,False,equal
+2016-11-11,2016-11-11,31144.9,31144.9,0.0,False,31144.9,31144.9,False,False,False,True,False,equal
+2016-11-18,2016-11-18,31144.9,31144.9,0.0,False,31144.9,31144.9,False,False,True,True,False,equal
+2016-11-25,2016-11-25,30959.8,30862.7,97.09999999999854,True,30959.766666666666,30959.766666666666,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2016-12-02,2016-12-02,30519.8,30452.63333333333,67.16666666666788,True,30519.833333333332,30519.833333333332,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2016-12-09,2016-12-09,30082.5,30045.2,37.29999999999927,True,30082.533333333333,30082.533333333333,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2016-12-16,2016-12-16,29088.9,29070.2,18.700000000000728,True,29088.86666666667,29088.86666666667,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2016-12-23,2016-12-23,28543.1,28543.13333333333,-0.03333333333284827,False,28543.13333333333,28543.13333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2016-12-30,2016-12-30,28543.1,28543.13333333333,-0.03333333333284827,False,28543.13333333333,28543.13333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2017-01-06,2017-01-06,28543.1,28543.13333333333,-0.03333333333284827,False,28543.13333333333,28543.13333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2017-01-13,2017-01-13,28543.1,28543.13333333333,-0.03333333333284827,False,28543.13333333333,28543.13333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2017-01-20,2017-01-20,27498.7,27498.7,0.0,False,27498.7,27498.7,False,False,False,False,False,equal
+2017-01-27,2017-01-27,27498.7,27498.7,0.0,False,27498.7,27498.7,False,False,False,False,False,equal
+2017-02-03,2017-02-03,27498.7,27498.7,0.0,False,27498.7,27498.7,False,False,False,False,False,equal
+2017-02-10,2017-02-10,27834.3,27834.3,0.0,False,27834.3,27834.3,False,False,False,False,False,equal
+2017-02-17,2017-02-17,27875.4,27875.43333333333,-0.03333333332921029,False,27875.433333333334,27875.433333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2017-02-24,2017-02-23,28108.3,28138.43333333333,-30.133333333331393,True,28108.266666666666,28108.266666666666,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2017-03-03,2017-03-03,28108.3,28138.43333333333,-30.133333333331393,True,28108.266666666666,28108.266666666666,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2017-03-10,2017-03-10,28108.3,28138.43333333333,-30.133333333331393,True,28108.266666666666,28108.266666666666,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2017-03-17,2017-03-17,28108.3,28138.43333333333,-30.133333333331393,True,28108.266666666666,28108.266666666666,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2017-03-24,2017-03-24,28108.3,28138.43333333333,-30.133333333331393,True,28108.266666666666,28108.266666666666,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2017-03-31,2017-03-31,28108.3,28138.43333333333,-30.133333333331393,True,28108.266666666666,28108.266666666666,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2017-04-07,2017-04-07,28108.3,28138.43333333333,-30.133333333331393,True,28108.266666666666,28108.266666666666,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2017-04-14,2017-04-13,28108.3,28138.43333333333,-30.133333333331393,True,28108.266666666666,28108.266666666666,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2017-04-21,2017-04-21,28260.9,28260.93333333333,-0.03333333332921029,False,28260.933333333334,28260.933333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2017-04-28,2017-04-28,28260.9,28260.93333333333,-0.03333333332921029,False,28260.933333333334,28260.933333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2017-05-05,2017-05-05,29713.8,29665.5,48.29999999999927,True,29713.766666666666,29713.766666666666,False,True,True,True,False,composition: band held by the ratchet from an earlier week
+2017-05-12,2017-05-12,29255.6,29244.36666666666,11.233333333337214,True,29255.566666666666,29255.566666666666,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2017-05-19,2017-05-19,29255.6,29244.36666666666,11.233333333337214,True,29255.566666666666,29255.566666666666,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2017-05-26,2017-05-26,29255.6,29244.36666666666,11.233333333337214,True,29255.566666666666,29255.566666666666,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2017-06-02,2017-06-02,29255.6,29244.36666666666,11.233333333337214,True,29255.566666666666,29255.566666666666,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2017-06-09,2017-06-09,29255.6,29244.36666666666,11.233333333337214,True,29255.566666666666,29255.566666666666,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2017-06-16,2017-06-16,29255.6,29244.36666666666,11.233333333337214,True,29255.566666666666,29255.566666666666,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2017-06-23,2017-06-23,29255.6,29244.36666666666,11.233333333337214,True,29255.566666666666,29255.566666666666,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2017-06-30,2017-06-30,29255.6,29244.36666666666,11.233333333337214,True,29255.566666666666,29255.566666666666,False,True,True,True,False,composition: band held by the ratchet from an earlier week
+2017-07-07,2017-07-07,29107.8,29078.5,29.299999999999272,True,29107.833333333332,29107.833333333332,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2017-07-14,2017-07-14,28840.4,28818.4,22.0,True,28840.4,28840.4,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2017-07-21,2017-07-21,28840.4,28818.4,22.0,True,28840.4,28840.4,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2017-07-28,2017-07-28,28840.4,28818.4,22.0,True,28840.4,28840.4,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2017-08-04,2017-08-04,28840.4,28818.4,22.0,True,28840.4,28840.4,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2017-08-11,2017-08-11,27629.9,27629.93333333333,-0.03333333332921029,False,27629.933333333334,27629.933333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2017-08-18,2017-08-18,27859.1,27859.1,0.0,False,27859.1,27859.1,False,False,False,False,False,equal
+2017-08-25,2017-08-24,27859.1,28110.33333333333,-251.23333333332994,True,27859.1,27859.1,False,True,True,True,False,composition: band held by the ratchet from an earlier week
+2017-09-01,2017-09-01,28183.9,28276.73333333333,-92.83333333332848,True,28183.933333333334,28183.933333333334,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2017-09-08,2017-09-08,28850.9,28918.23333333333,-67.33333333332848,True,28850.9,28850.9,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2017-09-15,2017-09-15,28850.9,28918.23333333333,-67.33333333332848,True,28850.9,28850.9,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2017-09-22,2017-09-22,28850.9,28918.23333333333,-67.33333333332848,True,28850.9,28850.9,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2017-09-29,2017-09-29,28850.9,28918.23333333333,-67.33333333332848,True,28850.9,28850.9,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2017-10-06,2017-10-06,28850.9,28918.23333333333,-67.33333333332848,True,28850.9,28850.9,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2017-10-13,2017-10-13,28942.9,28942.93333333333,-0.03333333332921029,False,28942.933333333334,28942.933333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2017-10-20,2017-10-19,28942.9,28942.93333333333,-0.03333333332921029,False,28942.933333333334,28942.933333333334,False,False,True,False,False,rounding only (0 < |diff| <= 0.05)
+2017-10-27,2017-10-27,28942.9,28942.93333333333,-0.03333333332921029,False,28942.933333333334,28942.933333333334,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2017-11-03,2017-11-03,28942.9,28942.93333333333,-0.03333333332921029,False,28942.933333333334,28942.933333333334,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2017-11-10,2017-11-10,28942.9,28942.93333333333,-0.03333333332921029,False,28942.933333333334,28942.933333333334,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2017-11-17,2017-11-17,28942.9,28942.93333333333,-0.03333333332921029,False,28942.933333333334,28942.933333333334,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2017-11-24,2017-11-24,28942.9,28942.93333333333,-0.03333333332921029,False,28942.933333333334,28942.933333333334,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2017-12-01,2017-12-01,28942.9,28942.93333333333,-0.03333333332921029,False,28942.933333333334,28942.933333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2017-12-08,2017-12-08,29976.0,29997.66666666667,-21.666666666671517,True,29976.033333333333,29976.033333333333,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2017-12-15,2017-12-15,29414.1,29414.06666666667,0.03333333332921029,False,29414.066666666666,29414.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2017-12-22,2017-12-22,29414.1,29414.06666666667,0.03333333332921029,False,29414.066666666666,29414.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2017-12-29,2017-12-29,29414.1,29414.06666666667,0.03333333332921029,False,29414.066666666666,29414.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2018-01-05,2018-01-05,29414.1,29414.06666666667,0.03333333332921029,False,29414.066666666666,29414.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2018-01-12,2018-01-12,28542.9,28542.9,0.0,False,28542.9,28542.9,False,False,False,False,False,equal
+2018-01-19,2018-01-19,28969.9,28969.86666666666,0.03333333334012423,False,28969.866666666665,28969.866666666665,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2018-01-26,2018-01-25,29097.2,29097.23333333333,-0.03333333332921029,False,29097.233333333334,29097.233333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2018-02-02,2018-02-02,29145.0,29145.0,0.0,False,29145.0,29145.0,False,False,False,False,False,equal
+2018-02-09,2018-02-09,29145.0,29145.0,0.0,False,29145.0,29145.0,False,False,False,False,False,equal
+2018-02-16,2018-02-16,29145.0,29145.0,0.0,False,29145.0,29145.0,False,False,False,False,False,equal
+2018-02-23,2018-02-23,29191.0,29190.96666666667,0.03333333332921029,False,29190.966666666667,29190.966666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2018-03-02,2018-03-01,29191.0,29190.96666666667,0.03333333332921029,False,29190.966666666667,29190.966666666667,False,False,True,False,False,rounding only (0 < |diff| <= 0.05)
+2018-03-09,2018-03-09,29418.0,29341.36666666666,76.63333333333867,True,29418.033333333333,29418.033333333333,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2018-03-16,2018-03-16,29426.0,29364.7,61.29999999999927,True,29426.033333333333,29426.033333333333,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2018-03-23,2018-03-23,29426.0,29364.7,61.29999999999927,True,29426.033333333333,29426.033333333333,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2018-03-30,2018-03-28,29491.2,29602.9,-111.70000000000073,True,29491.233333333334,29491.233333333334,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2018-04-06,2018-04-06,29491.2,29602.9,-111.70000000000073,True,29491.233333333334,29491.233333333334,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2018-04-13,2018-04-13,29642.8,29691.6,-48.79999999999927,True,29642.8,29642.8,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2018-04-20,2018-04-20,30043.2,30075.76666666667,-32.566666666669335,True,30043.233333333334,30043.233333333334,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2018-04-27,2018-04-27,30192.8,30209.06666666667,-16.266666666670062,True,30192.8,30192.8,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2018-05-04,2018-05-04,30192.8,30209.06666666667,-16.266666666670062,True,30192.8,30192.8,False,True,True,True,False,composition: band held by the ratchet from an earlier week
+2018-05-11,2018-05-11,30432.5,30439.46666666667,-6.96666666667079,True,30432.533333333333,30432.533333333333,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2018-05-18,2018-05-18,30432.5,30439.46666666667,-6.96666666667079,True,30432.533333333333,30432.533333333333,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2018-05-25,2018-05-25,30432.5,30439.46666666667,-6.96666666667079,True,30432.533333333333,30432.533333333333,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2018-06-01,2018-06-01,30432.5,30439.46666666667,-6.96666666667079,True,30432.533333333333,30432.533333333333,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2018-06-08,2018-06-08,30432.5,30439.46666666667,-6.96666666667079,True,30432.533333333333,30432.533333333333,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2018-06-15,2018-06-15,30432.5,30439.46666666667,-6.96666666667079,True,30432.533333333333,30432.533333333333,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2018-06-22,2018-06-22,30432.5,30439.46666666667,-6.96666666667079,True,30432.533333333333,30432.533333333333,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2018-06-29,2018-06-29,31620.7,31620.73333333333,-0.03333333332921029,False,31620.733333333334,31620.733333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2018-07-06,2018-07-06,31486.2,31486.23333333333,-0.03333333332921029,False,31486.233333333334,31486.233333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2018-07-13,2018-07-13,31486.2,31486.23333333333,-0.03333333332921029,False,31486.233333333334,31486.233333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2018-07-20,2018-07-20,31107.1,31107.1,0.0,False,31107.1,31107.1,False,False,False,False,False,equal
+2018-07-27,2018-07-27,30845.1,30845.06666666667,0.03333333332921029,False,30845.066666666666,30845.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2018-08-03,2018-08-03,30672.0,30671.96666666667,0.03333333332921029,False,30671.966666666667,30671.966666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2018-08-10,2018-08-10,30575.8,30575.83333333333,-0.03333333332921029,False,30575.833333333332,30575.833333333332,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2018-08-17,2018-08-17,30552.9,30552.9,0.0,False,30552.9,30552.9,False,False,False,False,False,equal
+2018-08-24,2018-08-24,30552.9,30552.9,0.0,False,30552.9,30552.9,False,False,False,False,False,equal
+2018-08-31,2018-08-31,30552.9,30552.9,0.0,False,30552.9,30552.9,False,False,False,False,False,equal
+2018-09-07,2018-09-07,30552.9,30552.9,0.0,False,30552.9,30552.9,False,False,False,False,False,equal
+2018-09-14,2018-09-14,30552.9,30552.9,0.0,False,30552.9,30552.9,False,False,False,False,False,equal
+2018-09-21,2018-09-21,29706.5,29706.5,0.0,False,29706.5,29706.5,False,False,False,False,False,equal
+2018-09-28,2018-09-28,29706.5,29706.5,0.0,False,29706.5,29706.5,False,False,False,False,False,equal
+2018-10-05,2018-10-05,29706.5,29706.5,0.0,False,29706.5,29706.5,False,False,False,False,False,equal
+2018-10-12,2018-10-12,30017.2,30017.2,0.0,False,30017.2,30017.2,False,False,False,False,False,equal
+2018-10-19,2018-10-19,30567.9,30567.93333333333,-0.03333333332921029,False,30567.933333333334,30567.933333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2018-10-26,2018-10-26,30704.9,30704.9,0.0,False,30704.9,30704.9,False,False,False,False,False,equal
+2018-11-02,2018-11-02,30704.9,30704.9,0.0,False,30704.9,30704.9,False,False,False,False,False,equal
+2018-11-09,2018-11-09,30704.9,30704.9,0.0,False,30704.9,30704.9,False,False,False,False,False,equal
+2018-11-16,2018-11-16,30704.9,30704.9,0.0,False,30704.9,30704.9,False,False,False,False,False,equal
+2018-11-23,2018-11-22,31997.1,31971.06666666667,26.03333333332921,True,31997.066666666666,31997.066666666666,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2018-11-30,2018-11-30,31618.9,31535.73333333333,83.16666666667152,True,31618.933333333334,31618.933333333334,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2018-12-07,2018-12-07,31618.9,29259.96666666667,2358.9333333333307,True,31618.933333333334,31618.933333333334,False,True,False,True,True,signal differs (ST on opposite bands)
+2018-12-14,2018-12-14,31618.9,30008.13333333334,1610.7666666666628,True,31618.933333333334,31618.933333333334,False,True,False,True,True,signal differs (ST on opposite bands)
+2018-12-21,2018-12-21,31618.9,30008.13333333334,1610.7666666666628,True,31618.933333333334,31618.933333333334,False,True,False,True,True,signal differs (ST on opposite bands)
+2018-12-28,2018-12-28,31618.9,30008.13333333334,1610.7666666666628,True,31618.933333333334,31618.933333333334,False,True,False,False,True,signal differs (ST on opposite bands)
+2019-01-04,2019-01-04,31618.9,30218.2,1400.7000000000007,True,31618.933333333334,31618.933333333334,False,True,False,False,True,signal differs (ST on opposite bands)
+2019-01-11,2019-01-11,30503.8,30503.76666666667,0.03333333332921029,False,30503.766666666666,30503.766666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-01-18,2019-01-18,31012.0,31011.96666666667,0.03333333332921029,False,31011.966666666667,31011.966666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-01-25,2019-01-25,31118.2,31118.16666666667,0.03333333332921029,False,31118.166666666668,31118.166666666668,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-02-01,2019-02-01,31472.9,31472.93333333333,-0.03333333332921029,False,31472.933333333334,31472.933333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-02-08,2019-02-08,31903.6,31903.56666666667,0.03333333332921029,False,31903.566666666666,31903.566666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-02-15,2019-02-15,31903.6,31903.56666666667,0.03333333332921029,False,31903.566666666666,31903.566666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-02-22,2019-02-22,32238.5,32238.5,0.0,False,32238.5,32238.5,False,False,False,False,False,equal
+2019-03-01,2019-03-01,32238.5,32238.5,0.0,False,32238.5,32238.5,False,False,False,False,False,equal
+2019-03-08,2019-03-08,33821.5,33760.5,61.0,True,33821.5,33821.5,False,True,True,False,False,"composition: band reset this week, this week's high/low differ"
+2019-03-15,2019-03-15,33549.8,33549.83333333334,-0.03333333334012423,False,33549.833333333336,33549.833333333336,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-03-22,2019-03-22,33284.6,33284.6,0.0,False,33284.6,33284.6,False,False,False,False,False,equal
+2019-03-29,2019-03-29,33284.6,33284.6,0.0,False,33284.6,33284.6,False,False,False,False,False,equal
+2019-04-05,2019-04-05,33284.6,33284.6,0.0,False,33284.6,33284.6,False,False,False,False,False,equal
+2019-04-12,2019-04-12,33284.6,33284.6,0.0,False,33284.6,33284.6,False,False,False,False,False,equal
+2019-04-19,2019-04-18,32945.0,32945.03333333333,-0.03333333333284827,False,32945.03333333333,32945.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-04-26,2019-04-26,32945.0,32945.03333333333,-0.03333333333284827,False,32945.03333333333,32945.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-05-03,2019-05-03,32823.0,32823.03333333333,-0.03333333333284827,False,32823.03333333333,32823.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-05-10,2019-05-10,32823.0,32823.03333333333,-0.03333333333284827,False,32823.03333333333,32823.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-05-17,2019-05-17,32823.0,32823.03333333333,-0.03333333333284827,False,32823.03333333333,32823.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-05-24,2019-05-24,32778.0,32778.03333333333,-0.03333333333284827,False,32778.03333333333,32778.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-05-31,2019-05-31,32778.0,32778.03333333333,-0.03333333333284827,False,32778.03333333333,32778.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-06-07,2019-06-07,31119.4,31119.4,0.0,False,31119.4,31119.4,False,False,False,False,False,equal
+2019-06-14,2019-06-14,31331.5,31331.53333333333,-0.03333333332921029,False,31331.533333333333,31331.533333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-06-21,2019-06-21,31543.0,31543.0,0.0,False,31543.0,31543.0,False,False,False,False,False,equal
+2019-06-28,2019-06-28,32362.8,32362.83333333333,-0.03333333332921029,False,32362.833333333332,32362.833333333332,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-07-05,2019-07-05,32362.8,32362.83333333333,-0.03333333332921029,False,32362.833333333332,32362.833333333332,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-07-12,2019-07-12,32535.0,32535.03333333333,-0.03333333332921029,False,32535.033333333333,32535.033333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-07-19,2019-07-19,33098.4,33098.43333333333,-0.03333333332557231,False,33098.433333333334,33098.433333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-07-26,2019-07-26,33423.0,33423.03333333333,-0.03333333333284827,False,33423.03333333333,33423.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-08-02,2019-08-02,33423.0,33423.03333333333,-0.03333333333284827,False,33423.03333333333,33423.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-08-09,2019-08-09,34083.5,34083.46666666667,0.03333333333284827,False,34083.46666666667,34083.46666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-08-16,2019-08-16,34793.8,34793.8,0.0,False,34793.8,34793.8,False,False,False,False,False,equal
+2019-08-23,2019-08-23,35100.7,35100.73333333334,-0.03333333334012423,False,35100.73333333334,35100.73333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-08-30,2019-08-30,36337.9,36337.86666666667,0.03333333333284827,False,36337.86666666667,36337.86666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-09-06,2019-09-06,36463.3,36463.3,0.0,False,36463.3,36463.3,False,False,False,False,False,equal
+2019-09-13,2019-09-13,36463.3,36463.3,0.0,False,36463.3,36463.3,False,False,False,False,False,equal
+2019-09-20,2019-09-20,36463.3,36463.3,0.0,False,36463.3,36463.3,False,False,False,False,False,equal
+2019-09-27,2019-09-27,36463.3,36463.3,0.0,False,36463.3,36463.3,False,False,False,False,False,equal
+2019-10-04,2019-10-04,36463.3,36463.3,0.0,False,36463.3,36463.3,False,False,False,False,False,equal
+2019-10-11,2019-10-11,36463.3,36463.3,0.0,False,36463.3,36463.3,False,False,True,True,False,equal
+2019-10-18,2019-10-18,36463.3,36463.3,0.0,False,36463.3,36463.3,False,False,False,True,False,equal
+2019-10-25,2019-10-27,36463.3,36463.3,0.0,False,36463.3,36463.3,False,False,True,True,False,equal
+2019-11-01,2019-11-01,36528.5,36535.2,-6.69999999999709,True,36528.53333333333,36528.53333333333,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2019-11-08,2019-11-08,36528.5,36535.2,-6.69999999999709,True,36528.53333333333,36528.53333333333,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2019-11-15,2019-11-15,36528.5,36535.2,-6.69999999999709,True,36528.53333333333,36528.53333333333,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2019-11-22,2019-11-22,36537.0,36537.03333333333,-0.03333333333284827,False,36537.03333333333,36537.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-11-29,2019-11-29,36537.0,36537.03333333333,-0.03333333333284827,False,36537.03333333333,36537.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-12-06,2019-12-06,36537.0,36537.03333333333,-0.03333333333284827,False,36537.03333333333,36537.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-12-13,2019-12-13,36537.0,36537.03333333333,-0.03333333333284827,False,36537.03333333333,36537.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-12-20,2019-12-20,36537.0,36537.03333333333,-0.03333333333284827,False,36537.03333333333,36537.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2019-12-27,2019-12-27,36823.8,36823.76666666667,0.03333333333284827,False,36823.76666666667,36823.76666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-01-03,2020-01-03,37552.8,37552.83333333334,-0.03333333334012423,False,37552.833333333336,37552.833333333336,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-01-10,2020-01-10,37989.8,37989.83333333334,-0.03333333334012423,False,37989.833333333336,37989.833333333336,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-01-17,2020-01-17,37989.8,37989.83333333334,-0.03333333334012423,False,37989.833333333336,37989.833333333336,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-01-24,2020-01-24,37995.4,37995.36666666667,0.03333333333284827,False,37995.36666666667,37995.36666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-01-31,2020-01-31,38564.6,38564.56666666667,0.03333333332557231,False,38564.566666666666,38564.566666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-02-07,2020-02-07,38564.6,38564.56666666667,0.03333333332557231,False,38564.566666666666,38564.566666666666,False,False,True,True,False,rounding only (0 < |diff| <= 0.05)
+2020-02-14,2020-02-14,38758.2,38889.93333333333,-131.73333333332994,True,38758.2,38758.2,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2020-02-21,2020-02-20,39087.8,39291.93333333333,-204.13333333332412,True,39087.8,39087.8,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2020-02-28,2020-02-28,39087.8,39381.36666666667,-293.5666666666657,True,39087.8,39087.8,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2020-03-06,2020-03-06,39087.8,39381.36666666667,-293.5666666666657,True,39087.8,39087.8,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2020-03-13,2020-03-13,39087.8,39381.36666666667,-293.5666666666657,True,39087.8,39087.8,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2020-03-20,2020-03-20,39087.8,39381.36666666667,-293.5666666666657,True,39087.8,39087.8,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2020-03-27,2020-03-27,39087.8,39381.36666666667,-293.5666666666657,True,39087.8,39087.8,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2020-04-03,2020-04-03,39087.8,39381.36666666667,-293.5666666666657,True,39087.8,39087.8,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2020-04-10,2020-04-09,39087.8,39381.36666666667,-293.5666666666657,True,39087.8,39087.8,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2020-04-17,2020-04-17,41437.4,41437.43333333333,-0.03333333332557231,False,41437.433333333334,41437.433333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-04-24,2020-04-24,41587.7,41587.66666666666,0.03333333334012423,False,41587.666666666664,41587.666666666664,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-05-01,2020-04-30,41786.9,41786.86666666667,0.03333333333284827,False,41786.86666666667,41786.86666666667,False,False,True,False,False,rounding only (0 < |diff| <= 0.05)
+2020-05-08,2020-05-08,42596.4,42326.4,270.0,True,42596.4,42596.4,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2020-05-15,2020-05-15,43077.2,42861.23333333334,215.96666666665988,True,43077.23333333334,43077.23333333334,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2020-05-22,2020-05-22,43722.9,43560.9,162.0,True,43722.9,43722.9,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2020-05-29,2020-05-29,43722.9,43560.9,162.0,True,43722.9,43722.9,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2020-06-05,2020-06-05,43722.9,43560.9,162.0,True,43722.9,43722.9,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2020-06-12,2020-06-12,43722.9,43560.9,162.0,True,43722.9,43722.9,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2020-06-19,2020-06-19,44118.1,44118.06666666667,0.03333333332557231,False,44118.066666666666,44118.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-06-26,2020-06-26,45457.6,45457.56666666667,0.03333333332557231,False,45457.566666666666,45457.566666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-07-03,2020-07-03,45627.1,45627.06666666667,0.03333333332557231,False,45627.066666666666,45627.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-07-10,2020-07-10,45783.4,45783.36666666667,0.03333333333284827,False,45783.36666666667,45783.36666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-07-17,2020-07-17,46799.1,46799.06666666667,0.03333333332557231,False,46799.066666666666,46799.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-07-24,2020-07-24,47047.4,47047.4,0.0,False,47047.4,47047.4,False,False,False,False,False,equal
+2020-07-31,2020-07-31,48600.5,48600.5,0.0,False,48600.5,48600.5,False,False,False,False,False,equal
+2020-08-07,2020-08-07,50293.2,50293.23333333334,-0.03333333334012423,False,50293.23333333334,50293.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-08-14,2020-08-14,50293.2,50293.23333333334,-0.03333333334012423,False,50293.23333333334,50293.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-08-21,2020-08-21,50293.2,50293.23333333334,-0.03333333334012423,False,50293.23333333334,50293.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-08-28,2020-08-28,50293.2,50293.23333333334,-0.03333333334012423,False,50293.23333333334,50293.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-09-04,2020-09-04,50293.2,50293.23333333334,-0.03333333334012423,False,50293.23333333334,50293.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-09-11,2020-09-11,50293.2,50293.23333333334,-0.03333333334012423,False,50293.23333333334,50293.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-09-18,2020-09-18,50293.2,50293.23333333334,-0.03333333334012423,False,50293.23333333334,50293.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-09-25,2020-09-25,53806.3,53806.33333333334,-0.03333333334012423,False,53806.333333333336,53806.333333333336,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-10-02,2020-10-01,53484.6,53484.56666666667,0.03333333332557231,False,53484.566666666666,53484.566666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-10-09,2020-10-09,53449.0,53449.0,0.0,False,53449.0,53449.0,False,False,False,False,False,equal
+2020-10-16,2020-10-16,53392.1,53392.06666666667,0.03333333332557231,False,53392.066666666666,53392.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-10-23,2020-10-23,53392.1,53392.06666666667,0.03333333332557231,False,53392.066666666666,53392.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-10-30,2020-10-30,52783.4,52783.36666666667,0.03333333333284827,False,52783.36666666667,52783.36666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-11-06,2020-11-06,52783.4,52783.36666666667,0.03333333333284827,False,52783.36666666667,52783.36666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2020-11-13,2020-11-14,52783.4,52783.36666666667,0.03333333333284827,False,52783.36666666667,52783.36666666667,False,False,True,False,False,rounding only (0 < |diff| <= 0.05)
+2020-11-20,2020-11-20,52783.4,52783.36666666667,0.03333333333284827,False,52783.36666666667,52783.36666666667,False,False,True,True,False,rounding only (0 < |diff| <= 0.05)
+2020-11-27,2020-11-27,52783.4,52783.36666666667,0.03333333333284827,False,52783.36666666667,52783.36666666667,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2020-12-04,2020-12-04,52783.4,52783.36666666667,0.03333333333284827,False,52783.36666666667,52783.36666666667,False,False,True,True,False,rounding only (0 < |diff| <= 0.05)
+2020-12-11,2020-12-11,52783.4,52783.36666666667,0.03333333333284827,False,52783.36666666667,52783.36666666667,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2020-12-18,2020-12-18,52783.4,52783.36666666667,0.03333333333284827,False,52783.36666666667,52783.36666666667,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2020-12-25,2020-12-24,52783.4,52783.36666666667,0.03333333333284827,False,52783.36666666667,52783.36666666667,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2021-01-01,2021-01-01,52783.4,52783.36666666667,0.03333333333284827,False,52783.36666666667,52783.36666666667,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2021-01-08,2021-01-08,52783.4,52783.36666666667,0.03333333333284827,False,52783.36666666667,52783.36666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2021-01-15,2021-01-15,52288.2,52288.16666666666,0.03333333334012423,False,52288.166666666664,52288.166666666664,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2021-01-22,2021-01-22,52101.6,52101.56666666667,0.03333333332557231,False,52101.566666666666,52101.566666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2021-01-29,2021-01-29,51589.2,51589.2,0.0,False,51589.2,51589.2,False,False,False,False,False,equal
+2021-02-05,2021-02-05,51532.0,51532.0,0.0,False,51532.0,51532.0,False,False,False,False,False,equal
+2021-02-12,2021-02-12,50935.7,50935.7,0.0,False,50935.7,50935.7,False,False,False,False,False,equal
+2021-02-19,2021-02-19,49975.0,49975.03333333333,-0.03333333333284827,False,49975.03333333333,49975.03333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2021-02-26,2021-02-26,49472.4,49472.4,0.0,False,49472.4,49472.4,False,False,False,False,False,equal
+2021-03-05,2021-03-05,48558.7,48558.66666666666,0.03333333334012423,False,48558.666666666664,48558.666666666664,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2021-03-12,2021-03-12,47515.7,47277.7,238.0,True,47515.7,47515.7,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2021-03-19,2021-03-19,47304.6,47195.83333333334,108.76666666665551,True,47304.63333333333,47304.63333333333,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2021-03-26,2021-03-26,46601.3,46519.7,81.60000000000582,True,46601.3,46601.3,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2021-04-02,2021-04-01,46238.6,46126.06666666667,112.53333333332557,True,46238.63333333333,46238.63333333333,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2021-04-09,2021-04-09,44549.3,44549.3,0.0,False,44549.3,44549.3,False,False,False,True,False,equal
+2021-04-16,2021-04-16,44549.3,44549.3,0.0,False,44549.3,44549.3,False,False,False,True,False,equal
+2021-04-23,2021-04-23,44998.1,45119.33333333334,-121.23333333334449,True,44998.1,44998.1,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2021-04-30,2021-04-30,44998.1,45119.33333333334,-121.23333333334449,True,44998.1,44998.1,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2021-05-07,2021-05-07,44998.1,45119.33333333334,-121.23333333334449,True,44998.1,44998.1,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2021-05-14,2021-05-14,45344.7,45522.76666666666,-178.0666666666657,True,45344.7,45344.7,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2021-05-21,2021-05-21,46045.3,46128.63333333333,-83.33333333332848,True,46045.3,46045.3,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2021-05-28,2021-05-28,46543.9,46589.53333333333,-45.63333333333139,True,46543.933333333334,46543.933333333334,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2021-06-04,2021-06-04,46919.3,46949.66666666666,-30.366666666654055,True,46919.26666666666,46919.26666666666,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2021-06-11,2021-06-11,47069.5,47084.73333333334,-15.233333333337214,True,47069.53333333333,47069.53333333333,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2021-06-18,2021-06-18,49614.6,49474.96666666667,139.6333333333314,True,49614.566666666666,49614.566666666666,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2021-06-25,2021-06-25,49374.4,49374.43333333333,-0.03333333332557231,False,49374.433333333334,49374.433333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2021-07-02,2021-07-02,49335.6,49335.56666666667,0.03333333332557231,False,49335.566666666666,49335.566666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2021-07-09,2021-07-09,49335.6,49335.56666666667,0.03333333332557231,False,49335.566666666666,49335.566666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2021-07-16,2021-07-16,49335.6,49335.56666666667,0.03333333332557231,False,49335.566666666666,49335.566666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2021-07-23,2021-07-23,49335.6,49335.56666666667,0.03333333332557231,False,49335.566666666666,49335.566666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2021-07-30,2021-07-30,49335.6,49335.56666666667,0.03333333332557231,False,49335.566666666666,49335.566666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2021-08-06,2021-08-06,49335.6,49335.56666666667,0.03333333332557231,False,49335.566666666666,49335.566666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2021-08-13,2021-08-13,49007.5,49007.53333333333,-0.03333333333284827,False,49007.53333333333,49007.53333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2021-08-20,2021-08-20,49007.5,49007.53333333333,-0.03333333333284827,False,49007.53333333333,49007.53333333333,False,False,True,True,False,rounding only (0 < |diff| <= 0.05)
+2021-08-27,2021-08-27,49007.5,49007.53333333333,-0.03333333333284827,False,49007.53333333333,49007.53333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2021-09-03,2021-09-03,49007.5,49007.53333333333,-0.03333333333284827,False,49007.53333333333,49007.53333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2021-09-10,2021-09-09,48902.1,48821.8,80.29999999999563,True,48902.066666666666,48902.066666666666,False,True,True,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2021-09-17,2021-09-17,48713.5,48673.33333333334,40.166666666656965,True,48713.46666666667,48713.46666666667,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2021-09-24,2021-09-24,48437.0,48437.0,0.0,False,48437.0,48437.0,False,False,False,False,False,equal
+2021-10-01,2021-10-01,48064.3,48064.3,0.0,False,48064.3,48064.3,False,False,False,False,False,equal
+2021-10-08,2021-10-08,48064.3,48064.3,0.0,False,48064.3,48064.3,False,False,False,False,False,equal
+2021-10-15,2021-10-14,48064.3,48064.3,0.0,False,48064.3,48064.3,False,False,True,False,False,equal
+2021-10-22,2021-10-22,48064.3,48064.3,0.0,False,48064.3,48064.3,False,False,False,False,False,equal
+2021-10-29,2021-10-29,48064.3,48064.3,0.0,False,48064.3,48064.3,False,False,False,False,False,equal
+2021-11-05,2021-11-04,48064.3,48064.3,0.0,False,48064.3,48064.3,False,False,True,True,False,equal
+2021-11-12,2021-11-12,46127.4,45986.3,141.09999999999854,True,46127.36666666667,46127.36666666667,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2021-11-19,2021-11-18,46880.9,47087.23333333334,-206.33333333333576,True,46880.933333333334,46880.933333333334,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2021-11-26,2021-11-26,46880.9,47087.23333333334,-206.33333333333576,True,46880.933333333334,46880.933333333334,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2021-12-03,2021-12-03,46880.9,47087.23333333334,-206.33333333333576,True,46880.933333333334,46880.933333333334,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2021-12-10,2021-12-10,46880.9,47087.23333333334,-206.33333333333576,True,46880.933333333334,46880.933333333334,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2021-12-17,2021-12-17,46880.9,47087.23333333334,-206.33333333333576,True,46880.933333333334,46880.933333333334,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2021-12-24,2021-12-24,46880.9,47087.23333333334,-206.33333333333576,True,46880.933333333334,46880.933333333334,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2021-12-31,2021-12-31,46880.9,47087.23333333334,-206.33333333333576,True,46880.933333333334,46880.933333333334,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2022-01-07,2022-01-07,46880.9,47087.23333333334,-206.33333333333576,True,46880.933333333334,46880.933333333334,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2022-01-14,2022-01-14,46880.9,47087.23333333334,-206.33333333333576,True,46880.933333333334,46880.933333333334,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2022-01-21,2022-01-21,46880.9,47087.23333333334,-206.33333333333576,True,46880.933333333334,46880.933333333334,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2022-01-28,2022-01-28,46880.9,47087.23333333334,-206.33333333333576,True,46880.933333333334,46880.933333333334,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2022-02-04,2022-02-04,46880.9,47087.23333333334,-206.33333333333576,True,46880.933333333334,46880.933333333334,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2022-02-11,2022-02-11,46880.9,47087.23333333334,-206.33333333333576,True,46880.933333333334,46880.933333333334,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2022-02-18,2022-02-18,47369.7,47369.73333333334,-0.03333333334012423,False,47369.73333333334,47369.73333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-02-25,2022-02-25,47576.2,47576.23333333334,-0.03333333334012423,False,47576.23333333334,47576.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-03-04,2022-03-04,47576.2,47576.23333333334,-0.03333333334012423,False,47576.23333333334,47576.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-03-11,2022-03-11,48687.4,48687.4,0.0,False,48687.4,48687.4,False,False,False,False,False,equal
+2022-03-18,2022-03-17,48687.4,48687.4,0.0,False,48687.4,48687.4,False,False,True,False,False,equal
+2022-03-25,2022-03-25,48687.4,48687.4,0.0,False,48687.4,48687.4,False,False,False,False,False,equal
+2022-04-01,2022-04-01,48687.4,48687.4,0.0,False,48687.4,48687.4,False,False,False,False,False,equal
+2022-04-08,2022-04-08,48837.7,48837.7,0.0,False,48837.7,48837.7,False,False,False,False,False,equal
+2022-04-15,2022-04-13,50156.3,50156.3,0.0,False,50156.3,50156.3,False,False,True,False,False,equal
+2022-04-22,2022-04-22,50287.4,50287.36666666667,0.03333333333284827,False,50287.36666666667,50287.36666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-04-29,2022-04-29,50287.4,50287.36666666667,0.03333333333284827,False,50287.36666666667,50287.36666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-05-06,2022-05-06,50287.4,50287.36666666667,0.03333333333284827,False,50287.36666666667,50287.36666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-05-13,2022-05-13,53490.4,53490.4,0.0,False,53490.4,53490.4,False,False,False,False,False,equal
+2022-05-20,2022-05-20,53089.1,53089.06666666667,0.03333333332557231,False,53089.066666666666,53089.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-05-27,2022-05-27,53089.1,53089.06666666667,0.03333333332557231,False,53089.066666666666,53089.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-06-03,2022-06-03,53006.2,53006.23333333334,-0.03333333334012423,False,53006.23333333334,53006.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-06-10,2022-06-10,53006.2,53006.23333333334,-0.03333333334012423,False,53006.23333333334,53006.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-06-17,2022-06-17,53006.2,53006.23333333334,-0.03333333334012423,False,53006.23333333334,53006.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-06-24,2022-06-24,52974.1,52974.13333333333,-0.03333333333284827,False,52974.13333333333,52974.13333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-07-01,2022-07-01,52974.1,52974.13333333333,-0.03333333333284827,False,52974.13333333333,52974.13333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-07-08,2022-07-08,52974.1,52974.13333333333,-0.03333333333284827,False,52974.13333333333,52974.13333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-07-15,2022-07-15,52974.1,52974.13333333333,-0.03333333333284827,False,52974.13333333333,52974.13333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-07-22,2022-07-22,52890.1,52890.1,0.0,False,52890.1,52890.1,False,False,False,False,False,equal
+2022-07-29,2022-07-29,52890.1,52890.1,0.0,False,52890.1,52890.1,False,False,False,False,False,equal
+2022-08-05,2022-08-05,52890.1,52890.1,0.0,False,52890.1,52890.1,False,False,False,False,False,equal
+2022-08-12,2022-08-12,52890.1,52890.1,0.0,False,52890.1,52890.1,False,False,False,False,False,equal
+2022-08-19,2022-08-19,52890.1,52890.1,0.0,False,52890.1,52890.1,False,False,False,False,False,equal
+2022-08-26,2022-08-26,52890.1,52890.1,0.0,False,52890.1,52890.1,False,False,False,False,False,equal
+2022-09-02,2022-09-02,52890.1,52890.1,0.0,False,52890.1,52890.1,False,False,False,False,False,equal
+2022-09-09,2022-09-09,52428.9,52428.86666666667,0.03333333333284827,False,52428.86666666667,52428.86666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-09-16,2022-09-16,52428.9,52428.86666666667,0.03333333333284827,False,52428.86666666667,52428.86666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-09-23,2022-09-23,52148.2,52148.16666666666,0.03333333334012423,False,52148.166666666664,52148.166666666664,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-09-30,2022-09-30,52148.2,52148.16666666666,0.03333333334012423,False,52148.166666666664,52148.166666666664,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-10-07,2022-10-07,52148.2,52148.16666666666,0.03333333334012423,False,52148.166666666664,52148.166666666664,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-10-14,2022-10-14,52148.2,52148.16666666666,0.03333333334012423,False,52148.166666666664,52148.166666666664,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-10-21,2022-10-21,52148.2,52148.16666666666,0.03333333334012423,False,52148.166666666664,52148.166666666664,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-10-28,2022-10-28,52148.2,52148.16666666666,0.03333333334012423,False,52148.166666666664,52148.166666666664,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-11-04,2022-11-04,52148.2,52148.16666666666,0.03333333334012423,False,52148.166666666664,52148.166666666664,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-11-11,2022-11-11,49032.1,49294.63333333333,-262.53333333333285,True,49032.13333333333,49032.13333333333,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2022-11-18,2022-11-18,50447.2,50567.2,-120.0,True,50447.2,50447.2,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2022-11-25,2022-11-25,50447.2,50567.2,-120.0,True,50447.2,50447.2,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2022-12-02,2022-12-02,50563.0,50622.96666666667,-59.96666666666715,True,50562.96666666667,50562.96666666667,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2022-12-09,2022-12-09,51545.4,51575.43333333333,-30.033333333325572,True,51545.433333333334,51545.433333333334,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2022-12-16,2022-12-16,52226.6,52226.63333333333,-0.03333333333284827,False,52226.63333333333,52226.63333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-12-23,2022-12-23,52471.3,52471.26666666666,0.03333333334012423,False,52471.26666666666,52471.26666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2022-12-30,2022-12-30,52868.0,52867.96666666667,0.03333333333284827,False,52867.96666666667,52867.96666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-01-06,2023-01-06,53528.7,53528.73333333333,-0.03333333333284827,False,53528.73333333333,53528.73333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-01-13,2023-01-13,54080.9,54080.93333333333,-0.03333333332557231,False,54080.933333333334,54080.933333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-01-20,2023-01-20,54787.5,54787.46666666667,0.03333333333284827,False,54787.46666666667,54787.46666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-01-27,2023-01-27,55307.2,55307.23333333333,-0.03333333333284827,False,55307.23333333333,55307.23333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-02-03,2023-02-03,55307.2,55307.23333333333,-0.03333333333284827,False,55307.23333333333,55307.23333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-02-10,2023-02-10,55307.2,55307.23333333333,-0.03333333333284827,False,55307.23333333333,55307.23333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-02-17,2023-02-17,55307.2,55307.23333333333,-0.03333333333284827,False,55307.23333333333,55307.23333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-02-24,2023-02-24,55307.2,55307.23333333333,-0.03333333333284827,False,55307.23333333333,55307.23333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-03-03,2023-03-03,55307.2,55307.23333333333,-0.03333333333284827,False,55307.23333333333,55307.23333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-03-10,2023-03-10,55307.2,55307.23333333333,-0.03333333333284827,False,55307.23333333333,55307.23333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-03-17,2023-03-17,55307.2,55307.23333333333,-0.03333333333284827,False,55307.23333333333,55307.23333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-03-24,2023-03-24,55424.2,55424.23333333334,-0.03333333334012423,False,55424.23333333334,55424.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-03-31,2023-03-31,55424.2,55424.23333333334,-0.03333333334012423,False,55424.23333333334,55424.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-04-07,2023-04-06,56113.5,56207.33333333334,-93.83333333334303,True,56113.5,56113.5,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2023-04-14,2023-04-13,56939.8,57240.03333333333,-300.23333333332994,True,56939.76666666667,56939.76666666667,False,True,True,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2023-04-21,2023-04-21,57124.7,57240.03333333333,-115.33333333333576,True,57124.7,57124.7,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2023-04-28,2023-04-28,57452.4,57309.76666666666,142.63333333333867,True,57452.433333333334,57452.433333333334,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2023-05-05,2023-05-05,57742.2,57597.7,144.5,True,57742.23333333334,57742.23333333334,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2023-05-12,2023-05-12,58361.9,58215.46666666667,146.4333333333343,True,58361.86666666667,58361.86666666667,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2023-05-19,2023-05-19,58361.9,58215.46666666667,146.4333333333343,True,58361.86666666667,58361.86666666667,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2023-05-26,2023-05-26,58361.9,58215.46666666667,146.4333333333343,True,58361.86666666667,58361.86666666667,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2023-06-02,2023-06-02,58361.9,58215.46666666667,146.4333333333343,True,58361.86666666667,58361.86666666667,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2023-06-09,2023-06-09,58361.9,58215.46666666667,146.4333333333343,True,58361.86666666667,58361.86666666667,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2023-06-16,2023-06-16,58361.9,58215.46666666667,146.4333333333343,True,58361.86666666667,58361.86666666667,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2023-06-23,2023-06-23,61026.1,58215.46666666667,2810.6333333333314,True,61026.13333333333,61026.13333333333,False,True,False,False,True,signal differs (ST on opposite bands)
+2023-06-30,2023-06-30,60375.3,60351.8,23.5,True,60375.3,60375.3,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2023-07-07,2023-07-07,60375.3,60351.8,23.5,True,60375.3,60375.3,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2023-07-14,2023-07-14,60375.3,60351.8,23.5,True,60375.3,60375.3,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2023-07-21,2023-07-21,60375.3,60351.8,23.5,True,60375.3,60375.3,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2023-07-28,2023-07-28,60375.3,60351.8,23.5,True,60375.3,60375.3,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2023-08-04,2023-08-04,60375.3,60351.8,23.5,True,60375.3,60375.3,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2023-08-11,2023-08-11,60375.3,60351.8,23.5,True,60375.3,60375.3,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2023-08-18,2023-08-18,60375.3,60351.8,23.5,True,60375.3,60375.3,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2023-08-25,2023-08-25,60124.0,60124.0,0.0,False,60124.0,60124.0,False,False,False,False,False,equal
+2023-09-01,2023-09-01,60124.0,60124.0,0.0,False,60124.0,60124.0,False,False,False,False,False,equal
+2023-09-08,2023-09-08,60124.0,60124.0,0.0,False,60124.0,60124.0,False,False,False,False,False,equal
+2023-09-15,2023-09-15,60124.0,60124.0,0.0,False,60124.0,60124.0,False,False,False,False,False,equal
+2023-09-22,2023-09-22,60124.0,60124.0,0.0,False,60124.0,60124.0,False,False,False,False,False,equal
+2023-09-29,2023-09-29,60124.0,60124.0,0.0,False,60124.0,60124.0,False,False,False,False,False,equal
+2023-10-06,2023-10-06,58839.4,58839.43333333333,-0.03333333332557231,False,58839.433333333334,58839.433333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-10-13,2023-10-13,54862.2,54862.16666666666,0.03333333334012423,False,54862.166666666664,54862.166666666664,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2023-10-20,2023-10-20,56098.0,56098.0,0.0,False,56098.0,56098.0,False,False,False,False,False,equal
+2023-10-27,2023-10-27,57173.2,57350.5,-177.3000000000029,True,57173.166666666664,57173.166666666664,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2023-11-03,2023-11-03,58185.3,58266.4,-81.09999999999854,True,58185.333333333336,58185.333333333336,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2023-11-10,2023-11-10,58185.3,58266.4,-81.09999999999854,True,58185.333333333336,58185.333333333336,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2023-11-17,2023-11-17,58185.3,58266.4,-81.09999999999854,True,58185.333333333336,58185.333333333336,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2023-11-24,2023-11-24,58185.3,58266.4,-81.09999999999854,True,58185.333333333336,58185.333333333336,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2023-12-01,2023-12-01,59068.8,59085.83333333334,-17.033333333340124,True,59068.833333333336,59068.833333333336,False,True,True,False,False,"composition: band reset this week, this week's high/low differ"
+2023-12-08,2023-12-08,59068.8,59085.83333333334,-17.033333333340124,True,59068.833333333336,59068.833333333336,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2023-12-15,2023-12-15,59068.8,59085.83333333334,-17.033333333340124,True,59068.833333333336,59068.833333333336,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2023-12-22,2023-12-22,59068.8,59085.83333333334,-17.033333333340124,True,59068.833333333336,59068.833333333336,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2023-12-29,2023-12-29,60269.1,60269.06666666667,0.03333333332557231,False,60269.066666666666,60269.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-01-05,2024-01-05,60269.1,60269.06666666667,0.03333333332557231,False,60269.066666666666,60269.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-01-12,2024-01-12,60269.1,60269.06666666667,0.03333333332557231,False,60269.066666666666,60269.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-01-19,2024-01-20,60269.1,60269.06666666667,0.03333333332557231,False,60269.066666666666,60269.066666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-01-26,2024-01-25,60269.1,60269.06666666667,0.03333333332557231,False,60269.066666666666,60269.066666666666,False,False,True,True,False,rounding only (0 < |diff| <= 0.05)
+2024-02-02,2024-02-02,60464.7,60496.13333333333,-31.433333333334303,True,60464.666666666664,60464.666666666664,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2024-02-09,2024-02-09,60464.7,60496.13333333333,-31.433333333334303,True,60464.666666666664,60464.666666666664,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2024-02-16,2024-02-16,60464.7,60496.13333333333,-31.433333333334303,True,60464.666666666664,60464.666666666664,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2024-02-23,2024-02-23,60464.7,60496.13333333333,-31.433333333334303,True,60464.666666666664,60464.666666666664,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2024-03-01,2024-03-01,60464.7,60496.13333333333,-31.433333333334303,True,60464.666666666664,60464.666666666664,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2024-03-08,2024-03-07,61166.5,61294.66666666666,-128.16666666665697,True,61166.5,61166.5,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2024-03-15,2024-03-15,62750.8,63160.93333333333,-410.1333333333241,True,62750.8,62750.8,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2024-03-22,2024-03-22,62793.1,63160.93333333333,-367.8333333333285,True,62793.1,62793.1,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2024-03-29,2024-03-28,63269.6,63485.66666666666,-216.06666666665842,True,63269.6,63269.6,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2024-04-05,2024-04-05,64937.1,65039.6,-102.5,True,64937.066666666666,64937.066666666666,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2024-04-12,2024-04-12,66595.8,66595.83333333333,-0.03333333332557231,False,66595.83333333333,66595.83333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-04-19,2024-04-19,66782.3,66782.3,0.0,False,66782.3,66782.3,False,False,False,False,False,equal
+2024-04-26,2024-04-26,66782.3,66782.3,0.0,False,66782.3,66782.3,False,False,False,False,False,equal
+2024-05-03,2024-05-03,66782.3,66782.3,0.0,False,66782.3,66782.3,False,False,False,False,False,equal
+2024-05-10,2024-05-10,67418.5,67418.5,0.0,False,67418.5,67418.5,False,False,False,False,False,equal
+2024-05-17,2024-05-18,68604.5,68604.53333333333,-0.03333333332557231,False,68604.53333333333,68604.53333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-05-24,2024-05-24,68604.5,68604.53333333333,-0.03333333332557231,False,68604.53333333333,68604.53333333333,False,False,True,True,False,rounding only (0 < |diff| <= 0.05)
+2024-05-31,2024-05-31,68604.5,68604.53333333333,-0.03333333332557231,False,68604.53333333333,68604.53333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2024-06-07,2024-06-07,68604.5,68604.53333333333,-0.03333333332557231,False,68604.53333333333,68604.53333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2024-06-14,2024-06-14,68604.5,68604.53333333333,-0.03333333332557231,False,68604.53333333333,68604.53333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2024-06-21,2024-06-21,68604.5,68604.53333333333,-0.03333333332557231,False,68604.53333333333,68604.53333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2024-06-28,2024-06-28,68604.5,68604.53333333333,-0.03333333332557231,False,68604.53333333333,68604.53333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-07-05,2024-07-05,69152.7,69152.66666666667,0.03333333332557231,False,69152.66666666667,69152.66666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-07-12,2024-07-12,69901.7,69901.73333333334,-0.03333333334012423,False,69901.73333333334,69901.73333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-07-19,2024-07-19,70763.7,70795.86666666667,-32.16666666667152,True,70763.7,70763.7,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2024-07-26,2024-07-26,74346.4,74346.43333333333,-0.03333333334012423,False,74346.43333333333,74346.43333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2024-08-02,2024-08-02,74346.4,74346.43333333333,-0.03333333334012423,False,74346.43333333333,74346.43333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2024-08-09,2024-08-09,74346.4,74346.43333333333,-0.03333333334012423,False,74346.43333333333,74346.43333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2024-08-16,2024-08-16,74346.4,74346.43333333333,-0.03333333334012423,False,74346.43333333333,74346.43333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2024-08-23,2024-08-23,74346.4,74346.43333333333,-0.03333333334012423,False,74346.43333333333,74346.43333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-08-30,2024-08-30,74346.4,74346.43333333333,-0.03333333334012423,False,74346.43333333333,74346.43333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-09-06,2024-09-06,74242.0,74242.0,0.0,False,74242.0,74242.0,False,False,False,False,False,equal
+2024-09-13,2024-09-13,74242.0,74242.0,0.0,False,74242.0,74242.0,False,False,False,False,False,equal
+2024-09-20,2024-09-20,74242.0,74242.0,0.0,False,74242.0,74242.0,False,False,False,False,False,equal
+2024-09-27,2024-09-27,71457.6,71457.63333333333,-0.03333333332557231,False,71457.63333333333,71457.63333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-10-04,2024-10-04,71982.2,71982.23333333334,-0.03333333334012423,False,71982.23333333334,71982.23333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-10-11,2024-10-11,72325.8,72325.76666666666,0.03333333334012423,False,72325.76666666666,72325.76666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-10-18,2024-10-18,73355.4,73355.43333333333,-0.03333333334012423,False,73355.43333333333,73355.43333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-10-25,2024-10-25,75055.9,75055.86666666667,0.03333333332557231,False,75055.86666666667,75055.86666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-11-01,2024-11-01,75719.3,75719.26666666666,0.03333333334012423,False,75719.26666666666,75719.26666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-11-08,2024-11-08,75719.3,75719.26666666666,0.03333333334012423,False,75719.26666666666,75719.26666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2024-11-15,2024-11-14,80441.3,80441.33333333333,-0.03333333332557231,False,80441.33333333333,80441.33333333333,False,False,True,False,False,rounding only (0 < |diff| <= 0.05)
+2024-11-22,2024-11-22,80441.3,80441.33333333333,-0.03333333332557231,False,80441.33333333333,80441.33333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2024-11-29,2024-11-29,80441.3,80441.33333333333,-0.03333333332557231,False,80441.33333333333,80441.33333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2024-12-06,2024-12-06,80441.3,80441.33333333333,-0.03333333332557231,False,80441.33333333333,80441.33333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2024-12-13,2024-12-13,80441.3,80441.33333333333,-0.03333333332557231,False,80441.33333333333,80441.33333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2024-12-20,2024-12-20,80441.3,80441.33333333333,-0.03333333332557231,False,80441.33333333333,80441.33333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2024-12-27,2024-12-27,80139.1,80139.13333333333,-0.03333333332557231,False,80139.13333333333,80139.13333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-01-03,2025-01-03,80139.1,80139.13333333333,-0.03333333332557231,False,80139.13333333333,80139.13333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-01-10,2025-01-10,80139.1,80139.13333333333,-0.03333333332557231,False,80139.13333333333,80139.13333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-01-17,2025-01-17,80139.1,80139.13333333333,-0.03333333332557231,False,80139.13333333333,80139.13333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-01-24,2025-01-24,80139.1,80139.13333333333,-0.03333333332557231,False,80139.13333333333,80139.13333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-01-31,2025-01-31,76650.8,76650.83333333333,-0.03333333332557231,False,76650.83333333333,76650.83333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-02-07,2025-02-07,77975.5,78324.33333333333,-348.8333333333285,True,77975.5,77975.5,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2025-02-14,2025-02-14,80419.8,80579.3,-159.5,True,80419.83333333333,80419.83333333333,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2025-02-21,2025-02-21,80903.1,81022.7,-119.59999999999127,True,80903.1,80903.1,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2025-02-28,2025-02-28,80903.1,81022.7,-119.59999999999127,True,80903.1,80903.1,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2025-03-07,2025-03-07,80903.1,81022.7,-119.59999999999127,True,80903.1,80903.1,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2025-03-14,2025-03-13,81900.8,81974.83333333333,-74.03333333332557,True,81900.83333333333,81900.83333333333,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2025-03-21,2025-03-21,83523.4,83760.16666666667,-236.76666666667734,True,83523.36666666667,83523.36666666667,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2025-03-28,2025-03-28,83523.4,83760.16666666667,-236.76666666667734,True,83523.36666666667,83523.36666666667,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2025-04-04,2025-04-04,83952.7,84071.06666666667,-118.3666666666686,True,83952.66666666667,83952.66666666667,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2025-04-11,2025-04-11,83952.7,84071.06666666667,-118.3666666666686,True,83952.66666666667,83952.66666666667,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2025-04-18,2025-04-17,85933.9,86246.56666666667,-312.6666666666715,True,85933.9,85933.9,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2025-04-25,2025-04-25,87200.1,87343.0,-142.89999999999418,True,87200.06666666667,87200.06666666667,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2025-05-02,2025-05-02,87200.1,87343.0,-142.89999999999418,True,87200.06666666667,87200.06666666667,False,True,True,True,False,composition: band held by the ratchet from an earlier week
+2025-05-09,2025-05-09,87200.1,87343.0,-142.89999999999418,True,87200.06666666667,87200.06666666667,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2025-05-16,2025-05-16,87200.1,87343.0,-142.89999999999418,True,87200.06666666667,87200.06666666667,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2025-05-23,2025-05-23,87200.1,87343.0,-142.89999999999418,True,87200.06666666667,87200.06666666667,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2025-05-30,2025-05-30,87582.0,87651.7,-69.69999999999709,True,87581.96666666666,87581.96666666666,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2025-06-06,2025-06-06,89388.6,89388.63333333333,-0.03333333332557231,False,89388.63333333333,89388.63333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-06-13,2025-06-13,90791.8,90791.83333333333,-0.03333333332557231,False,90791.83333333333,90791.83333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-06-20,2025-06-20,92982.1,92982.1,0.0,False,92982.1,92982.1,False,False,False,False,False,equal
+2025-06-27,2025-06-27,92982.1,92982.1,0.0,False,92982.1,92982.1,False,False,False,False,False,equal
+2025-07-04,2025-07-04,92982.1,92982.1,0.0,False,92982.1,92982.1,False,False,False,False,False,equal
+2025-07-11,2025-07-11,92982.1,92982.1,0.0,False,92982.1,92982.1,False,False,False,False,False,equal
+2025-07-18,2025-07-18,92982.1,92982.1,0.0,False,92982.1,92982.1,False,False,False,False,False,equal
+2025-07-25,2025-07-25,94210.8,94210.83333333333,-0.03333333332557231,False,94210.83333333333,94210.83333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-08-01,2025-08-01,94210.8,94210.83333333333,-0.03333333332557231,False,94210.83333333333,94210.83333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-08-08,2025-08-08,95560.1,95560.1,0.0,False,95560.1,95560.1,False,False,False,False,False,equal
+2025-08-15,2025-08-14,95560.1,95560.1,0.0,False,95560.1,95560.1,False,False,False,False,False,equal
+2025-08-22,2025-08-22,95560.1,95560.1,0.0,False,95560.1,95560.1,False,False,False,False,False,equal
+2025-08-29,2025-08-29,96492.0,96491.96666666667,0.03333333332557231,False,96491.96666666667,96491.96666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-09-05,2025-09-05,99388.6,99388.56666666667,0.03333333334012423,False,99388.56666666667,99388.56666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-09-12,2025-09-12,102162.1,102162.1,0.0,False,102162.1,102162.1,False,False,False,False,False,equal
+2025-09-19,2025-09-19,104010.3,104010.2666666667,0.03333333329646848,False,104010.26666666666,104010.26666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-09-26,2025-09-26,105571.6,105571.5666666667,0.0333333333110204,False,105571.56666666667,105571.56666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-10-03,2025-10-03,109059.7,109059.7333333333,-0.03333333329646848,False,109059.73333333334,109059.73333333334,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-10-10,2025-10-10,112466.5,112466.5,0.0,False,112466.5,112466.5,False,False,False,False,False,equal
+2025-10-17,2025-10-17,114083.5,114083.5333333333,-0.03333333329646848,False,114083.53333333333,114083.53333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-10-24,2025-10-24,114083.5,114083.5333333333,-0.03333333329646848,False,114083.53333333333,114083.53333333333,False,False,True,True,False,rounding only (0 < |diff| <= 0.05)
+2025-10-31,2025-10-31,114083.5,114083.5333333333,-0.03333333329646848,False,114083.53333333333,114083.53333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2025-11-07,2025-11-07,114083.5,114083.5333333333,-0.03333333329646848,False,114083.53333333333,114083.53333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2025-11-14,2025-11-14,114083.5,114083.5333333333,-0.03333333329646848,False,114083.53333333333,114083.53333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2025-11-21,2025-11-21,114083.5,114083.5333333333,-0.03333333329646848,False,114083.53333333333,114083.53333333333,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2025-11-28,2025-11-28,115538.4,115538.3666666667,0.03333333329646848,False,115538.36666666667,115538.36666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-12-05,2025-12-05,119983.8,119983.8333333333,-0.03333333329646848,False,119983.83333333333,119983.83333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-12-12,2025-12-12,122592.5,122592.5333333333,-0.03333333329646848,False,122592.53333333333,122592.53333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-12-19,2025-12-19,126592.3,126592.3333333333,-0.03333333329646848,False,126592.33333333333,126592.33333333333,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2025-12-26,2025-12-26,128287.9,128287.8666666667,0.03333333329646848,False,128287.86666666667,128287.86666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-01-02,2026-01-02,128287.9,128287.8666666667,0.03333333329646848,False,128287.86666666667,128287.86666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-01-09,2026-01-09,128287.9,128287.8666666667,0.03333333329646848,False,128287.86666666667,128287.86666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-01-16,2026-01-16,131959.9,131959.9333333333,-0.03333333329646848,False,131959.93333333332,131959.93333333332,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-01-23,2026-01-23,133599.3,133599.2666666667,0.03333333329646848,False,133599.26666666666,133599.26666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-01-30,2026-01-30,133599.3,133599.2666666667,0.03333333329646848,False,133599.26666666666,133599.26666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-02-06,2026-02-06,133599.3,133599.2666666667,0.03333333329646848,False,133599.26666666666,133599.26666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-02-13,2026-02-13,133599.3,133599.2666666667,0.03333333329646848,False,133599.26666666666,133599.26666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-02-20,2026-02-20,133599.3,133599.2666666667,0.03333333329646848,False,133599.26666666666,133599.26666666666,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-02-27,2026-02-27,138750.5,138750.4666666667,0.03333333329646848,False,138750.46666666667,138750.46666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-03-06,2026-03-06,145448.4,146027.0666666667,-578.6666666667152,True,145448.4,145448.4,False,True,True,True,False,"composition: band reset this week, this week's high/low differ"
+2026-03-13,2026-03-13,145448.4,146027.0666666667,-578.6666666667152,True,145448.4,145448.4,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2026-03-20,2026-03-20,168946.7,168946.7333333333,-0.03333333329646848,False,168946.73333333334,168946.73333333334,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2026-03-27,2026-03-27,163984.4,163852.1666666667,132.2333333333081,True,163984.43333333335,163984.43333333335,False,True,False,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2026-04-03,2026-04-02,163984.4,163852.1666666667,132.2333333333081,True,163984.43333333335,163984.43333333335,False,True,False,True,False,composition: band held by the ratchet from an earlier week
+2026-04-10,2026-04-10,163984.4,163852.1666666667,132.2333333333081,True,163984.43333333335,163984.43333333335,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2026-04-17,2026-04-17,163984.4,163852.1666666667,132.2333333333081,True,163984.43333333335,163984.43333333335,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2026-04-24,2026-04-24,163984.4,163852.1666666667,132.2333333333081,True,163984.43333333335,163984.43333333335,False,True,False,False,False,composition: band held by the ratchet from an earlier week
+2026-05-01,2026-04-30,160830.1,160830.0666666667,0.03333333329646848,False,160830.06666666665,160830.06666666665,False,False,True,False,False,rounding only (0 < |diff| <= 0.05)
+2026-05-08,2026-05-08,160830.1,160830.0666666667,0.03333333329646848,False,160830.06666666665,160830.06666666665,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-05-15,2026-05-15,160830.1,160830.0666666667,0.03333333329646848,False,160830.06666666665,160830.06666666665,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-05-22,2026-05-22,160830.1,160830.0666666667,0.03333333329646848,False,160830.06666666665,160830.06666666665,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-05-29,2026-05-29,160830.1,160830.0666666667,0.03333333329646848,False,160830.06666666665,160830.06666666665,False,False,True,True,False,rounding only (0 < |diff| <= 0.05)
+2026-06-05,2026-06-05,160830.1,160830.0666666667,0.03333333329646848,False,160830.06666666665,160830.06666666665,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2026-06-12,2026-06-12,160830.1,160830.0666666667,0.03333333329646848,False,160830.06666666665,160830.06666666665,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2026-06-19,2026-06-19,160830.1,160830.0666666667,0.03333333329646848,False,160830.06666666665,160830.06666666665,False,False,False,True,False,rounding only (0 < |diff| <= 0.05)
+2026-06-26,2026-06-25,160738.5,160538.2666666667,200.2333333333081,True,160738.53333333333,160738.53333333333,False,True,True,True,False,"composition: band reset this week, ATR differs (a TR in the 5-week window)"
+2026-07-03,2026-07-03,160322.7,160322.7,0.0,False,160322.7,160322.7,False,False,False,False,False,equal
+2026-07-10,2026-07-10,159336.2,159336.2,0.0,False,159336.2,159336.2,False,False,False,False,False,equal
+2026-07-17,2026-07-17,153130.3,153130.3,0.0,False,153130.3,153130.3,False,False,False,False,False,equal
+2026-07-24,2026-07-24,153130.3,153130.3,0.0,False,153130.3,153130.3,False,False,False,False,False,equal
+2026-07-31,2026-07-31,151389.0,151389.0,0.0,False,151389.0,151389.0,False,False,False,False,False,equal
+2026-08-07,2026-08-07,133421.0,133421.0,0.0,False,133421.0,133421.0,False,False,False,False,False,equal
+2026-08-14,2026-08-14,141099.1,141099.0666666667,0.03333333329646848,False,141099.06666666665,141099.06666666665,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-08-21,2026-08-21,143129.5,143129.4666666667,0.03333333329646848,False,143129.46666666667,143129.46666666667,False,False,False,False,False,rounding only (0 < |diff| <= 0.05)
+2026-08-28,2026-08-28,144291.4,144291.4,0.0,False,144291.4,144291.4,False,False,False,False,False,equal
+2026-09-04,2026-09-04,144291.4,144291.4,0.0,False,144291.4,144291.4,False,False,False,False,False,equal
+2026-09-11,2026-09-11,144291.4,144291.4,0.0,False,144291.4,144291.4,False,False,False,False,False,equal
+2026-09-18,2026-09-18,144291.4,144291.4,0.0,False,144291.4,144291.4,False,False,True,True,False,equal
+2026-09-25,2026-09-25,144291.4,144291.4,0.0,False,144291.4,144291.4,False,False,False,True,False,equal

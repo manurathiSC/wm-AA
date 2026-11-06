@@ -1,0 +1,105 @@
+{
+  "all_ok": true,
+  "all_buy_equals_parent": {
+    "weeks": 117,
+    "violations": 0,
+    "ok": true
+  },
+  "all_sell_is_full_sleeve": {
+    "weeks": 73,
+    "violations": 0,
+    "ok": true
+  },
+  "cost_monotonic": {
+    "end_nav_by_bps": {
+      "0.0": 2.6411226502125227,
+      "20.8": 2.5445813930702603,
+      "50.0": 2.414797227943923
+    },
+    "ok": true
+  },
+  "no_target_change_between_events": {
+    "violations": 0,
+    "ok": true,
+    "non_event_trades_from_fillability": 0
+  },
+  "tag_source_by_regime": {
+    "after_seam_sources": {
+      "membership": 998,
+      "nonmember_rank": 29
+    },
+    "before_seam_sources": {
+      "rank": 11678
+    },
+    "ok": true
+  },
+  "no_future_snapshot": {
+    "violations": 0,
+    "ok": true
+  },
+  "pit_asserts": {
+    "ok": true,
+    "note": "per-row asserts raise on violation; counts in audit"
+  },
+  "microcap_fallback": {
+    "reviews": 15,
+    "ok": true
+  },
+  "stats_tie_out": {
+    "max_abs_diff": 3.0531133177191805e-16,
+    "ok": true
+  },
+  "rebalance_nav_tie_out": {
+    "max_abs_diff": 0.0,
+    "ok": "True"
+  },
+  "published_ties_to_study1": {
+    "diffs": {
+      "0042": {
+        "cagr": -5.9396931817445875e-15,
+        "convention_gap_pp": -0.013546850479356776,
+        "max_dd": -2.0816681711721685e-15
+      },
+      "0003": {
+        "cagr": -6.217248937900877e-15,
+        "convention_gap_pp": -0.009140932275397695,
+        "max_dd": -1.0547118733938987e-15
+      },
+      "0043": {
+        "cagr": -5.467848396278896e-15,
+        "convention_gap_pp": -0.00866965073548498,
+        "max_dd": -1.4710455076283324e-15
+      },
+      "0007": {
+        "cagr": -6.175615574477433e-15,
+        "convention_gap_pp": -0.003924994518751668,
+        "max_dd": -6.716849298982197e-15
+      },
+      "0044": {
+        "cagr": -6.161737786669619e-15,
+        "convention_gap_pp": -0.009274972516609692,
+        "max_dd": -2.525757381022231e-15
+      },
+      "0010": {
+        "cagr": -4.85722573273506e-15,
+        "convention_gap_pp": -0.012902503501674434,
+        "max_dd": -3.6637359812630166e-15
+      },
+      "0045": {
+        "cagr": -6.800116025829084e-15,
+        "convention_gap_pp": -0.009281363070914872,
+        "max_dd": -2.1649348980190553e-15
+      },
+      "0029": {
+        "cagr": -5.9396931817445875e-15,
+        "convention_gap_pp": -0.012209559226977751,
+        "max_dd": -9.43689570931383e-16
+      }
+    },
+    "max_abs_diff": 6.800116025829084e-15,
+    "ok": "True"
+  },
+  "all_series_start_at_1": {
+    "ok": true
+  }
+}

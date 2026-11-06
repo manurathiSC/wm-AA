@@ -1,0 +1,701 @@
+{
+ "_about": "Human judgement for the AA data review: where each input came from, and its verdict. data_review.py merges this with the computed checks. Edit only in a new review; never after a test cites it.",
+ "inputs": [
+  {
+   "id": "D01",
+   "name": "NSE trading calendar (Nifty 50 sessions)",
+   "paths": [
+    "Historical Data/frozen_2026-09-25/Data/calendar.csv",
+    "Historical Data/FRA_MAUc1/Data/TradingDays.xlsx"
+   ],
+   "role": "calendar",
+   "source": "Production Friday job: Refinitiv rd.get_history('.NSEI') -> indices_ohlcv.xlsx NSEI sheet -> _update_calendar_csv / _build_trading_days_xlsx (weekly_rebalance_nse_v2.py:377-430)",
+   "fetched_by": "production job; copied from the Friday Rebalance Automation Drive folder with cp -p",
+   "fetched_on": "calendar.csv copied 2026-09-25 12:45 IST (ends 2026-09-18); TradingDays.xlsx generated 2026-09-25 (ends 2026-09-25)",
+   "basis": "dates only (calendar.csv also carries the Nifty 50 close)",
+   "used_by": "final strategy (calendar.csv); MAUc1 signal (TradingDays.xlsx)",
+   "verdict": "PASS WITH NOTES",
+   "verdict_note": "Five real NSE sessions since 2014 are absent: 2020-02-01, 2023-11-12, 2024-03-02, 2025-02-01 and 2026-02-01 (Budget-day, Muhurat and special Saturday sessions). GOLDBEES from Kite trades on all five (F-AA-D02)."
+  },
+  {
+   "id": "D02",
+   "name": "Index OHLC behind the signals (7 sheets)",
+   "paths": [
+    "Historical Data/frozen_2026-09-25/Data/indices_ohlcv.xlsx"
+   ],
+   "role": "signal input; benchmark",
+   "source": "Production Friday job: Refinitiv rd.get_history on .NIFTY100, .NIFMDCP100, .NIFSMCP100, .NSEI and the 150/250/Microcap indices (weekly_rebalance_nse_v2.py:206-214, 588-594)",
+   "fetched_by": "production job; copied with cp -p",
+   "fetched_on": "copied 2026-09-25 12:45 IST",
+   "basis": "price index levels; volume column is 0",
+   "used_by": "signals (via the Master files); benchmarks in earlier studies",
+   "verdict": "PASS WITH NOTES",
+   "verdict_note": "Nifty Smallcap 250 lacks 7 sessions, 5 of them in a row (2022-02-24 to 2022-03-03); before 2014, SC100's open, high and low are frozen for 2011-04-01 to 2011-04-07 and three sessions are absent (F-AA-D06). Index volume is always 0."
+  },
+  {
+   "id": "D03",
+   "name": "Index signals: Master_{Nifty100, MC100, SC100}.xlsx",
+   "paths": [
+    "Historical Data/frozen_2026-09-25/Master/Master_Nifty100.xlsx",
+    "Historical Data/frozen_2026-09-25/Master/Master_MC100.xlsx",
+    "Historical Data/frozen_2026-09-25/Master/Master_SC100.xlsx"
+   ],
+   "role": "signal (the three-index switch)",
+   "source": "Production ST.py + analysis_master.py run on D02; weekly SIGN = BUY when the supertrend line is the lower band (FLB)",
+   "fetched_by": "production job (run 2026-09-18 20:04); copied with cp -p",
+   "fetched_on": "copied 2026-09-25 12:45 IST; SIGN ends 2026-09-18",
+   "basis": "weekly; rows before 2021 are a backfill by the same code, not signals traded at the time",
+   "used_by": "final strategy, T01 (descriptive), T02",
+   "verdict": "PASS",
+   "verdict_note": "Every row is the last NSE session of its week, no week is missing, SIGN agrees with the supertrend band on every row, and the weekly close equals D02's close on every row. Rows before 2021 are a backfill by the production code, not signals traded at the time."
+  },
+  {
+   "id": "D04",
+   "name": "Index signals: Master_{NiftyMidcap150, NiftySmallcap250, NiftyMicrocap250}.xlsx",
+   "paths": [
+    "Historical Data/frozen_2026-09-25/Master/Master_NiftyMidcap150.xlsx",
+    "Historical Data/frozen_2026-09-25/Master/Master_NiftySmallcap250.xlsx",
+    "Historical Data/frozen_2026-09-25/Master/Master_NiftyMicrocap250.xlsx"
+   ],
+   "role": "signal (current-rule comparator only)",
+   "source": "as D03",
+   "fetched_by": "as D03",
+   "fetched_on": "as D03",
+   "basis": "weekly; from 2019-02-22 (Microcap 250 from 2022-02-18)",
+   "used_by": "final strategy comparator (current rule)",
+   "verdict": "PASS WITH NOTES",
+   "verdict_note": "Same checks pass; Smallcap 250's signal is computed on an index file with a 5-session gap in 2022 (F-AA-D06). Comparator only."
+  },
+  {
+   "id": "D05",
+   "name": "Parent baskets: Rebalance_history_by_scid_SCMO_{0003,0007,0010,0029}.csv",
+   "paths": [
+    "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0003.csv",
+    "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0007.csv",
+    "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0010.csv",
+    "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0029.csv"
+   ],
+   "role": "parent basket weights",
+   "source": "Manual export of Redash query 1235 (p_scid), per the production README.md:216 and ARCHITECTURE.md:54",
+   "fetched_by": "exported by the desk into the production Rebalance_history folder; copied with cp -p",
+   "fetched_on": "exports dated 2026-09-13 (0003) and 2026-09-18 (others); copied 2026-09-25",
+   "basis": "weights per effective date (availableDate)",
+   "used_by": "final strategy (harness parents), T02",
+   "verdict": "PASS WITH NOTES",
+   "verdict_note": "Whole baskets flagged skipped=True carry drifted weights and are traded to by the harness (F-AA-D07); weight sums 0.9996-1.0005 (renormalise); blank and '*' tickers resolved by ISIN."
+  },
+  {
+   "id": "D06",
+   "name": "Stock prices 2014-21 (Eikon)",
+   "paths": [
+    "analysis/cache/eikon_ohlcv_2014_2021.parquet"
+   ],
+   "role": "stock fill price (OHLC4) and valuation (close), 2014-07 -> 2021-11",
+   "source": "Postgres windmill.public.ohlcv_eikon, quote_ids from symbology_changes by ISIN; why_n100sc100.eikon_by_isin (read-only transaction)",
+   "fetched_by": "AA/analysis/why_n100sc100.py:87-111",
+   "fetched_on": "2026-09-25 15:42 IST",
+   "basis": "split, bonus and demerger adjusted; not dividend adjusted (price return), per the data owner 2026-09-25",
+   "used_by": "final strategy 2014-21, T01 (via the harness parents), T02",
+   "verdict": "FAIL",
+   "verdict_note": "13 ISINs' histories stop on 2016-06-30 although the stocks kept trading, and 2 held ISINs have no rows; part of every parent's weight from mid-2016 to 2018 has no price (F-AA-D01). Re-fetch before any 2014-21 test."
+  },
+  {
+   "id": "D07",
+   "name": "Stock prices 2021-26 (Eikon)",
+   "paths": [
+    "analysis/cache/keyed_ohlcv_eikon_v2.parquet"
+   ],
+   "role": "stock fill price (OHLC4) and valuation (close), 2021-06 -> 2026-08",
+   "source": "Postgres windmill.public.ohlcv_eikon via segment_v2_data.eikon_ohlcv (quote_ids from symbology_changes)",
+   "fetched_by": "a one-off command on 2026-09-25 ~14:11 IST (px.to_parquet); no code rebuilds this file",
+   "fetched_on": "2026-09-25",
+   "basis": "as D06",
+   "used_by": "final strategy 2021-26, T02",
+   "verdict": "PASS WITH NOTES",
+   "verdict_note": "Complete over held sessions except the special sessions absent from every stock (F-AA-D04). No code rebuilds this file (F-AA-D08)."
+  },
+  {
+   "id": "D08",
+   "name": "Stock prices 2021-26 (Kite) - reconciliation only",
+   "paths": [
+    "analysis/cache/keyed_ohlcv_v2.parquet"
+   ],
+   "role": "second source for D07",
+   "source": "Postgres windmill.merged_historical_data_with_rics (Kite), keyed by ISIN",
+   "fetched_by": "ad-hoc command, 2026-09-25",
+   "fetched_on": "2026-09-25",
+   "basis": "not adjusted for demergers or special dividends",
+   "used_by": "this review only",
+   "verdict": "FAIL",
+   "verdict_note": "Not for use in tests: not adjusted for demergers or special dividends, and many rows break high/low. Kept only as the second source for D07."
+  },
+  {
+   "id": "D09",
+   "name": "GOLDBEES daily OHLC (Eikon)",
+   "paths": [
+    "analysis/cache/why_gold_ohlc_eikon.parquet"
+   ],
+   "role": "gold: valuation (close) and fill (de-spiked OHLC4)",
+   "source": "Postgres windmill.public.ohlcv_eikon WHERE quote_id = 55837402194 (GBES.NS); gold_sleeve_test.gold_signal()",
+   "fetched_by": "AA/analysis/gold_sleeve_test.py:51-65",
+   "fetched_on": "2026-09-25 15:58 IST",
+   "basis": "split adjusted; ETF distributes nothing, so price return = total return before expenses",
+   "used_by": "final strategy, T01, T02",
+   "verdict": "PASS WITH NOTES",
+   "verdict_note": "Agrees with Kite on returns; lacks 5 special sessions (F-AA-D04); open, high and low carry ETF-only spikes, removed for fills by X02."
+  },
+  {
+   "id": "D10",
+   "name": "GOLDBEES and LIQUIDBEES (Kite) - reconciliation only",
+   "paths": [
+    "analysis/cache/goldbees_kite_ohlcv.parquet",
+    "analysis/cache/defensive_etf_closes.csv"
+   ],
+   "role": "second source for D09; shows the LIQUIDBEES price",
+   "source": "Postgres merged_historical_data_with_rics (Kite) via pg_price_client",
+   "fetched_by": "prices.defensive_prices(); the parquet ad hoc",
+   "fetched_on": "2026-09 (file times)",
+   "basis": "unadjusted Kite closes",
+   "used_by": "this review only",
+   "verdict": "PASS WITH NOTES",
+   "verdict_note": "Reconciliation only. The LIQUIDBEES price is flat by design (yield paid as daily dividends), which is why D11 is used for cash."
+  },
+  {
+   "id": "D11",
+   "name": "Cash: LBES adjusted level (LIQUIDBEES with dividends reinvested)",
+   "paths": [
+    "Historical Data/LBES_Adjusted_Price_data_2026_08_10.csv"
+   ],
+   "role": "cash leg",
+   "source": "NOT RECORDED. Supplied as a CSV; the name says 2026-08-10, the file arrived 2026-08-24",
+   "fetched_by": "NOT RECORDED",
+   "fetched_on": "NOT RECORDED",
+   "basis": "total return (daily dividends reinvested); posted on calendar days, including Sundays",
+   "used_by": "final strategy, T01, T02",
+   "verdict": "FAIL",
+   "verdict_note": "Values pass every check (smooth accrual, plausible yearly returns), but nobody has recorded where the file came from or when (F-AA-D09). Posted on its own calendar, including Sundays (F-AA-D05)."
+  },
+  {
+   "id": "D12",
+   "name": "MAUc1 daily OHLCV (MCX gold futures, continuous)",
+   "paths": [
+    "C:\\Users\\manur\\Downloads\\MAUc1_daily1.csv",
+    "analysis/evidence/final_strategy/mauc1/mauc1_daily_clean.csv"
+   ],
+   "role": "gold signal input; daily range for de-spiking GOLDBEES fills",
+   "source": "Manual Eikon export by Manu (RIC MAUc1; Rs per 10 g); cleaned by mauc1_signal.load_clean",
+   "fetched_by": "Manu (export); AA/analysis/mauc1_signal.py (cleaning)",
+   "fetched_on": "export date NOT RECORDED (file in Downloads); cleaned 2026-09-29",
+   "basis": "continuous front-month futures price; roll gaps included",
+   "used_by": "final strategy (gold signal, de-spiking)",
+   "verdict": "PASS WITH NOTES",
+   "verdict_note": "Raw export has blank holiday rows and one bar that breaks high/low; the cleaning log records every change. Export date not recorded and the file lives in Downloads (F-AA-D09)."
+  },
+  {
+   "id": "D13",
+   "name": "Gold signal: Master_MAUc1.xlsx",
+   "paths": [
+    "Historical Data/FRA_MAUc1/RSI/Final/Analysis/Master_MAUc1.xlsx"
+   ],
+   "role": "signal (80/20 gold split)",
+   "source": "Production ST.py + analysis_master.py (vendored, sha-checked) run on D12 by AA/analysis/mauc1_st_production.py",
+   "fetched_by": "mauc1_st_production.py",
+   "fetched_on": "2026-09-29",
+   "basis": "weekly, from 2015-03-13",
+   "used_by": "final strategy (not T02)",
+   "verdict": "PASS",
+   "verdict_note": "Weekly rows on the last NSE session of each week; SIGN agrees with the band on every row. Built by the production code, sha-checked (see the MAUc1 Gold Trend page)."
+  },
+  {
+   "id": "D14",
+   "name": "Published parent NAVs: parentIndices.csv",
+   "paths": [
+    "Historical Data/parentIndices.csv"
+   ],
+   "role": "published NAV (comparator; T01's 2021-26 series)",
+   "source": "NOT RECORDED. A smallcase index export (scid, benchmark .NSEI, base 100 on 2021-11-01)",
+   "fetched_by": "NOT RECORDED",
+   "fetched_on": "NOT RECORDED (file 2026-08-24)",
+   "basis": "smallcase index level; whether dividends are included is NOT RECORDED",
+   "used_by": "final strategy, T01, T02 (comparator)",
+   "verdict": "FAIL",
+   "verdict_note": "Values pass every check and the benchmark column equals Nifty 50, but the source, export date and dividend basis are not recorded (F-AA-D09). Skips 5 NSE sessions (F-AA-D03)."
+  },
+  {
+   "id": "D15",
+   "name": "Published AA NAVs: indices.csv",
+   "paths": [
+    "Historical Data/indices.csv"
+   ],
+   "role": "published NAV (comparator)",
+   "source": "NOT RECORDED. Same export format as D14",
+   "fetched_by": "NOT RECORDED",
+   "fetched_on": "NOT RECORDED (file 2026-08-24)",
+   "basis": "as D14",
+   "used_by": "final strategy (comparator)",
+   "verdict": "FAIL",
+   "verdict_note": "As D14 (F-AA-D03, F-AA-D09)."
+  },
+  {
+   "id": "D16",
+   "name": "AA book weight files: SCMO_004x_Weight.csv",
+   "paths": [
+    "Historical Data/SCMO_0042_Weight.csv",
+    "Historical Data/SCMO_0043_Weight.csv",
+    "Historical Data/SCMO_0044_Weight.csv",
+    "Historical Data/SCMO_0045_Weight.csv"
+   ],
+   "role": "the AA books' actual holdings (Study 1 only)",
+   "source": "NOT RECORDED. Same layout as D05 (likely the same Redash query)",
+   "fetched_by": "NOT RECORDED",
+   "fetched_on": "NOT RECORDED (files 2026-08-24)",
+   "basis": "weights per review; skipped=true means a review with no trade",
+   "used_by": "Study 1 (evidence/main) only",
+   "verdict": "FAIL",
+   "verdict_note": "Source not recorded (F-AA-D09). Used only by Study 1; no current or planned test reads it."
+  },
+  {
+   "id": "D17",
+   "name": "Published parent NAVs, 2019-2026 (export of 2026-10-22)",
+   "paths": [
+    "Historical Data/parent_nav_2026-10-22/SCMO_0003.csv",
+    "Historical Data/parent_nav_2026-10-22/SCMO_0007.csv",
+    "Historical Data/parent_nav_2026-10-22/SCMO_0010.csv",
+    "Historical Data/parent_nav_2026-10-22/SCMO_0029.csv"
+   ],
+   "role": "published NAV (G0 gate for the rebuild; T03's hold-the-parent comparator)",
+   "source": "NOT RECORDED (system and query). Supplied by Manu on 2026-10-23 as Downloads/{3,7,10,29}.csv; copied byte for byte, see Historical Data/parent_nav_2026-10-22/SOURCE.md",
+   "fetched_by": "Manu (export system not recorded)",
+   "fetched_on": "export of 2026-10-22; supplied 2026-10-23",
+   "basis": "smallcase index level, base 100 on the first date (2019-01-02; 0007 2019-01-04); price return is implied by the rebuild matching it (dividend basis not recorded, F-AA-D09)",
+   "used_by": "T03 (comparator and G0 gate)",
+   "verdict": "PASS WITH NOTES",
+   "verdict_note": "Source system, export query and dividend basis are not recorded (F-AA-D09), so not PASS. Evidence that it is the same published series as D14: on 2021-11-01 to 2026-08-21 the daily returns equal D14's to below 1e-11 bp on all 1,186 common dates (only the base differs). Evidence that it is right: the parent rebuilt from D18 and D19 stays within +-0.25 pp/yr overall and +-0.5 pp in every calendar year (G0, after F-AA-D14). Its own checks are clean: no blank or non-positive value, no stale run, no unit break, and each of its 40 daily moves of 8% or more is matched by the same move in the D18/D19 rebuild. It skips six Diwali Muhurat evenings and two special Saturdays that D18 has (F-AA-D15), and it has the Budget sessions of 2020-02-01, 2025-02-01 and 2026-02-01 that the .NSEI calendar lacks (F-AA-D02)."
+  },
+  {
+   "id": "D18",
+   "name": "Stock OHLC per parent (holdings matrix)",
+   "paths": [
+    "data/holdings_matrix/SCMO_0003_ohlc.csv",
+    "data/holdings_matrix/SCMO_0007_ohlc.csv",
+    "data/holdings_matrix/SCMO_0010_ohlc.csv",
+    "data/holdings_matrix/SCMO_0029_ohlc.csv",
+    "data/holdings_matrix/price_corrections.csv"
+   ],
+   "role": "stock fill price (OHLC4) and valuation (close), per parent, 2014-07-01 to 2026-11-04",
+   "source": "Postgres windmill.public.ohlcv_eikon via symbology_changes, quote_ids found by ISIN and platform sid (read-only); the 13 delisted ISINs and 2 with no rows are filled from nine manual Eikon exports in data/missing_rics/ (nothing records who exported them or from where; file time 2026-11-05)",
+   "fetched_by": "data/build_ohlc_file.py (Claude, for Manu)",
+   "fetched_on": "built 2026-11-05 (file times 17:57-18:41 IST)",
+   "basis": "split, bonus and demerger adjusted, not dividend adjusted (price return). Eikon also back-adjusts Polyplex's special dividend of 2021-02-17, which the published index does not; data/holdings_matrix/price_corrections.csv undoes it and any reader of the OHLC files must apply it (F-AA-D14)",
+   "used_by": "T03 (the engine's stock prices); supersedes D06/D07 for T03",
+   "verdict": "PASS WITH NOTES",
+   "verdict_note": "Every stock-session a parent needs has a bar: 0 missing in all four parents, so F-AA-D01 (still OPEN for D06) does not touch D18. Not zero carried, as the availability reports show: 31 flat carried bars in all (3, 12, 5 and 11 per parent), listed in *_ohlc_filled_cells.csv, 19 of them on D17 sessions inside the T03 window and the rest on D18-only sessions or in 2017; negligible against about 147,000 needed stock-sessions. D18 has eight sessions that D17 skips, so T03 must use D17's dates (F-AA-D15). A few bars are not internally consistent: 98, 99, 104 and 2 bars (0003, 0007, 0010, 0029) have a high or low outside the open-close range, by a median of 0.12% to 0.13% and at most 1.96% (illiquid names, 2020 onward); 7, 2, 0 and 1 bars lack an open, high or low, but none of these is a needed stock-session (partial = 0), so OHLC4 fills are not affected. The Polyplex correction is mandatory (F-AA-D14). The manual exports' source is not recorded, and nothing here has been spot-checked against a public price."
+  },
+  {
+   "id": "D19",
+   "name": "Parent basket weights (holding weight matrix)",
+   "paths": [
+    "data/holdings_matrix/SCMO_0003_holding_weight_matrix.csv",
+    "data/holdings_matrix/SCMO_0007_holding_weight_matrix.csv",
+    "data/holdings_matrix/SCMO_0010_holding_weight_matrix.csv",
+    "data/holdings_matrix/SCMO_0029_holding_weight_matrix.csv",
+    "data/holdings_matrix/SCMO_0003_columns.csv",
+    "data/holdings_matrix/SCMO_0007_columns.csv",
+    "data/holdings_matrix/SCMO_0010_columns.csv",
+    "data/holdings_matrix/SCMO_0029_columns.csv"
+   ],
+   "role": "basket weights per effective date (availableDate), and the column-to-ISIN map",
+   "source": "Postgres smallcase_rebal_historical, joined on available_date and platform sid (data/build_holding_weight_matrix.py); the three skipped baskets from the frozen rebalance CSV (D05)",
+   "fetched_by": "data/build_holding_weight_matrix.py (Claude, for Manu)",
+   "fetched_on": "built 2026-11-05",
+   "basis": "weights as stored, not renormalised (row sums 0.9996-1.0005); price return",
+   "used_by": "T03 (the engine's basket weights); supersedes D05's weights for T03",
+   "verdict": "PASS WITH NOTES",
+   "verdict_note": "The DB weights equal D05's to 5e-13 on every basket and the held set equals the holdings matrix's and D05's (data/parent_rebuild_hm/PARENT_REBUILD_HM.md). Notes: the 0/1 holdings matrix must never be used as weights, and the baskets D05 flags skipped=true are not in the table (F-AA-D11); the table is not a drop-in for the CSV (F-AA-D12); its newest dated basket is older than D05's 2026-09 baskets, which lie after T03's window (it ends 2026-08-21)."
+  },
+  {
+   "id": "X01",
+   "name": "Derived: harness parent NAVs (rebuilt from D05 + D06/D07)",
+   "paths": [
+    "analysis/evidence/final_strategy/nav_curves_daily.csv"
+   ],
+   "role": "parent levels 2014-21 (no published series exists); comparator 2021-26",
+   "source": "final_strategy.py: hold each basket from its effective date, next-session OHLC4 fills, drifting weights, price return",
+   "fetched_by": "AA/analysis/final_strategy.py",
+   "fetched_on": "2026-09-29",
+   "basis": "price return",
+   "used_by": "T01 (2014-21 levels), final strategy",
+   "verdict": "FAIL",
+   "verdict_note": "2014-21: built on D06, so it inherits F-AA-D01. 2021-26: tracks the published NAVs closely day to day but runs below them every year (F-AA-D10)."
+  },
+  {
+   "id": "X02",
+   "name": "Derived: GOLDBEES fill price, de-spiked",
+   "paths": [
+    "analysis/evidence/final_strategy/goldbees_fill_despiked.csv"
+   ],
+   "role": "gold fill price",
+   "source": "final_strategy.despiked_goldbees: clip GOLDBEES high/low to MAUc1's daily range scaled to GOLDBEES, then OHLC4",
+   "fetched_by": "AA/analysis/final_strategy.py:186-207",
+   "fetched_on": "2026-09-29",
+   "basis": "as D09",
+   "used_by": "final strategy",
+   "verdict": "PASS WITH NOTES",
+   "verdict_note": "About one fill price in six is adjusted; the median change is small and the largest replace opening prints far from the close (see Derived series)."
+  }
+ ],
+ "issues": [
+  {
+   "id": "F-AA-D01",
+   "input": "D06, X01",
+   "issue": "In the 2014-21 Eikon price file, 13 ISINs' histories end on 2016-06-30 although the stocks kept trading (for example Lakshmi Vilas Bank to 2020, JMC Projects to 2023, Piramal Enterprises to 2025), and 2 held ISINs (INE202B01038, INE093A01041) have no rows at all. The 13 share one end date, which points to the fetch or the table, not the stocks.",
+   "effect": "Part of the parent baskets from mid-2016 to 2018 has no price (see Stock prices). The harness carries the last close or moves the weight to other names, so the 2014-21 parent rebuild, and every 2014-21 result built on it (final strategy, T01's 2015-21 window), is affected by an amount not yet measured.",
+   "handling": "Re-query ohlcv_eikon for these quote_ids with the VPN on. If the table has the rows, rebuild the file with a script; if not, find another source. Rerun the 2014-21 results.",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-AA-D02",
+   "input": "D01",
+   "issue": "The NSE calendar built from Refinitiv .NSEI lacks five real sessions since 2014: 2020-02-01 (Saturday, Budget), 2023-11-12 (Sunday, Muhurat), 2024-03-02 (Saturday, special session), 2025-02-01 (Saturday, Budget) and 2026-02-01 (Sunday, Budget). GOLDBEES from Kite has a row on all five; the published NAVs and GOLDBEES from Eikon on the two Budget days of 2025 and 2026. Yet the same calendar holds other special sessions (2016-10-30, 2019-10-27, 2020-11-14, 2024-01-20, 2024-05-18), so its coverage of special sessions is inconsistent.",
+   "effect": "An engine on this calendar folds those days into the next session. Negligible for multi-year returns; day-level comparisons are off by one day on those dates.",
+   "handling": "Accepted and noted. A project-built calendar would add the two days.",
+   "status": "ACCEPTED"
+  },
+  {
+   "id": "F-AA-D03",
+   "input": "D14, D15",
+   "issue": "The published NAV files skip 5 NSE sessions inside 2021-11-01 to 2026-08-21: the Muhurat sessions 2021-11-04, 2022-10-24, 2024-11-01 and 2025-10-21, and the special session 2024-05-18.",
+   "effect": "A comparison rebased on a session one series lacks gains or loses a day's return.",
+   "handling": "Compare on common dates only; rebase on a session both series hold.",
+   "status": "HANDLED"
+  },
+  {
+   "id": "F-AA-D04",
+   "input": "D06, D07, D09",
+   "issue": "Eikon lacks special weekend and Muhurat sessions: GOLDBEES lacks 2016-10-30, 2019-10-27, 2020-11-14, 2024-01-20 and 2024-05-18; stocks lack 2024-01-20 and 2024-05-18 (and the 2014-21 sessions listed in sessions_absent_from_stock_file.csv).",
+   "effect": "Prices are carried from the previous session on those days.",
+   "handling": "Carry the last close; count the days.",
+   "status": "HANDLED"
+  },
+  {
+   "id": "F-AA-D05",
+   "input": "D11",
+   "issue": "The cash file is posted on its own calendar: many dates that are not NSE sessions (most of them Sundays) and some NSE sessions absent. Past its last date (2026-08-09) the engines extend it two ways: flat (T01, final strategy 2014-21) and at the trailing rate (final strategy 2021-26).",
+   "effect": "Tiny on returns (cash moves about 0.02% a day), but two tests could disagree on the same days.",
+   "handling": "One convention for the project (see the component map). T02 follows it.",
+   "status": "CONVENTION SET"
+  },
+  {
+   "id": "F-AA-D06",
+   "input": "D02, D04",
+   "issue": "Index OHLC: Nifty Smallcap 250 lacks 7 sessions, 5 in a row from 2022-02-24 to 2022-03-03; SC100's open, high and low are frozen at 3584.17 from 2011-04-01 to 2011-04-07 while its close moves; Nifty 100 lacks 2006-01-24 and SC100 lacks 3 sessions in 2005 and 2011.",
+   "effect": "The Smallcap 250 signal (comparator only) is computed on gapped data. The SC100 problems are before 2014, outside every backtest window, but they enter the supertrend's history.",
+   "handling": "Accepted for now; re-pull Smallcap 250 for 2022 if it is ever used in a test.",
+   "status": "ACCEPTED"
+  },
+  {
+   "id": "F-AA-D07",
+   "input": "D05",
+   "issue": "Whole parent baskets are flagged skipped=True (0007 on 2020-03-16 and 2021-09-16; 0029 on some dates). Their weights are drifted, not equal, which suggests 'reviewed, not traded'. The harness trades to them as if they were new baskets.",
+   "effect": "Extra turnover and a small re-weighting on those dates in the rebuilt parents.",
+   "handling": "Decide whether a skipped basket should trade; if not, change the harness in a new run.",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-AA-D08",
+   "input": "D07",
+   "issue": "The 2021-26 Eikon price file was saved by a one-off command on 2026-09-25; no script in the project rebuilds it.",
+   "effect": "The file cannot be reproduced if lost or questioned.",
+   "handling": "Add data/build_prices_2021_26.py that re-creates it from ohlcv_eikon and checks its sha256 against the inventory.",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-AA-D09",
+   "input": "D11, D12, D14, D15, D16, D17",
+   "issue": "No record of who exported the cash file, the published NAV files and the AA weight files, from which system, or when; the MAUc1 export date is not recorded and the file sits in Downloads. The export of the published parent NAVs from 2019 (D17) has the same gap: Manu supplied the four files on 2026-10-23, but the system and query are not recorded.",
+   "effect": "A number built on these cannot be traced to its source.",
+   "handling": "Manu to name the sources (open questions); copy the MAUc1 export into Historical Data with its sha256. Until D17's source is recorded it stays PASS WITH NOTES (its agreement with D14 and with the rebuild is strong evidence); D11 stays FAIL.",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-AA-D10",
+   "input": "X01",
+   "issue": "Over 2021-11-03 to 2026-08-21 the rebuilt parents run below the published NAVs on all four parents (see Reconciliation), most on 0029.",
+   "effect": "Levels of anything built on the rebuild are understated; rule-versus-hold comparisons on the same rebuild are not.",
+   "handling": "Before quoting a level, say it is the rebuild. Find out the published series' dividend basis (F-AA-D09).",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-AA-D11",
+   "input": "D18, D05",
+   "issue": "The holdings matrix (data/holdings_matrix/*_holdings_matrix.csv) is 0/1 and carries no weights, and it lists three baskets the rebalance history flags skipped=true (0007 2020-03-16 and 2021-09-16, 0029 2020-03-16; see F-AA-D07).",
+   "effect": "A rebuild from the matrix alone is equal weight, which is wrong for most baskets (up to 0.8 pp/yr off the published NAV; 0010 is +6.5 pp off in 2020). Trading the three skipped baskets moves 0007 by -0.12 pp/yr and 0029 by -0.63 pp/yr over 2019-2026.",
+   "handling": "Use data/holdings_matrix/<p>_holding_weight_matrix.csv (Postgres smallcase_rebal_historical, equals the frozen CSV to 5e-13) and drop the csv_only_skipped rows unless a test says otherwise. Never use the 0/1 matrix as weights. Detail: data/parent_rebuild_hm/PARENT_REBUILD_HM.md.",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-AA-D12",
+   "input": "D18",
+   "issue": "Postgres smallcase_rebal_historical is not a drop-in for the frozen rebalance CSV: (a) its rebalance_date is the decision date, not the CSV's date, so join on available_date; (b) each parent's newest basket has available_date NULL (match by identical holdings); (c) it has no skipped baskets; (d) one stock can carry two ISINs (TD Power Systems), so match on sid; (e) its latest dated basket (2026-06-15/23) is older than the CSV's 2026-09 baskets.",
+   "effect": "A naive join drops or misdates baskets and silently loses stocks.",
+   "handling": "data/build_holding_weight_matrix.py implements the joins above and records the source of every row in <p>_holding_weight_sources.csv.",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-AA-D14",
+   "input": "D18, D17",
+   "issue": "Eikon back-adjusts Polyplex (POLYPLEX.NS) for its Rs 100/share special dividend (ex-date 2021-02-17, cum close 911.20), although the file's stated rule is adjustment for splits, bonuses and demergers only. ohlcv_eikon prices before the ex-date are 811.20/911.20 = 0.8903 of traded prices (the step is visible against merged_historical_data_with_rics: ratio 0.8395 -> 0.9430 across 2021-02-16/17). The published SCMO_0007 price-return index takes the drop. Eikon also back-adjusts ordinary dividends: Redington (ex 2021-07-16, ratio step +1.196%, 7.7% of the 2021-06-17 basket) is the only other step of 0.3% or more while held by 0007 in 2021.",
+   "effect": "The rebuilt SCMO_0007 ran +118 bp above the published NAV on 2021-02-17 and never gave it back: +2.04 pp in calendar 2021, +0.27 pp/yr over 2019-2026 (G0 FAIL). This one event is the whole 'unexplained' 0007 2021 gap. A scan of every held stock in all four parents (ratio of ohlcv_eikon to merged_historical_data_with_rics, steps >= 2% while held) found no other persistent step in 2019-2026 that matches a published-NAV difference. The scan at 2% could not see ordinary dividends; a finer scan of 0007 for 2021 (0.3%) finds only Polyplex and Redington. The Redington step is the remaining +0.17 pp of the 2021 gap; a parallel run measured that adding it gives a 2021 gap of +0.002 pp and a full-window gap of +0.088 pp/yr (tests/T03/logs/step_1_log.md). It is not corrected (not needed for G0); ordinary dividends below 0.3% were not enumerated.",
+   "handling": "data/holdings_matrix/price_corrections.csv multiplies Polyplex prices dated before 2021-02-17 by 911.20/811.20 = 1.123274; data/parent_rebuild_hm.py applies it in the variant listed_weights_skip_dropped_corrected: 0007 2021 gap 2.04 -> 0.17 pp, full-window gap +0.27 -> +0.10 pp/yr, G0 PASS. The D18 *_ohlc.csv files are not edited; the T03 engine must apply price_corrections.csv when it reads them. Other special dividends that Eikon may have back-adjusted are not hunted beyond the scan above. Reproduce: python data/diagnose_0007_2021_gap.py --scan (log: tests/T03/logs/step1_0007_2021_gap_diagnosis.log). Falsified by: any held stock other than Polyplex whose Eikon-to-unadjusted ratio steps by 2% or more on a date it is held, with a matching one-day gap between the rebuild and the published NAV, or the rebuild with price_corrections.csv failing G0 on 0007.",
+   "status": "RESOLVED for D18 via price_corrections.csv; D06/D07 and any other price source are not corrected"
+  },
+  {
+   "id": "F-AA-D15",
+   "input": "D17, D18",
+   "issue": "The per-parent OHLC files (D18) have eight sessions that the published NAVs (D17) skip: six Diwali Muhurat evenings (2020-11-14, 2021-11-04, 2022-10-24, 2023-11-12, 2024-11-01, 2025-10-21) and two special Saturdays (2024-03-02, 2024-05-18). On 2021-11-04, 2022-10-24, 2024-11-01 and 2025-10-21 as many stocks have a bar as on the days around them; on the other four about 91% do. The reverse never happens: every D17 date is in D18. Neither has the Muhurat Sunday 2019-10-27. Both have the Budget sessions 2020-02-01, 2025-02-01 and 2026-02-01 and the special Saturday 2024-01-20, which the .NSEI calendar lacks (F-AA-D02).",
+   "effect": "A NAV valued on D18's dates would have extra days, and its daily returns would not line up with D17's. A trade on a date D17 skips would have no published value to compare with. No Kite fill is needed, because D18 is a superset of D17.",
+   "handling": "T03's calendar is D17's dates: every NAV, every trade and every decision date is on a D17 session, and D18 prices on the other eight dates are never read. The calendar rule goes into T03.md section 3.",
+   "status": "HANDLED"
+  }
+ ],
+ "move_notes": {
+  "2014-05-19": "first session after the 2014 general-election results",
+  "2015-08-24": "global sell-off after China's yuan devaluation",
+  "2016-09-29": "India's surgical-strike announcement",
+  "2018-02-02": "Union Budget reintroduces long-term capital-gains tax",
+  "2019-09-20": "corporate tax cut announced",
+  "2020-03-12": "Covid-19 crash",
+  "2020-03-16": "Covid-19 crash",
+  "2020-03-18": "Covid-19 crash",
+  "2020-03-19": "Covid-19 crash",
+  "2020-03-20": "Covid-19 crash and rebound",
+  "2020-03-23": "Covid-19 crash",
+  "2020-03-25": "Covid-19 rebound",
+  "2020-04-07": "Covid-19 rebound",
+  "2020-05-04": "Covid-19 lockdown extension",
+  "2020-12-21": "sell-off on a new Covid-19 variant in the UK",
+  "2021-04-12": "second Covid-19 wave in India",
+  "2022-02-24": "Russia invades Ukraine",
+  "2024-06-04": "general-election results day",
+  "2024-07-23": "Union Budget cuts the customs duty on gold",
+  "2020-09-14": "SEBI rule requiring multi-cap funds to hold at least 25% in small caps",
+  "2024-03-13": "small-cap sell-off after SEBI warned of froth in small and mid caps"
+ },
+ "spot_checks": [
+  {
+   "series": "index Nifty100",
+   "date": "2016-12-30"
+  },
+  {
+   "series": "index Nifty100",
+   "date": "2020-03-23"
+  },
+  {
+   "series": "index Nifty100",
+   "date": "2024-06-04"
+  },
+  {
+   "series": "index MC100",
+   "date": "2016-12-30"
+  },
+  {
+   "series": "index MC100",
+   "date": "2020-03-23"
+  },
+  {
+   "series": "index MC100",
+   "date": "2024-06-04"
+  },
+  {
+   "series": "index SC100",
+   "date": "2016-12-30"
+  },
+  {
+   "series": "index SC100",
+   "date": "2020-03-23"
+  },
+  {
+   "series": "index SC100",
+   "date": "2024-06-04"
+  },
+  {
+   "series": "GOLDBEES Eikon",
+   "date": "2016-12-30"
+  },
+  {
+   "series": "GOLDBEES Eikon",
+   "date": "2020-03-23"
+  },
+  {
+   "series": "GOLDBEES Eikon",
+   "date": "2026-01-30"
+  },
+  {
+   "series": "LBES adjusted (cash)",
+   "date": "2016-12-30"
+  },
+  {
+   "series": "LBES adjusted (cash)",
+   "date": "2021-11-01"
+  },
+  {
+   "series": "LBES adjusted (cash)",
+   "date": "2026-08-07"
+  },
+  {
+   "series": "MAUc1 cleaned",
+   "date": "2016-12-30"
+  },
+  {
+   "series": "MAUc1 cleaned",
+   "date": "2024-07-23"
+  },
+  {
+   "series": "MAUc1 cleaned",
+   "date": "2026-01-30"
+  },
+  {
+   "series": "published parent SCMO_0003",
+   "date": "2022-12-30"
+  },
+  {
+   "series": "published parent SCMO_0003",
+   "date": "2024-06-04"
+  },
+  {
+   "series": "published parent SCMO_0003",
+   "date": "2026-08-21"
+  }
+ ],
+ "component_map": [
+  {
+   "role": "Calendar",
+   "series": "D01 calendar.csv (NSE sessions from Refinitiv .NSEI)",
+   "why": "The production job's own calendar; the signals are built on it",
+   "convention": "A series' row on a date outside this calendar is ignored; on a session where a series has no row, its last value is carried. Two Budget sessions are missing (F-AA-D02)"
+  },
+  {
+   "role": "Equity switch signal",
+   "series": "D03 SIGN of Master_Nifty100, Master_MC100, Master_SC100 (frozen 2026-09-25)",
+   "why": "The production signals, unmodified",
+   "convention": "At a decision date d, read the latest weekly row dated on or before d"
+  },
+  {
+   "role": "Parent baskets",
+   "series": "D05 Rebalance_history (frozen 2026-09-25)",
+   "why": "The parents' real baskets",
+   "convention": "Effective from availableDate; joined to prices by ISIN; weights renormalised to sum to 1"
+  },
+  {
+   "role": "Stock fill price",
+   "series": "D06 (2014-21) and D07 (2021-26): Eikon OHLC4 of the next session",
+   "why": "Adjusted for splits, bonuses and demergers; Kite (D08) is not",
+   "convention": "The close when the open is missing"
+  },
+  {
+   "role": "Stock valuation",
+   "series": "D06 / D07 Eikon close",
+   "why": "As above",
+   "convention": "Carried forward over sessions without a row"
+  },
+  {
+   "role": "Gold",
+   "series": "D09 GOLDBEES Eikon close (valuation); X02 de-spiked OHLC4 (fills)",
+   "why": "Agrees with Kite; the spikes are in open, high and low only",
+   "convention": "Carried forward over the special sessions it lacks"
+  },
+  {
+   "role": "Cash",
+   "series": "D11 LBES adjusted level: LIQUIDBEES with its daily dividends reinvested",
+   "why": "The LIQUIDBEES price is flat by design and returns 0%",
+   "convention": "As-of: on each NSE session take the latest posted level. Past the file's last date, accrue at the trailing 90-session daily rate, and count those days in the run's audit"
+  },
+  {
+   "role": "Comparators",
+   "series": "D14 published parent NAVs; D15 published AA NAVs",
+   "why": "What the smallcases actually reported",
+   "convention": "Common dates only; rebase on a session both series hold"
+  },
+  {
+   "role": "Benchmarks",
+   "series": "D02 index closes (Nifty 50, Nifty 100, Midcap 100, Smallcap 100)",
+   "why": "Same source as the signals",
+   "convention": "Price indices: excess over them is excess over a price index"
+  },
+  {
+   "role": "Gold signal (final strategy only, not T02)",
+   "series": "D13 Master_MAUc1",
+   "why": "Production code on MCX gold",
+   "convention": "As the equity switch signal"
+  }
+ ],
+ "open_questions": [
+  "Cash file (D11): which system and who produced LBES_Adjusted_Price_data_2026_08_10.csv, and when? Is it LIQUIDBEES's NAV with the daily dividends reinvested, and computed by whom?",
+  "Published NAVs (D14, D15): which system exported parentIndices.csv and indices.csv, on what date, and do the levels include dividends?",
+  "AA weight files (D16): the same Redash query (1235) as the parent baskets?",
+  "MAUc1 (D12): when was MAUc1_daily1.csv exported? May it be copied into AA/Historical Data with its sha256?",
+  "F-AA-D01: with the VPN on, the 2016-06-30 cut-off can be checked against ohlcv_eikon. Can you turn it on?",
+  "F-AA-D07: when a parent basket is flagged skipped=True, did the smallcase trade on that date or not?"
+ ],
+ "status": "DRAFT",
+ "blockers_for_T02": [
+  "F-AA-D01: the 2014-21 stock prices (D06) FAIL; re-fetch with the VPN on",
+  "F-AA-D09: sources of the cash file (D11) and the published parent NAVs (D14) not recorded",
+  "Spot checks against a public source not yet done"
+ ],
+ "t03_inputs": [
+  {
+   "id": "D01",
+   "used_for": "Reference calendar for the weekly Friday review (the last session of each week).",
+   "impact": "Five real sessions are absent from it (F-AA-D02). T03 values and trades on D17's dates, which include the three Budget sessions the calendar lacks; the Friday review is the last D17 session of the week."
+  },
+  {
+   "id": "D03",
+   "used_for": "SIGN of the Nifty 100, Midcap 100 and Smallcap 100 supertrends: the three-index switch.",
+   "impact": "Rows before 2021 are a backfill by the production code, not signals traded at the time, so the 2019-2021 decisions are what the rule would have said, not what was done. T03 states this in section 3."
+  },
+  {
+   "id": "D05",
+   "used_for": "availableDate of each basket and which baskets are skipped; the weights come from D19.",
+   "impact": "Skipped baskets (F-AA-D07) are dropped. D19's weights equal D05's to 5e-13."
+  },
+  {
+   "id": "D09",
+   "used_for": "GOLDBEES open, high, low and close: the gold half of the out-of-equity sleeve.",
+   "impact": "Eikon's high and low carry ETF-only spikes, so the fill is the de-spiked OHLC4 (X02). The Budget sessions are in GOLDBEES but not in the calendar (F-AA-D02); T03 uses D17's dates."
+  },
+  {
+   "id": "D11",
+   "used_for": "LBES adjusted level: the cash half of the sleeve (50% of it).",
+   "impact": "FAIL because its source is not recorded (F-AA-D09). Impact, against the desk's own LIQUIDCASE file (liquidEtfFinal) over T03's window 2019-01-02 to 2026-08-07: LBES compounds 4.19% a year, LIQUIDCASE 4.37%, a gap of 0.18 pp/yr; the two are identical until 2024-01-24 and differ by 0.54 pp/yr after. With cash at half the sleeve, the cash leg can move a book's CAGR by at most 0.09 pp/yr even if it were always out, and moves every null draw's CAGR in the same direction, so the comparison with the nulls is not affected. Past 2026-08-09 the level accrues at the trailing 90-session rate (F-AA-D05)."
+  },
+  {
+   "id": "D12",
+   "used_for": "MCX gold futures (MAUc1) daily range, only to de-spike GOLDBEES's fill price.",
+   "impact": "No gold-timing signal is used in T03. The de-spiking changes 552 of 3,019 GOLDBEES fill prices, by a median of -0.20% (X02)."
+  },
+  {
+   "id": "D17",
+   "used_for": "Published parent NAVs: the G0 gate, T03's calendar, and the hold-the-parent comparator.",
+   "impact": "Source not recorded, so PASS WITH NOTES. Equal to D14 on their common dates; the rebuild matches it within G0. T03's calendar is its dates."
+  },
+  {
+   "id": "D18",
+   "used_for": "Every stock's OHLC for fills (OHLC4) and valuation (close).",
+   "impact": "0 missing stock-sessions; 31 carried bars, 19 of them in T03's window; the engine applies the Polyplex correction (F-AA-D14); the eight sessions D17 skips are never read (F-AA-D15)."
+  },
+  {
+   "id": "D19",
+   "used_for": "Target weights of every basket, on its availableDate.",
+   "impact": "Equals D05's to 5e-13; skipped baskets are dropped."
+  }
+ ],
+ "previous_review": "2026-10-22 (kept in data/review/2026-10-22/, with its own DATA_REVIEW.md). This review (2026-11-05) adds D17, D18 and D19, F-AA-D11 to F-AA-D15, and the T03 notes in section 3b; the verdicts of D01-D16 and X01-X02 are unchanged.",
+ "cited_by": "none yet for this review. T01 (2026-10-01) predates the 2026-10-22 review.",
+ "t03_conditions": [
+  "F-AA-D09 stays OPEN and is escalated to Manu: who exported the LBES cash file (D11) and the published NAVs (D17), from which system, on what date. Until then D17 is PASS WITH NOTES and D11 is FAIL with its impact bounded at 0.09 pp/yr on a book's CAGR (and the same in every null draw).",
+  "F-AA-D01 stays OPEN for D06 and D07 but does not touch D18, so it does not block T03.",
+  "No D17 or D18 value has been compared with a public source (the same gap as the spot checks of 2026-10-22). T03's pre-registration lists it as a known limit.",
+  "The review as a whole stays DRAFT."
+ ]
+}

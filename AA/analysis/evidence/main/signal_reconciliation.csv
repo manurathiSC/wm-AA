@@ -1,0 +1,21 @@
+aa,n_indices,combo,threshold,agreement,sessions,weights
+0042,3,nifty100+smallcap100+microcap250,0.3,1.0,1110,"nifty100 0.05, smallcap100 0.65, microcap250 0.30"
+0042,3,nifty100+smallcap100+microcap250,0.4,1.0,1110,"nifty100 0.05, smallcap100 0.55, microcap250 0.40"
+0042,1,smallcap100,0.3,0.9957841483979764,1186,smallcap100 1.00
+0042,1,smallcap100,0.4,0.9957841483979764,1186,smallcap100 1.00
+0042,1,smallcap100,0.5,0.9957841483979764,1186,smallcap100 1.00
+0043,1,smallcap100,0.3,1.0,1186,smallcap100 1.00
+0043,1,smallcap100,0.4,1.0,1186,smallcap100 1.00
+0043,1,smallcap100,0.5,1.0,1186,smallcap100 1.00
+0043,1,smallcap100,0.6,1.0,1186,smallcap100 1.00
+0043,1,smallcap100,0.7,1.0,1186,smallcap100 1.00
+0044,3,smallcap100+midcap150+smallcap250,0.6,0.9957841483979764,1186,"smallcap100 0.40, midcap150 0.60"
+0044,3,smallcap100+midcap150+smallcap250,0.7,0.9957841483979764,1186,"smallcap100 0.30, midcap150 0.70"
+0044,3,midcap100+smallcap100+smallcap250,0.3,0.9915682967959528,1186,"midcap100 0.30, smallcap100 0.70"
+0044,3,smallcap100+midcap150+smallcap250,0.3,0.9915682967959528,1186,"smallcap100 0.70, midcap150 0.30"
+0044,3,midcap100+smallcap100+microcap250,0.6,0.9864864864864865,1110,"midcap100 0.60, smallcap100 0.40"
+0045,3,midcap100+smallcap100+smallcap250,0.6,0.9957841483979764,1186,"midcap100 0.60, smallcap100 0.40"
+0045,3,midcap100+smallcap100+smallcap250,0.7,0.9957841483979764,1186,"midcap100 0.70, smallcap100 0.30"
+0045,3,midcap100+smallcap100+microcap250,0.6,0.9954954954954955,1110,"midcap100 0.60, smallcap100 0.40"
+0045,3,midcap100+smallcap100+microcap250,0.7,0.9954954954954955,1110,"midcap100 0.70, smallcap100 0.30"
+0045,3,smallcap100+midcap150+microcap250,0.6,0.9954954954954955,1110,"smallcap100 0.40, midcap150 0.60"

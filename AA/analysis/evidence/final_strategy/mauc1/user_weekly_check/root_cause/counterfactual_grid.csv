@@ -1,0 +1,14 @@
+candles,start,engine,n_vs_user,n_vs_st_py,weeks_vs_user,weeks_vs_st_py
+"A user W-FRI, all MCX sessions",5th candle (user),replica,0,6,,2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23
+"A user W-FRI, all MCX sessions",6th candle (ST.py),replica,0,6,,2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23
+"B ST.py: NSE calendar + ffill, ISO weeks, cleaned daily",5th candle (user),replica,6,0,2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23,
+"B ST.py: NSE calendar + ffill, ISO weeks, cleaned daily",6th candle (ST.py),replica,6,0,2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23,
+"C ISO Mon-Sun weeks, all MCX sessions",5th candle (user),replica,0,6,,2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23
+"C ISO Mon-Sun weeks, all MCX sessions",6th candle (ST.py),replica,0,6,,2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23
+"D W-FRI, only MCX sessions on NSE days",5th candle (user),replica,6,0,2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23,
+"D W-FRI, only MCX sessions on NSE days",6th candle (ST.py),replica,6,0,2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23,
+"E NSE calendar + ffill, ISO weeks, user's daily rows",5th candle (user),replica,6,0,2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23,
+"E NSE calendar + ffill, ISO weeks, user's daily rows",6th candle (ST.py),replica,6,0,2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23,
+"A user W-FRI, all MCX sessions",6th candle (ST.py),production ST.run,0,6,,2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23
+"B ST.py: NSE calendar + ffill, ISO weeks, cleaned daily",6th candle (ST.py),production ST.run,6,0,2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23,
+"E NSE calendar + ffill, ISO weeks, user's daily rows",6th candle (ST.py),production ST.run,6,0,2018-12-07;2018-12-14;2018-12-21;2018-12-28;2019-01-04;2023-06-23,

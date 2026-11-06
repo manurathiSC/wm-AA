@@ -1,0 +1,258 @@
+{
+  "policy_by_book": [
+    {
+      "aa": "0042",
+      "parent": "0003",
+      "realized_rule": "single smallcap100",
+      "realized": 0.07609627875846872,
+      "highest_weight_index": "microcap250",
+      "highest_weight": 0.582978131123676,
+      "policy_highest_weight": 0.040689667013165925,
+      "single::nifty50": -0.02996435457056803,
+      "single::nifty100": 0.05497816195225934,
+      "single::nifty500_synth": 0.012454368062648356,
+      "single::midcap100": 0.00607008904452752,
+      "single::midcap150": -0.002112973208069443,
+      "single::smallcap100": 0.07609627875846872,
+      "single::smallcap250": 0.057438506733498255,
+      "single::microcap250": 0.040689667013165925,
+      "and::nifty100+smallcap250": 0.10041455128524829,
+      "and::smallcap100+smallcap250": 0.07513828699537568,
+      "and::microcap250+smallcap250": 0.06262202860463076,
+      "and::nifty100+smallcap100": 0.12119058207761114,
+      "and::nifty100+microcap250": 0.08078755752179631,
+      "and::midcap150+smallcap250": 0.057438506733498255,
+      "and::nifty500_synth+smallcap250": 0.05558315205974412
+    },
+    {
+      "aa": "0043",
+      "parent": "0007",
+      "realized_rule": "single smallcap100",
+      "realized": 0.10164785078299453,
+      "highest_weight_index": "smallcap250",
+      "highest_weight": 0.4282268198877115,
+      "policy_highest_weight": 0.10670929239048321,
+      "single::nifty50": 0.0025695226441357602,
+      "single::nifty100": 0.06982756211077257,
+      "single::nifty500_synth": 0.043248251112119024,
+      "single::midcap100": 0.037639479252491476,
+      "single::midcap150": 0.017332822534932447,
+      "single::smallcap100": 0.10164785078299453,
+      "single::smallcap250": 0.10670929239048321,
+      "single::microcap250": 0.10406733780397369,
+      "and::nifty100+smallcap250": 0.14161791043244687,
+      "and::smallcap100+smallcap250": 0.12894489300654727,
+      "and::microcap250+smallcap250": 0.11389581981842264,
+      "and::nifty100+smallcap100": 0.1518223417974348,
+      "and::nifty100+microcap250": 0.13187269455886858,
+      "and::midcap150+smallcap250": 0.10670929239048321,
+      "and::nifty500_synth+smallcap250": 0.11027719195634944
+    },
+    {
+      "aa": "0044",
+      "parent": "0010",
+      "realized_rule": "AND smallcap100+midcap150",
+      "realized": 0.02518818944715316,
+      "highest_weight_index": "midcap150",
+      "highest_weight": 0.4928250855205416,
+      "policy_highest_weight": 0.0006516229855646382,
+      "single::nifty50": 0.002103051582666072,
+      "single::nifty100": 0.06397254074500949,
+      "single::nifty500_synth": 0.029496700706418962,
+      "single::midcap100": 0.010763184813192104,
+      "single::midcap150": 0.0006516229855646382,
+      "single::smallcap100": 0.025022138053934533,
+      "single::smallcap250": 0.019629081201546095,
+      "single::microcap250": 0.01120287072044449,
+      "and::nifty100+smallcap250": 0.050593794242544114,
+      "and::smallcap100+smallcap250": 0.024709087091603507,
+      "and::microcap250+smallcap250": 0.02207617226880292,
+      "and::nifty100+smallcap100": 0.07209701925986384,
+      "and::nifty100+microcap250": 0.041534848264543574,
+      "and::midcap150+smallcap250": 0.019629081201546095,
+      "and::nifty500_synth+smallcap250": 0.017081065122688123
+    },
+    {
+      "aa": "0045",
+      "parent": "0029",
+      "realized_rule": "AND midcap100+smallcap100",
+      "realized": 0.0698933923120859,
+      "highest_weight_index": "midcap150",
+      "highest_weight": 0.464387383493867,
+      "policy_highest_weight": -0.026830939224319596,
+      "single::nifty50": -0.05797360200882571,
+      "single::nifty100": 0.011417007999024559,
+      "single::nifty500_synth": -0.016914280744071343,
+      "single::midcap100": -0.0026396002606647287,
+      "single::midcap150": -0.026830939224319596,
+      "single::smallcap100": 0.04141029840623524,
+      "single::smallcap250": 0.019371751222284152,
+      "single::microcap250": 0.023195149097840814,
+      "and::nifty100+smallcap250": 0.05114886008804799,
+      "and::smallcap100+smallcap250": 0.029798495155237414,
+      "and::microcap250+smallcap250": 0.026381115907811233,
+      "and::nifty100+smallcap100": 0.08027375393980012,
+      "and::nifty100+microcap250": 0.04655872469504256,
+      "and::midcap150+smallcap250": 0.019371751222284152,
+      "and::nifty500_synth+smallcap250": 0.018062920596197973
+    }
+  ],
+  "policy_ranking": [
+    {
+      "policy": "and::nifty100+smallcap100",
+      "mean_value_add_ann": 0.10634592426867748,
+      "min_value_add_ann": 0.07209701925986384,
+      "books_beating_realized": 4
+    },
+    {
+      "policy": "and::nifty100+smallcap250",
+      "mean_value_add_ann": 0.08594377901207181,
+      "min_value_add_ann": 0.050593794242544114,
+      "books_beating_realized": 3
+    },
+    {
+      "policy": "and::nifty100+microcap250",
+      "mean_value_add_ann": 0.07518845626006276,
+      "min_value_add_ann": 0.041534848264543574,
+      "books_beating_realized": 3
+    },
+    {
+      "policy": "realized",
+      "mean_value_add_ann": 0.06820642782517558,
+      "min_value_add_ann": 0.02518818944715316,
+      "books_beating_realized": 0
+    },
+    {
+      "policy": "and::smallcap100+smallcap250",
+      "mean_value_add_ann": 0.06464769056219097,
+      "min_value_add_ann": 0.024709087091603507,
+      "books_beating_realized": 1
+    },
+    {
+      "policy": "single::smallcap100",
+      "mean_value_add_ann": 0.06104414150040825,
+      "min_value_add_ann": 0.025022138053934533,
+      "books_beating_realized": 0
+    },
+    {
+      "policy": "and::microcap250+smallcap250",
+      "mean_value_add_ann": 0.05624378414991689,
+      "min_value_add_ann": 0.02207617226880292,
+      "books_beating_realized": 1
+    },
+    {
+      "policy": "and::midcap150+smallcap250",
+      "mean_value_add_ann": 0.050787157886952934,
+      "min_value_add_ann": 0.019371751222284152,
+      "books_beating_realized": 1
+    },
+    {
+      "policy": "single::smallcap250",
+      "mean_value_add_ann": 0.050787157886952934,
+      "min_value_add_ann": 0.019371751222284152,
+      "books_beating_realized": 1
+    },
+    {
+      "policy": "and::nifty500_synth+smallcap250",
+      "mean_value_add_ann": 0.05025108243374491,
+      "min_value_add_ann": 0.017081065122688123,
+      "books_beating_realized": 1
+    },
+    {
+      "policy": "single::nifty100",
+      "mean_value_add_ann": 0.05004881820176649,
+      "min_value_add_ann": 0.011417007999024559,
+      "books_beating_realized": 1
+    },
+    {
+      "policy": "single::microcap250",
+      "mean_value_add_ann": 0.044788756158856226,
+      "min_value_add_ann": 0.01120287072044449,
+      "books_beating_realized": 1
+    },
+    {
+      "policy": "policy_highest_weight",
+      "mean_value_add_ann": 0.03030491079122355,
+      "min_value_add_ann": -0.026830939224319596,
+      "books_beating_realized": 1
+    },
+    {
+      "policy": "single::nifty500_synth",
+      "mean_value_add_ann": 0.01707125978427875,
+      "min_value_add_ann": -0.016914280744071343,
+      "books_beating_realized": 1
+    },
+    {
+      "policy": "single::midcap100",
+      "mean_value_add_ann": 0.012958288212386593,
+      "min_value_add_ann": -0.0026396002606647287,
+      "books_beating_realized": 0
+    },
+    {
+      "policy": "single::midcap150",
+      "mean_value_add_ann": -0.002739866727972988,
+      "min_value_add_ann": -0.026830939224319596,
+      "books_beating_realized": 0
+    },
+    {
+      "policy": "single::nifty50",
+      "mean_value_add_ann": -0.020816345588147975,
+      "min_value_add_ann": -0.05797360200882571,
+      "books_beating_realized": 0
+    }
+  ],
+  "basket_sync": [
+    {
+      "aa": "0042",
+      "parent": "0003",
+      "parent_rebalances": 19,
+      "parent_median_gap_days": 91,
+      "reviews_in_equity": 128,
+      "reviews_2plus_names_off": 8,
+      "pct_reviews_off": 0.0625,
+      "max_names_off": 5,
+      "typical_basket_size": 11.0,
+      "name_match_pct": 0.971704623878537,
+      "first_desync": "2022-09-19"
+    },
+    {
+      "aa": "0043",
+      "parent": "0007",
+      "parent_rebalances": 19,
+      "parent_median_gap_days": 91,
+      "reviews_in_equity": 136,
+      "reviews_2plus_names_off": 7,
+      "pct_reviews_off": 0.051470588235294115,
+      "max_names_off": 5,
+      "typical_basket_size": 12.0,
+      "name_match_pct": 0.976882039122703,
+      "first_desync": "2022-09-19"
+    },
+    {
+      "aa": "0044",
+      "parent": "0010",
+      "parent_rebalances": 19,
+      "parent_median_gap_days": 91,
+      "reviews_in_equity": 155,
+      "reviews_2plus_names_off": 10,
+      "pct_reviews_off": 0.06451612903225806,
+      "max_names_off": 6,
+      "typical_basket_size": 15.0,
+      "name_match_pct": 0.9767741935483871,
+      "first_desync": "2022-09-19"
+    },
+    {
+      "aa": "0045",
+      "parent": "0029",
+      "parent_rebalances": 19,
+      "parent_median_gap_days": 91,
+      "reviews_in_equity": 160,
+      "reviews_2plus_names_off": 10,
+      "pct_reviews_off": 0.0625,
+      "max_names_off": 4,
+      "typical_basket_size": 12.0,
+      "name_match_pct": 0.9787018255578094,
+      "first_desync": "2022-09-19"
+    }
+  ]
+}

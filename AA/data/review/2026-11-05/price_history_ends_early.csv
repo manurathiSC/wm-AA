@@ -1,0 +1,22 @@
+file,isin,first,last,rows,ric,delisted_per_ric,shares_end_date_with,reading
+Eikon 2014-21,INE00R701017,2014-07-01,2016-06-30,492,OSCM.NS^D19,2019-04,12,GAP: many histories end on this same date
+Eikon 2014-21,INE140A01024,2014-07-01,2016-06-30,492,PIRA.NS^I25,2025-09,12,GAP: many histories end on this same date
+Eikon 2014-21,INE180K01011,2014-07-01,2019-07-02,1232,BHAF.NS^G19,2019-07,0,delisted or merged
+Eikon 2014-21,INE274B01011,2014-07-01,2019-09-26,1290,MNSN.NS^E20,2020-05,0,delisted or merged
+Eikon 2014-21,INE302M01033,2015-09-21,2021-04-22,1376,PRDA.NS^D21,2021-04,0,delisted or merged
+Eikon 2014-21,INE353G01020,2014-07-01,2016-06-30,492,DISH.NS^F18,2018-06,12,GAP: many histories end on this same date
+Eikon 2014-21,INE400H01019,2014-07-01,2016-06-30,492,ADME.NS^K20,2020-11,12,GAP: many histories end on this same date
+Eikon 2014-21,INE416L01017,2014-07-01,2016-06-30,492,EROS.NS,,12,GAP: many histories end on this same date
+Eikon 2014-21,INE425A01011,2014-07-01,2016-06-30,491,MTAL.NS^C25,2025-03,12,GAP: many histories end on this same date
+Eikon 2014-21,INE429C01035,2014-07-01,2016-06-30,492,SNTX.NS^C23,2023-03,12,GAP: many histories end on this same date
+Eikon 2014-21,INE502K01016,2014-07-01,2016-06-30,492,TALW.NS,,12,GAP: many histories end on this same date
+Eikon 2014-21,INE580B01029,2014-07-01,2019-10-15,1301,GRUH.NS^E20,2020-05,0,delisted or merged
+Eikon 2014-21,INE694C01018,2014-07-01,2016-06-30,492,LVLS.NS^L20,2020-12,12,GAP: many histories end on this same date
+Eikon 2014-21,INE705A01016,2014-07-01,2019-03-07,1155,VJBK.NS^E20,2020-05,0,delisted or merged
+Eikon 2014-21,INE763A01023,2014-07-01,2018-07-24,1003,POLA.NS^H18,2018-08,0,delisted or merged
+Eikon 2014-21,INE797A01021,2014-07-01,2016-06-30,492,GEOM.NS^K22,2022-11,12,GAP: many histories end on this same date
+Eikon 2014-21,INE890A01024,2014-07-01,2016-06-30,492,JMCP.NS^A23,2023-01,12,GAP: many histories end on this same date
+Eikon 2014-21,INE910H01017,2014-07-01,2016-06-30,492,CAIL.NS^F18,2018-06,12,GAP: many histories end on this same date
+Eikon 2014-21,INE974H01013,2014-07-01,2016-06-30,492,MEGH.NS,,12,GAP: many histories end on this same date
+Eikon 2021-26,INE722A01011,2021-06-01,2022-11-28,372,SHCU.NS^K22,2022-11,0,delisted or merged
+Eikon 2021-26,INE988K01017,2021-06-01,2023-02-02,419,EQHL.NS^B23,2023-02,0,delisted or merged

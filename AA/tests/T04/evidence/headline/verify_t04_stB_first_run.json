@@ -1,0 +1,180 @@
+{
+ "checks": {
+  "C-dec": {
+   "compared": 5343,
+   "failed": 0,
+   "missing": 0,
+   "first_fail": null,
+   "notes": []
+  },
+  "C-ind": {
+   "compared": 57177,
+   "failed": 3930,
+   "missing": 0,
+   "first_fail": "decision_date=2019-01-02 stock=GMBREW.NS col=st_sign: mine=np.float64(0.0) evidence=np.float64(1.0)",
+   "notes": [
+    "basket stocks with a fresh close on a decision date but no evidence row: 0"
+   ]
+  },
+  "C-ind-brute": {
+   "compared": 2100,
+   "failed": 0,
+   "missing": 0,
+   "first_fail": null,
+   "notes": []
+  },
+  "C-sel": {
+   "compared": 23590,
+   "failed": 1292,
+   "missing": 0,
+   "first_fail": "full I5 j=0 2019-01-02 k mine=3 ev=4",
+   "notes": []
+  },
+  "C-pit": {
+   "compared": 86462,
+   "failed": 0,
+   "missing": 0,
+   "first_fail": null,
+   "notes": [
+    "trade rows whose date is not after their decision date: 0 (all must be basket-change sessions)"
+   ]
+  },
+  "C-nav0": {
+   "compared": 9690,
+   "failed": 1937,
+   "missing": 0,
+   "first_fail": "stats end_nav ('I5', 'full', '50_50', 'lbes', 0.0): mine=np.float64(3.836866654129656) evidence=np.float64(4.752823406202021)",
+   "notes": []
+  },
+  "C-cost": {
+   "compared": 19425,
+   "failed": 3883,
+   "missing": 0,
+   "first_fail": "stats ('I5', 'full', '50_50', 'lbes', 20.8) col end_nav: mine=np.float64(3.606568818167479) evidence=np.float64(4.488421200440737)",
+   "notes": []
+  },
+  "C-comp": {
+   "compared": 40698,
+   "failed": 5811,
+   "missing": 0,
+   "first_fail": "constant_mix ('I5', 0.0) col end_nav: mine=np.float64(3.10564174525889) evidence=np.float64(3.111472962344448)",
+   "notes": []
+  },
+  "X-stats-trades-costpaid": {
+   "compared": 102,
+   "failed": 13,
+   "missing": 0,
+   "first_fail": "stats ('I5', 'full', '50_50', 'lbes', 0.0) col trades: mine=np.float64(105.0) evidence=np.float64(110.0)",
+   "notes": []
+  },
+  "X-mean-equity-share": {
+   "compared": 20,
+   "failed": 4,
+   "missing": 0,
+   "first_fail": "strategy I5 mean_equity_share: mine=np.float64(0.753431227213374) evidence=np.float64(0.7702985802882438)",
+   "notes": []
+  },
+  "X-published-nav": {
+   "compared": 1926,
+   "failed": 0,
+   "missing": 0,
+   "first_fail": null,
+   "notes": []
+  },
+  "C-trades": {
+   "compared": 28137,
+   "failed": 1317,
+   "missing": 177,
+   "first_fail": "I5 cost 0.0: trade count mine=105 evidence=110",
+   "notes": []
+  },
+  "C-null": {
+   "compared": 3600,
+   "failed": 720,
+   "missing": 0,
+   "first_fail": "draw ('I5', 'full', '50_50', 'lbes', 0.0, 0) col end_nav: mine=np.float64(3.6174884834091676) evidence=np.float64(4.930732345460481)",
+   "notes": []
+  },
+  "C-null-k": {
+   "compared": 293446,
+   "failed": 0,
+   "missing": 0,
+   "first_fail": null,
+   "notes": []
+  },
+  "X-null-trades-costpaid": {
+   "compared": 2400,
+   "failed": 439,
+   "missing": 0,
+   "first_fail": "draw ('I5', 'full', '50_50', 'lbes', 0.0, 0) col trades: mine=np.float64(233.0) evidence=np.float64(228.0)",
+   "notes": []
+  },
+  "C-always-in": {
+   "compared": 1944,
+   "failed": 0,
+   "missing": 0,
+   "first_fail": null,
+   "notes": [
+    "engine g_engine.csv: gap 0.0451 pp/yr, worst year 2022 0.4255 pp; mine: gap 0.0462, worst year 2022 0.4255"
+   ]
+  },
+  "C-corrupt": {
+   "compared": 1,
+   "failed": 0,
+   "missing": 0,
+   "first_fail": null,
+   "notes": []
+  }
+ },
+ "always_in": {
+  "cagr_gap_pp": 0.04619358404946983,
+  "mine_cagr": 0.16905944874192858,
+  "pub_cagr": 0.16859751290143388,
+  "yearly_gap_pp": {
+   "2019": -0.2195061582200286,
+   "2020": 0.0014024161534731405,
+   "2021": 0.06469384756253582,
+   "2022": 0.42550398202622075,
+   "2023": -1.8526183476197389e-06,
+   "2024": -0.0001190168497977595,
+   "2025": 0.007878470365541013,
+   "2026": -1.2256240466967938e-08
+  },
+  "worst_year": 2022,
+  "worst_year_gap_pp": 0.42550398202622075,
+  "sessions": 1926
+ },
+ "diagnostics": {
+  "st_sign_mismatches_vs_evidence_rows": {
+   "A": 0,
+   "B": 1965
+  }
+ },
+ "selftest": {
+  "dir": "C:\\Users\\manur\\AppData\\Local\\Temp\\claude\\d384933f9ddb0ecb\\7a6d038d-13f6-45c4-9bbc-6398be3adaed\\scratchpad\\corrupt_evidence",
+  "flipped_decision_rows": [
+   10,
+   50,
+   100,
+   150,
+   200
+  ],
+  "selections_row_changed": 501,
+  "failures_in_targeted_checks": {
+   "C-dec": 10,
+   "C-nav0": 3872,
+   "C-sel": 1293
+  },
+  "detected": true
+ },
+ "exit_ok": false,
+ "readings": {
+  "st_branch": "primary reading B: in the 'ST on FLB' branch ST = FLB if close < FUB else FUB (spec parenthetical, desk code)",
+  "ema_seed": "EMA at the N-th bar = mean of the first N closes, recursion from bar N+1",
+  "valuation_ffill": "stock valuation close = last close on D18 dates (all D18 dates, including non-calendar ones) forward-filled onto the calendar",
+  "n_k_basket": "n, k, kept of decision j measured on the basket in force at its trade session (decision session for the last decision)",
+  "constant_mix": "always trades at event sessions; initial stock holding = drifted basket scaled by f; sleeve (1-f)/2 each",
+  "null_draw_ids": "draws 0..19 plus 20 random ids (different per indicator and variant, seed 777)",
+  "evidence_rows_valid": "valid = a bar exists within 7 calendar days of the decision date"
+ }
+}
