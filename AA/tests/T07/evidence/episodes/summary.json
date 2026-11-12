@@ -1,0 +1,68 @@
+{
+ "books": {
+  "SCMO_0003": {
+   "sessions": 1932,
+   "start": "2019-01-02",
+   "end": "2026-10-30",
+   "first_logged_position": "2019-03-11",
+   "stockdays_without_band": 0,
+   "recon_max_rel_err": 4.440892098500626e-16,
+   "total_gap_log": -0.15084188407807878,
+   "in_stretches_log": -0.1484539642893327,
+   "outside_log": -0.0023879197887460846,
+   "years": 7.824777549623546,
+   "cagr_rule": 0.2530688119912248,
+   "cagr_whole": 0.27745914009260897,
+   "n_stretches": 16,
+   "stretches_whole_ahead": 7
+  },
+  "SCMO_0007": {
+   "sessions": 1930,
+   "start": "2019-01-04",
+   "end": "2026-10-30",
+   "first_logged_position": "2019-03-11",
+   "stockdays_without_band": 0,
+   "recon_max_rel_err": 4.440892098500626e-16,
+   "total_gap_log": -0.1098571322293611,
+   "in_stretches_log": -0.10580159223627711,
+   "outside_log": -0.004055539993083987,
+   "years": 7.819301848049282,
+   "cagr_rule": 0.1860611110681445,
+   "cagr_whole": 0.20284226122684124,
+   "n_stretches": 16,
+   "stretches_whole_ahead": 12
+  },
+  "SCMO_0010": {
+   "sessions": 1932,
+   "start": "2019-01-02",
+   "end": "2026-10-30",
+   "first_logged_position": "2019-03-11",
+   "stockdays_without_band": 0,
+   "recon_max_rel_err": 4.440892098500626e-16,
+   "total_gap_log": -0.22135575028899104,
+   "in_stretches_log": -0.226579963465826,
+   "outside_log": 0.005224213176834969,
+   "years": 7.824777549623546,
+   "cagr_rule": 0.25848790414373424,
+   "cagr_whole": 0.29459771644886246,
+   "n_stretches": 16,
+   "stretches_whole_ahead": 11
+  },
+  "SCMO_0029": {
+   "sessions": 1932,
+   "start": "2019-01-02",
+   "end": "2026-10-30",
+   "first_logged_position": "2019-03-11",
+   "stockdays_without_band": 0,
+   "recon_max_rel_err": 4.440892098500626e-16,
+   "total_gap_log": -0.10646372765649115,
+   "in_stretches_log": -0.11029490329947393,
+   "outside_log": 0.0038311756429827842,
+   "years": 7.824777549623546,
+   "cagr_rule": 0.2407037801644092,
+   "cagr_whole": 0.25770012851503865,
+   "n_stretches": 16,
+   "stretches_whole_ahead": 10
+  }
+ }
+}

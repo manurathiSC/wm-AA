@@ -1,0 +1,578 @@
+{
+ "window_end": "2026-10-30",
+ "cutoff": "2026-04-09",
+ "books": {
+  "SCMO_0003": {
+   "calendar_first": "2019-01-02",
+   "calendar_last": "2026-10-30",
+   "skipped_baskets_dropped": 0,
+   "full": {
+    "start": "2019-01-02",
+    "end": "2026-10-30",
+    "weeks": 410,
+    "rule_IN_weeks": 237,
+    "switch_IN_weeks": 201,
+    "all_SELL_weeks": 121,
+    "rule_OUT_while_switch_IN_weeks": 0,
+    "extra_IN_weeks_rule_in_switch_out": 36,
+    "extra_IN_stretches": 8,
+    "extra_IN_stretch_lengths": [
+     1,
+     1,
+     16,
+     4,
+     5,
+     1,
+     5,
+     3
+    ],
+    "rule_IN_weeks_by_signal_pattern": {
+     "BBB": 201,
+     "BBS": 0,
+     "BSB": 1,
+     "BSS": 0,
+     "SBB": 27,
+     "SBS": 0,
+     "SSB": 8,
+     "SSS": 0
+    },
+    "weeks_by_signal_pattern": {
+     "BBB": 201,
+     "BBS": 30,
+     "BSB": 1,
+     "BSS": 14,
+     "SBB": 27,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 121
+    },
+    "weeks_partial_FS_strictly_between_0_and_1": 68,
+    "n_held_min_median_max": [
+     5,
+     8.0,
+     15
+    ],
+    "FS_mean": 0.600418118466899,
+    "exact_tie_weeks_FS_eq_0.60": 1,
+    "tie_weeks_float_vs_exact_differ": 0,
+    "rule_decision_flips": 18,
+    "rule_flips_with_no_signal_flip": 0,
+    "switch_decision_flips": 18,
+    "basket_changes": 31,
+    "events_rule_upper_bound": 38,
+    "events_switch_upper_bound": 36,
+    "threshold_IN_weeks_count_weighted": {
+     "2/5": 253,
+     "1/2": 241,
+     "3/5": 237,
+     "7/10": 235,
+     "4/5": 234
+    },
+    "weight_weighted_FS_IN_weeks": 237,
+    "weight_vs_count_decision_differs_weeks": 0,
+    "tag_source_holding_weeks": {
+     "rank": 3620,
+     "membership": 417,
+     "nonmember_rank": 33
+    }
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-30",
+    "weeks": 262,
+    "rule_IN_weeks": 142,
+    "switch_IN_weeks": 124,
+    "all_SELL_weeks": 83,
+    "rule_OUT_while_switch_IN_weeks": 0,
+    "extra_IN_weeks_rule_in_switch_out": 18,
+    "extra_IN_stretches": 5,
+    "extra_IN_stretch_lengths": [
+     4,
+     5,
+     1,
+     5,
+     3
+    ],
+    "rule_IN_weeks_by_signal_pattern": {
+     "BBB": 124,
+     "BBS": 0,
+     "BSS": 0,
+     "SBB": 10,
+     "SBS": 0,
+     "SSB": 8,
+     "SSS": 0
+    },
+    "weeks_by_signal_pattern": {
+     "BBB": 124,
+     "BBS": 19,
+     "BSS": 10,
+     "SBB": 10,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 83
+    },
+    "weeks_partial_FS_strictly_between_0_and_1": 42,
+    "n_held_min_median_max": [
+     7,
+     15.0,
+     15
+    ],
+    "FS_mean": 0.566600024233612,
+    "exact_tie_weeks_FS_eq_0.60": 0,
+    "tie_weeks_float_vs_exact_differ": 0,
+    "rule_decision_flips": 12,
+    "rule_flips_with_no_signal_flip": 0,
+    "switch_decision_flips": 10,
+    "basket_changes": 20,
+    "events_rule_upper_bound": 24,
+    "events_switch_upper_bound": 21,
+    "threshold_IN_weeks_count_weighted": {
+     "2/5": 154,
+     "1/2": 142,
+     "3/5": 142,
+     "7/10": 141,
+     "4/5": 140
+    },
+    "weight_weighted_FS_IN_weeks": 142,
+    "weight_vs_count_decision_differs_weeks": 0,
+    "tag_source_holding_weeks": {
+     "rank": 2594,
+     "membership": 417,
+     "nonmember_rank": 33
+    }
+   }
+  },
+  "SCMO_0007": {
+   "calendar_first": "2019-01-04",
+   "calendar_last": "2026-10-30",
+   "skipped_baskets_dropped": 2,
+   "full": {
+    "start": "2019-01-04",
+    "end": "2026-10-30",
+    "weeks": 409,
+    "rule_IN_weeks": 244,
+    "switch_IN_weeks": 201,
+    "all_SELL_weeks": 120,
+    "rule_OUT_while_switch_IN_weeks": 0,
+    "extra_IN_weeks_rule_in_switch_out": 43,
+    "extra_IN_stretches": 9,
+    "extra_IN_stretch_lengths": [
+     1,
+     7,
+     1,
+     16,
+     4,
+     5,
+     1,
+     5,
+     3
+    ],
+    "rule_IN_weeks_by_signal_pattern": {
+     "BBB": 201,
+     "BBS": 7,
+     "BSB": 1,
+     "BSS": 0,
+     "SBB": 27,
+     "SBS": 0,
+     "SSB": 8,
+     "SSS": 0
+    },
+    "weeks_by_signal_pattern": {
+     "BBB": 201,
+     "BBS": 30,
+     "BSB": 1,
+     "BSS": 14,
+     "SBB": 27,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 120
+    },
+    "weeks_partial_FS_strictly_between_0_and_1": 42,
+    "n_held_min_median_max": [
+     5,
+     11.0,
+     15
+    ],
+    "FS_mean": 0.598959272186656,
+    "exact_tie_weeks_FS_eq_0.60": 4,
+    "tie_weeks_float_vs_exact_differ": 0,
+    "rule_decision_flips": 20,
+    "rule_flips_with_no_signal_flip": 0,
+    "switch_decision_flips": 18,
+    "basket_changes": 29,
+    "events_rule_upper_bound": 40,
+    "events_switch_upper_bound": 35,
+    "threshold_IN_weeks_count_weighted": {
+     "2/5": 248,
+     "1/2": 248,
+     "3/5": 244,
+     "7/10": 240,
+     "4/5": 232
+    },
+    "weight_weighted_FS_IN_weeks": 244,
+    "weight_vs_count_decision_differs_weeks": 0,
+    "tag_source_holding_weeks": {
+     "rank": 4159,
+     "membership": 317,
+     "nonmember_rank": 10
+    }
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-30",
+    "weeks": 262,
+    "rule_IN_weeks": 142,
+    "switch_IN_weeks": 124,
+    "all_SELL_weeks": 83,
+    "rule_OUT_while_switch_IN_weeks": 0,
+    "extra_IN_weeks_rule_in_switch_out": 18,
+    "extra_IN_stretches": 5,
+    "extra_IN_stretch_lengths": [
+     4,
+     5,
+     1,
+     5,
+     3
+    ],
+    "rule_IN_weeks_by_signal_pattern": {
+     "BBB": 124,
+     "BBS": 0,
+     "BSS": 0,
+     "SBB": 10,
+     "SBS": 0,
+     "SSB": 8,
+     "SSS": 0
+    },
+    "weeks_by_signal_pattern": {
+     "BBB": 124,
+     "BBS": 19,
+     "BSS": 10,
+     "SBB": 10,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 83
+    },
+    "weeks_partial_FS_strictly_between_0_and_1": 26,
+    "n_held_min_median_max": [
+     9,
+     12.0,
+     15
+    ],
+    "FS_mean": 0.5437012944646531,
+    "exact_tie_weeks_FS_eq_0.60": 0,
+    "tie_weeks_float_vs_exact_differ": 0,
+    "rule_decision_flips": 12,
+    "rule_flips_with_no_signal_flip": 0,
+    "switch_decision_flips": 10,
+    "basket_changes": 20,
+    "events_rule_upper_bound": 24,
+    "events_switch_upper_bound": 21,
+    "threshold_IN_weeks_count_weighted": {
+     "2/5": 142,
+     "1/2": 142,
+     "3/5": 142,
+     "7/10": 142,
+     "4/5": 137
+    },
+    "weight_weighted_FS_IN_weeks": 142,
+    "weight_vs_count_decision_differs_weeks": 0,
+    "tag_source_holding_weeks": {
+     "rank": 2825,
+     "membership": 317,
+     "nonmember_rank": 10
+    }
+   }
+  },
+  "SCMO_0010": {
+   "calendar_first": "2019-01-02",
+   "calendar_last": "2026-10-30",
+   "skipped_baskets_dropped": 0,
+   "full": {
+    "start": "2019-01-02",
+    "end": "2026-10-30",
+    "weeks": 410,
+    "rule_IN_weeks": 251,
+    "switch_IN_weeks": 201,
+    "all_SELL_weeks": 121,
+    "rule_OUT_while_switch_IN_weeks": 0,
+    "extra_IN_weeks_rule_in_switch_out": 50,
+    "extra_IN_stretches": 11,
+    "extra_IN_stretch_lengths": [
+     1,
+     1,
+     16,
+     4,
+     2,
+     5,
+     1,
+     4,
+     1,
+     12,
+     3
+    ],
+    "rule_IN_weeks_by_signal_pattern": {
+     "BBB": 201,
+     "BBS": 15,
+     "BSB": 1,
+     "BSS": 0,
+     "SBB": 27,
+     "SBS": 0,
+     "SSB": 7,
+     "SSS": 0
+    },
+    "weeks_by_signal_pattern": {
+     "BBB": 201,
+     "BBS": 30,
+     "BSB": 1,
+     "BSS": 14,
+     "SBB": 27,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 121
+    },
+    "weeks_partial_FS_strictly_between_0_and_1": 87,
+    "n_held_min_median_max": [
+     7,
+     15.0,
+     15
+    ],
+    "FS_mean": 0.6170901050169343,
+    "exact_tie_weeks_FS_eq_0.60": 3,
+    "tie_weeks_float_vs_exact_differ": 0,
+    "rule_decision_flips": 20,
+    "rule_flips_with_no_signal_flip": 0,
+    "switch_decision_flips": 18,
+    "basket_changes": 31,
+    "events_rule_upper_bound": 41,
+    "events_switch_upper_bound": 36,
+    "threshold_IN_weeks_count_weighted": {
+     "2/5": 274,
+     "1/2": 261,
+     "3/5": 251,
+     "7/10": 247,
+     "4/5": 220
+    },
+    "weight_weighted_FS_IN_weeks": 251,
+    "weight_vs_count_decision_differs_weeks": 0,
+    "tag_source_holding_weeks": {
+     "rank": 4992,
+     "membership": 450
+    }
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-30",
+    "weeks": 262,
+    "rule_IN_weeks": 156,
+    "switch_IN_weeks": 124,
+    "all_SELL_weeks": 83,
+    "rule_OUT_while_switch_IN_weeks": 0,
+    "extra_IN_weeks_rule_in_switch_out": 32,
+    "extra_IN_stretches": 8,
+    "extra_IN_stretch_lengths": [
+     4,
+     2,
+     5,
+     1,
+     4,
+     1,
+     12,
+     3
+    ],
+    "rule_IN_weeks_by_signal_pattern": {
+     "BBB": 124,
+     "BBS": 15,
+     "BSS": 0,
+     "SBB": 10,
+     "SBS": 0,
+     "SSB": 7,
+     "SSS": 0
+    },
+    "weeks_by_signal_pattern": {
+     "BBB": 124,
+     "BBS": 19,
+     "BSS": 10,
+     "SBB": 10,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 83
+    },
+    "weeks_partial_FS_strictly_between_0_and_1": 55,
+    "n_held_min_median_max": [
+     14,
+     15.0,
+     15
+    ],
+    "FS_mean": 0.5956924754634678,
+    "exact_tie_weeks_FS_eq_0.60": 3,
+    "tie_weeks_float_vs_exact_differ": 0,
+    "rule_decision_flips": 14,
+    "rule_flips_with_no_signal_flip": 0,
+    "switch_decision_flips": 10,
+    "basket_changes": 20,
+    "events_rule_upper_bound": 27,
+    "events_switch_upper_bound": 21,
+    "threshold_IN_weeks_count_weighted": {
+     "2/5": 171,
+     "1/2": 162,
+     "3/5": 156,
+     "7/10": 152,
+     "4/5": 133
+    },
+    "weight_weighted_FS_IN_weeks": 156,
+    "weight_vs_count_decision_differs_weeks": 0,
+    "tag_source_holding_weeks": {
+     "rank": 3473,
+     "membership": 450
+    }
+   }
+  },
+  "SCMO_0029": {
+   "calendar_first": "2019-01-02",
+   "calendar_last": "2026-10-30",
+   "skipped_baskets_dropped": 1,
+   "full": {
+    "start": "2019-01-02",
+    "end": "2026-10-30",
+    "weeks": 410,
+    "rule_IN_weeks": 258,
+    "switch_IN_weeks": 201,
+    "all_SELL_weeks": 121,
+    "rule_OUT_while_switch_IN_weeks": 0,
+    "extra_IN_weeks_rule_in_switch_out": 57,
+    "extra_IN_stretches": 13,
+    "extra_IN_stretch_lengths": [
+     3,
+     4,
+     1,
+     16,
+     4,
+     2,
+     2,
+     5,
+     1,
+     4,
+     1,
+     12,
+     2
+    ],
+    "rule_IN_weeks_by_signal_pattern": {
+     "BBB": 201,
+     "BBS": 26,
+     "BSB": 1,
+     "BSS": 0,
+     "SBB": 26,
+     "SBS": 2,
+     "SSB": 2,
+     "SSS": 0
+    },
+    "weeks_by_signal_pattern": {
+     "BBB": 201,
+     "BBS": 30,
+     "BSB": 1,
+     "BSS": 14,
+     "SBB": 27,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 121
+    },
+    "weeks_partial_FS_strictly_between_0_and_1": 88,
+    "n_held_min_median_max": [
+     8,
+     12.0,
+     15
+    ],
+    "FS_mean": 0.622232990586649,
+    "exact_tie_weeks_FS_eq_0.60": 6,
+    "tie_weeks_float_vs_exact_differ": 0,
+    "rule_decision_flips": 24,
+    "rule_flips_with_no_signal_flip": 4,
+    "switch_decision_flips": 18,
+    "basket_changes": 30,
+    "events_rule_upper_bound": 44,
+    "events_switch_upper_bound": 36,
+    "threshold_IN_weeks_count_weighted": {
+     "2/5": 280,
+     "1/2": 271,
+     "3/5": 258,
+     "7/10": 229,
+     "4/5": 213
+    },
+    "weight_weighted_FS_IN_weeks": 258,
+    "weight_vs_count_decision_differs_weeks": 0,
+    "tag_source_holding_weeks": {
+     "rank": 4583,
+     "membership": 397
+    }
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-30",
+    "weeks": 262,
+    "rule_IN_weeks": 157,
+    "switch_IN_weeks": 124,
+    "all_SELL_weeks": 83,
+    "rule_OUT_while_switch_IN_weeks": 0,
+    "extra_IN_weeks_rule_in_switch_out": 33,
+    "extra_IN_stretches": 9,
+    "extra_IN_stretch_lengths": [
+     4,
+     2,
+     2,
+     5,
+     1,
+     4,
+     1,
+     12,
+     2
+    ],
+    "rule_IN_weeks_by_signal_pattern": {
+     "BBB": 124,
+     "BBS": 19,
+     "BSS": 0,
+     "SBB": 10,
+     "SBS": 2,
+     "SSB": 2,
+     "SSS": 0
+    },
+    "weeks_by_signal_pattern": {
+     "BBB": 124,
+     "BBS": 19,
+     "BSS": 10,
+     "SBB": 10,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 83
+    },
+    "weeks_partial_FS_strictly_between_0_and_1": 55,
+    "n_held_min_median_max": [
+     10,
+     12.0,
+     15
+    ],
+    "FS_mean": 0.5935678189494983,
+    "exact_tie_weeks_FS_eq_0.60": 6,
+    "tie_weeks_float_vs_exact_differ": 0,
+    "rule_decision_flips": 17,
+    "rule_flips_with_no_signal_flip": 3,
+    "switch_decision_flips": 10,
+    "basket_changes": 20,
+    "events_rule_upper_bound": 29,
+    "events_switch_upper_bound": 21,
+    "threshold_IN_weeks_count_weighted": {
+     "2/5": 174,
+     "1/2": 165,
+     "3/5": 157,
+     "7/10": 133,
+     "4/5": 124
+    },
+    "weight_weighted_FS_IN_weeks": 157,
+    "weight_vs_count_decision_differs_weeks": 0,
+    "tag_source_holding_weeks": {
+     "rank": 2831,
+     "membership": 397
+    }
+   }
+  }
+ }
+}

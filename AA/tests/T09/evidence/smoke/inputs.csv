@@ -1,0 +1,15 @@
+file,through,bytes,sha256,approved_row,usable_from
+Historical Data/extended_2026-11-12/index_daily_pre2019/nse_trading_days.csv,2019-01-04,56622,41d72926915826be5c3dd0695e15b46dc3efc376aa6b3677f886d3f6a14889b9,APPROVED D26,
+Historical Data/extended_2026-11-12/index_daily_pre2019/Nifty100_daily_ohlcv.csv,2019-01-04,161337,5960504e94a4c3004ef337e6ddecb4cdcc71a47188fa2fc6b3684270c8e9fe28,APPROVED D25,
+Historical Data/extended_2026-11-12/index_daily_pre2019/MC100_daily_ohlcv.csv,2019-01-04,162263,a33bd53f064605b13266e0784991ccb44b6afe47e935b36dc7fa52a2504f7a2e,APPROVED D25,
+Historical Data/extended_2026-11-12/index_daily_pre2019/SC100_daily_ohlcv.csv,2019-01-04,167480,f3ec3dd7e869e9858f7f84510abf3b519b4c6cba59e21387c1cb04bd63178f29,APPROVED D25,2011-10-03
+Historical Data/extended_2026-10-30/Master/Master_Nifty100.xlsx,2026-10-30,204433,4285f9f1832f3da2d388a5cc28216066c3c93d15fb807cbd93a60395b6faec78,APPROVED D03,
+Historical Data/extended_2026-10-30/Master/Master_MC100.xlsx,2026-10-30,200737,b191eb973994922898e50a63aa597599980670587126f43aba820241024c0b86,APPROVED D03,
+Historical Data/extended_2026-10-30/Master/Master_SC100.xlsx,2026-10-30,209308,c7f4acdbe414363730008e65623eb75823d06777b6df8f693f46ff068fe26f76,APPROVED D03,2011-11-25
+Historical Data/extended_2026-11-12/MAUc1_from_2003/Master_MAUc1.xlsx,2026-11-06,215000,b916e9741b24aa10482278918a239d4215544997c9d4beb098c649e1bd6b76e7,APPROVED D24b,
+Historical Data/extended_2026-11-12/MAUc1_from_2003/mauc1_supertrend_weekly_extended.csv,2026-11-06,194769,13b3377ab22e6db8adbbc8a12c3080baa71a38e9a4c35e63fcec912518559c28,APPROVED D24b,
+Historical Data/extended_2026-11-12/MAUc1_from_2003/mauc1_daily_clean_extended.csv,2026-11-06,322412,febab21fd818d65d29720d85d5e27ec6d096bded0312ceb010db68dc0213fe74,APPROVED D24b,
+analysis/cache/why_gold_ohlc_eikon_extended_2026-11-04.parquet,2026-11-04,92640,3e02141265537443326ee9d03c3b2a68c0083479623f1d563c0dfeb8633660ab,APPROVED D09,
+analysis/cache/why_gold_ohlc_proxy_mauc1_2005-05-10_2014-06-30.parquet,2014-06-30,123240,e08c5df2ef2d41807ab45045dd3200f376ec856168898808fbbe3d98c4277464,APPROVED D09b,
+Historical Data/LBES_Adjusted_Price_data_extended_2026-11-05.csv,2026-11-05,172508,7f9806bc0a163d2b26aa3231694cc747a219702f3705e132161bbbf1acd6c8cf,APPROVED D11,
+Historical Data/liquidEtfFinal_extended_2026-11-05.csv,2026-11-05,130755,7361432852741fc80732277b4549984ab0f6c62443274fc839579ceaceb0e923,APPROVED D11,

@@ -1,0 +1,1720 @@
+{
+ "readings": {
+  "E1": "calendar = D17's dates (the EXTENDED published NAVs) of the book from its first date to END; END = the last row of the three D03 Master files (2026-10-30), not D17's last date; rows after END are dropped on read and never used; D18 prices on other dates are never read",
+  "E2": "decision dates = T0 and the last D17 session of every later ISO week; the decision at the last session is not traded",
+  "E3": "label = latest Master row dated <= decision date, per index and for MAUc1 (D24); IN iff all three index SIGN are BUY; g = BUY iff the MAUc1 SIGN is BUY (a week whose row is dated after its last D17 session reads the previous week's row)",
+  "E4": "initial position at T0 close, no cost: OUT = gw GOLDBEES and (1-gw) cash of NAV 1 with gw = 0.8 (g BUY at T0) or 0.2 (SELL), 0.5 in fixed50 mode; IN = the basket in force at T0 as drifted since its availableDate (OHLC4 of the first D18 session on or after it), scaled to NAV 1",
+  "E5": "a basket takes effect on the first calendar session on or after its availableDate; baskets flagged csv_only_skipped are dropped; weights are renormalised to 1",
+  "E6": "stock fill = OHLC4 of the Eikon bar (close if any of open/high/low is blank; last close if the stock has no bar that session)",
+  "E7": "costs: one rule for every trade, see the module docstring (cost on the value traded, targets scaled by (V-cost)/V)",
+  "E8": "a basket change while IN trades from the old holdings to the new basket (delta trades); while OUT nothing is traded; a flip of g while IN is not a trade",
+  "E9": "a switch and a basket change on the same session: the switch trades into / out of the basket in force that session",
+  "E10": "cash level: the extended LBES (D11) as-of on sessions; it covers the window and the engine asserts that no session of any window lies after the file's last date (0 accrued sessions)",
+  "E11": "constant mix: stock share f = invested decision weeks / decision weeks, rebalanced at every decision date's next session (T0 included) and at every basket change; constant_mix splits the non-stock share 50/50, constant_mix_timed by the decision's gw; initial stock holding = drifted basket scaled by f",
+  "E13": "R3 live window starts at the first D17 session on or after 2021-11-01 with its own spells and totals (in-or-out and gold), own draws (same seeds), the SAME bounds (the book's full-window HI_in, HI_out, HI_buy, HI_sell) and free initial position in the state decided then",
+  "E14": "R2 cash = LBES to the session before 2024-01-24, then chained with the desk's LIQUIDCASE returns on sessions (liquidEtfFinal_extended)",
+  "E15": "V4(d) always-in runs on the whole window (to END = 2026-10-30); G0 = +-0.25 pp/yr overall and +-0.5 pp every calendar year",
+  "E16": "GOLDBEES fill: T03's de-spike (OHLC4 of open/high/low clipped to MCX gold's range that day + 0.5%) on every session up to the MCX file's last date (2026-09-28); on later sessions the raw OHLC4 of the Eikon bar, no clipping, no scaling, no tolerance band",
+  "T06-1": "sessions_invested = number of daily returns t = 1..T-1 earned while the parent is held (state j is held from its trade session dec_idx[j]+1; T0 for j = 0)",
+  "T06-4": "the sampler draws one uniform per part, including the last part (whose length is forced), so a draw consumes k uniforms; cumulative probabilities are exact integer prefix sums divided by the exact total, searchsorted side='right' (T06's functions, unchanged; the gold draws call them with the gold seed and the gold (k, S, bounds))",
+  "T06-5": "V5(c): the sum of the lengths of a draw is fixed, so the check is made per spell position: the mean of its length over the draws within 4 standard errors of S/k (in-or-out and gold)",
+  "T06-7": "window-coverage check: the through-date of every approved file the run reads must reach END, except D12 (the de-spike range, raw OHLC4 after it), the basket files D19/D05 (through the newest basket) and the OLD D17 files (pinned, read only for V4(e)); D17/D24 files are read only up to END",
+  "T06-8": "the 'weeks' of draw_states.npz and of every V3/V5 statement are the weekly decision rows (410 for SCMO_0003/0010/0029, 409 for SCMO_0007 on the full window)",
+  "T08-1": "gold bounds: lo = LO = 2 (= the shortest actual gold spell), hi_buy and hi_sell = the longest BUY and SELL spell of each book's own full-window gold series, asserted to be 68 and 28 (the in-or-out bounds are asserted to be 46 and 40); the live window uses the same bounds",
+  "T08-2": "trade log columns: gw_after = the sleeve's gold weight target after the trade (0.8 / 0.2 / 0.5) on every row of every run except hold_parent, where it is empty; on a switch_in row it is the gold weight of that decision (irrelevant to the position, which holds no sleeve)",
+  "T08-3": "V4: T06's last decision (2026-10-22, a Thursday, the last session of its calendar) is compared with T08's decision of 2026-10-23 (the same week); T08's j-th decision equals T06's for j <= 408 and T06's draw states get T08's real state of the extra last week appended (the decision of 2026-10-30, not traded)",
+  "T08-4": "the number of sleeve trades of a draw (draws.csv sleeve_trades) is counted from the states: decisions j >= 1 with a trade session inside the window, OUT at j-1 and j, and g[j] != g[j-1]; it is 0 in fixed50 mode. The engine checks this count against the recorded trades of the real rule (V6)",
+  "T08-5": "V4(c): T06's draw curves are float32, so they are compared after casting the replayed NAV to float32 (relative tolerance 1e-6); T06's states are 409 weeks, replayed with T08's decision of that week (2026-10-23), the NAV compared on the sessions up to 2026-10-22"
+ },
+ "books": {
+  "SCMO_0003": {
+   "t0": "2019-01-02",
+   "last_session": "2026-10-30",
+   "sessions": 1932,
+   "decisions": 410,
+   "invested_weeks": 201,
+   "first_state": 0,
+   "in_lengths": [
+    8,
+    13,
+    33,
+    23,
+    20,
+    26,
+    46,
+    11,
+    21
+   ],
+   "out_lengths": [
+    11,
+    29,
+    15,
+    16,
+    40,
+    18,
+    5,
+    30,
+    37,
+    8
+   ],
+   "bounds": {
+    "lo": 2,
+    "hi_in": 46,
+    "hi_out": 40
+   },
+   "in_spells": 9,
+   "out_spells": 10,
+   "round_trips": 9,
+   "sessions_invested_rule": 961,
+   "gold": {
+    "first_state": 1,
+    "buy_lengths": [
+     10,
+     68,
+     10,
+     26,
+     33,
+     41,
+     7,
+     59,
+     11
+    ],
+    "sell_lengths": [
+     13,
+     28,
+     21,
+     26,
+     15,
+     9,
+     11,
+     20,
+     2
+    ],
+    "buy_weeks": 265,
+    "bounds": {
+     "lo": 2,
+     "hi_buy": 68,
+     "hi_sell": 28
+    },
+    "shortest_spell": 2,
+    "spells_with_an_out_week": 16,
+    "flips": 17,
+    "while_out_both_sides": 9,
+    "on_exit_decision": 0,
+    "on_entry_decision": 0,
+    "while_in": 8,
+    "weeks_buy_while_out": 163,
+    "weeks_sell_while_out": 46,
+    "sleeve_trades_expected": 9
+   },
+   "v2_decisions_checked": 410,
+   "v2_label_after_decision": 0,
+   "v2_mauc1_label_after_decision": 0,
+   "v2_trades_checked": 409,
+   "v2_trade_not_after_decision": 0,
+   "stale_label_weeks(age>=5d, excluding T0)": 5,
+   "initial_basket_switch_session": "2018-12-17",
+   "cash": {
+    "file_last": "2026-11-05",
+    "accrued_sessions": 0
+   },
+   "raw_fill_sessions_in_window": 22,
+   "skipped_baskets_dropped": [],
+   "stock_trades_priced_by_last_close_no_bar_that_session(all runs incl. draws)": 0,
+   "goldbees_trades_filled_at_raw_OHLC4_after_MCX_file(all runs incl. draws, headline LBES)": 15216,
+   "live_window": {
+    "t0": "2021-11-01",
+    "decisions": 262,
+    "round_trips": 5,
+    "reportable": true,
+    "first_state": 0,
+    "in_lengths": [
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     40,
+     18,
+     5,
+     30,
+     37,
+     8
+    ],
+    "gold_first_state": 0,
+    "g_buy_lengths": [
+     26,
+     33,
+     41,
+     7,
+     59,
+     11
+    ],
+    "g_sell_lengths": [
+     2,
+     26,
+     15,
+     9,
+     11,
+     20,
+     2
+    ],
+    "gold_spells_with_an_out_week": 11,
+    "feasible": {
+     "in": true,
+     "out": true,
+     "buy": true,
+     "sell": true
+    },
+    "gold_flips": 12,
+    "gold_while_out_both_sides": 6,
+    "gold_on_exit_decision": 0,
+    "gold_on_entry_decision": 0,
+    "gold_while_in": 6,
+    "gold_weeks_buy_while_out": 107,
+    "gold_weeks_sell_while_out": 31,
+    "sessions_invested_rule": 591
+   }
+  },
+  "SCMO_0007": {
+   "t0": "2019-01-04",
+   "last_session": "2026-10-30",
+   "sessions": 1930,
+   "decisions": 409,
+   "invested_weeks": 201,
+   "first_state": 0,
+   "in_lengths": [
+    8,
+    13,
+    33,
+    23,
+    20,
+    26,
+    46,
+    11,
+    21
+   ],
+   "out_lengths": [
+    10,
+    29,
+    15,
+    16,
+    40,
+    18,
+    5,
+    30,
+    37,
+    8
+   ],
+   "bounds": {
+    "lo": 2,
+    "hi_in": 46,
+    "hi_out": 40
+   },
+   "in_spells": 9,
+   "out_spells": 10,
+   "round_trips": 9,
+   "sessions_invested_rule": 961,
+   "gold": {
+    "first_state": 1,
+    "buy_lengths": [
+     9,
+     68,
+     10,
+     26,
+     33,
+     41,
+     7,
+     59,
+     11
+    ],
+    "sell_lengths": [
+     13,
+     28,
+     21,
+     26,
+     15,
+     9,
+     11,
+     20,
+     2
+    ],
+    "buy_weeks": 264,
+    "bounds": {
+     "lo": 2,
+     "hi_buy": 68,
+     "hi_sell": 28
+    },
+    "shortest_spell": 2,
+    "spells_with_an_out_week": 16,
+    "flips": 17,
+    "while_out_both_sides": 9,
+    "on_exit_decision": 0,
+    "on_entry_decision": 0,
+    "while_in": 8,
+    "weeks_buy_while_out": 162,
+    "weeks_sell_while_out": 46,
+    "sleeve_trades_expected": 9
+   },
+   "v2_decisions_checked": 409,
+   "v2_label_after_decision": 0,
+   "v2_mauc1_label_after_decision": 0,
+   "v2_trades_checked": 408,
+   "v2_trade_not_after_decision": 0,
+   "stale_label_weeks(age>=5d, excluding T0)": 5,
+   "initial_basket_switch_session": "2018-12-17",
+   "cash": {
+    "file_last": "2026-11-05",
+    "accrued_sessions": 0
+   },
+   "raw_fill_sessions_in_window": 22,
+   "skipped_baskets_dropped": [
+    "2020-03-16",
+    "2021-09-16"
+   ],
+   "stock_trades_priced_by_last_close_no_bar_that_session(all runs incl. draws)": 0,
+   "goldbees_trades_filled_at_raw_OHLC4_after_MCX_file(all runs incl. draws, headline LBES)": 15231,
+   "live_window": {
+    "t0": "2021-11-01",
+    "decisions": 262,
+    "round_trips": 5,
+    "reportable": true,
+    "first_state": 0,
+    "in_lengths": [
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     40,
+     18,
+     5,
+     30,
+     37,
+     8
+    ],
+    "gold_first_state": 0,
+    "g_buy_lengths": [
+     26,
+     33,
+     41,
+     7,
+     59,
+     11
+    ],
+    "g_sell_lengths": [
+     2,
+     26,
+     15,
+     9,
+     11,
+     20,
+     2
+    ],
+    "gold_spells_with_an_out_week": 11,
+    "feasible": {
+     "in": true,
+     "out": true,
+     "buy": true,
+     "sell": true
+    },
+    "gold_flips": 12,
+    "gold_while_out_both_sides": 6,
+    "gold_on_exit_decision": 0,
+    "gold_on_entry_decision": 0,
+    "gold_while_in": 6,
+    "gold_weeks_buy_while_out": 107,
+    "gold_weeks_sell_while_out": 31,
+    "sessions_invested_rule": 591
+   }
+  },
+  "SCMO_0010": {
+   "t0": "2019-01-02",
+   "last_session": "2026-10-30",
+   "sessions": 1932,
+   "decisions": 410,
+   "invested_weeks": 201,
+   "first_state": 0,
+   "in_lengths": [
+    8,
+    13,
+    33,
+    23,
+    20,
+    26,
+    46,
+    11,
+    21
+   ],
+   "out_lengths": [
+    11,
+    29,
+    15,
+    16,
+    40,
+    18,
+    5,
+    30,
+    37,
+    8
+   ],
+   "bounds": {
+    "lo": 2,
+    "hi_in": 46,
+    "hi_out": 40
+   },
+   "in_spells": 9,
+   "out_spells": 10,
+   "round_trips": 9,
+   "sessions_invested_rule": 961,
+   "gold": {
+    "first_state": 1,
+    "buy_lengths": [
+     10,
+     68,
+     10,
+     26,
+     33,
+     41,
+     7,
+     59,
+     11
+    ],
+    "sell_lengths": [
+     13,
+     28,
+     21,
+     26,
+     15,
+     9,
+     11,
+     20,
+     2
+    ],
+    "buy_weeks": 265,
+    "bounds": {
+     "lo": 2,
+     "hi_buy": 68,
+     "hi_sell": 28
+    },
+    "shortest_spell": 2,
+    "spells_with_an_out_week": 16,
+    "flips": 17,
+    "while_out_both_sides": 9,
+    "on_exit_decision": 0,
+    "on_entry_decision": 0,
+    "while_in": 8,
+    "weeks_buy_while_out": 163,
+    "weeks_sell_while_out": 46,
+    "sleeve_trades_expected": 9
+   },
+   "v2_decisions_checked": 410,
+   "v2_label_after_decision": 0,
+   "v2_mauc1_label_after_decision": 0,
+   "v2_trades_checked": 409,
+   "v2_trade_not_after_decision": 0,
+   "stale_label_weeks(age>=5d, excluding T0)": 5,
+   "initial_basket_switch_session": "2018-12-17",
+   "cash": {
+    "file_last": "2026-11-05",
+    "accrued_sessions": 0
+   },
+   "raw_fill_sessions_in_window": 22,
+   "skipped_baskets_dropped": [],
+   "stock_trades_priced_by_last_close_no_bar_that_session(all runs incl. draws)": 0,
+   "goldbees_trades_filled_at_raw_OHLC4_after_MCX_file(all runs incl. draws, headline LBES)": 15216,
+   "live_window": {
+    "t0": "2021-11-01",
+    "decisions": 262,
+    "round_trips": 5,
+    "reportable": true,
+    "first_state": 0,
+    "in_lengths": [
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     40,
+     18,
+     5,
+     30,
+     37,
+     8
+    ],
+    "gold_first_state": 0,
+    "g_buy_lengths": [
+     26,
+     33,
+     41,
+     7,
+     59,
+     11
+    ],
+    "g_sell_lengths": [
+     2,
+     26,
+     15,
+     9,
+     11,
+     20,
+     2
+    ],
+    "gold_spells_with_an_out_week": 11,
+    "feasible": {
+     "in": true,
+     "out": true,
+     "buy": true,
+     "sell": true
+    },
+    "gold_flips": 12,
+    "gold_while_out_both_sides": 6,
+    "gold_on_exit_decision": 0,
+    "gold_on_entry_decision": 0,
+    "gold_while_in": 6,
+    "gold_weeks_buy_while_out": 107,
+    "gold_weeks_sell_while_out": 31,
+    "sessions_invested_rule": 591
+   }
+  },
+  "SCMO_0029": {
+   "t0": "2019-01-02",
+   "last_session": "2026-10-30",
+   "sessions": 1932,
+   "decisions": 410,
+   "invested_weeks": 201,
+   "first_state": 0,
+   "in_lengths": [
+    8,
+    13,
+    33,
+    23,
+    20,
+    26,
+    46,
+    11,
+    21
+   ],
+   "out_lengths": [
+    11,
+    29,
+    15,
+    16,
+    40,
+    18,
+    5,
+    30,
+    37,
+    8
+   ],
+   "bounds": {
+    "lo": 2,
+    "hi_in": 46,
+    "hi_out": 40
+   },
+   "in_spells": 9,
+   "out_spells": 10,
+   "round_trips": 9,
+   "sessions_invested_rule": 961,
+   "gold": {
+    "first_state": 1,
+    "buy_lengths": [
+     10,
+     68,
+     10,
+     26,
+     33,
+     41,
+     7,
+     59,
+     11
+    ],
+    "sell_lengths": [
+     13,
+     28,
+     21,
+     26,
+     15,
+     9,
+     11,
+     20,
+     2
+    ],
+    "buy_weeks": 265,
+    "bounds": {
+     "lo": 2,
+     "hi_buy": 68,
+     "hi_sell": 28
+    },
+    "shortest_spell": 2,
+    "spells_with_an_out_week": 16,
+    "flips": 17,
+    "while_out_both_sides": 9,
+    "on_exit_decision": 0,
+    "on_entry_decision": 0,
+    "while_in": 8,
+    "weeks_buy_while_out": 163,
+    "weeks_sell_while_out": 46,
+    "sleeve_trades_expected": 9
+   },
+   "v2_decisions_checked": 410,
+   "v2_label_after_decision": 0,
+   "v2_mauc1_label_after_decision": 0,
+   "v2_trades_checked": 409,
+   "v2_trade_not_after_decision": 0,
+   "stale_label_weeks(age>=5d, excluding T0)": 5,
+   "initial_basket_switch_session": "2018-12-17",
+   "cash": {
+    "file_last": "2026-11-05",
+    "accrued_sessions": 0
+   },
+   "raw_fill_sessions_in_window": 22,
+   "skipped_baskets_dropped": [
+    "2020-03-16"
+   ],
+   "stock_trades_priced_by_last_close_no_bar_that_session(all runs incl. draws)": 0,
+   "goldbees_trades_filled_at_raw_OHLC4_after_MCX_file(all runs incl. draws, headline LBES)": 15216,
+   "live_window": {
+    "t0": "2021-11-01",
+    "decisions": 262,
+    "round_trips": 5,
+    "reportable": true,
+    "first_state": 0,
+    "in_lengths": [
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     40,
+     18,
+     5,
+     30,
+     37,
+     8
+    ],
+    "gold_first_state": 0,
+    "g_buy_lengths": [
+     26,
+     33,
+     41,
+     7,
+     59,
+     11
+    ],
+    "g_sell_lengths": [
+     2,
+     26,
+     15,
+     9,
+     11,
+     20,
+     2
+    ],
+    "gold_spells_with_an_out_week": 11,
+    "feasible": {
+     "in": true,
+     "out": true,
+     "buy": true,
+     "sell": true
+    },
+    "gold_flips": 12,
+    "gold_while_out_both_sides": 6,
+    "gold_on_exit_decision": 0,
+    "gold_on_entry_decision": 0,
+    "gold_while_in": 6,
+    "gold_weeks_buy_while_out": 107,
+    "gold_weeks_sell_while_out": 31,
+    "sessions_invested_rule": 591
+   }
+  }
+ },
+ "v2": {
+  "checks": 5409,
+  "violations": 0,
+  "recorded_trades_after_their_decision": 496,
+  "pass": true
+ },
+ "v3": {
+  "per_book_window": {
+   "SCMO_0003|full|io": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0003|full|gold": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0003|live|io": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0003|live|gold": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0007|full|io": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0007|full|gold": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0007|live|io": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0007|live|gold": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0010|full|io": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0010|full|gold": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0010|live|io": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0010|live|gold": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0029|full|io": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0029|full|gold": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0029|live|io": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0029|live|gold": {
+    "rule_in_support": true,
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   }
+  },
+  "pass": true,
+  "rule_in_support": {
+   "SCMO_0003|full|io": true,
+   "SCMO_0003|full|gold": true,
+   "SCMO_0003|live|io": true,
+   "SCMO_0003|live|gold": true,
+   "SCMO_0007|full|io": true,
+   "SCMO_0007|full|gold": true,
+   "SCMO_0007|live|io": true,
+   "SCMO_0007|live|gold": true,
+   "SCMO_0010|full|io": true,
+   "SCMO_0010|full|gold": true,
+   "SCMO_0010|live|io": true,
+   "SCMO_0010|live|gold": true,
+   "SCMO_0029|full|io": true,
+   "SCMO_0029|full|gold": true,
+   "SCMO_0029|live|io": true,
+   "SCMO_0029|live|gold": true
+  },
+  "draws_per_type": 2000,
+  "reportability": {
+   "live_window": {
+    "SCMO_0003": {
+     "round_trips": 5,
+     "gold_spells_with_an_out_week": 11,
+     "feasible": {
+      "in": true,
+      "out": true,
+      "buy": true,
+      "sell": true
+     },
+     "reportable": true
+    },
+    "SCMO_0007": {
+     "round_trips": 5,
+     "gold_spells_with_an_out_week": 11,
+     "feasible": {
+      "in": true,
+      "out": true,
+      "buy": true,
+      "sell": true
+     },
+     "reportable": true
+    },
+    "SCMO_0010": {
+     "round_trips": 5,
+     "gold_spells_with_an_out_week": 11,
+     "feasible": {
+      "in": true,
+      "out": true,
+      "buy": true,
+      "sell": true
+     },
+     "reportable": true
+    },
+    "SCMO_0029": {
+     "round_trips": 5,
+     "gold_spells_with_an_out_week": 11,
+     "feasible": {
+      "in": true,
+      "out": true,
+      "buy": true,
+      "sell": true
+     },
+     "reportable": true
+    }
+   },
+   "gold_spells_with_an_out_week_full": {
+    "SCMO_0003": 16,
+    "SCMO_0007": 16,
+    "SCMO_0010": 16,
+    "SCMO_0029": 16
+   }
+  }
+ },
+ "v4": {
+  "pass": true,
+  "g0": [
+   {
+    "book": "SCMO_0003",
+    "cagr_gap_pp_yr": 0.04486851256428892,
+    "overall": "PASS",
+    "worst_year": 2022,
+    "worst_year_gap_pp": 0.42550398202618744,
+    "yearly": "PASS",
+    "window_first": "2019-01-02",
+    "window_last": "2026-10-30"
+   },
+   {
+    "book": "SCMO_0007",
+    "cagr_gap_pp_yr": 0.10276294272661968,
+    "overall": "PASS",
+    "worst_year": 2019,
+    "worst_year_gap_pp": 0.3909223497191472,
+    "yearly": "PASS",
+    "window_first": "2019-01-04",
+    "window_last": "2026-10-30"
+   },
+   {
+    "book": "SCMO_0010",
+    "cagr_gap_pp_yr": 0.10021289860637772,
+    "overall": "PASS",
+    "worst_year": 2019,
+    "worst_year_gap_pp": 0.4469434456772836,
+    "yearly": "PASS",
+    "window_first": "2019-01-02",
+    "window_last": "2026-10-30"
+   },
+   {
+    "book": "SCMO_0029",
+    "cagr_gap_pp_yr": 0.0384395878199717,
+    "overall": "PASS",
+    "worst_year": 2019,
+    "worst_year_gap_pp": 0.18888038964059994,
+    "yearly": "PASS",
+    "window_first": "2019-01-02",
+    "window_last": "2026-10-30"
+   }
+  ]
+ },
+ "v5": {
+  "pass": true
+ },
+ "v6": {
+  "trades_checked": 11835,
+  "trades_checked_at_0_cost": 3945,
+  "kinds": {
+   "constant_mix|basket_change": 279,
+   "constant_mix|mix_rebalance": 4905,
+   "constant_mix_timed|basket_change": 279,
+   "constant_mix_timed|mix_rebalance": 4905,
+   "hold_parent|basket_change": 363,
+   "sleeve_only_timed|sleeve_rebalance": 204,
+   "strategy|basket_change": 180,
+   "strategy|sleeve_rebalance": 108,
+   "strategy|switch_in": 108,
+   "strategy|switch_out": 108,
+   "strategy_fixed50|basket_change": 180,
+   "strategy_fixed50|switch_in": 108,
+   "strategy_fixed50|switch_out": 108
+  },
+  "worst": {
+   "cost_identity": 0.0,
+   "value_conservation": 5.801387291749392e-16,
+   "stock_target_gap": 5.801387291749392e-16,
+   "gold_target_gap": 2.0565514398264734e-16,
+   "cash_target_gap": 1.763989832951164e-16,
+   "traded_identity": 0.0,
+   "continuity_0cost": 5.193786124970019e-16,
+   "weight_gap_vs_table": 1.1102230246251565e-16
+  },
+  "tolerance": 1e-12,
+  "real_rule_sleeve_trades_equal_expected_at_every_cost": true,
+  "expected_sleeve_trades_per_book": {
+   "SCMO_0003": 9,
+   "SCMO_0007": 9,
+   "SCMO_0010": 9,
+   "SCMO_0029": 9
+  },
+  "constant_g_no_sleeve_trade": true,
+  "constant_g_detail": {
+   "SCMO_0003|BUY|0.0": {
+    "sleeve_trades": 0,
+    "trades": 34
+   },
+   "SCMO_0003|BUY|20.8": {
+    "sleeve_trades": 0,
+    "trades": 34
+   },
+   "SCMO_0003|SELL|0.0": {
+    "sleeve_trades": 0,
+    "trades": 34
+   },
+   "SCMO_0003|SELL|20.8": {
+    "sleeve_trades": 0,
+    "trades": 34
+   },
+   "SCMO_0007|BUY|0.0": {
+    "sleeve_trades": 0,
+    "trades": 32
+   },
+   "SCMO_0007|BUY|20.8": {
+    "sleeve_trades": 0,
+    "trades": 32
+   },
+   "SCMO_0007|SELL|0.0": {
+    "sleeve_trades": 0,
+    "trades": 32
+   },
+   "SCMO_0007|SELL|20.8": {
+    "sleeve_trades": 0,
+    "trades": 32
+   },
+   "SCMO_0010|BUY|0.0": {
+    "sleeve_trades": 0,
+    "trades": 33
+   },
+   "SCMO_0010|BUY|20.8": {
+    "sleeve_trades": 0,
+    "trades": 33
+   },
+   "SCMO_0010|SELL|0.0": {
+    "sleeve_trades": 0,
+    "trades": 33
+   },
+   "SCMO_0010|SELL|20.8": {
+    "sleeve_trades": 0,
+    "trades": 33
+   },
+   "SCMO_0029|BUY|0.0": {
+    "sleeve_trades": 0,
+    "trades": 33
+   },
+   "SCMO_0029|BUY|20.8": {
+    "sleeve_trades": 0,
+    "trades": 33
+   },
+   "SCMO_0029|SELL|0.0": {
+    "sleeve_trades": 0,
+    "trades": 33
+   },
+   "SCMO_0029|SELL|20.8": {
+    "sleeve_trades": 0,
+    "trades": 33
+   }
+  },
+  "worked_examples": {
+   "switch_out": {
+    "decision_date": "2019-05-10",
+    "trade_date": "2019-05-13",
+    "g_read": "SELL",
+    "gw": 0.2,
+    "V": 0.9554965409911345,
+    "stock_before": 0.9554965409911345,
+    "gold_before": 0.0,
+    "cash_before": 0.0,
+    "target_gold": 0.1910993081982269,
+    "target_cash": 0.7643972327929076,
+    "traded": 1.910993081982269,
+    "cost": 0.00198743280526156,
+    "gold_after": 0.19070182163717458,
+    "cash_after": 0.7628072865486983,
+    "expected_gold_after": 0.19070182163717458,
+    "expected_cash_after": 0.7628072865486983
+   },
+   "sleeve_rebalance": {
+    "decision_date": "2019-03-08",
+    "trade_date": "2019-03-11",
+    "g_read": "SELL",
+    "gw": 0.2,
+    "V": 1.0078666288339102,
+    "stock_before": 0.0,
+    "gold_before": 0.8063311946550719,
+    "cash_before": 0.20153543417883832,
+    "target_gold": 0.20157332576678205,
+    "target_cash": 0.8062933030671282,
+    "traded": 1.2095157377765795,
+    "cost": 0.001257896367287643,
+    "gold_after": 0.20132174649332454,
+    "cash_after": 0.8052869859732982,
+    "expected_gold_after": 0.20132174649332454,
+    "expected_cash_after": 0.8052869859732982
+   }
+  },
+  "not_checked_here": "weights drift between trades by construction (units are constant between trade sessions); the initial position at T0 is built from gw[0] without a trade record",
+  "pass": true
+ },
+ "data": {
+  "approved_data_as_of": "2026-11-12",
+  "end_from_D03": "2026-10-30",
+  "inputs": 38,
+  "registered_not_parsed": [
+   "data/holdings_matrix/SCMO_0003_columns.csv",
+   "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0003.csv",
+   "data/holdings_matrix/SCMO_0007_columns.csv",
+   "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0007.csv",
+   "data/holdings_matrix/SCMO_0010_columns.csv",
+   "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0010.csv",
+   "data/holdings_matrix/SCMO_0029_columns.csv",
+   "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0029.csv"
+  ],
+  "non_approved_open_raises": {
+   "superseded_master": {
+    "raised": true,
+    "message": "Historical Data/frozen_2026-09-25/Master/Master_Nifty100.xlsx: row D03 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "superseded_goldbees": {
+    "raised": true,
+    "message": "analysis/cache/why_gold_ohlc_eikon.parquet: row D09 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "superseded_lbes": {
+    "raised": true,
+    "message": "Historical Data/LBES_Adjusted_Price_data_2026_08_10.csv: row D11 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "not_in_table": {
+    "raised": true,
+    "message": "Historical Data/no_such_file.csv: not in the table of data/APPROVED_DATA.md, so not approved"
+   },
+   "pass": true
+  },
+  "cash_accrued_sessions": 0,
+  "cash_first_appended_row": {
+   "last_verbatim_row": "2026-08-09",
+   "weekday": "Sunday",
+   "last_session_before_it": "2026-08-07",
+   "first_appended_row": "2026-08-10",
+   "appended_rows": 61,
+   "level_last_verbatim": 2389.18557849,
+   "level_first_appended": 2389.59968467,
+   "first_appended_return_vs_sunday_level": 0.00017332524678215222,
+   "weekend_accrual_counted_twice_(Sunday_level/last_session_level-1)": 0.00023386999796137786,
+   "claimed_bound_CLAUDE_md": 0.0002,
+   "within_claimed_bound": false,
+   "mean_daily_return_of_appended_rows": 0.00019099909096756962,
+   "note": "level[first appended] = level[Sunday 2026-08-09] x (1 + r[2026-08-10]), r from LIQUIDCASE close 08-07 -> 08-10: the weekend accrual already in the Sunday level is earned again; the extension also runs about 0.5 pp/yr rich against LIQUIDBEES (F-AA-D13); disclosed, not corrected"
+  },
+  "d17_extended_last_date": {
+   "SCMO_0003": "2026-11-06",
+   "SCMO_0007": "2026-11-06",
+   "SCMO_0010": "2026-11-06",
+   "SCMO_0029": "2026-11-06"
+  },
+  "mauc1": {
+   "master_last_row": "2026-11-06",
+   "rows_after_END_dropped": 1
+  },
+  "goldbees": {
+   "mcx_file_last": "2026-09-28",
+   "goldbees_file_last": "2026-11-04",
+   "sessions_after_mcx_in_goldbees_file": [
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04"
+   ],
+   "sessions_after_mcx_in_window_calendar": [
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30"
+   ],
+   "raw_fill_sessions_in_window": 22,
+   "strategy_trades_with_raw_OHLC4_gold_fill(all costs, full+live+liq windows)": 20,
+   "strategy_raw_fill_trades_at_20.8_full_window": [
+    {
+     "book": "SCMO_0003",
+     "date": "2026-10-26",
+     "kind": "sleeve_rebalance",
+     "cost_bps": 20.8
+    },
+    {
+     "book": "SCMO_0007",
+     "date": "2026-10-26",
+     "kind": "sleeve_rebalance",
+     "cost_bps": 20.8
+    },
+    {
+     "book": "SCMO_0010",
+     "date": "2026-10-26",
+     "kind": "sleeve_rebalance",
+     "cost_bps": 20.8
+    },
+    {
+     "book": "SCMO_0029",
+     "date": "2026-10-26",
+     "kind": "sleeve_rebalance",
+     "cost_bps": 20.8
+    }
+   ],
+   "trades_with_raw_OHLC4_gold_fill_by_book(all runs, draws included, headline LBES run)": {
+    "SCMO_0003": 15216,
+    "SCMO_0007": 15231,
+    "SCMO_0010": 15216,
+    "SCMO_0029": 15216
+   }
+  }
+ },
+ "sleeve_trades_per_book_real_rule": {
+  "SCMO_0003": 9,
+  "SCMO_0007": 9,
+  "SCMO_0010": 9,
+  "SCMO_0029": 9
+ },
+ "step1_spell_counts_reproduced": {
+  "pass": true,
+  "detail": {
+   "SCMO_0003|full": true,
+   "SCMO_0003|live": true,
+   "SCMO_0007|full": true,
+   "SCMO_0007|live": true,
+   "SCMO_0010|full": true,
+   "SCMO_0010|live": true,
+   "SCMO_0029|full": true,
+   "SCMO_0029|live": true
+  }
+ },
+ "run": {
+  "name": "headline",
+  "command": "analysis/t08_engine.py --run headline",
+  "draws": 2000,
+  "books": [
+   "SCMO_0003",
+   "SCMO_0007",
+   "SCMO_0010",
+   "SCMO_0029"
+  ],
+  "seconds": 425,
+  "quick": false,
+  "python": "3.11.2",
+  "numpy": "2.4.6",
+  "pandas": "3.1.1",
+  "seeds": "in-or-out N4.9 default_rng([3, id]), N4.10 [6, id]; gold N4.9-g [11, 3, id], N4.10-g [11, 6, id]; the same draw ids for every cost, window and cash variant; F5 pairs F1's and F3's draw of the same id"
+ },
+ "prereg_sha256": "17c7615b84f96d4250f4f12d555150ecb129b1044b5bcfeccdfc5969393e8a96",
+ "gates": {
+  "V2": true,
+  "V3": true,
+  "V4": true,
+  "V5": true,
+  "V6": true,
+  "approved_data_selftest": true,
+  "step1_counts": true,
+  "all": true
+ }
+}

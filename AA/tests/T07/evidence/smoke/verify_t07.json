@@ -1,0 +1,1156 @@
+{
+ "verifier": "analysis/verify_t07.py",
+ "evidence": "tests\\T07\\evidence\\smoke",
+ "weights_convention": "norm",
+ "weights_note": "events.csv sum_weights equal 1 on every event (listed weights renormalised, as in T06 and as ruled by the coordinator on 2026-11-12; the frozen text's wording says not)",
+ "gate_compared": 201268,
+ "gate_failures_and_missing": 0,
+ "missing_evidence_files": [],
+ "checks": {
+  "C-data": {
+   "compared": 224,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "through-date exempt roles (earlier than the window by design): ['D05', 'D12', 'D19']"
+   ],
+   "parts": {
+    "verifier_reads": {
+     "compared": 19,
+     "failed": 0
+    }
+   }
+  },
+  "C-dec": {
+   "compared": 410,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "decisions compared in windows ['full']; the evidence has 410 rows"
+   ],
+   "parts": {
+    "decisions": {
+     "compared": 410,
+     "failed": 0
+    }
+   }
+  },
+  "C-tag": {
+   "compared": 2034,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "weights convention used for listed_weight: norm; events.csv sum_weights equal 1 on every event (listed weights renormalised, as in T06 and as ruled by the coordinator on 2026-11-12; the frozen text's wording says not)",
+    "tag_source counts (mine, rows): {\"rank\": 867, \"membership\": 136, \"nonmember_rank\": 14}"
+   ],
+   "parts": {
+    "event_stocks": {
+     "compared": 1017,
+     "failed": 0
+    },
+    "band_signal": {
+     "compared": 1017,
+     "failed": 0
+    }
+   }
+  },
+  "C-events": {
+   "compared": 184,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 2.2204460492503126e-16,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "basket_eff matches the availableDate on 91 rows, the effective session on 88",
+    "events (full): SCMO_0003 57; with 0<share<1 (partial): SCMO_0003 20"
+   ],
+   "parts": {
+    "events": {
+     "compared": 91,
+     "failed": 0
+    },
+    "basket_eff": {
+     "compared": 91,
+     "failed": 0
+    },
+    "event_count": {
+     "compared": 2,
+     "failed": 0
+    }
+   }
+  },
+  "C-target": {
+   "compared": 6194,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 3.916987041526825e-15,
+   "first_fail": null,
+   "gate": true,
+   "notes": [],
+   "parts": {
+    "events_V_traded_cost": {
+     "compared": 89,
+     "failed": 0
+    },
+    "trades": {
+     "compared": 531,
+     "failed": 0
+    },
+    "trades_e_after": {
+     "compared": 531,
+     "failed": 0
+    },
+    "positions": {
+     "compared": 5043,
+     "failed": 0
+    }
+   }
+  },
+  "C-nav": {
+   "compared": 29018,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 1.5905662176099732e-10,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "constant_mix average-share variants that matched (a = the rule's path at the same cost, b = at 0 cost): {'a': 5}",
+    "C3 (rule minus whole book, CAGR, 20.8 bps, lbes): {\"SCMO_0003|full\": -0.02503, \"SCMO_0003|live\": -0.074471}"
+   ],
+   "parts": {
+    "daily_nav": {
+     "compared": 28980,
+     "failed": 0
+    },
+    "end_nav": {
+     "compared": 3,
+     "failed": 0
+    },
+    "stats_events": {
+     "compared": 5,
+     "failed": 0
+    },
+    "stats": {
+     "compared": 30,
+     "failed": 0
+    }
+   }
+  },
+  "C-t06": {
+   "compared": 7410,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 8.821738805268532e-16,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "whole-book run with listed weights renormalised to 1 per basket (T06's convention): max relative difference 8.822e-16 over 5778 shared sessions (gate, limit 1e-12)",
+    "same run with listed weights NOT renormalised (the frozen T07 text): max relative difference 1.500e-09 (information: the two conventions cannot both reproduce T06 to 1e-12)",
+    "SCMO_0003: 408 shared decision dates"
+   ],
+   "parts": {
+    "nav_shared_sessions": {
+     "compared": 5778,
+     "failed": 0
+    },
+    "decisions_shared_dates": {
+     "compared": 1632,
+     "failed": 0
+    }
+   }
+  },
+  "C-always-in": {
+   "compared": 13,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "g_engine.csv SCMO_0003 cagr_gap_pp_yr matches the calendar-year form (0.044869)",
+    "always-in = the 'parent' run (every stock held, 0 cost) against the published NAV rebased; limits: overall +-0.25 pp/yr (years = (sessions-1)/252), each calendar year +-0.5 pp",
+    "SCMO_0003: overall +0.0460 pp/yr (calendar-year form +0.0449); worst calendar year 2022 0.4255 pp"
+   ],
+   "parts": {
+    "g0": {
+     "compared": 10,
+     "failed": 0
+    },
+    "g_engine": {
+     "compared": 3,
+     "failed": 0
+    }
+   }
+  },
+  "C-count": {
+   "compared": 273,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "SCMO_0003 full: events 57, with 0 < equity share < 1: 20",
+    "SCMO_0003 live: events 34, with 0 < equity share < 1: 11",
+    "count = number of subsets X of the held stocks with |sum w(X) - D| <= tau = half the smallest listed weight, by enumeration of all 2^n masks"
+   ],
+   "parts": {
+    "rule_subset_in_A": {
+     "compared": 91,
+     "failed": 0
+    },
+    "events_csv_n_allowed": {
+     "compared": 91,
+     "failed": 0
+    },
+    "count_table": {
+     "compared": 91,
+     "failed": 0
+    }
+   }
+  },
+  "C-draws": {
+   "compared": 71720,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.9785049727301918,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "SCMO_0003|full|N4.6: 20 draws x 57 events checked",
+    "SCMO_0003|full|N4.8: 20 draws x 57 events checked",
+    "SCMO_0003|live|N4.6: 20 draws x 34 events checked",
+    "SCMO_0003|live|N4.8: 20 draws x 34 events checked",
+    "run 'smoke': draw counts per key not required to be 2,000 (only the headline run is)"
+   ],
+   "parts": {
+    "N4.6_values_01": {
+     "compared": 20340,
+     "failed": 0
+    },
+    "N4.6_dropped_weight_within_tau": {
+     "compared": 1820,
+     "failed": 0
+    },
+    "N4.6_drops_nothing_or_everything": {
+     "compared": 1200,
+     "failed": 0
+    },
+    "N4.8_label_counts": {
+     "compared": 5460,
+     "failed": 0
+    },
+    "N4.8_label_values": {
+     "compared": 20340,
+     "failed": 0
+    },
+    "N4.8_drop_iff_label_SELL": {
+     "compared": 20340,
+     "failed": 0
+    },
+    "N4.8_persistent_order": {
+     "compared": 1820,
+     "failed": 0
+    },
+    "draws_csv_mean_dropped_weight": {
+     "compared": 200,
+     "failed": 0
+    },
+    "draws_csv_n_events": {
+     "compared": 200,
+     "failed": 0
+    }
+   }
+  },
+  "C-draw-seed": {
+   "compared": 20,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": false,
+   "notes": [
+    "information only: replays default_rng([7, draw_id, book_no]) for the first 20 N4.6 draws of the full window"
+   ],
+   "parts": {
+    "N4.6_seed_replay": {
+     "compared": 20,
+     "failed": 0
+    }
+   }
+  },
+  "C-draw-nav": {
+   "compared": 77344,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 1.1631740933178748e-10,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "64 draw re-simulations (headline sample: first 20 and 20 random draws per book and null at 20.8 bps; extra: draws 0-2 at 0 / 50 bps, LIQUIDCASE and live window)",
+    "daily curves are stored as float32, so they are compared at a relative 1e-6 (the spec's 1e-9 applies to the end NAV in draws.csv)"
+   ],
+   "parts": {
+    "draw_stats_headline": {
+     "compared": 40,
+     "failed": 0
+    },
+    "draw_curves": {
+     "compared": 77280,
+     "failed": 0
+    },
+    "draw_stats_extra": {
+     "compared": 24,
+     "failed": 0
+    }
+   }
+  },
+  "C-oracle": {
+   "compared": 1,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "run 'smoke': controls_oracle.json not written (V7 is a headline-run control); the oracle is only re-derived",
+    "SCMO_0003: oracle CAGR 0.312729 (fill-to-fill returns) / 0.309900 (close-to-close); percentile against the evidence's N4.6 draws 100.00 / 100.00"
+   ],
+   "parts": {}
+  },
+  "C-percentile": {
+   "compared": 70,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "worst_rel here is the largest difference between the verifier's two own percentile implementations",
+    "analysis.log not found beside the evidence (written in Step 5); no printed percentile compared"
+   ],
+   "parts": {}
+  },
+  "C-pit": {
+   "compared": 6373,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "verifier's own counts: {\"decisions_checked\": 1344, \"decision_violations\": 0, \"tags_checked\": 1213, \"tag_violations\": 0, \"trades_checked\": 143, \"trade_violations\": 0, \"t0_exempt_tags\": 18} (T0 tags are read as of T0 itself and are exempt from 'session before the trade session')"
+   ],
+   "parts": {
+    "evidence_tag_snapshot_le_info_date": {
+     "compared": 1017,
+     "failed": 0
+    },
+    "evidence_info_date_le_trade_date": {
+     "compared": 1017,
+     "failed": 0
+    },
+    "evidence_master_label_le_decision": {
+     "compared": 1230,
+     "failed": 0
+    },
+    "evidence_trade_after_decision": {
+     "compared": 409,
+     "failed": 0
+    }
+   }
+  }
+ },
+ "c_corrupt": {
+  "compared": 1,
+  "failed": 0,
+  "note": "C-corrupt: the corrupted copy must make the relevant checks fail"
+ },
+ "tag_panel_crosscheck": {
+  "rank_rows_compared": 788065,
+  "rank_mismatches": 0,
+  "membership_rows_compared": 6001,
+  "membership_mismatches": 0
+ },
+ "always_in": [
+  {
+   "book": "SCMO_0003",
+   "scope": "overall",
+   "gap_pp": 0.04596407119243917,
+   "limit_pp": 0.25
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "overall_calendar_years",
+   "gap_pp": 0.04486851256428892,
+   "limit_pp": 0.25
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2019",
+   "gap_pp": -0.21950615822005082,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2020",
+   "gap_pp": 0.001402416153495345,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2021",
+   "gap_pp": 0.06469384756251362,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2022",
+   "gap_pp": 0.42550398202619855,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2023",
+   "gap_pp": -1.8526184142331203e-06,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2024",
+   "gap_pp": -0.00011901684986437289,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2025",
+   "gap_pp": 0.007878470365518808,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2026",
+   "gap_pp": -1.21269216890596e-08,
+   "limit_pp": 0.5
+  }
+ ],
+ "c3_rule_minus_whole_book": {
+  "SCMO_0003|full": -0.025030474096629618,
+  "SCMO_0003|live": -0.0744709988940675
+ },
+ "percentiles": [
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 0.0,
+   "draw_type": "N4.6",
+   "n_draws": 20,
+   "cagr_pctile": 80.0,
+   "cagr_p": 0.23809523809523808,
+   "max_dd_pctile": 5.0,
+   "max_dd_p": 0.9523809523809523,
+   "vol_pctile": 0.0,
+   "vol_p": 1.0,
+   "ulcer_pctile": 30.0,
+   "ulcer_p": 0.7142857142857143,
+   "days_below_10pct_pctile": 50.0,
+   "days_below_10pct_p": 0.5238095238095238,
+   "longest_underwater_pctile": 92.5,
+   "longest_underwater_p": 0.19047619047619047,
+   "calmar_pctile": 15.0,
+   "calmar_p": 0.8571428571428571
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 0.0,
+   "draw_type": "N4.8",
+   "n_draws": 20,
+   "cagr_pctile": 55.00000000000001,
+   "cagr_p": 0.47619047619047616,
+   "max_dd_pctile": 5.0,
+   "max_dd_p": 0.9523809523809523,
+   "vol_pctile": 15.0,
+   "vol_p": 0.8571428571428571,
+   "ulcer_pctile": 50.0,
+   "ulcer_p": 0.5238095238095238,
+   "days_below_10pct_pctile": 67.5,
+   "days_below_10pct_p": 0.38095238095238093,
+   "longest_underwater_pctile": 92.5,
+   "longest_underwater_p": 0.19047619047619047,
+   "calmar_pctile": 5.0,
+   "calmar_p": 0.9523809523809523
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 20,
+   "cagr_pctile": 80.0,
+   "cagr_p": 0.23809523809523808,
+   "max_dd_pctile": 5.0,
+   "max_dd_p": 0.9523809523809523,
+   "vol_pctile": 0.0,
+   "vol_p": 1.0,
+   "ulcer_pctile": 30.0,
+   "ulcer_p": 0.7142857142857143,
+   "days_below_10pct_pctile": 65.0,
+   "days_below_10pct_p": 0.38095238095238093,
+   "longest_underwater_pctile": 77.5,
+   "longest_underwater_p": 0.38095238095238093,
+   "calmar_pctile": 25.0,
+   "calmar_p": 0.7619047619047619
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 20,
+   "cagr_pctile": 55.00000000000001,
+   "cagr_p": 0.47619047619047616,
+   "max_dd_pctile": 5.0,
+   "max_dd_p": 0.9523809523809523,
+   "vol_pctile": 15.0,
+   "vol_p": 0.8571428571428571,
+   "ulcer_pctile": 50.0,
+   "ulcer_p": 0.5238095238095238,
+   "days_below_10pct_pctile": 67.5,
+   "days_below_10pct_p": 0.38095238095238093,
+   "longest_underwater_pctile": 82.5,
+   "longest_underwater_p": 0.23809523809523808,
+   "calmar_pctile": 5.0,
+   "calmar_p": 0.9523809523809523
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 50.0,
+   "draw_type": "N4.6",
+   "n_draws": 20,
+   "cagr_pctile": 80.0,
+   "cagr_p": 0.23809523809523808,
+   "max_dd_pctile": 5.0,
+   "max_dd_p": 0.9523809523809523,
+   "vol_pctile": 5.0,
+   "vol_p": 0.9523809523809523,
+   "ulcer_pctile": 30.0,
+   "ulcer_p": 0.7142857142857143,
+   "days_below_10pct_pctile": 20.0,
+   "days_below_10pct_p": 0.8095238095238095,
+   "longest_underwater_pctile": 72.5,
+   "longest_underwater_p": 0.42857142857142855,
+   "calmar_pctile": 25.0,
+   "calmar_p": 0.7619047619047619
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 50.0,
+   "draw_type": "N4.8",
+   "n_draws": 20,
+   "cagr_pctile": 55.00000000000001,
+   "cagr_p": 0.47619047619047616,
+   "max_dd_pctile": 10.0,
+   "max_dd_p": 0.9047619047619048,
+   "vol_pctile": 15.0,
+   "vol_p": 0.8571428571428571,
+   "ulcer_pctile": 50.0,
+   "ulcer_p": 0.5238095238095238,
+   "days_below_10pct_pctile": 45.0,
+   "days_below_10pct_p": 0.5714285714285714,
+   "longest_underwater_pctile": 80.0,
+   "longest_underwater_p": 0.2857142857142857,
+   "calmar_pctile": 15.0,
+   "calmar_p": 0.8571428571428571
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "liq",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 20,
+   "cagr_pctile": 80.0,
+   "cagr_p": 0.23809523809523808,
+   "max_dd_pctile": 5.0,
+   "max_dd_p": 0.9523809523809523,
+   "vol_pctile": 0.0,
+   "vol_p": 1.0,
+   "ulcer_pctile": 30.0,
+   "ulcer_p": 0.7142857142857143,
+   "days_below_10pct_pctile": 62.5,
+   "days_below_10pct_p": 0.42857142857142855,
+   "longest_underwater_pctile": 77.5,
+   "longest_underwater_p": 0.38095238095238093,
+   "calmar_pctile": 25.0,
+   "calmar_p": 0.7619047619047619
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "liq",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 20,
+   "cagr_pctile": 55.00000000000001,
+   "cagr_p": 0.47619047619047616,
+   "max_dd_pctile": 5.0,
+   "max_dd_p": 0.9523809523809523,
+   "vol_pctile": 15.0,
+   "vol_p": 0.8571428571428571,
+   "ulcer_pctile": 50.0,
+   "ulcer_p": 0.5238095238095238,
+   "days_below_10pct_pctile": 65.0,
+   "days_below_10pct_p": 0.38095238095238093,
+   "longest_underwater_pctile": 82.5,
+   "longest_underwater_p": 0.23809523809523808,
+   "calmar_pctile": 5.0,
+   "calmar_p": 0.9523809523809523
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "live",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 20,
+   "cagr_pctile": 75.0,
+   "cagr_p": 0.2857142857142857,
+   "max_dd_pctile": 0.0,
+   "max_dd_p": 1.0,
+   "vol_pctile": 75.0,
+   "vol_p": 0.2857142857142857,
+   "ulcer_pctile": 40.0,
+   "ulcer_p": 0.6190476190476191,
+   "days_below_10pct_pctile": 50.0,
+   "days_below_10pct_p": 0.5238095238095238,
+   "longest_underwater_pctile": 67.5,
+   "longest_underwater_p": 0.38095238095238093,
+   "calmar_pctile": 20.0,
+   "calmar_p": 0.8095238095238095
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "live",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 20,
+   "cagr_pctile": 85.0,
+   "cagr_p": 0.19047619047619047,
+   "max_dd_pctile": 10.0,
+   "max_dd_p": 0.9047619047619048,
+   "vol_pctile": 85.0,
+   "vol_p": 0.19047619047619047,
+   "ulcer_pctile": 50.0,
+   "ulcer_p": 0.5238095238095238,
+   "days_below_10pct_pctile": 65.0,
+   "days_below_10pct_p": 0.38095238095238093,
+   "longest_underwater_pctile": 80.0,
+   "longest_underwater_p": 0.2857142857142857,
+   "calmar_pctile": 50.0,
+   "calmar_p": 0.5238095238095238
+  }
+ ],
+ "approved_data_files_read": {
+  "Historical Data/extended_2026-10-30/Master/Master_Nifty100.xlsx": "4285f9f1832f3da2d388a5cc28216066c3c93d15fb807cbd93a60395b6faec78",
+  "Historical Data/extended_2026-10-30/Master/Master_MC100.xlsx": "b191eb973994922898e50a63aa597599980670587126f43aba820241024c0b86",
+  "Historical Data/extended_2026-10-30/Master/Master_SC100.xlsx": "c7f4acdbe414363730008e65623eb75823d06777b6df8f693f46ff068fe26f76",
+  "analysis/cache/why_gold_ohlc_eikon_extended_2026-11-04.parquet": "3e02141265537443326ee9d03c3b2a68c0083479623f1d563c0dfeb8633660ab",
+  "analysis/evidence/final_strategy/mauc1/mauc1_daily_clean.csv": "3f5af3dfd2aa1b8367a14353d7afda8fc86724fb1798cc4f0712dd185b3a0a72",
+  "Historical Data/LBES_Adjusted_Price_data_extended_2026-11-05.csv": "7f9806bc0a163d2b26aa3231694cc747a219702f3705e132161bbbf1acd6c8cf",
+  "Historical Data/liquidEtfFinal_extended_2026-11-05.csv": "7361432852741fc80732277b4549984ab0f6c62443274fc839579ceaceb0e923",
+  "data/holdings_matrix/price_corrections.csv": "995afcc645c0f966f146d2a08fbb80b131b0207a64308316902b48e23a3eab0f",
+  "Historical Data/extended_2026-11-12/mcap_universe/mcap_universe_ordinary.csv": "f0288a5b09a604ecebb148bae50c5baeaa743f7924adc8adc688c4718b7683ba",
+  "Historical Data/extended_2026-11-12/membership/index_constituents_monthly.csv": "532c816e53cb49a0007795d8761e0e04baa199979a4d8b7f322d79730c8b5553",
+  "Historical Data/extended_2026-11-12/symbology/symbology_changes.csv": "038b1d79227359102dfcbc4b704e7df622ea927ddb5588775e7afd136b688e29",
+  "Historical Data/extended_2026-11-06/published_nav/SCMO_0003.csv": "394121576bd1d3d13208e017ab86182d40c824b7ae2ebf71507120a4a5fe1a3d",
+  "data/holdings_matrix/SCMO_0003_ohlc.csv": "9f9c235e988f471d8e0e3b14c9b56f515485998088381f63f14506ecd8147724",
+  "data/holdings_matrix/SCMO_0003_holding_weight_matrix.csv": "273a2183c11f78d20a230590eeaa69e3939f1ae684696dea55514b5f5f6b78cd",
+  "data/holdings_matrix/SCMO_0003_holding_weight_sources.csv": "3ca63a25a4202ee194d94d1eeb1c4db962a023df938aae3dd4a3604025b73415",
+  "data/holdings_matrix/SCMO_0003_columns.csv": "4d78b45553191dc84ffc81cfec7cd83267d25696cc6933e843029580ec9f966f",
+  "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0003.csv": "e345cd1dc66e415cac4c9c74ff8f8652e7bff9971f18336646548915d8d5f9fc",
+  "Historical Data/extended_2026-11-12/tags/mcap_rank_panel.csv": "e7c98ec5e0cc144c2986530f156b8a561f5c2df92d3ccc11a0ddce335f90cbf0",
+  "Historical Data/extended_2026-11-12/tags/membership_panel.csv": "c5ac673b322945b1d915af78947451dc79d29d80adaca854ad168372c80a45a4"
+ },
+ "selftest": {
+  "dir": "C:\\Users\\manur\\AppData\\Local\\Temp\\claude\\d384933f9ddb0ecb\\ea0af580-06c7-4ce3-8c4f-77d4828a38b0\\scratchpad\\corrupt_smoke",
+  "corruptions": {
+   "flip_tag": {
+    "info": {
+     "file": "event_stocks.csv",
+     "row": 339,
+     "column": "band"
+    },
+    "relevant_checks": [
+     "C-tag"
+    ],
+    "failures_in_relevant_checks": {
+     "C-tag": 1
+    },
+    "detected": true
+   },
+   "change_target_weight": {
+    "info": {
+     "file": "event_stocks.csv",
+     "row": 508,
+     "column": "listed_weight x 1.05"
+    },
+    "relevant_checks": [
+     "C-tag"
+    ],
+    "failures_in_relevant_checks": {
+     "C-tag": 1
+    },
+    "detected": true
+   },
+   "change_position": {
+    "info": {
+     "file": "positions.csv",
+     "row": 2521,
+     "column": "units x 1.01"
+    },
+    "relevant_checks": [
+     "C-target"
+    ],
+    "failures_in_relevant_checks": {
+     "C-target": 1
+    },
+    "detected": true
+   },
+   "scale_nav": {
+    "info": {
+     "file": "daily_nav.csv",
+     "rows": 1932,
+     "what": "SCMO_0003 segment 20.8 bps x 1.001"
+    },
+    "relevant_checks": [
+     "C-nav"
+    ],
+    "failures_in_relevant_checks": {
+     "C-nav": 1933
+    },
+    "detected": true
+   },
+   "delete_event": {
+    "info": {
+     "file": "events.csv",
+     "row": 45
+    },
+    "relevant_checks": [
+     "C-events"
+    ],
+    "failures_in_relevant_checks": {
+     "C-events": 2
+    },
+    "detected": true
+   },
+   "move_drop": {
+    "info": {
+     "file": "draw_drops.npz",
+     "key": "SCMO_0003|full|N4.6",
+     "draw": 0,
+     "trade_date": "2019-01-02",
+     "row": 0
+    },
+    "relevant_checks": [
+     "C-draws"
+    ],
+    "failures_in_relevant_checks": {
+     "C-draws": 6
+    },
+    "detected": true
+   }
+  },
+  "combined": {
+   "dir": "C:\\Users\\manur\\AppData\\Local\\Temp\\claude\\d384933f9ddb0ecb\\ea0af580-06c7-4ce3-8c4f-77d4828a38b0\\scratchpad\\corrupt_smoke\\corrupt_all",
+   "gate_compared": 201265,
+   "gate_failures": 3881,
+   "checks": {
+    "C-data": {
+     "compared": 224,
+     "failed": 0,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": null,
+     "gate": true,
+     "notes": [
+      "through-date exempt roles (earlier than the window by design): ['D05', 'D12', 'D19']"
+     ],
+     "parts": {
+      "verifier_reads": {
+       "compared": 19,
+       "failed": 0
+      }
+     }
+    },
+    "C-dec": {
+     "compared": 410,
+     "failed": 0,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": null,
+     "gate": true,
+     "notes": [
+      "decisions compared in windows ['full']; the evidence has 410 rows"
+     ],
+     "parts": {
+      "decisions": {
+       "compared": 410,
+       "failed": 0
+      }
+     }
+    },
+    "C-tag": {
+     "compared": 2034,
+     "failed": 2,
+     "missing": 0,
+     "worst_rel": 0.04761904761904757,
+     "first_fail": "first differing row {'book': 'SCMO_0003', 'window': 'full', 'trade_date': '2026-01-27', 'isin': 'INE343G01021'} col listed_weight: verifier=np.float64(0.06351538461618907) evidence=np.float64(0.06669115384699852)",
+     "gate": true,
+     "notes": [
+      "weights convention used for listed_weight: norm; events.csv sum_weights equal 1 on every event (listed weights renormalised, as in T06 and as ruled by the coordinator on 2026-11-12; the frozen text's wording says not)",
+      "tag_source counts (mine, rows): {\"rank\": 867, \"membership\": 136, \"nonmember_rank\": 14}"
+     ],
+     "parts": {
+      "event_stocks": {
+       "compared": 1017,
+       "failed": 2
+      },
+      "band_signal": {
+       "compared": 1017,
+       "failed": 0
+      }
+     }
+    },
+    "C-events": {
+     "compared": 182,
+     "failed": 1,
+     "missing": 1,
+     "worst_rel": 2.2204460492503126e-16,
+     "first_fail": "missing row (verifier only): {'book': 'SCMO_0003', 'window': 'full', 'trade_date': '2025-06-03'}",
+     "gate": true,
+     "notes": [
+      "basket_eff matches the availableDate on 90 rows, the effective session on 87",
+      "events (full): SCMO_0003 57; with 0<share<1 (partial): SCMO_0003 20"
+     ],
+     "parts": {
+      "events": {
+       "compared": 91,
+       "failed": 1
+      },
+      "basket_eff": {
+       "compared": 90,
+       "failed": 0
+      },
+      "event_count": {
+       "compared": 2,
+       "failed": 1
+      }
+     }
+    },
+    "C-target": {
+     "compared": 6193,
+     "failed": 1,
+     "missing": 1,
+     "worst_rel": 0.00990099009901,
+     "first_fail": "missing row (verifier only): {'book': 'SCMO_0003', 'window': 'full', 'trade_date': '2025-06-03'}",
+     "gate": true,
+     "notes": [],
+     "parts": {
+      "events_V_traded_cost": {
+       "compared": 89,
+       "failed": 1
+      },
+      "trades": {
+       "compared": 531,
+       "failed": 0
+      },
+      "trades_e_after": {
+       "compared": 531,
+       "failed": 0
+      },
+      "positions": {
+       "compared": 5043,
+       "failed": 1
+      }
+     }
+    },
+    "C-nav": {
+     "compared": 29018,
+     "failed": 1933,
+     "missing": 0,
+     "worst_rel": 0.0010000000000005259,
+     "first_fail": "first differing row {'book': 'SCMO_0003', 'run': 'segment', 'cost_bps': np.float64(20.8), 'date': '2019-01-02'} col nav: verifier=np.float64(0.9999999999999998) evidence=np.float64(1.001)",
+     "gate": true,
+     "notes": [
+      "constant_mix average-share variants that matched (a = the rule's path at the same cost, b = at 0 cost): {'a': 5}",
+      "C3 (rule minus whole book, CAGR, 20.8 bps, lbes): {\"SCMO_0003|full\": -0.02503, \"SCMO_0003|live\": -0.074471}"
+     ],
+     "parts": {
+      "daily_nav": {
+       "compared": 28980,
+       "failed": 1932
+      },
+      "end_nav": {
+       "compared": 3,
+       "failed": 1
+      },
+      "stats_events": {
+       "compared": 5,
+       "failed": 0
+      },
+      "stats": {
+       "compared": 30,
+       "failed": 0
+      }
+     }
+    },
+    "C-t06": {
+     "compared": 7410,
+     "failed": 0,
+     "missing": 0,
+     "worst_rel": 8.821738805268532e-16,
+     "first_fail": null,
+     "gate": true,
+     "notes": [
+      "whole-book run with listed weights renormalised to 1 per basket (T06's convention): max relative difference 8.822e-16 over 5778 shared sessions (gate, limit 1e-12)",
+      "same run with listed weights NOT renormalised (the frozen T07 text): max relative difference 1.500e-09 (information: the two conventions cannot both reproduce T06 to 1e-12)",
+      "SCMO_0003: 408 shared decision dates"
+     ],
+     "parts": {
+      "nav_shared_sessions": {
+       "compared": 5778,
+       "failed": 0
+      },
+      "decisions_shared_dates": {
+       "compared": 1632,
+       "failed": 0
+      }
+     }
+    },
+    "C-always-in": {
+     "compared": 13,
+     "failed": 0,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": null,
+     "gate": true,
+     "notes": [
+      "g_engine.csv SCMO_0003 cagr_gap_pp_yr matches the calendar-year form (0.044869)",
+      "always-in = the 'parent' run (every stock held, 0 cost) against the published NAV rebased; limits: overall +-0.25 pp/yr (years = (sessions-1)/252), each calendar year +-0.5 pp",
+      "SCMO_0003: overall +0.0460 pp/yr (calendar-year form +0.0449); worst calendar year 2022 0.4255 pp"
+     ],
+     "parts": {
+      "g0": {
+       "compared": 10,
+       "failed": 0
+      },
+      "g_engine": {
+       "compared": 3,
+       "failed": 0
+      }
+     }
+    },
+    "C-count": {
+     "compared": 273,
+     "failed": 1,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": "SCMO_0003 full event 45: events.csv n_allowed_subsets [] vs brute force 1",
+     "gate": true,
+     "notes": [
+      "SCMO_0003 full: events 57, with 0 < equity share < 1: 20",
+      "SCMO_0003 live: events 34, with 0 < equity share < 1: 11",
+      "count = number of subsets X of the held stocks with |sum w(X) - D| <= tau = half the smallest listed weight, by enumeration of all 2^n masks"
+     ],
+     "parts": {
+      "rule_subset_in_A": {
+       "compared": 91,
+       "failed": 0
+      },
+      "events_csv_n_allowed": {
+       "compared": 91,
+       "failed": 1
+      },
+      "count_table": {
+       "compared": 91,
+       "failed": 0
+      }
+     }
+    },
+    "C-draws": {
+     "compared": 71720,
+     "failed": 6,
+     "missing": 0,
+     "worst_rel": 2.000000000000004,
+     "first_fail": "SCMO_0003|full|N4.6 draw 0 event 0: dropped weight 0.902222 vs rule 1.000000 (tau 0.048889)",
+     "gate": true,
+     "notes": [
+      "SCMO_0003|full|N4.6: 20 draws x 57 events checked",
+      "SCMO_0003|full|N4.8: 20 draws x 57 events checked",
+      "SCMO_0003|live|N4.6: 20 draws x 34 events checked",
+      "SCMO_0003|live|N4.8: 20 draws x 34 events checked",
+      "run 'smoke': draw counts per key not required to be 2,000 (only the headline run is)"
+     ],
+     "parts": {
+      "N4.6_values_01": {
+       "compared": 20340,
+       "failed": 0
+      },
+      "N4.6_dropped_weight_within_tau": {
+       "compared": 1820,
+       "failed": 1
+      },
+      "N4.6_drops_nothing_or_everything": {
+       "compared": 1200,
+       "failed": 1
+      },
+      "N4.8_label_counts": {
+       "compared": 5460,
+       "failed": 0
+      },
+      "N4.8_label_values": {
+       "compared": 20340,
+       "failed": 0
+      },
+      "N4.8_drop_iff_label_SELL": {
+       "compared": 20340,
+       "failed": 0
+      },
+      "N4.8_persistent_order": {
+       "compared": 1820,
+       "failed": 0
+      },
+      "draws_csv_mean_dropped_weight": {
+       "compared": 200,
+       "failed": 4
+      },
+      "draws_csv_n_events": {
+       "compared": 200,
+       "failed": 0
+      }
+     }
+    },
+    "C-draw-seed": {
+     "compared": 20,
+     "failed": 1,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": "SCMO_0003|full|N4.6: the first 20 saved draws differ from the seed [7, draw_id, book_no] replay in 1 cells (the contract's seed order: held stocks in ISIN order, one rng.random() per event, A[floor(u |A|)])",
+     "gate": false,
+     "notes": [
+      "information only: replays default_rng([7, draw_id, book_no]) for the first 20 N4.6 draws of the full window"
+     ],
+     "parts": {
+      "N4.6_seed_replay": {
+       "compared": 20,
+       "failed": 1
+      }
+     }
+    },
+    "C-draw-nav": {
+     "compared": 77344,
+     "failed": 1935,
+     "missing": 0,
+     "worst_rel": 0.0009360331152706841,
+     "first_fail": "SCMO_0003 full lbes 20.8 N4.6 draw 0: 6 statistic(s) differ (end_nav: evidence 5.453579789541756 vs verifier 5.454665984524505)",
+     "gate": true,
+     "notes": [
+      "64 draw re-simulations (headline sample: first 20 and 20 random draws per book and null at 20.8 bps; extra: draws 0-2 at 0 / 50 bps, LIQUIDCASE and live window)",
+      "daily curves are stored as float32, so they are compared at a relative 1e-6 (the spec's 1e-9 applies to the end NAV in draws.csv)"
+     ],
+     "parts": {
+      "draw_stats_headline": {
+       "compared": 40,
+       "failed": 1
+      },
+      "draw_curves": {
+       "compared": 77280,
+       "failed": 1931
+      },
+      "draw_stats_extra": {
+       "compared": 24,
+       "failed": 3
+      }
+     }
+    },
+    "C-oracle": {
+     "compared": 1,
+     "failed": 0,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": null,
+     "gate": true,
+     "notes": [
+      "run 'smoke': controls_oracle.json not written (V7 is a headline-run control); the oracle is only re-derived",
+      "SCMO_0003: oracle CAGR 0.312729 (fill-to-fill returns) / 0.309900 (close-to-close); percentile against the evidence's N4.6 draws 100.00 / 100.00"
+     ],
+     "parts": {}
+    },
+    "C-percentile": {
+     "compared": 70,
+     "failed": 0,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": null,
+     "gate": true,
+     "notes": [
+      "worst_rel here is the largest difference between the verifier's two own percentile implementations",
+      "analysis.log not found beside the evidence (written in Step 5); no printed percentile compared"
+     ],
+     "parts": {}
+    },
+    "C-pit": {
+     "compared": 6373,
+     "failed": 0,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": null,
+     "gate": true,
+     "notes": [
+      "verifier's own counts: {\"decisions_checked\": 1344, \"decision_violations\": 0, \"tags_checked\": 1213, \"tag_violations\": 0, \"trades_checked\": 143, \"trade_violations\": 0, \"t0_exempt_tags\": 18} (T0 tags are read as of T0 itself and are exempt from 'session before the trade session')"
+     ],
+     "parts": {
+      "evidence_tag_snapshot_le_info_date": {
+       "compared": 1017,
+       "failed": 0
+      },
+      "evidence_info_date_le_trade_date": {
+       "compared": 1017,
+       "failed": 0
+      },
+      "evidence_master_label_le_decision": {
+       "compared": 1230,
+       "failed": 0
+      },
+      "evidence_trade_after_decision": {
+       "compared": 409,
+       "failed": 0
+      }
+     }
+    }
+   }
+  },
+  "detected": true
+ },
+ "exit_ok": true
+}

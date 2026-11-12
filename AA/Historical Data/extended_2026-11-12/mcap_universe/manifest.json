@@ -1,0 +1,28 @@
+{
+  "retrieved_at": "2026-11-12T04:26:47+00:00",
+  "source": "postgres windmill, read-only session",
+  "query": "SELECT * FROM public.mcap_based_universe WHERE date >= %(start)s AND instrument_class = 'ordinary' -- params: start=2018-01-01",
+  "script": "data/pull_tag_sources.py",
+  "script_sha256": "b847efe0803a98e48db7bf73d07bb6cb7ed4792de1a774f6ecced403978dae2e",
+  "file": "mcap_universe_ordinary.csv",
+  "rows": 788112,
+  "columns": [
+    "date",
+    "quote_id",
+    "instrument_id",
+    "ric",
+    "ticker",
+    "full_name",
+    "isin",
+    "close",
+    "mcap",
+    "mcap_scaled_in_cr",
+    "updated_at",
+    "instrument_type",
+    "instrument_class"
+  ],
+  "first": "2018-01-31",
+  "last": "2026-11-11",
+  "sha256": "f0288a5b09a604ecebb148bae50c5baeaa743f7924adc8adc688c4718b7683ba",
+  "status": "CANDIDATE: off-limits until Manu approves it and APPROVED_DATA.md is updated"
+}

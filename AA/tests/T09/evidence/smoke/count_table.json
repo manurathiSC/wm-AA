@@ -1,0 +1,166 @@
+{
+ "bounds": {
+  "full": {
+   "io": {
+    "in": [
+     1,
+     32
+    ],
+    "out": [
+     2,
+     35
+    ]
+   },
+   "gold": {
+    "buy": [
+     2,
+     36
+    ],
+    "sell": [
+     2,
+     27
+    ]
+   }
+  },
+  "r3": {
+   "in": [
+    1,
+    32
+   ],
+   "out": [
+    2,
+    35
+   ],
+   "buy": [
+    2,
+    36
+   ],
+   "sell": [
+    2,
+    27
+   ]
+  }
+ },
+ "tables": {
+  "SCMO_0003|full|io|in": {
+   "book": "SCMO_0003",
+   "window": "full",
+   "series": "io",
+   "state": "in",
+   "weeks_S": 172,
+   "spells_k": 12,
+   "lo": 1,
+   "hi": 32,
+   "feasible_lo*k<=S<=hi*k": true,
+   "n_ways": "10354725991095786",
+   "n_ways_inclusion_exclusion": "10354725991095786",
+   "dp_equals_inclusion_exclusion": true,
+   "rule_lengths_within_bounds": true
+  },
+  "SCMO_0003|full|io|out": {
+   "book": "SCMO_0003",
+   "window": "full",
+   "series": "io",
+   "state": "out",
+   "weeks_S": 200,
+   "spells_k": 13,
+   "lo": 2,
+   "hi": 35,
+   "feasible_lo*k<=S<=hi*k": true,
+   "n_ways": "480915680540493952",
+   "n_ways_inclusion_exclusion": "480915680540493952",
+   "dp_equals_inclusion_exclusion": true,
+   "rule_lengths_within_bounds": true
+  },
+  "SCMO_0003|full|gold|buy": {
+   "book": "SCMO_0003",
+   "window": "full",
+   "series": "gold",
+   "state": "buy",
+   "weeks_S": 190,
+   "spells_k": 15,
+   "lo": 2,
+   "hi": 36,
+   "feasible_lo*k<=S<=hi*k": true,
+   "n_ways": "76727187438249573981",
+   "n_ways_inclusion_exclusion": "76727187438249573981",
+   "dp_equals_inclusion_exclusion": true,
+   "rule_lengths_within_bounds": true
+  },
+  "SCMO_0003|full|gold|sell": {
+   "book": "SCMO_0003",
+   "window": "full",
+   "series": "gold",
+   "state": "sell",
+   "weeks_S": 182,
+   "spells_k": 14,
+   "lo": 2,
+   "hi": 27,
+   "feasible_lo*k<=S<=hi*k": true,
+   "n_ways": "693114838376918505",
+   "n_ways_inclusion_exclusion": "693114838376918505",
+   "dp_equals_inclusion_exclusion": true,
+   "rule_lengths_within_bounds": true
+  },
+  "SCMO_0003|r3|io|in": {
+   "book": "SCMO_0003",
+   "window": "r3",
+   "series": "io",
+   "state": "in",
+   "weeks_S": 172,
+   "spells_k": 12,
+   "lo": 1,
+   "hi": 32,
+   "feasible_lo*k<=S<=hi*k": true,
+   "n_ways": "10354725991095786",
+   "n_ways_inclusion_exclusion": "10354725991095786",
+   "dp_equals_inclusion_exclusion": true,
+   "rule_lengths_within_bounds": true
+  },
+  "SCMO_0003|r3|io|out": {
+   "book": "SCMO_0003",
+   "window": "r3",
+   "series": "io",
+   "state": "out",
+   "weeks_S": 195,
+   "spells_k": 13,
+   "lo": 2,
+   "hi": 35,
+   "feasible_lo*k<=S<=hi*k": true,
+   "n_ways": "406687210726479931",
+   "n_ways_inclusion_exclusion": "406687210726479931",
+   "dp_equals_inclusion_exclusion": true,
+   "rule_lengths_within_bounds": true
+  },
+  "SCMO_0003|r3|gold|buy": {
+   "book": "SCMO_0003",
+   "window": "r3",
+   "series": "gold",
+   "state": "buy",
+   "weeks_S": 187,
+   "spells_k": 14,
+   "lo": 2,
+   "hi": 36,
+   "feasible_lo*k<=S<=hi*k": true,
+   "n_ways": "4991942461518752600",
+   "n_ways_inclusion_exclusion": "4991942461518752600",
+   "dp_equals_inclusion_exclusion": true,
+   "rule_lengths_within_bounds": true
+  },
+  "SCMO_0003|r3|gold|sell": {
+   "book": "SCMO_0003",
+   "window": "r3",
+   "series": "gold",
+   "state": "sell",
+   "weeks_S": 180,
+   "spells_k": 14,
+   "lo": 2,
+   "hi": 27,
+   "feasible_lo*k<=S<=hi*k": true,
+   "n_ways": "656708602227013455",
+   "n_ways_inclusion_exclusion": "656708602227013455",
+   "dp_equals_inclusion_exclusion": true,
+   "rule_lengths_within_bounds": true
+  }
+ }
+}

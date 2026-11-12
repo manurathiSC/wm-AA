@@ -1,0 +1,2104 @@
+{
+ "verifier": "analysis/verify_t07.py",
+ "evidence": "C:\\Users\\manur\\Repos\\wm-AA\\AA\\tests\\T07\\evidence\\headline",
+ "weights_convention": "norm",
+ "weights_note": "events.csv sum_weights equal 1 on every event (listed weights renormalised, as in T06 and as ruled by the coordinator on 2026-11-12; the frozen text's wording says not)",
+ "gate_compared": 33162667,
+ "gate_failures_and_missing": 0,
+ "missing_evidence_files": [],
+ "checks": {
+  "C-data": {
+   "compared": 242,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "through-date exempt roles (earlier than the window by design): ['D05', 'D12', 'D19']"
+   ],
+   "parts": {
+    "verifier_reads": {
+     "compared": 37,
+     "failed": 0
+    }
+   }
+  },
+  "C-dec": {
+   "compared": 1639,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "decisions compared in windows ['full']; the evidence has 1639 rows"
+   ],
+   "parts": {
+    "decisions": {
+     "compared": 1639,
+     "failed": 0
+    }
+   }
+  },
+  "C-tag": {
+   "compared": 9286,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "weights convention used for listed_weight: norm; events.csv sum_weights equal 1 on every event (listed weights renormalised, as in T06 and as ruled by the coordinator on 2026-11-12; the frozen text's wording says not)",
+    "tag_source counts (mine, rows): {\"rank\": 4101, \"membership\": 526, \"nonmember_rank\": 16}"
+   ],
+   "parts": {
+    "event_stocks": {
+     "compared": 4643,
+     "failed": 0
+    },
+    "band_signal": {
+     "compared": 4643,
+     "failed": 0
+    }
+   }
+  },
+  "C-events": {
+   "compared": 774,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 2.2204460492503126e-16,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "basket_eff matches the availableDate on 383 rows, the effective session on 369",
+    "events (full): SCMO_0003 57, SCMO_0007 53, SCMO_0010 63, SCMO_0029 64; with 0<share<1 (partial): SCMO_0003 20, SCMO_0007 16, SCMO_0010 25, SCMO_0029 27"
+   ],
+   "parts": {
+    "events": {
+     "compared": 383,
+     "failed": 0
+    },
+    "basket_eff": {
+     "compared": 383,
+     "failed": 0
+    },
+    "event_count": {
+     "compared": 8,
+     "failed": 0
+    }
+   }
+  },
+  "C-target": {
+   "compared": 27807,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 1.2383989241812302e-14,
+   "first_fail": null,
+   "gate": true,
+   "notes": [],
+   "parts": {
+    "events_V_traded_cost": {
+     "compared": 375,
+     "failed": 0
+    },
+    "trades": {
+     "compared": 2157,
+     "failed": 0
+    },
+    "trades_e_after": {
+     "compared": 2157,
+     "failed": 0
+    },
+    "positions": {
+     "compared": 23118,
+     "failed": 0
+    }
+   }
+  },
+  "C-nav": {
+   "compared": 116042,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 1.5905723075101473e-10,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "constant_mix average-share variants that matched (a = the rule's path at the same cost, b = at 0 cost): {'a': 20}",
+    "C3 (rule minus whole book, CAGR, 20.8 bps, lbes): {\"SCMO_0003|full\": -0.02503, \"SCMO_0003|live\": -0.074471, \"SCMO_0007|full\": -0.017207, \"SCMO_0007|live\": -0.059501, \"SCMO_0010|full\": -0.037064, \"SCMO_0010|live\": -0.078777, \"SCMO_0029|full\": -0.017438, \"SCMO_0029|live\": -0.073041}"
+   ],
+   "parts": {
+    "daily_nav": {
+     "compared": 115890,
+     "failed": 0
+    },
+    "end_nav": {
+     "compared": 12,
+     "failed": 0
+    },
+    "stats_events": {
+     "compared": 20,
+     "failed": 0
+    },
+    "stats": {
+     "compared": 120,
+     "failed": 0
+    }
+   }
+  },
+  "C-t06": {
+   "compared": 29630,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 2.493676017450635e-15,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "whole-book run with listed weights renormalised to 1 per basket (T06's convention): max relative difference 2.494e-15 over 23106 shared sessions (gate, limit 1e-12)",
+    "same run with listed weights NOT renormalised (the frozen T07 text): max relative difference 1.500e-09 (information: the two conventions cannot both reproduce T06 to 1e-12)",
+    "SCMO_0003: 408 shared decision dates",
+    "SCMO_0007: 407 shared decision dates",
+    "SCMO_0010: 408 shared decision dates",
+    "SCMO_0029: 408 shared decision dates"
+   ],
+   "parts": {
+    "nav_shared_sessions": {
+     "compared": 23106,
+     "failed": 0
+    },
+    "decisions_shared_dates": {
+     "compared": 6524,
+     "failed": 0
+    }
+   }
+  },
+  "C-always-in": {
+   "compared": 52,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "g_engine.csv SCMO_0003 cagr_gap_pp_yr matches the calendar-year form (0.044869)",
+    "g_engine.csv SCMO_0007 cagr_gap_pp_yr matches the calendar-year form (0.102763)",
+    "g_engine.csv SCMO_0010 cagr_gap_pp_yr matches the calendar-year form (0.100213)",
+    "g_engine.csv SCMO_0029 cagr_gap_pp_yr matches the calendar-year form (0.038440)",
+    "always-in = the 'parent' run (every stock held, 0 cost) against the published NAV rebased; limits: overall +-0.25 pp/yr (years = (sessions-1)/252), each calendar year +-0.5 pp",
+    "SCMO_0003: overall +0.0460 pp/yr (calendar-year form +0.0449); worst calendar year 2022 0.4255 pp",
+    "SCMO_0007: overall +0.1052 pp/yr (calendar-year form +0.1028); worst calendar year 2019 0.3909 pp",
+    "SCMO_0010: overall +0.1028 pp/yr (calendar-year form +0.1002); worst calendar year 2019 0.4469 pp",
+    "SCMO_0029: overall +0.0394 pp/yr (calendar-year form +0.0384); worst calendar year 2019 0.1889 pp"
+   ],
+   "parts": {
+    "g0": {
+     "compared": 40,
+     "failed": 0
+    },
+    "g_engine": {
+     "compared": 12,
+     "failed": 0
+    }
+   }
+  },
+  "C-count": {
+   "compared": 1149,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "SCMO_0003 full: events 57, with 0 < equity share < 1: 20",
+    "SCMO_0003 live: events 34, with 0 < equity share < 1: 11",
+    "SCMO_0007 full: events 53, with 0 < equity share < 1: 16",
+    "SCMO_0007 live: events 32, with 0 < equity share < 1: 9",
+    "SCMO_0010 full event 4: a subset lies within 1e-9 of the tau boundary (|diff - tau| = 5.00e-11)",
+    "SCMO_0010 full: events 63, with 0 < equity share < 1: 25",
+    "SCMO_0010 live: events 40, with 0 < equity share < 1: 17",
+    "SCMO_0029 full: events 64, with 0 < equity share < 1: 27",
+    "SCMO_0029 live: events 40, with 0 < equity share < 1: 17",
+    "count = number of subsets X of the held stocks with |sum w(X) - D| <= tau = half the smallest listed weight, by enumeration of all 2^n masks"
+   ],
+   "parts": {
+    "rule_subset_in_A": {
+     "compared": 383,
+     "failed": 0
+    },
+    "events_csv_n_allowed": {
+     "compared": 383,
+     "failed": 0
+    },
+    "count_table": {
+     "compared": 383,
+     "failed": 0
+    }
+   }
+  },
+  "C-draws": {
+   "compared": 32330016,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.9999999992499997,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "SCMO_0003|full|N4.6: 2000 draws x 57 events checked",
+    "SCMO_0003|full|N4.8: 2000 draws x 57 events checked",
+    "SCMO_0003|live|N4.6: 2000 draws x 34 events checked",
+    "SCMO_0003|live|N4.8: 2000 draws x 34 events checked",
+    "SCMO_0007|full|N4.6: 2000 draws x 53 events checked",
+    "SCMO_0007|full|N4.8: 2000 draws x 53 events checked",
+    "SCMO_0007|live|N4.6: 2000 draws x 32 events checked",
+    "SCMO_0007|live|N4.8: 2000 draws x 32 events checked",
+    "SCMO_0010|full|N4.6: 2000 draws x 63 events checked",
+    "SCMO_0010|full|N4.8: 2000 draws x 63 events checked",
+    "SCMO_0010|live|N4.6: 2000 draws x 40 events checked",
+    "SCMO_0010|live|N4.8: 2000 draws x 40 events checked",
+    "SCMO_0029|full|N4.6: 2000 draws x 64 events checked",
+    "SCMO_0029|full|N4.8: 2000 draws x 64 events checked",
+    "SCMO_0029|live|N4.6: 2000 draws x 40 events checked",
+    "SCMO_0029|live|N4.8: 2000 draws x 40 events checked"
+   ],
+   "parts": {
+    "N4.6_values_01": {
+     "compared": 9286000,
+     "failed": 0
+    },
+    "N4.6_dropped_weight_within_tau": {
+     "compared": 766000,
+     "failed": 0
+    },
+    "N4.6_drops_nothing_or_everything": {
+     "compared": 482000,
+     "failed": 0
+    },
+    "N4.8_label_counts": {
+     "compared": 2298000,
+     "failed": 0
+    },
+    "N4.8_label_values": {
+     "compared": 9286000,
+     "failed": 0
+    },
+    "N4.8_drop_iff_label_SELL": {
+     "compared": 9286000,
+     "failed": 0
+    },
+    "N4.8_persistent_order": {
+     "compared": 766000,
+     "failed": 0
+    },
+    "draws_csv_mean_dropped_weight": {
+     "compared": 80000,
+     "failed": 0
+    },
+    "draws_csv_n_events": {
+     "compared": 80000,
+     "failed": 0
+    }
+   }
+  },
+  "C-draw-seed": {
+   "compared": 80,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": false,
+   "notes": [
+    "information only: replays default_rng([7, draw_id, book_no]) for the first 20 N4.6 draws of the full window"
+   ],
+   "parts": {
+    "N4.6_seed_replay": {
+     "compared": 80,
+     "failed": 0
+    }
+   }
+  },
+  "C-draw-nav": {
+   "compared": 618496,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 1.1667618990897528e-10,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "416 draw re-simulations (headline sample: first 20 and 20 random draws per book and null at 20.8 bps; extra: draws 0-2 at 0 / 50 bps, LIQUIDCASE and live window)",
+    "daily curves are stored as float32, so they are compared at a relative 1e-6 (the spec's 1e-9 applies to the end NAV in draws.csv)"
+   ],
+   "parts": {
+    "draw_stats_headline": {
+     "compared": 320,
+     "failed": 0
+    },
+    "draw_curves": {
+     "compared": 618080,
+     "failed": 0
+    },
+    "draw_stats_extra": {
+     "compared": 96,
+     "failed": 0
+    }
+   }
+  },
+  "C-oracle": {
+   "compared": 8,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "SCMO_0003: oracle CAGR 0.312729 (fill-to-fill returns) / 0.309900 (close-to-close); percentile against the evidence's N4.6 draws 100.00 / 100.00",
+    "SCMO_0003: the evidence's oracle matches the 'fill' return convention",
+    "SCMO_0007: oracle CAGR 0.218604 (fill-to-fill returns) / 0.217109 (close-to-close); percentile against the evidence's N4.6 draws 100.00 / 100.00",
+    "SCMO_0007: the evidence's oracle matches the 'fill' return convention",
+    "SCMO_0010: oracle CAGR 0.371639 (fill-to-fill returns) / 0.368638 (close-to-close); percentile against the evidence's N4.6 draws 100.00 / 100.00",
+    "SCMO_0010: the evidence's oracle matches the 'fill' return convention",
+    "SCMO_0029: oracle CAGR 0.330414 (fill-to-fill returns) / 0.327347 (close-to-close); percentile against the evidence's N4.6 draws 100.00 / 100.00",
+    "SCMO_0029: the evidence's oracle matches the 'fill' return convention"
+   ],
+   "parts": {
+    "oracle_cagr": {
+     "compared": 4,
+     "failed": 0
+    },
+    "oracle_percentile": {
+     "compared": 4,
+     "failed": 0
+    }
+   }
+  },
+  "C-percentile": {
+   "compared": 280,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "worst_rel here is the largest difference between the verifier's two own percentile implementations",
+    "analysis.log not found beside the evidence (written in Step 5); no printed percentile compared"
+   ],
+   "parts": {}
+  },
+  "C-pit": {
+   "compared": 27246,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "verifier's own counts: {\"decisions_checked\": 5374, \"decision_violations\": 0, \"tags_checked\": 5450, \"tag_violations\": 0, \"trades_checked\": 584, \"trade_violations\": 0, \"t0_exempt_tags\": 83} (T0 tags are read as of T0 itself and are exempt from 'session before the trade session')"
+   ],
+   "parts": {
+    "evidence_tag_snapshot_le_info_date": {
+     "compared": 4643,
+     "failed": 0
+    },
+    "evidence_info_date_le_trade_date": {
+     "compared": 4643,
+     "failed": 0
+    },
+    "evidence_master_label_le_decision": {
+     "compared": 4917,
+     "failed": 0
+    },
+    "evidence_trade_after_decision": {
+     "compared": 1635,
+     "failed": 0
+    }
+   }
+  }
+ },
+ "c_corrupt": {
+  "compared": 1,
+  "failed": 0,
+  "note": "C-corrupt: the corrupted copy must make the relevant checks fail"
+ },
+ "tag_panel_crosscheck": {
+  "rank_rows_compared": 788065,
+  "rank_mismatches": 0,
+  "membership_rows_compared": 6001,
+  "membership_mismatches": 0
+ },
+ "always_in": [
+  {
+   "book": "SCMO_0003",
+   "scope": "overall",
+   "gap_pp": 0.04596407119243917,
+   "limit_pp": 0.25
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "overall_calendar_years",
+   "gap_pp": 0.04486851256428892,
+   "limit_pp": 0.25
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2019",
+   "gap_pp": -0.21950615822005082,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2020",
+   "gap_pp": 0.001402416153495345,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2021",
+   "gap_pp": 0.06469384756251362,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2022",
+   "gap_pp": 0.42550398202619855,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2023",
+   "gap_pp": -1.8526184142331203e-06,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2024",
+   "gap_pp": -0.00011901684986437289,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2025",
+   "gap_pp": 0.007878470365518808,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0003",
+   "scope": "2026",
+   "gap_pp": -1.21269216890596e-08,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "overall",
+   "gap_pp": 0.10519813257652277,
+   "limit_pp": 0.25
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "overall_calendar_years",
+   "gap_pp": 0.10276294272661968,
+   "limit_pp": 0.25
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2019",
+   "gap_pp": 0.3909223497191361,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2020",
+   "gap_pp": 0.15804658735203425,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2021",
+   "gap_pp": 0.16758308971944746,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2022",
+   "gap_pp": 0.011335340564233576,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2023",
+   "gap_pp": -0.00016779464209193407,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2024",
+   "gap_pp": 0.00010537217094430673,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2025",
+   "gap_pp": -0.0001858705374613301,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0007",
+   "scope": "2026",
+   "gap_pp": 4.487277216469465e-09,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "overall",
+   "gap_pp": 0.10280815747276684,
+   "limit_pp": 0.25
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "overall_calendar_years",
+   "gap_pp": 0.10021289860637772,
+   "limit_pp": 0.25
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2019",
+   "gap_pp": 0.4469434456772836,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2020",
+   "gap_pp": -0.10969098209052675,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2021",
+   "gap_pp": 0.20551634977210576,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2022",
+   "gap_pp": 0.025682053261477655,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2023",
+   "gap_pp": 0.06396266719548294,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2024",
+   "gap_pp": 6.423338059224903e-05,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2025",
+   "gap_pp": -6.69798534858046e-05,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0010",
+   "scope": "2026",
+   "gap_pp": -1.1073719718979191e-08,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "overall",
+   "gap_pp": 0.03942991049599165,
+   "limit_pp": 0.25
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "overall_calendar_years",
+   "gap_pp": 0.0384395878199717,
+   "limit_pp": 0.25
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2019",
+   "gap_pp": 0.18888038964057774,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2020",
+   "gap_pp": 0.0495945807918563,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2021",
+   "gap_pp": 0.009261594765086478,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2022",
+   "gap_pp": -2.1166103225667143e-05,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2023",
+   "gap_pp": 0.0147947092543399,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2024",
+   "gap_pp": 0.013501010094341126,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2025",
+   "gap_pp": 0.014188450913854567,
+   "limit_pp": 0.5
+  },
+  {
+   "book": "SCMO_0029",
+   "scope": "2026",
+   "gap_pp": 9.822653801450087e-09,
+   "limit_pp": 0.5
+  }
+ ],
+ "c3_rule_minus_whole_book": {
+  "SCMO_0003|full": -0.025030474096629618,
+  "SCMO_0003|live": -0.0744709988940675,
+  "SCMO_0007|full": -0.017207456773284502,
+  "SCMO_0007|live": -0.05950080255207313,
+  "SCMO_0010|full": -0.03706448987525235,
+  "SCMO_0010|live": -0.07877748479473268,
+  "SCMO_0029|full": -0.017437722678190548,
+  "SCMO_0029|live": -0.07304149275713101
+ },
+ "percentiles": [
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 0.0,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 72.85000000000001,
+   "cagr_p": 0.271864067966017,
+   "max_dd_pctile": 5.949999999999999,
+   "max_dd_p": 0.9405297351324338,
+   "vol_pctile": 6.25,
+   "vol_p": 0.9375312343828086,
+   "ulcer_pctile": 40.65,
+   "ulcer_p": 0.5937031484257871,
+   "days_below_10pct_pctile": 60.425,
+   "days_below_10pct_p": 0.4017991004497751,
+   "longest_underwater_pctile": 91.07499999999999,
+   "longest_underwater_p": 0.17191404297851073,
+   "calmar_pctile": 21.099999999999998,
+   "calmar_p": 0.7891054472763618
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 0.0,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 71.55,
+   "cagr_p": 0.2848575712143928,
+   "max_dd_pctile": 6.800000000000001,
+   "max_dd_p": 0.9320339830084957,
+   "vol_pctile": 14.85,
+   "vol_p": 0.8515742128935532,
+   "ulcer_pctile": 40.6,
+   "ulcer_p": 0.5942028985507246,
+   "days_below_10pct_pctile": 60.675000000000004,
+   "days_below_10pct_p": 0.3983008495752124,
+   "longest_underwater_pctile": 90.47500000000001,
+   "longest_underwater_p": 0.18490754622688654,
+   "calmar_pctile": 23.1,
+   "calmar_p": 0.7691154422788605
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 74.2,
+   "cagr_p": 0.25837081459270367,
+   "max_dd_pctile": 7.5,
+   "max_dd_p": 0.9250374812593704,
+   "vol_pctile": 6.5,
+   "vol_p": 0.935032483758121,
+   "ulcer_pctile": 41.9,
+   "ulcer_p": 0.5812093953023488,
+   "days_below_10pct_pctile": 63.74999999999999,
+   "days_below_10pct_p": 0.36731634182908546,
+   "longest_underwater_pctile": 78.10000000000001,
+   "longest_underwater_p": 0.33033483258370816,
+   "calmar_pctile": 23.75,
+   "calmar_p": 0.7626186906546727
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 71.7,
+   "cagr_p": 0.28335832083958024,
+   "max_dd_pctile": 8.200000000000001,
+   "max_dd_p": 0.9180409795102449,
+   "vol_pctile": 15.15,
+   "vol_p": 0.848575712143928,
+   "ulcer_pctile": 41.0,
+   "ulcer_p": 0.5902048975512244,
+   "days_below_10pct_pctile": 62.875,
+   "days_below_10pct_p": 0.375312343828086,
+   "longest_underwater_pctile": 77.525,
+   "longest_underwater_p": 0.33833083458270863,
+   "calmar_pctile": 24.099999999999998,
+   "calmar_p": 0.7591204397801099
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 50.0,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 75.6,
+   "cagr_p": 0.24437781109445278,
+   "max_dd_pctile": 10.549999999999999,
+   "max_dd_p": 0.894552723638181,
+   "vol_pctile": 7.1499999999999995,
+   "vol_p": 0.928535732133933,
+   "ulcer_pctile": 43.4,
+   "ulcer_p": 0.5662168915542228,
+   "days_below_10pct_pctile": 34.9,
+   "days_below_10pct_p": 0.6586706646676662,
+   "longest_underwater_pctile": 74.25,
+   "longest_underwater_p": 0.3638180909545227,
+   "calmar_pctile": 28.449999999999996,
+   "calmar_p": 0.7156421789105447
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 50.0,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 72.1,
+   "cagr_p": 0.27936031984008,
+   "max_dd_pctile": 10.5,
+   "max_dd_p": 0.8950524737631185,
+   "vol_pctile": 15.7,
+   "vol_p": 0.8430784607696152,
+   "ulcer_pctile": 41.699999999999996,
+   "ulcer_p": 0.5832083958020989,
+   "days_below_10pct_pctile": 33.25,
+   "days_below_10pct_p": 0.6741629185407296,
+   "longest_underwater_pctile": 73.75,
+   "longest_underwater_p": 0.36681659170414793,
+   "calmar_pctile": 27.200000000000003,
+   "calmar_p": 0.728135932033983
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "liq",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 74.2,
+   "cagr_p": 0.25837081459270367,
+   "max_dd_pctile": 7.5,
+   "max_dd_p": 0.9250374812593704,
+   "vol_pctile": 6.45,
+   "vol_p": 0.9355322338830585,
+   "ulcer_pctile": 42.3,
+   "ulcer_p": 0.5772113943028486,
+   "days_below_10pct_pctile": 63.2,
+   "days_below_10pct_p": 0.3733133433283358,
+   "longest_underwater_pctile": 78.10000000000001,
+   "longest_underwater_p": 0.33033483258370816,
+   "calmar_pctile": 23.849999999999998,
+   "calmar_p": 0.7616191904047976
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "full",
+   "cash": "liq",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 71.7,
+   "cagr_p": 0.28335832083958024,
+   "max_dd_pctile": 8.200000000000001,
+   "max_dd_p": 0.9180409795102449,
+   "vol_pctile": 14.95,
+   "vol_p": 0.8505747126436781,
+   "ulcer_pctile": 41.099999999999994,
+   "ulcer_p": 0.5892053973013494,
+   "days_below_10pct_pctile": 62.425,
+   "days_below_10pct_p": 0.3803098450774613,
+   "longest_underwater_pctile": 77.525,
+   "longest_underwater_p": 0.33833083458270863,
+   "calmar_pctile": 24.05,
+   "calmar_p": 0.7596201899050474
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "live",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 84.75,
+   "cagr_p": 0.15292353823088456,
+   "max_dd_pctile": 4.05,
+   "max_dd_p": 0.95952023988006,
+   "vol_pctile": 79.80000000000001,
+   "vol_p": 0.20239880059970014,
+   "ulcer_pctile": 36.6,
+   "ulcer_p": 0.6341829085457271,
+   "days_below_10pct_pctile": 50.275000000000006,
+   "days_below_10pct_p": 0.5052473763118441,
+   "longest_underwater_pctile": 77.8,
+   "longest_underwater_p": 0.2673663168415792,
+   "calmar_pctile": 37.3,
+   "calmar_p": 0.6271864067966016
+  },
+  {
+   "book": "SCMO_0003",
+   "window": "live",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 83.35000000000001,
+   "cagr_p": 0.16691654172913542,
+   "max_dd_pctile": 7.3999999999999995,
+   "max_dd_p": 0.9260369815092454,
+   "vol_pctile": 77.2,
+   "vol_p": 0.2283858070964518,
+   "ulcer_pctile": 38.3,
+   "ulcer_p": 0.617191404297851,
+   "days_below_10pct_pctile": 53.800000000000004,
+   "days_below_10pct_p": 0.46926536731634183,
+   "longest_underwater_pctile": 77.85,
+   "longest_underwater_p": 0.2673663168415792,
+   "calmar_pctile": 40.9,
+   "calmar_p": 0.5912043978010995
+  },
+  {
+   "book": "SCMO_0007",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 0.0,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 90.7,
+   "cagr_p": 0.09345327336331834,
+   "max_dd_pctile": 91.25,
+   "max_dd_p": 0.0879560219890055,
+   "vol_pctile": 52.949999999999996,
+   "vol_p": 0.4707646176911544,
+   "ulcer_pctile": 96.75,
+   "ulcer_p": 0.03298350824587706,
+   "days_below_10pct_pctile": 92.625,
+   "days_below_10pct_p": 0.07496251874062969,
+   "longest_underwater_pctile": 83.825,
+   "longest_underwater_p": 0.20789605197401298,
+   "calmar_pctile": 92.65,
+   "calmar_p": 0.07396301849075462
+  },
+  {
+   "book": "SCMO_0007",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 0.0,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 90.95,
+   "cagr_p": 0.09095452273863068,
+   "max_dd_pctile": 93.35,
+   "max_dd_p": 0.06696651674162919,
+   "vol_pctile": 56.599999999999994,
+   "vol_p": 0.43428285857071464,
+   "ulcer_pctile": 97.05,
+   "ulcer_p": 0.029985007496251874,
+   "days_below_10pct_pctile": 91.10000000000001,
+   "days_below_10pct_p": 0.09095452273863068,
+   "longest_underwater_pctile": 84.775,
+   "longest_underwater_p": 0.1924037981009495,
+   "calmar_pctile": 94.5,
+   "calmar_p": 0.05547226386806597
+  },
+  {
+   "book": "SCMO_0007",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 91.35,
+   "cagr_p": 0.08695652173913043,
+   "max_dd_pctile": 91.75,
+   "max_dd_p": 0.08295852073963018,
+   "vol_pctile": 55.45,
+   "vol_p": 0.44577711144427784,
+   "ulcer_pctile": 97.2,
+   "ulcer_p": 0.02848575712143928,
+   "days_below_10pct_pctile": 90.025,
+   "days_below_10pct_p": 0.10094952523738131,
+   "longest_underwater_pctile": 86.55000000000001,
+   "longest_underwater_p": 0.17691154422788605,
+   "calmar_pctile": 93.30000000000001,
+   "calmar_p": 0.06746626686656672
+  },
+  {
+   "book": "SCMO_0007",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 91.05,
+   "cagr_p": 0.08995502248875563,
+   "max_dd_pctile": 93.2,
+   "max_dd_p": 0.06846576711644178,
+   "vol_pctile": 58.550000000000004,
+   "vol_p": 0.4147926036981509,
+   "ulcer_pctile": 97.1,
+   "ulcer_p": 0.02948525737131434,
+   "days_below_10pct_pctile": 88.2,
+   "days_below_10pct_p": 0.11944027986006997,
+   "longest_underwater_pctile": 87.3,
+   "longest_underwater_p": 0.17041479260369816,
+   "calmar_pctile": 94.1,
+   "calmar_p": 0.059470264867566215
+  },
+  {
+   "book": "SCMO_0007",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 50.0,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 92.2,
+   "cagr_p": 0.07846076961519241,
+   "max_dd_pctile": 93.05,
+   "max_dd_p": 0.06996501749125437,
+   "vol_pctile": 60.5,
+   "vol_p": 0.3953023488255872,
+   "ulcer_pctile": 97.45,
+   "ulcer_p": 0.025987006496751622,
+   "days_below_10pct_pctile": 84.025,
+   "days_below_10pct_p": 0.1629185407296352,
+   "longest_underwater_pctile": 88.97500000000001,
+   "longest_underwater_p": 0.13893053473263367,
+   "calmar_pctile": 94.55,
+   "calmar_p": 0.054972513743128434
+  },
+  {
+   "book": "SCMO_0007",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 50.0,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 91.2,
+   "cagr_p": 0.08845577211394302,
+   "max_dd_pctile": 93.35,
+   "max_dd_p": 0.06696651674162919,
+   "vol_pctile": 61.7,
+   "vol_p": 0.38330834582708645,
+   "ulcer_pctile": 97.15,
+   "ulcer_p": 0.028985507246376812,
+   "days_below_10pct_pctile": 81.925,
+   "days_below_10pct_p": 0.18290854572713644,
+   "longest_underwater_pctile": 89.67500000000001,
+   "longest_underwater_p": 0.1344327836081959,
+   "calmar_pctile": 94.45,
+   "calmar_p": 0.0559720139930035
+  },
+  {
+   "book": "SCMO_0007",
+   "window": "full",
+   "cash": "liq",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 91.35,
+   "cagr_p": 0.08695652173913043,
+   "max_dd_pctile": 91.75,
+   "max_dd_p": 0.08295852073963018,
+   "vol_pctile": 55.45,
+   "vol_p": 0.44577711144427784,
+   "ulcer_pctile": 97.2,
+   "ulcer_p": 0.02848575712143928,
+   "days_below_10pct_pctile": 89.8,
+   "days_below_10pct_p": 0.10294852573713144,
+   "longest_underwater_pctile": 86.55000000000001,
+   "longest_underwater_p": 0.17691154422788605,
+   "calmar_pctile": 93.30000000000001,
+   "calmar_p": 0.06746626686656672
+  },
+  {
+   "book": "SCMO_0007",
+   "window": "full",
+   "cash": "liq",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 91.05,
+   "cagr_p": 0.08995502248875563,
+   "max_dd_pctile": 93.2,
+   "max_dd_p": 0.06846576711644178,
+   "vol_pctile": 58.550000000000004,
+   "vol_p": 0.4147926036981509,
+   "ulcer_pctile": 97.1,
+   "ulcer_p": 0.02948525737131434,
+   "days_below_10pct_pctile": 88.02499999999999,
+   "days_below_10pct_p": 0.12193903048475763,
+   "longest_underwater_pctile": 87.3,
+   "longest_underwater_p": 0.17041479260369816,
+   "calmar_pctile": 94.1,
+   "calmar_p": 0.059470264867566215
+  },
+  {
+   "book": "SCMO_0007",
+   "window": "live",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 79.7,
+   "cagr_p": 0.20339830084957522,
+   "max_dd_pctile": 60.0,
+   "max_dd_p": 0.4062968515742129,
+   "vol_pctile": 46.85,
+   "vol_p": 0.5317341329335332,
+   "ulcer_pctile": 90.5,
+   "ulcer_p": 0.09545227386306847,
+   "days_below_10pct_pctile": 89.875,
+   "days_below_10pct_p": 0.10194902548725637,
+   "longest_underwater_pctile": 87.3,
+   "longest_underwater_p": 0.1409295352323838,
+   "calmar_pctile": 79.10000000000001,
+   "calmar_p": 0.20939530234882558
+  },
+  {
+   "book": "SCMO_0007",
+   "window": "live",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 81.2,
+   "cagr_p": 0.18840579710144928,
+   "max_dd_pctile": 58.325,
+   "max_dd_p": 0.42528735632183906,
+   "vol_pctile": 47.449999999999996,
+   "vol_p": 0.5257371314342829,
+   "ulcer_pctile": 92.45,
+   "ulcer_p": 0.07596201899050475,
+   "days_below_10pct_pctile": 93.45,
+   "days_below_10pct_p": 0.06646676661669165,
+   "longest_underwater_pctile": 89.125,
+   "longest_underwater_p": 0.11694152923538231,
+   "calmar_pctile": 78.64999999999999,
+   "calmar_p": 0.21389305347326337
+  },
+  {
+   "book": "SCMO_0010",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 0.0,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 8.1,
+   "cagr_p": 0.9190404797601199,
+   "max_dd_pctile": 24.5,
+   "max_dd_p": 0.7551224387806097,
+   "vol_pctile": 16.6,
+   "vol_p": 0.8340829585207397,
+   "ulcer_pctile": 19.85,
+   "ulcer_p": 0.8015992003998001,
+   "days_below_10pct_pctile": 24.925,
+   "days_below_10pct_p": 0.7556221889055472,
+   "longest_underwater_pctile": 44.675,
+   "longest_underwater_p": 0.7001499250374813,
+   "calmar_pctile": 12.45,
+   "calmar_p": 0.8755622188905547
+  },
+  {
+   "book": "SCMO_0010",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 0.0,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 5.55,
+   "cagr_p": 0.9445277361319341,
+   "max_dd_pctile": 24.15,
+   "max_dd_p": 0.7586206896551724,
+   "vol_pctile": 16.25,
+   "vol_p": 0.8375812093953023,
+   "ulcer_pctile": 18.0,
+   "ulcer_p": 0.8200899550224887,
+   "days_below_10pct_pctile": 23.025000000000002,
+   "days_below_10pct_p": 0.7731134432783608,
+   "longest_underwater_pctile": 44.324999999999996,
+   "longest_underwater_p": 0.6976511744127936,
+   "calmar_pctile": 11.799999999999999,
+   "calmar_p": 0.8820589705147426
+  },
+  {
+   "book": "SCMO_0010",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 8.7,
+   "cagr_p": 0.9130434782608695,
+   "max_dd_pctile": 25.7,
+   "max_dd_p": 0.743128435782109,
+   "vol_pctile": 16.6,
+   "vol_p": 0.8340829585207397,
+   "ulcer_pctile": 20.25,
+   "ulcer_p": 0.7976011994002998,
+   "days_below_10pct_pctile": 38.025,
+   "days_below_10pct_p": 0.623688155922039,
+   "longest_underwater_pctile": 50.075,
+   "longest_underwater_p": 0.5467266366816592,
+   "calmar_pctile": 13.25,
+   "calmar_p": 0.8675662168915542
+  },
+  {
+   "book": "SCMO_0010",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 5.65,
+   "cagr_p": 0.9435282358820589,
+   "max_dd_pctile": 25.5,
+   "max_dd_p": 0.7451274362818591,
+   "vol_pctile": 16.0,
+   "vol_p": 0.84007996001999,
+   "ulcer_pctile": 18.099999999999998,
+   "ulcer_p": 0.8190904547726137,
+   "days_below_10pct_pctile": 33.074999999999996,
+   "days_below_10pct_p": 0.670664667666167,
+   "longest_underwater_pctile": 47.325,
+   "longest_underwater_p": 0.5707146426786607,
+   "calmar_pctile": 12.049999999999999,
+   "calmar_p": 0.879560219890055
+  },
+  {
+   "book": "SCMO_0010",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 50.0,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 9.6,
+   "cagr_p": 0.904047976011994,
+   "max_dd_pctile": 27.1,
+   "max_dd_p": 0.729135432283858,
+   "vol_pctile": 17.05,
+   "vol_p": 0.8295852073963018,
+   "ulcer_pctile": 17.599999999999998,
+   "ulcer_p": 0.824087956021989,
+   "days_below_10pct_pctile": 11.075,
+   "days_below_10pct_p": 0.8905547226386806,
+   "longest_underwater_pctile": 60.324999999999996,
+   "longest_underwater_p": 0.487256371814093,
+   "calmar_pctile": 14.2,
+   "calmar_p": 0.8580709645177411
+  },
+  {
+   "book": "SCMO_0010",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 50.0,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 5.800000000000001,
+   "cagr_p": 0.9420289855072463,
+   "max_dd_pctile": 26.8,
+   "max_dd_p": 0.7321339330334833,
+   "vol_pctile": 15.55,
+   "vol_p": 0.8445777111444278,
+   "ulcer_pctile": 14.95,
+   "ulcer_p": 0.8505747126436781,
+   "days_below_10pct_pctile": 5.800000000000001,
+   "days_below_10pct_p": 0.9425287356321839,
+   "longest_underwater_pctile": 57.9,
+   "longest_underwater_p": 0.5162418790604698,
+   "calmar_pctile": 12.0,
+   "calmar_p": 0.8800599700149925
+  },
+  {
+   "book": "SCMO_0010",
+   "window": "full",
+   "cash": "liq",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 8.7,
+   "cagr_p": 0.9130434782608695,
+   "max_dd_pctile": 25.7,
+   "max_dd_p": 0.743128435782109,
+   "vol_pctile": 16.45,
+   "vol_p": 0.8355822088955522,
+   "ulcer_pctile": 20.349999999999998,
+   "ulcer_p": 0.7966016991504248,
+   "days_below_10pct_pctile": 37.375,
+   "days_below_10pct_p": 0.6301849075462269,
+   "longest_underwater_pctile": 50.075,
+   "longest_underwater_p": 0.5467266366816592,
+   "calmar_pctile": 13.3,
+   "calmar_p": 0.8670664667666167
+  },
+  {
+   "book": "SCMO_0010",
+   "window": "full",
+   "cash": "liq",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 5.65,
+   "cagr_p": 0.9435282358820589,
+   "max_dd_pctile": 25.5,
+   "max_dd_p": 0.7451274362818591,
+   "vol_pctile": 15.85,
+   "vol_p": 0.8415792103948025,
+   "ulcer_pctile": 18.2,
+   "ulcer_p": 0.8180909545227386,
+   "days_below_10pct_pctile": 32.65,
+   "days_below_10pct_p": 0.6771614192903548,
+   "longest_underwater_pctile": 47.325,
+   "longest_underwater_p": 0.5707146426786607,
+   "calmar_pctile": 12.049999999999999,
+   "calmar_p": 0.879560219890055
+  },
+  {
+   "book": "SCMO_0010",
+   "window": "live",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 25.35,
+   "cagr_p": 0.7466266866566716,
+   "max_dd_pctile": 45.15,
+   "max_dd_p": 0.5487256371814093,
+   "vol_pctile": 44.3,
+   "vol_p": 0.5572213893053474,
+   "ulcer_pctile": 34.75,
+   "ulcer_p": 0.6526736631684158,
+   "days_below_10pct_pctile": 37.724999999999994,
+   "days_below_10pct_p": 0.631184407796102,
+   "longest_underwater_pctile": 40.25,
+   "longest_underwater_p": 0.6041979010494752,
+   "calmar_pctile": 34.55,
+   "calmar_p": 0.6546726636681659
+  },
+  {
+   "book": "SCMO_0010",
+   "window": "live",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 25.45,
+   "cagr_p": 0.7456271864067966,
+   "max_dd_pctile": 45.2,
+   "max_dd_p": 0.5482258870564718,
+   "vol_pctile": 43.55,
+   "vol_p": 0.5647176411794103,
+   "ulcer_pctile": 32.15,
+   "ulcer_p": 0.6786606696651675,
+   "days_below_10pct_pctile": 33.475,
+   "days_below_10pct_p": 0.6736631684157921,
+   "longest_underwater_pctile": 39.1,
+   "longest_underwater_p": 0.6141929035482259,
+   "calmar_pctile": 35.0,
+   "calmar_p": 0.6501749125437282
+  },
+  {
+   "book": "SCMO_0029",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 0.0,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 91.0,
+   "cagr_p": 0.09045477261369315,
+   "max_dd_pctile": 41.15,
+   "max_dd_p": 0.5887056471764118,
+   "vol_pctile": 25.75,
+   "vol_p": 0.7426286856571714,
+   "ulcer_pctile": 32.35,
+   "ulcer_p": 0.6766616691654173,
+   "days_below_10pct_pctile": 37.875,
+   "days_below_10pct_p": 0.6281859070464768,
+   "longest_underwater_pctile": 39.75,
+   "longest_underwater_p": 0.6326836581709145,
+   "calmar_pctile": 59.599999999999994,
+   "calmar_p": 0.40429785107446276
+  },
+  {
+   "book": "SCMO_0029",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 0.0,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 90.55,
+   "cagr_p": 0.09495252373813093,
+   "max_dd_pctile": 40.400000000000006,
+   "max_dd_p": 0.5962018990504747,
+   "vol_pctile": 25.650000000000002,
+   "vol_p": 0.7436281859070465,
+   "ulcer_pctile": 33.1,
+   "ulcer_p": 0.6691654172913544,
+   "days_below_10pct_pctile": 39.2,
+   "days_below_10pct_p": 0.6146926536731634,
+   "longest_underwater_pctile": 39.375,
+   "longest_underwater_p": 0.6301849075462269,
+   "calmar_pctile": 58.5,
+   "calmar_p": 0.41529235382308843
+  },
+  {
+   "book": "SCMO_0029",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 92.2,
+   "cagr_p": 0.07846076961519241,
+   "max_dd_pctile": 42.35,
+   "max_dd_p": 0.5767116441779111,
+   "vol_pctile": 27.200000000000003,
+   "vol_p": 0.728135932033983,
+   "ulcer_pctile": 34.050000000000004,
+   "ulcer_p": 0.6596701649175413,
+   "days_below_10pct_pctile": 45.300000000000004,
+   "days_below_10pct_p": 0.553223388305847,
+   "longest_underwater_pctile": 36.275,
+   "longest_underwater_p": 0.7396301849075462,
+   "calmar_pctile": 62.6,
+   "calmar_p": 0.3743128435782109
+  },
+  {
+   "book": "SCMO_0029",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 90.95,
+   "cagr_p": 0.09095452273863068,
+   "max_dd_pctile": 40.699999999999996,
+   "max_dd_p": 0.5932033983008496,
+   "vol_pctile": 26.85,
+   "vol_p": 0.7316341829085458,
+   "ulcer_pctile": 34.150000000000006,
+   "ulcer_p": 0.6586706646676662,
+   "days_below_10pct_pctile": 43.75,
+   "days_below_10pct_p": 0.5692153923038481,
+   "longest_underwater_pctile": 35.699999999999996,
+   "longest_underwater_p": 0.7296351824087957,
+   "calmar_pctile": 60.25,
+   "calmar_p": 0.39780109945027486
+  },
+  {
+   "book": "SCMO_0029",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 50.0,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 93.30000000000001,
+   "cagr_p": 0.06746626686656672,
+   "max_dd_pctile": 44.25,
+   "max_dd_p": 0.5577211394302849,
+   "vol_pctile": 29.299999999999997,
+   "vol_p": 0.7071464267866067,
+   "ulcer_pctile": 37.05,
+   "ulcer_p": 0.6296851574212894,
+   "days_below_10pct_pctile": 36.425000000000004,
+   "days_below_10pct_p": 0.6411794102948526,
+   "longest_underwater_pctile": 42.6,
+   "longest_underwater_p": 0.6091954022988506,
+   "calmar_pctile": 66.0,
+   "calmar_p": 0.3403298350824588
+  },
+  {
+   "book": "SCMO_0029",
+   "window": "full",
+   "cash": "lbes",
+   "cost_bps": 50.0,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 91.4,
+   "cagr_p": 0.0864567716141929,
+   "max_dd_pctile": 41.4,
+   "max_dd_p": 0.5862068965517241,
+   "vol_pctile": 28.4,
+   "vol_p": 0.7161419290354822,
+   "ulcer_pctile": 35.25,
+   "ulcer_p": 0.6476761619190404,
+   "days_below_10pct_pctile": 33.0,
+   "days_below_10pct_p": 0.6756621689155422,
+   "longest_underwater_pctile": 40.475,
+   "longest_underwater_p": 0.6206896551724138,
+   "calmar_pctile": 62.150000000000006,
+   "calmar_p": 0.37881059470264866
+  },
+  {
+   "book": "SCMO_0029",
+   "window": "full",
+   "cash": "liq",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 92.2,
+   "cagr_p": 0.07846076961519241,
+   "max_dd_pctile": 42.35,
+   "max_dd_p": 0.5767116441779111,
+   "vol_pctile": 27.200000000000003,
+   "vol_p": 0.728135932033983,
+   "ulcer_pctile": 34.050000000000004,
+   "ulcer_p": 0.6596701649175413,
+   "days_below_10pct_pctile": 45.550000000000004,
+   "days_below_10pct_p": 0.5517241379310345,
+   "longest_underwater_pctile": 36.275,
+   "longest_underwater_p": 0.7396301849075462,
+   "calmar_pctile": 62.6,
+   "calmar_p": 0.3743128435782109
+  },
+  {
+   "book": "SCMO_0029",
+   "window": "full",
+   "cash": "liq",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 90.9,
+   "cagr_p": 0.09145427286356822,
+   "max_dd_pctile": 40.699999999999996,
+   "max_dd_p": 0.5932033983008496,
+   "vol_pctile": 27.0,
+   "vol_p": 0.7301349325337332,
+   "ulcer_pctile": 34.050000000000004,
+   "ulcer_p": 0.6596701649175413,
+   "days_below_10pct_pctile": 43.95,
+   "days_below_10pct_p": 0.567216391804098,
+   "longest_underwater_pctile": 35.699999999999996,
+   "longest_underwater_p": 0.7296351824087957,
+   "calmar_pctile": 60.25,
+   "calmar_p": 0.39780109945027486
+  },
+  {
+   "book": "SCMO_0029",
+   "window": "live",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.6",
+   "n_draws": 2000,
+   "cagr_pctile": 92.55,
+   "cagr_p": 0.07496251874062969,
+   "max_dd_pctile": 43.95,
+   "max_dd_p": 0.56071964017991,
+   "vol_pctile": 30.0,
+   "vol_p": 0.7001499250374813,
+   "ulcer_pctile": 35.449999999999996,
+   "ulcer_p": 0.6456771614192903,
+   "days_below_10pct_pctile": 35.475,
+   "days_below_10pct_p": 0.6486756621689156,
+   "longest_underwater_pctile": 55.00000000000001,
+   "longest_underwater_p": 0.48075962018990503,
+   "calmar_pctile": 66.2,
+   "calmar_p": 0.33833083458270863
+  },
+  {
+   "book": "SCMO_0029",
+   "window": "live",
+   "cash": "lbes",
+   "cost_bps": 20.8,
+   "draw_type": "N4.8",
+   "n_draws": 2000,
+   "cagr_pctile": 90.45,
+   "cagr_p": 0.095952023988006,
+   "max_dd_pctile": 44.5,
+   "max_dd_p": 0.5552223888055972,
+   "vol_pctile": 32.65,
+   "vol_p": 0.6736631684157921,
+   "ulcer_pctile": 35.199999999999996,
+   "ulcer_p": 0.6481759120439781,
+   "days_below_10pct_pctile": 36.0,
+   "days_below_10pct_p": 0.6431784107946027,
+   "longest_underwater_pctile": 56.025000000000006,
+   "longest_underwater_p": 0.46976511744127936,
+   "calmar_pctile": 65.3,
+   "calmar_p": 0.3473263368315842
+  }
+ ],
+ "approved_data_files_read": {
+  "Historical Data/extended_2026-10-30/Master/Master_Nifty100.xlsx": "4285f9f1832f3da2d388a5cc28216066c3c93d15fb807cbd93a60395b6faec78",
+  "Historical Data/extended_2026-10-30/Master/Master_MC100.xlsx": "b191eb973994922898e50a63aa597599980670587126f43aba820241024c0b86",
+  "Historical Data/extended_2026-10-30/Master/Master_SC100.xlsx": "c7f4acdbe414363730008e65623eb75823d06777b6df8f693f46ff068fe26f76",
+  "analysis/cache/why_gold_ohlc_eikon_extended_2026-11-04.parquet": "3e02141265537443326ee9d03c3b2a68c0083479623f1d563c0dfeb8633660ab",
+  "analysis/evidence/final_strategy/mauc1/mauc1_daily_clean.csv": "3f5af3dfd2aa1b8367a14353d7afda8fc86724fb1798cc4f0712dd185b3a0a72",
+  "Historical Data/LBES_Adjusted_Price_data_extended_2026-11-05.csv": "7f9806bc0a163d2b26aa3231694cc747a219702f3705e132161bbbf1acd6c8cf",
+  "Historical Data/liquidEtfFinal_extended_2026-11-05.csv": "7361432852741fc80732277b4549984ab0f6c62443274fc839579ceaceb0e923",
+  "data/holdings_matrix/price_corrections.csv": "995afcc645c0f966f146d2a08fbb80b131b0207a64308316902b48e23a3eab0f",
+  "Historical Data/extended_2026-11-12/mcap_universe/mcap_universe_ordinary.csv": "f0288a5b09a604ecebb148bae50c5baeaa743f7924adc8adc688c4718b7683ba",
+  "Historical Data/extended_2026-11-12/membership/index_constituents_monthly.csv": "532c816e53cb49a0007795d8761e0e04baa199979a4d8b7f322d79730c8b5553",
+  "Historical Data/extended_2026-11-12/symbology/symbology_changes.csv": "038b1d79227359102dfcbc4b704e7df622ea927ddb5588775e7afd136b688e29",
+  "Historical Data/extended_2026-11-06/published_nav/SCMO_0003.csv": "394121576bd1d3d13208e017ab86182d40c824b7ae2ebf71507120a4a5fe1a3d",
+  "data/holdings_matrix/SCMO_0003_ohlc.csv": "9f9c235e988f471d8e0e3b14c9b56f515485998088381f63f14506ecd8147724",
+  "data/holdings_matrix/SCMO_0003_holding_weight_matrix.csv": "273a2183c11f78d20a230590eeaa69e3939f1ae684696dea55514b5f5f6b78cd",
+  "data/holdings_matrix/SCMO_0003_holding_weight_sources.csv": "3ca63a25a4202ee194d94d1eeb1c4db962a023df938aae3dd4a3604025b73415",
+  "data/holdings_matrix/SCMO_0003_columns.csv": "4d78b45553191dc84ffc81cfec7cd83267d25696cc6933e843029580ec9f966f",
+  "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0003.csv": "e345cd1dc66e415cac4c9c74ff8f8652e7bff9971f18336646548915d8d5f9fc",
+  "Historical Data/extended_2026-11-06/published_nav/SCMO_0007.csv": "4cd0c6833fb9865758bbd7a0d6f78d27950b5e5626d8d0a6de8ed06a4cdf5641",
+  "data/holdings_matrix/SCMO_0007_ohlc.csv": "7b06630a548e8c9e35203a11ea59da39812d5aec62375a9ec628e2d14bb18aeb",
+  "data/holdings_matrix/SCMO_0007_holding_weight_matrix.csv": "db31ee707f15de237e98c6dce3252ec390f045b8a04523557fccfa938c7ebfd3",
+  "data/holdings_matrix/SCMO_0007_holding_weight_sources.csv": "8080b296a5250d23f1ea00002a6d0594eaeac885f1911f2fffde81cf868e3782",
+  "data/holdings_matrix/SCMO_0007_columns.csv": "98561ee62412cbe0fd924b90356c1fbdb75d9741115432dc23fd5f44d472ec31",
+  "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0007.csv": "7be61e882194f5bde2b110d38c8a01d2fa87295357475de34aa48ebe41774ec0",
+  "Historical Data/extended_2026-11-06/published_nav/SCMO_0010.csv": "7ce8f52beb5bb84f09b87e0072d768708228fa3692f6e9e4cd31524046be0be3",
+  "data/holdings_matrix/SCMO_0010_ohlc.csv": "90ad2dc40030cd83715638d60c41a0b085c52b6b99ceae8788fb24cb7401c0c4",
+  "data/holdings_matrix/SCMO_0010_holding_weight_matrix.csv": "b5828d51017b5d065643cc932b41556318e24430592b380e7806e8a4bfd618e7",
+  "data/holdings_matrix/SCMO_0010_holding_weight_sources.csv": "2908a21ddbf79bc1fddbae439d643c72d3fd1f0b0699f8bdb677a3f401652f06",
+  "data/holdings_matrix/SCMO_0010_columns.csv": "a9b5a8754fbded8b2174681c4378ae387ba4e3d6f8d5356530f58952f562a3bd",
+  "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0010.csv": "0ac9ded9cb55dd834eac95c64c756f3f7ae17dc571782faabe4cd328d2d12868",
+  "Historical Data/extended_2026-11-06/published_nav/SCMO_0029.csv": "97c9a0fbba8ba14d7ba6a28024d9615ae02d55c5b09fccb3cc3312aba15c9a64",
+  "data/holdings_matrix/SCMO_0029_ohlc.csv": "6ab8c679e9a6e3782f084a81c7e8fe74a1350a48b402e7249d0f60e38dd06908",
+  "data/holdings_matrix/SCMO_0029_holding_weight_matrix.csv": "36bb3d6432fb2af1a398a113f49e4726a35a68e66f83991a11cebffdf849a170",
+  "data/holdings_matrix/SCMO_0029_holding_weight_sources.csv": "3dfb14e1da651b396a55810a6a43e194d32661869b0c136e64b9e7683e7e9426",
+  "data/holdings_matrix/SCMO_0029_columns.csv": "6189102e32c166034161992ed626fa29fb61d7b301ae222efafe3cea7fa47609",
+  "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0029.csv": "fdc30a6ef3b0fa8aacbab3f534e6f33d43b702501bde6faaec30d3158724dd6a",
+  "Historical Data/extended_2026-11-12/tags/mcap_rank_panel.csv": "e7c98ec5e0cc144c2986530f156b8a561f5c2df92d3ccc11a0ddce335f90cbf0",
+  "Historical Data/extended_2026-11-12/tags/membership_panel.csv": "c5ac673b322945b1d915af78947451dc79d29d80adaca854ad168372c80a45a4"
+ },
+ "selftest": {
+  "dir": "C:\\Users\\manur\\AppData\\Local\\Temp\\claude\\d384933f9ddb0ecb\\ea0af580-06c7-4ce3-8c4f-77d4828a38b0\\scratchpad\\corrupt_evidence_t07",
+  "corruptions": {
+   "flip_tag": {
+    "info": {
+     "file": "event_stocks.csv",
+     "row": 1547,
+     "column": "band"
+    },
+    "relevant_checks": [
+     "C-tag"
+    ],
+    "failures_in_relevant_checks": {
+     "C-tag": 1
+    },
+    "detected": true
+   },
+   "change_target_weight": {
+    "info": {
+     "file": "event_stocks.csv",
+     "row": 2321,
+     "column": "listed_weight x 1.05"
+    },
+    "relevant_checks": [
+     "C-tag"
+    ],
+    "failures_in_relevant_checks": {
+     "C-tag": 1
+    },
+    "detected": true
+   },
+   "change_position": {
+    "info": {
+     "file": "positions.csv",
+     "row": 11559,
+     "column": "units x 1.01"
+    },
+    "relevant_checks": [
+     "C-target"
+    ],
+    "failures_in_relevant_checks": {
+     "C-target": 1
+    },
+    "detected": true
+   },
+   "scale_nav": {
+    "info": {
+     "file": "daily_nav.csv",
+     "rows": 1932,
+     "what": "SCMO_0003 segment 20.8 bps x 1.001"
+    },
+    "relevant_checks": [
+     "C-nav"
+    ],
+    "failures_in_relevant_checks": {
+     "C-nav": 1933
+    },
+    "detected": true
+   },
+   "delete_event": {
+    "info": {
+     "file": "events.csv",
+     "row": 191
+    },
+    "relevant_checks": [
+     "C-events"
+    ],
+    "failures_in_relevant_checks": {
+     "C-events": 2
+    },
+    "detected": true
+   },
+   "move_drop": {
+    "info": {
+     "file": "draw_drops.npz",
+     "key": "SCMO_0003|full|N4.6",
+     "draw": 0,
+     "trade_date": "2019-01-02",
+     "row": 0
+    },
+    "relevant_checks": [
+     "C-draws"
+    ],
+    "failures_in_relevant_checks": {
+     "C-draws": 6
+    },
+    "detected": true
+   }
+  },
+  "combined": {
+   "dir": "C:\\Users\\manur\\AppData\\Local\\Temp\\claude\\d384933f9ddb0ecb\\ea0af580-06c7-4ce3-8c4f-77d4828a38b0\\scratchpad\\corrupt_evidence_t07\\corrupt_all",
+   "gate_compared": 33162664,
+   "gate_failures": 3881,
+   "checks": {
+    "C-data": {
+     "compared": 242,
+     "failed": 0,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": null,
+     "gate": true,
+     "notes": [
+      "through-date exempt roles (earlier than the window by design): ['D05', 'D12', 'D19']"
+     ],
+     "parts": {
+      "verifier_reads": {
+       "compared": 37,
+       "failed": 0
+      }
+     }
+    },
+    "C-dec": {
+     "compared": 1639,
+     "failed": 0,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": null,
+     "gate": true,
+     "notes": [
+      "decisions compared in windows ['full']; the evidence has 1639 rows"
+     ],
+     "parts": {
+      "decisions": {
+       "compared": 1639,
+       "failed": 0
+      }
+     }
+    },
+    "C-tag": {
+     "compared": 9286,
+     "failed": 2,
+     "missing": 0,
+     "worst_rel": 0.0476190476190477,
+     "first_fail": "first differing row {'book': 'SCMO_0010', 'window': 'full', 'trade_date': '2022-08-08', 'isin': 'INE101A01026'} col listed_weight: verifier=np.float64(0.08000000000479998) evidence=np.float64(0.08400000000503999)",
+     "gate": true,
+     "notes": [
+      "weights convention used for listed_weight: norm; events.csv sum_weights equal 1 on every event (listed weights renormalised, as in T06 and as ruled by the coordinator on 2026-11-12; the frozen text's wording says not)",
+      "tag_source counts (mine, rows): {\"rank\": 4101, \"membership\": 526, \"nonmember_rank\": 16}"
+     ],
+     "parts": {
+      "event_stocks": {
+       "compared": 4643,
+       "failed": 2
+      },
+      "band_signal": {
+       "compared": 4643,
+       "failed": 0
+      }
+     }
+    },
+    "C-events": {
+     "compared": 772,
+     "failed": 1,
+     "missing": 1,
+     "worst_rel": 2.2204460492503126e-16,
+     "first_fail": "missing row (verifier only): {'book': 'SCMO_0010', 'window': 'full', 'trade_date': '2020-06-18'}",
+     "gate": true,
+     "notes": [
+      "basket_eff matches the availableDate on 382 rows, the effective session on 368",
+      "events (full): SCMO_0003 57, SCMO_0007 53, SCMO_0010 63, SCMO_0029 64; with 0<share<1 (partial): SCMO_0003 20, SCMO_0007 16, SCMO_0010 25, SCMO_0029 27"
+     ],
+     "parts": {
+      "events": {
+       "compared": 383,
+       "failed": 1
+      },
+      "basket_eff": {
+       "compared": 382,
+       "failed": 0
+      },
+      "event_count": {
+       "compared": 8,
+       "failed": 1
+      }
+     }
+    },
+    "C-target": {
+     "compared": 27806,
+     "failed": 1,
+     "missing": 1,
+     "worst_rel": 0.00990099009900948,
+     "first_fail": "missing row (verifier only): {'book': 'SCMO_0010', 'window': 'full', 'trade_date': '2020-06-18'}",
+     "gate": true,
+     "notes": [],
+     "parts": {
+      "events_V_traded_cost": {
+       "compared": 375,
+       "failed": 1
+      },
+      "trades": {
+       "compared": 2157,
+       "failed": 0
+      },
+      "trades_e_after": {
+       "compared": 2157,
+       "failed": 0
+      },
+      "positions": {
+       "compared": 23118,
+       "failed": 1
+      }
+     }
+    },
+    "C-nav": {
+     "compared": 116042,
+     "failed": 1933,
+     "missing": 0,
+     "worst_rel": 0.0010000000000005259,
+     "first_fail": "first differing row {'book': 'SCMO_0003', 'run': 'segment', 'cost_bps': np.float64(20.8), 'date': '2019-01-02'} col nav: verifier=np.float64(0.9999999999999998) evidence=np.float64(1.001)",
+     "gate": true,
+     "notes": [
+      "constant_mix average-share variants that matched (a = the rule's path at the same cost, b = at 0 cost): {'a': 20}",
+      "C3 (rule minus whole book, CAGR, 20.8 bps, lbes): {\"SCMO_0003|full\": -0.02503, \"SCMO_0003|live\": -0.074471, \"SCMO_0007|full\": -0.017207, \"SCMO_0007|live\": -0.059501, \"SCMO_0010|full\": -0.037064, \"SCMO_0010|live\": -0.078777, \"SCMO_0029|full\": -0.017438, \"SCMO_0029|live\": -0.073041}"
+     ],
+     "parts": {
+      "daily_nav": {
+       "compared": 115890,
+       "failed": 1932
+      },
+      "end_nav": {
+       "compared": 12,
+       "failed": 1
+      },
+      "stats_events": {
+       "compared": 20,
+       "failed": 0
+      },
+      "stats": {
+       "compared": 120,
+       "failed": 0
+      }
+     }
+    },
+    "C-t06": {
+     "compared": 29630,
+     "failed": 0,
+     "missing": 0,
+     "worst_rel": 2.493676017450635e-15,
+     "first_fail": null,
+     "gate": true,
+     "notes": [
+      "whole-book run with listed weights renormalised to 1 per basket (T06's convention): max relative difference 2.494e-15 over 23106 shared sessions (gate, limit 1e-12)",
+      "same run with listed weights NOT renormalised (the frozen T07 text): max relative difference 1.500e-09 (information: the two conventions cannot both reproduce T06 to 1e-12)",
+      "SCMO_0003: 408 shared decision dates",
+      "SCMO_0007: 407 shared decision dates",
+      "SCMO_0010: 408 shared decision dates",
+      "SCMO_0029: 408 shared decision dates"
+     ],
+     "parts": {
+      "nav_shared_sessions": {
+       "compared": 23106,
+       "failed": 0
+      },
+      "decisions_shared_dates": {
+       "compared": 6524,
+       "failed": 0
+      }
+     }
+    },
+    "C-always-in": {
+     "compared": 52,
+     "failed": 0,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": null,
+     "gate": true,
+     "notes": [
+      "g_engine.csv SCMO_0003 cagr_gap_pp_yr matches the calendar-year form (0.044869)",
+      "g_engine.csv SCMO_0007 cagr_gap_pp_yr matches the calendar-year form (0.102763)",
+      "g_engine.csv SCMO_0010 cagr_gap_pp_yr matches the calendar-year form (0.100213)",
+      "g_engine.csv SCMO_0029 cagr_gap_pp_yr matches the calendar-year form (0.038440)",
+      "always-in = the 'parent' run (every stock held, 0 cost) against the published NAV rebased; limits: overall +-0.25 pp/yr (years = (sessions-1)/252), each calendar year +-0.5 pp",
+      "SCMO_0003: overall +0.0460 pp/yr (calendar-year form +0.0449); worst calendar year 2022 0.4255 pp",
+      "SCMO_0007: overall +0.1052 pp/yr (calendar-year form +0.1028); worst calendar year 2019 0.3909 pp",
+      "SCMO_0010: overall +0.1028 pp/yr (calendar-year form +0.1002); worst calendar year 2019 0.4469 pp",
+      "SCMO_0029: overall +0.0394 pp/yr (calendar-year form +0.0384); worst calendar year 2019 0.1889 pp"
+     ],
+     "parts": {
+      "g0": {
+       "compared": 40,
+       "failed": 0
+      },
+      "g_engine": {
+       "compared": 12,
+       "failed": 0
+      }
+     }
+    },
+    "C-count": {
+     "compared": 1149,
+     "failed": 1,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": "SCMO_0010 full event 15: events.csv n_allowed_subsets [] vs brute force 1",
+     "gate": true,
+     "notes": [
+      "SCMO_0003 full: events 57, with 0 < equity share < 1: 20",
+      "SCMO_0003 live: events 34, with 0 < equity share < 1: 11",
+      "SCMO_0007 full: events 53, with 0 < equity share < 1: 16",
+      "SCMO_0007 live: events 32, with 0 < equity share < 1: 9",
+      "SCMO_0010 full event 4: a subset lies within 1e-9 of the tau boundary (|diff - tau| = 5.00e-11)",
+      "SCMO_0010 full: events 63, with 0 < equity share < 1: 25",
+      "SCMO_0010 live: events 40, with 0 < equity share < 1: 17",
+      "SCMO_0029 full: events 64, with 0 < equity share < 1: 27",
+      "SCMO_0029 live: events 40, with 0 < equity share < 1: 17",
+      "count = number of subsets X of the held stocks with |sum w(X) - D| <= tau = half the smallest listed weight, by enumeration of all 2^n masks"
+     ],
+     "parts": {
+      "rule_subset_in_A": {
+       "compared": 383,
+       "failed": 0
+      },
+      "events_csv_n_allowed": {
+       "compared": 383,
+       "failed": 1
+      },
+      "count_table": {
+       "compared": 383,
+       "failed": 0
+      }
+     }
+    },
+    "C-draws": {
+     "compared": 32330016,
+     "failed": 6,
+     "missing": 0,
+     "worst_rel": 2.000000000000004,
+     "first_fail": "SCMO_0003|full|N4.6 draw 0 event 0: dropped weight 0.902222 vs rule 1.000000 (tau 0.048889)",
+     "gate": true,
+     "notes": [
+      "SCMO_0003|full|N4.6: 2000 draws x 57 events checked",
+      "SCMO_0003|full|N4.8: 2000 draws x 57 events checked",
+      "SCMO_0003|live|N4.6: 2000 draws x 34 events checked",
+      "SCMO_0003|live|N4.8: 2000 draws x 34 events checked",
+      "SCMO_0007|full|N4.6: 2000 draws x 53 events checked",
+      "SCMO_0007|full|N4.8: 2000 draws x 53 events checked",
+      "SCMO_0007|live|N4.6: 2000 draws x 32 events checked",
+      "SCMO_0007|live|N4.8: 2000 draws x 32 events checked",
+      "SCMO_0010|full|N4.6: 2000 draws x 63 events checked",
+      "SCMO_0010|full|N4.8: 2000 draws x 63 events checked",
+      "SCMO_0010|live|N4.6: 2000 draws x 40 events checked",
+      "SCMO_0010|live|N4.8: 2000 draws x 40 events checked",
+      "SCMO_0029|full|N4.6: 2000 draws x 64 events checked",
+      "SCMO_0029|full|N4.8: 2000 draws x 64 events checked",
+      "SCMO_0029|live|N4.6: 2000 draws x 40 events checked",
+      "SCMO_0029|live|N4.8: 2000 draws x 40 events checked"
+     ],
+     "parts": {
+      "N4.6_values_01": {
+       "compared": 9286000,
+       "failed": 0
+      },
+      "N4.6_dropped_weight_within_tau": {
+       "compared": 766000,
+       "failed": 1
+      },
+      "N4.6_drops_nothing_or_everything": {
+       "compared": 482000,
+       "failed": 1
+      },
+      "N4.8_label_counts": {
+       "compared": 2298000,
+       "failed": 0
+      },
+      "N4.8_label_values": {
+       "compared": 9286000,
+       "failed": 0
+      },
+      "N4.8_drop_iff_label_SELL": {
+       "compared": 9286000,
+       "failed": 0
+      },
+      "N4.8_persistent_order": {
+       "compared": 766000,
+       "failed": 0
+      },
+      "draws_csv_mean_dropped_weight": {
+       "compared": 80000,
+       "failed": 4
+      },
+      "draws_csv_n_events": {
+       "compared": 80000,
+       "failed": 0
+      }
+     }
+    },
+    "C-draw-seed": {
+     "compared": 80,
+     "failed": 1,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": "SCMO_0003|full|N4.6: the first 20 saved draws differ from the seed [7, draw_id, book_no] replay in 1 cells (the contract's seed order: held stocks in ISIN order, one rng.random() per event, A[floor(u |A|)])",
+     "gate": false,
+     "notes": [
+      "information only: replays default_rng([7, draw_id, book_no]) for the first 20 N4.6 draws of the full window"
+     ],
+     "parts": {
+      "N4.6_seed_replay": {
+       "compared": 80,
+       "failed": 1
+      }
+     }
+    },
+    "C-draw-nav": {
+     "compared": 618496,
+     "failed": 1935,
+     "missing": 0,
+     "worst_rel": 0.0009360331152706841,
+     "first_fail": "SCMO_0003 full lbes 20.8 N4.6 draw 0: 6 statistic(s) differ (end_nav: evidence 5.453579789541756 vs verifier 5.454665984524505)",
+     "gate": true,
+     "notes": [
+      "416 draw re-simulations (headline sample: first 20 and 20 random draws per book and null at 20.8 bps; extra: draws 0-2 at 0 / 50 bps, LIQUIDCASE and live window)",
+      "daily curves are stored as float32, so they are compared at a relative 1e-6 (the spec's 1e-9 applies to the end NAV in draws.csv)"
+     ],
+     "parts": {
+      "draw_stats_headline": {
+       "compared": 320,
+       "failed": 1
+      },
+      "draw_curves": {
+       "compared": 618080,
+       "failed": 1931
+      },
+      "draw_stats_extra": {
+       "compared": 96,
+       "failed": 3
+      }
+     }
+    },
+    "C-oracle": {
+     "compared": 8,
+     "failed": 0,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": null,
+     "gate": true,
+     "notes": [
+      "SCMO_0003: oracle CAGR 0.312729 (fill-to-fill returns) / 0.309900 (close-to-close); percentile against the evidence's N4.6 draws 100.00 / 100.00",
+      "SCMO_0003: the evidence's oracle matches the 'fill' return convention",
+      "SCMO_0007: oracle CAGR 0.218604 (fill-to-fill returns) / 0.217109 (close-to-close); percentile against the evidence's N4.6 draws 100.00 / 100.00",
+      "SCMO_0007: the evidence's oracle matches the 'fill' return convention",
+      "SCMO_0010: oracle CAGR 0.371639 (fill-to-fill returns) / 0.368638 (close-to-close); percentile against the evidence's N4.6 draws 100.00 / 100.00",
+      "SCMO_0010: the evidence's oracle matches the 'fill' return convention",
+      "SCMO_0029: oracle CAGR 0.330414 (fill-to-fill returns) / 0.327347 (close-to-close); percentile against the evidence's N4.6 draws 100.00 / 100.00",
+      "SCMO_0029: the evidence's oracle matches the 'fill' return convention"
+     ],
+     "parts": {
+      "oracle_cagr": {
+       "compared": 4,
+       "failed": 0
+      },
+      "oracle_percentile": {
+       "compared": 4,
+       "failed": 0
+      }
+     }
+    },
+    "C-percentile": {
+     "compared": 280,
+     "failed": 0,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": null,
+     "gate": true,
+     "notes": [
+      "worst_rel here is the largest difference between the verifier's two own percentile implementations",
+      "analysis.log not found beside the evidence (written in Step 5); no printed percentile compared"
+     ],
+     "parts": {}
+    },
+    "C-pit": {
+     "compared": 27246,
+     "failed": 0,
+     "missing": 0,
+     "worst_rel": 0.0,
+     "first_fail": null,
+     "gate": true,
+     "notes": [
+      "verifier's own counts: {\"decisions_checked\": 5374, \"decision_violations\": 0, \"tags_checked\": 5450, \"tag_violations\": 0, \"trades_checked\": 584, \"trade_violations\": 0, \"t0_exempt_tags\": 83} (T0 tags are read as of T0 itself and are exempt from 'session before the trade session')"
+     ],
+     "parts": {
+      "evidence_tag_snapshot_le_info_date": {
+       "compared": 4643,
+       "failed": 0
+      },
+      "evidence_info_date_le_trade_date": {
+       "compared": 4643,
+       "failed": 0
+      },
+      "evidence_master_label_le_decision": {
+       "compared": 4917,
+       "failed": 0
+      },
+      "evidence_trade_after_decision": {
+       "compared": 1635,
+       "failed": 0
+      }
+     }
+    }
+   }
+  },
+  "detected": true
+ },
+ "exit_ok": true
+}

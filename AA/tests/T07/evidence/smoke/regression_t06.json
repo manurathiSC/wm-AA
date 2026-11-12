@@ -1,0 +1,126 @@
+{
+ "tolerance_rel": 1e-12,
+ "compared_to": "2026-10-22",
+ "books": {
+  "SCMO_0003": {
+   "decisions": {
+    "t07_decisions": 410,
+    "t06_decisions": 409,
+    "shared": 408,
+    "mismatches": 0,
+    "t06_dates_not_in_t07": [
+     "2026-10-22"
+    ]
+   },
+   "nav": [
+    {
+     "book": "SCMO_0003",
+     "t06_run": "hold_parent",
+     "t07_run": "parent",
+     "cost_bps": 0.0,
+     "dates_compared": 1926,
+     "max_rel_diff": 0.0,
+     "pass": true
+    },
+    {
+     "book": "SCMO_0003",
+     "t06_run": "hold_parent",
+     "t07_run": "parent",
+     "cost_bps": 20.8,
+     "dates_compared": 1926,
+     "max_rel_diff": 0.0,
+     "pass": true
+    },
+    {
+     "book": "SCMO_0003",
+     "t06_run": "hold_parent",
+     "t07_run": "parent",
+     "cost_bps": 50.0,
+     "dates_compared": 1926,
+     "max_rel_diff": 0.0,
+     "pass": true
+    },
+    {
+     "book": "SCMO_0003",
+     "t06_run": "sleeve_only",
+     "t07_run": "sleeve100",
+     "cost_bps": 0.0,
+     "dates_compared": 1926,
+     "max_rel_diff": 0.0,
+     "pass": true
+    },
+    {
+     "book": "SCMO_0003",
+     "t06_run": "sleeve_only",
+     "t07_run": "sleeve100",
+     "cost_bps": 20.8,
+     "dates_compared": 1926,
+     "max_rel_diff": 0.0,
+     "pass": true
+    },
+    {
+     "book": "SCMO_0003",
+     "t06_run": "sleeve_only",
+     "t07_run": "sleeve100",
+     "cost_bps": 50.0,
+     "dates_compared": 1926,
+     "max_rel_diff": 0.0,
+     "pass": true
+    },
+    {
+     "book": "SCMO_0003",
+     "t06_run": "strategy",
+     "t07_run": "whole_book",
+     "cost_bps": 0.0,
+     "dates_compared": 1926,
+     "max_rel_diff": 0.0,
+     "pass": true
+    },
+    {
+     "book": "SCMO_0003",
+     "t06_run": "strategy",
+     "t07_run": "whole_book",
+     "cost_bps": 20.8,
+     "dates_compared": 1926,
+     "max_rel_diff": 0.0,
+     "pass": true
+    },
+    {
+     "book": "SCMO_0003",
+     "t06_run": "strategy",
+     "t07_run": "whole_book",
+     "cost_bps": 50.0,
+     "dates_compared": 1926,
+     "max_rel_diff": 0.0,
+     "pass": true
+    }
+   ],
+   "g0": {
+    "book": "SCMO_0003",
+    "cagr_gap_pp_yr": 0.04486851256428892,
+    "overall": "PASS",
+    "worst_year": 2022,
+    "worst_year_gap_pp": 0.42550398202618744,
+    "yearly": "PASS",
+    "window_first": "2019-01-02",
+    "window_last": "2026-10-30"
+   },
+   "pass": true
+  }
+ },
+ "nav_rows_compared": 9,
+ "g0": [
+  {
+   "book": "SCMO_0003",
+   "cagr_gap_pp_yr": 0.04486851256428892,
+   "overall": "PASS",
+   "worst_year": 2022,
+   "worst_year_gap_pp": 0.42550398202618744,
+   "yearly": "PASS",
+   "window_first": "2019-01-02",
+   "window_last": "2026-10-30"
+  }
+ ],
+ "pass": true,
+ "max_rel_diff": 0.0
+}

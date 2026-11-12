@@ -1,0 +1,91 @@
+{
+  "query_id": 2396,
+  "retrieved_at": "2026-11-09T09:04:29.315Z",
+  "as_of": "2026-11-06",
+  "files": {
+    "SCMO_0003.csv": {
+      "first": "2019-01-02",
+      "last": "2026-11-06",
+      "rows": 1937,
+      "max_gap_days": 5,
+      "overlap_dates": 1926,
+      "dates_only_in_approved": [],
+      "max_rel_diff_overlap": 0.0,
+      "new_rows": 11,
+      "last_value": 337.0014129156861,
+      "sha256": "394121576bd1d3d13208e017ab86182d40c824b7ae2ebf71507120a4a5fe1a3d"
+    },
+    "SCMO_0007.csv": {
+      "first": "2019-01-04",
+      "last": "2026-11-06",
+      "rows": 1935,
+      "max_gap_days": 5,
+      "overlap_dates": 1924,
+      "dates_only_in_approved": [],
+      "max_rel_diff_overlap": 0.0,
+      "new_rows": 11,
+      "last_value": 220.4330877603382,
+      "sha256": "4cd0c6833fb9865758bbd7a0d6f78d27950b5e5626d8d0a6de8ed06a4cdf5641"
+    },
+    "SCMO_0010.csv": {
+      "first": "2019-01-02",
+      "last": "2026-11-06",
+      "rows": 1937,
+      "max_gap_days": 5,
+      "overlap_dates": 1926,
+      "dates_only_in_approved": [],
+      "max_rel_diff_overlap": 0.0,
+      "new_rows": 11,
+      "last_value": 577.6045343809484,
+      "sha256": "7ce8f52beb5bb84f09b87e0072d768708228fa3692f6e9e4cd31524046be0be3"
+    },
+    "SCMO_0029.csv": {
+      "first": "2019-01-02",
+      "last": "2026-11-06",
+      "rows": 1937,
+      "max_gap_days": 5,
+      "overlap_dates": 1926,
+      "dates_only_in_approved": [],
+      "max_rel_diff_overlap": 0.0,
+      "new_rows": 11,
+      "last_value": 545.1992885081755,
+      "sha256": "97c9a0fbba8ba14d7ba6a28024d9615ae02d55c5b09fccb3cc3312aba15c9a64"
+    },
+    "SCMO_0042.csv": {
+      "first": "2021-11-01",
+      "last": "2026-11-06",
+      "rows": 1238,
+      "max_gap_days": 5,
+      "note": "no approved file to overlap with; written whole",
+      "last_value": 246.25493737407984,
+      "sha256": "e95fd0cb6f02e3fd0259c4842eb65de050f1b6e7ba60e4b90462678c03c25da5"
+    },
+    "SCMO_0043.csv": {
+      "first": "2021-11-01",
+      "last": "2026-11-06",
+      "rows": 1238,
+      "max_gap_days": 5,
+      "note": "no approved file to overlap with; written whole",
+      "last_value": 184.5946134123155,
+      "sha256": "67d7fcb6a46e39d399d75bad2a66e5ecdd710f8e4dc4ee6f1b317ae36ebea1f0"
+    },
+    "SCMO_0044.csv": {
+      "first": "2021-11-01",
+      "last": "2026-11-06",
+      "rows": 1238,
+      "max_gap_days": 5,
+      "note": "no approved file to overlap with; written whole",
+      "last_value": 192.62795551236664,
+      "sha256": "3622655fe509087a51f0914c8c11fcb82e80b1cbe42dfe4d7d5d6f6a9a2b6bd2"
+    },
+    "SCMO_0045.csv": {
+      "first": "2021-11-01",
+      "last": "2026-11-06",
+      "rows": 1238,
+      "max_gap_days": 5,
+      "note": "no approved file to overlap with; written whole",
+      "last_value": 189.59123522255328,
+      "sha256": "41b2a72cd981a4874649554886b0346a5ac4126c58d61bda0b36defeef247538"
+    }
+  }
+}

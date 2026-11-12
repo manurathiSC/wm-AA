@@ -1,0 +1,136 @@
+{
+  "what": "daily index prices and NSE calendar copied verbatim from production (read only), to the end of the pre-2019 window",
+  "source_folder": "G:\\.shortcut-targets-by-id\\0B7f_UMMZHM_JNXljMVVXY2VPcHM\\Investment Research_N\\Shubham_Shreshtha\\Friday Rebalance Automation\\Data",
+  "source_files": {
+    "indices_ohlcv.xlsx": "51a5af8539e453a8dd9630c55d1c59984622b9b300ee57d616408845f66f449f",
+    "TradingDays.xlsx": "c6db8ca6b1e07a0adaa22549d79ea805f8dc252b06adeb15468b8813d224a15d"
+  },
+  "copied_to": "2019-01-04",
+  "window_first": "2007-06-29",
+  "checks": {
+    "Nifty100": {
+      "first_row": "2005-11-30",
+      "rows_copied": 3237,
+      "last_row": "2019-01-04",
+      "window_rows": 2846,
+      "window_sessions_missing": [],
+      "rows_not_on_calendar": [],
+      "duplicate_dates": 0,
+      "nan_prices_in_window": 0,
+      "non_positive_prices_in_window": 0,
+      "bars_open_high_low_close_all_equal_by_year": {
+        "2015": 1
+      },
+      "bars_with_high_below_low_or_close_outside_range": 1,
+      "largest_one_day_close_moves": [
+        [
+          "2009-05-18",
+          0.1728
+        ],
+        [
+          "2008-10-24",
+          -0.1188
+        ],
+        [
+          "2008-01-21",
+          -0.0926
+        ],
+        [
+          "2008-01-25",
+          0.0715
+        ],
+        [
+          "2008-10-10",
+          -0.0692
+        ]
+      ]
+    },
+    "MC100": {
+      "first_row": "2005-07-18",
+      "rows_copied": 3329,
+      "last_row": "2019-01-04",
+      "window_rows": 2846,
+      "window_sessions_missing": [],
+      "rows_not_on_calendar": [],
+      "duplicate_dates": 0,
+      "nan_prices_in_window": 0,
+      "non_positive_prices_in_window": 0,
+      "bars_open_high_low_close_all_equal_by_year": {
+        "2015": 1
+      },
+      "bars_with_high_below_low_or_close_outside_range": 1,
+      "largest_one_day_close_moves": [
+        [
+          "2009-05-18",
+          0.1214
+        ],
+        [
+          "2008-01-21",
+          -0.1188
+        ],
+        [
+          "2015-08-24",
+          -0.0877
+        ],
+        [
+          "2008-10-24",
+          -0.0811
+        ],
+        [
+          "2008-03-17",
+          -0.0761
+        ]
+      ]
+    },
+    "SC100": {
+      "first_row": "2004-01-01",
+      "rows_copied": 3715,
+      "last_row": "2019-01-04",
+      "window_rows": 2845,
+      "window_sessions_missing": [
+        "2011-05-13"
+      ],
+      "rows_not_on_calendar": [],
+      "duplicate_dates": 0,
+      "nan_prices_in_window": 0,
+      "non_positive_prices_in_window": 0,
+      "bars_open_high_low_close_all_equal_by_year": {
+        "2007": 128,
+        "2008": 246,
+        "2009": 243,
+        "2010": 251,
+        "2011": 181,
+        "2015": 1
+      },
+      "bars_with_high_below_low_or_close_outside_range": 6,
+      "largest_one_day_close_moves": [
+        [
+          "2008-01-21",
+          -0.1209
+        ],
+        [
+          "2015-08-24",
+          -0.1061
+        ],
+        [
+          "2008-10-24",
+          -0.0947
+        ],
+        [
+          "2009-05-18",
+          0.0929
+        ],
+        [
+          "2008-10-10",
+          -0.0898
+        ]
+      ]
+    }
+  },
+  "outputs": {
+    "MC100_daily_ohlcv.csv": "a33bd53f064605b13266e0784991ccb44b6afe47e935b36dc7fa52a2504f7a2e",
+    "Nifty100_daily_ohlcv.csv": "5960504e94a4c3004ef337e6ddecb4cdcc71a47188fa2fc6b3684270c8e9fe28",
+    "nse_trading_days.csv": "41d72926915826be5c3dd0695e15b46dc3efc376aa6b3677f886d3f6a14889b9",
+    "SC100_daily_ohlcv.csv": "f3ec3dd7e869e9858f7f84510abf3b519b4c6cba59e21387c1cb04bd63178f29"
+  }
+}

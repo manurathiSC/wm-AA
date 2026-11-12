@@ -1,0 +1,5 @@
+book,cost_bps,raw_fill_sessions_in_window,rule_trades_on_raw_fill_sessions,rule_cagr_pct,close_fill_cagr_pct,change_cagr_pp,rule_max_dd_pct,close_fill_max_dd_pct,change_max_dd_pp
+SCMO_0003,20.8,22,1,30.3675,30.3874,0.0199,-20.384,-20.384,0.0
+SCMO_0007,20.8,22,1,22.6057,22.6244,0.0187,-20.9287,-20.9287,0.0
+SCMO_0010,20.8,22,1,32.1538,32.174,0.0201,-21.4604,-21.4604,0.0
+SCMO_0029,20.8,22,1,28.3088,28.3283,0.0195,-20.384,-20.384,0.0

@@ -815,12 +815,35 @@ return, and disclose how the bounds were chosen (T06's came from the rule's long
 fixed after seeing a best N4.9 draw). In the one test so far (T06: three-index switch, four books,
 9 round trips) it gave percentiles within 1.3 points of N4.9's and no wider spread.
 
+### N4.11 Random timing of a second signal (one null per timing)
+
+**Tests:** a rule can have two timing components: a main switch (in or out) and a second signal that sets
+what the book holds in one of the states (a gold signal that splits the out-of-market sleeve 80/20 or
+20/80). Does the second signal time better than chance, with the main switch real? A null that
+randomises only the main switch cannot say, and one that randomises both at once cannot say which of the
+two a result is about (N2).
+**Recipe:** keep the main series real. Cut the second signal's series into its spells (first state, k per
+state, total weeks per state) and draw them as N4.9 (shuffle) or N4.10 (free lengths, the exact sampler),
+with bounds per state set from the real series before any return is read: lo = the smaller of 2 weeks and
+its shortest spell, hi = its longest spell of that state. Run each draw through the same engine (R1), so
+the draw trades only where the real main series lets it.
+**Holds:** the main series, calendar, cost, cash, the second signal's first state, number of switches and
+total weeks in each state. **Breaks:** when the second signal's spells fall and how long each is.
+**Reports, does not hold:** how many drawn flips reach the book (a flip in a week the main series is
+in the other state never trades), so the draws' trade counts vary.
+**Use:** one deciding null per timing, each holding the other timing real; the joint null (both random) is
+a robustness check only, because the main switch can carry it. In the one test so far (T08: three-index
+switch with a MAUc1-timed sleeve) the equity switch beat random in-or-out timing (CAGR percentiles 94 to
+97), while the gold timing sat at percentiles 61 to 62 against random gold timing (and the joint null
+read 95 to 98). The joint null alone would have hidden that.
+
 ### Choosing among them
 
 | Your situation | Start with | Add |
 |---|---|---|
 | A stock-picking strategy with rules | N4.1 | N4.2 if its picks are tilted; N4.3 (ρ matched) or N4.4 if it is persistent |
 | A timing rule on one asset | N4.9 | the circular time shift; N4.10 if its few long spells might be luck; buy-and-hold and the constant-exposure mix as benchmarks |
+| A timing rule with a second timed signal (for example a timed sleeve split) | N4.9 and N4.10 on the main switch with the second signal real | N4.11 on the second signal with the main switch real; both random only as a robustness check |
 | A cross-sectional score (no portfolio) | N4.1 | N4.3 and N4.4 — run all three and pre-register which decides |
 | A filter or screen | N4.6 | N4.1 on the filtered pool |
 | A feature of an event (a beat, a type of news) | N4.8 among same-date events | N4.7 for "does any event move it" |
@@ -1600,3 +1623,4 @@ methods file. In one test this check caught a page calling 192,584 point-in-time
 | 2026-11-06 | Task 3 and the R9 "before the first run" checklist: every test keeps its approved plan, copied verbatim, as `tests/T<NN>/PLAN.md`. T03, T04 and T05 were back-filled the same day |
 | 2026-11-06 | Data boundary: the project keeps `data/APPROVED_DATA.md`, the only list of inputs an agent may read (path, through-date, fingerprint, latest usable date per role), with `data/check_approved_data.py` to verify it against the files. Rule 9 and task 4 updated: stale, missing or unclear data means stop and ask the owner; refreshing is the owner's decision, the new file stays off-limits until the owner approves it, and the approval check covers only the new rows. Replaces the earlier instruction to extend stale files before use |
 | 2026-11-06 | N4.10, random timing with free spell lengths, added after N4.9 (recipe, exact sampler, when to use it, first use in T06), with a row in "Choosing among them". N4.9 now says that for a weekly rule traded daily, invested weeks are held exactly and sessions only approximately (F-AA-M06) |
+| 2026-11-12 | N4.11, random timing of a second signal (one null per timing), added after N4.10 (recipe, bounds set before any return, what it holds and breaks, first use in T08), with a row in "Choosing among them" |

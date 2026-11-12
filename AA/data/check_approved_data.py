@@ -17,7 +17,7 @@ import pandas as pd
 
 AA = Path(__file__).resolve().parents[1]
 MD = AA / "data" / "APPROVED_DATA.md"
-DATE_CHECKED = {"D17", "D18", "D03", "D09", "D12"}
+DATE_CHECKED = {"D17", "D18", "D03", "D09", "D12", "D20", "D21", "D23"}   # D20/D21/D23 added 2026-11-12 (last_date reads their date / first column)
 
 
 def sha16(p: Path) -> str:
@@ -54,7 +54,7 @@ def rows():
     for line in block.splitlines():
         c = [x.strip() for x in line.strip().strip("|").split("|")]
         if len(c) >= 5 and c[0] in ("APPROVED", "SUPERSEDED", "PENDING"):
-            out.append({"status": c[0], "id": c[1], "file": c[2], "through": c[3], "sha": c[4]})
+            out.append({"status": c[0], "id": c[1], "file": c[2], "through": c[3], "sha": c[4], "note": " | ".join(c[5:])})
     return out
 
 
@@ -87,15 +87,19 @@ def main():
         n_ok += 1
     listed = {r["file"].replace("\\", "/") for r in rs}
     cand = []
-    for pat in ("Historical Data/**/*extended*", "analysis/cache/*extended*", "data/holdings_matrix/*extended*", "**/*candidate*"):
+    for pat in ("Historical Data/**/*extended*", "analysis/cache/*extended*", "data/holdings_matrix/*extended*", "Historical Data/extended_*/**/*", "**/*candidate*"):
         for f in AA.glob(pat):
             rel = f.relative_to(AA).as_posix()
-            if f.is_file() and rel not in listed and "/tests/" not in "/" + rel and not rel.startswith("tests/"):
+            if f.is_file() and f.name != "manifest.json" and rel not in listed and "/tests/" not in "/" + rel and not rel.startswith("tests/"):
                 cand.append(rel)
     pend = [r for r in rs if r["status"] == "PENDING"]
     print(f"approved rows checked OK: {n_ok}; problems: {len(bad)}; PENDING rows (not usable): {len(pend)}; superseded rows: {sum(r['status'] == 'SUPERSEDED' for r in rs)}")
     for b in bad:
         print("PROBLEM", b)
+    for r in rs:   # rule 7 of APPROVED_DATA.md: rows that may only be read from a given date
+        m = re.search(r"\[usable-from:\s*([0-9]{4}-[0-9]{2}-[0-9]{2})\]", r.get("note", ""))
+        if m and r["status"] == "APPROVED":
+            print(f"RESTRICTION {r['id']} {r['file']}: read rows dated {m.group(1)} or later ONLY (Smallcap 100 OHLCV before 2011-10-03 is corrupt: open=high=low=close)")
     for c in sorted(set(cand)):
         print("OFF-LIMITS (not in the table):", c)
     if bad:

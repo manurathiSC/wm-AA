@@ -1,0 +1,33 @@
+{
+ "a_small_case": {
+  "weights": [
+   "11/50",
+   "17/100",
+   "7/50",
+   "3/25",
+   "1/10",
+   "9/100",
+   "2/25",
+   "1/20",
+   "3/100"
+  ],
+  "D": "3/10",
+  "tau": "3/200",
+  "n_allowed_brute_force": 21,
+  "n_allowed_engine": 21,
+  "sets_equal": true,
+  "samples": 200000,
+  "expected_each": 9523.809523809523,
+  "min_count": 9381,
+  "max_count": 9669,
+  "chi2": 13.176580000000001,
+  "df": 20,
+  "p": 0.8696798259274519,
+  "pass": true
+ },
+ "b_count_equal": 91,
+ "b_count_unequal": 0,
+ "c_rule_in_allowed": 91,
+ "events_checked": 91,
+ "pass": true
+}

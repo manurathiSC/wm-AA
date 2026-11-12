@@ -1,0 +1,94 @@
+{
+ "a_small_case": {
+  "k": 3,
+  "S": 12,
+  "lo": 2,
+  "hi": 6,
+  "n_tuples": 19,
+  "dp_count": 19,
+  "samples": 200000,
+  "expected_each": 10526.315789473685,
+  "min_count": 10335,
+  "max_count": 10682,
+  "chi2": 12.360269999999998,
+  "df": 18,
+  "p": 0.8280904016577683,
+  "seed": [
+   6,
+   123456789
+  ],
+  "pass": true,
+  "also_seed_12": {
+   "p": 0.0031252720951142608,
+   "pass": true,
+   "seed": [
+    12,
+    6,
+    123456789
+   ]
+  }
+ },
+ "b_dp_equals_inclusion_exclusion": {
+  "all_equal": true,
+  "checked": 8
+ },
+ "c_mean_length_within_4_se": {
+  "SCMO_0003|full|io|in": {
+   "draws": 20,
+   "target_S_over_k": 14.333333333333334,
+   "mean_over_positions_and_draws": 14.333333333333334,
+   "max_abs_z_per_position": 2.2849698985208975,
+   "pass": true
+  },
+  "SCMO_0003|full|io|out": {
+   "draws": 20,
+   "target_S_over_k": 15.384615384615385,
+   "mean_over_positions_and_draws": 15.384615384615385,
+   "max_abs_z_per_position": 2.1858025039703337,
+   "pass": true
+  },
+  "SCMO_0003|full|gold|buy": {
+   "draws": 20,
+   "target_S_over_k": 12.666666666666666,
+   "mean_over_positions_and_draws": 12.666666666666666,
+   "max_abs_z_per_position": 2.4590813283184367,
+   "pass": true
+  },
+  "SCMO_0003|full|gold|sell": {
+   "draws": 20,
+   "target_S_over_k": 13.0,
+   "mean_over_positions_and_draws": 13.0,
+   "max_abs_z_per_position": 3.19317922628038,
+   "pass": true
+  },
+  "SCMO_0003|r3|io|in": {
+   "draws": 20,
+   "target_S_over_k": 14.333333333333334,
+   "mean_over_positions_and_draws": 14.333333333333334,
+   "max_abs_z_per_position": 2.2849698985208975,
+   "pass": true
+  },
+  "SCMO_0003|r3|io|out": {
+   "draws": 20,
+   "target_S_over_k": 15.0,
+   "mean_over_positions_and_draws": 15.0,
+   "max_abs_z_per_position": 2.1022002778981643,
+   "pass": true
+  },
+  "SCMO_0003|r3|gold|buy": {
+   "draws": 20,
+   "target_S_over_k": 13.357142857142858,
+   "mean_over_positions_and_draws": 13.357142857142858,
+   "max_abs_z_per_position": 2.282446948648009,
+   "pass": true
+  },
+  "SCMO_0003|r3|gold|sell": {
+   "draws": 20,
+   "target_S_over_k": 12.857142857142858,
+   "mean_over_positions_and_draws": 12.857142857142858,
+   "max_abs_z_per_position": 3.2515688208737257,
+   "pass": true
+  }
+ },
+ "pass": true
+}

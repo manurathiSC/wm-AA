@@ -1,0 +1,60 @@
+{
+  "what": "MAUc1 weekly supertrend, recomputed with the vendored production code (F-AA-D13 manner)",
+  "call": "ST.run(scrip, 'W', 2, True, ...) + analysis_master.build_analysis_master",
+  "input": "G:\\.shortcut-targets-by-id\\0B7f_UMMZHM_JNXljMVVXY2VPcHM\\Investment Research_N\\Manu\\Universe\\MAUC1TradingDays.xlsx",
+  "input_sha256": "bfa553d951f1d44ea142fc7858660da3c69dd34fe3acbe1467fbabef43f6a23d",
+  "cut_at": "2026-11-06",
+  "first_bar": "2015-02-02",
+  "input_rows_after_cleaning": 3027,
+  "calendar": "G:\\.shortcut-targets-by-id\\0B7f_UMMZHM_JNXljMVVXY2VPcHM\\Investment Research_N\\Shubham_Shreshtha\\Friday Rebalance Automation\\Data\\TradingDays.xlsx",
+  "calendar_sha256": "c6db8ca6b1e07a0adaa22549d79ea805f8dc252b06adeb15468b8813d224a15d",
+  "calendar_last": "2026-11-06",
+  "code_sha256": {
+    "Python_Scripts/ST.py": "0c26ca97ed0474887eac77267085e6a576c62ecc5e1e97510821f6ef09873933",
+    "Python_Scripts/QuantBacktester.py": "d3515f10cb2389e6412d3a6a632bde19afb2ebefde2a1c86a237764ed2b2b364",
+    "Python_Scripts/ProspectTheory.py": "80715de73ad26774e929a58438d79a6be286836ce6609ebd670dfb3b65afeba7",
+    "analysis_master.py": "beaaa4195971913eb0bf28c49b447810a8bad683eaf4ca78ad4584df920b5df8"
+  },
+  "stored_master": "C:\\Users\\manur\\Repos\\wm-AA\\AA\\Historical Data\\FRA_MAUc1\\RSI\\Final\\Analysis\\Master_MAUc1.xlsx",
+  "stored_master_sha256": "8233195321372369ce145a297fe4bb2859bcd5a6cefc4330824721fed75b9c42",
+  "d12_sha256_untouched": "3f5af3dfd2aa1b8367a14353d7afda8fc86724fb1798cc4f0712dd185b3a0a72",
+  "outputs": {
+    "indexDf_W.xlsx": "15c7e7620ef84ba936caed5c77b6a92521f6866a30baa36e4eb43a2682d07d32",
+    "Master_MAUc1.xlsx": "628932cf571f5a3fb137223add99381fb0d79a316e21159818cea9c187c51506",
+    "mauc1_cleaning_log_extended.csv": "0ad6abea5a6d6de2d034fc9de5aa3f3ca5391a4d1f66e50f9f9daf47405dc829",
+    "mauc1_daily_clean_extended.csv": "2f81c5904ccd263193e4c4c5954a7646dc5b40bb9e30f344819526129b704f1c",
+    "mauc1_supertrend_weekly_extended.csv": "01e2f420ac9f3bc2677bc99d1d2a9d734c60a94531e8bf0a5560e651cceb36b4",
+    "W_allRebal.xlsx": "907255266c9f9ac1d8d9c589557c6d2469d179e6391d028a5682c1cb2b52db33",
+    "weekIndexDf_W.xlsx": "433915303db4ec8a376c78fefacd2795fd6ca1d1a6ba47eb33877ed9573488b1"
+  },
+  "pandas": "2.2.3",
+  "numpy": "1.26.4",
+  "check": {
+    "rows_stored": 603,
+    "rows_new": 609,
+    "overlap": 603,
+    "overlap_max_abs_diff": 0.0,
+    "per_column_max_abs_diff": {
+      "Index": 0.0,
+      "ST": 0.0,
+      "FUB": 0.0,
+      "FLB": 0.0,
+      "BUB": 0.0,
+      "BLB": 0.0,
+      "EMA_Close": 0.0,
+      "EMA_TR": 0.0,
+      "Long_Weight": 0.0
+    },
+    "overlap_sign_mismatches": 0,
+    "dates_only_in_stored": [],
+    "dates_added": [
+      "2026-10-01",
+      "2026-10-09",
+      "2026-10-16",
+      "2026-10-23",
+      "2026-10-30",
+      "2026-11-06"
+    ],
+    "pass": true
+  }
+}

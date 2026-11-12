@@ -1,0 +1,510 @@
+{
+ "window_end": "2026-10-30",
+ "cutoff": "2026-04-09",
+ "books": {
+  "SCMO_0003": {
+   "calendar_first": "2019-01-02",
+   "calendar_last": "2026-10-30",
+   "skipped_baskets_dropped": 0,
+   "full": {
+    "start": "2019-01-02",
+    "end": "2026-10-30",
+    "weeks": 410,
+    "whole_book_IN_weeks": 201,
+    "all_SELL_weeks": 121,
+    "mixed_weeks": 88,
+    "mixed_spells": 16,
+    "mixed_spell_lengths": [
+     1,
+     9,
+     6,
+     1,
+     16,
+     8,
+     4,
+     4,
+     2,
+     5,
+     1,
+     5,
+     4,
+     1,
+     18,
+     3
+    ],
+    "patterns_N100_MC100_SC100": {
+     "BBB": 201,
+     "BBS": 30,
+     "BSB": 1,
+     "BSS": 14,
+     "SBB": 27,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 121
+    },
+    "flips_per_index": {
+     "Nifty100": 22,
+     "MC100": 22,
+     "SC100": 18
+    },
+    "events": 73,
+    "events_first": 1,
+    "events_signal_flip": 43,
+    "events_basket_change": 31,
+    "events_in_mixed_weeks": 26,
+    "mixed_weeks_with_partial_equity": 73,
+    "mean_kept_share_in_mixed_weeks": 0.5151767813952294,
+    "mean_band_share_all_weeks": {
+     "Large": 0.09626177296296276,
+     "Mid": 0.19679459136592675,
+     "Small and below": 0.7069436356711104
+    },
+    "mean_band_share_mixed_weeks": {
+     "Large": 0.11516627437730648,
+     "Mid": 0.18114225923238106,
+     "Small and below": 0.7036914663903125
+    },
+    "tag_source_holding_weeks": {
+     "rank": 3620,
+     "membership": 417,
+     "nonmember_rank": 33
+    }
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-30",
+    "weeks": 262,
+    "whole_book_IN_weeks": 124,
+    "all_SELL_weeks": 83,
+    "mixed_weeks": 55,
+    "mixed_spells": 11,
+    "mixed_spell_lengths": [
+     8,
+     4,
+     4,
+     2,
+     5,
+     1,
+     5,
+     4,
+     1,
+     18,
+     3
+    ],
+    "patterns_N100_MC100_SC100": {
+     "BBB": 124,
+     "BBS": 19,
+     "BSS": 10,
+     "SBB": 10,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 83
+    },
+    "flips_per_index": {
+     "Nifty100": 13,
+     "MC100": 15,
+     "SC100": 12
+    },
+    "events": 46,
+    "events_first": 1,
+    "events_signal_flip": 27,
+    "events_basket_change": 20,
+    "events_in_mixed_weeks": 16,
+    "mixed_weeks_with_partial_equity": 47,
+    "mean_kept_share_in_mixed_weeks": 0.4469914871793424,
+    "mean_band_share_all_weeks": {
+     "Large": 0.09928864182233005,
+     "Mid": 0.16794098514712788,
+     "Small and below": 0.732770373030542
+    },
+    "mean_band_share_mixed_weeks": {
+     "Large": 0.10137790742540215,
+     "Mid": 0.17791751481870594,
+     "Small and below": 0.7207045777558921
+    },
+    "tag_source_holding_weeks": {
+     "rank": 2594,
+     "membership": 417,
+     "nonmember_rank": 33
+    }
+   }
+  },
+  "SCMO_0007": {
+   "calendar_first": "2019-01-04",
+   "calendar_last": "2026-10-30",
+   "skipped_baskets_dropped": 2,
+   "full": {
+    "start": "2019-01-04",
+    "end": "2026-10-30",
+    "weeks": 409,
+    "whole_book_IN_weeks": 201,
+    "all_SELL_weeks": 120,
+    "mixed_weeks": 88,
+    "mixed_spells": 16,
+    "mixed_spell_lengths": [
+     1,
+     9,
+     6,
+     1,
+     16,
+     8,
+     4,
+     4,
+     2,
+     5,
+     1,
+     5,
+     4,
+     1,
+     18,
+     3
+    ],
+    "patterns_N100_MC100_SC100": {
+     "BBB": 201,
+     "BBS": 30,
+     "BSB": 1,
+     "BSS": 14,
+     "SBB": 27,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 120
+    },
+    "flips_per_index": {
+     "Nifty100": 22,
+     "MC100": 22,
+     "SC100": 18
+    },
+    "events": 72,
+    "events_first": 1,
+    "events_signal_flip": 43,
+    "events_basket_change": 29,
+    "events_in_mixed_weeks": 27,
+    "mixed_weeks_with_partial_equity": 46,
+    "mean_kept_share_in_mixed_weeks": 0.5009386416064117,
+    "mean_band_share_all_weeks": {
+     "Large": 0.04799800407176052,
+     "Mid": 0.1780185885218755,
+     "Small and below": 0.773983407406364
+    },
+    "mean_band_share_mixed_weeks": {
+     "Large": 0.04537645389988244,
+     "Mid": 0.17041791849901203,
+     "Small and below": 0.7842056276011055
+    },
+    "tag_source_holding_weeks": {
+     "rank": 4159,
+     "membership": 317,
+     "nonmember_rank": 10
+    }
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-30",
+    "weeks": 262,
+    "whole_book_IN_weeks": 124,
+    "all_SELL_weeks": 83,
+    "mixed_weeks": 55,
+    "mixed_spells": 11,
+    "mixed_spell_lengths": [
+     8,
+     4,
+     4,
+     2,
+     5,
+     1,
+     5,
+     4,
+     1,
+     18,
+     3
+    ],
+    "patterns_N100_MC100_SC100": {
+     "BBB": 124,
+     "BBS": 19,
+     "BSS": 10,
+     "SBB": 10,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 83
+    },
+    "flips_per_index": {
+     "Nifty100": 13,
+     "MC100": 15,
+     "SC100": 12
+    },
+    "events": 47,
+    "events_first": 1,
+    "events_signal_flip": 27,
+    "events_basket_change": 20,
+    "events_in_mixed_weeks": 17,
+    "mixed_weeks_with_partial_equity": 30,
+    "mean_kept_share_in_mixed_weeks": 0.33564555111555106,
+    "mean_band_share_all_weeks": {
+     "Large": 0.0,
+     "Mid": 0.1581883327232564,
+     "Small and below": 0.8418116672767437
+    },
+    "mean_band_share_mixed_weeks": {
+     "Large": 0.0,
+     "Mid": 0.11722494505494506,
+     "Small and below": 0.8827750549450549
+    },
+    "tag_source_holding_weeks": {
+     "rank": 2825,
+     "membership": 317,
+     "nonmember_rank": 10
+    }
+   }
+  },
+  "SCMO_0010": {
+   "calendar_first": "2019-01-02",
+   "calendar_last": "2026-10-30",
+   "skipped_baskets_dropped": 0,
+   "full": {
+    "start": "2019-01-02",
+    "end": "2026-10-30",
+    "weeks": 410,
+    "whole_book_IN_weeks": 201,
+    "all_SELL_weeks": 121,
+    "mixed_weeks": 88,
+    "mixed_spells": 16,
+    "mixed_spell_lengths": [
+     1,
+     9,
+     6,
+     1,
+     16,
+     8,
+     4,
+     4,
+     2,
+     5,
+     1,
+     5,
+     4,
+     1,
+     18,
+     3
+    ],
+    "patterns_N100_MC100_SC100": {
+     "BBB": 201,
+     "BBS": 30,
+     "BSB": 1,
+     "BSS": 14,
+     "SBB": 27,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 121
+    },
+    "flips_per_index": {
+     "Nifty100": 22,
+     "MC100": 22,
+     "SC100": 18
+    },
+    "events": 74,
+    "events_first": 1,
+    "events_signal_flip": 43,
+    "events_basket_change": 31,
+    "events_in_mixed_weeks": 27,
+    "mixed_weeks_with_partial_equity": 87,
+    "mean_kept_share_in_mixed_weeks": 0.5944075007552839,
+    "mean_band_share_all_weeks": {
+     "Large": 0.26590767125876874,
+     "Mid": 0.21230664544428654,
+     "Small and below": 0.5217856832969446
+    },
+    "mean_band_share_mixed_weeks": {
+     "Large": 0.2860039314671344,
+     "Mid": 0.17742926248289217,
+     "Small and below": 0.5365668060499734
+    },
+    "tag_source_holding_weeks": {
+     "rank": 4992,
+     "membership": 450
+    }
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-30",
+    "weeks": 262,
+    "whole_book_IN_weeks": 124,
+    "all_SELL_weeks": 83,
+    "mixed_weeks": 55,
+    "mixed_spells": 11,
+    "mixed_spell_lengths": [
+     8,
+     4,
+     4,
+     2,
+     5,
+     1,
+     5,
+     4,
+     1,
+     18,
+     3
+    ],
+    "patterns_N100_MC100_SC100": {
+     "BBB": 124,
+     "BBS": 19,
+     "BSS": 10,
+     "SBB": 10,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 83
+    },
+    "flips_per_index": {
+     "Nifty100": 13,
+     "MC100": 15,
+     "SC100": 12
+    },
+    "events": 47,
+    "events_first": 1,
+    "events_signal_flip": 27,
+    "events_basket_change": 20,
+    "events_in_mixed_weeks": 17,
+    "mixed_weeks_with_partial_equity": 55,
+    "mean_kept_share_in_mixed_weeks": 0.5844086846486979,
+    "mean_band_share_all_weeks": {
+     "Large": 0.3041687302522629,
+     "Mid": 0.20913849509253601,
+     "Small and below": 0.486692774655201
+    },
+    "mean_band_share_mixed_weeks": {
+     "Large": 0.31548342324361967,
+     "Mid": 0.19542857142839484,
+     "Small and below": 0.4890880053279854
+    },
+    "tag_source_holding_weeks": {
+     "rank": 3473,
+     "membership": 450
+    }
+   }
+  },
+  "SCMO_0029": {
+   "calendar_first": "2019-01-02",
+   "calendar_last": "2026-10-30",
+   "skipped_baskets_dropped": 1,
+   "full": {
+    "start": "2019-01-02",
+    "end": "2026-10-30",
+    "weeks": 410,
+    "whole_book_IN_weeks": 201,
+    "all_SELL_weeks": 121,
+    "mixed_weeks": 88,
+    "mixed_spells": 16,
+    "mixed_spell_lengths": [
+     1,
+     9,
+     6,
+     1,
+     16,
+     8,
+     4,
+     4,
+     2,
+     5,
+     1,
+     5,
+     4,
+     1,
+     18,
+     3
+    ],
+    "patterns_N100_MC100_SC100": {
+     "BBB": 201,
+     "BBS": 30,
+     "BSB": 1,
+     "BSS": 14,
+     "SBB": 27,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 121
+    },
+    "flips_per_index": {
+     "Nifty100": 22,
+     "MC100": 22,
+     "SC100": 18
+    },
+    "events": 73,
+    "events_first": 1,
+    "events_signal_flip": 43,
+    "events_basket_change": 30,
+    "events_in_mixed_weeks": 27,
+    "mixed_weeks_with_partial_equity": 88,
+    "mean_kept_share_in_mixed_weeks": 0.6163222257541163,
+    "mean_band_share_all_weeks": {
+     "Large": 0.31294405218100263,
+     "Mid": 0.2837877362471868,
+     "Small and below": 0.40326821157181053
+    },
+    "mean_band_share_mixed_weeks": {
+     "Large": 0.30195647736126463,
+     "Mid": 0.33329352440471266,
+     "Small and below": 0.3647499982340227
+    },
+    "tag_source_holding_weeks": {
+     "rank": 4583,
+     "membership": 397
+    }
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-30",
+    "weeks": 262,
+    "whole_book_IN_weeks": 124,
+    "all_SELL_weeks": 83,
+    "mixed_weeks": 55,
+    "mixed_spells": 11,
+    "mixed_spell_lengths": [
+     8,
+     4,
+     4,
+     2,
+     5,
+     1,
+     5,
+     4,
+     1,
+     18,
+     3
+    ],
+    "patterns_N100_MC100_SC100": {
+     "BBB": 124,
+     "BBS": 19,
+     "BSS": 10,
+     "SBB": 10,
+     "SBS": 8,
+     "SSB": 8,
+     "SSS": 83
+    },
+    "flips_per_index": {
+     "Nifty100": 13,
+     "MC100": 15,
+     "SC100": 12
+    },
+    "events": 47,
+    "events_first": 1,
+    "events_signal_flip": 27,
+    "events_basket_change": 20,
+    "events_in_mixed_weeks": 17,
+    "mixed_weeks_with_partial_equity": 55,
+    "mean_kept_share_in_mixed_weeks": 0.5745814197924501,
+    "mean_band_share_all_weeks": {
+     "Large": 0.33650429786511965,
+     "Mid": 0.24961730334938123,
+     "Small and below": 0.4138783987854991
+    },
+    "mean_band_share_mixed_weeks": {
+     "Large": 0.35663420216185665,
+     "Mid": 0.2866546895526012,
+     "Small and below": 0.35671110828554226
+    },
+    "tag_source_holding_weeks": {
+     "rank": 2831,
+     "membership": 397
+    }
+   }
+  }
+ }
+}

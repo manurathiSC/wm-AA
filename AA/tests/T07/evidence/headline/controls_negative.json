@@ -1,0 +1,65 @@
+{
+ "books": {
+  "SCMO_0003": {
+   "book": "SCMO_0003",
+   "shifts": 100,
+   "draws_per_shift": 200,
+   "share_pass90": 0.13,
+   "band": [
+    0.0,
+    0.17
+   ],
+   "x_max": 17,
+   "n_pass90": 13,
+   "within_band": true,
+   "v3_failures": 0,
+   "v3_draws_x_events_checked": 1165400
+  },
+  "SCMO_0007": {
+   "book": "SCMO_0007",
+   "shifts": 100,
+   "draws_per_shift": 200,
+   "share_pass90": 0.14,
+   "band": [
+    0.0,
+    0.17
+   ],
+   "x_max": 17,
+   "n_pass90": 14,
+   "within_band": true,
+   "v3_failures": 0,
+   "v3_draws_x_events_checked": 1032400
+  },
+  "SCMO_0010": {
+   "book": "SCMO_0010",
+   "shifts": 100,
+   "draws_per_shift": 200,
+   "share_pass90": 0.17,
+   "band": [
+    0.0,
+    0.17
+   ],
+   "x_max": 17,
+   "n_pass90": 17,
+   "within_band": true,
+   "v3_failures": 0,
+   "v3_draws_x_events_checked": 1285400
+  },
+  "SCMO_0029": {
+   "book": "SCMO_0029",
+   "shifts": 100,
+   "draws_per_shift": 200,
+   "share_pass90": 0.08,
+   "band": [
+    0.0,
+    0.17
+   ],
+   "x_max": 17,
+   "n_pass90": 8,
+   "within_band": true,
+   "v3_failures": 0,
+   "v3_draws_x_events_checked": 1280600
+  }
+ },
+ "pass": true
+}

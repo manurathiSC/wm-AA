@@ -1,0 +1,113 @@
+{
+ "a_one_index_book": {
+  "SCMO_0003": {
+   "max_rel_diff": {
+    "Nifty100": 5.551115123125783e-16,
+    "MC100": 4.440892098500626e-16,
+    "SC100": 4.440892098500626e-16
+   },
+   "pass": true
+  }
+ },
+ "b_hold_proxy_vs_hand": {
+  "SCMO_0003": {
+   "max_rel_diff": 2.220446049250313e-16,
+   "resets": 29,
+   "pass": true
+  }
+ },
+ "d_signals": {
+  "SCMO_0003": {
+   "decisions": 372,
+   "index_sign": 0,
+   "mauc1_sign": 0,
+   "mauc1_weekly_signal": 0,
+   "mauc1_weekly_label": 0,
+   "pass": true
+  }
+ },
+ "e_splice": {
+  "splice_day": "2014-07-01",
+  "proxy_last": "2014-06-30",
+  "return_on_splice_day": -0.0010800691244239324,
+  "mauc1_own_return": -0.0010800691244239324,
+  "difference": 0.0,
+  "mauc1_rows_consecutive": true,
+  "gold_close_gaps_over_7_days": 0,
+  "sessions_without_own_gold_bar": [
+   "2016-10-30"
+  ],
+  "pass": true
+ },
+ "c_shared_code": {
+  "compared": [
+   "stats",
+   "sessions_invested",
+   "spells",
+   "spell_sig",
+   "count_table",
+   "draw_lengths",
+   "ie_count",
+   "lens_of",
+   "chi2_sf_even",
+   "n_sleeve_trades",
+   "gold_spells_with_out",
+   "flip_counts"
+  ],
+  "identical_required": [
+   "stats",
+   "sessions_invested",
+   "spells",
+   "spell_sig",
+   "count_table",
+   "draw_lengths",
+   "ie_count",
+   "lens_of",
+   "chi2_sf_even",
+   "n_sleeve_trades",
+   "gold_spells_with_out",
+   "flip_counts"
+  ],
+  "required_not_identical": [],
+  "changed_functions": [
+   "cash_levels",
+   "common",
+   "free_length_draw",
+   "main",
+   "make_states_gold",
+   "make_states_io",
+   "run_book",
+   "sampler_selftest_small",
+   "simulate",
+   "spell_shuffle",
+   "trade",
+   "v3_check",
+   "v6_check"
+  ],
+  "unexpected_changes": [],
+  "expected_changes": [
+   "trade",
+   "simulate",
+   "spell_shuffle",
+   "free_length_draw",
+   "v3_check",
+   "make_states_io",
+   "make_states_gold",
+   "sampler_selftest_small",
+   "run_book",
+   "common",
+   "cash_levels",
+   "v6_check",
+   "main"
+  ],
+  "sleeve_arithmetic_lines_in_both": {
+   "Tg = (1 - e_new) * gw_new * V": true,
+   "Tc = (1 - e_new) * (1 - gw_new) * V": true,
+   "traded = np.abs(Te - held_s).sum() + abs(Tg - gu * gp) + abs(Tc - cu * lv)": true,
+   "cost = ow * traded": true,
+   "k = (V - cost) / V": true
+  },
+  "pass": true
+ },
+ "pass": true
+}

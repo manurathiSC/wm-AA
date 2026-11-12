@@ -1,0 +1,37 @@
+{
+  "built_at": "2026-11-12T04:40:47+00:00",
+  "script": "data/build_tag_panels.py",
+  "script_sha256": "163d998e47ead46666c5709672bd5303625e150e07b425ac0e8f5aaf912b9e2a",
+  "status": "CANDIDATE (PENDING): off-limits to every test until Manu approves",
+  "inputs": {
+    "mcap_universe_ordinary.csv": "f0288a5b09a604ecebb148bae50c5baeaa743f7924adc8adc688c4718b7683ba",
+    "index_constituents_monthly.csv": "532c816e53cb49a0007795d8761e0e04baa199979a4d8b7f322d79730c8b5553"
+  },
+  "files": {
+    "mcap_rank_panel.csv": {
+      "rows": 788065,
+      "columns": [
+        "date",
+        "quote_id",
+        "isin",
+        "ticker",
+        "mcap",
+        "rank",
+        "n_ranked",
+        "band"
+      ],
+      "sha256": "e7c98ec5e0cc144c2986530f156b8a561f5c2df92d3ccc11a0ddce335f90cbf0"
+    },
+    "membership_panel.csv": {
+      "rows": 6001,
+      "columns": [
+        "snapshot_date",
+        "index_name",
+        "isin",
+        "symbol",
+        "band"
+      ],
+      "sha256": "c5ac673b322945b1d915af78947451dc79d29d80adaca854ad168372c80a45a4"
+    }
+  }
+}

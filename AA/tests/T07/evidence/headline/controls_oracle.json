@@ -1,0 +1,45 @@
+{
+ "books": {
+  "SCMO_0003": {
+   "book": "SCMO_0003",
+   "oracle_cagr": 0.31272854526853666,
+   "oracle_max_dd": -0.18416072760198976,
+   "rule_cagr": 0.2590624083726545,
+   "percentile_vs_N4.6": 100.0,
+   "n46_draws": 2000,
+   "events_with_a_choice": 20,
+   "pass_ge_99": true
+  },
+  "SCMO_0007": {
+   "book": "SCMO_0007",
+   "oracle_cagr": 0.2186040941118894,
+   "oracle_max_dd": -0.22821220705005607,
+   "rule_cagr": 0.19041942737393613,
+   "percentile_vs_N4.6": 100.0,
+   "n46_draws": 2000,
+   "events_with_a_choice": 16,
+   "pass_ge_99": true
+  },
+  "SCMO_0010": {
+   "book": "SCMO_0010",
+   "oracle_cagr": 0.371639068608131,
+   "oracle_max_dd": -0.1320659122739789,
+   "rule_cagr": 0.26462284601460695,
+   "percentile_vs_N4.6": 100.0,
+   "n46_draws": 2000,
+   "events_with_a_choice": 25,
+   "pass_ge_99": true
+  },
+  "SCMO_0029": {
+   "book": "SCMO_0029",
+   "oracle_cagr": 0.33041372880956055,
+   "oracle_max_dd": -0.12731727917790847,
+   "rule_cagr": 0.24637676874451264,
+   "percentile_vs_N4.6": 100.0,
+   "n46_draws": 2000,
+   "events_with_a_choice": 27,
+   "pass_ge_99": true
+  }
+ },
+ "pass": true
+}

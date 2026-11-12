@@ -1,0 +1,513 @@
+{
+ "readings": {
+  "E1": "calendar = D17's dates (the extended published NAV files, Historical Data/extended_2026-11-06/published_nav) of the book from its first date to END = 2026-10-30; END is the frozen text's date and is asserted equal to the earliest last date of the three Master files and covered by every other role; D18 prices on other dates are never read",
+  "E2": "decision dates = T0 and the last D17 session of every later ISO week; the decision at the last session is made but not traded (it has no later session)",
+  "E3": "state of a decision = the triple of the latest Master SIGN row of each index dated <= the decision date (BUY/SELL); T06's 'state' (1 iff all three BUY) is kept in decisions.csv",
+  "E4": "initial position at T0 (free): the basket in force at T0, as drifted since its availableDate (OHLC4 of the first D18 session on or after it) and scaled to NAV 1 at T0's close; the stocks dropped at T0 (tags and state read as of T0 itself) are kept at T0's closes in value and converted half to GOLDBEES, half to cash units at T0's closes. This is T06's initial position when all stocks are kept (IN) or all dropped (OUT)",
+  "E5": "WEIGHTS ARE RENORMALISED TO 1, AS T06 DOES (T06 E5: wm.div(wm.sum(axis=1))). T07.md step 6 says listed weights are 'not renormalised' and that targets 'can sum to V x (1 +- 0.0005), as in T06'; that does not describe T06 (its targets sum to V) and cannot be combined with gate V4 (whole-book mode equals T06's NAV to 1e-12). V4 wins: every stock's listed weight is the matrix weight divided by its basket's row sum (raw weight in event_stocks.csv listed_weight_raw; sum_weights is therefore 1.0 and s = D). tau = half the smallest renormalised weight. AFFECTS STEPS 3 AND 4",
+  "E6": "a basket takes effect on the first calendar session on or after its availableDate; baskets flagged csv_only_skipped are dropped (T06)",
+  "E7": "stock fill = OHLC4 of the Eikon bar (close if any of open/high/low is blank; last close if the stock has no bar that session), Polyplex correction applied (T06)",
+  "E8": "cash level: the extended LBES (D11) as-of on sessions; asserted to cover the window (0 accrued sessions). R3 'liq': LBES to the session before 2024-01-24, then chained with LIQUIDCASE returns (T06 E14)",
+  "E9": "GOLDBEES fill: T06's de-spike (OHLC4 of open/high/low clipped to MCX gold's range that day + 0.5%) up to the MCX file's last date (2026-09-28), raw OHLC4 after it",
+  "EV1": "event rule (step 4): candidates are the trade sessions of decisions j>=1 (decision_idx+1, if the session exists) and the sessions of non-skipped basket changes. At a decision candidate the set the CURRENT tags (those read at the last event) would drop under that decision's state is compared with the set the book currently drops; a difference makes a signal event. A basket candidate without a signal event is an event unless the book holds no stock (every held stock currently dropped); then nothing is traded. Two events on one session are one event ('signal+basket'). At an event the state is the triple of the latest decision made before the session (decision_idx < session), the tags of every held stock are read as of the previous session (info date). The T0 event reads tags and state at T0 itself (disclosed exception to 'tags before the trade session', counted in audit.json v2)",
+  "EV2": "SKIPPED BASKET EVENT (no stock held): nothing is traded and no event is written, but the basket in force changes. Reading A, the smallest that keeps the next signal test defined: the tags of the new basket's stocks are read as of the previous session (a tag read without a trade) and become the 'current tags'; the book 'currently drops' all of them. Counted in audit.json (skipped_basket_events). AFFECTS STEP 3",
+  "EV3": "the whole-book switch (bands tied) is the same event code with every stock following 'IN iff all three BUY'; its events equal T06's (a trade only when the stock share changes, basket events only while IN). hold the parent = mode 'parent' (nothing dropped, T0 and basket events only); the 100% sleeve = T0 with everything dropped",
+  "N1": "N4.6: held stocks of an event in increasing ISIN string order (bit i of a subset mask = stock i, bit 0 the least significant); allowed set = masks with |sum w - D| <= tau (+1e-12, floating point; exact ties are allowed), listed in increasing mask order; u = rng.random() from default_rng([7, draw_id, book_no]), one per event in event order (T0 event first), index = min(floor(u*count), count-1); the same draw ids at every cost, cash and window",
+  "N1b": "allowed sets are homogeneous in the weights (|sum w - D| <= tau scales with w), so the renormalisation of E5 does not change any set; exact ties |sum - D| = tau exist (SCMO_0010 full window: 35 such subsets at events with round weights) and are allowed, decided with the 1e-12 tolerance above and counted per event (count_table.json boundary_cases, audit tau_boundary_cases). ISIN order = Python string order of the ISIN codes (ASCII)",
+  "N2": "N4.8: one score per ISIN of the realisation's universe (the sorted ISINs of its event_stocks rows, so the live window has its own) from default_rng([8, draw_id, book_no]).random(n); at an event the held stocks are ranked by score DESCENDING, the first n_L get label Large, the next n_M Mid, the rest Small and below (n_* = the rule's counts at that event); dropped iff the label's band signal is SELL under the event's state",
+  "R5": "R5 tag error: default_rng([5, draw_id, book_no]); at every tag read (every event and every skipped-basket read) each held stock whose tag source is 'rank' or 'nonmember_rank' consumes two uniforms: the first < 0.0793 flips its band, the second picks one of the other two bands (in the order Large, Mid, Small, first if < 0.5). Membership and unranked tags are not perturbed. The events are rebuilt under the perturbed tags (the event rule reads them). Reported: the draw's after-cost CAGR (20.8 bps, full window) minus the whole-book switch's",
+  "V6": "V6: the weekly joint state matrix (decisions x 3) is rolled by k decisions, k drawn without replacement (V6_SHIFTS of them) from the DISTINCT circular shifts 26 <= k <= n-26 (k and k-n are the same shift, so negative k adds none); the drawing generator is default_rng([9, 100000, book_no]); shift number i (0-based) uses default_rng([9, i, book_no]) for its null: one stream, draw d takes the next n_events uniforms. Full window, LBES, 20.8 bps, 200 draws; percentile of the shifted rule's CAGR against its own N4.6 draws",
+  "V7": "V7 oracle: at each event pick, from that event's allowed N4.6 set, the subset with the lowest sum of listed weight x log(end price / start price), start = OHLC4 at the trade session (T0: the close), end = OHLC4 at the next event's trade session (the last event: the close of the last session); ties to the lowest mask. Run at 20.8 bps, full window; percentile of its CAGR against the headline N4.6 draws at 20.8",
+  "S1": "constant mix: f = the average over all sessions of (value of stocks / NAV) of the rule's path at the SAME cost (so f depends on the cost); stocks f x w_i, half of (1-f) in GOLDBEES and half in cash, rebalanced at the rule's events (T0 initial position free, then every event of the rule, with the same cost)",
+  "S2": "invested_weeks = sum over the weekly decisions of the share of listed weight the current tags keep under that decision's state (T06's sum of states when the bands are tied); constant mix J*f; sleeve100 0; parent J",
+  "S3": "published_parent rows: the published NAV rebased to 1.0, written once per (window, cash, cost) block with identical values (so a filter on cost finds it); R6: kind published_aa (SCMO_0042-45, D15) on the live window, column aa_scid, cost_bps empty",
+  "S4": "stats.events = the number of events including T0; trades = the number of trades after T0 (every event after T0 trades)",
+  "V2": "V2 counts: decisions (Master label date <= decision date), tags (snapshot <= info date), events (info date < trade session and latest decision < trade session). The T0 event reads as of T0 itself and is counted separately, not as a violation",
+  "V4": "V4 compares the engine's whole-book, parent and 100%-sleeve NAVs with T06's strategy, hold_parent and sleeve_only on every shared session to 2026-10-22 at 0, 20.8 and 50 bps (relative difference < 1e-12), the decisions on every shared date, and always-in at 0 cost against the published NAV (G0) over the whole window. The constant mix is defined differently in T07 and is not compared",
+  "G1": "reportability: a (book, window) needs >= 5 separate disagreement stretches (runs of decisions where the three SIGN are neither all BUY nor all SELL) and >= 6 events with 0 < n_dropped < n_held; written to audit.json and count_table.json. Draws are run for every realisation whether reportable or not",
+  "G3": "the oracle (V7), V6 and R5 are run per book inside its worker; V6 does not depend on --draws (100 shifts x 200 draws); a run without --controls (--quick) reports V6 and V7 as not run and exits 0 if V2-V5 pass",
+  "G2": "events.csv, event_stocks.csv, count_table.json are written for the rule at the full and live windows; costs do not change events"
+ },
+ "books": {
+  "SCMO_0003": {
+   "rule_counters": {
+    "full": {
+     "stock_trades_priced_by_last_close_no_bar": 0,
+     "goldbees_trades_filled_at_raw_OHLC4_after_MCX_file": 1
+    },
+    "live": {
+     "stock_trades_priced_by_last_close_no_bar": 0,
+     "goldbees_trades_filled_at_raw_OHLC4_after_MCX_file": 1
+    }
+   },
+   "windows": {
+    "full": {
+     "t0": "2019-01-02",
+     "last_session": "2026-10-30",
+     "sessions": 1932,
+     "decisions": 410,
+     "initial_basket_switch_session": "2018-12-17",
+     "cash": {
+      "file_last": "2026-11-05",
+      "accrued_sessions": 0
+     },
+     "disagreement_weeks": 88,
+     "disagreement_stretches": 16,
+     "stretch_lengths": [
+      1,
+      9,
+      6,
+      1,
+      16,
+      8,
+      4,
+      4,
+      2,
+      5,
+      1,
+      5,
+      4,
+      1,
+      18,
+      3
+     ],
+     "events": {
+      "events": 57,
+      "initial": 1,
+      "signal": 35,
+      "basket": 20,
+      "signal+basket": 1,
+      "partial": 20
+     },
+     "events_in_disagreement_weeks": 21,
+     "n_allowed_subsets_min_median_max": [
+      1,
+      1,
+      5005
+     ],
+     "events_with_one_allowed_subset": 37,
+     "tau_boundary_cases": 0,
+     "skipped_basket_events": [
+      {
+       "session": 172,
+       "date": "2019-09-16",
+       "basket_eff": "2019-09-16",
+       "n_held_new_basket": 9
+      },
+      {
+       "session": 295,
+       "date": "2020-03-16",
+       "basket_eff": "2020-03-16",
+       "n_held_new_basket": 5
+      },
+      {
+       "session": 729,
+       "date": "2021-12-16",
+       "basket_eff": "2021-12-16",
+       "n_held_new_basket": 9
+      },
+      {
+       "session": 791,
+       "date": "2022-03-16",
+       "basket_eff": "2022-03-16",
+       "n_held_new_basket": 7
+      },
+      {
+       "session": 853,
+       "date": "2022-06-16",
+       "basket_eff": "2022-06-16",
+       "n_held_new_basket": 8
+      },
+      {
+       "session": 1039,
+       "date": "2023-03-16",
+       "basket_eff": "2023-03-16",
+       "n_held_new_basket": 7
+      },
+      {
+       "session": 1460,
+       "date": "2024-12-04",
+       "basket_eff": "2024-12-04",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 1524,
+       "date": "2025-03-05",
+       "basket_eff": "2025-03-05",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 1646,
+       "date": "2025-09-03",
+       "basket_eff": "2025-09-03",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 1778,
+       "date": "2026-03-17",
+       "basket_eff": "2026-03-17",
+       "n_held_new_basket": 15
+      }
+     ],
+     "whole_book_events": {
+      "events": 35,
+      "initial": 1,
+      "signal": 16,
+      "basket": 16,
+      "signal+basket": 2,
+      "partial": 0
+     },
+     "whole_book_skipped_basket_events": 13,
+     "tag_source_event_rows": {
+      "rank": 517,
+      "membership": 68,
+      "nonmember_rank": 7
+     },
+     "v2": {
+      "tags_checked": 687,
+      "tag_snapshot_after_info": 0,
+      "events_checked": 56,
+      "event_info_not_before_trade": 0,
+      "event_decision_not_before_trade": 0,
+      "initial_position_tag_reads_asof_T0": 10,
+      "decisions_checked": 410,
+      "decisions_label_after_decision": 0,
+      "decision_trades_checked": 409,
+      "decision_trade_not_after_decision": 0
+     },
+     "reportable": true,
+     "skipped_basket_events_where_new_basket_would_keep_a_stock": null,
+     "mean_dropped_weight_rule": 0.3840317026493245,
+     "n_universe_N4.8": 123
+    },
+    "live": {
+     "t0": "2021-11-01",
+     "last_session": "2026-10-30",
+     "sessions": 1233,
+     "decisions": 262,
+     "initial_basket_switch_session": "2021-09-16",
+     "cash": {
+      "file_last": "2026-11-05",
+      "accrued_sessions": 0
+     },
+     "disagreement_weeks": 55,
+     "disagreement_stretches": 11,
+     "stretch_lengths": [
+      8,
+      4,
+      4,
+      2,
+      5,
+      1,
+      5,
+      4,
+      1,
+      18,
+      3
+     ],
+     "events": {
+      "events": 34,
+      "initial": 1,
+      "signal": 21,
+      "basket": 12,
+      "signal+basket": 0,
+      "partial": 11
+     },
+     "events_in_disagreement_weeks": 11,
+     "n_allowed_subsets_min_median_max": [
+      1,
+      1,
+      5005
+     ],
+     "events_with_one_allowed_subset": 23,
+     "tau_boundary_cases": 0,
+     "skipped_basket_events": [
+      {
+       "session": 30,
+       "date": "2021-12-16",
+       "basket_eff": "2021-12-16",
+       "n_held_new_basket": 9
+      },
+      {
+       "session": 92,
+       "date": "2022-03-16",
+       "basket_eff": "2022-03-16",
+       "n_held_new_basket": 7
+      },
+      {
+       "session": 154,
+       "date": "2022-06-16",
+       "basket_eff": "2022-06-16",
+       "n_held_new_basket": 8
+      },
+      {
+       "session": 340,
+       "date": "2023-03-16",
+       "basket_eff": "2023-03-16",
+       "n_held_new_basket": 7
+      },
+      {
+       "session": 761,
+       "date": "2024-12-04",
+       "basket_eff": "2024-12-04",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 825,
+       "date": "2025-03-05",
+       "basket_eff": "2025-03-05",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 947,
+       "date": "2025-09-03",
+       "basket_eff": "2025-09-03",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 1079,
+       "date": "2026-03-17",
+       "basket_eff": "2026-03-17",
+       "n_held_new_basket": 15
+      }
+     ],
+     "whole_book_events": {
+      "events": 21,
+      "initial": 1,
+      "signal": 9,
+      "basket": 10,
+      "signal+basket": 1,
+      "partial": 0
+     },
+     "whole_book_skipped_basket_events": 9,
+     "tag_source_event_rows": {
+      "rank": 350,
+      "membership": 68,
+      "nonmember_rank": 7
+     },
+     "v2": {
+      "tags_checked": 508,
+      "tag_snapshot_after_info": 0,
+      "events_checked": 33,
+      "event_info_not_before_trade": 0,
+      "event_decision_not_before_trade": 0,
+      "initial_position_tag_reads_asof_T0": 8,
+      "decisions_checked": 262,
+      "decisions_label_after_decision": 0,
+      "decision_trades_checked": 261,
+      "decision_trade_not_after_decision": 0
+     },
+     "reportable": true,
+     "skipped_basket_events_where_new_basket_would_keep_a_stock": null,
+     "mean_dropped_weight_rule": 0.3772033117862778,
+     "n_universe_N4.8": 98
+    }
+   },
+   "aa_published_calendar_equals_live_calendar": true,
+   "seconds_core": 5,
+   "seconds": 5
+  }
+ },
+ "v2": {
+  "decisions_checked": 672,
+  "decision_label_after_decision": 0,
+  "tags_checked": 1195,
+  "tag_snapshot_after_info": 0,
+  "events_checked": 89,
+  "event_info_not_before_trade": 0,
+  "event_decision_not_before_trade": 0,
+  "decision_trades_checked": 670,
+  "decision_trade_not_after_decision": 0,
+  "initial_position_tag_reads_asof_T0": 18,
+  "violations": 0,
+  "checked": 2626,
+  "pass": true
+ },
+ "v3": {
+  "per_book_window": {
+   "SCMO_0003|full": {
+    "N4.6": {
+     "draws_x_events_checked": 1140,
+     "failures": {
+      "dropped_weight_outside_tau": 0,
+      "empty_or_full_not_matched": 0,
+      "event_list_differs": 0
+     },
+     "pass": true
+    },
+    "N4.8": {
+     "draws_x_events_checked": 1140,
+     "failures": {
+      "label_counts_differ": 0
+     },
+     "pass": true
+    }
+   },
+   "SCMO_0003|live": {
+    "N4.6": {
+     "draws_x_events_checked": 680,
+     "failures": {
+      "dropped_weight_outside_tau": 0,
+      "empty_or_full_not_matched": 0,
+      "event_list_differs": 0
+     },
+     "pass": true
+    },
+    "N4.8": {
+     "draws_x_events_checked": 680,
+     "failures": {
+      "label_counts_differ": 0
+     },
+     "pass": true
+    }
+   }
+  },
+  "pass": true
+ },
+ "v4": {
+  "pass": true,
+  "max_rel_diff": 0.0,
+  "g0": [
+   {
+    "book": "SCMO_0003",
+    "cagr_gap_pp_yr": 0.04486851256428892,
+    "overall": "PASS",
+    "worst_year": 2022,
+    "worst_year_gap_pp": 0.42550398202618744,
+    "yearly": "PASS",
+    "window_first": "2019-01-02",
+    "window_last": "2026-10-30"
+   }
+  ]
+ },
+ "v5": {
+  "pass": true
+ },
+ "events_vs_section2_coarse_counts": {
+  "SCMO_0003|full": {
+   "engine_events": 57,
+   "coarse_events_section2": 73,
+   "engine_le_coarse": true,
+   "engine_events_in_disagreement_weeks": 21,
+   "coarse_in_mixed_weeks": 26,
+   "engine_partial_events": 20,
+   "disagreement_stretches": 16,
+   "coarse_mixed_spells": 16,
+   "decisions_equal_step1": true
+  },
+  "SCMO_0003|live": {
+   "engine_events": 34,
+   "coarse_events_section2": 46,
+   "engine_le_coarse": true,
+   "engine_events_in_disagreement_weeks": 11,
+   "coarse_in_mixed_weeks": 16,
+   "engine_partial_events": 11,
+   "disagreement_stretches": 11,
+   "coarse_mixed_spells": 11,
+   "decisions_equal_step1": true
+  }
+ },
+ "data": {
+  "approved_data_as_of": "2026-11-12",
+  "window_end": "2026-10-30",
+  "inputs": 41,
+  "registered_not_parsed": [
+   "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0003.csv",
+   "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0007.csv",
+   "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0010.csv",
+   "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0029.csv",
+   "Historical Data/extended_2026-11-12/mcap_universe/mcap_universe_ordinary.csv",
+   "Historical Data/extended_2026-11-12/membership/index_constituents_monthly.csv"
+  ],
+  "non_approved_open_raises": {
+   "superseded_master": {
+    "raised": true,
+    "message": "Historical Data/frozen_2026-09-25/Master/Master_Nifty100.xlsx: row D03 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "superseded_goldbees": {
+    "raised": true,
+    "message": "analysis/cache/why_gold_ohlc_eikon.parquet: row D09 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "superseded_lbes": {
+    "raised": true,
+    "message": "Historical Data/LBES_Adjusted_Price_data_2026_08_10.csv: row D11 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "not_in_table": {
+    "raised": true,
+    "message": "Historical Data/no_such_file.csv: not in the table of data/APPROVED_DATA.md, so not approved"
+   },
+   "off_limits_SOURCE_md": {
+    "raised": true,
+    "message": "Historical Data/extended_2026-11-12/SOURCE.md: not in the table of data/APPROVED_DATA.md, so not approved"
+   },
+   "pass": true
+  },
+  "cash_accrued_sessions": 0,
+  "cash_first_appended_row": {
+   "last_verbatim_row": "2026-08-09",
+   "last_session_before_it": "2026-08-07",
+   "first_appended_row": "2026-08-10",
+   "appended_rows": 61,
+   "weekend_accrual_counted_twice_(Sunday_level/last_session_level-1)": 0.00023386999796137786,
+   "within_claimed_bound_0.0002": false,
+   "note": "level[first appended] chains from the Sunday 2026-08-09 level, so the weekend accrual is earned again; the extension runs about 0.5 pp/yr rich against LIQUIDBEES (F-AA-D13); disclosed, not corrected"
+  },
+  "goldbees": {
+   "mcx_file_last": "2026-09-28",
+   "goldbees_file_last": "2026-11-04",
+   "sessions_after_mcx_in_goldbees_file": [
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04"
+   ]
+  }
+ },
+ "tag_error_r5": {
+  "rate": 0.0793,
+  "draws_per_book": 20,
+  "source": "data/review/2026-11-12_tag_sources/REVIEW.md check 6: 92.07% agreement"
+ },
+ "run": {
+  "name": "smoke",
+  "draws": 20,
+  "quick": true,
+  "controls": false,
+  "jobs": 1,
+  "seconds": 6,
+  "seeds": "N4.6 default_rng([7, draw_id, book_no]); N4.8 default_rng([8, draw_id, book_no]); V6 [9, shift_index, book_no]; R5 [5, draw_id, book_no]"
+ },
+ "prereg_sha256": "1d302f1055c3697b8d19d5630b3d03835362bcc0e90b89797545055778f6b357",
+ "gates": {
+  "V2": true,
+  "V3": true,
+  "V4": true,
+  "V5": true,
+  "V6": null,
+  "V7": null,
+  "approved_data_selftest": true,
+  "all_that_ran": true,
+  "V6_V7_ran": false
+ }
+}

@@ -1,0 +1,22 @@
+{
+  "retrieved_at": "2026-11-12T04:26:47+00:00",
+  "source": "postgres windmill, read-only session",
+  "query": "SELECT * FROM public.index_constituents_monthly",
+  "script": "data/pull_tag_sources.py",
+  "script_sha256": "b847efe0803a98e48db7bf73d07bb6cb7ed4792de1a774f6ecced403978dae2e",
+  "file": "index_constituents_monthly.csv",
+  "rows": 6001,
+  "columns": [
+    "snapshot_date",
+    "index_name",
+    "symbol",
+    "isin",
+    "company_name",
+    "market_cap_bucket",
+    "inserted_at"
+  ],
+  "first": "2026-04-09",
+  "last": "2026-11-01",
+  "sha256": "532c816e53cb49a0007795d8761e0e04baa199979a4d8b7f322d79730c8b5553",
+  "status": "CANDIDATE: off-limits until Manu approves it and APPROVED_DATA.md is updated"
+}

@@ -1,0 +1,77 @@
+{
+  "what": "Smallcap 100 weekly supertrend recomputed from the first real-range bar (2011-10-03), vendored production code",
+  "call": "ST.run(scrip, 'W', 2, True, ...) + analysis_master.build_analysis_master",
+  "inputs": {
+    "D25 SC100": {
+      "path": "Historical Data\\extended_2026-11-12\\index_daily_pre2019\\SC100_daily_ohlcv.csv",
+      "sha256": "f3ec3dd7e869e9858f7f84510abf3b519b4c6cba59e21387c1cb04bd63178f29",
+      "rows_used": 1791,
+      "first": "2011-10-03",
+      "last": "2019-01-04"
+    },
+    "D26 calendar": {
+      "path": "Historical Data\\extended_2026-11-12\\index_daily_pre2019\\nse_trading_days.csv",
+      "sha256": "41d72926915826be5c3dd0695e15b46dc3efc376aa6b3677f886d3f6a14889b9"
+    },
+    "D03 SC100 (comparison, rows from 2011-10-03 only)": {
+      "path": "Historical Data\\extended_2026-10-30\\Master\\Master_SC100.xlsx",
+      "sha256": "c7f4acdbe414363730008e65623eb75823d06777b6df8f693f46ff068fe26f76"
+    }
+  },
+  "code_sha256": {
+    "Python_Scripts/ST.py": "0c26ca97ed0474887eac77267085e6a576c62ecc5e1e97510821f6ef09873933",
+    "Python_Scripts/QuantBacktester.py": "d3515f10cb2389e6412d3a6a632bde19afb2ebefde2a1c86a237764ed2b2b364",
+    "Python_Scripts/ProspectTheory.py": "80715de73ad26774e929a58438d79a6be286836ce6609ebd670dfb3b65afeba7",
+    "analysis_master.py": "beaaa4195971913eb0bf28c49b447810a8bad683eaf4ca78ad4584df920b5df8"
+  },
+  "pandas": "2.2.3",
+  "numpy": "1.26.4",
+  "comparison_with_d03": {
+    "rows_new": 374,
+    "rows_d03_from_first_bar": 787,
+    "overlap": 374,
+    "sign_mismatch_weeks": 1,
+    "sign_mismatch_dates": [
+      "2011-11-11"
+    ],
+    "sign_agrees_on_every_week_from": "2011-11-18",
+    "max_abs_diff_by_column_all_overlap": {
+      "Index": 0.0,
+      "ST": 360.47233333333315,
+      "FUB": 0.0,
+      "FLB": 48.32766666666703,
+      "BUB": 0.0,
+      "BLB": 0.0,
+      "EMA_Close": 0.0,
+      "EMA_TR": 0.0,
+      "Long_Weight": 0.0
+    },
+    "weeks_with_any_column_diff_over_1e-6": 2,
+    "last_week_with_any_column_diff_over_1e-6": "2011-11-18",
+    "ST_abs_diff_by_half_year": {
+      "(2011, 1)": 360.472,
+      "(2012, 0)": 0.0,
+      "(2012, 1)": 0.0,
+      "(2013, 0)": 0.0,
+      "(2013, 1)": 0.0,
+      "(2014, 0)": 0.0,
+      "(2014, 1)": 0.0,
+      "(2015, 0)": 0.0,
+      "(2015, 1)": 0.0,
+      "(2016, 0)": 0.0,
+      "(2016, 1)": 0.0,
+      "(2017, 0)": 0.0,
+      "(2017, 1)": 0.0,
+      "(2018, 0)": 0.0,
+      "(2018, 1)": 0.0,
+      "(2019, 0)": 0.0
+    }
+  },
+  "outputs": {
+    "indexDf_W.xlsx": "82358ae10689b409ddc144967fda137278c3978b2a85d9f9ac5582c913d1b5d3",
+    "Master_SC100.xlsx": "9f36cab749dded47649eb500bec070c000c0c3d7d4bac851680f6d0c2311a4a1",
+    "sc100_supertrend_weekly_from_2011-10-03.csv": "b3d10a040bd0d4dbb32630c7aba6bb2b331a1b5dc541d5a948510cef0164b6ea",
+    "W_allRebal.xlsx": "f1a362c68c10dcccbab017dd321f13a6f0caf7a0f617b993c41580d5ce2b42bc",
+    "weekIndexDf_W.xlsx": "03f72801d1471e7416cb604270338388caf9265020f3df1f44a876c93abcd209"
+  }
+}

@@ -1,0 +1,1895 @@
+{
+ "inputs": {
+  "D20": {
+   "file": "Historical Data/extended_2026-11-12/mcap_universe/mcap_universe_ordinary.csv",
+   "sha256_16": "f0288a5b09a604ec",
+   "rows": 788112
+  },
+  "D21": {
+   "file": "Historical Data/extended_2026-11-12/membership/index_constituents_monthly.csv",
+   "sha256_16": "532c816e53cb49a0",
+   "rows": 6001
+  },
+  "D22": {
+   "file": "Historical Data/extended_2026-11-12/symbology/symbology_changes.csv",
+   "sha256_16": "038b1d7922735910",
+   "rows": 9231
+  },
+  "D23_rank": {
+   "file": "Historical Data/extended_2026-11-12/tags/mcap_rank_panel.csv",
+   "sha256_16": "e7c98ec5e0cc144c"
+  },
+  "D23_membership": {
+   "file": "Historical Data/extended_2026-11-12/tags/membership_panel.csv",
+   "sha256_16": "c5ac673b322945b1"
+  }
+ },
+ "check1": {
+  "columns_d20_ok": true,
+  "columns_d21_ok": true,
+  "d22_columns": [
+   "id",
+   "quote_id",
+   "instrument_id",
+   "ric",
+   "ticker",
+   "full_name",
+   "isin",
+   "new_ric",
+   "new_ticker",
+   "new_full_name",
+   "new_isin",
+   "ric_changed_flag",
+   "ticker_changed_flag",
+   "full_name_changed_flag",
+   "isin_changed_flag",
+   "instrument_type",
+   "instrument_class",
+   "is_active",
+   "delist_date",
+   "delist_date_source",
+   "updated_at"
+  ],
+  "rows": {
+   "d20": 788112,
+   "d21": 6001,
+   "d22": 9231
+  },
+  "d20_dup_date_quote_id": 0,
+  "d20_dup_date_isin_nonnull": 0,
+  "d20_dup_date_isin_incl_null_as_equal": 448,
+  "d20_ordinary_only": true,
+  "d20_mcap_nonpositive": 0,
+  "d20_close_nonpositive": 0,
+  "d20_nulls": {
+   "ticker": 426,
+   "isin": 539,
+   "mcap": 47,
+   "mcap_scaled_in_cr": 47
+  },
+  "mcap_vs_scaled_cr_max_rel_dev": 0.0002561840562720352,
+  "null_isin_rows_ranked": 515,
+  "null_isin_best_rank": 343,
+  "null_isin_in_top250": 0,
+  "null_ticker_best_rank": 343,
+  "null_ticker_in_top250": 0,
+  "null_isin_by_year": {
+   "2025": 12,
+   "2026": 527
+  },
+  "null_ticker_by_year": {
+   "2025": 12,
+   "2026": 414
+  },
+  "null_mcap_by_year": {
+   "2018": 1,
+   "2023": 1,
+   "2025": 2,
+   "2026": 43
+  },
+  "null_mcap_rows_detail": {
+   "2018-08-31": 1,
+   "2023-12-29": 1,
+   "2025-12-30": 1,
+   "2025-12-31": 1,
+   "2026-03-06": 1,
+   "2026-03-13": 1,
+   "2026-03-19": 1,
+   "2026-05-05": 1,
+   "2026-05-06": 1,
+   "2026-06-12": 1,
+   "2026-07-01": 2,
+   "2026-07-08": 1,
+   "2026-08-24": 2,
+   "2026-08-25": 1,
+   "2026-08-26": 1,
+   "2026-08-28": 1,
+   "2026-09-01": 4,
+   "2026-09-02": 1,
+   "2026-09-03": 1,
+   "2026-09-04": 2,
+   "2026-09-16": 2,
+   "2026-09-17": 1,
+   "2026-09-21": 1,
+   "2026-09-25": 1,
+   "2026-09-30": 5,
+   "2026-10-01": 2,
+   "2026-10-05": 4,
+   "2026-10-22": 1,
+   "2026-10-23": 3,
+   "2026-11-05": 1
+  },
+  "null_mcap_rows_with_isin": 23,
+  "rank_of_null_isin_quantiles": {
+   "0.0": 343.0,
+   "0.25": 1013.5,
+   "0.5": 1733.0,
+   "0.75": 2204.0,
+   "1.0": 2820.0
+  },
+  "mcap_ties_ranked_rows": 56,
+  "mcap_ties_within_top_260": 0,
+  "mcap_ties_straddling_a_band_edge": 0,
+  "d20_isins_with_more_than_one_quote_id": 1,
+  "d20_isins_with_more_than_one_quote_id_list": [
+   "INE225C01029"
+  ],
+  "d20_quote_ids_with_more_than_one_isin": 46,
+  "n_dates": 309,
+  "dates_first_last": [
+   "2018-01-31",
+   "2026-11-11"
+  ],
+  "dates_per_year": {
+   "2018": 12,
+   "2019": 12,
+   "2020": 12,
+   "2021": 12,
+   "2022": 12,
+   "2023": 12,
+   "2024": 12,
+   "2025": 13,
+   "2026": 212
+  },
+  "max_gap_days_2026": 4,
+  "gaps_over_4_days_2026": [],
+  "weekend_dates": [
+   "2026-02-01"
+  ],
+  "pre2026_dates_not_last_d17_session_of_month_2019on": [
+   "2025-12-30"
+  ],
+  "pre2026_dates_2025": [
+   "2025-01-31",
+   "2025-02-28",
+   "2025-03-28",
+   "2025-04-30",
+   "2025-05-30",
+   "2025-06-30",
+   "2025-07-31",
+   "2025-08-29",
+   "2025-09-30",
+   "2025-10-31",
+   "2025-11-28",
+   "2025-12-30",
+   "2025-12-31"
+  ],
+  "pre2018_2018_dates_last_weekday_of_month": {
+   "2018-01-31": true,
+   "2018-02-28": true,
+   "2018-03-28": false,
+   "2018-04-30": true,
+   "2018-05-31": true,
+   "2018-06-29": true,
+   "2018-07-31": true,
+   "2018-08-31": true,
+   "2018-09-28": true,
+   "2018-10-31": true,
+   "2018-11-30": true,
+   "2018-12-31": true
+  },
+  "d17_sessions_2026_not_in_d20": [],
+  "d20_2026_dates_not_a_d17_session_to_2026-11-06": [],
+  "d20_dates_after_2026-11-06": [
+   "2026-11-09",
+   "2026-11-11"
+  ],
+  "rows_per_date_min_max": [
+   1642,
+   3090
+  ],
+  "ranked_per_date_min_max_first_last": [
+   1642,
+   3090,
+   1659,
+   3090
+  ],
+  "d21_dup_snapshot_isin": 0,
+  "d21_index_sizes": {
+   "2026-04-09": {
+    "NIFTY 100": 100,
+    "NIFTY MICROCAP 250": 250,
+    "NIFTY MIDCAP 150": 150,
+    "NIFTY SMALLCAP 250": 250
+   },
+   "2026-05-04": {
+    "NIFTY 100": 100,
+    "NIFTY MICROCAP 250": 250,
+    "NIFTY MIDCAP 150": 150,
+    "NIFTY SMALLCAP 250": 250
+   },
+   "2026-06-05": {
+    "NIFTY 100": 100,
+    "NIFTY MICROCAP 250": 250,
+    "NIFTY MIDCAP 150": 150,
+    "NIFTY SMALLCAP 250": 250
+   },
+   "2026-07-03": {
+    "NIFTY 100": 100,
+    "NIFTY MICROCAP 250": 250,
+    "NIFTY MIDCAP 150": 150,
+    "NIFTY SMALLCAP 250": 250
+   },
+   "2026-08-01": {
+    "NIFTY 100": 100,
+    "NIFTY MICROCAP 250": 250,
+    "NIFTY MIDCAP 150": 150,
+    "NIFTY SMALLCAP 250": 250
+   },
+   "2026-09-01": {
+    "NIFTY 100": 100,
+    "NIFTY MICROCAP 250": 250,
+    "NIFTY MIDCAP 150": 150,
+    "NIFTY SMALLCAP 250": 250
+   },
+   "2026-10-01": {
+    "NIFTY 100": 100,
+    "NIFTY MICROCAP 250": 250,
+    "NIFTY MIDCAP 150": 150,
+    "NIFTY SMALLCAP 250": 250
+   },
+   "2026-11-01": {
+    "NIFTY 100": 100,
+    "NIFTY MICROCAP 250": 251,
+    "NIFTY MIDCAP 150": 150,
+    "NIFTY SMALLCAP 250": 250
+   }
+  },
+  "d21_snapshots_off_size": [
+   [
+    "2026-11-01",
+    "NIFTY MICROCAP 250",
+    251
+   ]
+  ],
+  "d21_oversize_index_new_names": [
+   {
+    "snapshot": "2026-11-01",
+    "index": "NIFTY MICROCAP 250",
+    "isin": "INE182A01018",
+    "symbol": "PFIZER",
+    "name": "PFIZER LIMITED",
+    "new_vs_prev_snapshot": true,
+    "in_D20_any_date": true,
+    "in_D20_on_2026-11-02_or_nearest_before": true,
+    "D20_dates_present": 309,
+    "D20_first_last": [
+     "2018-01-31",
+     "2026-11-11"
+    ]
+   },
+   {
+    "snapshot": "2026-11-01",
+    "index": "NIFTY MICROCAP 250",
+    "isin": "INE2WKE01011",
+    "symbol": "TRIVENIPT",
+    "name": "TRIVENI POWER TRANSMISSION LIMITED",
+    "new_vs_prev_snapshot": true,
+    "in_D20_any_date": true,
+    "in_D20_on_2026-11-02_or_nearest_before": true,
+    "D20_dates_present": 19,
+    "D20_first_last": [
+     "2026-10-14",
+     "2026-11-11"
+    ]
+   }
+  ],
+  "d21_isin_in_two_indices": 0,
+  "d21_bucket_disagrees_with_index": 0,
+  "d21_index_to_bucket": [
+   [
+    "NIFTY 100",
+    "Large Cap",
+    800
+   ],
+   [
+    "NIFTY MICROCAP 250",
+    "Micro Cap",
+    2001
+   ],
+   [
+    "NIFTY MIDCAP 150",
+    "Mid Cap",
+    1200
+   ],
+   [
+    "NIFTY SMALLCAP 250",
+    "Small Cap",
+    2000
+   ]
+  ],
+  "d21_snapshot_dates": [
+   "2026-04-09",
+   "2026-05-04",
+   "2026-06-05",
+   "2026-07-03",
+   "2026-08-01",
+   "2026-09-01",
+   "2026-10-01",
+   "2026-11-01"
+  ],
+  "d20_quote_ids": 3522,
+  "d20_quote_ids_missing_from_d22": 0,
+  "d20_quote_ids_missing_from_d22_list": [],
+  "d22_unique_quote_ids": 7154,
+  "d22_dup_id": 0,
+  "isins_mapping_to_more_than_one_quote_id_D22_plus_D20": 276,
+  "isins_mapping_to_more_than_one_quote_id_D22_only": 276,
+  "multi_qid_isins_in_D20_top250_ever_or_D21": [
+   "INE009A01021",
+   "INE039C01032",
+   "INE058A01010",
+   "INE064A01026",
+   "INE093A01033",
+   "INE131B01039",
+   "INE178A01016",
+   "INE188A01015",
+   "INE189B01011",
+   "INE199A01012",
+   "INE200A01026",
+   "INE224A01026",
+   "INE233A01035",
+   "INE239A01024",
+   "INE267A01025",
+   "INE281B01032",
+   "INE285B01017",
+   "INE288B01029",
+   "INE291A01017",
+   "INE298A01020",
+   "INE302A01020",
+   "INE322A01010",
+   "INE325A01013",
+   "INE340A01012",
+   "INE356A01018",
+   "INE358A01014",
+   "INE372A01015",
+   "INE451A01017",
+   "INE462A01022",
+   "INE470A01017",
+   "INE494B01023",
+   "INE513A01022",
+   "INE517B01013",
+   "INE520A01027",
+   "INE570A01022",
+   "INE666D01022",
+   "INE672A01026",
+   "INE686A01026",
+   "INE700A01033",
+   "INE716A01013",
+   "INE759A01021",
+   "INE849A01020",
+   "INE854B01010",
+   "INE855B01025",
+   "INE871C01038",
+   "INE885A01032",
+   "INE944F01028",
+   "INE979A01025"
+  ],
+  "d22_isin_changed_flag_true": 785,
+  "d22_isin_changed_with_both_isins": 568,
+  "d22_instrument_class_counts": {
+   "ordinary": 7106,
+   "unknown": 1625,
+   "etf": 414,
+   "special": 46,
+   "trust": 40
+  }
+ },
+ "check3": {
+  "rank_columns_match": true,
+  "membership_columns_match": true,
+  "rank_panel_row_order_identical": true,
+  "membership_panel_row_order_identical": true,
+  "rank_mcap_max_abs_diff": 0.0,
+  "rank_panel": {
+   "label": "rank panel",
+   "rows_mine": 788065,
+   "rows_theirs": 788065,
+   "dup_keys_mine": 0,
+   "dup_keys_theirs": 0,
+   "only_in_mine": 0,
+   "only_in_theirs": 0,
+   "rows_compared": 788065,
+   "field_diffs": {
+    "isin": 0,
+    "ticker": 0,
+    "mcap": 0,
+    "rank": 0,
+    "n_ranked": 0,
+    "band": 0
+   },
+   "rows_with_any_diff": 0,
+   "zero_differences": true
+  },
+  "membership_panel": {
+   "label": "membership panel",
+   "rows_mine": 6001,
+   "rows_theirs": 6001,
+   "dup_keys_mine": 0,
+   "dup_keys_theirs": 0,
+   "only_in_mine": 0,
+   "only_in_theirs": 0,
+   "rows_compared": 6001,
+   "field_diffs": {
+    "symbol": 0,
+    "band": 0
+   },
+   "rows_with_any_diff": 0,
+   "zero_differences": true
+  },
+  "zero_differences": true,
+  "rows_compared_total": 794066,
+  "my_rebuild_saved_to": "C:\\Users\\manur\\AppData\\Local\\Temp\\claude\\d384933f9ddb0ecb\\ea0af580-06c7-4ce3-8c4f-77d4828a38b0\\scratchpad\\review_tag",
+  "my_rebuild_sha256_16": {
+   "rank": "066c26990cc01c44",
+   "membership": "3079f4edbddbff7f"
+  }
+ },
+ "population": {
+  "baskets": {
+   "0003": {
+    "baskets_total": 52,
+    "baskets_skipped": 0,
+    "baskets_used": 52,
+    "d05_skipped_flag_agrees_with_sources_file": true,
+    "matrix_dates_all_in_d05": true,
+    "d05_baskets_with_mixed_skipped_flags": 0,
+    "first_basket": "2014-03-03",
+    "last_basket": "2026-09-10",
+    "columns_dup_isin": 0,
+    "n_columns": 197
+   },
+   "0007": {
+    "baskets_total": 52,
+    "baskets_skipped": 2,
+    "baskets_used": 50,
+    "d05_skipped_flag_agrees_with_sources_file": true,
+    "matrix_dates_all_in_d05": true,
+    "d05_baskets_with_mixed_skipped_flags": 0,
+    "first_basket": "2014-03-03",
+    "last_basket": "2026-09-16",
+    "columns_dup_isin": 0,
+    "n_columns": 154
+   },
+   "0010": {
+    "baskets_total": 52,
+    "baskets_skipped": 0,
+    "baskets_used": 52,
+    "d05_skipped_flag_agrees_with_sources_file": true,
+    "matrix_dates_all_in_d05": true,
+    "d05_baskets_with_mixed_skipped_flags": 0,
+    "first_basket": "2014-03-03",
+    "last_basket": "2026-09-16",
+    "columns_dup_isin": 0,
+    "n_columns": 250
+   },
+   "0029": {
+    "baskets_total": 52,
+    "baskets_skipped": 1,
+    "baskets_used": 51,
+    "d05_skipped_flag_agrees_with_sources_file": true,
+    "matrix_dates_all_in_d05": true,
+    "d05_baskets_with_mixed_skipped_flags": 0,
+    "first_basket": "2014-03-04",
+    "last_basket": "2026-09-16",
+    "columns_dup_isin": 0,
+    "n_columns": 229
+   }
+  },
+  "weekly_dates": {
+   "0003": {
+    "n": 409,
+    "first": "2019-01-04",
+    "last": "2026-10-30"
+   },
+   "0007": {
+    "n": 409,
+    "first": "2019-01-04",
+    "last": "2026-10-30"
+   },
+   "0010": {
+    "n": 409,
+    "first": "2019-01-04",
+    "last": "2026-10-30"
+   },
+   "0029": {
+    "n": 409,
+    "first": "2019-01-04",
+    "last": "2026-10-30"
+   }
+  },
+  "holding_weeks": 18949,
+  "unique_isins": 338,
+  "pre_cutoff_weeks_share": 0.9142962689323975
+ },
+ "check4": {
+  "population_holding_weeks": 18949,
+  "population_unique_isin_date_pairs": 16218,
+  "population_mismatches": 0,
+  "population_weekly_dates_by_parent": {
+   "0003": 409,
+   "0007": 409,
+   "0010": 409,
+   "0029": 409
+  },
+  "my_ambiguous_membership_alias_cases_in_population": 0,
+  "population_source_counts_holding_weeks": {
+   "rank": 17325,
+   "membership": 1581,
+   "nonmember_rank": 43
+  },
+  "population_band_counts_holding_weeks": {
+   "Small and below": 11252,
+   "Mid": 4086,
+   "Large": 3611
+  },
+  "population_found_via_symbology_holding_weeks": 78,
+  "population_found_via_symbology_unique_isins": 2,
+  "edge_dates": [
+   "2018-01-15",
+   "2018-01-31",
+   "2018-02-14",
+   "2018-03-29",
+   "2024-06-14",
+   "2025-12-30",
+   "2025-12-31",
+   "2026-01-01",
+   "2026-02-01",
+   "2026-04-07",
+   "2026-04-08",
+   "2026-04-09",
+   "2026-04-10",
+   "2026-05-03",
+   "2026-05-04",
+   "2026-05-05",
+   "2026-07-31",
+   "2026-08-01",
+   "2026-10-30",
+   "2026-11-01",
+   "2026-11-11",
+   "2026-11-12",
+   "2027-01-01"
+  ],
+  "edge_isins_tested_per_date": 3573,
+  "edge_calls": 82179,
+  "edge_mismatches": 0,
+  "edge_examples_mine": {
+   "RELIANCE 2018-01-15": {
+    "band": "Small and below",
+    "source": "unranked",
+    "snapshot": null,
+    "detail": null
+   },
+   "RELIANCE 2018-01-31": {
+    "band": "Large",
+    "source": "rank",
+    "snapshot": "2018-01-31",
+    "detail": 1
+   },
+   "RELIANCE 2026-04-08": {
+    "band": "Large",
+    "source": "rank",
+    "snapshot": "2026-04-08",
+    "detail": 1
+   },
+   "RELIANCE 2026-04-09": {
+    "band": "Large",
+    "source": "membership",
+    "snapshot": "2026-04-09",
+    "detail": "NIFTY 100"
+   },
+   "RELIANCE 2026-05-03": {
+    "band": "Large",
+    "source": "membership",
+    "snapshot": "2026-04-09",
+    "detail": "NIFTY 100"
+   },
+   "RELIANCE 2026-05-04": {
+    "band": "Large",
+    "source": "membership",
+    "snapshot": "2026-05-04",
+    "detail": "NIFTY 100"
+   },
+   "TCS 2018-01-15": {
+    "band": "Small and below",
+    "source": "unranked",
+    "snapshot": null,
+    "detail": null
+   },
+   "TCS 2018-01-31": {
+    "band": "Large",
+    "source": "rank",
+    "snapshot": "2018-01-31",
+    "detail": 2
+   },
+   "TCS 2026-04-08": {
+    "band": "Large",
+    "source": "rank",
+    "snapshot": "2026-04-08",
+    "detail": 6
+   },
+   "TCS 2026-04-09": {
+    "band": "Large",
+    "source": "membership",
+    "snapshot": "2026-04-09",
+    "detail": "NIFTY 100"
+   },
+   "TCS 2026-05-03": {
+    "band": "Large",
+    "source": "membership",
+    "snapshot": "2026-04-09",
+    "detail": "NIFTY 100"
+   },
+   "TCS 2026-05-04": {
+    "band": "Large",
+    "source": "membership",
+    "snapshot": "2026-05-04",
+    "detail": "NIFTY 100"
+   }
+  },
+  "renamed_quote_ids": 46,
+  "renamed_isin_calls": 442,
+  "renamed_mismatches": 0,
+  "renamed_examples": [
+   {
+    "quote_id": 21475110692,
+    "old_isin": "INE063E01053",
+    "new_isin": "INE063E01061",
+    "change_date_in_D20": "2026-07-21",
+    "old_isin_tag_at_change": {
+     "band": "Small and below",
+     "source": "nonmember_rank",
+     "snapshot": "2026-07-21",
+     "detail": 875
+    },
+    "new_isin_tag_at_change": {
+     "band": "Small and below",
+     "source": "nonmember_rank",
+     "snapshot": "2026-07-21",
+     "detail": 875
+    }
+   },
+   {
+    "quote_id": 21475730331,
+    "old_isin": "INE811A01020",
+    "new_isin": "INE811A01038",
+    "change_date_in_D20": "2026-08-18",
+    "old_isin_tag_at_change": {
+     "band": "Small and below",
+     "source": "membership",
+     "snapshot": "2026-08-01",
+     "detail": "NIFTY MICROCAP 250"
+    },
+    "new_isin_tag_at_change": {
+     "band": "Small and below",
+     "source": "membership",
+     "snapshot": "2026-08-01",
+     "detail": "NIFTY MICROCAP 250"
+    }
+   },
+   {
+    "quote_id": 21475855341,
+    "old_isin": "INE726L01019",
+    "new_isin": "INE726L01027",
+    "change_date_in_D20": "2026-02-13",
+    "old_isin_tag_at_change": {
+     "band": "Small and below",
+     "source": "rank",
+     "snapshot": "2026-02-13",
+     "detail": 1731
+    },
+    "new_isin_tag_at_change": {
+     "band": "Small and below",
+     "source": "rank",
+     "snapshot": "2026-02-13",
+     "detail": 1731
+    }
+   }
+  ],
+  "sweep_dates": 64,
+  "sweep_calls": 228672,
+  "sweep_mismatches": 0,
+  "population_tags_using_snapshot_later_than_asof": 0,
+  "total_calls_compared": 327511,
+  "total_mismatches": 0,
+  "zero_mismatches": true
+ },
+ "check5": {
+  "weight_sum_all_holding_weeks": 1636.00000003022,
+  "coverage_overall_weight_weighted": 1.0,
+  "coverage_overall_count_weighted": 1.0,
+  "per_parent": {
+   "0003": {
+    "coverage_weight_weighted": 1.0,
+    "holding_weeks": 4060,
+    "unranked_holding_weeks": 0,
+    "weekly_dates": 409
+   },
+   "0007": {
+    "coverage_weight_weighted": 1.0,
+    "holding_weeks": 4486,
+    "unranked_holding_weeks": 0,
+    "weekly_dates": 409
+   },
+   "0010": {
+    "coverage_weight_weighted": 1.0,
+    "holding_weeks": 5434,
+    "unranked_holding_weeks": 0,
+    "weekly_dates": 409
+   },
+   "0029": {
+    "coverage_weight_weighted": 1.0,
+    "holding_weeks": 4969,
+    "unranked_holding_weeks": 0,
+    "weekly_dates": 409
+   }
+  },
+  "holding_weeks_found_only_through_symbology": 78,
+  "weight_share_found_only_through_symbology": 0.0034433387517823623,
+  "coverage_if_d22_were_not_used_weight_weighted": 0.9965566612482176,
+  "symbology_names": [
+   {
+    "parent": "0003",
+    "isin": "INE419M01035",
+    "stock": "TDPOWERSYS.NS",
+    "weeks": 54
+   },
+   {
+    "parent": "0007",
+    "isin": "INE811A01038",
+    "stock": "KIRLPNU.NS",
+    "weeks": 11
+   },
+   {
+    "parent": "0029",
+    "isin": "INE811A01038",
+    "stock": "KIRLPNU.NS",
+    "weeks": 13
+   }
+  ],
+  "unranked_names": [],
+  "unranked_unique_isins": 0,
+  "unranked_holding_weeks": 0,
+  "unranked_holding_over_2pct_weight": [],
+  "thresholds": {
+   "pass_overall": 0.99,
+   "pass_per_parent": 0.98,
+   "notes_floor": 0.97,
+   "fail_if_any_single_holding_over_2pct_unranked": true
+  },
+  "verdict": "PASS",
+  "min_parent_coverage": 1.0
+ },
+ "check6": {
+  "members_pooled": 6001,
+  "agreement_pooled": 0.9206798866855525,
+  "agreement_per_snapshot": {
+   "2026-04-09": {
+    "agreement": 0.932,
+    "members": 750
+   },
+   "2026-05-04": {
+    "agreement": 0.928,
+    "members": 750
+   },
+   "2026-06-05": {
+    "agreement": 0.924,
+    "members": 750
+   },
+   "2026-07-03": {
+    "agreement": 0.9133333333333333,
+    "members": 750
+   },
+   "2026-08-01": {
+    "agreement": 0.916,
+    "members": 750
+   },
+   "2026-09-01": {
+    "agreement": 0.9133333333333333,
+    "members": 750
+   },
+   "2026-10-01": {
+    "agreement": 0.9226666666666666,
+    "members": 750
+   },
+   "2026-11-01": {
+    "agreement": 0.9161118508655126,
+    "members": 751
+   }
+  },
+  "agreement_mean_of_snapshots": 0.9206806480248558,
+  "members_unranked_pooled": 15,
+  "members_unranked_by_snapshot": {
+   "2026-04-09": 0,
+   "2026-05-04": 0,
+   "2026-06-05": 0,
+   "2026-07-03": 2,
+   "2026-08-01": 1,
+   "2026-09-01": 3,
+   "2026-10-01": 6,
+   "2026-11-01": 3
+  },
+  "members_found_via_symbology": 0,
+  "agreement_pooled_excluding_unranked": 0.9219846308052122,
+  "confusion_real_rows_by_predicted_cols": {
+   "Large": {
+    "Large": 705,
+    "Mid": 88,
+    "Small and below": 7
+   },
+   "Mid": {
+    "Large": 86,
+    "Mid": 958,
+    "Small and below": 156
+   },
+   "Small and below": {
+    "Large": 0,
+    "Mid": 139,
+    "Small and below": 3862
+   }
+  },
+  "recall_per_band": {
+   "Large": 0.88125,
+   "Mid": 0.7983333333333333,
+   "Small and below": 0.9652586853286679
+  },
+  "real_members_per_band_pooled": {
+   "Large": 800,
+   "Mid": 1200,
+   "Small and below": 4001
+  },
+  "recall_by_index": {
+   "NIFTY 100": 0.88125,
+   "NIFTY MIDCAP 150": 0.7983333333333333,
+   "NIFTY SMALLCAP 250": 0.931,
+   "NIFTY MICROCAP 250": 0.9995002498750625
+  },
+  "pred_band_by_index": {
+   "NIFTY 100": {
+    "Large": 705,
+    "Mid": 88,
+    "Small and below": 7
+   },
+   "NIFTY MICROCAP 250": {
+    "Large": 0,
+    "Mid": 1,
+    "Small and below": 2000
+   },
+   "NIFTY MIDCAP 150": {
+    "Large": 86,
+    "Mid": 958,
+    "Small and below": 156
+   },
+   "NIFTY SMALLCAP 250": {
+    "Large": 0,
+    "Mid": 138,
+    "Small and below": 1862
+   }
+  },
+  "all_ranked_shares_pooled_rows": 22985,
+  "rank_called_vs_real_all_ranked_shares": {
+   "Large": {
+    "Large": 705,
+    "Mid": 86,
+    "Small and below": 0,
+    "outside": 9
+   },
+   "Mid": {
+    "Large": 88,
+    "Mid": 958,
+    "Small and below": 139,
+    "outside": 15
+   },
+   "Small and below": {
+    "Large": 0,
+    "Mid": 154,
+    "Small and below": 3856,
+    "outside": 16975
+   }
+  },
+  "precision_per_band_share_of_rank_called_band_that_are_real_members_of_it": {
+   "Large": 0.88125,
+   "Mid": 0.7983333333333333,
+   "Small and below": 0.18375029783178462
+  },
+  "ranked_nonmembers_called_Large_pooled": 9,
+  "ranked_nonmembers_called_Mid_pooled": 15,
+  "ranked_nonmembers_called_Large_by_snapshot": {
+   "2026-07-03": 2,
+   "2026-08-01": 2,
+   "2026-09-01": 3,
+   "2026-10-01": 1,
+   "2026-11-01": 1
+  },
+  "ranked_nonmembers_called_Mid_by_snapshot": {
+   "2026-04-09": 1,
+   "2026-06-05": 1,
+   "2026-07-03": 1,
+   "2026-08-01": 2,
+   "2026-09-01": 3,
+   "2026-10-01": 4,
+   "2026-11-01": 3
+  },
+  "ranked_nonmembers_called_Small_pooled": 16975,
+  "note_precision_small": "Small and below holds every ranked share below 250, most in no index, so its precision against index membership is not meaningful.",
+  "parents_holdings_at_snapshots": {
+   "holding_obs": 434,
+   "member_obs": 423,
+   "nonmember_obs": 11,
+   "weight_total": 32.00000000024,
+   "weight_in_members": 31.21660000023,
+   "weight_not_in_any_index": 0.7834000000100001,
+   "agreement_weight_weighted_among_members": 0.8887408195196014,
+   "agreement_count_among_members": 0.8865248226950354,
+   "per_parent_weight_weighted": {
+    "0003": 0.9107045598619188,
+    "0007": 0.882116129031875,
+    "0010": 0.7999791666662507,
+    "0029": 0.9634208333326527
+   },
+   "per_real_band_weight_weighted_recall": {
+    "Large": 0.9823370994922839,
+    "Mid": 0.8995121408383442,
+    "Small and below": 0.8644271860634123
+   },
+   "weight_by_real_band": {
+    "Large": 4.4349076923,
+    "Mid": 6.72850769238,
+    "Small and below": 20.05318461555
+   },
+   "confusion_weight": {
+    "Large": {
+     "Large": 4.35657435897,
+     "Mid": 0.07833333333,
+     "Small and below": 0.0
+    },
+    "Mid": {
+     "Large": 0.60946666669,
+     "Mid": 6.05237435902,
+     "Small and below": 0.06666666667
+    },
+    "Small and below": {
+     "Large": 0.0,
+     "Mid": 2.71866666672,
+     "Small and below": 17.33451794883
+    }
+   }
+  },
+  "primary_figure_pooled_agreement": 0.9206798866855525,
+  "thresholds": {
+   "pass": 0.9,
+   "notes": 0.85
+  },
+  "verdict": "PASS",
+  "regime_caveat": "All 8 D21 snapshots are in 2026-04 to 2026-11, one regime; nothing here tests the rank-based tags before 2026-04."
+ },
+ "check7": {
+  "month_end_pairs_compared": 210098,
+  "month_end_snapshots": 107,
+  "note": "With three bands the largest possible one-month band move is two bands (Large <-> Small and below), so 'more than two bands' cannot occur. Reported: exactly-two-band moves per year, and the 20 largest rank moves among stocks inside the top 250 at either end.",
+  "two_band_moves_by_year": {
+   "2021": 1
+  },
+  "two_band_moves_total": 1,
+  "one_band_moves_total": 1917,
+  "pairs_by_year": {
+   "2018": 17996,
+   "2019": 19497,
+   "2020": 19558,
+   "2021": 20491,
+   "2022": 22160,
+   "2023": 23779,
+   "2024": 26828,
+   "2025": 29589,
+   "2026": 30200
+  },
+  "largest_20_rank_moves_top250": [
+   {
+    "quote_id": 21601556242,
+    "ticker": "LODHA",
+    "isin": "INE670K01029",
+    "from_date": "2021-10-29",
+    "to_date": "2021-11-30",
+    "from_rank": 723,
+    "to_rank": 77
+   },
+   {
+    "quote_id": 21601556242,
+    "ticker": "LODHA",
+    "isin": "INE670K01029",
+    "from_date": "2021-08-31",
+    "to_date": "2021-09-30",
+    "from_rank": 106,
+    "to_rank": 729
+   },
+   {
+    "quote_id": 55837400593,
+    "ticker": "GFLLIMITED",
+    "isin": "INE538A01037",
+    "from_date": "2019-07-31",
+    "to_date": "2019-08-30",
+    "from_rank": 212,
+    "to_rank": 807
+   },
+   {
+    "quote_id": 21526523223,
+    "ticker": "ABFRL",
+    "isin": "INE647O01011",
+    "from_date": "2025-04-30",
+    "to_date": "2025-05-30",
+    "from_rank": 238,
+    "to_rank": 513
+   },
+   {
+    "quote_id": 55837397989,
+    "ticker": "ARVIND",
+    "isin": "INE034A01011",
+    "from_date": "2018-10-31",
+    "to_date": "2018-11-30",
+    "from_rank": 237,
+    "to_rank": 469
+   },
+   {
+    "quote_id": 55854009440,
+    "ticker": "VAKRANGEE",
+    "isin": "INE051B01021",
+    "from_date": "2018-04-30",
+    "to_date": "2018-05-31",
+    "from_rank": 243,
+    "to_rank": 451
+   },
+   {
+    "quote_id": 21574909952,
+    "ticker": "INFIBEAM",
+    "isin": "INE483S01020",
+    "from_date": "2018-08-31",
+    "to_date": "2018-09-28",
+    "from_rank": 183,
+    "to_rank": 382
+   },
+   {
+    "quote_id": 55837405594,
+    "ticker": "MAHABANK",
+    "isin": "INE457A01014",
+    "from_date": "2019-03-29",
+    "to_date": "2019-04-30",
+    "from_rank": 407,
+    "to_rank": 217
+   },
+   {
+    "quote_id": 55837401716,
+    "ticker": "FACT",
+    "isin": "INE188A01015",
+    "from_date": "2022-11-30",
+    "to_date": "2022-12-30",
+    "from_rank": 358,
+    "to_rank": 192
+   },
+   {
+    "quote_id": 55837408880,
+    "ticker": "YESBANK",
+    "isin": "INE528G01035",
+    "from_date": "2020-02-28",
+    "to_date": "2020-03-31",
+    "from_rank": 240,
+    "to_rank": 74
+   },
+   {
+    "quote_id": 21538654535,
+    "ticker": "RBLBANK",
+    "isin": "INE976G01028",
+    "from_date": "2026-05-29",
+    "to_date": "2026-06-30",
+    "from_rank": 333,
+    "to_rank": 186
+   },
+   {
+    "quote_id": 21516624229,
+    "ticker": "PCJEWELLER",
+    "isin": "INE785M01021",
+    "from_date": "2018-03-28",
+    "to_date": "2018-04-30",
+    "from_rank": 202,
+    "to_rank": 341
+   },
+   {
+    "quote_id": 55854009440,
+    "ticker": "VAKRANGEE",
+    "isin": "INE051B01021",
+    "from_date": "2018-03-28",
+    "to_date": "2018-04-30",
+    "from_rank": 119,
+    "to_rank": 243
+   },
+   {
+    "quote_id": 21594547654,
+    "ticker": "FRETAIL",
+    "isin": "INE752P01024",
+    "from_date": "2020-02-28",
+    "to_date": "2020-03-31",
+    "from_rank": 167,
+    "to_rank": 289
+   },
+   {
+    "quote_id": 55837399160,
+    "ticker": "ABREL",
+    "isin": "INE055A01016",
+    "from_date": "2019-09-30",
+    "to_date": "2019-10-31",
+    "from_rank": 213,
+    "to_rank": 333
+   },
+   {
+    "quote_id": 55856895700,
+    "ticker": "HINDCOPPER",
+    "isin": "INE531E01026",
+    "from_date": "2021-01-29",
+    "to_date": "2021-02-26",
+    "from_rank": 347,
+    "to_rank": 227
+   },
+   {
+    "quote_id": 55837407184,
+    "ticker": "IIFL",
+    "isin": "INE530B01024",
+    "from_date": "2019-04-30",
+    "to_date": "2019-05-31",
+    "from_rank": 187,
+    "to_rank": 303
+   },
+   {
+    "quote_id": 55837397452,
+    "ticker": "ALOKINDS",
+    "isin": "INE270A01029",
+    "from_date": "2020-05-29",
+    "to_date": "2020-06-30",
+    "from_rank": 315,
+    "to_rank": 199
+   },
+   {
+    "quote_id": 21665283166,
+    "ticker": "METROPOLIS",
+    "isin": "INE112L01020",
+    "from_date": "2021-04-30",
+    "to_date": "2021-05-31",
+    "from_rank": 361,
+    "to_rank": 249
+   },
+   {
+    "quote_id": 55837409666,
+    "ticker": "TTML",
+    "isin": "INE517B01013",
+    "from_date": "2021-10-29",
+    "to_date": "2021-11-30",
+    "from_rank": 319,
+    "to_rank": 212
+   }
+  ],
+  "two_band_move_examples": [
+   {
+    "ticker": "LODHA",
+    "isin": "INE670K01029",
+    "from_date": "2021-10-29",
+    "to_date": "2021-11-30",
+    "from_rank": 723,
+    "to_rank": 77
+   }
+  ],
+  "d21_members_absent_from_d20_by_isin_latest_d20_on_or_before_snapshot": {
+   "2026-04-09": 0,
+   "2026-05-04": 0,
+   "2026-06-05": 0,
+   "2026-07-03": 2,
+   "2026-08-01": 1,
+   "2026-09-01": 3,
+   "2026-10-01": 6,
+   "2026-11-01": 3
+  },
+  "d21_members_absent_by_isin_from_all_of_d20": {
+   "2026-04-09": 0,
+   "2026-05-04": 0,
+   "2026-06-05": 0,
+   "2026-07-03": 2,
+   "2026-08-01": 1,
+   "2026-09-01": 3,
+   "2026-10-01": 6,
+   "2026-11-01": 3
+  },
+  "d21_absent_detail": {
+   "2026-07-03": [
+    {
+     "isin": "INE019A04016",
+     "symbol": "JSWSTEEL",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    },
+    {
+     "isin": "INE205A04011",
+     "symbol": "VEDL",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    }
+   ],
+   "2026-08-01": [
+    {
+     "isin": "INE205A04011",
+     "symbol": "VEDL",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    }
+   ],
+   "2026-09-01": [
+    {
+     "isin": "INE019A04016",
+     "symbol": "JSWSTEEL",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    },
+    {
+     "isin": "INE205A04011",
+     "symbol": "VEDL",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    },
+    {
+     "isin": "INE256A04022",
+     "symbol": "ZEEL",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    }
+   ],
+   "2026-10-01": [
+    {
+     "isin": "INE019A04016",
+     "symbol": "JSWSTEEL",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    },
+    {
+     "isin": "INE205A04011",
+     "symbol": "VEDL",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    },
+    {
+     "isin": "INE041025011",
+     "symbol": "EMBASSY",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    },
+    {
+     "isin": "INE0FDU25010",
+     "symbol": "BIRET",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    },
+    {
+     "isin": "INE256A04022",
+     "symbol": "ZEEL",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    },
+    {
+     "isin": "INE2OVN25015",
+     "symbol": "BAGMANE",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    }
+   ],
+   "2026-11-01": [
+    {
+     "isin": "INE041025011",
+     "symbol": "EMBASSY",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    },
+    {
+     "isin": "INE0FDU25010",
+     "symbol": "BIRET",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    },
+    {
+     "isin": "INE2OVN25015",
+     "symbol": "BAGMANE",
+     "resolved_by_D22": false,
+     "isin_on_D20_snapshot": null
+    }
+   ]
+  },
+  "d21_absent_total": 15,
+  "d21_absent_resolved_by_d22_total": 0,
+  "share_count_blips": {
+   "definition": "implied shares = mcap/close; a blip = shares move by more than 25% against both neighbours (consecutive snapshots at most 35 days apart) in opposite directions, i.e. jump away and come back; rank within 300 on the snapshot or a neighbour",
+   "blips_top300_total": 7,
+   "blips_top300_by_year": {
+    "2019": 1,
+    "2021": 1,
+    "2025": 1,
+    "2026": 4
+   },
+   "blips_top300_that_move_rank_across_a_band_edge": 2,
+   "blip_examples": [
+    {
+     "ticker": "GUJENERGY",
+     "date": "2026-07-01",
+     "rank_prev": 278,
+     "rank": 1917,
+     "rank_next": 296,
+     "implied_shares_m": 9.9
+    },
+    {
+     "ticker": "NUVAMA",
+     "date": "2025-12-30",
+     "rank_prev": 289,
+     "rank": 753,
+     "rank_next": 288,
+     "implied_shares_m": 36.3
+    },
+    {
+     "ticker": "AXISBANK",
+     "date": "2026-10-07",
+     "rank_prev": 18,
+     "rank": 237,
+     "rank_next": 15,
+     "implied_shares_m": 311.4
+    },
+    {
+     "ticker": "AARTIIND",
+     "date": "2019-09-30",
+     "rank_prev": 174,
+     "rank": 269,
+     "rank_next": 170,
+     "implied_shares_m": 199.6
+    },
+    {
+     "ticker": "UTIAMC",
+     "date": "2021-10-29",
+     "rank_prev": 272,
+     "rank": 317,
+     "rank_next": 273,
+     "implied_shares_m": 103.5
+    },
+    {
+     "ticker": "ANANDRATHI",
+     "date": "2026-06-01",
+     "rank_prev": 278,
+     "rank": 274,
+     "rank_next": 273,
+     "implied_shares_m": 166.0
+    },
+    {
+     "ticker": "ANANDRATHI",
+     "date": "2026-06-02",
+     "rank_prev": 274,
+     "rank": 273,
+     "rank_next": 273,
+     "implied_shares_m": 83.0
+    }
+   ],
+   "population_holding_weeks_tagged_from_a_blip_snapshot_that_changes_the_band": 0
+  }
+ },
+ "check8": {
+  "rows": 28,
+  "pre_cutoff_rows": 20,
+  "post_cutoff_rows": 8,
+  "all_agree_with_puller": true,
+  "sources": {
+   "rank": 20,
+   "membership": 8
+  },
+  "signal_bucket_assumption": "signal_bucket = the index signal that governs the band: Large -> Nifty 100, Mid -> Midcap 100, Small and below -> Smallcap 100 (my reading of the spec; PLAN_v2 not read)",
+  "large_cap_hand_check": {
+   "RELIANCE": {
+    "quote_id": 55837405019,
+    "isin_latest": "INE002A01018",
+    "dates_ranked": 309,
+    "month_ends_checked": 107,
+    "best_rank_month_ends": 1,
+    "worst_rank_month_ends": 2,
+    "month_ends_outside_top100": 0,
+    "all_dates_outside_top100": 0,
+    "worst_rank_any_date": 2,
+    "sample_ranks": {
+     "2018-01-31": 1,
+     "2019-12-31": 1,
+     "2021-06-30": 1,
+     "2023-03-31": 1,
+     "2025-06-30": 1,
+     "2026-04-08": 1,
+     "2026-10-30": 1
+    }
+   },
+   "HDFCBANK": {
+    "quote_id": 55837400214,
+    "isin_latest": "INE040A01034",
+    "dates_ranked": 309,
+    "month_ends_checked": 107,
+    "best_rank_month_ends": 2,
+    "worst_rank_month_ends": 4,
+    "month_ends_outside_top100": 0,
+    "all_dates_outside_top100": 0,
+    "worst_rank_any_date": 4,
+    "sample_ranks": {
+     "2018-01-31": 3,
+     "2019-12-31": 3,
+     "2021-06-30": 3,
+     "2023-03-31": 3,
+     "2025-06-30": 2,
+     "2026-04-08": 2,
+     "2026-10-30": 4
+    }
+   },
+   "TCS": {
+    "quote_id": 55837406288,
+    "isin_latest": "INE467B01029",
+    "dates_ranked": 309,
+    "month_ends_checked": 107,
+    "best_rank_month_ends": 1,
+    "worst_rank_month_ends": 7,
+    "month_ends_outside_top100": 0,
+    "all_dates_outside_top100": 0,
+    "worst_rank_any_date": 7,
+    "sample_ranks": {
+     "2018-01-31": 2,
+     "2019-12-31": 2,
+     "2021-06-30": 2,
+     "2023-03-31": 2,
+     "2025-06-30": 3,
+     "2026-04-08": 6,
+     "2026-10-30": 6
+    }
+   },
+   "INFY": {
+    "quote_id": 55837400670,
+    "isin_latest": "INE009A01021",
+    "dates_ranked": 309,
+    "month_ends_checked": 107,
+    "best_rank_month_ends": 4,
+    "worst_rank_month_ends": 17,
+    "month_ends_outside_top100": 0,
+    "all_dates_outside_top100": 0,
+    "worst_rank_any_date": 17,
+    "sample_ranks": {
+     "2018-01-31": 10,
+     "2019-12-31": 8,
+     "2021-06-30": 4,
+     "2023-03-31": 6,
+     "2025-06-30": 7,
+     "2026-04-08": 9,
+     "2026-10-30": 11
+    }
+   },
+   "ICICIBANK": {
+    "quote_id": 55837401324,
+    "isin_latest": "INE090A01021",
+    "dates_ranked": 309,
+    "month_ends_checked": 107,
+    "best_rank_month_ends": 4,
+    "worst_rank_month_ends": 14,
+    "month_ends_outside_top100": 0,
+    "all_dates_outside_top100": 0,
+    "worst_rank_any_date": 14,
+    "sample_ranks": {
+     "2018-01-31": 11,
+     "2019-12-31": 6,
+     "2021-06-30": 7,
+     "2023-03-31": 4,
+     "2025-06-30": 5,
+     "2026-04-08": 5,
+     "2026-10-30": 5
+    }
+   },
+   "ITC": {
+    "quote_id": 55837404111,
+    "isin_latest": "INE154A01025",
+    "dates_ranked": 309,
+    "month_ends_checked": 107,
+    "best_rank_month_ends": 4,
+    "worst_rank_month_ends": 26,
+    "month_ends_outside_top100": 0,
+    "all_dates_outside_top100": 0,
+    "worst_rank_any_date": 26,
+    "sample_ranks": {
+     "2018-01-31": 4,
+     "2019-12-31": 10,
+     "2021-06-30": 15,
+     "2023-03-31": 8,
+     "2025-06-30": 11,
+     "2026-04-08": 18,
+     "2026-10-30": 23
+    }
+   },
+   "SBIN": {
+    "quote_id": 55837409379,
+    "isin_latest": "INE062A01020",
+    "dates_ranked": 309,
+    "month_ends_checked": 107,
+    "best_rank_month_ends": 4,
+    "worst_rank_month_ends": 16,
+    "month_ends_outside_top100": 0,
+    "all_dates_outside_top100": 0,
+    "worst_rank_any_date": 16,
+    "sample_ranks": {
+     "2018-01-31": 8,
+     "2019-12-31": 9,
+     "2021-06-30": 8,
+     "2023-03-31": 9,
+     "2025-06-30": 6,
+     "2026-04-08": 4,
+     "2026-10-30": 7
+    }
+   },
+   "LT": {
+    "quote_id": 55837404715,
+    "isin_latest": "INE018A01030",
+    "dates_ranked": 309,
+    "month_ends_checked": 107,
+    "best_rank_month_ends": 8,
+    "worst_rank_month_ends": 23,
+    "month_ends_outside_top100": 0,
+    "all_dates_outside_top100": 0,
+    "worst_rank_any_date": 23,
+    "sample_ranks": {
+     "2018-01-31": 14,
+     "2019-12-31": 15,
+     "2021-06-30": 19,
+     "2023-03-31": 14,
+     "2025-06-30": 12,
+     "2026-04-08": 8,
+     "2026-10-30": 9
+    }
+   },
+   "BHARTIARTL": {
+    "quote_id": 55837398591,
+    "isin_latest": "INE397D01024",
+    "dates_ranked": 309,
+    "month_ends_checked": 107,
+    "best_rank_month_ends": 2,
+    "worst_rank_month_ends": 23,
+    "month_ends_outside_top100": 0,
+    "all_dates_outside_top100": 0,
+    "worst_rank_any_date": 23,
+    "sample_ranks": {
+     "2018-01-31": 16,
+     "2019-12-31": 12,
+     "2021-06-30": 12,
+     "2023-03-31": 10,
+     "2025-06-30": 4,
+     "2026-04-08": 3,
+     "2026-10-30": 3
+    }
+   },
+   "HINDUNILVR": {
+    "quote_id": 55837400897,
+    "isin_latest": "INE030A01027",
+    "dates_ranked": 309,
+    "month_ends_checked": 107,
+    "best_rank_month_ends": 3,
+    "worst_rank_month_ends": 13,
+    "month_ends_outside_top100": 0,
+    "all_dates_outside_top100": 0,
+    "worst_rank_any_date": 13,
+    "sample_ranks": {
+     "2018-01-31": 6,
+     "2019-12-31": 5,
+     "2021-06-30": 5,
+     "2023-03-31": 5,
+     "2025-06-30": 10,
+     "2026-04-08": 10,
+     "2026-10-30": 13
+    }
+   }
+  }
+ },
+ "check9": {
+  "corruptions": {
+   "shift_ranks": {
+    "rows_touched": 300,
+    "check3_flags_it": true,
+    "check3_rows_with_diff": 300,
+    "check3_only_in_mine": 0,
+    "check3_only_in_theirs": 0,
+    "check4_population_mismatches": 1026,
+    "check4_flags_it": true
+   },
+   "flip_bands": {
+    "rows_touched": 300,
+    "check3_flags_it": true,
+    "check3_rows_with_diff": 300,
+    "check3_only_in_mine": 0,
+    "check3_only_in_theirs": 0,
+    "check4_population_mismatches": 1026,
+    "check4_flags_it": true
+   },
+   "delete_rows": {
+    "rows_touched": 300,
+    "check3_flags_it": true,
+    "check3_rows_with_diff": 0,
+    "check3_only_in_mine": 300,
+    "check3_only_in_theirs": 0,
+    "check4_population_mismatches": 1026,
+    "check4_flags_it": true
+   },
+   "change_quote_id": {
+    "rows_touched": 300,
+    "check3_flags_it": true,
+    "check3_rows_with_diff": 13,
+    "check3_only_in_mine": 300,
+    "check3_only_in_theirs": 287,
+    "check4_population_mismatches": 44,
+    "check4_flags_it": true
+   },
+   "change_isin": {
+    "rows_touched": 300,
+    "check3_flags_it": true,
+    "check3_rows_with_diff": 300,
+    "check3_only_in_mine": 0,
+    "check3_only_in_theirs": 0,
+    "check4_population_mismatches": 0,
+    "check4_flags_it": false
+   },
+   "tiny_mcap_edit": {
+    "rows_touched": 3,
+    "check3_flags_it": true,
+    "check3_rows_with_diff": 3,
+    "check3_only_in_mine": 0,
+    "check3_only_in_theirs": 0,
+    "check4_population_mismatches": 0,
+    "check4_flags_it": false
+   },
+   "membership_band_flip": {
+    "rows_touched": 5,
+    "check3_flags_it": true,
+    "check3_rows_with_diff": 5,
+    "check4_population_mismatches": 20,
+    "check4_flags_it": true
+   }
+  },
+  "all_flagged_by_check3": true,
+  "tag_changing_rank_corruptions_flagged_by_check4": true,
+  "note": "tiny_mcap_edit (3 mcap values) and change_isin (300 ISIN cells) change no tag: check 3 must flag them, check 4 should not, because the lookup recovers a stock whose ISIN is missing on a snapshot through its quote_id and D22 (by design). change_quote_id breaks identity and is flagged by both.",
+  "pass": true
+ },
+ "check2": {
+  "updated_at_vs_date_by_year": {
+   "2018": {
+    "rows": 20166,
+    "min_lag": 2560,
+    "median_lag": 2713.0,
+    "max_lag": 2894,
+    "n_distinct_updated_at_days": 1,
+    "first_updated": "2026-01-03 07:06:57",
+    "last_updated": "2026-01-03 07:23:24"
+   },
+   "2019": {
+    "rows": 20102,
+    "min_lag": 2195,
+    "median_lag": 2348.0,
+    "max_lag": 2529,
+    "n_distinct_updated_at_days": 1,
+    "first_updated": "2026-01-03 07:24:52",
+    "last_updated": "2026-01-03 07:42:39"
+   },
+   "2020": {
+    "rows": 20097,
+    "min_lag": 1828,
+    "median_lag": 1981.0,
+    "max_lag": 2163,
+    "n_distinct_updated_at_days": 1,
+    "first_updated": "2026-01-02 19:57:48",
+    "last_updated": "2026-01-02 20:22:03"
+   },
+   "2021": {
+    "rows": 21057,
+    "min_lag": 1463,
+    "median_lag": 1617.0,
+    "max_lag": 1799,
+    "n_distinct_updated_at_days": 1,
+    "first_updated": "2026-01-02 20:23:30",
+    "last_updated": "2026-01-02 20:42:55"
+   },
+   "2022": {
+    "rows": 22674,
+    "min_lag": 1099,
+    "median_lag": 1253.0,
+    "max_lag": 1432,
+    "n_distinct_updated_at_days": 1,
+    "first_updated": "2026-01-02 20:44:40",
+    "last_updated": "2026-01-02 21:26:40"
+   },
+   "2023": {
+    "rows": 24394,
+    "min_lag": 735,
+    "median_lag": 886.0,
+    "max_lag": 1067,
+    "n_distinct_updated_at_days": 1,
+    "first_updated": "2026-01-02 21:28:28",
+    "last_updated": "2026-01-02 21:51:00"
+   },
+   "2024": {
+    "rows": 27482,
+    "min_lag": 367,
+    "median_lag": 520.0,
+    "max_lag": 702,
+    "n_distinct_updated_at_days": 1,
+    "first_updated": "2026-01-02 21:53:33",
+    "last_updated": "2026-01-02 22:17:29"
+   },
+   "2025": {
+    "rows": 33061,
+    "min_lag": 0,
+    "median_lag": 153.0,
+    "max_lag": 334,
+    "n_distinct_updated_at_days": 1,
+    "first_updated": "2025-12-31 07:50:50",
+    "last_updated": "2025-12-31 13:01:09"
+   },
+   "2026": {
+    "rows": 599079,
+    "min_lag": 0,
+    "median_lag": 0.0,
+    "max_lag": 8,
+    "n_distinct_updated_at_days": 178,
+    "first_updated": "2026-01-03 18:18:55",
+    "last_updated": "2026-11-11 17:47:55"
+   }
+  },
+  "rows_written_after_their_date_by_more_than_7_days_by_year": {
+   "2018": 20166,
+   "2019": 20102,
+   "2020": 20097,
+   "2021": 21057,
+   "2022": 22674,
+   "2023": 24394,
+   "2024": 27482,
+   "2025": 27745,
+   "2026": 2739
+  },
+  "rows_written_within_8_days_by_year": {
+   "2025": 5316,
+   "2026": 599079
+  },
+  "backfill_batch_updated_at": [
+   "2025-12-31 07:50:50",
+   "2025-12-31 09:58:03",
+   "2025-12-31 13:01:09",
+   "2026-01-02 19:57:48",
+   "2026-01-02 20:05:46"
+  ],
+  "lag_by_date_2025": {
+   "2025-01-31": {
+    "min": 334,
+    "max": 334
+   },
+   "2025-02-28": {
+    "min": 306,
+    "max": 306
+   },
+   "2025-03-28": {
+    "min": 278,
+    "max": 278
+   },
+   "2025-04-30": {
+    "min": 245,
+    "max": 245
+   },
+   "2025-05-30": {
+    "min": 215,
+    "max": 215
+   },
+   "2025-06-30": {
+    "min": 184,
+    "max": 184
+   },
+   "2025-07-31": {
+    "min": 153,
+    "max": 153
+   },
+   "2025-08-29": {
+    "min": 124,
+    "max": 124
+   },
+   "2025-09-30": {
+    "min": 92,
+    "max": 92
+   },
+   "2025-10-31": {
+    "min": 61,
+    "max": 61
+   },
+   "2025-11-28": {
+    "min": 33,
+    "max": 33
+   },
+   "2025-12-30": {
+    "min": 1,
+    "max": 1
+   },
+   "2025-12-31": {
+    "min": 0,
+    "max": 0
+   }
+  },
+  "first_date_written_within_8_days": "2025-12-30",
+  "d21_inserted_at_minus_snapshot_days": {
+   "2026-04-09": {
+    "min": 0,
+    "max": 0
+   },
+   "2026-05-04": {
+    "min": 0,
+    "max": 0
+   },
+   "2026-06-05": {
+    "min": 0,
+    "max": 0
+   },
+   "2026-07-03": {
+    "min": 0,
+    "max": 0
+   },
+   "2026-08-01": {
+    "min": 0,
+    "max": 0
+   },
+   "2026-09-01": {
+    "min": 0,
+    "max": 0
+   },
+   "2026-10-01": {
+    "min": 0,
+    "max": 0
+   },
+   "2026-11-01": {
+    "min": 0,
+    "max": 0
+   }
+  },
+  "backfilled_rows_with_isin_different_from_the_quote_ids_latest_isin": 2298,
+  "quote_ids_with_more_than_one_isin_over_time": 46,
+  "implied_shares_monthly_change_over_25pct_top250_2018_2025": 45,
+  "implied_shares_monthly_change_over_25pct_by_year": {
+   "2018": 7,
+   "2019": 17,
+   "2020": 10,
+   "2022": 4,
+   "2023": 2,
+   "2024": 2,
+   "2025": 3
+  },
+  "top250_monthly_obs_2018_2025": 23457,
+  "implied_shares_daily_change_over_25pct_top250_2026": 11,
+  "top250_daily_obs_2026": 52844,
+  "note_on_close": "mcap/close implied share count; close is as stored (unadjusted unknown); used only as a descriptive probe"
+ },
+ "verdict_machine": {
+  "hard_gates_zero": true,
+  "check5": "PASS",
+  "check6": "PASS",
+  "check9_pass": true,
+  "verdict": "PASS WITH NOTES",
+  "note": "PASS WITH NOTES is the best this script assigns: check 2 (back-filled history) and check 6 (one regime) always carry caveats the page must disclose; REVIEW.md carries the reasoning and Manu decides."
+ }
+}

@@ -1,0 +1,771 @@
+{
+ "readings": {
+  "E1": "calendar = D26's dates from T0 to END; the three D25 index files are sliced to [T0, END] on read (Smallcap 100 as text lines, so no earlier row is parsed); rows on dates D26 lacks (Saturday special sessions) are dropped and counted; every session must have a bar in all three files (asserted)",
+  "E2": "decision dates = T0 and the last D26 session of every later ISO week; the decision at the last session (END) is made and not traded",
+  "E3": "label = latest Master row dated <= decision date, per index and for MAUc1 (D24b); IN iff all three index SIGN are BUY; g = BUY iff the MAUc1 SIGN is BUY (a week whose row is dated after its last D26 session reads the previous week's row); the Smallcap 100 Master rows are sliced to >= T0 on read (the whole xlsx is parsed, rows before T0 are dropped at once and never used)",
+  "E4": "initial position at T0's close, no cost: IN = the three index positions at the book's weights of NAV 1 (units w_i / close_i); OUT = gw GOLDBEES and (1-gw) cash of NAV 1 with gw = 0.8 (g BUY at T0) or 0.2 (SELL), 0.5 in fixed50 mode",
+  "E5": "index fill = OHLC4 of the D25 bar (close if any of open/high/low is blank; none is); valuation = close",
+  "E6": "quarterly reset: a session t > 0 whose month is Jan/Apr/Jul/Oct and whose previous session is in another month; it trades iff the book holds the proxy at the START of the session (the position left by the previous trade) and no decision trade falls on t (an exit or entry session does that trade only); no reset while OUT, none in `every` (constant mix) runs because their weekly rebalance already resets; END's session is a reset session when it opens a quarter (2019-01-02) and is traded: only DECISIONS at END are not traded",
+  "E7": "costs: one rule for every trade, see the module docstring (cost = ow x value traded at the pre-cost targets, then every target scaled by (V-cost)/V; T06/T08's `trade`, unchanged in its arithmetic). T09.md section 3 step 6 says the post-cost targets 'solve the fixed point exactly'; the engine does what T06 and T08 do (this reading is reported)",
+  "E8": "GOLDBEES leg: close = D09b's close before 2014-07-01 chained with D09's from 2014-07-01; fill = D09b's OHLC4 before 2014-07-01 (the proxy is MAUc1 itself); from 2014-07-01 T03's de-spike (OHLC4 of open/high/low clipped to MCX gold's range that day + 0.5% of the close) with the MCX range read from D24b's daily file; a session with no MCX bar is filled at the raw OHLC4 (counted); a session with no gold bar of its own uses the previous close and fill (counted)",
+  "E9": "cash level: the extended LBES (D11) as-of on sessions; R2 'liq' = the desk's liquidEtfFinal (LIQUIDCASE) levels as-of on sessions over the whole window (LBES equals LIQUIDCASE until 2024-01-24, so the daily-return difference is reported and should be about zero); no cash is accrued past a file's end (asserted)",
+  "E10": "constant mix: index share f = invested decision weeks / decision weeks, rebalanced at every decision date's next session (T0 included); constant_mix splits the non-index share 50/50, constant_mix_timed by the decision's gw; initial holding = the proxy scaled by f",
+  "E11": "single-index comparators: the book with weight 1 on one index, always in, no resets, entry free, so cost never matters",
+  "E12": "R3 window starts at the first D26 session on or after 2012-01-02 with its own spells and totals (in-or-out and gold), its own bounds, own draws (same seeds) and a free initial position in the state decided then",
+  "E13": "R7(a): the rule with the GOLDBEES fill on sessions before 2014-07-01 replaced by the proxy's close; R7(b): the rule with the sleeve's gold weight 0.5 for decisions dated before 2014-07-01 and the timed weight from then on (the first decision after 2014-07-01 that sees a different weight trades the sleeve if OUT)",
+  "E14": "F1 and F2 are run with the 50/50 sleeve at all three costs (R1 needs A1/A2 at 0 and 50 bps; T09.md section 3 step 11 says 'also run with the sleeve fixed at 50/50' without naming the costs); the R2 and R3 cells also run the fixed50 rule and F1 fixed50",
+  "E15": "bounds of every series: lo = min(2, shortest spell of the state), hi = longest spell of the state, computed from the series in the run and asserted equal to the numbers of tests/T09/logs/step_1_spell_counts.json (the frozen section 2 values)",
+  "E16": "the four books have identical decision and gold series and share the draws (states are generated once and stored under each book's key)",
+  "E17": "sessions_invested = number of daily returns t = 1..T-1 earned while the proxy is held (state j is held from its trade session dec_idx[j]+1; T0 for j = 0) (T06-1, unchanged)",
+  "E18": "the number of sleeve trades of a draw (draws.csv sleeve_trades) is counted from the states: decisions j >= 1 with a trade session inside the window, OUT at j-1 and j, g changed; 0 in fixed50 mode",
+  "E19": "trades.csv drops T08's basket_eff column (no baskets); `quarterly_reset` is a trade kind; positions.csv and proxy_units.csv hold the unit counts after each trade",
+  "E21": "V5(a) self-test seed: T06/T08's [6, 123456789] (the test is of the sampler code, which is unchanged; its result there was p = 0.83); a second run with seed [12, 6, 123456789] is reported beside it (p = 0.0031 in the first smoke run: above the 0.001 line, low but ordinary for one test); both must exceed 0.001",
+  "E20": "no published-NAV file is read (R8 was declined): there is no g_engine.csv and the V4(d) always-in check against a published NAV does not exist; V4 is the identities of T09.md section 2"
+ },
+ "books": {
+  "SCMO_0003": {
+   "t0": "2011-11-25",
+   "last_session": "2019-01-02",
+   "sessions": 1754,
+   "decisions": 372,
+   "invested_weeks": 172,
+   "weights": {
+    "Nifty100": 0.09626177,
+    "MC100": 0.19679459,
+    "SC100": 0.70694364
+   },
+   "first_state": 0,
+   "in_lengths": [
+    14,
+    3,
+    19,
+    18,
+    32,
+    1,
+    6,
+    6,
+    28,
+    28,
+    14,
+    3
+   ],
+   "out_lengths": [
+    9,
+    9,
+    9,
+    35,
+    3,
+    7,
+    9,
+    16,
+    34,
+    12,
+    11,
+    30,
+    16
+   ],
+   "bounds": {
+    "in": [
+     1,
+     32
+    ],
+    "out": [
+     2,
+     35
+    ]
+   },
+   "in_spells": 12,
+   "out_spells": 13,
+   "round_trips": 12,
+   "sessions_invested_rule": 816,
+   "gold": {
+    "first_state": 1,
+    "buy_lengths": [
+     3,
+     27,
+     9,
+     10,
+     2,
+     9,
+     4,
+     8,
+     12,
+     36,
+     15,
+     17,
+     24,
+     9,
+     5
+    ],
+    "sell_lengths": [
+     19,
+     3,
+     27,
+     22,
+     15,
+     19,
+     12,
+     6,
+     11,
+     15,
+     14,
+     5,
+     12,
+     2
+    ],
+    "buy_weeks": 190,
+    "bounds": {
+     "buy": [
+      2,
+      36
+     ],
+     "sell": [
+      2,
+      27
+     ]
+    },
+    "shortest_spell": 2,
+    "spells_with_an_out_week": 22,
+    "flips": 28,
+    "while_out_both_sides": 11,
+    "on_exit_decision": 2,
+    "on_entry_decision": 1,
+    "while_in": 14,
+    "weeks_buy_while_out": 112,
+    "weeks_sell_while_out": 88,
+    "sleeve_trades_expected": 11
+   },
+   "v2_decisions_checked": 372,
+   "v2_label_after_decision": 0,
+   "v2_mauc1_label_after_decision": 0,
+   "v2_trades_checked": 371,
+   "v2_trade_not_after_decision": 0,
+   "v2_sc100_signal_first_label_date": "2011-11-25",
+   "v2_sc100_price_first_session_read": "2011-11-25",
+   "stale_label_weeks(age>=5d, excluding T0)": 1,
+   "cash": {
+    "file_last": "2026-11-05",
+    "accrued_sessions": 0,
+    "cash": "lbes"
+   },
+   "quarter_start_reset_sessions": 29,
+   "gold_sessions_without_own_bar": [
+    "2016-10-30"
+   ],
+   "r3_window": {
+    "t0": "2012-01-02",
+    "decisions": 367,
+    "round_trips": 12,
+    "reportable": true,
+    "first_state": 0,
+    "in_lengths": [
+     14,
+     3,
+     19,
+     18,
+     32,
+     1,
+     6,
+     6,
+     28,
+     28,
+     14,
+     3
+    ],
+    "out_lengths": [
+     4,
+     9,
+     9,
+     35,
+     3,
+     7,
+     9,
+     16,
+     34,
+     12,
+     11,
+     30,
+     16
+    ],
+    "bounds": {
+     "in": [
+      1,
+      32
+     ],
+     "out": [
+      2,
+      35
+     ],
+     "buy": [
+      2,
+      36
+     ],
+     "sell": [
+      2,
+      27
+     ]
+    },
+    "gold_first_state": 0,
+    "g_buy_lengths": [
+     27,
+     9,
+     10,
+     2,
+     9,
+     4,
+     8,
+     12,
+     36,
+     15,
+     17,
+     24,
+     9,
+     5
+    ],
+    "g_sell_lengths": [
+     17,
+     3,
+     27,
+     22,
+     15,
+     19,
+     12,
+     6,
+     11,
+     15,
+     14,
+     5,
+     12,
+     2
+    ],
+    "gold_spells_with_an_out_week": 21,
+    "feasible": {
+     "in": true,
+     "out": true,
+     "buy": true,
+     "sell": true
+    },
+    "gold_flips": 27,
+    "gold_while_out_both_sides": 10,
+    "gold_on_exit_decision": 2,
+    "gold_on_entry_decision": 1,
+    "gold_while_in": 14,
+    "gold_weeks_buy_while_out": 109,
+    "gold_weeks_sell_while_out": 86,
+    "sessions_invested_rule": 816
+   }
+  }
+ },
+ "v2": {
+  "checks": 1291,
+  "violations": 0,
+  "recorded_trades_after_their_decision": 174,
+  "sc100_rule7_checks": 2,
+  "sc100_signal_rows_read_from": "2011-11-25",
+  "pass": true
+ },
+ "v3": {
+  "per_book_window": {
+   "SCMO_0003|full|io": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      1,
+      32
+     ],
+     "out": [
+      2,
+      35
+     ]
+    },
+    "types": {
+     "N4.9": {
+      "draws": 20,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 20,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0003|full|gold": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      36
+     ],
+     "out": [
+      2,
+      27
+     ]
+    },
+    "types": {
+     "N4.9-g": {
+      "draws": 20,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 20,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0003|r3|io": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      1,
+      32
+     ],
+     "out": [
+      2,
+      35
+     ]
+    },
+    "types": {
+     "N4.9": {
+      "draws": 20,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 20,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0003|r3|gold": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      36
+     ],
+     "out": [
+      2,
+      27
+     ]
+    },
+    "types": {
+     "N4.9-g": {
+      "draws": 20,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 20,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   }
+  },
+  "pass": true,
+  "rule_in_support": {
+   "SCMO_0003|full|io": true,
+   "SCMO_0003|full|gold": true,
+   "SCMO_0003|r3|io": true,
+   "SCMO_0003|r3|gold": true
+  },
+  "draws_per_type": 20,
+  "reportability": {
+   "r3_window": {
+    "SCMO_0003": {
+     "round_trips": 12,
+     "gold_spells_with_an_out_week": 21,
+     "feasible": {
+      "in": true,
+      "out": true,
+      "buy": true,
+      "sell": true
+     },
+     "reportable": true
+    }
+   },
+   "gold_spells_with_an_out_week_full": {
+    "SCMO_0003": 22
+   }
+  }
+ },
+ "v4": {
+  "pass": true
+ },
+ "v5": {
+  "pass": true
+ },
+ "v6": {
+  "trades_checked": 2640,
+  "trades_checked_at_0_cost": 880,
+  "kinds": {
+   "constant_mix|mix_rebalance": 1113,
+   "constant_mix_timed|mix_rebalance": 1113,
+   "hold_proxy|quarterly_reset": 87,
+   "sleeve_only_timed|sleeve_rebalance": 84,
+   "strategy|quarterly_reset": 33,
+   "strategy|sleeve_rebalance": 33,
+   "strategy|switch_in": 36,
+   "strategy|switch_out": 36,
+   "strategy_fixed50|quarterly_reset": 33,
+   "strategy_fixed50|switch_in": 36,
+   "strategy_fixed50|switch_out": 36
+  },
+  "worst": {
+   "cost_identity": 0.0,
+   "value_conservation": 3.2003669457738747e-16,
+   "index_target_gap": 2.9333070504637974e-16,
+   "gold_target_gap": 1.7682938261910384e-16,
+   "cash_target_gap": 2.308369093051391e-16,
+   "traded_identity": 0.0,
+   "continuity_0cost": 3.102310363070421e-16,
+   "weight_gap_vs_table": 1.1102230246251565e-16,
+   "index_weight_gap_after_entry_or_reset": 1.1102230246251565e-16,
+   "per_index_value_gap": 1.2901591569607686e-16
+  },
+  "tolerance": 1e-12,
+  "real_rule_sleeve_trades_equal_expected_at_every_cost": true,
+  "expected_sleeve_trades_per_book": {
+   "SCMO_0003": 11
+  },
+  "real_rule_resets_and_hold_proxy_resets_equal_expected_at_every_cost": true,
+  "expected_strategy_resets_per_book": {
+   "SCMO_0003": 11
+  },
+  "quarter_start_sessions": 29,
+  "constant_g_no_sleeve_trade": true,
+  "constant_g_detail": {
+   "SCMO_0003|BUY|0.0": {
+    "sleeve_trades": 0,
+    "trades": 35
+   },
+   "SCMO_0003|BUY|20.8": {
+    "sleeve_trades": 0,
+    "trades": 35
+   },
+   "SCMO_0003|SELL|0.0": {
+    "sleeve_trades": 0,
+    "trades": 35
+   },
+   "SCMO_0003|SELL|20.8": {
+    "sleeve_trades": 0,
+    "trades": 35
+   }
+  },
+  "worked_examples": {
+   "switch_out": {
+    "decision_date": "2012-05-04",
+    "trade_date": "2012-05-07",
+    "g_read": "BUY",
+    "gw": 0.8,
+    "V": 1.0340309312401954,
+    "index_value_before": 1.0340309312401954,
+    "gold_before": 0.0,
+    "cash_before": 0.0,
+    "traded": 2.068061862480391,
+    "cost": 0.0021507843369796067,
+    "index_values_after": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "weights_after": null,
+    "gold_after": 0.8255041175225726,
+    "cash_after": 0.2063760293806431,
+    "expected_gold_after": 0.8255041175225726,
+    "expected_cash_after": 0.2063760293806431,
+    "expected_index_total_after": 0.0
+   },
+   "sleeve_rebalance": {
+    "decision_date": "2011-12-16",
+    "trade_date": "2011-12-19",
+    "g_read": "SELL",
+    "gw": 0.2,
+    "V": 0.9803607225751815,
+    "index_value_before": 0.0,
+    "gold_before": 0.779552422907489,
+    "cash_before": 0.20080829966769242,
+    "traded": 1.1669605567849055,
+    "cost": 0.001213638979056302,
+    "index_values_after": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "weights_after": null,
+    "gold_after": 0.19582941671922505,
+    "cash_after": 0.7833176668769002,
+    "expected_gold_after": 0.19582941671922505,
+    "expected_cash_after": 0.7833176668769002,
+    "expected_index_total_after": 0.0
+   },
+   "quarterly_reset": {
+    "decision_date": null,
+    "trade_date": "2012-04-02",
+    "g_read": null,
+    "gw": 0.2,
+    "V": 1.0744676391837573,
+    "index_value_before": 1.0744676391837573,
+    "gold_before": 0.0,
+    "cash_before": 0.0,
+    "traded": 0.008974495092773371,
+    "cost": 9.333474896484308e-06,
+    "index_values_after": [
+     0.10342925829873605,
+     0.21144758174406994,
+     0.7595814656660549
+    ],
+    "weights_after": [
+     0.09626177,
+     0.19679459000000002,
+     0.7069436400000001
+    ],
+    "gold_after": 0.0,
+    "cash_after": 0.0,
+    "expected_gold_after": 0.0,
+    "expected_cash_after": 0.0,
+    "expected_index_total_after": 1.0744583057088608
+   },
+   "switch_in": {
+    "decision_date": "2012-01-27",
+    "trade_date": "2012-01-30",
+    "g_read": "SELL",
+    "gw": 0.2,
+    "V": 0.987259812010597,
+    "index_value_before": 0.0,
+    "gold_before": 0.1983596406497468,
+    "cash_before": 0.7889001713608502,
+    "traded": 1.9745196240211937,
+    "cost": 0.0020535004089820416,
+    "index_values_after": [
+     0.09483770336994297,
+     0.19388327215705203,
+     0.6964853360746198
+    ],
+    "weights_after": [
+     0.09626177,
+     0.19679459000000002,
+     0.7069436400000001
+    ],
+    "gold_after": 0.0,
+    "cash_after": 0.0,
+    "expected_gold_after": 0.0,
+    "expected_cash_after": 0.0,
+    "expected_index_total_after": 0.985206311601615
+   }
+  },
+  "not_checked_here": "weights drift between trades by construction (units are constant between trade sessions); the initial position at T0 is built from gw[0] without a trade record",
+  "pass": true
+ },
+ "data": {
+  "approved_data_as_of": "2026-11-12",
+  "window": [
+   "2011-11-25",
+   "2019-01-02"
+  ],
+  "inputs": 14,
+  "non_approved_open_and_guards": {
+   "superseded_master": {
+    "raised": true,
+    "message": "Historical Data/frozen_2026-09-25/Master/Master_Nifty100.xlsx: row D03 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "superseded_goldbees": {
+    "raised": true,
+    "message": "analysis/cache/why_gold_ohlc_eikon.parquet: row D09 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "pending_candidate_d03b": {
+    "raised": true,
+    "message": "Historical Data/extended_2026-11-12/SC100_signal_from_2011-10-03/Master_SC100.xlsx: row D03b is PENDING, not APPROVED; do not read it"
+   },
+   "not_in_table": {
+    "raised": true,
+    "message": "Historical Data/no_such_file.csv: not in the table of data/APPROVED_DATA.md, so not approved"
+   },
+   "guard_sc100_prices_before_usable_from": {
+    "raised": true,
+    "message": "Historical Data/extended_2026-11-12/index_daily_pre2019/SC100_daily_ohlcv.csv: usable from 2011-10-03 only (APPROVED_DATA.md rule 7); the window reads it from 2011-10-02"
+   },
+   "guard_sc100_signal_before_usable_from": {
+    "raised": true,
+    "message": "Historical Data/extended_2026-10-30/Master/Master_SC100.xlsx: usable from 2011-11-25 only (APPROVED_DATA.md rule 7); the window reads it from 2011-11-24"
+   },
+   "guard_sc100_at_T0_passes": {
+    "raised": false,
+    "ok": true
+   },
+   "pass": true
+  },
+  "index_rows_dropped_not_on_D26_calendar": {
+   "Nifty100": 0,
+   "MC100": 0,
+   "SC100": 0
+  },
+  "index_files_through": {
+   "Nifty100": "2019-01-02",
+   "MC100": "2019-01-02",
+   "SC100": "2019-01-02"
+  },
+  "master_rows_after_END_dropped": {
+   "Nifty100": 409,
+   "MC100": 409,
+   "SC100": 409
+  },
+  "mauc1": {
+   "rows_after_END_dropped": 410
+  },
+  "goldbees": {
+   "proxy_last": "2014-06-30",
+   "goldbees_first": "2014-07-01",
+   "sessions_in_window_before_goldbees": 643,
+   "sessions_in_window_from_goldbees": 1111,
+   "sessions_without_mcx_range_(raw OHLC4 fill)": [
+    "2014-10-23",
+    "2015-01-01",
+    "2015-11-11"
+   ],
+   "sessions_without_own_gold_bar_(previous close used)": [
+    "2016-10-30"
+   ]
+  },
+  "cash": {
+   "lbes_last": "2026-11-05",
+   "liq_last": "2026-11-05",
+   "accrued_sessions": 0,
+   "lbes_vs_liquidcase_max_abs_daily_return_diff_in_window": 1.5762990912548958e-10,
+   "rows_compared": 2113
+  }
+ },
+ "sleeve_trades_per_book_real_rule": {
+  "SCMO_0003": 11
+ },
+ "step1_spell_counts_reproduced": {
+  "pass": true,
+  "detail": {
+   "SCMO_0003|full": true,
+   "SCMO_0003|r3": true
+  },
+  "file": "tests/T09/logs/step_1_spell_counts.json"
+ },
+ "run": {
+  "name": "smoke",
+  "command": "analysis/t09_engine.py --run smoke --draws 20 --quick",
+  "draws": 20,
+  "books": [
+   "SCMO_0003"
+  ],
+  "seconds": 9,
+  "quick": true,
+  "python": "3.11.2",
+  "numpy": "2.4.6",
+  "pandas": "3.1.1",
+  "seeds": "in-or-out N4.9 default_rng([12, 3, id]), N4.10 [12, 6, id]; gold N4.9-g [12, 11, 3, id], N4.10-g [12, 11, 6, id]; the same draw ids for every cost, window, cash variant and book; F5 pairs F1's and F3's draw of the same id"
+ },
+ "prereg_sha256": "30973068e5cda384aa4227023729e5e8f229cb96d2f84cf078a51709a7c4b643",
+ "gates": {
+  "V2": true,
+  "V3": true,
+  "V4": true,
+  "V5": true,
+  "V6": true,
+  "approved_data_selftest": true,
+  "step1_counts": true,
+  "all": true
+ }
+}
