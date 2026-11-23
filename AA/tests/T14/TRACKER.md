@@ -13,7 +13,7 @@ Status values: `NOT_STARTED` → `IN_PROGRESS` → `DONE` (or `DONE_WITH_NOTES`)
 | 1 Pre-registration | DONE | — | Claude / 2026-11-23 | `spell_counts.py` run (counts equal PLAN §3.1: W1 93/81/54 weeks, 8 OUT-SELL spells; W2 201/163/46, 8 spells; all reportable); `T14.md` §1–§3 written and frozen, sha256 `99fe0f3a…` (`python tests/T14/check_prereg.py`) |
 | 2 Engine | DONE | 1 | Claude / 2026-11-23 | `analysis/t14_engine.py` (fork of t11_engine.py; 25 functions copied verbatim and AST-checked); smoke run (1 book, 20 draws) exits 0 on W1 and W2, V4(a) exact (max rel diff 0.0), V2-V6 pass; `logs/{step_2_log,evidence_contract,verifier_spec}.md`; about 10-15 min per window at 2,000 draws |
 | 3 Independent verifier | NOT_STARTED | 1 | | |
-| 4 Test scripts | NOT_STARTED | 1 | | |
+| 4 Test scripts | DONE | 1 | Claude (agent) / 2026-11-23 | `analyse.py`, `fill_writeup.py`, `report.py`, `check_page.py`, `rerun_draw.py`, `run.sh`; tested on smoke evidence (check_page 5,116 checks / 0 failures on smoke); `logs/step_4_log.md` (21 readings). Its blocker 18 (W2 crash on SCMO_0007's 409 weeks) was an engine bug, fixed (per-book draw states) |
 | 5 Run and gate | NOT_STARTED | 2, 3, 4 | | |
 | 6 Analyse, report, write-up | NOT_STARTED | 5 | | |
 

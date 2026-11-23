@@ -1478,6 +1478,7 @@ def build_counts(bk: Book, dec: pd.DataFrame) -> dict:
 
 def run_window(win: str, a, outdir: Path) -> dict:
     W = WINDOWS[win]
+    USED.clear()                         # inputs.csv and the window-coverage check list this window's files only
     t_start = time.time()
     outdir.mkdir(parents=True, exist_ok=True)
     end = end_of(win)
@@ -1489,36 +1490,46 @@ def run_window(win: str, a, outdir: Path) -> dict:
     c0 = common(win)
     print(f"[{win}] data: window {'2014-09-01' if win == 'w1' else 'D17 first date'} -> {end.date()}, approved data as of {AD.as_of()}; non-approved open and the Smallcap 100 guard raise: {selftest['pass']}", flush=True)
 
-    bk0 = Book(books[0], win)
-    dec0 = bk0.decisions()
-    s, g = dec0["state"].values.astype(int), dec0["g"].values.astype(int)
-    b_io, b_g = series_bounds(s), series_bounds(g)
-    if win == "w2":
-        assert b_io == IO_BOUNDS_W2 and b_g == GOLD_BOUNDS_W2, (b_io, b_g)
-    else:
-        t11s1 = json.loads((AA / "tests" / "T11" / "logs" / "step_1_spell_counts.json").read_text(encoding="utf-8"))
-        for st, nm in ((1, "in"), (0, "out")):
-            assert b_io[st] == (t11s1["full"]["io_tables"][nm]["lo"], t11s1["full"]["io_tables"][nm]["hi"]) and b_g[st] == (t11s1["full"]["gold_tables"][nm]["lo"], t11s1["full"]["gold_tables"][nm]["hi"])
-    shared = {"full": {"s": s, "g": g, "io": make_states_io(s, n_draws, b_io, W["seeds"]), "gold": make_states_gold(g, n_draws, b_g, W["seeds"])}, "r3": None}
-    bk4 = Book(books[0], win, start=W["r3_start"])
-    dec4 = bk4.decisions()
-    s4, g4 = dec4["state"].values.astype(int), dec4["g"].values.astype(int)
-    b4_io, b4_g = (series_bounds(s4), series_bounds(g4)) if W["r3_bounds"] == "own" else (b_io, b_g)
-    r4, rg4 = lens_of(s4), lens_of(g4)
-    rt4 = min(len(r4[0]), len(r4[1]))
-    sell4 = len(out_sell_spells(regime_codes(s4, g4)))
-    feas = {"in": b4_io[1][0] * len(r4[0]) <= sum(r4[0]) <= b4_io[1][1] * len(r4[0]), "out": b4_io[0][0] * len(r4[1]) <= sum(r4[1]) <= b4_io[0][1] * len(r4[1]),
-            "buy": b4_g[1][0] * len(rg4[0]) <= sum(rg4[0]) <= b4_g[1][1] * len(rg4[0]), "sell": b4_g[0][0] * len(rg4[1]) <= sum(rg4[1]) <= b4_g[0][1] * len(rg4[1])}
-    r3_ok = bool(rt4 >= 4 and sell4 >= 4 and all(feas.values()))
-    r3_gate = {"round_trips": rt4, "out_sell_spells": sell4, "feasible": feas, "reportable": r3_ok}
-    if r3_ok:
-        shared["r3"] = {"s": s4, "g": g4, "io": make_states_io(s4, n_draws, b4_io, W["seeds"]), "gold": make_states_gold(g4, n_draws, b4_g, W["seeds"])}
-    nfull = int((regime_codes(s, g) == 2).sum())
-    spells_full = len(out_sell_spells(regime_codes(s, g)))
-    reportable = bool(min(len(lens_of(s)[0]), len(lens_of(s)[1])) >= 4 and spells_full >= 4 and nfull > 0)
-    assert reportable, "NOT REPORTABLE: fewer than 4 round trips or 4 OUT-SELL spells; stop and ask Manu"
+    t11s1 = json.loads((AA / "tests" / "T11" / "logs" / "step_1_spell_counts.json").read_text(encoding="utf-8")) if win == "w1" else None
+    bser, cache = {}, {}
+    for p in books:                      # per book: a book's own series (W2: SCMO_0007 starts 2019-01-04 and has 409 weekly decisions, T06-8) and its own draw states, as T08
+        bkp = Book(p, win)
+        decp = bkp.decisions()
+        sp, gp = decp["state"].values.astype(int), decp["g"].values.astype(int)
+        bio, bg = series_bounds(sp), series_bounds(gp)
+        if win == "w2":
+            assert bio == IO_BOUNDS_W2 and bg == GOLD_BOUNDS_W2, (p, bio, bg)
+        else:
+            for st, nm in ((1, "in"), (0, "out")):
+                assert bio[st] == (t11s1["full"]["io_tables"][nm]["lo"], t11s1["full"]["io_tables"][nm]["hi"]) and bg[st] == (t11s1["full"]["gold_tables"][nm]["lo"], t11s1["full"]["gold_tables"][nm]["hi"])
+        bk4p = Book(p, win, start=W["r3_start"])
+        dec4p = bk4p.decisions()
+        s4p, g4p = dec4p["state"].values.astype(int), dec4p["g"].values.astype(int)
+        b4io, b4g = (series_bounds(s4p), series_bounds(g4p)) if W["r3_bounds"] == "own" else (bio, bg)
+        r4, rg4 = lens_of(s4p), lens_of(g4p)
+        rt4 = min(len(r4[0]), len(r4[1]))
+        sell4 = len(out_sell_spells(regime_codes(s4p, g4p)))
+        feas = {"in": b4io[1][0] * len(r4[0]) <= sum(r4[0]) <= b4io[1][1] * len(r4[0]), "out": b4io[0][0] * len(r4[1]) <= sum(r4[1]) <= b4io[0][1] * len(r4[1]),
+                "buy": b4g[1][0] * len(rg4[0]) <= sum(rg4[0]) <= b4g[1][1] * len(rg4[0]), "sell": b4g[0][0] * len(rg4[1]) <= sum(rg4[1]) <= b4g[0][1] * len(rg4[1])}
+        r3ok = bool(rt4 >= 4 and sell4 >= 4 and all(feas.values()))
+        nfull_p = int((regime_codes(sp, gp) == 2).sum())
+        spells_p = len(out_sell_spells(regime_codes(sp, gp)))
+        assert min(len(lens_of(sp)[0]), len(lens_of(sp)[1])) >= 4 and spells_p >= 4 and nfull_p > 0, f"{p}: NOT REPORTABLE: fewer than 4 round trips or 4 OUT-SELL spells; stop and ask Manu"
+        key = (sp.tobytes(), gp.tobytes(), s4p.tobytes(), g4p.tobytes())
+        if key not in cache:
+            sh = {"full": {"s": sp, "g": gp, "io": make_states_io(sp, n_draws, bio, W["seeds"]), "gold": make_states_gold(gp, n_draws, bg, W["seeds"])}, "r3": None}
+            if r3ok:
+                sh["r3"] = {"s": s4p, "g": g4p, "io": make_states_io(s4p, n_draws, b4io, W["seeds"]), "gold": make_states_gold(g4p, n_draws, b4g, W["seeds"])}
+            cache[key] = sh
+        bser[p] = dict(s=sp, g=gp, s4=s4p, g4=g4p, b_io=bio, b_g=bg, b4_io=b4io, b4_g=b4g, shared=cache[key], r3_ok=r3ok, nfull=nfull_p, spells=spells_p,
+                      r3_gate={"round_trips": rt4, "out_sell_spells": sell4, "feasible": feas, "reportable": r3ok})
+    ref = bser[books[0]]
+    s, g, b_io, b_g, s4, g4, b4_io, b4_g = ref["s"], ref["g"], ref["b_io"], ref["b_g"], ref["s4"], ref["g4"], ref["b4_io"], ref["b4_g"]
+    r3_ok = bool(all(v["r3_ok"] for v in bser.values()))
+    r3_gate = {p: v["r3_gate"] for p, v in bser.items()}
+    nfull, spells_full = ref["nfull"], ref["spells"]
 
-    jobs = [{"win": win, "book": p, "n_draws": n_draws, "shared": shared} for p in books]
+    jobs = [{"win": win, "book": p, "n_draws": n_draws, "shared": bser[p]["shared"]} for p in books]
     workers = min(a.workers, len(jobs))
     t_jobs = time.time()
     if workers > 1:
@@ -1555,13 +1566,14 @@ def run_window(win: str, a, outdir: Path) -> dict:
     n_draw_rows = sum(len(r["out"]["draw_rows"]) for r in results)
 
     ct, v3_res, v5c, states_all, real_states = {}, {}, {}, {}, {}
-    windows = [("full", s, g, b_io, b_g, shared["full"])]
-    if r3_ok:
-        windows.append(("r3", s4, g4, b4_io, b4_g, shared["r3"]))
     for p in books:
+        sp_ = bser[p]
+        windows = [("full", sp_["s"], sp_["g"], sp_["b_io"], sp_["b_g"], sp_["shared"]["full"])]
+        if r3_ok:
+            windows.append(("r3", sp_["s4"], sp_["g4"], sp_["b4_io"], sp_["b4_g"], sp_["shared"]["r3"]))
         real_states[f"{p}|full|io"], real_states[f"{p}|full|gold"] = decs[p]["state"].values.astype(np.uint8), decs[p]["g"].values.astype(np.uint8)
         real_states[f"{p}|r3|io"], real_states[f"{p}|r3|gold"] = decs4[p]["state"].values.astype(np.uint8), decs4[p]["g"].values.astype(np.uint8)
-        assert (decs[p]["state"].values == s).all() and (decs[p]["g"].values == g).all() and (decs4[p]["state"].values == s4).all() and (decs4[p]["g"].values == g4).all(), "the books' decision series differ"
+        assert (decs[p]["state"].values == sp_["s"]).all() and (decs[p]["g"].values == sp_["g"]).all() and (decs4[p]["state"].values == sp_["s4"]).all() and (decs4[p]["g"].values == sp_["g4"]).all(), "a book's decision series changed between the engine's two builds"
         for w, sw, gk, bio, bg, sh in windows:
             for k, v in sh["io"].items():
                 states_all[f"{p}|{w}|io|{k}"] = v
