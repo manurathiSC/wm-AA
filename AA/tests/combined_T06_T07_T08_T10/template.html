@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>T06 T07 T08 T09 T10 combined</title>
+<style>
+:root{--bg:#fff;--fg:#1a1a1a;--mut:#666;--grid:#e6e6e6;--card:#f6f6f6;--c0:#7a7a7a;--c1:#1f77b4;--c2:#d62728;--c3:#2ca02c;--c4:#ff7f0e;--c5:#9467bd;--c6:#8c564b;--c7:#e377c2;--c8:#17becf;--c9:#bcbd22;--c10:#393b79;--c11:#843c39;--c12:#7b8f2a;--c13:#b8860b}
+@media(prefers-color-scheme:dark){:root{--bg:#16181c;--fg:#e8e8e8;--mut:#9a9a9a;--grid:#2c2f35;--card:#20232a;--c0:#a0a0a0;--c1:#5aa9e6;--c2:#ff6b6b;--c3:#5fd068;--c4:#ffa94d;--c5:#b69be0;--c6:#c49a8d;--c7:#f4a6d7;--c8:#5ed6e6;--c9:#d8d95a;--c10:#8c95e8;--c11:#d98a86;--c12:#a9c15a;--c13:#e0b84a}}
+body{margin:0 auto;padding:16px;background:var(--bg);color:var(--fg);font:14px/1.4 system-ui,sans-serif;max-width:1200px}
+h1{font-size:20px;margin:0 0 4px}p.s{color:var(--mut);margin:0 0 12px}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+select{font:inherit;padding:4px 8px;background:var(--card);color:var(--fg);border:1px solid var(--grid);border-radius:4px}
+.leg label{margin-right:14px;cursor:pointer;white-space:nowrap}.sw{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:4px}
+canvas{width:100%;display:block;margin-bottom:8px}
+table{border-collapse:collapse;width:100%;margin:8px 0 18px;font-variant-numeric:tabular-nums}th,td{padding:5px 8px;border-bottom:1px solid var(--grid);text-align:right}th:first-child,td:first-child{text-align:left}
+th{color:var(--mut);font-weight:600}.wrap{overflow-x:auto}.note{color:var(--mut);font-size:12px}
+</style></head><body>
+<h1 id="h1"></h1>
+<p class="s" id="sub"></p>
+<div class="row"><label>Period <select id="per"><option value="post">2019 → 2026: the parents (T06, T07, T08, T10)</option><option value="pre">2011-11-25 → 2019: proxy portfolio (T09 and extras)</option></select></label><label>Book <select id="book"></select></label><label>Window <select id="win"></select></label><div class="leg" id="leg"></div></div>
+<canvas id="c1" height="380"></canvas><canvas id="c2" height="180"></canvas>
+<div id="tip" class="note">Hover the chart for values.</div>
+<h3 id="th"></h3><div class="wrap"><table id="tb"></table></div>
+<h3>Mean across the 4 books (full window)</h3><div class="wrap"><table id="tm"></table></div>
+<p class="note" id="notes"></p>
+<p class="note">Stats are recomputed from the daily NAV (years = (sessions-1)/252; CAGR = end^(1/years)-1; max DD on daily NAV; vol = SD of daily returns x sqrt(252); Calmar = CAGR/|max DD|) and match each test's own stats.csv. Trades = the test's own stats.csv count, full window.</p>
+<script>
+const DD=__DATA__;let D=DD.post;const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const Cn=i=>'--c'+i;let keys=[],on={};
+const bs=document.getElementById('book'),ps=document.getElementById('per'),ws=document.getElementById('win'),leg=document.getElementById('leg');
+const pct=v=>(v*100).toFixed(1)+'%';
+function setPeriod(){D=DD[ps.value];keys=D.series.map(s=>s.key);on=Object.fromEntries(D.series.map(s=>[s.key,s.on!==false]));
+ const prev=bs.value;bs.innerHTML='';D.books.forEach(b=>bs.add(new Option(b,b)));if(D.books.includes(prev))bs.value=prev;
+ document.getElementById('h1').textContent=D.title;document.getElementById('sub').textContent=D.sub;document.getElementById('notes').textContent=D.notes;
+ ws.innerHTML=D.windows.map(w=>'<option value="'+w[0]+'">'+w[1]+'</option>').join('');
+ leg.innerHTML='';D.series.forEach((s,i)=>{const l=document.createElement('label');l.innerHTML='<input type="checkbox" '+(on[s.key]?'checked':'')+' data-k="'+s.key+'"> <span class="sw" style="background:var('+Cn(i)+')"></span>'+s.label;leg.appendChild(l)})}
+leg.onchange=e=>{on[e.target.dataset.k]=e.target.checked;draw()};bs.onchange=ws.onchange=()=>{draw();tables()};ps.onchange=()=>{hv=null;document.getElementById('tip').textContent='Hover the chart for values.';setPeriod();draw();tables()};
+function series(){const b=bs.value,w=ws.value;let i0=0;if(w=='live')i0=D.dates.findIndex(d=>d>='2021-11-01');
+ const dates=D.dates.slice(i0);const out={};keys.forEach(k=>{const a=D.nav[b][k].slice(i0);const f=a.find(v=>v!=null);out[k]=a.map(v=>v==null?null:(w=='live'?v/f:v))});return{dates,out}}
+function dd(a){let m=-1e9;return a.map(v=>{if(v==null)return null;m=Math.max(m,v);return v/m-1})}
+let hv=null,S=null;
+function plot(cv,dates,ys,log,fmt,ylo,yhi){const dpr=devicePixelRatio||1,W=cv.clientWidth;if(!cv.dataset.h)cv.dataset.h=cv.getAttribute('height');const H=+cv.dataset.h;cv.style.height=H+'px';cv.width=W*dpr;cv.height=H*dpr;const g=cv.getContext('2d');g.scale(dpr,dpr);
+ const L=52,R=10,T=8,B=22,n=dates.length;const X=i=>L+(W-L-R)*i/(n-1);
+ const Y=v=>T+(H-T-B)*(1-((log?Math.log(v):v)-ylo)/(yhi-ylo));
+ g.strokeStyle=css('--grid');g.fillStyle=css('--mut');g.font='11px system-ui';g.lineWidth=1;
+ const ticks=log?[0.3,0.4,0.5,0.6,0.7,0.8,1,1.5,2,3,4,6,8,12].filter(t=>Math.log(t)>=ylo&&Math.log(t)<=yhi):Array.from({length:6},(_,i)=>ylo+(yhi-ylo)*i/5);
+ ticks.forEach(t=>{const y=Y(t);g.beginPath();g.moveTo(L,y);g.lineTo(W-R,y);g.stroke();g.fillText(fmt(t),4,y+4)});
+ let ly=null;const yl=[];dates.forEach((d,i)=>{const y=d.slice(0,4);if(y!==ly){ly=y;yl.push([X(i),y])}});
+ yl.forEach((a,j)=>{if(j==0&&yl.length>1&&yl[1][0]-a[0]<34)return;if(a[0]>W-R-28)return;g.fillText(a[1],a[0],H-6)});
+ ys.forEach(o=>{g.strokeStyle=css(o.c);g.lineWidth=o.k=='parent'?1.2:(o.ref?1.3:1.7);g.setLineDash(o.ref?[5,3]:[]);g.beginPath();let s=false;o.a.forEach((v,i)=>{if(v==null)return;const x=X(i),y=Y(v);s?g.lineTo(x,y):(g.moveTo(x,y),s=true)});g.stroke()});
+ g.setLineDash([]);
+ if(hv!=null){const x=X(hv);g.strokeStyle=css('--fg');g.globalAlpha=.4;g.beginPath();g.moveTo(x,T);g.lineTo(x,H-B);g.stroke();g.globalAlpha=1}
+ cv._L=L;cv._R=R}
+function draw(){S=series();const act=keys.filter(k=>on[k]);
+ let mx=1,mn=1;act.forEach(k=>S.out[k].forEach(v=>{if(v!=null){mx=Math.max(mx,v);mn=Math.min(mn,v)}}));
+ const ref=k=>D.series[keys.indexOf(k)].ref;
+ plot(document.getElementById('c1'),S.dates,act.map(k=>({k:k,a:S.out[k],c:Cn(keys.indexOf(k)),ref:ref(k)})),true,t=>t+'x',Math.log(Math.min(0.7,mn*0.93)),Math.log(Math.max(mx*1.05,2)));
+ let md=0;const dds=act.map(k=>({k:k,a:dd(S.out[k]),c:Cn(keys.indexOf(k)),ref:ref(k)}));dds.forEach(o=>o.a.forEach(v=>{if(v!=null)md=Math.min(md,v)}));
+ plot(document.getElementById('c2'),S.dates,dds,false,t=>(t*100).toFixed(0)+'%',Math.floor(md*20)/20,0)}
+['c1','c2'].forEach(id=>{const cv=document.getElementById(id);cv.onmousemove=e=>{if(!S)return;const r=cv.getBoundingClientRect();const f=(e.clientX-r.left-cv._L)/(r.width-cv._L-cv._R);hv=Math.max(0,Math.min(S.dates.length-1,Math.round(f*(S.dates.length-1))));draw();
+ const i=hv;let h='<b>'+S.dates[i]+'</b> &nbsp; ';D.series.forEach((s,j)=>{if(on[s.key]){const a=S.out[s.key];const v=a[i];const d=dd(a)[i];h+='<span class="sw" style="background:var('+Cn(j)+')"></span>'+s.short+' '+(v==null?'-':v.toFixed(3))+'x (DD '+(d==null?'-':pct(d))+') &nbsp; '}});document.getElementById('tip').innerHTML=h};cv.onmouseleave=()=>{hv=null;draw()}});
+function tbl(rows,el,hd){el.innerHTML='<tr>'+hd.map(h=>'<th>'+h[0]+'</th>').join('')+'</tr>'+rows.map(r=>'<tr>'+hd.map(h=>'<td>'+h[1](r)+'</td>').join('')+'</tr>').join('')}
+function tables(){const w=ws.value=='live'?'live (2021-11-01 on)':'full';const b=bs.value;const f=D.stats.find(s=>s.book==b&&s.window==w);
+ document.getElementById('th').textContent=b+' — '+(w=='full'?'full window':'live window (from 2021-11-01)')+' ('+f.start+' → '+f.end+')';
+ tbl(D.stats.filter(s=>s.book==b&&s.window==w),document.getElementById('tb'),[['Series',r=>r.series],['CAGR',r=>pct(r.cagr)],['Max DD',r=>pct(r.max_dd)],['Vol',r=>pct(r.vol)],['Calmar',r=>r.calmar.toFixed(2)],['Ulcer',r=>r.ulcer.toFixed(1)],['End NAV',r=>r.end_nav.toFixed(2)+'x'],['Days ≥10% under',r=>r.days_below_10pct],['Longest under water (sessions)',r=>r.longest_underwater],['Trades',r=>r.trades==null?'-':r.trades]]);
+ tbl(D.mean,document.getElementById('tm'),[['Series',r=>r.series],['CAGR',r=>pct(r.cagr)],['Max DD',r=>pct(r.max_dd)],['Vol',r=>pct(r.vol)],['Calmar',r=>r.calmar.toFixed(2)],['Ulcer',r=>r.ulcer.toFixed(1)],['End NAV',r=>r.end_nav.toFixed(2)+'x']])}
+addEventListener('resize',draw);setPeriod();draw();tables();
+</script></body></html>
