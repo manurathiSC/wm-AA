@@ -1,0 +1,1538 @@
+{
+ "END_W2": "2026-10-30",
+ "W1": [
+  "2014-09-01",
+  "2019-01-02"
+ ],
+ "seeds_note": "T14 reuses T11's seeds (W1) and T08's (W2); prefix 17 reserved, none drawn",
+ "w1": {
+  "full": {
+   "start": "2014-09-01",
+   "end": "2019-01-02",
+   "sessions": 1070,
+   "weeks": 228,
+   "first_state": 1,
+   "last_state": 0,
+   "weeks_in": 93,
+   "weeks_out": 135,
+   "in_spells": 8,
+   "out_spells": 8,
+   "round_trips": 8,
+   "in_lengths": [
+    7,
+    1,
+    6,
+    6,
+    28,
+    28,
+    14,
+    3
+   ],
+   "out_lengths": [
+    7,
+    9,
+    16,
+    34,
+    12,
+    11,
+    30,
+    16
+   ],
+   "weeks_IN": 93,
+   "weeks_OUT_BUY": 81,
+   "weeks_OUT_SELL": 54,
+   "OUT_SELL_spells": 8,
+   "OUT_SELL_lengths": [
+    7,
+    6,
+    7,
+    1,
+    11,
+    11,
+    9,
+    2
+   ],
+   "OUT_BUY_spells": 9,
+   "OUT_BUY_lengths": [
+    3,
+    8,
+    11,
+    12,
+    1,
+    11,
+    21,
+    9,
+    5
+   ],
+   "OUT_SELL_spell_table": [
+    {
+     "first_decision": "2014-10-17",
+     "last_decision": "2014-11-28",
+     "weeks": 7,
+     "entered_from": "IN",
+     "exited_to": "IN"
+    },
+    {
+     "first_decision": "2014-12-12",
+     "last_decision": "2015-01-16",
+     "weeks": 6,
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY"
+    },
+    {
+     "first_decision": "2015-03-27",
+     "last_decision": "2015-05-08",
+     "weeks": 7,
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY"
+    },
+    {
+     "first_decision": "2015-07-10",
+     "last_decision": "2015-07-10",
+     "weeks": 1,
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN"
+    },
+    {
+     "first_decision": "2015-11-13",
+     "last_decision": "2016-01-22",
+     "weeks": 11,
+     "entered_from": "OUT-BUY",
+     "exited_to": "OUT-BUY"
+    },
+    {
+     "first_decision": "2016-11-04",
+     "last_decision": "2017-01-13",
+     "weeks": 11,
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY"
+    },
+    {
+     "first_decision": "2018-06-29",
+     "last_decision": "2018-08-24",
+     "weeks": 9,
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN"
+    },
+    {
+     "first_decision": "2018-11-22",
+     "last_decision": "2018-11-30",
+     "weeks": 2,
+     "entered_from": "OUT-BUY",
+     "exited_to": "OUT-BUY"
+    }
+   ],
+   "OUT_SELL_share_of_weeks": 0.2368,
+   "g_flips": 18,
+   "g_first_state": 1,
+   "rules": {
+    "50-orig": {
+     "trades_from_regime_and_gold_changes": 15,
+     "weeks_with_e_0.5": 0,
+     "weeks_holding_no_parent_no_gold": 0
+    },
+    "50-half": {
+     "trades_from_regime_and_gold_changes": 24,
+     "weeks_with_e_0.5": 54,
+     "weeks_holding_no_parent_no_gold": 0
+    },
+    "50-liq": {
+     "trades_from_regime_and_gold_changes": 24,
+     "weeks_with_e_0.5": 0,
+     "weeks_holding_no_parent_no_gold": 54
+    },
+    "80-orig": {
+     "trades_from_regime_and_gold_changes": 24,
+     "weeks_with_e_0.5": 0,
+     "weeks_holding_no_parent_no_gold": 0
+    },
+    "80-half": {
+     "trades_from_regime_and_gold_changes": 24,
+     "weeks_with_e_0.5": 54,
+     "weeks_holding_no_parent_no_gold": 0
+    },
+    "80-liq": {
+     "trades_from_regime_and_gold_changes": 24,
+     "weeks_with_e_0.5": 0,
+     "weeks_holding_no_parent_no_gold": 54
+    }
+   },
+   "reportable": true
+  },
+  "r3": {
+   "start": "2015-01-02",
+   "end": "2019-01-02",
+   "sessions": 989,
+   "weeks": 210,
+   "first_state": 0,
+   "last_state": 0,
+   "weeks_in": 85,
+   "weeks_out": 125,
+   "in_spells": 6,
+   "out_spells": 7,
+   "round_trips": 6,
+   "in_lengths": [
+    6,
+    6,
+    28,
+    28,
+    14,
+    3
+   ],
+   "out_lengths": [
+    6,
+    16,
+    34,
+    12,
+    11,
+    30,
+    16
+   ],
+   "weeks_IN": 85,
+   "weeks_OUT_BUY": 81,
+   "weeks_OUT_SELL": 44,
+   "OUT_SELL_spells": 7,
+   "OUT_SELL_lengths": [
+    3,
+    7,
+    1,
+    11,
+    11,
+    9,
+    2
+   ],
+   "OUT_BUY_spells": 9,
+   "OUT_BUY_lengths": [
+    3,
+    8,
+    11,
+    12,
+    1,
+    11,
+    21,
+    9,
+    5
+   ],
+   "OUT_SELL_spell_table": [
+    {
+     "first_decision": "2015-01-02",
+     "last_decision": "2015-01-16",
+     "weeks": 3,
+     "entered_from": "start",
+     "exited_to": "OUT-BUY"
+    },
+    {
+     "first_decision": "2015-03-27",
+     "last_decision": "2015-05-08",
+     "weeks": 7,
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY"
+    },
+    {
+     "first_decision": "2015-07-10",
+     "last_decision": "2015-07-10",
+     "weeks": 1,
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN"
+    },
+    {
+     "first_decision": "2015-11-13",
+     "last_decision": "2016-01-22",
+     "weeks": 11,
+     "entered_from": "OUT-BUY",
+     "exited_to": "OUT-BUY"
+    },
+    {
+     "first_decision": "2016-11-04",
+     "last_decision": "2017-01-13",
+     "weeks": 11,
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY"
+    },
+    {
+     "first_decision": "2018-06-29",
+     "last_decision": "2018-08-24",
+     "weeks": 9,
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN"
+    },
+    {
+     "first_decision": "2018-11-22",
+     "last_decision": "2018-11-30",
+     "weeks": 2,
+     "entered_from": "OUT-BUY",
+     "exited_to": "OUT-BUY"
+    }
+   ],
+   "OUT_SELL_share_of_weeks": 0.2095,
+   "g_flips": 17,
+   "g_first_state": 0,
+   "rules": {
+    "50-orig": {
+     "trades_from_regime_and_gold_changes": 12,
+     "weeks_with_e_0.5": 0,
+     "weeks_holding_no_parent_no_gold": 0
+    },
+    "50-half": {
+     "trades_from_regime_and_gold_changes": 21,
+     "weeks_with_e_0.5": 44,
+     "weeks_holding_no_parent_no_gold": 0
+    },
+    "50-liq": {
+     "trades_from_regime_and_gold_changes": 21,
+     "weeks_with_e_0.5": 0,
+     "weeks_holding_no_parent_no_gold": 44
+    },
+    "80-orig": {
+     "trades_from_regime_and_gold_changes": 21,
+     "weeks_with_e_0.5": 0,
+     "weeks_holding_no_parent_no_gold": 0
+    },
+    "80-half": {
+     "trades_from_regime_and_gold_changes": 21,
+     "weeks_with_e_0.5": 44,
+     "weeks_holding_no_parent_no_gold": 0
+    },
+    "80-liq": {
+     "trades_from_regime_and_gold_changes": 21,
+     "weeks_with_e_0.5": 0,
+     "weeks_holding_no_parent_no_gold": 44
+    }
+   },
+   "reportable": true
+  }
+ },
+ "w2": {
+  "SCMO_0003": {
+   "full": {
+    "start": "2019-01-02",
+    "end": "2026-10-30",
+    "sessions": 1932,
+    "weeks": 410,
+    "first_state": 0,
+    "last_state": 0,
+    "weeks_in": 201,
+    "weeks_out": 209,
+    "in_spells": 9,
+    "out_spells": 10,
+    "round_trips": 9,
+    "in_lengths": [
+     8,
+     13,
+     33,
+     23,
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     11,
+     29,
+     15,
+     16,
+     40,
+     18,
+     5,
+     30,
+     37,
+     8
+    ],
+    "weeks_IN": 201,
+    "weeks_OUT_BUY": 163,
+    "weeks_OUT_SELL": 46,
+    "OUT_SELL_spells": 8,
+    "OUT_SELL_lengths": [
+     1,
+     4,
+     10,
+     2,
+     12,
+     11,
+     4,
+     2
+    ],
+    "OUT_BUY_spells": 11,
+    "OUT_BUY_lengths": [
+     10,
+     25,
+     15,
+     6,
+     26,
+     18,
+     5,
+     4,
+     15,
+     33,
+     6
+    ],
+    "OUT_SELL_spell_table": [
+     {
+      "first_decision": "2019-03-08",
+      "last_decision": "2019-03-08",
+      "weeks": 1,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2019-05-10",
+      "last_decision": "2019-05-31",
+      "weeks": 4,
+      "entered_from": "IN",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2021-01-29",
+      "last_decision": "2021-04-01",
+      "weeks": 10,
+      "entered_from": "IN",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2021-10-29",
+      "last_decision": "2021-11-03",
+      "weeks": 2,
+      "entered_from": "IN",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2022-05-13",
+      "last_decision": "2022-07-29",
+      "weeks": 12,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2024-11-14",
+      "last_decision": "2025-01-24",
+      "weeks": 11,
+      "entered_from": "OUT-BUY",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2026-03-20",
+      "last_decision": "2026-04-10",
+      "weeks": 4,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2026-10-23",
+      "last_decision": "2026-10-30",
+      "weeks": 2,
+      "entered_from": "OUT-BUY",
+      "exited_to": "window end"
+     }
+    ],
+    "OUT_SELL_share_of_weeks": 0.1122,
+    "g_flips": 17,
+    "g_first_state": 1,
+    "rules": {
+     "50-orig": {
+      "trades_from_regime_and_gold_changes": 18,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-half": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 46,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-liq": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 46
+     },
+     "80-orig": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-half": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 46,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-liq": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 46
+     }
+    },
+    "reportable": true
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-30",
+    "sessions": 1233,
+    "weeks": 262,
+    "first_state": 0,
+    "last_state": 0,
+    "weeks_in": 124,
+    "weeks_out": 138,
+    "in_spells": 5,
+    "out_spells": 6,
+    "round_trips": 5,
+    "in_lengths": [
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     40,
+     18,
+     5,
+     30,
+     37,
+     8
+    ],
+    "weeks_IN": 124,
+    "weeks_OUT_BUY": 107,
+    "weeks_OUT_SELL": 31,
+    "OUT_SELL_spells": 5,
+    "OUT_SELL_lengths": [
+     2,
+     12,
+     11,
+     4,
+     2
+    ],
+    "OUT_BUY_spells": 7,
+    "OUT_BUY_lengths": [
+     26,
+     18,
+     5,
+     4,
+     15,
+     33,
+     6
+    ],
+    "OUT_SELL_spell_table": [
+     {
+      "first_decision": "2021-11-01",
+      "last_decision": "2021-11-03",
+      "weeks": 2,
+      "entered_from": "start",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2022-05-13",
+      "last_decision": "2022-07-29",
+      "weeks": 12,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2024-11-14",
+      "last_decision": "2025-01-24",
+      "weeks": 11,
+      "entered_from": "OUT-BUY",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2026-03-20",
+      "last_decision": "2026-04-10",
+      "weeks": 4,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2026-10-23",
+      "last_decision": "2026-10-30",
+      "weeks": 2,
+      "entered_from": "OUT-BUY",
+      "exited_to": "window end"
+     }
+    ],
+    "OUT_SELL_share_of_weeks": 0.1183,
+    "g_flips": 12,
+    "g_first_state": 0,
+    "rules": {
+     "50-orig": {
+      "trades_from_regime_and_gold_changes": 10,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-half": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 31,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-liq": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 31
+     },
+     "80-orig": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-half": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 31,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-liq": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 31
+     }
+    },
+    "reportable": true
+   }
+  },
+  "SCMO_0007": {
+   "full": {
+    "start": "2019-01-04",
+    "end": "2026-10-30",
+    "sessions": 1930,
+    "weeks": 409,
+    "first_state": 0,
+    "last_state": 0,
+    "weeks_in": 201,
+    "weeks_out": 208,
+    "in_spells": 9,
+    "out_spells": 10,
+    "round_trips": 9,
+    "in_lengths": [
+     8,
+     13,
+     33,
+     23,
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     10,
+     29,
+     15,
+     16,
+     40,
+     18,
+     5,
+     30,
+     37,
+     8
+    ],
+    "weeks_IN": 201,
+    "weeks_OUT_BUY": 162,
+    "weeks_OUT_SELL": 46,
+    "OUT_SELL_spells": 8,
+    "OUT_SELL_lengths": [
+     1,
+     4,
+     10,
+     2,
+     12,
+     11,
+     4,
+     2
+    ],
+    "OUT_BUY_spells": 11,
+    "OUT_BUY_lengths": [
+     9,
+     25,
+     15,
+     6,
+     26,
+     18,
+     5,
+     4,
+     15,
+     33,
+     6
+    ],
+    "OUT_SELL_spell_table": [
+     {
+      "first_decision": "2019-03-08",
+      "last_decision": "2019-03-08",
+      "weeks": 1,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2019-05-10",
+      "last_decision": "2019-05-31",
+      "weeks": 4,
+      "entered_from": "IN",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2021-01-29",
+      "last_decision": "2021-04-01",
+      "weeks": 10,
+      "entered_from": "IN",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2021-10-29",
+      "last_decision": "2021-11-03",
+      "weeks": 2,
+      "entered_from": "IN",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2022-05-13",
+      "last_decision": "2022-07-29",
+      "weeks": 12,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2024-11-14",
+      "last_decision": "2025-01-24",
+      "weeks": 11,
+      "entered_from": "OUT-BUY",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2026-03-20",
+      "last_decision": "2026-04-10",
+      "weeks": 4,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2026-10-23",
+      "last_decision": "2026-10-30",
+      "weeks": 2,
+      "entered_from": "OUT-BUY",
+      "exited_to": "window end"
+     }
+    ],
+    "OUT_SELL_share_of_weeks": 0.1125,
+    "g_flips": 17,
+    "g_first_state": 1,
+    "rules": {
+     "50-orig": {
+      "trades_from_regime_and_gold_changes": 18,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-half": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 46,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-liq": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 46
+     },
+     "80-orig": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-half": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 46,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-liq": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 46
+     }
+    },
+    "reportable": true
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-30",
+    "sessions": 1233,
+    "weeks": 262,
+    "first_state": 0,
+    "last_state": 0,
+    "weeks_in": 124,
+    "weeks_out": 138,
+    "in_spells": 5,
+    "out_spells": 6,
+    "round_trips": 5,
+    "in_lengths": [
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     40,
+     18,
+     5,
+     30,
+     37,
+     8
+    ],
+    "weeks_IN": 124,
+    "weeks_OUT_BUY": 107,
+    "weeks_OUT_SELL": 31,
+    "OUT_SELL_spells": 5,
+    "OUT_SELL_lengths": [
+     2,
+     12,
+     11,
+     4,
+     2
+    ],
+    "OUT_BUY_spells": 7,
+    "OUT_BUY_lengths": [
+     26,
+     18,
+     5,
+     4,
+     15,
+     33,
+     6
+    ],
+    "OUT_SELL_spell_table": [
+     {
+      "first_decision": "2021-11-01",
+      "last_decision": "2021-11-03",
+      "weeks": 2,
+      "entered_from": "start",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2022-05-13",
+      "last_decision": "2022-07-29",
+      "weeks": 12,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2024-11-14",
+      "last_decision": "2025-01-24",
+      "weeks": 11,
+      "entered_from": "OUT-BUY",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2026-03-20",
+      "last_decision": "2026-04-10",
+      "weeks": 4,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2026-10-23",
+      "last_decision": "2026-10-30",
+      "weeks": 2,
+      "entered_from": "OUT-BUY",
+      "exited_to": "window end"
+     }
+    ],
+    "OUT_SELL_share_of_weeks": 0.1183,
+    "g_flips": 12,
+    "g_first_state": 0,
+    "rules": {
+     "50-orig": {
+      "trades_from_regime_and_gold_changes": 10,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-half": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 31,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-liq": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 31
+     },
+     "80-orig": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-half": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 31,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-liq": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 31
+     }
+    },
+    "reportable": true
+   }
+  },
+  "SCMO_0010": {
+   "full": {
+    "start": "2019-01-02",
+    "end": "2026-10-30",
+    "sessions": 1932,
+    "weeks": 410,
+    "first_state": 0,
+    "last_state": 0,
+    "weeks_in": 201,
+    "weeks_out": 209,
+    "in_spells": 9,
+    "out_spells": 10,
+    "round_trips": 9,
+    "in_lengths": [
+     8,
+     13,
+     33,
+     23,
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     11,
+     29,
+     15,
+     16,
+     40,
+     18,
+     5,
+     30,
+     37,
+     8
+    ],
+    "weeks_IN": 201,
+    "weeks_OUT_BUY": 163,
+    "weeks_OUT_SELL": 46,
+    "OUT_SELL_spells": 8,
+    "OUT_SELL_lengths": [
+     1,
+     4,
+     10,
+     2,
+     12,
+     11,
+     4,
+     2
+    ],
+    "OUT_BUY_spells": 11,
+    "OUT_BUY_lengths": [
+     10,
+     25,
+     15,
+     6,
+     26,
+     18,
+     5,
+     4,
+     15,
+     33,
+     6
+    ],
+    "OUT_SELL_spell_table": [
+     {
+      "first_decision": "2019-03-08",
+      "last_decision": "2019-03-08",
+      "weeks": 1,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2019-05-10",
+      "last_decision": "2019-05-31",
+      "weeks": 4,
+      "entered_from": "IN",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2021-01-29",
+      "last_decision": "2021-04-01",
+      "weeks": 10,
+      "entered_from": "IN",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2021-10-29",
+      "last_decision": "2021-11-03",
+      "weeks": 2,
+      "entered_from": "IN",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2022-05-13",
+      "last_decision": "2022-07-29",
+      "weeks": 12,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2024-11-14",
+      "last_decision": "2025-01-24",
+      "weeks": 11,
+      "entered_from": "OUT-BUY",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2026-03-20",
+      "last_decision": "2026-04-10",
+      "weeks": 4,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2026-10-23",
+      "last_decision": "2026-10-30",
+      "weeks": 2,
+      "entered_from": "OUT-BUY",
+      "exited_to": "window end"
+     }
+    ],
+    "OUT_SELL_share_of_weeks": 0.1122,
+    "g_flips": 17,
+    "g_first_state": 1,
+    "rules": {
+     "50-orig": {
+      "trades_from_regime_and_gold_changes": 18,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-half": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 46,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-liq": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 46
+     },
+     "80-orig": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-half": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 46,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-liq": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 46
+     }
+    },
+    "reportable": true
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-30",
+    "sessions": 1233,
+    "weeks": 262,
+    "first_state": 0,
+    "last_state": 0,
+    "weeks_in": 124,
+    "weeks_out": 138,
+    "in_spells": 5,
+    "out_spells": 6,
+    "round_trips": 5,
+    "in_lengths": [
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     40,
+     18,
+     5,
+     30,
+     37,
+     8
+    ],
+    "weeks_IN": 124,
+    "weeks_OUT_BUY": 107,
+    "weeks_OUT_SELL": 31,
+    "OUT_SELL_spells": 5,
+    "OUT_SELL_lengths": [
+     2,
+     12,
+     11,
+     4,
+     2
+    ],
+    "OUT_BUY_spells": 7,
+    "OUT_BUY_lengths": [
+     26,
+     18,
+     5,
+     4,
+     15,
+     33,
+     6
+    ],
+    "OUT_SELL_spell_table": [
+     {
+      "first_decision": "2021-11-01",
+      "last_decision": "2021-11-03",
+      "weeks": 2,
+      "entered_from": "start",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2022-05-13",
+      "last_decision": "2022-07-29",
+      "weeks": 12,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2024-11-14",
+      "last_decision": "2025-01-24",
+      "weeks": 11,
+      "entered_from": "OUT-BUY",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2026-03-20",
+      "last_decision": "2026-04-10",
+      "weeks": 4,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2026-10-23",
+      "last_decision": "2026-10-30",
+      "weeks": 2,
+      "entered_from": "OUT-BUY",
+      "exited_to": "window end"
+     }
+    ],
+    "OUT_SELL_share_of_weeks": 0.1183,
+    "g_flips": 12,
+    "g_first_state": 0,
+    "rules": {
+     "50-orig": {
+      "trades_from_regime_and_gold_changes": 10,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-half": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 31,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-liq": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 31
+     },
+     "80-orig": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-half": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 31,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-liq": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 31
+     }
+    },
+    "reportable": true
+   }
+  },
+  "SCMO_0029": {
+   "full": {
+    "start": "2019-01-02",
+    "end": "2026-10-30",
+    "sessions": 1932,
+    "weeks": 410,
+    "first_state": 0,
+    "last_state": 0,
+    "weeks_in": 201,
+    "weeks_out": 209,
+    "in_spells": 9,
+    "out_spells": 10,
+    "round_trips": 9,
+    "in_lengths": [
+     8,
+     13,
+     33,
+     23,
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     11,
+     29,
+     15,
+     16,
+     40,
+     18,
+     5,
+     30,
+     37,
+     8
+    ],
+    "weeks_IN": 201,
+    "weeks_OUT_BUY": 163,
+    "weeks_OUT_SELL": 46,
+    "OUT_SELL_spells": 8,
+    "OUT_SELL_lengths": [
+     1,
+     4,
+     10,
+     2,
+     12,
+     11,
+     4,
+     2
+    ],
+    "OUT_BUY_spells": 11,
+    "OUT_BUY_lengths": [
+     10,
+     25,
+     15,
+     6,
+     26,
+     18,
+     5,
+     4,
+     15,
+     33,
+     6
+    ],
+    "OUT_SELL_spell_table": [
+     {
+      "first_decision": "2019-03-08",
+      "last_decision": "2019-03-08",
+      "weeks": 1,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2019-05-10",
+      "last_decision": "2019-05-31",
+      "weeks": 4,
+      "entered_from": "IN",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2021-01-29",
+      "last_decision": "2021-04-01",
+      "weeks": 10,
+      "entered_from": "IN",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2021-10-29",
+      "last_decision": "2021-11-03",
+      "weeks": 2,
+      "entered_from": "IN",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2022-05-13",
+      "last_decision": "2022-07-29",
+      "weeks": 12,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2024-11-14",
+      "last_decision": "2025-01-24",
+      "weeks": 11,
+      "entered_from": "OUT-BUY",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2026-03-20",
+      "last_decision": "2026-04-10",
+      "weeks": 4,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2026-10-23",
+      "last_decision": "2026-10-30",
+      "weeks": 2,
+      "entered_from": "OUT-BUY",
+      "exited_to": "window end"
+     }
+    ],
+    "OUT_SELL_share_of_weeks": 0.1122,
+    "g_flips": 17,
+    "g_first_state": 1,
+    "rules": {
+     "50-orig": {
+      "trades_from_regime_and_gold_changes": 18,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-half": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 46,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-liq": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 46
+     },
+     "80-orig": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-half": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 46,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-liq": {
+      "trades_from_regime_and_gold_changes": 27,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 46
+     }
+    },
+    "reportable": true
+   },
+   "live": {
+    "start": "2021-11-01",
+    "end": "2026-10-30",
+    "sessions": 1233,
+    "weeks": 262,
+    "first_state": 0,
+    "last_state": 0,
+    "weeks_in": 124,
+    "weeks_out": 138,
+    "in_spells": 5,
+    "out_spells": 6,
+    "round_trips": 5,
+    "in_lengths": [
+     20,
+     26,
+     46,
+     11,
+     21
+    ],
+    "out_lengths": [
+     40,
+     18,
+     5,
+     30,
+     37,
+     8
+    ],
+    "weeks_IN": 124,
+    "weeks_OUT_BUY": 107,
+    "weeks_OUT_SELL": 31,
+    "OUT_SELL_spells": 5,
+    "OUT_SELL_lengths": [
+     2,
+     12,
+     11,
+     4,
+     2
+    ],
+    "OUT_BUY_spells": 7,
+    "OUT_BUY_lengths": [
+     26,
+     18,
+     5,
+     4,
+     15,
+     33,
+     6
+    ],
+    "OUT_SELL_spell_table": [
+     {
+      "first_decision": "2021-11-01",
+      "last_decision": "2021-11-03",
+      "weeks": 2,
+      "entered_from": "start",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2022-05-13",
+      "last_decision": "2022-07-29",
+      "weeks": 12,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2024-11-14",
+      "last_decision": "2025-01-24",
+      "weeks": 11,
+      "entered_from": "OUT-BUY",
+      "exited_to": "OUT-BUY"
+     },
+     {
+      "first_decision": "2026-03-20",
+      "last_decision": "2026-04-10",
+      "weeks": 4,
+      "entered_from": "OUT-BUY",
+      "exited_to": "IN"
+     },
+     {
+      "first_decision": "2026-10-23",
+      "last_decision": "2026-10-30",
+      "weeks": 2,
+      "entered_from": "OUT-BUY",
+      "exited_to": "window end"
+     }
+    ],
+    "OUT_SELL_share_of_weeks": 0.1183,
+    "g_flips": 12,
+    "g_first_state": 0,
+    "rules": {
+     "50-orig": {
+      "trades_from_regime_and_gold_changes": 10,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-half": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 31,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "50-liq": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 31
+     },
+     "80-orig": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-half": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 31,
+      "weeks_holding_no_parent_no_gold": 0
+     },
+     "80-liq": {
+      "trades_from_regime_and_gold_changes": 16,
+      "weeks_with_e_0.5": 0,
+      "weeks_holding_no_parent_no_gold": 31
+     }
+    },
+    "reportable": true
+   }
+  }
+ },
+ "baskets_w1": {
+  "SCMO_0003": {
+   "first_effective_on_or_after_2014-07-01": "2014-09-01",
+   "baskets_T0_to_END": 19,
+   "effective_dates": [
+    "2014-09-01",
+    "2014-12-01",
+    "2015-03-02",
+    "2015-06-01",
+    "2015-09-01",
+    "2015-12-01",
+    "2016-03-01",
+    "2016-04-05",
+    "2016-06-01",
+    "2016-09-01",
+    "2016-12-01",
+    "2017-03-01",
+    "2017-06-01",
+    "2017-09-01",
+    "2017-11-30",
+    "2018-02-28",
+    "2018-05-31",
+    "2018-09-17",
+    "2018-12-17"
+   ]
+  },
+  "SCMO_0007": {
+   "first_effective_on_or_after_2014-07-01": "2014-09-01",
+   "baskets_T0_to_END": 19,
+   "effective_dates": [
+    "2014-09-01",
+    "2014-12-01",
+    "2015-03-02",
+    "2015-06-01",
+    "2015-09-01",
+    "2015-12-01",
+    "2016-03-01",
+    "2016-04-05",
+    "2016-06-01",
+    "2016-09-01",
+    "2016-12-01",
+    "2017-03-01",
+    "2017-06-01",
+    "2017-09-01",
+    "2017-11-30",
+    "2018-02-28",
+    "2018-05-31",
+    "2018-09-17",
+    "2018-12-17"
+   ]
+  },
+  "SCMO_0010": {
+   "first_effective_on_or_after_2014-07-01": "2014-09-01",
+   "baskets_T0_to_END": 19,
+   "effective_dates": [
+    "2014-09-01",
+    "2014-12-01",
+    "2015-03-02",
+    "2015-06-01",
+    "2015-09-01",
+    "2015-12-01",
+    "2016-03-01",
+    "2016-04-05",
+    "2016-06-01",
+    "2016-09-01",
+    "2016-12-01",
+    "2017-03-01",
+    "2017-06-01",
+    "2017-09-01",
+    "2017-11-30",
+    "2018-02-28",
+    "2018-05-31",
+    "2018-09-17",
+    "2018-12-17"
+   ]
+  },
+  "SCMO_0029": {
+   "first_effective_on_or_after_2014-07-01": "2014-09-01",
+   "baskets_T0_to_END": 19,
+   "effective_dates": [
+    "2014-09-01",
+    "2014-12-01",
+    "2015-03-02",
+    "2015-06-01",
+    "2015-09-01",
+    "2015-12-01",
+    "2016-03-01",
+    "2016-06-01",
+    "2016-09-01",
+    "2016-12-01",
+    "2017-03-01",
+    "2017-03-07",
+    "2017-06-01",
+    "2017-09-01",
+    "2017-11-30",
+    "2018-02-28",
+    "2018-05-31",
+    "2018-09-17",
+    "2018-12-17"
+   ]
+  }
+ },
+ "problems": []
+}
