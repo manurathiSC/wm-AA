@@ -835,7 +835,11 @@ in the other state never trades), so the draws' trade counts vary.
 a robustness check only, because the main switch can carry it. In the one test so far (T08: three-index
 switch with a MAUc1-timed sleeve) the equity switch beat random in-or-out timing (CAGR percentiles 94 to
 97), while the gold timing sat at percentiles 61 to 62 against random gold timing (and the joint null
-read 95 to 98). The joint null alone would have hidden that.
+read 95 to 98). The joint null alone would have hidden that. T09 reused it on a three-index proxy
+portfolio, 2011-11-25 → 2019-01-02: every equity and gold criterion failed (CAGR percentiles 43 to 61 against
+random in-or-out, 57 against random gold timing), and the joint null agreed (45 to 53). When the
+timings are drawn from the series' own spells, take the bounds from that series (`lo = min(2, shortest)`,
+`hi = longest`) instead of another test's constants: T09's 1-week in-spell would have been outside T06's [2, 46].
 
 ### Choosing among them
 
@@ -1624,3 +1628,4 @@ methods file. In one test this check caught a page calling 192,584 point-in-time
 | 2026-11-06 | Data boundary: the project keeps `data/APPROVED_DATA.md`, the only list of inputs an agent may read (path, through-date, fingerprint, latest usable date per role), with `data/check_approved_data.py` to verify it against the files. Rule 9 and task 4 updated: stale, missing or unclear data means stop and ask the owner; refreshing is the owner's decision, the new file stays off-limits until the owner approves it, and the approval check covers only the new rows. Replaces the earlier instruction to extend stale files before use |
 | 2026-11-06 | N4.10, random timing with free spell lengths, added after N4.9 (recipe, exact sampler, when to use it, first use in T06), with a row in "Choosing among them". N4.9 now says that for a weekly rule traded daily, invested weeks are held exactly and sessions only approximately (F-AA-M06) |
 | 2026-11-12 | N4.11, random timing of a second signal (one null per timing), added after N4.10 (recipe, bounds set before any return, what it holds and breaks, first use in T08), with a row in "Choosing among them" |
+| 2026-11-12 | N4.11 gains its second use (T09, a proxy portfolio before the parents' holdings exist) and the rule that spell bounds come from the series' own spells; standing data rule: a file with a corrupt stretch carries a `usable-from` date in `data/APPROVED_DATA.md`, enforced in code by `guard_window` (Smallcap 100 before 2011-10-03) |
