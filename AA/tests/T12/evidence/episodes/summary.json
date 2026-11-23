@@ -1,0 +1,61 @@
+{
+ "run": "headline",
+ "books": {
+  "SCMO_0003": {
+   "sessions": 1070,
+   "start": "2014-09-01",
+   "end": "2019-01-02",
+   "first_logged_position": "2014-10-20",
+   "stockdays_without_band": 0,
+   "recon_max_rel_err": 4.440892098500626e-16,
+   "instruments_not_priced": [],
+   "total_gap_log": -0.14137591799979635,
+   "in_stretches_log": -0.16088210039229764,
+   "outside_log": 0.019506182392501292,
+   "n_stretches": 11,
+   "stretches_whole_ahead": 4
+  },
+  "SCMO_0007": {
+   "sessions": 1070,
+   "start": "2014-09-01",
+   "end": "2019-01-02",
+   "first_logged_position": "2014-10-20",
+   "stockdays_without_band": 0,
+   "recon_max_rel_err": 3.3306690738754696e-16,
+   "instruments_not_priced": [],
+   "total_gap_log": 0.18513790154694826,
+   "in_stretches_log": 0.18838138747986397,
+   "outside_log": -0.0032434859329157073,
+   "n_stretches": 11,
+   "stretches_whole_ahead": 5
+  },
+  "SCMO_0010": {
+   "sessions": 1070,
+   "start": "2014-09-01",
+   "end": "2019-01-02",
+   "first_logged_position": "2014-10-20",
+   "stockdays_without_band": 0,
+   "recon_max_rel_err": 4.440892098500626e-16,
+   "instruments_not_priced": [],
+   "total_gap_log": -0.07398688609558243,
+   "in_stretches_log": -0.08668235112375713,
+   "outside_log": 0.012695465028174702,
+   "n_stretches": 11,
+   "stretches_whole_ahead": 4
+  },
+  "SCMO_0029": {
+   "sessions": 1070,
+   "start": "2014-09-01",
+   "end": "2019-01-02",
+   "first_logged_position": "2014-10-20",
+   "stockdays_without_band": 0,
+   "recon_max_rel_err": 4.440892098500626e-16,
+   "instruments_not_priced": [],
+   "total_gap_log": -0.09284422095027471,
+   "in_stretches_log": -0.11450843852671047,
+   "outside_log": 0.02166421757643576,
+   "n_stretches": 11,
+   "stretches_whole_ahead": 6
+  }
+ }
+}

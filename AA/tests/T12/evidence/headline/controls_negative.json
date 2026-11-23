@@ -1,0 +1,54 @@
+{
+ "books": {
+  "SCMO_0003": {
+   "book": "SCMO_0003",
+   "n_shifts": 100,
+   "draws_per_shift": 200,
+   "n_pass90": 13,
+   "x_max": 17,
+   "share_pass90": 0.13,
+   "pass": true,
+   "v3_failures": 0,
+   "v3_draws_x_events_checked": 801000,
+   "event_sessions_on_standin_sessions": 0
+  },
+  "SCMO_0007": {
+   "book": "SCMO_0007",
+   "n_shifts": 100,
+   "draws_per_shift": 200,
+   "n_pass90": 3,
+   "x_max": 17,
+   "share_pass90": 0.03,
+   "pass": true,
+   "v3_failures": 0,
+   "v3_draws_x_events_checked": 823200,
+   "event_sessions_on_standin_sessions": 0
+  },
+  "SCMO_0010": {
+   "book": "SCMO_0010",
+   "n_shifts": 100,
+   "draws_per_shift": 200,
+   "n_pass90": 6,
+   "x_max": 17,
+   "share_pass90": 0.06,
+   "pass": true,
+   "v3_failures": 0,
+   "v3_draws_x_events_checked": 803400,
+   "event_sessions_on_standin_sessions": 0
+  },
+  "SCMO_0029": {
+   "book": "SCMO_0029",
+   "n_shifts": 100,
+   "draws_per_shift": 200,
+   "n_pass90": 1,
+   "x_max": 17,
+   "share_pass90": 0.01,
+   "pass": true,
+   "v3_failures": 0,
+   "v3_draws_x_events_checked": 823200,
+   "event_sessions_on_standin_sessions": 0
+  }
+ },
+ "x_max": 17,
+ "pass": true
+}

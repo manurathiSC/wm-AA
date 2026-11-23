@@ -1,0 +1,3001 @@
+{
+ "readings": {
+  "E1": "calendar = D26's dates from T0 = 2014-09-01 to END = 2019-01-02 (1,070 sessions, asserted; T11 E1). 2017-10-19 is a D26 session with no D18 bar for any stock: every stock's previous close (D18 close ffilled over the union of D26 and D18 dates) is its valuation and fill price there (T11's stand-in), counted; any other held stock-session without a bar is treated the same way and counted",
+  "E2": "decision dates = T0 and the last D26 session of every later ISO week (228); the decision at END is made but not traded (it has no later session)",
+  "E3": "state of a decision = the triple of the latest Master SIGN row of each index dated <= the decision date (BUY/SELL); the Smallcap 100 Master is sliced to rows >= 2011-11-25 on read (rule 7, guard_window); T06's 'state' (1 iff all three BUY) is kept in decisions.csv",
+  "E4": "initial position at T0 (free, T11's E4 with T07's split): the basket in force at T0 (effective 2014-09-01, T0's own availableDate session) at its renormalised weights, bought at the OHLC4 of its first D18 session on or after its availableDate (T0 itself, so no drift) and scaled to NAV 1.000 at T0's close; the stocks dropped at T0 (tags and state read as of T0 itself) are kept at T0's closes in value and converted half to GOLDBEES, half to cash units at T0's closes. For the r2 window the basket in force at its T0 (effective 2014-12-01) is drifted from the OHLC4 of its availableDate session to r2's T0 close",
+  "E5": "WEIGHTS ARE RENORMALISED TO 1, AS T06 AND T07 DO (T07 E5; T12.md step 6 says so explicitly): listed_weight in event_stocks.csv is the renormalised weight, listed_weight_raw the matrix value; sum_weights is 1.0 and s = D; tau = half the smallest renormalised weight",
+  "E6": "a basket takes effect on the first calendar session on or after its availableDate (D19's index = D05's non-skipped availableDate, asserted for T0..END); skipped baskets are dropped (none in the window)",
+  "E7": "stock fill = OHLC4 of the Eikon bar (close if any of open/high/low is blank; the previous close if the stock has no bar that session), Polyplex correction applied (constant in this window)",
+  "E8": "cash level: the extended LBES (D11) as-of on sessions; asserted to cover the window (0 accrued sessions). R3 'liq' = liquidEtfFinal (LIQUIDCASE) as-of over the whole window (T07's 2024-01-24 splice date lies after the window, so the cash leg is LIQUIDCASE throughout; T11 E9)",
+  "E9": "GOLDBEES fill: OHLC4 with open/high/low clipped to MCX gold's range that day + 0.5% of the close, the range from D24b's daily file (mauc1_daily_clean_extended.csv); a session with a GOLDBEES bar and no MCX range is filled at the raw OHLC4 (counted); 2016-10-30 has no GOLDBEES bar: the previous close is its valuation AND fill (T11 E8), counted. Book.gold_raw (read by T07's unchanged sim) marks the no-range sessions",
+  "EV1": "event rule (step 4, T07 EV1 unchanged): candidates are the trade sessions of decisions j>=1 (decision_idx+1, if the session exists) and the sessions of non-skipped basket changes. At a decision candidate the set the CURRENT tags (those read at the last event) would drop under that decision's state is compared with the set the book currently drops; a difference makes a signal event. A basket candidate without a signal event is an event unless the book holds no stock (every held stock currently dropped); then nothing is traded. Two events on one session are one event ('signal+basket'). At an event the state is the triple of the latest decision made before the session, the tags of every held stock are read as of the previous D26 session (info date). The T0 event reads tags and state at T0 itself (T12.md step 4(i)), counted apart in audit.json v2",
+  "EV2": "SKIPPED BASKET EVENT (no stock held; T07 EV2): nothing is traded and no event is written, but the basket in force changes; the tags of the new basket's stocks are read as of the previous session (a tag read without a trade, counted in V2 and in R5's random stream) and become the 'current tags'; the book 'currently drops' all of them. Listed in audit.json (skipped_basket_events)",
+  "EV3": "the whole-book switch (bands tied) is the same event code with every stock following 'IN iff all three BUY'; its events equal T06's/T11's (a trade only when the stock share changes, basket events only while IN). hold the parent = mode 'parent' (nothing dropped, T0 and basket events only); the 100% sleeve = T0 with everything dropped",
+  "N1": "N4.6: held stocks of an event in increasing ISIN string order (bit i of a subset mask = stock i); allowed set = masks with |sum w - D| <= tau (+1e-12; exact ties allowed), listed in increasing mask order; u = rng.random() from default_rng([15, 7, draw_id, book_no]), one per event in event order (T0 event first), index = min(floor(u*count), count-1); the same draw ids at every cost, cash and window (r2 and full_r6 have their own event lists and use the same seeds)",
+  "N1b": "allowed sets are homogeneous in the weights, so renormalisation does not change any set; exact ties |sum - D| = tau are allowed (1e-12 tolerance) and counted per event (count_table.json boundary_cases). ISIN order = Python string order",
+  "N2": "N4.8: one score per ISIN of the realisation's universe (the sorted ISINs of its event_stocks rows; r2 has its own) from default_rng([15, 8, draw_id, book_no]).random(n); at an event the held stocks are ranked by score DESCENDING, the first n_L get label Large, the next n_M Mid, the rest Small and below (n_* = the rule's counts); dropped iff the label's band signal is SELL. Not run on full_r6 (contract)",
+  "R5": "R5 tag error: default_rng([15, 5, draw_id, book_no]); at every tag read (every event and every skipped-basket read) each held stock whose tag source is 'rank' or 'nonmember_rank' consumes two uniforms: the first < 0.0793 flips its band, the second picks one of the other two bands (order Large, Mid, Small; first if < 0.5). Unranked tags are not perturbed. Events are rebuilt under the perturbed tags. Reported: the draw's after-cost CAGR (20.8 bps, full window) minus the whole-book switch's",
+  "R6": "R6: in the window full_r6 (books SCMO_0007 and SCMO_0010 only) a tag read of Hexaware (INE093A01041) or DHFL (INE202B01038) whose source under tag_lookup is 'unranked' is replaced by the rank and band of the linked quote_id (236783369047 / 236798428431) on THE SAME snapshot tag_lookup used (the latest D23b rank snapshot on or before the information date), read from the D23b panel through TagLookup's own snapshot table (its `_rank_snapshot`, called, not modified); source 'rank_linked', via 'r6_link'. Reads where the stock is ranked are left alone ('instead of Small and below'); if the linked quote_id is not on that snapshot the tag stays unranked (counted). full_r6 has its own events and own N4.6 draws (same seeds); its stats are 'segment' and 'whole_book' at 20.8 bps, LBES",
+  "R6b": "FROZEN TEXT INCONSISTENT WITH THE DATA (reported, not resolved by the engine): T12.md section 2 R6 says the two holdings 'rank Mid under their other quote_ids' and names 236783369047 (Hexaware) and 236798428431 (DHFL). Those are today's listings: in D23b they have rows only from 2025-02-28 (Hexaware, relisted 2025) and 2025-11-28 (PIRAMALFIN), so on every snapshot of the window the linked quote_id is absent and R6 as frozen re-tags nothing (full_r6 equals full; r6_links.csv is empty; misses counted in audit.json). The D20b review's table names the old listings (Hexaware 55837401060 / INE093A01033, DHFL 55837400085 / INE202B01012), which rank Mid in the window. The engine runs the frozen ids by default and the review ids only with `--r6-ids review`; which one R6 uses is Manu's decision",
+  "R7": "R7 (T11 E12): a stock-day (i, t), t = 1..T-1 of the full window, is listed iff the ffilled D18 close (Polyplex correction applied) moves |close[t]/close[t-1]-1| >= 0.20 and the stock has weight > 0 in the basket in force on session t-1 or t; 'return set to zero' = return-preserving splice (every later price of that stock, closes and OHLC4 fills, multiplied by close[t-1]/close[t]); the rule and the whole-book switch are re-run on the spliced prices with their own (unchanged) event lists, since events read no price; stats and NAVs at 0 and 20.8 bps, full window, LBES",
+  "V6": "V6: the weekly joint state matrix (decisions x 3) is rolled by k decisions, k drawn without replacement (100) from the DISTINCT circular shifts 26 <= k <= n-26 with default_rng([15, 9, 100000, book_no]); shift number i (0-based) uses default_rng([15, 9, i, book_no]) for its null: one stream, draw d takes the next n_events uniforms. Full window, LBES, 20.8 bps, 200 draws; pass iff n_pass90 <= 17 (T12.md section 2; equals T07's amended one-sided rule v6_xmax(100), asserted)",
+  "V7": "V7 oracle: at each event pick, from that event's allowed N4.6 set, the subset with the lowest sum of listed weight x log(end/start), start = OHLC4 at the trade session (T0: the close), end = OHLC4 at the next event's trade session (the last event: the close of the last session); ties to the lowest mask. 20.8 bps, full window; percentile against the run's N4.6 draws at 20.8",
+  "S1": "constant mix: f = the average over all sessions of (value of stocks / NAV) of the rule's path at the SAME cost; stocks f x w_i, half of (1-f) in GOLDBEES and half in cash, rebalanced at the rule's events",
+  "S2": "invested_weeks = sum over the weekly decisions of the share of listed weight the current tags keep under that decision's state; constant mix J*f; sleeve100 0; parent J",
+  "S4": "stats.events = the number of events including T0; trades = the number of trades after T0 (every event after T0 trades)",
+  "V2": "V2 counts: decisions (Master label date <= decision date), tags (snapshot <= info date), events (info date < trade session and latest decision < trade session), decision trade dates after decision dates. The T0 event reads as of T0 itself and is counted separately, not as a violation",
+  "V4": "V4(a): `--calendar d17` = each book's own D17 dates, T0 = its first (SCMO_0007 2019-01-04), end 2019-12-31, every input cut at 2019-12-31, the decision at 2019-12-31 not traded; the engine's rule, whole-book, parent and 100%-sleeve NAVs at 0/20.8/50 bps against T07's stored segment, whole_book, parent, sleeve100 and the whole-book, parent and sleeve against T06's stored strategy, hold_parent, sleeve_only on EVERY session of that slice (dates_compared == sessions), relative 1e-12; decisions (sign triple, decision_idx) against T07's decisions.csv. The stored runs read D23 and D12 where this engine reads D23b and D24b. V4(b): only if tests/T11/evidence/headline/ exists when the run starts: whole_book vs T11's strategy_fixed50 and parent vs T11's hold_parent on the full window at each cost present, relative 1e-12; else 'not run'. V4(c): AST comparison (functions and classes, docstrings included) with t07_engine.py: the required-identical list must be identical and every changed name must be in the expected list. V4(d): every tag of every event row (all windows) against a direct pandas read of the D23b panel and D22 (latest snapshot <= info date, by ISIN, else by a quote_id linked through D22 isin/new_isin or the panel's own isin-quote_id pairs), comparing band, rank, snapshot and source; 0 mismatches",
+  "G1": "reportability: a (book, window) needs >= 5 separate disagreement stretches (runs of decisions where the three SIGN are neither all BUY nor all SELL) and >= 6 events with 0 < n_dropped < n_held; written to audit.json and count_table.json. Draws are run for every realisation whether reportable or not",
+  "G2": "events.csv, event_stocks.csv, count_table.json are written for the rule at the full, r2 and full_r6 windows; costs do not change events",
+  "G3": "the oracle (V7), V6 and R5 are run per book inside its worker; V6 does not depend on --draws; a run without --controls (--quick) reports V6 and V7 as not run and exits 0 if V2-V5 pass",
+  "C1": "event counts: the engine's events (T0 included) are compared with Step 1's coarse upper bound (events_coarse_upper_bound) and its events in disagreement weeks (after T0) with events_in_mixed_weeks",
+  "T1": "event_stocks.csv tag_n_ranked = n_ranked of the snapshot the tag used (read from the panel's n_ranked column through TagLookup's snapshot groups); empty for an unranked read with no snapshot",
+  "ST": "stand-ins are counted in audit.json standins: held stock-sessions priced by a previous close, the sessions concerned, GOLDBEES sessions without a bar and without an MCX range, and the number of event sessions of every realisation (rule, comparators, r2, full_r6, R5 and V6 rebuilds included) that fall on any of them; trades of the recorded runs priced by a stand-in come from sim's own counters"
+ },
+ "books": {
+  "SCMO_0003": {
+   "recorded_trade_counters": {
+    "segment|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "whole_book|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "parent|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "constant_mix|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "sleeve100|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "segment|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "whole_book|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "parent|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "constant_mix|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "sleeve100|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "segment|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "whole_book|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "parent|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "constant_mix|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "sleeve100|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    }
+   },
+   "rule_counters": {
+    "full": {
+     "stock_lines_priced_by_previous_close_at_trades": 0,
+     "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 0
+    },
+    "r2": {
+     "stock_lines_priced_by_previous_close_at_trades": 0,
+     "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 0
+    }
+   },
+   "r7": {
+    "flagged_stock_days": 0,
+    "threshold": 0.2
+   },
+   "windows": {
+    "full": {
+     "t0": "2014-09-01",
+     "last_session": "2019-01-02",
+     "sessions": 1070,
+     "decisions": 228,
+     "initial_basket_switch_session": "2014-09-01",
+     "initial_basket_eff": "2014-09-01",
+     "cash": {
+      "file_last": "2026-11-05",
+      "accrued_sessions": 0,
+      "cash": "lbes"
+     },
+     "disagreement_weeks": 57,
+     "disagreement_stretches": 11,
+     "stretch_lengths": [
+      7,
+      9,
+      6,
+      1,
+      3,
+      1,
+      1,
+      2,
+      8,
+      1,
+      18
+     ],
+     "events": {
+      "events": 38,
+      "initial": 1,
+      "signal": 27,
+      "basket": 10,
+      "signal+basket": 0,
+      "partial": 15
+     },
+     "events_in_disagreement_weeks": 16,
+     "events_in_disagreement_weeks_step1_attribution": 14,
+     "signal_events_without_a_change_of_the_triple": 0,
+     "n_allowed_subsets_min_median_max": [
+      1,
+      1,
+      1365
+     ],
+     "events_with_one_allowed_subset": 23,
+     "tau_boundary_cases": 0,
+     "skipped_basket_events": [
+      {
+       "session": 180,
+       "date": "2015-06-01",
+       "basket_eff": "2015-06-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 305,
+       "date": "2015-12-01",
+       "basket_eff": "2015-12-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 368,
+       "date": "2016-03-01",
+       "basket_eff": "2016-03-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 390,
+       "date": "2016-04-05",
+       "basket_eff": "2016-04-05",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 552,
+       "date": "2016-12-01",
+       "basket_eff": "2016-12-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 739,
+       "date": "2017-09-01",
+       "basket_eff": "2017-09-01",
+       "n_held_new_basket": 11
+      },
+      {
+       "session": 862,
+       "date": "2018-02-28",
+       "basket_eff": "2018-02-28",
+       "n_held_new_basket": 8
+      },
+      {
+       "session": 1058,
+       "date": "2018-12-17",
+       "basket_eff": "2018-12-17",
+       "n_held_new_basket": 10
+      }
+     ],
+     "whole_book_events": {
+      "events": 23,
+      "initial": 1,
+      "signal": 15,
+      "basket": 7,
+      "signal+basket": 0,
+      "partial": 0
+     },
+     "whole_book_skipped_basket_events": 11,
+     "tag_source_event_rows": {
+      "rank": 499
+     },
+     "unranked_event_rows": [],
+     "v2": {
+      "tags_checked": 588,
+      "tag_snapshot_after_info": 0,
+      "events_checked": 37,
+      "event_info_not_before_trade": 0,
+      "event_decision_not_before_trade": 0,
+      "initial_position_tag_reads_asof_T0": 15,
+      "decisions_checked": 228,
+      "decisions_label_after_decision": 0,
+      "sc100_label_before_usable_from": 0,
+      "decision_trades_checked": 227,
+      "decision_trade_not_after_decision": 0
+     },
+     "reportable": true,
+     "mean_dropped_weight_rule": 0.4912024902957477,
+     "n_universe_N4.8": 90,
+     "pattern_counts": {
+      "BBB": 93,
+      "SSS": 78,
+      "SBS": 16,
+      "BBS": 14,
+      "BSS": 14,
+      "SBB": 8,
+      "SSB": 5
+     },
+     "sc100_earliest_label": "2014-08-28"
+    },
+    "r2": {
+     "t0": "2015-01-02",
+     "last_session": "2019-01-02",
+     "sessions": 989,
+     "decisions": 210,
+     "initial_basket_switch_session": "2014-12-01",
+     "initial_basket_eff": "2014-12-01",
+     "cash": {
+      "file_last": "2026-11-05",
+      "accrued_sessions": 0,
+      "cash": "lbes"
+     },
+     "disagreement_weeks": 47,
+     "disagreement_stretches": 10,
+     "stretch_lengths": [
+      6,
+      6,
+      1,
+      3,
+      1,
+      1,
+      2,
+      8,
+      1,
+      18
+     ],
+     "events": {
+      "events": 32,
+      "initial": 1,
+      "signal": 22,
+      "basket": 9,
+      "signal+basket": 0,
+      "partial": 11
+     },
+     "events_in_disagreement_weeks": 11,
+     "events_in_disagreement_weeks_step1_attribution": 10,
+     "signal_events_without_a_change_of_the_triple": 0,
+     "n_allowed_subsets_min_median_max": [
+      1,
+      1,
+      1365
+     ],
+     "events_with_one_allowed_subset": 21,
+     "tau_boundary_cases": 0,
+     "skipped_basket_events": [
+      {
+       "session": 99,
+       "date": "2015-06-01",
+       "basket_eff": "2015-06-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 224,
+       "date": "2015-12-01",
+       "basket_eff": "2015-12-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 287,
+       "date": "2016-03-01",
+       "basket_eff": "2016-03-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 309,
+       "date": "2016-04-05",
+       "basket_eff": "2016-04-05",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 471,
+       "date": "2016-12-01",
+       "basket_eff": "2016-12-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 658,
+       "date": "2017-09-01",
+       "basket_eff": "2017-09-01",
+       "n_held_new_basket": 11
+      },
+      {
+       "session": 781,
+       "date": "2018-02-28",
+       "basket_eff": "2018-02-28",
+       "n_held_new_basket": 8
+      },
+      {
+       "session": 977,
+       "date": "2018-12-17",
+       "basket_eff": "2018-12-17",
+       "n_held_new_basket": 10
+      }
+     ],
+     "whole_book_events": {
+      "events": 20,
+      "initial": 1,
+      "signal": 12,
+      "basket": 7,
+      "signal+basket": 0,
+      "partial": 0
+     },
+     "whole_book_skipped_basket_events": 10,
+     "tag_source_event_rows": {
+      "rank": 409
+     },
+     "unranked_event_rows": [],
+     "v2": {
+      "tags_checked": 498,
+      "tag_snapshot_after_info": 0,
+      "events_checked": 31,
+      "event_info_not_before_trade": 0,
+      "event_decision_not_before_trade": 0,
+      "initial_position_tag_reads_asof_T0": 15,
+      "decisions_checked": 210,
+      "decisions_label_after_decision": 0,
+      "sc100_label_before_usable_from": 0,
+      "decision_trades_checked": 209,
+      "decision_trade_not_after_decision": 0
+     },
+     "reportable": true,
+     "mean_dropped_weight_rule": 0.4958029572262004,
+     "n_universe_N4.8": 86,
+     "pattern_counts": {
+      "BBB": 85,
+      "SSS": 78,
+      "BSS": 14,
+      "SBS": 12,
+      "BBS": 9,
+      "SBB": 7,
+      "SSB": 5
+     },
+     "sc100_earliest_label": "2015-01-02"
+    }
+   },
+   "standins": {
+    "held_stock_sessions_priced_by_previous_close": 11,
+    "sessions_with_a_held_stock_without_bar": [
+     "2017-10-19"
+    ],
+    "goldbees_no_bar_sessions": [
+     "2016-10-30"
+    ],
+    "goldbees_no_mcx_range_sessions": [
+     "2014-10-23",
+     "2015-01-01",
+     "2015-11-11"
+    ],
+    "event_sessions_on_standin_sessions": {
+     "full": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     },
+     "r2": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     }
+    },
+    "r5_event_sessions_on_standin_sessions": 0
+   },
+   "seconds_core": 47,
+   "seconds": 92
+  },
+  "SCMO_0007": {
+   "recorded_trade_counters": {
+    "segment|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "whole_book|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "parent|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "constant_mix|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "sleeve100|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "segment|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "whole_book|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "parent|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "constant_mix|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "sleeve100|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "segment|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "whole_book|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "parent|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "constant_mix|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "sleeve100|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    }
+   },
+   "rule_counters": {
+    "full": {
+     "stock_lines_priced_by_previous_close_at_trades": 0,
+     "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 0
+    },
+    "r2": {
+     "stock_lines_priced_by_previous_close_at_trades": 0,
+     "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 0
+    },
+    "full_r6": {
+     "stock_lines_priced_by_previous_close_at_trades": 0,
+     "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 0
+    }
+   },
+   "r7": {
+    "flagged_stock_days": 0,
+    "threshold": 0.2
+   },
+   "windows": {
+    "full": {
+     "t0": "2014-09-01",
+     "last_session": "2019-01-02",
+     "sessions": 1070,
+     "decisions": 228,
+     "initial_basket_switch_session": "2014-09-01",
+     "initial_basket_eff": "2014-09-01",
+     "cash": {
+      "file_last": "2026-11-05",
+      "accrued_sessions": 0,
+      "cash": "lbes"
+     },
+     "disagreement_weeks": 57,
+     "disagreement_stretches": 11,
+     "stretch_lengths": [
+      7,
+      9,
+      6,
+      1,
+      3,
+      1,
+      1,
+      2,
+      8,
+      1,
+      18
+     ],
+     "events": {
+      "events": 40,
+      "initial": 1,
+      "signal": 29,
+      "basket": 10,
+      "signal+basket": 0,
+      "partial": 18
+     },
+     "events_in_disagreement_weeks": 19,
+     "events_in_disagreement_weeks_step1_attribution": 17,
+     "signal_events_without_a_change_of_the_triple": 0,
+     "n_allowed_subsets_min_median_max": [
+      1,
+      1,
+      6435
+     ],
+     "events_with_one_allowed_subset": 22,
+     "tau_boundary_cases": 0,
+     "skipped_basket_events": [
+      {
+       "session": 180,
+       "date": "2015-06-01",
+       "basket_eff": "2015-06-01",
+       "n_held_new_basket": 3
+      },
+      {
+       "session": 305,
+       "date": "2015-12-01",
+       "basket_eff": "2015-12-01",
+       "n_held_new_basket": 12
+      },
+      {
+       "session": 368,
+       "date": "2016-03-01",
+       "basket_eff": "2016-03-01",
+       "n_held_new_basket": 3
+      },
+      {
+       "session": 390,
+       "date": "2016-04-05",
+       "basket_eff": "2016-04-05",
+       "n_held_new_basket": 3
+      },
+      {
+       "session": 552,
+       "date": "2016-12-01",
+       "basket_eff": "2016-12-01",
+       "n_held_new_basket": 5
+      },
+      {
+       "session": 739,
+       "date": "2017-09-01",
+       "basket_eff": "2017-09-01",
+       "n_held_new_basket": 6
+      },
+      {
+       "session": 862,
+       "date": "2018-02-28",
+       "basket_eff": "2018-02-28",
+       "n_held_new_basket": 12
+      },
+      {
+       "session": 1058,
+       "date": "2018-12-17",
+       "basket_eff": "2018-12-17",
+       "n_held_new_basket": 9
+      }
+     ],
+     "whole_book_events": {
+      "events": 23,
+      "initial": 1,
+      "signal": 15,
+      "basket": 7,
+      "signal+basket": 0,
+      "partial": 0
+     },
+     "whole_book_skipped_basket_events": 11,
+     "tag_source_event_rows": {
+      "rank": 385,
+      "unranked": 2
+     },
+     "unranked_event_rows": [
+      {
+       "isin": "INE093A01041",
+       "stock": "HEXT.NS",
+       "event_no": 33,
+       "info_date": "2018-04-27",
+       "tag_snapshot": "2018-03-28"
+      },
+      {
+       "isin": "INE093A01041",
+       "stock": "HEXT.NS",
+       "event_no": 34,
+       "info_date": "2018-05-18",
+       "tag_snapshot": "2018-04-30"
+      }
+     ],
+     "v2": {
+      "tags_checked": 425,
+      "tag_snapshot_after_info": 0,
+      "events_checked": 39,
+      "event_info_not_before_trade": 0,
+      "event_decision_not_before_trade": 0,
+      "initial_position_tag_reads_asof_T0": 15,
+      "decisions_checked": 228,
+      "decisions_label_after_decision": 0,
+      "sc100_label_before_usable_from": 0,
+      "decision_trades_checked": 227,
+      "decision_trade_not_after_decision": 0
+     },
+     "reportable": true,
+     "mean_dropped_weight_rule": 0.4110809072810772,
+     "n_universe_N4.8": 69,
+     "pattern_counts": {
+      "BBB": 93,
+      "SSS": 78,
+      "SBS": 16,
+      "BBS": 14,
+      "BSS": 14,
+      "SBB": 8,
+      "SSB": 5
+     },
+     "sc100_earliest_label": "2014-08-28"
+    },
+    "r2": {
+     "t0": "2015-01-02",
+     "last_session": "2019-01-02",
+     "sessions": 989,
+     "decisions": 210,
+     "initial_basket_switch_session": "2014-12-01",
+     "initial_basket_eff": "2014-12-01",
+     "cash": {
+      "file_last": "2026-11-05",
+      "accrued_sessions": 0,
+      "cash": "lbes"
+     },
+     "disagreement_weeks": 47,
+     "disagreement_stretches": 10,
+     "stretch_lengths": [
+      6,
+      6,
+      1,
+      3,
+      1,
+      1,
+      2,
+      8,
+      1,
+      18
+     ],
+     "events": {
+      "events": 34,
+      "initial": 1,
+      "signal": 24,
+      "basket": 9,
+      "signal+basket": 0,
+      "partial": 14
+     },
+     "events_in_disagreement_weeks": 14,
+     "events_in_disagreement_weeks_step1_attribution": 13,
+     "signal_events_without_a_change_of_the_triple": 0,
+     "n_allowed_subsets_min_median_max": [
+      1,
+      1,
+      1716
+     ],
+     "events_with_one_allowed_subset": 20,
+     "tau_boundary_cases": 0,
+     "skipped_basket_events": [
+      {
+       "session": 99,
+       "date": "2015-06-01",
+       "basket_eff": "2015-06-01",
+       "n_held_new_basket": 3
+      },
+      {
+       "session": 224,
+       "date": "2015-12-01",
+       "basket_eff": "2015-12-01",
+       "n_held_new_basket": 12
+      },
+      {
+       "session": 287,
+       "date": "2016-03-01",
+       "basket_eff": "2016-03-01",
+       "n_held_new_basket": 3
+      },
+      {
+       "session": 309,
+       "date": "2016-04-05",
+       "basket_eff": "2016-04-05",
+       "n_held_new_basket": 3
+      },
+      {
+       "session": 471,
+       "date": "2016-12-01",
+       "basket_eff": "2016-12-01",
+       "n_held_new_basket": 5
+      },
+      {
+       "session": 658,
+       "date": "2017-09-01",
+       "basket_eff": "2017-09-01",
+       "n_held_new_basket": 6
+      },
+      {
+       "session": 781,
+       "date": "2018-02-28",
+       "basket_eff": "2018-02-28",
+       "n_held_new_basket": 12
+      },
+      {
+       "session": 977,
+       "date": "2018-12-17",
+       "basket_eff": "2018-12-17",
+       "n_held_new_basket": 9
+      }
+     ],
+     "whole_book_events": {
+      "events": 20,
+      "initial": 1,
+      "signal": 12,
+      "basket": 7,
+      "signal+basket": 0,
+      "partial": 0
+     },
+     "whole_book_skipped_basket_events": 10,
+     "tag_source_event_rows": {
+      "rank": 301,
+      "unranked": 2
+     },
+     "unranked_event_rows": [
+      {
+       "isin": "INE093A01041",
+       "stock": "HEXT.NS",
+       "event_no": 27,
+       "info_date": "2018-04-27",
+       "tag_snapshot": "2018-03-28"
+      },
+      {
+       "isin": "INE093A01041",
+       "stock": "HEXT.NS",
+       "event_no": 28,
+       "info_date": "2018-05-18",
+       "tag_snapshot": "2018-04-30"
+      }
+     ],
+     "v2": {
+      "tags_checked": 343,
+      "tag_snapshot_after_info": 0,
+      "events_checked": 33,
+      "event_info_not_before_trade": 0,
+      "event_decision_not_before_trade": 0,
+      "initial_position_tag_reads_asof_T0": 13,
+      "decisions_checked": 210,
+      "decisions_label_after_decision": 0,
+      "sc100_label_before_usable_from": 0,
+      "decision_trades_checked": 209,
+      "decision_trade_not_after_decision": 0
+     },
+     "reportable": true,
+     "mean_dropped_weight_rule": 0.43581162545888424,
+     "n_universe_N4.8": 65,
+     "pattern_counts": {
+      "BBB": 85,
+      "SSS": 78,
+      "BSS": 14,
+      "SBS": 12,
+      "BBS": 9,
+      "SBB": 7,
+      "SSB": 5
+     },
+     "sc100_earliest_label": "2015-01-02"
+    },
+    "full_r6": {
+     "t0": "2014-09-01",
+     "last_session": "2019-01-02",
+     "sessions": 1070,
+     "decisions": 228,
+     "initial_basket_switch_session": "2014-09-01",
+     "initial_basket_eff": "2014-09-01",
+     "cash": {
+      "file_last": "2026-11-05",
+      "accrued_sessions": 0,
+      "cash": "lbes"
+     },
+     "disagreement_weeks": 57,
+     "disagreement_stretches": 11,
+     "stretch_lengths": [
+      7,
+      9,
+      6,
+      1,
+      3,
+      1,
+      1,
+      2,
+      8,
+      1,
+      18
+     ],
+     "events": {
+      "events": 40,
+      "initial": 1,
+      "signal": 29,
+      "basket": 10,
+      "signal+basket": 0,
+      "partial": 18
+     },
+     "events_in_disagreement_weeks": 19,
+     "events_in_disagreement_weeks_step1_attribution": 17,
+     "signal_events_without_a_change_of_the_triple": 0,
+     "n_allowed_subsets_min_median_max": [
+      1,
+      1,
+      6435
+     ],
+     "events_with_one_allowed_subset": 22,
+     "tau_boundary_cases": 0,
+     "skipped_basket_events": [
+      {
+       "session": 180,
+       "date": "2015-06-01",
+       "basket_eff": "2015-06-01",
+       "n_held_new_basket": 3
+      },
+      {
+       "session": 305,
+       "date": "2015-12-01",
+       "basket_eff": "2015-12-01",
+       "n_held_new_basket": 12
+      },
+      {
+       "session": 368,
+       "date": "2016-03-01",
+       "basket_eff": "2016-03-01",
+       "n_held_new_basket": 3
+      },
+      {
+       "session": 390,
+       "date": "2016-04-05",
+       "basket_eff": "2016-04-05",
+       "n_held_new_basket": 3
+      },
+      {
+       "session": 552,
+       "date": "2016-12-01",
+       "basket_eff": "2016-12-01",
+       "n_held_new_basket": 5
+      },
+      {
+       "session": 739,
+       "date": "2017-09-01",
+       "basket_eff": "2017-09-01",
+       "n_held_new_basket": 6
+      },
+      {
+       "session": 862,
+       "date": "2018-02-28",
+       "basket_eff": "2018-02-28",
+       "n_held_new_basket": 12
+      },
+      {
+       "session": 1058,
+       "date": "2018-12-17",
+       "basket_eff": "2018-12-17",
+       "n_held_new_basket": 9
+      }
+     ],
+     "whole_book_events": {
+      "events": 23,
+      "initial": 1,
+      "signal": 15,
+      "basket": 7,
+      "signal+basket": 0,
+      "partial": 0
+     },
+     "whole_book_skipped_basket_events": 11,
+     "tag_source_event_rows": {
+      "rank": 385,
+      "rank_linked": 2
+     },
+     "unranked_event_rows": [],
+     "v2": {
+      "tags_checked": 425,
+      "tag_snapshot_after_info": 0,
+      "events_checked": 39,
+      "event_info_not_before_trade": 0,
+      "event_decision_not_before_trade": 0,
+      "initial_position_tag_reads_asof_T0": 15,
+      "decisions_checked": 228,
+      "decisions_label_after_decision": 0,
+      "sc100_label_before_usable_from": 0,
+      "decision_trades_checked": 227,
+      "decision_trade_not_after_decision": 0
+     },
+     "reportable": true,
+     "mean_dropped_weight_rule": 0.40899757394774383,
+     "n_universe_N4.8": null,
+     "pattern_counts": {
+      "BBB": 93,
+      "SSS": 78,
+      "SBS": 16,
+      "BBS": 14,
+      "BSS": 14,
+      "SBB": 8,
+      "SSB": 5
+     },
+     "sc100_earliest_label": "2014-08-28"
+    }
+   },
+   "r6_linked_quote_id_missing_on_snapshot": 0,
+   "standins": {
+    "held_stock_sessions_priced_by_previous_close": 6,
+    "sessions_with_a_held_stock_without_bar": [
+     "2017-10-19"
+    ],
+    "goldbees_no_bar_sessions": [
+     "2016-10-30"
+    ],
+    "goldbees_no_mcx_range_sessions": [
+     "2014-10-23",
+     "2015-01-01",
+     "2015-11-11"
+    ],
+    "event_sessions_on_standin_sessions": {
+     "full": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     },
+     "r2": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     },
+     "full_r6": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     }
+    },
+    "r5_event_sessions_on_standin_sessions": 0
+   },
+   "seconds_core": 53,
+   "seconds": 102
+  },
+  "SCMO_0010": {
+   "recorded_trade_counters": {
+    "segment|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "whole_book|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "parent|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "constant_mix|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "sleeve100|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "segment|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "whole_book|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "parent|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "constant_mix|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "sleeve100|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "segment|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "whole_book|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "parent|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "constant_mix|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "sleeve100|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    }
+   },
+   "rule_counters": {
+    "full": {
+     "stock_lines_priced_by_previous_close_at_trades": 0,
+     "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 0
+    },
+    "r2": {
+     "stock_lines_priced_by_previous_close_at_trades": 0,
+     "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 0
+    },
+    "full_r6": {
+     "stock_lines_priced_by_previous_close_at_trades": 0,
+     "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 0
+    }
+   },
+   "r7": {
+    "flagged_stock_days": 1,
+    "threshold": 0.2
+   },
+   "windows": {
+    "full": {
+     "t0": "2014-09-01",
+     "last_session": "2019-01-02",
+     "sessions": 1070,
+     "decisions": 228,
+     "initial_basket_switch_session": "2014-09-01",
+     "initial_basket_eff": "2014-09-01",
+     "cash": {
+      "file_last": "2026-11-05",
+      "accrued_sessions": 0,
+      "cash": "lbes"
+     },
+     "disagreement_weeks": 57,
+     "disagreement_stretches": 11,
+     "stretch_lengths": [
+      7,
+      9,
+      6,
+      1,
+      3,
+      1,
+      1,
+      2,
+      8,
+      1,
+      18
+     ],
+     "events": {
+      "events": 37,
+      "initial": 1,
+      "signal": 27,
+      "basket": 9,
+      "signal+basket": 0,
+      "partial": 14
+     },
+     "events_in_disagreement_weeks": 15,
+     "events_in_disagreement_weeks_step1_attribution": 13,
+     "signal_events_without_a_change_of_the_triple": 1,
+     "n_allowed_subsets_min_median_max": [
+      1,
+      1,
+      6435
+     ],
+     "events_with_one_allowed_subset": 23,
+     "tau_boundary_cases": 0,
+     "skipped_basket_events": [
+      {
+       "session": 180,
+       "date": "2015-06-01",
+       "basket_eff": "2015-06-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 305,
+       "date": "2015-12-01",
+       "basket_eff": "2015-12-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 368,
+       "date": "2016-03-01",
+       "basket_eff": "2016-03-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 390,
+       "date": "2016-04-05",
+       "basket_eff": "2016-04-05",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 552,
+       "date": "2016-12-01",
+       "basket_eff": "2016-12-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 739,
+       "date": "2017-09-01",
+       "basket_eff": "2017-09-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 862,
+       "date": "2018-02-28",
+       "basket_eff": "2018-02-28",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 924,
+       "date": "2018-05-31",
+       "basket_eff": "2018-05-31",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 1058,
+       "date": "2018-12-17",
+       "basket_eff": "2018-12-17",
+       "n_held_new_basket": 8
+      }
+     ],
+     "whole_book_events": {
+      "events": 23,
+      "initial": 1,
+      "signal": 15,
+      "basket": 7,
+      "signal+basket": 0,
+      "partial": 0
+     },
+     "whole_book_skipped_basket_events": 11,
+     "tag_source_event_rows": {
+      "rank": 532,
+      "unranked": 4
+     },
+     "unranked_event_rows": [
+      {
+       "isin": "INE202B01038",
+       "stock": "PIRAMALFIN.NS",
+       "event_no": 23,
+       "info_date": "2017-05-31",
+       "tag_snapshot": "2017-05-31"
+      },
+      {
+       "isin": "INE202B01038",
+       "stock": "PIRAMALFIN.NS",
+       "event_no": 24,
+       "info_date": "2017-08-11",
+       "tag_snapshot": "2017-07-31"
+      },
+      {
+       "isin": "INE202B01038",
+       "stock": "PIRAMALFIN.NS",
+       "event_no": 25,
+       "info_date": "2017-09-01",
+       "tag_snapshot": "2017-08-31"
+      },
+      {
+       "isin": "INE202B01038",
+       "stock": "PIRAMALFIN.NS",
+       "event_no": 26,
+       "info_date": "2017-10-27",
+       "tag_snapshot": "2017-09-29"
+      }
+     ],
+     "v2": {
+      "tags_checked": 649,
+      "tag_snapshot_after_info": 0,
+      "events_checked": 36,
+      "event_info_not_before_trade": 0,
+      "event_decision_not_before_trade": 0,
+      "initial_position_tag_reads_asof_T0": 15,
+      "decisions_checked": 228,
+      "decisions_label_after_decision": 0,
+      "sc100_label_before_usable_from": 0,
+      "decision_trades_checked": 227,
+      "decision_trade_not_after_decision": 0
+     },
+     "reportable": true,
+     "mean_dropped_weight_rule": 0.4594594594594594,
+     "n_universe_N4.8": 142,
+     "pattern_counts": {
+      "BBB": 93,
+      "SSS": 78,
+      "SBS": 16,
+      "BBS": 14,
+      "BSS": 14,
+      "SBB": 8,
+      "SSB": 5
+     },
+     "sc100_earliest_label": "2014-08-28"
+    },
+    "r2": {
+     "t0": "2015-01-02",
+     "last_session": "2019-01-02",
+     "sessions": 989,
+     "decisions": 210,
+     "initial_basket_switch_session": "2014-12-01",
+     "initial_basket_eff": "2014-12-01",
+     "cash": {
+      "file_last": "2026-11-05",
+      "accrued_sessions": 0,
+      "cash": "lbes"
+     },
+     "disagreement_weeks": 47,
+     "disagreement_stretches": 10,
+     "stretch_lengths": [
+      6,
+      6,
+      1,
+      3,
+      1,
+      1,
+      2,
+      8,
+      1,
+      18
+     ],
+     "events": {
+      "events": 34,
+      "initial": 1,
+      "signal": 25,
+      "basket": 8,
+      "signal+basket": 0,
+      "partial": 13
+     },
+     "events_in_disagreement_weeks": 13,
+     "events_in_disagreement_weeks_step1_attribution": 12,
+     "signal_events_without_a_change_of_the_triple": 1,
+     "n_allowed_subsets_min_median_max": [
+      1,
+      1,
+      6435
+     ],
+     "events_with_one_allowed_subset": 21,
+     "tau_boundary_cases": 0,
+     "skipped_basket_events": [
+      {
+       "session": 99,
+       "date": "2015-06-01",
+       "basket_eff": "2015-06-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 224,
+       "date": "2015-12-01",
+       "basket_eff": "2015-12-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 287,
+       "date": "2016-03-01",
+       "basket_eff": "2016-03-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 309,
+       "date": "2016-04-05",
+       "basket_eff": "2016-04-05",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 471,
+       "date": "2016-12-01",
+       "basket_eff": "2016-12-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 658,
+       "date": "2017-09-01",
+       "basket_eff": "2017-09-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 781,
+       "date": "2018-02-28",
+       "basket_eff": "2018-02-28",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 843,
+       "date": "2018-05-31",
+       "basket_eff": "2018-05-31",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 977,
+       "date": "2018-12-17",
+       "basket_eff": "2018-12-17",
+       "n_held_new_basket": 8
+      }
+     ],
+     "whole_book_events": {
+      "events": 20,
+      "initial": 1,
+      "signal": 12,
+      "basket": 7,
+      "signal+basket": 0,
+      "partial": 0
+     },
+     "whole_book_skipped_basket_events": 10,
+     "tag_source_event_rows": {
+      "rank": 487,
+      "unranked": 4
+     },
+     "unranked_event_rows": [
+      {
+       "isin": "INE202B01038",
+       "stock": "PIRAMALFIN.NS",
+       "event_no": 20,
+       "info_date": "2017-05-31",
+       "tag_snapshot": "2017-05-31"
+      },
+      {
+       "isin": "INE202B01038",
+       "stock": "PIRAMALFIN.NS",
+       "event_no": 21,
+       "info_date": "2017-08-11",
+       "tag_snapshot": "2017-07-31"
+      },
+      {
+       "isin": "INE202B01038",
+       "stock": "PIRAMALFIN.NS",
+       "event_no": 22,
+       "info_date": "2017-09-01",
+       "tag_snapshot": "2017-08-31"
+      },
+      {
+       "isin": "INE202B01038",
+       "stock": "PIRAMALFIN.NS",
+       "event_no": 23,
+       "info_date": "2017-10-27",
+       "tag_snapshot": "2017-09-29"
+      }
+     ],
+     "v2": {
+      "tags_checked": 604,
+      "tag_snapshot_after_info": 0,
+      "events_checked": 33,
+      "event_info_not_before_trade": 0,
+      "event_decision_not_before_trade": 0,
+      "initial_position_tag_reads_asof_T0": 15,
+      "decisions_checked": 210,
+      "decisions_label_after_decision": 0,
+      "sc100_label_before_usable_from": 0,
+      "decision_trades_checked": 209,
+      "decision_trade_not_after_decision": 0
+     },
+     "reportable": true,
+     "mean_dropped_weight_rule": 0.4745098039215685,
+     "n_universe_N4.8": 138,
+     "pattern_counts": {
+      "BBB": 85,
+      "SSS": 78,
+      "BSS": 14,
+      "SBS": 12,
+      "BBS": 9,
+      "SBB": 7,
+      "SSB": 5
+     },
+     "sc100_earliest_label": "2015-01-02"
+    },
+    "full_r6": {
+     "t0": "2014-09-01",
+     "last_session": "2019-01-02",
+     "sessions": 1070,
+     "decisions": 228,
+     "initial_basket_switch_session": "2014-09-01",
+     "initial_basket_eff": "2014-09-01",
+     "cash": {
+      "file_last": "2026-11-05",
+      "accrued_sessions": 0,
+      "cash": "lbes"
+     },
+     "disagreement_weeks": 57,
+     "disagreement_stretches": 11,
+     "stretch_lengths": [
+      7,
+      9,
+      6,
+      1,
+      3,
+      1,
+      1,
+      2,
+      8,
+      1,
+      18
+     ],
+     "events": {
+      "events": 37,
+      "initial": 1,
+      "signal": 27,
+      "basket": 9,
+      "signal+basket": 0,
+      "partial": 14
+     },
+     "events_in_disagreement_weeks": 15,
+     "events_in_disagreement_weeks_step1_attribution": 13,
+     "signal_events_without_a_change_of_the_triple": 1,
+     "n_allowed_subsets_min_median_max": [
+      1,
+      1,
+      6435
+     ],
+     "events_with_one_allowed_subset": 23,
+     "tau_boundary_cases": 0,
+     "skipped_basket_events": [
+      {
+       "session": 180,
+       "date": "2015-06-01",
+       "basket_eff": "2015-06-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 305,
+       "date": "2015-12-01",
+       "basket_eff": "2015-12-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 368,
+       "date": "2016-03-01",
+       "basket_eff": "2016-03-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 390,
+       "date": "2016-04-05",
+       "basket_eff": "2016-04-05",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 552,
+       "date": "2016-12-01",
+       "basket_eff": "2016-12-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 739,
+       "date": "2017-09-01",
+       "basket_eff": "2017-09-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 862,
+       "date": "2018-02-28",
+       "basket_eff": "2018-02-28",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 924,
+       "date": "2018-05-31",
+       "basket_eff": "2018-05-31",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 1058,
+       "date": "2018-12-17",
+       "basket_eff": "2018-12-17",
+       "n_held_new_basket": 8
+      }
+     ],
+     "whole_book_events": {
+      "events": 23,
+      "initial": 1,
+      "signal": 15,
+      "basket": 7,
+      "signal+basket": 0,
+      "partial": 0
+     },
+     "whole_book_skipped_basket_events": 11,
+     "tag_source_event_rows": {
+      "rank": 532,
+      "rank_linked": 4
+     },
+     "unranked_event_rows": [],
+     "v2": {
+      "tags_checked": 649,
+      "tag_snapshot_after_info": 0,
+      "events_checked": 36,
+      "event_info_not_before_trade": 0,
+      "event_decision_not_before_trade": 0,
+      "initial_position_tag_reads_asof_T0": 15,
+      "decisions_checked": 228,
+      "decisions_label_after_decision": 0,
+      "sc100_label_before_usable_from": 0,
+      "decision_trades_checked": 227,
+      "decision_trade_not_after_decision": 0
+     },
+     "reportable": true,
+     "mean_dropped_weight_rule": 0.4576576576576576,
+     "n_universe_N4.8": null,
+     "pattern_counts": {
+      "BBB": 93,
+      "SSS": 78,
+      "SBS": 16,
+      "BBS": 14,
+      "BSS": 14,
+      "SBB": 8,
+      "SSB": 5
+     },
+     "sc100_earliest_label": "2014-08-28"
+    }
+   },
+   "r6_linked_quote_id_missing_on_snapshot": 0,
+   "standins": {
+    "held_stock_sessions_priced_by_previous_close": 15,
+    "sessions_with_a_held_stock_without_bar": [
+     "2017-10-19"
+    ],
+    "goldbees_no_bar_sessions": [
+     "2016-10-30"
+    ],
+    "goldbees_no_mcx_range_sessions": [
+     "2014-10-23",
+     "2015-01-01",
+     "2015-11-11"
+    ],
+    "event_sessions_on_standin_sessions": {
+     "full": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     },
+     "r2": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     },
+     "full_r6": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     }
+    },
+    "r5_event_sessions_on_standin_sessions": 0
+   },
+   "seconds_core": 52,
+   "seconds": 102
+  },
+  "SCMO_0029": {
+   "recorded_trade_counters": {
+    "segment|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "whole_book|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "parent|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "constant_mix|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "sleeve100|0.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "segment|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "whole_book|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "parent|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "constant_mix|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "sleeve100|20.8": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "segment|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "whole_book|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "parent|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "constant_mix|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    },
+    "sleeve100|50.0": {
+     "trades_with_a_stock_priced_by_previous_close": 0,
+     "trades_goldbees_raw_OHLC4": 0,
+     "trades_on_goldbees_no_bar_session": 0
+    }
+   },
+   "rule_counters": {
+    "full": {
+     "stock_lines_priced_by_previous_close_at_trades": 0,
+     "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 0
+    },
+    "r2": {
+     "stock_lines_priced_by_previous_close_at_trades": 0,
+     "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 0
+    }
+   },
+   "r7": {
+    "flagged_stock_days": 0,
+    "threshold": 0.2
+   },
+   "windows": {
+    "full": {
+     "t0": "2014-09-01",
+     "last_session": "2019-01-02",
+     "sessions": 1070,
+     "decisions": 228,
+     "initial_basket_switch_session": "2014-09-01",
+     "initial_basket_eff": "2014-09-01",
+     "cash": {
+      "file_last": "2026-11-05",
+      "accrued_sessions": 0,
+      "cash": "lbes"
+     },
+     "disagreement_weeks": 57,
+     "disagreement_stretches": 11,
+     "stretch_lengths": [
+      7,
+      9,
+      6,
+      1,
+      3,
+      1,
+      1,
+      2,
+      8,
+      1,
+      18
+     ],
+     "events": {
+      "events": 40,
+      "initial": 1,
+      "signal": 29,
+      "basket": 10,
+      "signal+basket": 0,
+      "partial": 16
+     },
+     "events_in_disagreement_weeks": 17,
+     "events_in_disagreement_weeks_step1_attribution": 15,
+     "signal_events_without_a_change_of_the_triple": 0,
+     "n_allowed_subsets_min_median_max": [
+      1,
+      1,
+      8008
+     ],
+     "events_with_one_allowed_subset": 24,
+     "tau_boundary_cases": 0,
+     "skipped_basket_events": [
+      {
+       "session": 180,
+       "date": "2015-06-01",
+       "basket_eff": "2015-06-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 305,
+       "date": "2015-12-01",
+       "basket_eff": "2015-12-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 368,
+       "date": "2016-03-01",
+       "basket_eff": "2016-03-01",
+       "n_held_new_basket": 16
+      },
+      {
+       "session": 552,
+       "date": "2016-12-01",
+       "basket_eff": "2016-12-01",
+       "n_held_new_basket": 13
+      },
+      {
+       "session": 739,
+       "date": "2017-09-01",
+       "basket_eff": "2017-09-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 862,
+       "date": "2018-02-28",
+       "basket_eff": "2018-02-28",
+       "n_held_new_basket": 11
+      },
+      {
+       "session": 924,
+       "date": "2018-05-31",
+       "basket_eff": "2018-05-31",
+       "n_held_new_basket": 13
+      },
+      {
+       "session": 1058,
+       "date": "2018-12-17",
+       "basket_eff": "2018-12-17",
+       "n_held_new_basket": 11
+      }
+     ],
+     "whole_book_events": {
+      "events": 24,
+      "initial": 1,
+      "signal": 15,
+      "basket": 8,
+      "signal+basket": 0,
+      "partial": 0
+     },
+     "whole_book_skipped_basket_events": 10,
+     "tag_source_event_rows": {
+      "rank": 586
+     },
+     "unranked_event_rows": [],
+     "v2": {
+      "tags_checked": 680,
+      "tag_snapshot_after_info": 0,
+      "events_checked": 39,
+      "event_info_not_before_trade": 0,
+      "event_decision_not_before_trade": 0,
+      "initial_position_tag_reads_asof_T0": 15,
+      "decisions_checked": 228,
+      "decisions_label_after_decision": 0,
+      "sc100_label_before_usable_from": 0,
+      "decision_trades_checked": 227,
+      "decision_trade_not_after_decision": 0
+     },
+     "reportable": true,
+     "mean_dropped_weight_rule": 0.43525628948988065,
+     "n_universe_N4.8": 118,
+     "pattern_counts": {
+      "BBB": 93,
+      "SSS": 78,
+      "SBS": 16,
+      "BBS": 14,
+      "BSS": 14,
+      "SBB": 8,
+      "SSB": 5
+     },
+     "sc100_earliest_label": "2014-08-28"
+    },
+    "r2": {
+     "t0": "2015-01-02",
+     "last_session": "2019-01-02",
+     "sessions": 989,
+     "decisions": 210,
+     "initial_basket_switch_session": "2014-12-01",
+     "initial_basket_eff": "2014-12-01",
+     "cash": {
+      "file_last": "2026-11-05",
+      "accrued_sessions": 0,
+      "cash": "lbes"
+     },
+     "disagreement_weeks": 47,
+     "disagreement_stretches": 10,
+     "stretch_lengths": [
+      6,
+      6,
+      1,
+      3,
+      1,
+      1,
+      2,
+      8,
+      1,
+      18
+     ],
+     "events": {
+      "events": 34,
+      "initial": 1,
+      "signal": 24,
+      "basket": 9,
+      "signal+basket": 0,
+      "partial": 12
+     },
+     "events_in_disagreement_weeks": 12,
+     "events_in_disagreement_weeks_step1_attribution": 11,
+     "signal_events_without_a_change_of_the_triple": 0,
+     "n_allowed_subsets_min_median_max": [
+      1,
+      1,
+      8008
+     ],
+     "events_with_one_allowed_subset": 22,
+     "tau_boundary_cases": 0,
+     "skipped_basket_events": [
+      {
+       "session": 99,
+       "date": "2015-06-01",
+       "basket_eff": "2015-06-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 224,
+       "date": "2015-12-01",
+       "basket_eff": "2015-12-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 287,
+       "date": "2016-03-01",
+       "basket_eff": "2016-03-01",
+       "n_held_new_basket": 16
+      },
+      {
+       "session": 471,
+       "date": "2016-12-01",
+       "basket_eff": "2016-12-01",
+       "n_held_new_basket": 13
+      },
+      {
+       "session": 658,
+       "date": "2017-09-01",
+       "basket_eff": "2017-09-01",
+       "n_held_new_basket": 15
+      },
+      {
+       "session": 781,
+       "date": "2018-02-28",
+       "basket_eff": "2018-02-28",
+       "n_held_new_basket": 11
+      },
+      {
+       "session": 843,
+       "date": "2018-05-31",
+       "basket_eff": "2018-05-31",
+       "n_held_new_basket": 13
+      },
+      {
+       "session": 977,
+       "date": "2018-12-17",
+       "basket_eff": "2018-12-17",
+       "n_held_new_basket": 11
+      }
+     ],
+     "whole_book_events": {
+      "events": 21,
+      "initial": 1,
+      "signal": 12,
+      "basket": 8,
+      "signal+basket": 0,
+      "partial": 0
+     },
+     "whole_book_skipped_basket_events": 9,
+     "tag_source_event_rows": {
+      "rank": 496
+     },
+     "unranked_event_rows": [],
+     "v2": {
+      "tags_checked": 590,
+      "tag_snapshot_after_info": 0,
+      "events_checked": 33,
+      "event_info_not_before_trade": 0,
+      "event_decision_not_before_trade": 0,
+      "initial_position_tag_reads_asof_T0": 15,
+      "decisions_checked": 210,
+      "decisions_label_after_decision": 0,
+      "sc100_label_before_usable_from": 0,
+      "decision_trades_checked": 209,
+      "decision_trade_not_after_decision": 0
+     },
+     "reportable": true,
+     "mean_dropped_weight_rule": 0.44163798405047683,
+     "n_universe_N4.8": 114,
+     "pattern_counts": {
+      "BBB": 85,
+      "SSS": 78,
+      "BSS": 14,
+      "SBS": 12,
+      "BBS": 9,
+      "SBB": 7,
+      "SSB": 5
+     },
+     "sc100_earliest_label": "2015-01-02"
+    }
+   },
+   "standins": {
+    "held_stock_sessions_priced_by_previous_close": 15,
+    "sessions_with_a_held_stock_without_bar": [
+     "2017-10-19"
+    ],
+    "goldbees_no_bar_sessions": [
+     "2016-10-30"
+    ],
+    "goldbees_no_mcx_range_sessions": [
+     "2014-10-23",
+     "2015-01-01",
+     "2015-11-11"
+    ],
+    "event_sessions_on_standin_sessions": {
+     "full": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     },
+     "r2": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     }
+    },
+    "r5_event_sessions_on_standin_sessions": 0
+   },
+   "seconds_core": 51,
+   "seconds": 103
+  }
+ },
+ "v2": {
+  "decisions_checked": 2208,
+  "decision_label_after_decision": 0,
+  "sc100_label_before_usable_from": 0,
+  "tags_checked": 5451,
+  "tag_snapshot_after_info": 0,
+  "events_checked": 356,
+  "event_info_not_before_trade": 0,
+  "event_decision_not_before_trade": 0,
+  "decision_trades_checked": 2198,
+  "decision_trade_not_after_decision": 0,
+  "initial_position_tag_reads_asof_T0": 148,
+  "violations": 0,
+  "checked": 10213,
+  "pass": true
+ },
+ "v3": {
+  "per_book_window": {
+   "SCMO_0003|full": {
+    "N4.6": {
+     "draws_x_events_checked": 76000,
+     "failures": {
+      "dropped_weight_outside_tau": 0,
+      "empty_or_full_not_matched": 0,
+      "event_list_differs": 0
+     },
+     "pass": true
+    },
+    "N4.8": {
+     "draws_x_events_checked": 76000,
+     "failures": {
+      "label_counts_differ": 0
+     },
+     "pass": true
+    }
+   },
+   "SCMO_0003|r2": {
+    "N4.6": {
+     "draws_x_events_checked": 64000,
+     "failures": {
+      "dropped_weight_outside_tau": 0,
+      "empty_or_full_not_matched": 0,
+      "event_list_differs": 0
+     },
+     "pass": true
+    },
+    "N4.8": {
+     "draws_x_events_checked": 64000,
+     "failures": {
+      "label_counts_differ": 0
+     },
+     "pass": true
+    }
+   },
+   "SCMO_0007|full": {
+    "N4.6": {
+     "draws_x_events_checked": 80000,
+     "failures": {
+      "dropped_weight_outside_tau": 0,
+      "empty_or_full_not_matched": 0,
+      "event_list_differs": 0
+     },
+     "pass": true
+    },
+    "N4.8": {
+     "draws_x_events_checked": 80000,
+     "failures": {
+      "label_counts_differ": 0
+     },
+     "pass": true
+    }
+   },
+   "SCMO_0007|r2": {
+    "N4.6": {
+     "draws_x_events_checked": 68000,
+     "failures": {
+      "dropped_weight_outside_tau": 0,
+      "empty_or_full_not_matched": 0,
+      "event_list_differs": 0
+     },
+     "pass": true
+    },
+    "N4.8": {
+     "draws_x_events_checked": 68000,
+     "failures": {
+      "label_counts_differ": 0
+     },
+     "pass": true
+    }
+   },
+   "SCMO_0007|full_r6": {
+    "N4.6": {
+     "draws_x_events_checked": 80000,
+     "failures": {
+      "dropped_weight_outside_tau": 0,
+      "empty_or_full_not_matched": 0,
+      "event_list_differs": 0
+     },
+     "pass": true
+    }
+   },
+   "SCMO_0010|full": {
+    "N4.6": {
+     "draws_x_events_checked": 74000,
+     "failures": {
+      "dropped_weight_outside_tau": 0,
+      "empty_or_full_not_matched": 0,
+      "event_list_differs": 0
+     },
+     "pass": true
+    },
+    "N4.8": {
+     "draws_x_events_checked": 74000,
+     "failures": {
+      "label_counts_differ": 0
+     },
+     "pass": true
+    }
+   },
+   "SCMO_0010|r2": {
+    "N4.6": {
+     "draws_x_events_checked": 68000,
+     "failures": {
+      "dropped_weight_outside_tau": 0,
+      "empty_or_full_not_matched": 0,
+      "event_list_differs": 0
+     },
+     "pass": true
+    },
+    "N4.8": {
+     "draws_x_events_checked": 68000,
+     "failures": {
+      "label_counts_differ": 0
+     },
+     "pass": true
+    }
+   },
+   "SCMO_0010|full_r6": {
+    "N4.6": {
+     "draws_x_events_checked": 74000,
+     "failures": {
+      "dropped_weight_outside_tau": 0,
+      "empty_or_full_not_matched": 0,
+      "event_list_differs": 0
+     },
+     "pass": true
+    }
+   },
+   "SCMO_0029|full": {
+    "N4.6": {
+     "draws_x_events_checked": 80000,
+     "failures": {
+      "dropped_weight_outside_tau": 0,
+      "empty_or_full_not_matched": 0,
+      "event_list_differs": 0
+     },
+     "pass": true
+    },
+    "N4.8": {
+     "draws_x_events_checked": 80000,
+     "failures": {
+      "label_counts_differ": 0
+     },
+     "pass": true
+    }
+   },
+   "SCMO_0029|r2": {
+    "N4.6": {
+     "draws_x_events_checked": 68000,
+     "failures": {
+      "dropped_weight_outside_tau": 0,
+      "empty_or_full_not_matched": 0,
+      "event_list_differs": 0
+     },
+     "pass": true
+    },
+    "N4.8": {
+     "draws_x_events_checked": 68000,
+     "failures": {
+      "label_counts_differ": 0
+     },
+     "pass": true
+    }
+   }
+  },
+  "pass": true
+ },
+ "v4": {
+  "pass": true,
+  "a_max_rel_diff": 4.440892098500626e-16,
+  "a_pass": true,
+  "b": "run",
+  "c_pass": true,
+  "d_pass": true
+ },
+ "v5": {
+  "pass": true
+ },
+ "events_vs_section2_coarse_counts": {
+  "SCMO_0003|full": {
+   "engine_events_incl_T0": 38,
+   "engine_events_after_T0": 37,
+   "coarse_events_section2": 45,
+   "engine_le_coarse": true,
+   "engine_events_in_disagreement_weeks": 16,
+   "engine_events_in_disagreement_weeks_step1_attribution": 14,
+   "coarse_in_mixed_weeks": 17,
+   "engine_le_coarse_in_disagreement": true,
+   "signal_events_without_a_change_of_the_triple": 0,
+   "engine_partial_events": 15,
+   "disagreement_stretches": 11,
+   "step1_mixed_spells": 11,
+   "stretch_lengths_equal_step1": true,
+   "decisions_equal_step1": true,
+   "patterns_equal_step1": true,
+   "reportable": true
+  },
+  "SCMO_0003|r2": {
+   "engine_events_incl_T0": 32,
+   "engine_events_after_T0": 31,
+   "coarse_events_section2": 40,
+   "engine_le_coarse": true,
+   "engine_events_in_disagreement_weeks": 11,
+   "engine_events_in_disagreement_weeks_step1_attribution": 10,
+   "coarse_in_mixed_weeks": 14,
+   "engine_le_coarse_in_disagreement": true,
+   "signal_events_without_a_change_of_the_triple": 0,
+   "engine_partial_events": 11,
+   "disagreement_stretches": 10,
+   "step1_mixed_spells": 10,
+   "stretch_lengths_equal_step1": true,
+   "decisions_equal_step1": true,
+   "patterns_equal_step1": true,
+   "reportable": true
+  },
+  "SCMO_0007|full": {
+   "engine_events_incl_T0": 40,
+   "engine_events_after_T0": 39,
+   "coarse_events_section2": 45,
+   "engine_le_coarse": true,
+   "engine_events_in_disagreement_weeks": 19,
+   "engine_events_in_disagreement_weeks_step1_attribution": 17,
+   "coarse_in_mixed_weeks": 17,
+   "engine_le_coarse_in_disagreement": true,
+   "signal_events_without_a_change_of_the_triple": 0,
+   "engine_partial_events": 18,
+   "disagreement_stretches": 11,
+   "step1_mixed_spells": 11,
+   "stretch_lengths_equal_step1": true,
+   "decisions_equal_step1": true,
+   "patterns_equal_step1": true,
+   "reportable": true
+  },
+  "SCMO_0007|r2": {
+   "engine_events_incl_T0": 34,
+   "engine_events_after_T0": 33,
+   "coarse_events_section2": 40,
+   "engine_le_coarse": true,
+   "engine_events_in_disagreement_weeks": 14,
+   "engine_events_in_disagreement_weeks_step1_attribution": 13,
+   "coarse_in_mixed_weeks": 14,
+   "engine_le_coarse_in_disagreement": true,
+   "signal_events_without_a_change_of_the_triple": 0,
+   "engine_partial_events": 14,
+   "disagreement_stretches": 10,
+   "step1_mixed_spells": 10,
+   "stretch_lengths_equal_step1": true,
+   "decisions_equal_step1": true,
+   "patterns_equal_step1": true,
+   "reportable": true
+  },
+  "SCMO_0010|full": {
+   "engine_events_incl_T0": 37,
+   "engine_events_after_T0": 36,
+   "coarse_events_section2": 45,
+   "engine_le_coarse": true,
+   "engine_events_in_disagreement_weeks": 15,
+   "engine_events_in_disagreement_weeks_step1_attribution": 13,
+   "coarse_in_mixed_weeks": 17,
+   "engine_le_coarse_in_disagreement": true,
+   "signal_events_without_a_change_of_the_triple": 1,
+   "engine_partial_events": 14,
+   "disagreement_stretches": 11,
+   "step1_mixed_spells": 11,
+   "stretch_lengths_equal_step1": true,
+   "decisions_equal_step1": true,
+   "patterns_equal_step1": true,
+   "reportable": true
+  },
+  "SCMO_0010|r2": {
+   "engine_events_incl_T0": 34,
+   "engine_events_after_T0": 33,
+   "coarse_events_section2": 40,
+   "engine_le_coarse": true,
+   "engine_events_in_disagreement_weeks": 13,
+   "engine_events_in_disagreement_weeks_step1_attribution": 12,
+   "coarse_in_mixed_weeks": 14,
+   "engine_le_coarse_in_disagreement": true,
+   "signal_events_without_a_change_of_the_triple": 1,
+   "engine_partial_events": 13,
+   "disagreement_stretches": 10,
+   "step1_mixed_spells": 10,
+   "stretch_lengths_equal_step1": true,
+   "decisions_equal_step1": true,
+   "patterns_equal_step1": true,
+   "reportable": true
+  },
+  "SCMO_0029|full": {
+   "engine_events_incl_T0": 40,
+   "engine_events_after_T0": 39,
+   "coarse_events_section2": 45,
+   "engine_le_coarse": true,
+   "engine_events_in_disagreement_weeks": 17,
+   "engine_events_in_disagreement_weeks_step1_attribution": 15,
+   "coarse_in_mixed_weeks": 17,
+   "engine_le_coarse_in_disagreement": true,
+   "signal_events_without_a_change_of_the_triple": 0,
+   "engine_partial_events": 16,
+   "disagreement_stretches": 11,
+   "step1_mixed_spells": 11,
+   "stretch_lengths_equal_step1": true,
+   "decisions_equal_step1": true,
+   "patterns_equal_step1": true,
+   "reportable": true
+  },
+  "SCMO_0029|r2": {
+   "engine_events_incl_T0": 34,
+   "engine_events_after_T0": 33,
+   "coarse_events_section2": 40,
+   "engine_le_coarse": true,
+   "engine_events_in_disagreement_weeks": 12,
+   "engine_events_in_disagreement_weeks_step1_attribution": 11,
+   "coarse_in_mixed_weeks": 14,
+   "engine_le_coarse_in_disagreement": true,
+   "signal_events_without_a_change_of_the_triple": 0,
+   "engine_partial_events": 12,
+   "disagreement_stretches": 10,
+   "step1_mixed_spells": 10,
+   "stretch_lengths_equal_step1": true,
+   "decisions_equal_step1": true,
+   "patterns_equal_step1": true,
+   "reportable": true
+  }
+ },
+ "step1_counts_reproduced": true,
+ "unranked": {
+  "isins_per_book_window": {
+   "SCMO_0003|full": [],
+   "SCMO_0003|r2": [],
+   "SCMO_0007|full": [
+    "INE093A01041"
+   ],
+   "SCMO_0007|r2": [
+    "INE093A01041"
+   ],
+   "SCMO_0007|full_r6": [],
+   "SCMO_0010|full": [
+    "INE202B01038"
+   ],
+   "SCMO_0010|r2": [
+    "INE202B01038"
+   ],
+   "SCMO_0010|full_r6": [],
+   "SCMO_0029|full": [],
+   "SCMO_0029|r2": []
+  },
+  "rows": {
+   "SCMO_0003|full": [],
+   "SCMO_0003|r2": [],
+   "SCMO_0007|full": [
+    {
+     "isin": "INE093A01041",
+     "stock": "HEXT.NS",
+     "event_no": 33,
+     "info_date": "2018-04-27",
+     "tag_snapshot": "2018-03-28"
+    },
+    {
+     "isin": "INE093A01041",
+     "stock": "HEXT.NS",
+     "event_no": 34,
+     "info_date": "2018-05-18",
+     "tag_snapshot": "2018-04-30"
+    }
+   ],
+   "SCMO_0007|r2": [
+    {
+     "isin": "INE093A01041",
+     "stock": "HEXT.NS",
+     "event_no": 27,
+     "info_date": "2018-04-27",
+     "tag_snapshot": "2018-03-28"
+    },
+    {
+     "isin": "INE093A01041",
+     "stock": "HEXT.NS",
+     "event_no": 28,
+     "info_date": "2018-05-18",
+     "tag_snapshot": "2018-04-30"
+    }
+   ],
+   "SCMO_0007|full_r6": [],
+   "SCMO_0010|full": [
+    {
+     "isin": "INE202B01038",
+     "stock": "PIRAMALFIN.NS",
+     "event_no": 23,
+     "info_date": "2017-05-31",
+     "tag_snapshot": "2017-05-31"
+    },
+    {
+     "isin": "INE202B01038",
+     "stock": "PIRAMALFIN.NS",
+     "event_no": 24,
+     "info_date": "2017-08-11",
+     "tag_snapshot": "2017-07-31"
+    },
+    {
+     "isin": "INE202B01038",
+     "stock": "PIRAMALFIN.NS",
+     "event_no": 25,
+     "info_date": "2017-09-01",
+     "tag_snapshot": "2017-08-31"
+    },
+    {
+     "isin": "INE202B01038",
+     "stock": "PIRAMALFIN.NS",
+     "event_no": 26,
+     "info_date": "2017-10-27",
+     "tag_snapshot": "2017-09-29"
+    }
+   ],
+   "SCMO_0010|r2": [
+    {
+     "isin": "INE202B01038",
+     "stock": "PIRAMALFIN.NS",
+     "event_no": 20,
+     "info_date": "2017-05-31",
+     "tag_snapshot": "2017-05-31"
+    },
+    {
+     "isin": "INE202B01038",
+     "stock": "PIRAMALFIN.NS",
+     "event_no": 21,
+     "info_date": "2017-08-11",
+     "tag_snapshot": "2017-07-31"
+    },
+    {
+     "isin": "INE202B01038",
+     "stock": "PIRAMALFIN.NS",
+     "event_no": 22,
+     "info_date": "2017-09-01",
+     "tag_snapshot": "2017-08-31"
+    },
+    {
+     "isin": "INE202B01038",
+     "stock": "PIRAMALFIN.NS",
+     "event_no": 23,
+     "info_date": "2017-10-27",
+     "tag_snapshot": "2017-09-29"
+    }
+   ],
+   "SCMO_0010|full_r6": [],
+   "SCMO_0029|full": [],
+   "SCMO_0029|r2": []
+  }
+ },
+ "standins": {
+  "no_d18_session": "2017-10-19",
+  "no_goldbees_session": "2016-10-30",
+  "books": {
+   "SCMO_0003": {
+    "held_stock_sessions_priced_by_previous_close": 11,
+    "sessions_with_a_held_stock_without_bar": [
+     "2017-10-19"
+    ],
+    "goldbees_no_bar_sessions": [
+     "2016-10-30"
+    ],
+    "goldbees_no_mcx_range_sessions": [
+     "2014-10-23",
+     "2015-01-01",
+     "2015-11-11"
+    ],
+    "event_sessions_on_standin_sessions": {
+     "full": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     },
+     "r2": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     }
+    },
+    "r5_event_sessions_on_standin_sessions": 0
+   },
+   "SCMO_0007": {
+    "held_stock_sessions_priced_by_previous_close": 6,
+    "sessions_with_a_held_stock_without_bar": [
+     "2017-10-19"
+    ],
+    "goldbees_no_bar_sessions": [
+     "2016-10-30"
+    ],
+    "goldbees_no_mcx_range_sessions": [
+     "2014-10-23",
+     "2015-01-01",
+     "2015-11-11"
+    ],
+    "event_sessions_on_standin_sessions": {
+     "full": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     },
+     "r2": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     },
+     "full_r6": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     }
+    },
+    "r5_event_sessions_on_standin_sessions": 0
+   },
+   "SCMO_0010": {
+    "held_stock_sessions_priced_by_previous_close": 15,
+    "sessions_with_a_held_stock_without_bar": [
+     "2017-10-19"
+    ],
+    "goldbees_no_bar_sessions": [
+     "2016-10-30"
+    ],
+    "goldbees_no_mcx_range_sessions": [
+     "2014-10-23",
+     "2015-01-01",
+     "2015-11-11"
+    ],
+    "event_sessions_on_standin_sessions": {
+     "full": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     },
+     "r2": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     },
+     "full_r6": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     }
+    },
+    "r5_event_sessions_on_standin_sessions": 0
+   },
+   "SCMO_0029": {
+    "held_stock_sessions_priced_by_previous_close": 15,
+    "sessions_with_a_held_stock_without_bar": [
+     "2017-10-19"
+    ],
+    "goldbees_no_bar_sessions": [
+     "2016-10-30"
+    ],
+    "goldbees_no_mcx_range_sessions": [
+     "2014-10-23",
+     "2015-01-01",
+     "2015-11-11"
+    ],
+    "event_sessions_on_standin_sessions": {
+     "full": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     },
+     "r2": {
+      "rule": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "whole_book": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "parent": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      },
+      "sleeve100": {
+       "stock_prev_close": 0,
+       "gold_prev_close": 0,
+       "gold_raw_ohlc4": 0
+      }
+     }
+    },
+    "r5_event_sessions_on_standin_sessions": 0
+   }
+  }
+ },
+ "t11_headline_seen": true,
+ "r6": {
+  "ids": "review",
+  "links": {
+   "SCMO_0007": {
+    "INE093A01041": 55837401060
+   },
+   "SCMO_0010": {
+    "INE202B01038": 55837400085
+   }
+  },
+  "re_tagged_event_rows": 6,
+  "linked_quote_id_absent_on_snapshot": {
+   "SCMO_0003": null,
+   "SCMO_0007": 0,
+   "SCMO_0010": 0,
+   "SCMO_0029": null
+  },
+  "note": "FROZEN TEXT INCONSISTENT WITH THE DATA (reported, not resolved by the engine): T12.md section 2 R6 says the two holdings 'rank Mid under their other quote_ids' and names 236783369047 (Hexaware) and 236798428431 (DHFL). Those are today's listings: in D23b they have rows only from 2025-02-28 (Hexaware, relisted 2025) and 2025-11-28 (PIRAMALFIN), so on every snapshot of the window the linked quote_id is absent and R6 as frozen re-tags nothing (full_r6 equals full; r6_links.csv is empty; misses counted in audit.json). The D20b review's table names the old listings (Hexaware 55837401060 / INE093A01033, DHFL 55837400085 / INE202B01012), which rank Mid in the window. The engine runs the frozen ids by default and the review ids only with `--r6-ids review`; which one R6 uses is Manu's decision"
+ },
+ "data": {
+  "approved_data_as_of": "2026-11-17",
+  "window": [
+   "2014-09-01",
+   "2019-01-02"
+  ],
+  "inputs": 36,
+  "registered_not_parsed": [],
+  "non_approved_open_raises": {
+   "superseded_master": {
+    "raised": true,
+    "message": "Historical Data/frozen_2026-09-25/Master/Master_Nifty100.xlsx: row D03 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "superseded_goldbees": {
+    "raised": true,
+    "message": "analysis/cache/why_gold_ohlc_eikon.parquet: row D09 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "superseded_lbes": {
+    "raised": true,
+    "message": "Historical Data/LBES_Adjusted_Price_data_2026_08_10.csv: row D11 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "pending_candidate_d03b": {
+    "raised": true,
+    "message": "Historical Data/extended_2026-11-12/SC100_signal_from_2011-10-03/Master_SC100.xlsx: row D03b is PENDING, not APPROVED; do not read it"
+   },
+   "not_in_table": {
+    "raised": true,
+    "message": "Historical Data/no_such_file.csv: not in the table of data/APPROVED_DATA.md, so not approved"
+   },
+   "off_limits_SOURCE_md": {
+    "raised": true,
+    "message": "Historical Data/extended_2026-11-12/SOURCE.md: not in the table of data/APPROVED_DATA.md, so not approved"
+   },
+   "guard_sc100_signal_before_usable_from": {
+    "raised": true,
+    "message": "Historical Data/extended_2026-10-30/Master/Master_SC100.xlsx: usable from 2011-11-25 only (APPROVED_DATA.md rule 7); the window reads it from 2011-11-24"
+   },
+   "pass": true
+  },
+  "cash_accrued_sessions": 0,
+  "goldbees": {
+   "mcx_file_last": "2026-11-06",
+   "goldbees_first": "2014-07-01",
+   "no_mcx_range_sessions_in_window": [
+    "2014-10-23",
+    "2015-01-01",
+    "2015-11-11"
+   ]
+  },
+  "tag_membership_cutoff": "2026-04-09"
+ },
+ "tag_error_r5": {
+  "rate": 0.0793,
+  "draws_per_book": 500,
+  "source": "data/review/2026-11-12_tag_sources/REVIEW.md check 6: 92.07% agreement"
+ },
+ "run": {
+  "name": "headline",
+  "draws": 2000,
+  "quick": false,
+  "controls": true,
+  "jobs": 4,
+  "seconds": 116,
+  "seeds": "N4.6 default_rng([15, 7, draw_id, book_no]); N4.8 default_rng([15, 8, draw_id, book_no]); V6 [15, 9, 100000, book_no] / [15, 9, shift_index, book_no]; R5 [15, 5, draw_id, book_no]; V5(a) [15, 7, 123456789, 99]"
+ },
+ "prereg_sha256": "3c361f4bbfd550904df7552635a3cdcd8ea53878b9b1d615a454b13fba5b7407",
+ "gates": {
+  "V2": true,
+  "V3": true,
+  "V4": true,
+  "V5": true,
+  "V6": true,
+  "V7": true,
+  "approved_data_selftest": true,
+  "step1_counts_reproduced": true,
+  "all_that_ran": true,
+  "V6_V7_ran": true
+ }
+}

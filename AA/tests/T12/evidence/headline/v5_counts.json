@@ -1,0 +1,39 @@
+{
+ "a_small_case": {
+  "weights": [
+   "11/50",
+   "17/100",
+   "7/50",
+   "3/25",
+   "1/10",
+   "9/100",
+   "2/25",
+   "1/20",
+   "3/100"
+  ],
+  "D": "3/10",
+  "tau": "3/200",
+  "n_allowed_brute_force": 21,
+  "n_allowed_engine": 21,
+  "sets_equal": true,
+  "samples": 200000,
+  "seed": [
+   15,
+   7,
+   123456789,
+   99
+  ],
+  "expected_each": 9523.809523809523,
+  "min_count": 9391,
+  "max_count": 9659,
+  "chi2": 12.10663,
+  "df": 20,
+  "p": 0.9123569446594051,
+  "pass": true
+ },
+ "b_count_equal": 366,
+ "b_count_unequal": 0,
+ "c_rule_in_allowed": 366,
+ "events_checked": 366,
+ "pass": true
+}
