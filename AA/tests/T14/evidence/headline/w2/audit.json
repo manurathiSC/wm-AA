@@ -1,0 +1,3147 @@
+{
+ "readings": {
+  "E1": "calendar: W1 = D26's dates 2014-09-01 -> 2019-01-02 (1,070 sessions); W2 = each book's D17 dates of the EXTENDED published NAV from its first date (SCMO_0007: 2019-01-04) to END = the last row of the three D03 Master files (2026-10-30); rows after END are never used. As T11 E1 / T08 E1",
+  "E2": "decision dates = T0 and the last session of every later ISO week; the decision at the last session is made and not traded (T08 E2, T11 E2)",
+  "E3": "label = latest Master row dated <= decision date, per index and for MAUc1 (W1: D24b, W2: D24); regime IN / OUT-BUY / OUT-SELL from the three SIGNs and g; the Smallcap 100 rows are sliced to >= 2011-11-25",
+  "E4": "targets (e, gw) per rule from T14.md 2.1; gw while IN is carried in the log and never traded on (the trigger needs e < 1); one function `rule_arrays` serves the real series and every draw",
+  "E5": "initial position at T0's close, no cost, in every realisation: the target of the decision at T0 (IN: the basket in force, drifted from its availableDate, scaled to NAV 1; OUT: gw GOLDBEES, rest cash; e = 0.5: half the drifted basket and half GOLDBEES), T08/T11's convention",
+  "E6": "stock fill = OHLC4 of the Eikon bar (close if open/high/low is blank; the last close if no bar); GOLDBEES fill = T03's de-spike with the MCX range of the window's file (W1: D24b daily, W2: D12), raw OHLC4 where the range is missing (W2: every session after D12's last date), as T11 E8 / T08 E16",
+  "E7": "costs: T08's `trade` unchanged (cost = ow x value traded at the pre-cost targets, then every target scaled by (V-cost)/V)",
+  "E8": "a basket takes effect on the first session on or after its availableDate; skipped baskets dropped; weights renormalised. While e = 1 a basket change is T08's full reset trade (kind basket_change); while 0 < e < 1 (the -half regime) it is the D1 partial trade (kind basket_change, GOLDBEES and cash units unchanged, cost on the stock lines taken from the stock part); while e = 0 nothing is traded",
+  "E9": "trade kinds: switch_in / switch_out (e crosses 0 or 1 between IN and OUT-BUY; for -orig rules also IN <-> OUT-SELL), sleeve_rebalance (e = 0 on both sides, gw changed), and for the -half / -liq rules regime_in (into OUT-SELL) and regime_out (out of OUT-SELL); basket_change",
+  "E10": "cash level: the extended LBES (D11) as-of on sessions; R2 'liq': W1 liquidEtfFinal (LIQUIDCASE) over the whole window, W2 LBES to the session before 2024-01-24 then LIQUIDCASE returns (T08 E14); no accrual",
+  "E11": "constant mix at each rule's own averages: f = mean of e over the decisions, gw_bar = sum((1-e)gw)/sum(1-e); rebalanced at every decision date's next session and at every basket change while f > 0 (T11 E10 generalised); initial stock holding = drifted basket scaled by f",
+  "E12": "R3: W1 starts at the first D26 session on or after 2015-01-02 with its own spells, totals and bounds (T11 E11); W2 'live' starts at the first D17 session on or after 2021-11-01 with its own spells and totals but the book's FULL-window bounds (T08 E13); same seeds, free initial position in the state decided then",
+  "E13": "R7 (W1 only): T11 E12 unchanged: |close return| >= 20% stock-days on held stocks and the manual-export stock-days set to zero return by a return-preserving splice; the six rules at 0 and 20.8 bps",
+  "E14": "bounds of every series: lo = min(2, shortest spell of the state), hi = longest spell of the state, computed in the run; W2 asserted equal to T08's (in-or-out [2,46] in / [2,40] out, gold BUY [2,68] / SELL [2,28])",
+  "E15": "the four books have identical decision and gold series and share the draws; the draw states of each window are regenerated from the seeds and asserted equal to the stored draw_states.npz of T11 (W1) and T08 (W2) (V3, decision D2)",
+  "E16": "sessions_invested = daily returns earned while the parent is held; rules with e = 0.5 count as 'invested' only in the draws' IN weeks (the statistic is a property of the in-or-out series, as T11 E16)",
+  "E17": "trades_due of a draw = decisions j >= 1 with a session after them and e[j] != e[j-1] or (e[j] < 1 and gw[j] != gw[j-1]) (draws.csv `trades_due`; the recorded trades of the real rules are checked against it, V6)",
+  "E18": "V4(a): -orig rules reproduce the stored daily_nav.csv (relative 1e-12): W2 80-orig <- T08 strategy, 50-orig <- T08 strategy_fixed50 and T06 strategy (to 2026-10-22), hold_parent; W1 80-orig <- T11 strategy, 50-orig <- T11 strategy_fixed50, hold_parent; and the -orig rows of draws.csv equal the stored draws.csv (cagr, max_dd, end_nav; W2 R3 'live' <-> 'r3')",
+  "E19": "V4(f) seam / G0: the always-in 0-cost NAV on D17's dates against the published NAV, W2 from T0 (limits: +-0.25 pp/yr overall, +-0.5 pp each calendar year, T08 G0) and, for W1, over 2019-01-02 -> 2019-12-31 (+-0.5 pp, T11 V4(f)) from the W2 book's hold-parent path",
+  "E20": "draw_curves: the NAV of the first 20 draws and of 20 further draw ids (default_rng([17, 1]).choice(2000, 20), disclosed) of F1 and F3 at 20.8 bps for the six rules; the full NAV of every draw is not stored",
+  "E21": "regime ledger: OUT-SELL spell = maximal run of OUT-SELL decisions; returns from the close of the first spell decision's session to the close of the session of the decision that ends the spell (or the last session): parent = hold_parent 0-cost NAV, GOLDBEES = D09 close, cash = LBES level, each rule = its 20.8 bps NAV"
+ },
+ "books": {
+  "SCMO_0003": {
+   "decisions": 410,
+   "sessions": 1932,
+   "first_state": 0,
+   "in_lengths": [
+    8,
+    13,
+    33,
+    23,
+    20,
+    26,
+    46,
+    11,
+    21
+   ],
+   "out_lengths": [
+    11,
+    29,
+    15,
+    16,
+    40,
+    18,
+    5,
+    30,
+    37,
+    8
+   ],
+   "round_trips": 9,
+   "weeks_IN": 201,
+   "weeks_OUT_BUY": 163,
+   "weeks_OUT_SELL": 46,
+   "out_sell_lengths": [
+    1,
+    4,
+    10,
+    2,
+    12,
+    11,
+    4,
+    2
+   ],
+   "out_buy_lengths": [
+    10,
+    25,
+    15,
+    6,
+    26,
+    18,
+    5,
+    4,
+    15,
+    33,
+    6
+   ],
+   "g_flips": 17,
+   "g_first_state": 1,
+   "start": "2019-01-02",
+   "end": "2026-10-30",
+   "g_buy_lengths": [
+    10,
+    68,
+    10,
+    26,
+    33,
+    41,
+    7,
+    59,
+    11
+   ],
+   "g_sell_lengths": [
+    13,
+    28,
+    21,
+    26,
+    15,
+    9,
+    11,
+    20,
+    2
+   ],
+   "trades_due_per_rule": {
+    "50-orig": 18,
+    "50-half": 27,
+    "50-liq": 27,
+    "80-orig": 27,
+    "80-half": 27,
+    "80-liq": 27
+   },
+   "bounds": {
+    "in": [
+     2,
+     46
+    ],
+    "out": [
+     2,
+     40
+    ],
+    "buy": [
+     2,
+     68
+    ],
+    "sell": [
+     2,
+     28
+    ]
+   },
+   "v2_decisions_checked": 410,
+   "v2_violations": 0,
+   "v2_trades_checked": 409,
+   "v2_sc100_signal_first_label_date": "2018-12-28",
+   "stale_label_weeks(age>=5d, excluding T0)": 5,
+   "cash": {
+    "file_last": "2026-11-05",
+    "accrued_sessions": 0,
+    "cash": "lbes"
+   },
+   "stand_in": {
+    "stock_lines_priced_by_stand_in_in_trades": 0,
+    "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 74898,
+    "goldbees_trades_priced_at_previous_close_no_gold_bar": 0
+   },
+   "baskets": {
+    "effective_dates_in_window": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-03-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-09-16",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-15",
+     "2026-09-10"
+    ],
+    "basket_changes": 31,
+    "initial_basket_session": "2018-12-17",
+    "change_sessions": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-03-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-09-16",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-15",
+     "2026-09-10"
+    ]
+   },
+   "gold_sessions_without_own_bar": [
+    "2020-02-01",
+    "2024-01-20"
+   ],
+   "gold_sessions_without_mcx_range": [
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30"
+   ],
+   "window_sessions_where_a_held_stock_has_no_bar": 0,
+   "src_counts": {
+    "held_stock_sessions_by_src": {
+     "db": 19153,
+     "export": 0,
+     "carried": 2,
+     "none": 0
+    },
+    "export_by_stock": {},
+    "carried_bars_in_window_all_stocks": 2,
+    "carried_bars": [
+     "PRIVISCL 2026-02-01",
+     "TDPOWERSYS 2026-02-01"
+    ],
+    "held_stock_sessions_without_a_bar_by_session": {}
+   },
+   "regime_ledger": [
+    {
+     "window": "full",
+     "book": "SCMO_0003",
+     "spell_no": 1,
+     "first_decision": "2019-03-08",
+     "last_decision": "2019-03-08",
+     "weeks": 1,
+     "span_from_close": "2019-03-08",
+     "span_to_close": "2019-03-15",
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN",
+     "parent_return": 0.022861513683076984,
+     "goldbees_return": -0.004197621933013651,
+     "cash_return": 0.0007686097281298654,
+     "ret_50-orig": -0.0017132967729507342,
+     "ret_50-half": 0.00140670956043909,
+     "ret_50-liq": 0.0003321107274494306,
+     "ret_80-orig": -0.0007468150178976396,
+     "ret_80-half": 0.0017700357017433888,
+     "ret_80-liq": 7.000718658711769e-05
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0003",
+     "spell_no": 2,
+     "first_decision": "2019-05-10",
+     "last_decision": "2019-05-31",
+     "weeks": 4,
+     "span_from_close": "2019-05-10",
+     "span_to_close": "2019-06-07",
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY",
+     "parent_return": 0.032528980989297906,
+     "goldbees_return": 0.028353403653569087,
+     "cash_return": 0.0029241769440071508,
+     "ret_50-orig": -0.004404515309783141,
+     "ret_50-half": 0.019432717756131535,
+     "ret_50-liq": -0.015371533270776894,
+     "ret_80-orig": -0.010984726086379792,
+     "ret_80-half": 0.019432717756131535,
+     "ret_80-liq": -0.015371533270776894
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0003",
+     "spell_no": 3,
+     "first_decision": "2021-01-29",
+     "last_decision": "2021-04-01",
+     "weeks": 10,
+     "span_from_close": "2021-01-29",
+     "span_to_close": "2021-04-09",
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY",
+     "parent_return": 0.20649922575674684,
+     "goldbees_return": -0.05158264947245006,
+     "cash_return": 0.003386075138764655,
+     "ret_50-orig": -0.016052302071458135,
+     "ret_50-half": 0.07720634083761246,
+     "ret_50-liq": 0.015172185529257476,
+     "ret_80-orig": 0.0026823904889712313,
+     "ret_80-half": 0.07720634083761291,
+     "ret_80-liq": 0.015172185529257476
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0003",
+     "spell_no": 4,
+     "first_decision": "2021-10-29",
+     "last_decision": "2021-11-03",
+     "weeks": 2,
+     "span_from_close": "2021-10-29",
+     "span_to_close": "2021-11-12",
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY",
+     "parent_return": 0.03158069206602643,
+     "goldbees_return": 0.022891566265060392,
+     "cash_return": 0.0010360406530378619,
+     "ret_50-orig": 0.0054769897563780034,
+     "ret_50-half": 0.02664841791001238,
+     "ret_50-liq": -0.006398792208327175,
+     "ret_80-orig": -0.0016484794224449484,
+     "ret_80-half": 0.02664841791001238,
+     "ret_80-liq": -0.006398792208327286
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0003",
+     "spell_no": 5,
+     "first_decision": "2022-05-13",
+     "last_decision": "2022-07-29",
+     "weeks": 12,
+     "span_from_close": "2022-05-13",
+     "span_to_close": "2022-08-05",
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN",
+     "parent_return": -0.044721160406538174,
+     "goldbees_return": 0.029940119760478945,
+     "cash_return": 0.00887474632401375,
+     "ret_50-orig": 0.019577558572138276,
+     "ret_50-half": -0.01216596716497853,
+     "ret_50-liq": 0.006579790635328653,
+     "ret_80-orig": 0.010333323718002774,
+     "ret_80-half": -0.012896333628322654,
+     "ret_80-liq": 0.0052076283588227135
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0003",
+     "spell_no": 6,
+     "first_decision": "2024-11-14",
+     "last_decision": "2025-01-24",
+     "weeks": 11,
+     "span_from_close": "2024-11-14",
+     "span_to_close": "2025-02-01",
+     "entered_from": "OUT-BUY",
+     "exited_to": "OUT-BUY",
+     "parent_return": -0.03619192377842495,
+     "goldbees_return": 0.11587635539731345,
+     "cash_return": 0.012756538835865472,
+     "ret_50-orig": 0.06256397988625251,
+     "ret_50-half": 0.0363256687661877,
+     "ret_50-liq": 0.019155630271842305,
+     "ret_80-orig": 0.04110419408019861,
+     "ret_80-half": 0.04113555661155588,
+     "ret_80-liq": 0.02320823035616071
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0003",
+     "spell_no": 7,
+     "first_decision": "2026-03-20",
+     "last_decision": "2026-04-10",
+     "weeks": 4,
+     "span_from_close": "2026-03-20",
+     "span_to_close": "2026-04-17",
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN",
+     "parent_return": 0.10982655927145824,
+     "goldbees_return": 0.030893771683462745,
+     "cash_return": 0.0034419866608659255,
+     "ret_50-orig": 0.019503116786149244,
+     "ret_50-half": 0.07803934759659437,
+     "ret_50-liq": -0.037607709710277826,
+     "ret_80-orig": -0.03644241947242799,
+     "ret_80-half": 0.05786431280144866,
+     "ret_80-liq": -0.05615395843145665
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0003",
+     "spell_no": 8,
+     "first_decision": "2026-10-23",
+     "last_decision": "2026-10-30",
+     "weeks": 2,
+     "span_from_close": "2026-10-23",
+     "span_to_close": "2026-10-30",
+     "entered_from": "OUT-BUY",
+     "exited_to": "window end",
+     "parent_return": 0.006894192756690787,
+     "goldbees_return": -0.005780845556514258,
+     "cash_return": 0.0009436390175712184,
+     "ret_50-orig": -0.002293806866054404,
+     "ret_50-half": 0.0022719966507656064,
+     "ret_50-liq": -0.00014119733220996356,
+     "ret_80-orig": -0.0017243001283621107,
+     "ret_80-half": 0.002258129342306514,
+     "ret_80-liq": -0.0008316348643669924
+    }
+   ]
+  },
+  "SCMO_0007": {
+   "decisions": 409,
+   "sessions": 1930,
+   "first_state": 0,
+   "in_lengths": [
+    8,
+    13,
+    33,
+    23,
+    20,
+    26,
+    46,
+    11,
+    21
+   ],
+   "out_lengths": [
+    10,
+    29,
+    15,
+    16,
+    40,
+    18,
+    5,
+    30,
+    37,
+    8
+   ],
+   "round_trips": 9,
+   "weeks_IN": 201,
+   "weeks_OUT_BUY": 162,
+   "weeks_OUT_SELL": 46,
+   "out_sell_lengths": [
+    1,
+    4,
+    10,
+    2,
+    12,
+    11,
+    4,
+    2
+   ],
+   "out_buy_lengths": [
+    9,
+    25,
+    15,
+    6,
+    26,
+    18,
+    5,
+    4,
+    15,
+    33,
+    6
+   ],
+   "g_flips": 17,
+   "g_first_state": 1,
+   "start": "2019-01-04",
+   "end": "2026-10-30",
+   "g_buy_lengths": [
+    9,
+    68,
+    10,
+    26,
+    33,
+    41,
+    7,
+    59,
+    11
+   ],
+   "g_sell_lengths": [
+    13,
+    28,
+    21,
+    26,
+    15,
+    9,
+    11,
+    20,
+    2
+   ],
+   "trades_due_per_rule": {
+    "50-orig": 18,
+    "50-half": 27,
+    "50-liq": 27,
+    "80-orig": 27,
+    "80-half": 27,
+    "80-liq": 27
+   },
+   "bounds": {
+    "in": [
+     2,
+     46
+    ],
+    "out": [
+     2,
+     40
+    ],
+    "buy": [
+     2,
+     68
+    ],
+    "sell": [
+     2,
+     28
+    ]
+   },
+   "v2_decisions_checked": 409,
+   "v2_violations": 0,
+   "v2_trades_checked": 408,
+   "v2_sc100_signal_first_label_date": "2019-01-04",
+   "stale_label_weeks(age>=5d, excluding T0)": 5,
+   "cash": {
+    "file_last": "2026-11-05",
+    "accrued_sessions": 0,
+    "cash": "lbes"
+   },
+   "stand_in": {
+    "stock_lines_priced_by_stand_in_in_trades": 0,
+    "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 74964,
+    "goldbees_trades_priced_at_previous_close_no_gold_bar": 0
+   },
+   "baskets": {
+    "effective_dates_in_window": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-15",
+     "2026-09-16"
+    ],
+    "basket_changes": 29,
+    "initial_basket_session": "2018-12-17",
+    "change_sessions": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-15",
+     "2026-09-16"
+    ]
+   },
+   "gold_sessions_without_own_bar": [
+    "2020-02-01",
+    "2024-01-20"
+   ],
+   "gold_sessions_without_mcx_range": [
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30"
+   ],
+   "window_sessions_where_a_held_stock_has_no_bar": 0,
+   "src_counts": {
+    "held_stock_sessions_by_src": {
+     "db": 21146,
+     "export": 0,
+     "carried": 7,
+     "none": 0
+    },
+    "export_by_stock": {},
+    "carried_bars_in_window_all_stocks": 7,
+    "carried_bars": [
+     "COALINDIA 2020-02-01",
+     "ENGINERSIN 2020-02-01",
+     "NMDC 2020-02-01",
+     "ROUTE 2024-01-20",
+     "TCI 2024-01-20",
+     "TCI 2025-02-01",
+     "TCI 2026-02-01"
+    ],
+    "held_stock_sessions_without_a_bar_by_session": {}
+   },
+   "regime_ledger": [
+    {
+     "window": "full",
+     "book": "SCMO_0007",
+     "spell_no": 1,
+     "first_decision": "2019-03-08",
+     "last_decision": "2019-03-08",
+     "weeks": 1,
+     "span_from_close": "2019-03-08",
+     "span_to_close": "2019-03-15",
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN",
+     "parent_return": -0.0029184892734600565,
+     "goldbees_return": -0.004197621933013651,
+     "cash_return": 0.0007686097281298654,
+     "ret_50-orig": -0.0017131539551662467,
+     "ret_50-half": -0.008503554202339059,
+     "ret_50-liq": 0.0003321358451644496,
+     "ret_80-orig": -0.0007467989617019333,
+     "ret_80-half": -0.008143811251679511,
+     "ret_80-liq": 7.002327187910495e-05
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0007",
+     "spell_no": 2,
+     "first_decision": "2019-05-10",
+     "last_decision": "2019-05-31",
+     "weeks": 4,
+     "span_from_close": "2019-05-10",
+     "span_to_close": "2019-06-07",
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY",
+     "parent_return": 0.01917110629240648,
+     "goldbees_return": 0.028353403653569087,
+     "cash_return": 0.0029241769440071508,
+     "ret_50-orig": 0.012569891277495415,
+     "ret_50-half": 0.022557530980483742,
+     "ret_50-liq": 0.001415891128672797,
+     "ret_80-orig": 0.005877491188202022,
+     "ret_80-half": 0.022557530980483964,
+     "ret_80-liq": 0.0014158911286732412
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0007",
+     "spell_no": 3,
+     "first_decision": "2021-01-29",
+     "last_decision": "2021-04-01",
+     "weeks": 10,
+     "span_from_close": "2021-01-29",
+     "span_to_close": "2021-04-09",
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY",
+     "parent_return": 0.26107241710110074,
+     "goldbees_return": -0.05158264947245006,
+     "cash_return": 0.003386075138764655,
+     "ret_50-orig": -0.019676016999231605,
+     "ret_50-half": 0.10653890206821881,
+     "ret_50-liq": 0.011433476032088219,
+     "ret_80-orig": -0.0010103211804394219,
+     "ret_80-half": 0.10653890206821903,
+     "ret_80-liq": 0.011433476032088219
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0007",
+     "spell_no": 4,
+     "first_decision": "2021-10-29",
+     "last_decision": "2021-11-03",
+     "weeks": 2,
+     "span_from_close": "2021-10-29",
+     "span_to_close": "2021-11-12",
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY",
+     "parent_return": 0.01219719115886253,
+     "goldbees_return": 0.022891566265060392,
+     "cash_return": 0.0010360406530378619,
+     "ret_50-orig": 0.015804713437229223,
+     "ret_50-half": 0.01890492734849003,
+     "ret_50-liq": 0.003806949770430723,
+     "ret_80-orig": 0.008606055237150079,
+     "ret_80-half": 0.01890492734848981,
+     "ret_80-liq": 0.003806949770430501
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0007",
+     "spell_no": 5,
+     "first_decision": "2022-05-13",
+     "last_decision": "2022-07-29",
+     "weeks": 12,
+     "span_from_close": "2022-05-13",
+     "span_to_close": "2022-08-05",
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN",
+     "parent_return": 0.0341381652053947,
+     "goldbees_return": 0.029940119760478945,
+     "cash_return": 0.00887474632401375,
+     "ret_50-orig": 0.019577558572137832,
+     "ret_50-half": 0.03056305870825793,
+     "ret_50-liq": 0.006579790635328431,
+     "ret_80-orig": 0.010333323718002996,
+     "ret_80-half": 0.02980110004777181,
+     "ret_80-liq": 0.0052076283588227135
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0007",
+     "spell_no": 6,
+     "first_decision": "2024-11-14",
+     "last_decision": "2025-01-24",
+     "weeks": 11,
+     "span_from_close": "2024-11-14",
+     "span_to_close": "2025-02-01",
+     "entered_from": "OUT-BUY",
+     "exited_to": "OUT-BUY",
+     "parent_return": -0.051991217484166796,
+     "goldbees_return": 0.11587635539731345,
+     "cash_return": 0.012756538835865472,
+     "ret_50-orig": 0.06256397988625273,
+     "ret_50-half": 0.0348323840858753,
+     "ret_50-liq": 0.019155630271842305,
+     "ret_80-orig": 0.041104194080198386,
+     "ret_80-half": 0.03963534116415901,
+     "ret_80-liq": 0.02320823035616093
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0007",
+     "spell_no": 7,
+     "first_decision": "2026-03-20",
+     "last_decision": "2026-04-10",
+     "weeks": 4,
+     "span_from_close": "2026-03-20",
+     "span_to_close": "2026-04-17",
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN",
+     "parent_return": 0.08348204142232785,
+     "goldbees_return": 0.030893771683462745,
+     "cash_return": 0.0034419866608659255,
+     "ret_50-orig": 0.019503116786149244,
+     "ret_50-half": 0.06397537709797652,
+     "ret_50-liq": -0.037607709710277604,
+     "ret_80-orig": -0.03644241947242821,
+     "ret_80-half": 0.044063543358339397,
+     "ret_80-liq": -0.056153958431456874
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0007",
+     "spell_no": 8,
+     "first_decision": "2026-10-23",
+     "last_decision": "2026-10-30",
+     "weeks": 2,
+     "span_from_close": "2026-10-23",
+     "span_to_close": "2026-10-30",
+     "entered_from": "OUT-BUY",
+     "exited_to": "window end",
+     "parent_return": 0.031052537667811686,
+     "goldbees_return": -0.005780845556514258,
+     "cash_return": 0.0009436390175712184,
+     "ret_50-orig": -0.0022938068660545152,
+     "ret_50-half": 0.008944045307638815,
+     "ret_50-liq": -0.00014119733220996356,
+     "ret_80-orig": -0.0017243001283623327,
+     "ret_80-half": 0.008930085685558975,
+     "ret_80-liq": -0.0008316348643672145
+    }
+   ]
+  },
+  "SCMO_0010": {
+   "decisions": 410,
+   "sessions": 1932,
+   "first_state": 0,
+   "in_lengths": [
+    8,
+    13,
+    33,
+    23,
+    20,
+    26,
+    46,
+    11,
+    21
+   ],
+   "out_lengths": [
+    11,
+    29,
+    15,
+    16,
+    40,
+    18,
+    5,
+    30,
+    37,
+    8
+   ],
+   "round_trips": 9,
+   "weeks_IN": 201,
+   "weeks_OUT_BUY": 163,
+   "weeks_OUT_SELL": 46,
+   "out_sell_lengths": [
+    1,
+    4,
+    10,
+    2,
+    12,
+    11,
+    4,
+    2
+   ],
+   "out_buy_lengths": [
+    10,
+    25,
+    15,
+    6,
+    26,
+    18,
+    5,
+    4,
+    15,
+    33,
+    6
+   ],
+   "g_flips": 17,
+   "g_first_state": 1,
+   "start": "2019-01-02",
+   "end": "2026-10-30",
+   "g_buy_lengths": [
+    10,
+    68,
+    10,
+    26,
+    33,
+    41,
+    7,
+    59,
+    11
+   ],
+   "g_sell_lengths": [
+    13,
+    28,
+    21,
+    26,
+    15,
+    9,
+    11,
+    20,
+    2
+   ],
+   "trades_due_per_rule": {
+    "50-orig": 18,
+    "50-half": 27,
+    "50-liq": 27,
+    "80-orig": 27,
+    "80-half": 27,
+    "80-liq": 27
+   },
+   "bounds": {
+    "in": [
+     2,
+     46
+    ],
+    "out": [
+     2,
+     40
+    ],
+    "buy": [
+     2,
+     68
+    ],
+    "sell": [
+     2,
+     28
+    ]
+   },
+   "v2_decisions_checked": 410,
+   "v2_violations": 0,
+   "v2_trades_checked": 409,
+   "v2_sc100_signal_first_label_date": "2018-12-28",
+   "stale_label_weeks(age>=5d, excluding T0)": 5,
+   "cash": {
+    "file_last": "2026-11-05",
+    "accrued_sessions": 0,
+    "cash": "lbes"
+   },
+   "stand_in": {
+    "stock_lines_priced_by_stand_in_in_trades": 0,
+    "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 74898,
+    "goldbees_trades_priced_at_previous_close_no_gold_bar": 0
+   },
+   "baskets": {
+    "effective_dates_in_window": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-03-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-09-16",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-23",
+     "2026-09-16"
+    ],
+    "basket_changes": 31,
+    "initial_basket_session": "2018-12-17",
+    "change_sessions": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-03-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-09-16",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-23",
+     "2026-09-16"
+    ]
+   },
+   "gold_sessions_without_own_bar": [
+    "2020-02-01",
+    "2024-01-20"
+   ],
+   "gold_sessions_without_mcx_range": [
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30"
+   ],
+   "window_sessions_where_a_held_stock_has_no_bar": 0,
+   "src_counts": {
+    "held_stock_sessions_by_src": {
+     "db": 25651,
+     "export": 0,
+     "carried": 2,
+     "none": 0
+    },
+    "export_by_stock": {},
+    "carried_bars_in_window_all_stocks": 2,
+    "carried_bars": [
+     "GODREJCP 2020-02-01",
+     "INFY 2025-02-01"
+    ],
+    "held_stock_sessions_without_a_bar_by_session": {}
+   },
+   "regime_ledger": [
+    {
+     "window": "full",
+     "book": "SCMO_0010",
+     "spell_no": 1,
+     "first_decision": "2019-03-08",
+     "last_decision": "2019-03-08",
+     "weeks": 1,
+     "span_from_close": "2019-03-08",
+     "span_to_close": "2019-03-15",
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN",
+     "parent_return": -0.0006102380624348758,
+     "goldbees_return": -0.004197621933013651,
+     "cash_return": 0.0007686097281298654,
+     "ret_50-orig": -0.0017132967729507342,
+     "ret_50-half": -0.0067767143954772235,
+     "ret_50-liq": 0.0003321107274494306,
+     "ret_80-orig": -0.0007468150178976396,
+     "ret_80-half": -0.006416357329394939,
+     "ret_80-liq": 7.000718658711769e-05
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0010",
+     "spell_no": 2,
+     "first_decision": "2019-05-10",
+     "last_decision": "2019-05-31",
+     "weeks": 4,
+     "span_from_close": "2019-05-10",
+     "span_to_close": "2019-06-07",
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY",
+     "parent_return": 0.10597312496707567,
+     "goldbees_return": 0.028353403653569087,
+     "cash_return": 0.0029241769440071508,
+     "ret_50-orig": 0.004421777245113612,
+     "ret_50-half": 0.05964720482926067,
+     "ret_50-liq": -0.006642467059778667,
+     "ret_80-orig": -0.0022167693378212228,
+     "ret_80-half": 0.05964720482926089,
+     "ret_80-liq": -0.006642467059778667
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0010",
+     "spell_no": 3,
+     "first_decision": "2021-01-29",
+     "last_decision": "2021-04-01",
+     "weeks": 10,
+     "span_from_close": "2021-01-29",
+     "span_to_close": "2021-04-09",
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY",
+     "parent_return": 0.23199447339689638,
+     "goldbees_return": -0.05158264947245006,
+     "cash_return": 0.003386075138764655,
+     "ret_50-orig": -0.021620346204898833,
+     "ret_50-half": 0.08734935614437478,
+     "ret_50-liq": 0.009427445698097392,
+     "ret_80-orig": -0.0029916710631010535,
+     "ret_80-half": 0.08734935614437522,
+     "ret_80-liq": 0.009427445698097392
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0010",
+     "spell_no": 4,
+     "first_decision": "2021-10-29",
+     "last_decision": "2021-11-03",
+     "weeks": 2,
+     "span_from_close": "2021-10-29",
+     "span_to_close": "2021-11-12",
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY",
+     "parent_return": 0.03478955495774172,
+     "goldbees_return": 0.022891566265060392,
+     "cash_return": 0.0010360406530378619,
+     "ret_50-orig": 0.021840787647007476,
+     "ret_50-half": 0.035328580498638074,
+     "ret_50-liq": 0.009771731347987256,
+     "ret_80-orig": 0.014599353867595255,
+     "ret_80-half": 0.035328580498638074,
+     "ret_80-liq": 0.009771731347987478
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0010",
+     "spell_no": 5,
+     "first_decision": "2022-05-13",
+     "last_decision": "2022-07-29",
+     "weeks": 12,
+     "span_from_close": "2022-05-13",
+     "span_to_close": "2022-08-05",
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN",
+     "parent_return": 0.03274171557056671,
+     "goldbees_return": 0.029940119760478945,
+     "cash_return": 0.00887474632401375,
+     "ret_50-orig": 0.019577558572138054,
+     "ret_50-half": 0.022046360765884065,
+     "ret_50-liq": 0.006579790635328431,
+     "ret_80-orig": 0.010333323718002774,
+     "ret_80-half": 0.021290699024059334,
+     "ret_80-liq": 0.0052076283588227135
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0010",
+     "spell_no": 6,
+     "first_decision": "2024-11-14",
+     "last_decision": "2025-01-24",
+     "weeks": 11,
+     "span_from_close": "2024-11-14",
+     "span_to_close": "2025-02-01",
+     "entered_from": "OUT-BUY",
+     "exited_to": "OUT-BUY",
+     "parent_return": -0.033226513744645025,
+     "goldbees_return": 0.11587635539731345,
+     "cash_return": 0.012756538835865472,
+     "ret_50-orig": 0.06256397988625295,
+     "ret_50-half": 0.035975977260630065,
+     "ret_50-liq": 0.019155630271842305,
+     "ret_80-orig": 0.04110419408019861,
+     "ret_80-half": 0.040784242086349565,
+     "ret_80-liq": 0.02320823035616093
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0010",
+     "spell_no": 7,
+     "first_decision": "2026-03-20",
+     "last_decision": "2026-04-10",
+     "weeks": 4,
+     "span_from_close": "2026-03-20",
+     "span_to_close": "2026-04-17",
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN",
+     "parent_return": 0.07653602926361769,
+     "goldbees_return": 0.030893771683462745,
+     "cash_return": 0.0034419866608659255,
+     "ret_50-orig": 0.019503116786149244,
+     "ret_50-half": 0.06278033618859302,
+     "ret_50-liq": -0.037607709710277715,
+     "ret_80-orig": -0.0364424194724281,
+     "ret_80-half": 0.042890867116796905,
+     "ret_80-liq": -0.056153958431456874
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0010",
+     "spell_no": 8,
+     "first_decision": "2026-10-23",
+     "last_decision": "2026-10-30",
+     "weeks": 2,
+     "span_from_close": "2026-10-23",
+     "span_to_close": "2026-10-30",
+     "entered_from": "OUT-BUY",
+     "exited_to": "window end",
+     "parent_return": 0.030386063146828235,
+     "goldbees_return": -0.005780845556514258,
+     "cash_return": 0.0009436390175712184,
+     "ret_50-orig": -0.0022938068660545152,
+     "ret_50-half": 0.011200011141678567,
+     "ret_50-liq": -0.0001411973322097415,
+     "ret_80-orig": -0.0017243001283619996,
+     "ret_80-half": 0.01118602030634075,
+     "ret_80-liq": -0.0008316348643671034
+    }
+   ]
+  },
+  "SCMO_0029": {
+   "decisions": 410,
+   "sessions": 1932,
+   "first_state": 0,
+   "in_lengths": [
+    8,
+    13,
+    33,
+    23,
+    20,
+    26,
+    46,
+    11,
+    21
+   ],
+   "out_lengths": [
+    11,
+    29,
+    15,
+    16,
+    40,
+    18,
+    5,
+    30,
+    37,
+    8
+   ],
+   "round_trips": 9,
+   "weeks_IN": 201,
+   "weeks_OUT_BUY": 163,
+   "weeks_OUT_SELL": 46,
+   "out_sell_lengths": [
+    1,
+    4,
+    10,
+    2,
+    12,
+    11,
+    4,
+    2
+   ],
+   "out_buy_lengths": [
+    10,
+    25,
+    15,
+    6,
+    26,
+    18,
+    5,
+    4,
+    15,
+    33,
+    6
+   ],
+   "g_flips": 17,
+   "g_first_state": 1,
+   "start": "2019-01-02",
+   "end": "2026-10-30",
+   "g_buy_lengths": [
+    10,
+    68,
+    10,
+    26,
+    33,
+    41,
+    7,
+    59,
+    11
+   ],
+   "g_sell_lengths": [
+    13,
+    28,
+    21,
+    26,
+    15,
+    9,
+    11,
+    20,
+    2
+   ],
+   "trades_due_per_rule": {
+    "50-orig": 18,
+    "50-half": 27,
+    "50-liq": 27,
+    "80-orig": 27,
+    "80-half": 27,
+    "80-liq": 27
+   },
+   "bounds": {
+    "in": [
+     2,
+     46
+    ],
+    "out": [
+     2,
+     40
+    ],
+    "buy": [
+     2,
+     68
+    ],
+    "sell": [
+     2,
+     28
+    ]
+   },
+   "v2_decisions_checked": 410,
+   "v2_violations": 0,
+   "v2_trades_checked": 409,
+   "v2_sc100_signal_first_label_date": "2018-12-28",
+   "stale_label_weeks(age>=5d, excluding T0)": 5,
+   "cash": {
+    "file_last": "2026-11-05",
+    "accrued_sessions": 0,
+    "cash": "lbes"
+   },
+   "stand_in": {
+    "stock_lines_priced_by_stand_in_in_trades": 0,
+    "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 74898,
+    "goldbees_trades_priced_at_previous_close_no_gold_bar": 0
+   },
+   "baskets": {
+    "effective_dates_in_window": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-09-16",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-23",
+     "2026-09-16"
+    ],
+    "basket_changes": 30,
+    "initial_basket_session": "2018-12-17",
+    "change_sessions": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-09-16",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-23",
+     "2026-09-16"
+    ]
+   },
+   "gold_sessions_without_own_bar": [
+    "2020-02-01",
+    "2024-01-20"
+   ],
+   "gold_sessions_without_mcx_range": [
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30"
+   ],
+   "window_sessions_where_a_held_stock_has_no_bar": 0,
+   "src_counts": {
+    "held_stock_sessions_by_src": {
+     "db": 23479,
+     "export": 0,
+     "carried": 8,
+     "none": 0
+    },
+    "export_by_stock": {},
+    "carried_bars_in_window_all_stocks": 8,
+    "carried_bars": [
+     "360ONE 2025-02-01",
+     "IGL 2020-02-01",
+     "KIRLPNU 2025-02-01",
+     "NAM-INDIA 2026-02-01",
+     "PVRINOX 2020-02-01",
+     "VBL 2020-02-01",
+     "VBL 2024-01-20",
+     "VBL 2025-02-01"
+    ],
+    "held_stock_sessions_without_a_bar_by_session": {}
+   },
+   "regime_ledger": [
+    {
+     "window": "full",
+     "book": "SCMO_0029",
+     "spell_no": 1,
+     "first_decision": "2019-03-08",
+     "last_decision": "2019-03-08",
+     "weeks": 1,
+     "span_from_close": "2019-03-08",
+     "span_to_close": "2019-03-15",
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN",
+     "parent_return": 0.009854805962044022,
+     "goldbees_return": -0.004197621933013651,
+     "cash_return": 0.0007686097281298654,
+     "ret_50-orig": -0.0017132967729507342,
+     "ret_50-half": -0.003469809400397983,
+     "ret_50-liq": 0.0003321107274494306,
+     "ret_80-orig": -0.0007468150178976396,
+     "ret_80-half": -0.003108252537050382,
+     "ret_80-liq": 7.000718658711769e-05
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0029",
+     "spell_no": 2,
+     "first_decision": "2019-05-10",
+     "last_decision": "2019-05-31",
+     "weeks": 4,
+     "span_from_close": "2019-05-10",
+     "span_to_close": "2019-06-07",
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY",
+     "parent_return": 0.05784021060255595,
+     "goldbees_return": 0.028353403653569087,
+     "cash_return": 0.0029241769440071508,
+     "ret_50-orig": -0.003988804586070316,
+     "ret_50-half": 0.03147966175108907,
+     "ret_50-liq": -0.014960401823530312,
+     "ret_80-orig": -0.010571762928546113,
+     "ret_80-half": 0.03147966175108885,
+     "ret_80-liq": -0.0149604018235302
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0029",
+     "spell_no": 3,
+     "first_decision": "2021-01-29",
+     "last_decision": "2021-04-01",
+     "weeks": 10,
+     "span_from_close": "2021-01-29",
+     "span_to_close": "2021-04-09",
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY",
+     "parent_return": 0.17150888462197678,
+     "goldbees_return": -0.05158264947245006,
+     "cash_return": 0.003386075138764655,
+     "ret_50-orig": -0.02560161828847851,
+     "ret_50-half": 0.05806624853526454,
+     "ret_50-liq": 0.005319832365820565,
+     "ret_80-orig": -0.0070487478958990435,
+     "ret_80-half": 0.0580662485352641,
+     "ret_80-liq": 0.005319832365820343
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0029",
+     "spell_no": 4,
+     "first_decision": "2021-10-29",
+     "last_decision": "2021-11-03",
+     "weeks": 2,
+     "span_from_close": "2021-10-29",
+     "span_to_close": "2021-11-12",
+     "entered_from": "IN",
+     "exited_to": "OUT-BUY",
+     "parent_return": 0.0690780460289031,
+     "goldbees_return": 0.022891566265060392,
+     "cash_return": 0.0010360406530378619,
+     "ret_50-orig": 0.021651017218178747,
+     "ret_50-half": 0.05116177557401991,
+     "ret_50-liq": 0.009584202315291002,
+     "ret_80-orig": 0.014410928276446189,
+     "ret_80-half": 0.05116177557402013,
+     "ret_80-liq": 0.009584202315291224
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0029",
+     "spell_no": 5,
+     "first_decision": "2022-05-13",
+     "last_decision": "2022-07-29",
+     "weeks": 12,
+     "span_from_close": "2022-05-13",
+     "span_to_close": "2022-08-05",
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN",
+     "parent_return": 0.06315334817936735,
+     "goldbees_return": 0.029940119760478945,
+     "cash_return": 0.00887474632401375,
+     "ret_50-orig": 0.019577558572138054,
+     "ret_50-half": 0.04230318360711438,
+     "ret_50-liq": 0.006579790635328653,
+     "ret_80-orig": 0.010333323718002996,
+     "ret_80-half": 0.0415325447501409,
+     "ret_80-liq": 0.005207628358822491
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0029",
+     "spell_no": 6,
+     "first_decision": "2024-11-14",
+     "last_decision": "2025-01-24",
+     "weeks": 11,
+     "span_from_close": "2024-11-14",
+     "span_to_close": "2025-02-01",
+     "entered_from": "OUT-BUY",
+     "exited_to": "OUT-BUY",
+     "parent_return": -0.010828285652835001,
+     "goldbees_return": 0.11587635539731345,
+     "cash_return": 0.012756538835865472,
+     "ret_50-orig": 0.06256397988625273,
+     "ret_50-half": 0.049338044793152847,
+     "ret_50-liq": 0.019155630271842528,
+     "ret_80-orig": 0.04110419408019883,
+     "ret_80-half": 0.05420832684777177,
+     "ret_80-liq": 0.023208230356160486
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0029",
+     "spell_no": 7,
+     "first_decision": "2026-03-20",
+     "last_decision": "2026-04-10",
+     "weeks": 4,
+     "span_from_close": "2026-03-20",
+     "span_to_close": "2026-04-17",
+     "entered_from": "OUT-BUY",
+     "exited_to": "IN",
+     "parent_return": 0.09891355998362461,
+     "goldbees_return": 0.030893771683462745,
+     "cash_return": 0.0034419866608659255,
+     "ret_50-orig": 0.019503116786149244,
+     "ret_50-half": 0.07223808611248539,
+     "ret_50-liq": -0.037607709710277826,
+     "ret_80-orig": -0.03644241947242799,
+     "ret_80-half": 0.05217161938821668,
+     "ret_80-liq": -0.056153958431456874
+    },
+    {
+     "window": "full",
+     "book": "SCMO_0029",
+     "spell_no": 8,
+     "first_decision": "2026-10-23",
+     "last_decision": "2026-10-30",
+     "weeks": 2,
+     "span_from_close": "2026-10-23",
+     "span_to_close": "2026-10-30",
+     "entered_from": "OUT-BUY",
+     "exited_to": "window end",
+     "parent_return": 0.043772401358787905,
+     "goldbees_return": -0.005780845556514258,
+     "cash_return": 0.0009436390175712184,
+     "ret_50-orig": -0.002293806866054404,
+     "ret_50-half": 0.018628821225683767,
+     "ret_50-liq": -0.0001411973322097415,
+     "ret_80-orig": -0.0017243001283622217,
+     "ret_80-half": 0.018614727606270698,
+     "ret_80-liq": -0.0008316348643672145
+    }
+   ]
+  }
+ },
+ "v2": {
+  "checks": 9499,
+  "violations": 0,
+  "recorded_trades_after_their_decision": 2808,
+  "recorded_basket_changes_on_or_after_availableDate": 1774,
+  "sc100_rule7_checks": 4,
+  "sc100_signal_rows_read_from": "2011-11-25",
+  "pass": true
+ },
+ "v3": {
+  "per_book_window": {
+   "SCMO_0003|full|io": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      46
+     ],
+     "out": [
+      2,
+      40
+     ]
+    },
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0003|full|gold": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      68
+     ],
+     "out": [
+      2,
+      28
+     ]
+    },
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0003|r3|io": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      46
+     ],
+     "out": [
+      2,
+      40
+     ]
+    },
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0003|r3|gold": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      68
+     ],
+     "out": [
+      2,
+      28
+     ]
+    },
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0007|full|io": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      46
+     ],
+     "out": [
+      2,
+      40
+     ]
+    },
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0007|full|gold": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      68
+     ],
+     "out": [
+      2,
+      28
+     ]
+    },
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0007|r3|io": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      46
+     ],
+     "out": [
+      2,
+      40
+     ]
+    },
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0007|r3|gold": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      68
+     ],
+     "out": [
+      2,
+      28
+     ]
+    },
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0010|full|io": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      46
+     ],
+     "out": [
+      2,
+      40
+     ]
+    },
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0010|full|gold": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      68
+     ],
+     "out": [
+      2,
+      28
+     ]
+    },
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0010|r3|io": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      46
+     ],
+     "out": [
+      2,
+      40
+     ]
+    },
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0010|r3|gold": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      68
+     ],
+     "out": [
+      2,
+      28
+     ]
+    },
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0029|full|io": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      46
+     ],
+     "out": [
+      2,
+      40
+     ]
+    },
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0029|full|gold": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      68
+     ],
+     "out": [
+      2,
+      28
+     ]
+    },
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0029|r3|io": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      46
+     ],
+     "out": [
+      2,
+      40
+     ]
+    },
+    "types": {
+     "N4.9": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "SCMO_0029|r3|gold": {
+    "rule_in_support": true,
+    "bounds": {
+     "in": [
+      2,
+      68
+     ],
+     "out": [
+      2,
+      28
+     ]
+    },
+    "types": {
+     "N4.9-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     },
+     "N4.10-g": {
+      "draws": 2000,
+      "failures": {
+       "weeks": 0,
+       "first_state": 0,
+       "k_in": 0,
+       "k_out": 0,
+       "S_in": 0,
+       "S_out": 0,
+       "invested_weeks": 0,
+       "sorted_lengths": 0,
+       "bounds": 0,
+       "not_binary": 0
+      },
+      "pass": true
+     }
+    },
+    "pass": true
+   }
+  },
+  "vs_stored_draw_states": {
+   "compared": 32,
+   "pass": true
+  },
+  "pass": true,
+  "draws_per_type": 2000,
+  "reportability": {
+   "r3_window": {
+    "SCMO_0003": {
+     "round_trips": 5,
+     "out_sell_spells": 5,
+     "feasible": {
+      "in": true,
+      "out": true,
+      "buy": true,
+      "sell": true
+     },
+     "reportable": true
+    },
+    "SCMO_0007": {
+     "round_trips": 5,
+     "out_sell_spells": 5,
+     "feasible": {
+      "in": true,
+      "out": true,
+      "buy": true,
+      "sell": true
+     },
+     "reportable": true
+    },
+    "SCMO_0010": {
+     "round_trips": 5,
+     "out_sell_spells": 5,
+     "feasible": {
+      "in": true,
+      "out": true,
+      "buy": true,
+      "sell": true
+     },
+     "reportable": true
+    },
+    "SCMO_0029": {
+     "round_trips": 5,
+     "out_sell_spells": 5,
+     "feasible": {
+      "in": true,
+      "out": true,
+      "buy": true,
+      "sell": true
+     },
+     "reportable": true
+    }
+   },
+   "out_sell_spells_full": 8,
+   "out_sell_weeks_full": 46
+  }
+ },
+ "v4": {
+  "pass": true
+ },
+ "v5": {
+  "pass": true
+ },
+ "v6": {
+  "trades_checked": 45027,
+  "trades_checked_at_0_cost": 15009,
+  "kinds": {
+   "50-half|basket_change": 216,
+   "50-half|regime_in": 96,
+   "50-half|regime_out": 84,
+   "50-half|switch_in": 72,
+   "50-half|switch_out": 72,
+   "50-liq|basket_change": 180,
+   "50-liq|regime_in": 96,
+   "50-liq|regime_out": 84,
+   "50-liq|switch_in": 72,
+   "50-liq|switch_out": 72,
+   "50-orig|basket_change": 180,
+   "50-orig|switch_in": 108,
+   "50-orig|switch_out": 108,
+   "80-half|basket_change": 216,
+   "80-half|regime_in": 96,
+   "80-half|regime_out": 84,
+   "80-half|switch_in": 72,
+   "80-half|switch_out": 72,
+   "80-liq|basket_change": 180,
+   "80-liq|regime_in": 96,
+   "80-liq|regime_out": 84,
+   "80-liq|switch_in": 72,
+   "80-liq|switch_out": 72,
+   "80-orig|basket_change": 180,
+   "80-orig|sleeve_rebalance": 108,
+   "80-orig|switch_in": 108,
+   "80-orig|switch_out": 108,
+   "cmix_50-half|basket_change": 279,
+   "cmix_50-half|mix_rebalance": 4905,
+   "cmix_50-liq|basket_change": 279,
+   "cmix_50-liq|mix_rebalance": 4905,
+   "cmix_50-orig|basket_change": 279,
+   "cmix_50-orig|mix_rebalance": 4905,
+   "cmix_80-half|basket_change": 279,
+   "cmix_80-half|mix_rebalance": 4905,
+   "cmix_80-liq|basket_change": 279,
+   "cmix_80-liq|mix_rebalance": 4905,
+   "cmix_80-orig|basket_change": 279,
+   "cmix_80-orig|mix_rebalance": 4905,
+   "constant_mix|basket_change": 279,
+   "constant_mix|mix_rebalance": 4905,
+   "constant_mix_timed|basket_change": 279,
+   "constant_mix_timed|mix_rebalance": 4905,
+   "hold_parent|basket_change": 363,
+   "sleeve_only_timed|sleeve_rebalance": 204
+  },
+  "worst": {
+   "cost_identity": 0.0,
+   "value_conservation": 5.801387291749392e-16,
+   "stock_target_gap": 5.801387291749392e-16,
+   "gold_target_gap": 2.316451166778307e-16,
+   "cash_target_gap": 1.8985325718226497e-16,
+   "traded_identity": 0.0,
+   "continuity_0cost": 5.193786124970019e-16,
+   "stock_weight_gap_after_entry_or_full_basket_change": 8.326672684688674e-17,
+   "half_entry_stock_gap": 2.0661459333891655e-16,
+   "half_entry_gold_gap": 8.333733136861723e-17,
+   "half_entry_cash_gap": 0.0,
+   "partial_basket_gold_unchanged": 0.0,
+   "partial_basket_cash_unchanged": 0.0,
+   "partial_basket_stock_after_vs_before_minus_cost": 2.391823604771299e-16,
+   "partial_basket_weight_gap": 4.163336342344337e-17,
+   "liq_regime_gold_after": 0.0
+  },
+  "tolerance": 1e-12,
+  "half_regime_entries_checked": 192,
+  "liq_regime_trades_checked": 192,
+  "partial_basket_changes_checked": 72,
+  "recorded_trades_equal_expected_from_states_at_every_cost": true,
+  "basket_changes_equal_expected_at_every_cost": true,
+  "expected_per_book_rule": {
+   "SCMO_0003|50-orig": {
+    "regime_switch_sleeve_trades": 18,
+    "basket_changes": 16
+   },
+   "SCMO_0003|50-half": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 19
+   },
+   "SCMO_0003|50-liq": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 16
+   },
+   "SCMO_0003|80-orig": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 16
+   },
+   "SCMO_0003|80-half": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 19
+   },
+   "SCMO_0003|80-liq": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 16
+   },
+   "SCMO_0007|50-orig": {
+    "regime_switch_sleeve_trades": 18,
+    "basket_changes": 14
+   },
+   "SCMO_0007|50-half": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 17
+   },
+   "SCMO_0007|50-liq": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 14
+   },
+   "SCMO_0007|80-orig": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 14
+   },
+   "SCMO_0007|80-half": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 17
+   },
+   "SCMO_0007|80-liq": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 14
+   },
+   "SCMO_0010|50-orig": {
+    "regime_switch_sleeve_trades": 18,
+    "basket_changes": 15
+   },
+   "SCMO_0010|50-half": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 18
+   },
+   "SCMO_0010|50-liq": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 15
+   },
+   "SCMO_0010|80-orig": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 15
+   },
+   "SCMO_0010|80-half": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 18
+   },
+   "SCMO_0010|80-liq": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 15
+   },
+   "SCMO_0029|50-orig": {
+    "regime_switch_sleeve_trades": 18,
+    "basket_changes": 15
+   },
+   "SCMO_0029|50-half": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 18
+   },
+   "SCMO_0029|50-liq": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 15
+   },
+   "SCMO_0029|80-orig": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 15
+   },
+   "SCMO_0029|80-half": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 18
+   },
+   "SCMO_0029|80-liq": {
+    "regime_switch_sleeve_trades": 27,
+    "basket_changes": 15
+   }
+  },
+  "worked_examples": {
+   "50-half|regime_in": {
+    "decision_date": "2019-03-08",
+    "trade_date": "2019-03-11",
+    "idx": 47,
+    "regime": "OUT-SELL",
+    "e_after": 0.5,
+    "gw_after": 1.0,
+    "V": 1.0077955821065157,
+    "stock_before": 0.0,
+    "gold_before": 0.5039569966594198,
+    "cash_before": 0.5038385854470959,
+    "traded": 1.0077955821065157,
+    "cost": 0.0010481074053907764,
+    "stock_after": 0.5033737373505625,
+    "gold_after": 0.5033737373505625,
+    "cash_after": 0.0,
+    "basket_eff": "2018-12-17",
+    "stocks_before_after": {
+     "SONATSOFTW.NS": [
+      0.0,
+      0.04921876542996701
+     ],
+     "NOCIL.NS": [
+      0.0,
+      0.04921876542996701
+     ],
+     "GMBREW.NS": [
+      0.0,
+      0.060404848480859405
+     ],
+     "GAEL.NS": [
+      0.0,
+      0.04921876542996701
+     ],
+     "MUTHOOTFIN.NS": [
+      0.0,
+      0.04921876542996701
+     ],
+     "JSWSTEEL.NS": [
+      0.0,
+      0.04921876542996701
+     ],
+     "KEC.NS": [
+      0.0,
+      0.04921876542996701
+     ],
+     "WSTCSTPAPR.NS": [
+      0.0,
+      0.04921876542996701
+     ],
+     "NRBBEARING.NS": [
+      0.0,
+      0.04921876542996701
+     ],
+     "PARAGMILK.NS": [
+      0.0,
+      0.04921876542996701
+     ]
+    }
+   },
+   "50-half|regime_out": {
+    "decision_date": "2019-03-15",
+    "trade_date": "2019-03-18",
+    "idx": 52,
+    "regime": "IN",
+    "e_after": 1.0,
+    "gw_after": 0.5,
+    "V": 1.0071810871124023,
+    "stock_before": 0.5100879632520336,
+    "gold_before": 0.49709312386036875,
+    "cash_before": 0.0,
+    "traded": 1.400879413098191,
+    "cost": 0.0014569145896221188,
+    "stock_after": 1.0057241725227801,
+    "gold_after": 0.0,
+    "cash_after": 0.0,
+    "basket_eff": "2019-03-18",
+    "stocks_before_after": null
+   },
+   "50-half|basket_change": {
+    "decision_date": null,
+    "trade_date": "2021-03-18",
+    "idx": 546,
+    "regime": null,
+    "e_after": 0.5,
+    "gw_after": 1.0,
+    "V": 2.0773135615018194,
+    "stock_before": 1.150116812883494,
+    "gold_before": 0.9271967486183256,
+    "cash_before": 0.0,
+    "traded": 1.1963020220946339,
+    "cost": 0.0012441541029784193,
+    "stock_after": 1.1488726587805156,
+    "gold_after": 0.9271967486183256,
+    "cash_after": 0.0,
+    "basket_eff": "2021-03-18",
+    "stocks_before_after": {
+     "DEEPAKNTR.NS": [
+      0.21651535394984864,
+      0.0
+     ],
+     "KEC.NS": [
+      0.17370881413061134,
+      0.21024369655683436
+     ],
+     "KNRCON.NS": [
+      0.14889649506568597,
+      0.21024369655683436
+     ],
+     "APLLTD.NS": [
+      0.16233317739467334,
+      0.09765417599634384
+     ],
+     "HEIDELBERG.NS": [
+      0.13935758978947213,
+      0.0
+     ],
+     "JKLAKSHMI.NS": [
+      0.1777048190084198,
+      0.0
+     ],
+     "CHAMBLFERT.NS": [
+      0.1316005635447828,
+      0.21024369655683436
+     ],
+     "AMBUJACEM.NS": [
+      0.0,
+      0.21024369655683436
+     ],
+     "PNCINFRA.NS": [
+      0.0,
+      0.21024369655683436
+     ]
+    }
+   },
+   "80-half|regime_in": {
+    "decision_date": "2019-03-08",
+    "trade_date": "2019-03-11",
+    "idx": 47,
+    "regime": "OUT-SELL",
+    "e_after": 0.5,
+    "gw_after": 1.0,
+    "V": 1.0078666288339102,
+    "stock_before": 0.0,
+    "gold_before": 0.8063311946550719,
+    "cash_before": 0.20153543417883832,
+    "traded": 1.0078666288339102,
+    "cost": 0.0010481812939872668,
+    "stock_after": 0.5034092237699614,
+    "gold_after": 0.5034092237699614,
+    "cash_after": 0.0,
+    "basket_eff": "2018-12-17",
+    "stocks_before_after": {
+     "SONATSOFTW.NS": [
+      0.0,
+      0.04922223521319714
+     ],
+     "NOCIL.NS": [
+      0.0,
+      0.04922223521319714
+     ],
+     "GMBREW.NS": [
+      0.0,
+      0.060409106851187194
+     ],
+     "GAEL.NS": [
+      0.0,
+      0.04922223521319714
+     ],
+     "MUTHOOTFIN.NS": [
+      0.0,
+      0.04922223521319714
+     ],
+     "JSWSTEEL.NS": [
+      0.0,
+      0.04922223521319714
+     ],
+     "KEC.NS": [
+      0.0,
+      0.04922223521319714
+     ],
+     "WSTCSTPAPR.NS": [
+      0.0,
+      0.049222235213197144
+     ],
+     "NRBBEARING.NS": [
+      0.0,
+      0.049222235213197144
+     ],
+     "PARAGMILK.NS": [
+      0.0,
+      0.04922223521319714
+     ]
+    }
+   },
+   "80-half|regime_out": {
+    "decision_date": "2019-03-15",
+    "trade_date": "2019-03-18",
+    "idx": 52,
+    "regime": "IN",
+    "e_after": 1.0,
+    "gw_after": 0.2,
+    "V": 1.007252090519644,
+    "stock_before": 0.5101239230052967,
+    "gold_before": 0.49712816751434735,
+    "cash_before": 0.0,
+    "traded": 1.4009781711197,
+    "cost": 0.0014570172979644883,
+    "stock_after": 1.0057950732216794,
+    "gold_after": 0.0,
+    "cash_after": 0.0,
+    "basket_eff": "2019-03-18",
+    "stocks_before_after": null
+   },
+   "80-half|basket_change": {
+    "decision_date": null,
+    "trade_date": "2021-03-18",
+    "idx": 546,
+    "regime": null,
+    "e_after": 0.5,
+    "gw_after": 1.0,
+    "V": 2.233619918630053,
+    "stock_before": 1.2366567424470336,
+    "gold_before": 0.9969631761830192,
+    "cash_before": 0.0,
+    "traded": 1.2863171332286338,
+    "cost": 0.0013377698185577794,
+    "stock_after": 1.235318972628476,
+    "gold_after": 0.9969631761830192,
+    "cash_after": 0.0,
+    "basket_eff": "2021-03-18",
+    "stocks_before_after": {
+     "DEEPAKNTR.NS": [
+      0.23280693691807602,
+      0.0
+     ],
+     "KEC.NS": [
+      0.18677944171472605,
+      0.2260633719910111
+     ],
+     "KNRCON.NS": [
+      0.1601001328622127,
+      0.2260633719910111
+     ],
+     "APLLTD.NS": [
+      0.17454785122622934,
+      0.10500211267342045
+     ],
+     "HEIDELBERG.NS": [
+      0.14984347771792486,
+      0.0
+     ],
+     "JKLAKSHMI.NS": [
+      0.19107612386008446,
+      0.0
+     ],
+     "CHAMBLFERT.NS": [
+      0.1415027781477801,
+      0.22606337199101112
+     ],
+     "AMBUJACEM.NS": [
+      0.0,
+      0.2260633719910111
+     ],
+     "PNCINFRA.NS": [
+      0.0,
+      0.2260633719910111
+     ]
+    }
+   },
+   "50-liq|regime_in": {
+    "decision_date": "2019-03-08",
+    "trade_date": "2019-03-11",
+    "idx": 47,
+    "regime": "OUT-SELL",
+    "e_after": 0.0,
+    "gw_after": 0.0,
+    "V": 1.0077955821065157,
+    "stock_before": 0.0,
+    "gold_before": 0.5039569966594198,
+    "cash_before": 0.5038385854470959,
+    "traded": 1.0079139933188395,
+    "cost": 0.0010482305530515933,
+    "stock_after": 0.0,
+    "gold_after": 0.0,
+    "cash_after": 1.006747351553464,
+    "basket_eff": "2018-12-17",
+    "stocks_before_after": {}
+   },
+   "50-liq|regime_out": {
+    "decision_date": "2019-03-15",
+    "trade_date": "2019-03-18",
+    "idx": 52,
+    "regime": "IN",
+    "e_after": 1.0,
+    "gw_after": 0.5,
+    "V": 1.0075219453240714,
+    "stock_before": 0.0,
+    "gold_before": 0.0,
+    "cash_before": 1.0075219453240714,
+    "traded": 2.0150438906481423,
+    "cost": 0.0020956456462740683,
+    "stock_after": 1.0054262996777972,
+    "gold_after": 0.0,
+    "cash_after": 0.0,
+    "basket_eff": "2019-03-18",
+    "stocks_before_after": null
+   },
+   "80-liq|regime_in": {
+    "decision_date": "2019-03-08",
+    "trade_date": "2019-03-11",
+    "idx": 47,
+    "regime": "OUT-SELL",
+    "e_after": 0.0,
+    "gw_after": 0.0,
+    "V": 1.0078666288339102,
+    "stock_before": 0.0,
+    "gold_before": 0.8063311946550719,
+    "cash_before": 0.20153543417883832,
+    "traded": 1.6126623893101437,
+    "cost": 0.0016771688848825498,
+    "stock_after": 0.0,
+    "gold_after": 0.0,
+    "cash_after": 1.0061894599490278,
+    "basket_eff": "2018-12-17",
+    "stocks_before_after": {}
+   },
+   "80-orig|sleeve_rebalance": {
+    "decision_date": "2019-03-08",
+    "trade_date": "2019-03-11",
+    "idx": 47,
+    "regime": "OUT-SELL",
+    "e_after": 0.0,
+    "gw_after": 0.2,
+    "V": 1.0078666288339102,
+    "stock_before": 0.0,
+    "gold_before": 0.8063311946550719,
+    "cash_before": 0.20153543417883832,
+    "traded": 1.2095157377765795,
+    "cost": 0.001257896367287643,
+    "stock_after": 0.0,
+    "gold_after": 0.20132174649332454,
+    "cash_after": 0.8052869859732982,
+    "basket_eff": "2018-12-17",
+    "stocks_before_after": null
+   }
+  },
+  "not_checked_here": "weights drift between trades by construction (units are constant between trade sessions); the initial position at T0 is built without a trade record",
+  "pass": true
+ },
+ "data": {
+  "approved_data_as_of": "2026-11-17",
+  "window_end": "2026-10-30",
+  "inputs": 34,
+  "non_approved_open_and_guards": {
+   "superseded_master": {
+    "raised": true,
+    "message": "Historical Data/frozen_2026-09-25/Master/Master_Nifty100.xlsx: row D03 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "superseded_goldbees": {
+    "raised": true,
+    "message": "analysis/cache/why_gold_ohlc_eikon.parquet: row D09 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "superseded_lbes": {
+    "raised": true,
+    "message": "Historical Data/LBES_Adjusted_Price_data_2026_08_10.csv: row D11 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "pending_candidate_d03b": {
+    "raised": true,
+    "message": "Historical Data/extended_2026-11-12/SC100_signal_from_2011-10-03/Master_SC100.xlsx: row D03b is PENDING, not APPROVED; do not read it"
+   },
+   "not_in_table": {
+    "raised": true,
+    "message": "Historical Data/no_such_file.csv: not in the table of data/APPROVED_DATA.md, so not approved"
+   },
+   "guard_sc100_signal_before_usable_from": {
+    "raised": true,
+    "message": "Historical Data/extended_2026-10-30/Master/Master_SC100.xlsx: usable from 2011-11-25 only (APPROVED_DATA.md rule 7); the window reads it from 2011-11-24"
+   },
+   "guard_sc100_at_usable_from_passes": {
+    "raised": false,
+    "ok": true
+   },
+   "pass": true
+  },
+  "master_rows_after_END_dropped": {
+   "Nifty100": 0,
+   "MC100": 0,
+   "SC100": 0
+  },
+  "mauc1_rows_after_END_dropped": 1,
+  "goldbees_first_bar": "2014-07-01",
+  "goldbees_file_last": "2026-11-04",
+  "mcx_file_last": "2026-09-28",
+  "cash": {
+   "lbes_last": "2026-11-05",
+   "liq_last": "2026-11-05",
+   "accrued_sessions": 0
+  },
+  "r7": {},
+  "random_curve_ids_seed": [
+   17,
+   1
+  ]
+ },
+ "frozen_text_counts": {
+  "pass": true,
+  "detail": {},
+  "applies": false
+ },
+ "step1_counts_reproduced": {
+  "pass": true,
+  "detail": {
+   "SCMO_0003|full": true,
+   "SCMO_0003|r3": true,
+   "SCMO_0007|full": true,
+   "SCMO_0007|r3": true,
+   "SCMO_0010|full": true,
+   "SCMO_0010|r3": true,
+   "SCMO_0029|full": true,
+   "SCMO_0029|r3": true
+  },
+  "file": "tests/T14/logs/step_1_spell_counts.json"
+ },
+ "run": {
+  "window": "w2",
+  "name": "headline",
+  "command": "analysis/t14_engine.py --window w2 --run headline --workers 4",
+  "draws": 2000,
+  "books": [
+   "SCMO_0003",
+   "SCMO_0007",
+   "SCMO_0010",
+   "SCMO_0029"
+  ],
+  "seconds": 2075,
+  "quick": false,
+  "python": "3.11.2",
+  "numpy": "2.4.6",
+  "pandas": "3.1.1",
+  "draw_rows": 816000,
+  "seeds": {
+   "io49": [
+    3,
+    "draw_id"
+   ],
+   "io410": [
+    6,
+    "draw_id"
+   ],
+   "g49": [
+    11,
+    3,
+    "draw_id"
+   ],
+   "g410": [
+    11,
+    6,
+    "draw_id"
+   ]
+  }
+ },
+ "prereg_sha256": "99fe0f3a8c8b7d4d7bd771c64fc78311ada96ec057ca46dfd5db2648d401d7da",
+ "gates": {
+  "V2": true,
+  "V3": true,
+  "V4": true,
+  "V5": true,
+  "V6": true,
+  "approved_data_selftest": true,
+  "step1_counts": true,
+  "frozen_text_counts": true,
+  "r3_reportable": true,
+  "all": true
+ }
+}

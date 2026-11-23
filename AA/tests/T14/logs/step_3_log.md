@@ -1,0 +1,89 @@
+# Step 3 log: independent verifier for T14 (2026-11-23)
+
+Output: `AA/analysis/verify_t14.py` (about 3,300 lines), this log, `verify_t14.json` in each window folder it was run on. Gate V1 of `T14.md` section 2.5.
+
+## Independence
+
+- `verify_t14.py` imports only the standard library (`argparse, hashlib, json, math, re, shutil, sys, tempfile, time, traceback, zlib, fractions, itertools, pathlib`), numpy and pandas (scipy is imported lazily inside a try, only for the chi-square p-value). No module of `analysis/` or `data/` is imported; `data/APPROVED_DATA.md` is parsed by the verifier's own code; every data file is opened through `rd()`, which raises unless the path is an APPROVED row (a row carrying `[usable-from: d]` needs a first read date not before d), and C-data re-checks the sha256 prefix, the through-date and `inputs.csv`.
+- I never opened `t14_engine.py` (nor imported it, nor grepped it) and never opened `logs/step_2_log.md`. I did not open `t08_engine.py`, `t11_engine.py` or any other engine either. Read: `AGENT.md`, `AA/CLAUDE.md`, `T14.md` 1-3, `logs/verifier_spec.md`, `logs/evidence_contract.md`, `logs/step_1_spell_counts.json`, `verify_t11.py` and `verify_t08.py` (the models), `tests/T11/logs/{verifier_spec,step_3_log}.md`, `tests/T08/logs/*.md` by grep, the smoke evidence and the headline evidence as files.
+- **One exposure to disclose.** While looking at the evidence formats I printed the first 3,000 characters of the `readings` object of the smoke `audit.json` (the engine's own list E1-E12, written into the evidence). It restates T14.md section 3 and `evidence_contract.md`; the points it touches are listed below as readings 4, 5, 6 and 7, and in each case the verifier's convention was fixed first by the frozen text or by the arithmetic and then found equal to the evidence (no number was fitted to the engine). Its W2 R2 sentence matches the frozen text, which I adopted after the first headline comparison (reading 6, F4).
+- Forked from `verify_t11.py` (loaders, D18 bars, basket table, OHLC4 fills, de-spiked GOLDBEES, the simulator arithmetic, N4.9 / N4.10 samplers, inclusion-exclusion counting, percentile code, `Check` / `compare_frames`, the corrupted-copy machinery) and `verify_t08.py` (W2: calendar, END, G0). Everything T14 adds is new code: six rules and their targets, regimes, the trigger `e[j] != e[j-1] or (e[j] < 1 and gw[j] != gw[j-1])`, regime_in / regime_out kinds, the D1 partial basket trade, the constant mix at each rule's own averages, the regime ledger, R6 pairing, the per-window structure, the regression against T11 / T08 / T06 stored files.
+
+## What is checked (names of the checks in `verify_t14.json`)
+
+C-data, C-sc100-restriction, C-frozen-counts (T14.md section 2's numbers, `step_1_spell_counts.json` incl. the OUT-SELL spell tables and the per-rule trade counts, W1's 19 baskets), C-dec (decisions.csv and decisions_r3.csv, every column including `regime` and the `e_<rule>` / `gw_<rule>` of the six rules), C-regimes, C-real-states, C-pit (V2), C-gold (Master_MAUc1 against the weekly csv), C-stats-all (every statistic of every row of stats.csv: six rules, 11 comparators, R2, R3, W1's R7 variants), C-nav (every daily NAV), C-nav-closed-form, C-parent-nav (W1), C-cmix-params, C-ledger, C-trades (every trade of every run), C-positions, C-v6-identities (cost, conservation, targets, D1, the -half entry split), C-d1-units, C-liq-gold, C-regress-nav (T11 / T08 / T06 stored `daily_nav.csv`, 1e-12), C-regress-decisions, C-regress-draws (the -orig rows of draws.csv against the stored draws.csv, 1e-12), C-one-instrument, C-g0-or-seam, C-states-struct / -lengths / C-gold-states (EVERY saved draw), C-states-csv / C-states-sessions / C-signatures (every row of draws.csv), C-draws-coverage, C-n49-regen / C-n410-regen (every saved state from its seed), C-states-stored (every saved state against the stored `draw_states.npz` of T11 / T08, and the verifier's own regeneration against it), C-draw-nav (first 20 and 20 random draws of every row group, all six rules, plus every stored curve), C-count, C-support, C-sampler, C-percentile (twice), C-r6-pairs, C-engine-files, C-r7-tables (W1). `C-ledger-r3-rows` is informational (see finding F1).
+
+## Readings (where the frozen text or the contract is silent)
+
+1. **Window labels.** `decisions.csv` and `decisions_r3.csv` carry `window = w1 / w2` (the window), while stats, trades, draws and the ledger use `full` / `r3`. The verifier compares each file with the label it carries.
+2. **W2 calendar and END.** Each book's D17 dates (extended published NAV) from its first date to END = the last row of the three D03 Master files (2026-10-30), as T08. SCMO_0007 has 409 decisions (it starts 2019-01-04); its OUT-BUY count is 162, not 163 (T14.md's "163" is the other three books'); the frozen-count check does not apply those two numbers to SCMO_0007.
+3. **Bounds.** lo = min(2, shortest spell), hi = longest spell, per state, from the book's own series; W2 must equal T08's [2,46] / [2,40] / [2,68] / [2,28] (checked); W1's R3 has its own bounds, W2's R3 (`live`) the book's FULL-window bounds with its own spell counts and totals (T08 E13).
+4. **Targets while IN.** `gw` of the 50 rules is 0.5 and of the 80 rules 0.8 / 0.2 by the gold sign in every week, IN included (never traded on); the evidence's `gw_<rule>` columns equal this in all rows.
+5. **Trade kinds.** `regime_in` / `regime_out` (-half and -liq only) when the decision changes OUT-SELL membership; otherwise `switch_in` (e = 1 after), `switch_out` (e = 1 before), `sleeve_rebalance` (e unchanged below 1). The D1 trade is recorded with V = the whole book's value, `traded` = the stock lines only, `stock_after = stock_before - cost`, GOLDBEES and cash unchanged, `e_after = 0.5`, `gw_after = 1.0`. `gw_after` is compared only on trades that leave e < 1 (what an e = 1 trade carries is not defined).
+6. **R2 on W2.** LBES as-of on the sessions before 2024-01-24; from the first session on or after it the level is chained with the `liquidEtfFinal` (LIQUIDCASE) session returns, `L2[t] = L2[t-1] x liq[t] / liq[t-1]` (T14.md section 3, T08's LIQ_FROM). W1's R2 is the whole `liquidEtfFinal` file as-of. My first version read W2's R2 as the whole file as-of (as `verify_t08.py` does, which agrees with the chain to about 2e-10 relative, inside T08's 1e-9 tolerance); the regenerated headline exposed the difference and the verifier now follows the frozen text (finding F4).
+7. **`invested_weeks` in stats.csv.** Rule rows: weeks with e > 0 (W1 `50-half` 147 = 93 IN + 54 OUT-SELL); comparator rows: sum of e (hold-the-parent 228, constant mix f x 228, `cmix_<rule>` f x 228 with f = mean of e, T11's convention). The engine's own R7 rows of the -half rules carry the sum-of-e reading (120 for W1 `50-half_r7_*`) while its main rows carry 147; the column is descriptive and enters no NAV or criterion; the verifier does not compare R7 rows' `invested_weeks`, `trades` or `cost_paid` (T11's verifier did the same) and reports the inconsistency as finding F2.
+8. **draws.csv columns per (draw, rule).** `invested_weeks` = IN weeks of the draw (the same for all rules); `out_sell_weeks` = weeks with in-or-out state OUT and gold state SELL over all decisions; `trades_due` = the decisions j = 1..D-2 at which the rule's trigger holds (the same count the Step 1 file calls "trades from regime and gold changes"); `sessions_invested` = the T11 reading (a week's sessions from its trade session to the next decision, week 0 counted from T0 itself, +1 when the first week is IN; only W1's full window can start IN).
+9. **Regime ledger.** One row per OUT-SELL spell: span from the close of the session of the spell's first decision to the close of the session of the decision that ends it (the window's last session when the spell runs to the end); `entered_from` = the previous decision's regime ("start" for decision 0), `exited_to` = the next decision's regime ("window end"), the strings of Step 1's spell table; parent = hold-the-parent at 0 bps, GOLDBEES = its close ratio, cash = the LBES (or the view's) level ratio, rules at 20.8 bps on the window's own view.
+10. **Sampling of draws.** The first 20 draw ids and 20 further ids per (book, row group) from `default_rng([20261123, book_index, crc32(group)])` (not [17, 1]); in addition every id stored in `draw_curves_20.8.npz` (the first 20 and the contract's `default_rng([17, 1]).choice(N, 20)`, whose equality with the stored ids is itself checked) is re-simulated for all six rules and compared with the stored curve (1e-9, float64).
+11. **SCMO_0007 on W2 has its own draws.** T08's stored `draw_states.npz` holds 409-week arrays for SCMO_0007 and 410-week arrays for the others (the series differ by one week). The verifier regenerates every draw state per book, compares each book with the stored array of the same name, and compares books' arrays with each other only when they have the same number of weeks.
+12. **V4(d).** The AST diff of the engine's functions against `t11_engine.py` / `t08_engine.py` cannot be redone by a verifier that may not open the engines; C-engine-files reads `regression.json` -> `c_shared_code` (no unexpected change allowed) and says so. V4(d) rests on the engine's gate alone.
+13. **Percentiles and p-values** are computed twice per row group, rule and statistic (C-percentile) and written to `verify_t14.json` (`percentiles`) for Step 4's cross-check; the verifier interprets none of them and prints no headline table.
+14. **W1's D24b against D24** (T11's V4(e) gate-only read) is not repeated: T14's W1 reads D24b only, and W2 decisions are derived from D24 itself and equal T08's stored decisions.
+
+## Results
+
+| Run | Command (from `AA/`) | Exit | Gate comparisons | Failures + missing | Self-test |
+|---|---|---|---|---|---|
+| Smoke, 1 book (SCMO_0003, 20 draws), W1 / W2 | `python analysis/verify_t14.py --evidence <smoke dir> --draws 20 --books SCMO_0003` | 0 | 240,312 / 306,530 | 0 | all 15 corruptions detected, each by its own check |
+| Smoke, each corruption applied ALONE | same plus `--selftest-isolated` | 0 | | | W1 and W2: 15 of 15 fire their own check (table below) |
+| Smoke4, 4 books, 20 draws (SCMO_0007 has 409 weeks in W2), W1 / W2 | `python analysis/verify_t14.py --evidence <smoke4 dir> --draws 20` | 0 | 957,163 / 1,224,021 | 0 | all 15 detected |
+| **Headline W1** (4 books, 2,000 draws, the regenerated folder) | `python analysis/verify_t14.py --window w1` | **0** | **15,351,589** | **0** | all 15 detected; 654 s |
+| **Headline W2** | `python analysis/verify_t14.py --window w2` | see the line below | | | |
+
+Headline W2 (4 books, 2,000 draws, the regenerated folder, per-book draw states): exit 0, 15,570,927 gate comparisons, 0 failures, all 15 corruptions detected, 589 s. Worst relative differences: G0 and R2 as below, regression against T08's stored NAVs (162,246 rows) 4.4e-16.
+
+`verify_t14.json` is written into each window folder it is run on. Smoke evidence: `C:\Users\manur\AppData\Local\Temp\claude\d384933f9ddb0ecb\86369068-c167-4d1b-8634-e88668e8b4f8\scratchpad\{smoke,smoke4}\{w1,w2}`.
+
+Largest comparisons of the W1 headline: every field of every row of `draws.csv` against its states (12,240,000 in C-states-csv, 1,632,000 in C-states-sessions), 200,000 stored draw rows of T11 (C-regress-draws, exactly equal), 338,120 daily NAVs (C-nav), 141,240 stored NAVs of T11 (C-regress-nav), 128,056 + 32,000 + 160,032 structure checks of the saved draws, 64,000 draw states regenerated from their seeds, 157,386 statistics of 17,274 re-simulated draw x rule realisations (first 20 and 20 random ids of every row group and book, six rules, plus every stored curve; 1,920 curves).
+
+Worst relative differences, W1 headline (limits: 1e-9 NAVs and statistics, 1e-12 regression and identities): daily NAVs 3.7e-15; every statistic of stats.csv 1.6e-14; every trade 2.5e-14; `50-orig` / `80-orig` and the comparators against T11's stored NAVs 3.7e-15; V6 post-trade legs 5.2e-16 of V; re-simulated draw statistics 5.3e-13; draw curves 2.6e-15; one-instrument identity 7.7e-16. Seam gaps (hold-the-parent, 2019, pp): -0.2195, +0.3909, +0.4469, +0.1889 (limit 0.5), equal to the engine's `f_seam_2019` to 1e-6.
+
+Re-derived from the raw files and equal to the frozen text and to `step_1_spell_counts.json`: W1 1,070 sessions, 228 decisions, IN 93 / OUT-BUY 81 / OUT-SELL 54 weeks, 8 OUT-SELL spells (7, 6, 7, 1, 11, 11, 9, 2), 8 round trips, trades due 15 / 24 x 5, R3 210 decisions (OUT-SELL 44 in 7 spells), 19 baskets per book, the tuple counts of the full window and of R3; W2 (SCMO_0003) 1,932 sessions, 410 decisions, IN 201 / OUT-BUY 163 / OUT-SELL 46, 8 spells (1, 4, 10, 2, 12, 11, 4, 2), 9 round trips, trades due 18 / 27 x 5, live window 262 decisions with 31 OUT-SELL weeks in 5 spells, bounds [2,46] / [2,40] / [2,68] / [2,28]; SCMO_0007 409 decisions (OUT-BUY 162).
+
+### Self-test (each corruption applied alone on smoke W1 and W2; all together on every headline run)
+
+| Corruption | Own check | Also fired (alone) |
+|---|---|---|
+| a `-half` target changed on an OUT-SELL week (decisions.csv) | C-dec | |
+| a regime changed (regimes.csv) | C-regimes | |
+| `80-half` 0-cost NAV x 1.001 (daily_nav.csv) | C-nav | |
+| a `50-half` D1 basket trade replaced by a full reset to 50/50 (trades.csv) | C-v6-identities | C-trades |
+| the GOLDBEES units of that D1 trade moved (positions.csv) | C-d1-units | C-positions |
+| a `-liq` regime week holding GOLDBEES (positions.csv) | C-liq-gold | C-positions |
+| a `-liq` trade with `gold_after` > 0 (trades.csv) | C-liq-gold | C-trades, C-v6-identities |
+| one trade removed (trades.csv) | C-trades | |
+| an N4.10 in-or-out draw with an in-spell above its bound (states and draws.csv made consistent) | C-states-lengths | C-states-csv, C-states-sessions, C-n410-regen, C-states-stored, C-draw-nav, C-regress-draws |
+| an N4.10-g draw with a BUY spell above its bound | C-gold-states | the same family of draw checks |
+| two OUT spells of an N4.10 draw swapped (inside the bounds) | C-states-stored | C-n410-regen, C-states-csv, C-states-sessions, C-draw-nav |
+| a draw's `cagr` x 1.01 (draws.csv, `80-half`, F3, draw 3) | C-draw-nav | |
+| a stats.csv `cagr` x 1.0001 | C-stats-all | |
+| a ledger return altered | C-ledger | |
+| the Smallcap 100 `usable_from` of inputs.csv set to 2004-01-01 | C-data | |
+
+## Findings and disagreements with the engine (reported, none widened into a tolerance)
+
+- **F1 (AFFECTS STEP 2, minor).** `regime_ledger.csv` holds only `full` rows. `evidence_contract.md` says "one row per OUT-SELL spell per book and window (`full` and `r3`)"; the engine writes no `r3` rows (smoke, smoke4 and both headline windows: 0 rows against 7 spells per book in W1's R3 and 5 in W2's live window). Every `full` row (W1: 8 spells per book) is compared and equal to 1.9e-13 (parent, GOLDBEES, cash and the six rules' returns, dates, `entered_from`, `exited_to`). The verifier compares `r3` rows when they exist; their absence is shown by the informational check `C-ledger-r3-rows` (not a gate), the only check with a non-zero failure count in a passing run. If Step 4 needs the R3 ledger, the engine must write it; the verifier then compares it unchanged.
+- **F2 (AFFECTS STEP 2, cosmetic; reading 7).** `invested_weeks` of the R7 rows of the `-half` rules (W1) is the sum of e (120 for `50-half_r7_*`, SCMO_0003) while the same rule's main row says 147 (weeks with any parent). Descriptive column only; Step 4 must not set an R7 row's `invested_weeks` beside a main row's.
+- **F3 (resolved).** The first W2 headline run crashed on SCMO_0007's 409-week draws; the regenerated headline has per-book W2 draw states and the verifier (which regenerates per book and compares each book with T08's stored array of the same name) passes on smoke4 and on the new headline.
+- **F4 (the verifier's own reading was corrected, not the engine).** My first reading of W2's R2 was the whole `liquidEtfFinal` file as-of (as `verify_t08.py`). Against the regenerated headline the R2 draw statistics then differed by about 2e-10 relative (12 of 157,386 comparisons above 1e-9, none a real disagreement of method). T14.md section 3 and the spec say LBES before 2024-01-24 and LIQUIDCASE returns chained from it (T08's LIQ_FROM); the verifier now implements exactly that (`L2[t] = L2[t-1] x liq[t] / liq[t-1]` from the first session on or after 2024-01-24) and the R2 statistics and draws agree to 1e-14. The older smoke evidence (as-of reading) agrees with both readings within the 1e-9 tolerance, which is why T08's verifier never saw the difference.
+- T14.md section 2's "OUT-BUY 163" is three books' count (SCMO_0007: 162, 409 decisions); not a disagreement.
+- Recorded, not a disagreement: the engine's W1 `inputs.csv` lists D24 (Master, weekly), D12 and D17 (its V4 gates read them); none is on T14.md's "Not read" list, and the verifier needs D24 / D12 only on W2.
+
+## Not covered by the verifier (stated, not hidden)
+
+V4(d), the AST diff against the earlier engines (reading 12; the engine's own gate); the R6 paired contrast and the MDE (Step 4's; only the pairing is checked); the interpretation of any percentile; the results page and the hand-worked examples of section 4.0a; the oracle / negative-control / planted-effect runs (not run in T14, as in T08 / T11); the sampler's position-mean test is weak with 20 draws (smoke; headline: worst |z| 2.5).
+
+## How to rerun
+
+`python analysis/verify_t14.py` (headline, both windows, with the self-test; exit 0 only if everything passes); `--window w1|w2`; `--evidence DIR --draws N --books SCMO_0003` for another folder holding `w1/` and `w2/`; `--no-selftest` skips the corrupted copies; `--selftest-isolated` applies each corruption alone (slow); `--scratch DIR` chooses where the corrupted copies are written.
+

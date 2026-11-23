@@ -12,9 +12,9 @@ Status values: `NOT_STARTED` → `IN_PROGRESS` → `DONE` (or `DONE_WITH_NOTES`)
 | 0 Plan written, tracker created | DONE | — | Claude / 2026-11-23 | `PLAN.md` written directly (no plan-mode file exists to copy), this file created. Awaiting Manu's approval and D1–D4 |
 | 1 Pre-registration | DONE | — | Claude / 2026-11-23 | `spell_counts.py` run (counts equal PLAN §3.1: W1 93/81/54 weeks, 8 OUT-SELL spells; W2 201/163/46, 8 spells; all reportable); `T14.md` §1–§3 written and frozen, sha256 `99fe0f3a…` (`python tests/T14/check_prereg.py`) |
 | 2 Engine | DONE | 1 | Claude / 2026-11-23 | `analysis/t14_engine.py` (fork of t11_engine.py; 25 functions copied verbatim and AST-checked); smoke run (1 book, 20 draws) exits 0 on W1 and W2, V4(a) exact (max rel diff 0.0), V2-V6 pass; `logs/{step_2_log,evidence_contract,verifier_spec}.md`; about 10-15 min per window at 2,000 draws |
-| 3 Independent verifier | NOT_STARTED | 1 | | |
+| 3 Independent verifier | DONE | 1 | Claude (separate agent, never opened the engine) / 2026-11-23 | `analysis/verify_t14.py` (fork of verify_t11/t08); headline: W1 15,351,589 and W2 15,570,927 comparisons, 0 failures; 15 deliberate corruptions each caught by its own check; `logs/step_3_log.md` (F1 ledger has no r3 rows: contract wording fixed; F2 cosmetic invested_weeks on W1 R7 rows) |
 | 4 Test scripts | DONE | 1 | Claude (agent) / 2026-11-23 | `analyse.py`, `fill_writeup.py`, `report.py`, `check_page.py`, `rerun_draw.py`, `run.sh`; tested on smoke evidence (check_page 5,116 checks / 0 failures on smoke); `logs/step_4_log.md` (21 readings). Its blocker 18 (W2 crash on SCMO_0007's 409 weeks) was an engine bug, fixed (per-book draw states) |
-| 5 Run and gate | NOT_STARTED | 2, 3, 4 | | |
+| 5 Run and gate | DONE | 2, 3, 4 | Claude / 2026-11-23 | headline run both windows, 2,000 draws, 4 books (W1 1,710 s, W2 2,075 s with the machine shared): engine gates V2-V6 pass, V1 passes; `evidence/headline/{w1,w2}` (draws.csv ~285 MB per window in .gitignore). First W2 attempt crashed on SCMO_0007's 409 weeks (engine fixed, folder deleted and re-run; no result had been read) |
 | 6 Analyse, report, write-up | NOT_STARTED | 5 | | |
 
 ## Step-level notes
