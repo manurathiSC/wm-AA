@@ -1,0 +1,1026 @@
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "c:\Users\manur\Repos\wm-AA\AA\data\check_approved_data.py", line 16, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+approved rows checked OK: 67; problems: 0; PENDING rows (not usable): 5; superseded rows: 5
+RESTRICTION D03 Historical Data/extended_2026-10-30/Master/Master_SC100.xlsx: read rows dated 2011-11-25 or later ONLY (Smallcap 100 OHLCV before 2011-10-03 is corrupt: open=high=low=close)
+RESTRICTION D25 Historical Data/extended_2026-11-12/index_daily_pre2019/SC100_daily_ohlcv.csv: read rows dated 2011-10-03 or later ONLY (Smallcap 100 OHLCV before 2011-10-03 is corrupt: open=high=low=close)
+OFF-LIMITS (not in the table): Historical Data/extended_2026-11-12/SOURCE.md
+OK   ab1d6f4747e6a122c9f1d9ea3291192f595be5c973a7e5248b508de961436bdd recorded ab1d6f4747e6a122c9f1d9ea3291192f595be5c973a7e5248b508de961436bdd
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "c:\Users\manur\Repos\wm-AA\AA\analysis\t13_engine.py", line 59, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+data: window 2014-09-01 -> 2019-01-02, approved data as of 2026-11-17, 10 inputs checked; non-approved open and the Smallcap 100 guard raise: True
+SCMO_0003: 77s  decisions 228  round trips 9  gold flips 18 (sleeve trades 8)
+SCMO_0007: 74s  decisions 228  round trips 9  gold flips 18 (sleeve trades 8)
+SCMO_0010: 76s  decisions 228  round trips 9  gold flips 18 (sleeve trades 8)
+SCMO_0029: 77s  decisions 228  round trips 9  gold flips 18 (sleeve trades 8)
+stats rows written: 172 ; draw rows: 200000 ; trades: {'hold_parent|basket_change': 18, 'strategy|basket_change': 8, 'strategy|sleeve_rebalance': 8, 'strategy|switch_in': 8, 'strategy|switch_out': 9, 'strategy_fixed50|basket_change': 8, 'strategy_fixed50|switch_in': 8, 'strategy_fixed50|switch_out': 9}
+V2 {'checks': 3389, 'violations': 0, 'recorded_trades_after_their_decision': 488, 'recorded_basket_changes_on_or_after_availableDate': 161, 'sc100_rule7_checks': 4, 'sc100_signal_rows_read_from': '2011-11-25', 'pass': True}
+V3 {'SCMO_0003|full|io': True, 'SCMO_0003|full|gold': True, 'SCMO_0003|r3|io': True, 'SCMO_0003|r3|gold': True, 'SCMO_0007|full|io': True, 'SCMO_0007|full|gold': True, 'SCMO_0007|r3|io': True, 'SCMO_0007|r3|gold': True, 'SCMO_0010|full|io': True, 'SCMO_0010|full|gold': True, 'SCMO_0010|r3|io': True, 'SCMO_0010|r3|gold': True, 'SCMO_0029|full|io': True, 'SCMO_0029|full|gold': True, 'SCMO_0029|r3|io': True, 'SCMO_0029|r3|gold': True}
+V4 {'a1_t11': {'strategy_all3': 0.0, 'strategy_all3_fixed50': 0.0, 'hold_parent': 0.0, 'sleeve_only': 0.0, 'sleeve_only_timed': 0.0}, 'a1_decisions': {'SCMO_0003': True, 'SCMO_0007': True, 'SCMO_0010': True, 'SCMO_0029': True}, 'a_t08': {'constant_mix': 2.220446049250313e-16, 'constant_mix_timed': 2.220446049250313e-16, 'hold_parent': 2.220446049250313e-16, 'sleeve_only': 0.0, 'sleeve_only_timed': 0.0, 'strategy': 2.220446049250313e-16, 'strategy_fixed50': 2.220446049250313e-16}, 'a_t06': {'constant_mix': 2.220446049250313e-16, 'hold_parent': 2.220446049250313e-16, 'sleeve_only': 0.0, 'strategy': 2.220446049250313e-16}, 'b': {'SCMO_0003': (15, 4.440892098500626e-16), 'SCMO_0007': (15, 4.440892098500626e-16), 'SCMO_0010': (15, 6.661338147750939e-16), 'SCMO_0029': (15, 4.440892098500626e-16)}, 'c': True, 'd': {'SCMO_0003': True, 'SCMO_0007': True, 'SCMO_0010': True, 'SCMO_0029': True}, 'e': {'SCMO_0003': True, 'SCMO_0007': True, 'SCMO_0010': True, 'SCMO_0029': True}, 'f_pp': {'SCMO_0003': -0.2195, 'SCMO_0007': 0.3909, 'SCMO_0010': 0.4469, 'SCMO_0029': 0.1889}, 'pass': True}
+V5 {'small_p': 0.8280904016577683, 'small_p16': 0.08362348978165425, 'ie_equal': True, 'mean_check': True, 'pass': True}
+V6 {'trades': 7536, 'worst': {'cost_identity': 0.0, 'value_conservation': np.float64(5.201149569532368e-16), 'stock_target_gap': np.float64(5.201149569532368e-16), 'gold_target_gap': np.float64(2.0928845175827578e-16), 'cash_target_gap': np.float64(2.261087752035597e-16), 'traded_identity': 0.0, 'continuity_0cost': np.float64(4.4334852127216676e-16), 'weight_gap_vs_table': 1.1102230246251565e-16, 'stock_weight_gap_after_entry_or_basket_change': 1.1102230246251565e-16}, 'pass': True}
+frozen counts {'SCMO_0003': True, 'SCMO_0007': True, 'SCMO_0010': True, 'SCMO_0029': True} step1 {'SCMO_0003|full': True, 'SCMO_0003|r3': True, 'SCMO_0007|full': True, 'SCMO_0007|r3': True, 'SCMO_0010|full': True, 'SCMO_0010|r3': True, 'SCMO_0029|full': True, 'SCMO_0029|r3': True}
+  n_ways SCMO_0003|full|io|in: 120432707298
+  n_ways SCMO_0003|full|io|out: 144224745588
+  n_ways SCMO_0003|full|gold|buy: 6835192844305
+  n_ways SCMO_0003|full|gold|sell: 4976743356
+gates: {'V2': True, 'V3': True, 'V4': True, 'V5': True, 'V6': True, 'approved_data_selftest': True, 'step1_counts': True, 'frozen_text_counts': True, 'all': True}
+done in 317s -> C:\Users\manur\Repos\wm-AA\AA\tests\T13\evidence\headline
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "c:\Users\manur\Repos\wm-AA\AA\analysis\verify_t13.py", line 44, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+[   2.1s] SCMO_0003: derived (sessions 1070, stocks 103, baskets 19, f=0.5044, sleeve trades 8)
+[   3.1s] SCMO_0007: derived (sessions 1070, stocks 81, baskets 19, f=0.5044, sleeve trades 8)
+[   4.5s] SCMO_0010: derived (sessions 1070, stocks 154, baskets 19, f=0.5044, sleeve trades 8)
+[   5.8s] SCMO_0029: derived (sessions 1070, stocks 128, baskets 19, f=0.5044, sleeve trades 8)
+[   5.8s] derivation complete (books ['SCMO_0003', 'SCMO_0007', 'SCMO_0010', 'SCMO_0029'], draws per group 2000)
+[   0.1s] SCMO_0003: D17-calendar regression runs done (243 sessions from 2019-01-02)
+[   0.2s] SCMO_0007: D17-calendar regression runs done (241 sessions from 2019-01-04)
+[   0.2s] SCMO_0010: D17-calendar regression runs done (243 sessions from 2019-01-02)
+[   0.3s] SCMO_0029: D17-calendar regression runs done (243 sessions from 2019-01-02)
+[   6.1s] D17-calendar regression derived
+[  23.9s] comparison complete
+
+=== verifier vs evidence in C:\Users\manur\Repos\wm-AA\AA\tests\T13\evidence\headline ===
+check                          compared   failed  missing      worst  gate
+C-data                              315        0        0   0.00e+00  yes
+C-sc100-restriction                   8        0        0   0.00e+00  yes
+C-frozen-counts                     627        0        0   0.00e+00  yes
+C-dec                              2736        0        0   0.00e+00  yes
+C-dec-nbuy                         3649        0        0   0.00e+00  yes
+C-dec-all3                         2736        0        0   0.00e+00  yes
+C-pit                             11265        0        0   0.00e+00  yes
+C-gold                             3019        0        0   0.00e+00  yes
+C-d24b-vs-d24                      1010        0        0   0.00e+00  yes
+C-real-states                        16        0        0   0.00e+00  yes
+C-nav0                             4284        0        0   2.03e-15  yes
+C-nav0-closed-form                   24        0        0   1.95e-15  yes
+C-cost                             8568        0        0   2.22e-14  yes
+C-stats-all                         108        0        0   2.35e-14  yes
+C-comparators-r7                 128448        0        0   7.95e-15  yes
+C-all3                            51390        0        0   3.68e-15  yes
+C-stats-liquidcase-r3                16        0        0   7.54e-15  yes
+C-parent-nav                      17138        0        0   8.89e-16  yes
+C-baskets                            76        0        0   0.00e+00  yes
+C-trades                           8460        0        0   1.77e-14  yes
+C-sleeve                            324        0        0   5.39e-16  yes
+C-sleeve-identity                  1137        0        0   0.00e+00  yes
+C-positions                        2871        0        0   5.12e-16  yes
+C-v6-targets                       1126        0        0   4.15e-16  yes
+C-regress-t08                     20370        0        0   1.87e-15  yes
+C-regress-t06                     11640        0        0   1.81e-15  yes
+C-regress-decisions                 422        0        0   0.00e+00  yes
+C-regress-t11                     69462        0        0   9.23e-16  yes
+C-one-instrument                     64        0        0   7.71e-16  yes
+C-seam                                8        0        0   4.47e-01  yes
+C-states-struct                  128056        0        0   0.00e+00  yes
+C-states-lengths                  32000        0        0   0.00e+00  yes
+C-gold-states                    160032        0        0   0.00e+00  yes
+C-states-csv                    2672000        0        0   0.00e+00  yes
+C-states-sessions                400000        0        0   0.00e+00  yes
+C-signatures                      72000        0        0   0.00e+00  info
+C-draws-coverage                  16100        0        0   0.00e+00  yes
+C-n49-regen                       32000        0        0   0.00e+00  yes
+C-n410-regen                      32000        0        0   0.00e+00  yes
+C-draw-nav                        36320        0        0   4.20e-13  yes
+C-count                              98        0        0   0.00e+00  yes
+C-support                            50        0        0   0.00e+00  yes
+C-sampler                           284        0        0   2.74e+00  yes
+C-percentile                        700        0        0   0.00e+00  yes
+C-percentile-log                      0        0        0   0.00e+00  info
+C-engine-files                      159        0        0   0.00e+00  yes
+C-r7-tables                          36        0        0   1.41e-16  yes
+
+=== recomputed percentiles (20.8 bps, LBES, full window; pass mark 90; the deciding null, then its companion) ===
+A1 (F1 fixed50 cagr): 11.7, 16.9, 5.9, 19.6   [0 of 4 >= 90]   companion: 17.0, 24.1, 7.4, 23.6
+A2 (F1 fixed50 max_dd): 36.8, 27.8, 24.9, 23.8   [0 of 4 >= 90]   companion: 48.9, 37.5, 28.4, 29.1
+C1 (F1 timed cagr): 13.9, 19.9, 7.6, 23.1   [0 of 4 >= 90]   companion: 20.0, 28.3, 10.0, 26.7
+C2 (F1 timed max_dd): 41.7, 20.3, 30.6, 28.9   [0 of 4 >= 90]   companion: 55.4, 24.0, 37.0, 34.1
+C3 (F3 timed cagr): 42.0, 42.0, 42.0, 42.0   [0 of 4 >= 90]   companion: 42.9, 42.9, 42.9, 42.9
+C4 (F3 timed max_dd): 77.5, 22.6, 77.5, 77.5   [0 of 4 >= 90]   companion: 75.5, 22.3, 74.4, 74.4
+
+=== V4(f) seam (hold-the-parent 0-cost NAV vs D17, 2019, pp; limit 0.5) ===
+SCMO_0003: 2019-01-02 -> 2019-12-31  -0.2195 pp
+SCMO_0007: 2019-01-04 -> 2019-12-31  +0.3909 pp
+SCMO_0010: 2019-01-02 -> 2019-12-31  +0.4469 pp
+SCMO_0029: 2019-01-02 -> 2019-12-31  +0.1889 pp
+
+=== SELF-TEST: corrupted copy in C:\Users\manur\AppData\Local\Temp\verify_t13_q8tilk6x\corrupt_evidence_t13 ({'flipped_decision_rows': [10, 233, 456, 679, 902], 'changed_n_buy': {'row': 33, 'j': 33, 'new': 3}, 'flipped_state_all3': {'row': 77, 'j': 77, 'new': 1}, 'scaled_nav': 'strategy, cost 0, x 1.001', 'scaled_all3_nav_row': 'SCMO_0003 strategy_all3 20.8 bps, the row of 2016-09-15, x 1.001', 'corrupted_n410_draw': {'key': 'SCMO_0003|full|io|N4.10', 'draw_id': 5, 'in_lengths': [31, 1, 1, 4, 19, 5, 29, 17, 8], 'out_lengths': [9, 23, 3, 9, 4, 8, 19, 11, 27]}, 'corrupted_n410g_draw': {'key': 'SCMO_0003|full|gold|N4.10-g', 'draw_id': 7, 'buy_lengths': [37, 1, 9, 14, 5, 14, 12, 4, 25, 11], 'sell_lengths': [18, 15, 14, 8, 3, 9, 7, 8, 14]}, 'scaled_draw_end_nav': 'SCMO_0003 F3 draw 3, 20.8 bps, end_nav x 1.001', 'flipped_gold_weeks': [40, 150, 200], 'removed_sleeve_trade': 'SCMO_0003, 20.8 bps, first sleeve_rebalance', 'removed_basket_trade': 'SCMO_0003, 20.8 bps, 3rd basket_change of the strategy', 'lowered_usable_from': 'Smallcap 100 Master row of inputs.csv set to 2004-01-01'}) ===
+check                          compared   failed  missing      worst  gate
+C-data                              317        1        0   0.00e+00  yes
+    first problem: usable_from of Historical Data/extended_2026-10-30/Master/Master_SC100.xlsx in inputs.csv (2004-01-01) differs from the registry's marker (2011-11-25)
+C-sc100-restriction                   8        0        0   0.00e+00  yes
+C-frozen-counts                     627        0        0   0.00e+00  yes
+C-dec                              2736       12        0   1.00e+12  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'j': np.int64(10)} col state: verifier=np.float64(1.0) evidence=np.float64(0.0)
+C-dec-nbuy                         3649        3        0   3.33e-01  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'j': np.int64(33)} col n_buy: verifier=np.float64(2.0) evidence=np.float64(3.0)
+C-dec-all3                         2736        3        0   1.00e+12  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'j': np.int64(77)} col state_all3: verifier=np.float64(0.0) evidence=np.float64(1.0)
+C-pit                             11263        0        0   0.00e+00  yes
+C-gold                             3019        3        0   1.00e+12  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'j': np.int64(40)} col g: verifier=np.float64(1.0) evidence=np.float64(0.0)
+C-d24b-vs-d24                      1010        0        0   0.00e+00  yes
+C-real-states                        16        0        0   0.00e+00  yes
+C-nav0                             4284     4280        0   9.99e-04  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'date': '2014-09-01', 'cost_bps': np.float64(0.0), 'run': 'strategy'} col nav: verifier=np.float64(1.0) evidence=np.float64(1.001)
+C-nav0-closed-form                   24        0        0   1.95e-15  yes
+C-cost                             8568        0        0   2.22e-14  yes
+C-stats-all                         108        0        0   2.35e-14  yes
+C-comparators-r7                 128448        0        0   7.95e-15  yes
+C-all3                            51390        2        0   1.00e-03  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'date': '2016-09-15', 'cost_bps': np.float64(20.8), 'run': 'strategy_all3'} col nav: verifier=np.float64(1.2869738680875704) evidence=np.float64(1.288260841955658)
+C-stats-liquidcase-r3                16        0        0   7.54e-15  yes
+C-parent-nav                      17138        0        0   8.89e-16  yes
+C-baskets                            76        0        0   0.00e+00  yes
+C-trades                           8454       23       11   1.00e+12  yes
+    first problem: missing row (verifier only): {'book': 'SCMO_0003', 'cost_bps': np.float64(20.8), 'seq': np.int64(32)}
+C-sleeve                            318       18       10   1.00e+12  yes
+    first problem: missing row (verifier only): {'book': 'SCMO_0003', 'cost_bps': np.float64(20.8), 'seq': np.int64(16)}
+C-sleeve-identity                  1130        1        0   0.00e+00  yes
+    first problem: sleeve rebalances: verifier 96, engine 95
+C-positions                        2871        0        0   5.12e-16  yes
+C-v6-targets                       1123        0        0   4.15e-16  yes
+C-regress-t08                     20370        0        0   1.87e-15  yes
+C-regress-t06                     11640        0        0   1.81e-15  yes
+C-regress-decisions                 422        0        0   0.00e+00  yes
+C-regress-t11                     69462        0        0   9.23e-16  yes
+C-one-instrument                     64        0        0   7.71e-16  yes
+C-seam                                8        0        0   4.47e-01  yes
+C-states-struct                  128056        6        0   0.00e+00  yes
+    first problem: draw states of SCMO_0007|full|io|N4.10 differ from SCMO_0003's (the four books share their draws)
+C-states-lengths                  32000        1        0   0.00e+00  yes
+    first problem: SCMO_0003|full|io|N4.10 draw 5: N4.10 bounds [2,30]/[2,33] or sums (115, 113) violated: ones [31, 1, 1, 4, 19, 5, 29, 17, 8] zeros [9, 23, 3, 9, 4, 8, 19, 11, 27]
+C-gold-states                    160032        1        0   0.00e+00  yes
+    first problem: SCMO_0003|full|gold|N4.10-g draw 7: N4.10-g bounds [2,36]/[2,19] or sums (132, 96) violated: ones [37, 1, 9, 14, 5, 14, 12, 4, 25, 11] zeros [18, 15, 14, 8, 3, 9, 7, 8, 14]
+C-states-csv                    2672000        5        0   0.00e+00  yes
+    first problem: ('SCMO_0003', 'full', 'lbes', 0.0, 'F3', 'timed') id 7 col sleeve_trades: evidence np.int64(10) vs states np.int64(11)
+C-states-sessions                400000        9        0   0.00e+00  yes
+    first problem: ('SCMO_0003', 'full', 'lbes', 0.0, 'F1', 'fixed50') id 5: sessions_invested evidence np.int64(553) vs verifier np.int64(543)
+C-signatures                      72000        0        0   0.00e+00  info
+C-draws-coverage                  16100        0        0   0.00e+00  yes
+C-n49-regen                       32000        0        0   0.00e+00  yes
+C-n410-regen                      32000        2        0   0.00e+00  yes
+    first problem: SCMO_0003|full|io|N4.10 draw 5: states differ from the verifier's own regeneration from the seed (1 of 2000 draws)
+C-draw-nav                        36320       94        0   4.10e-01  yes
+    first problem: ('SCMO_0003', 'full', 'lbes', 0.0, 'F1', 'timed', 5) end_nav: verifier 2.01845245194818 vs draws.csv np.float64(2.2785301579359714)
+C-count                              98        0        0   0.00e+00  yes
+C-support                            50        0        0   0.00e+00  yes
+C-sampler                           284        0        0   2.74e+00  yes
+C-percentile                        700        0        0   0.00e+00  yes
+C-percentile-log                      0        0        0   0.00e+00  info
+C-engine-files                      159        0        0   0.00e+00  yes
+C-r7-tables                          36        0        0   1.41e-16  yes
+corrupted copy detected: True (failures 4485; applied {'decisions_flipped': True, 'gold_signal_week_flipped': True, 'nav_scaled': True, 'n410_draw_out_of_bounds': True, 'n410g_draw_out_of_bounds': True, 'sleeve_rebalance_removed': True, 'basket_trade_removed': True, 'sc100_usable_from_lowered': True, 'f3_draw_nav_scaled': True, 'n_buy_cell_changed': True, 'state_all3_cell_flipped': True, 'strategy_all3_nav_row_scaled': True}; detected by {'decisions_flipped': True, 'gold_signal_week_flipped': True, 'nav_scaled': True, 'n410_draw_out_of_bounds': True, 'n410g_draw_out_of_bounds': True, 'sleeve_rebalance_removed': True, 'basket_trade_removed': True, 'sc100_usable_from_lowered': True, 'f3_draw_nav_scaled': True, 'n_buy_cell_changed': True, 'state_all3_cell_flipped': True, 'strategy_all3_nav_row_scaled': True})
+wrote C:\Users\manur\Repos\wm-AA\AA\tests\T13\evidence\headline\verify_t13.json
+
+rows compared (gate checks): 3861152; failures + missing: 0; real run ok: True; exit ok: True
+total time 34.5 s
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "c:\Users\manur\Repos\wm-AA\AA\tests\T13\analyse.py", line 40, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+T13 analysis. Run: headline | draws per book, cost and null: 2,000 | deciding nulls: F1 (A1, A2 with the 50/50 sleeve; C1, C2 timed) and F3 (C3, C4); F2 and F4 beside them; F5 = robustness R5
+Window: 2014-09-01 -> 2019-01-02 (NAV from 2014-09-01 to 2019-01-02), 228 weekly decisions; R3 window from 2015-01-02
+The rule (T13.md section 3 step 3): hold the parent when at least two of the three weekly index signals (Nifty 100, Midcap 100, Smallcap 100) are BUY; T11 required all three. T11's all-3 rule is run beside it as a descriptive comparator (4.2); T11's stored evidence is the main reference: C:\Users\manur\Repos\wm-AA\AA\tests\T11\evidence\headline
+Pre-registration sha256 in the header: ab1d6f4747e6a122 | recomputed now: ab1d6f4747e6a122 | match: True
+Bounds (per state, from each series' own spells; full window): in-spells [2, 30] weeks, out-spells [2, 33]; BUY [2, 36], SELL [2, 19]
+Evidence read: audit.json, baskets.csv, count_table.json, daily_nav.csv, decisions.csv, draw_curves_20.8.npz, draw_states.npz, draws.csv, gold_signal.csv, inputs.csv, parent_nav_2014-09-01_2019-01-02.csv, parent_nav_2014-09-01_2019-01-02.md, positions.csv, r7_export.csv, r7_flagged_days.csv, real_states.npz, regression.json, regression_d17.json, regression_t11.json, sampler_selftest.json, sleeve_trades.csv, stats.csv, trades.csv, verify_t13.json
+Books: the four real parents, each through its own baskets (19 baskets effective from T0 to the end, 18 changes after T0) and Eikon stock prices (D18); the rule starts IN.
+POWER NOTE: 9 round trips of the in-or-out switch and 8 sleeve trades per book (shared by the four books) give LOW POWER; a FAIL will mostly mean 'not distinguishable from chance'. The minimum detectable edge (2.8 x null SD) is printed beside every FAIL in 4.4.
+DATA CAVEATS: the rebuilt parent NAV is rebuilt from the parent's baskets and Eikon prices, not validated against a published NAV before 2019-01-02; the manual Eikon exports (nine stocks) and carried bars are held inside the window; the Muhurat sessions use stand-in bars; stock-days with a one-day move of 20% or more were never checked against a second source (R7); NO HOLD-OUT EXISTS: T11's result (the all-3 entry on these exact weeks, parents, prices and costs) was seen and the 2-of-3 entry was proposed after it, and T09's proxy result on the same weeks was seen too; any finding is PROVISIONAL at most.
+
+====================================================================================================
+4.0b  GATES
+(V1 independent check, V2 point in time, V3 the nulls hold their tables, V4 identities and regressions, V5 the samplers are exact, V6 the sleeve, basket and cost identities)
+====================================================================================================
+V1 independent check (verify_t13.py):  PASS | gate comparisons 3,861,152, failures and missing 0, corrupted copy detected: True
+V2 point in time: engine counts: violations 0 of 1,820 checks; re-derived from decisions.csv: 0 Master labels (three indices and MAUc1) dated after their decision of 3,648, 0 trade dates not after their decision of 908; Smallcap 100 signal rows read from 2014-08-28 (rule 7: not before 2011-11-25), 0 earlier; restricted input files (1: Master_SC100.xlsx usable from 2011-11-25) read from 2014-09-01: 0 too early; audit.json v2 block: pass True, 0 violations of 3389
+V3 the nulls hold their tables: 64,000 saved draws checked over 32 state arrays (in-or-out and gold, full and R3 windows; weeks, first state, spell counts, sums, N4.9 sorted lengths, N4.10 per-state bounds), bad 0; 200,000 draws.csv rows checked (invested weeks, BUY weeks, spell counts, ids, no sleeve trades in fixed50 rows), bad 0; in/out and BUY/SELL length strings against the states: 0 differ 
+   sessions_invested recomputed from the states (full window, F1 and F2): 16,000 draws, 0 differ
+   audit.json v3 block (the engine's own check): 49 pass flags, all true: True
+   the real series' own lengths lie within the bounds (so every N4.9 draw is an allowed N4.10 configuration): all within
+V4 identities and regressions. regression.json (the engine's own check): 226 pass flags, all true: True; keys missing: none.
+   (a1) T11 regression (regression.json a1_t11_regression; regression_t11.json present: True, identical to it: True): with the entry fixed at all three BUY the engine reproduces T11's stored decisions.csv state (0003 228 compared, 0 mismatches, 0007 228 compared, 0 mismatches, 0010 228 compared, 0 mismatches, 0029 228 compared, 0 mismatches) and T11's stored daily_nav.csv (60 book-run-cost rows; pairs {'strategy_all3': 'strategy', 'strategy_all3_fixed50': 'strategy_fixed50', 'hold_parent': 'hold_parent', 'sleeve_only': 'sleeve_only', 'sleeve_only_timed': 'sleeve_only_timed'}): worst relative difference by run {'strategy_all3': 0.0, 'strategy_all3_fixed50': 0.0, 'hold_parent': 0.0, 'sleeve_only': 0.0, 'sleeve_only_timed': 0.0} (tolerance 1e-12) -> PASS
+   (a2) with D17's dates, 2019-01-02 to 2019-12-31, and the all-3 entry (the stored runs are all-3 runs), the engine reproduces the stored daily NAVs of T08 and T06 (132 book-run-cost rows): worst relative difference 2.2e-16; (b) a one-instrument always-in book against the stock's close / first close: worst relative difference 6.7e-16; (c) functions shared with t11_engine.py: 36 required identical, not identical [], changed ['d17_regression', 'main', 'run_book', 'shared_code_diff', 'v4_identities'], unexpected changes [], new in T13 ['t11_regression'], dropped from T11 []; (d) decision signals against the Master SIGN files and D24b's weekly csv, n_buy against the signs and the state against n_buy: 0 mismatches; (e) D24b against T08's stored gold signal (D24) on 211 shared 2019 decision dates: 0 mismatches (partial by design: D24 is not opened by this test); (f) seam, hold-the-parent 0-cost NAV against the published D17 NAV over 2019, year gap in pp (limit 0.5): {'SCMO_0003': -0.22, 'SCMO_0007': 0.391, 'SCMO_0010': 0.447, 'SCMO_0029': 0.189}
+   re-derived here from the evidence: all 156 NAV series start at 1 (0 do not); end NAV of every run and cost equals stats.csv (0 differ); NAV on the date of every recorded trade equals nav_close_after (7,536 trades, 0 differ); the four books have the same in-or-out and gold decisions (0 differ); parent_nav_2014-09-01_2019-01-02.csv equals the hold_parent (0 and 20.8 bps), strategy_fixed50 and strategy runs of daily_nav.csv (17,120 values compared, 0 series differ); its sidecar caption is the pre-registered one: True; the always-in end NAV falls as the cost rises: 0 books violate it
+   the entry rule re-derived from the three signs of decisions.csv (n_buy, state = n_buy >= 2, state_all3 = n_buy = 3, at_least_two_buy, all_three_buy): 0 of 912 rows differ; invested_weeks of the all-3 runs (stats.csv) equal the all-3 IN weeks: 0 books differ; against T11's stored evidence (C:\Users\manur\Repos\wm-AA\AA\tests\T11\evidence\headline): state_all3 equals T11's decisions.csv state (912 decisions, 0 books differ) and strategy_all3 / strategy_all3_fixed50 equal T11's strategy / strategy_fixed50 daily NAV (24 book-run-cost series): worst relative difference 0.0e+00 (need < 1e-12)
+   sampler_selftest.json (the engine's own check): 35 pass flags, all true: True
+V5 the samplers are exact: (a) chi-square on k=3, S=12, bounds [2, 6]: p = 0.8280904016577683 with the seed of T06 and T08 and 0.08362348978165425 with a first element 16 (both need > 0.001; from sampler_selftest.json, which this script cannot recompute; its own pass flag: True); (b) count_table.json against inclusion-exclusion: 32 entries (in-or-out and gold, full and R3 windows), 0 differ or infeasible (per-state bounds from each window's own series, feasibility lo k <= S <= hi k); (c) mean length at each spell position over the draws against S/k (F1 and F3 draws): worst |z| = 2.83 over 32 sets (need < 4)
+V6 the sleeve, basket and cost identities: 204 sleeve-trade rows over the three costs; GOLDBEES / (GOLDBEES + cash) after the trade equals the target weight (0.8 or 0.2) and gw equals the signal's: 0 differ; cost = traded x cost_bps / 2 / 10,000 on the sleeve rows: 0 differ, on all 7,536 trade rows of every run: 0 differ; a sleeve rebalance conserves value after cost: 0 differ; sleeve rebalances 96 against 96 expected from the decisions (OUT on both sides, signal changed), exits 108 against 108, entries 96 against 96, trade dates differ 0; the raw-GOLDBEES-fill flag disagrees with the sessions without an MCX range: 0; gold_signal.csv differs from decisions.csv: 0; trades on a stand-in session (2016-10-30, 2017-10-19): 0
+   basket changes: 99 basket-change trades of the rule over the three costs against 99 expected (the baskets.csv sessions after T0 at which the book holds the parent and no decision trade falls); dates differ 0 (the rule's and hold_parent's), baskets.csv session and idx differ from the calendar on 0 books, basket in force (basket_eff) differs from baskets.csv on 0 trades, stock share after a change not 1: 0, cost identity 0 differ; hold_parent: 216 basket changes against 216 expected; positions.csv: stock lines after each entry and basket change equal the basket's n_held, none after an exit or sleeve trade, GOLDBEES present iff its weight is positive: 0 of 133 trades differ (20.8 bps)
+   audit.json v6 block (the engine's own check: targets to 1e-12 of NAV, cost identity, continuity at 0 cost, no trade while OUT with the signal constant, weights equal the basket's after an entry and a change): 1 pass flags, all true: True
+Gates: {'V1': 'PASS', 'V2': 'PASS', 'V3': 'PASS', 'V4': 'PASS', 'V5': 'PASS', 'V6': 'PASS'} -> ALL PASS
+Reportability: in-or-out round trips per book, full window (need 4): {'SCMO_0003': 9, 'SCMO_0007': 9, 'SCMO_0010': 9, 'SCMO_0029': 9} | R3 window: {'SCMO_0003': 7, 'SCMO_0007': 7, 'SCMO_0010': 7, 'SCMO_0029': 7} | gold spells containing an OUT week, full: {'SCMO_0003': 15, 'SCMO_0007': 15, 'SCMO_0010': 15, 'SCMO_0029': 15} | R3: {'SCMO_0003': 15, 'SCMO_0007': 15, 'SCMO_0010': 15, 'SCMO_0029': 15} | tables feasible (lo k <= S <= hi k), full / R3: True / True | NOT REPORTABLE (in-or-out, full): none | (gold, full): none | (R3, in-or-out): none | (R3, gold): none
+Spell structure, SCMO_0003: in-or-out first state IN, in-spells [7, 7, 15, 6, 30, 28, 14, 3, 5] (sum 115), out-spells [2, 5, 10, 33, 11, 11, 12, 13, 16] (sum 113); gold first state BUY, BUY spells [2, 4, 8, 12, 36, 15, 17, 24, 9, 5] (sum 132), SELL spells [19, 12, 6, 11, 15, 14, 5, 12, 2] (sum 96)
+Spell structure, SCMO_0007: in-or-out first state IN, in-spells [7, 7, 15, 6, 30, 28, 14, 3, 5] (sum 115), out-spells [2, 5, 10, 33, 11, 11, 12, 13, 16] (sum 113); gold first state BUY, BUY spells [2, 4, 8, 12, 36, 15, 17, 24, 9, 5] (sum 132), SELL spells [19, 12, 6, 11, 15, 14, 5, 12, 2] (sum 96)
+The counts frozen in T13.md section 2, recomputed from the evidence (SCMO_0003; a check of the text, not a result): {'round trips (9)': 'equal', 'in-spells 7, 7, 15, 6, 30, 28, 14, 3, 5': 'equal', 'out-spells 2, 5, 10, 33, 11, 11, 12, 13, 16': 'equal', 'first state IN, last OUT': 'equal', 'weeks by n_buy 78/35/22/93': 'equal', '2-of-3 IN and all-3 OUT in 22 weeks, never the reverse': 'equal', "all-3 IN weeks 93 (T11's 8 in-spells)": 'equal', 'sleeve trades of the rule (8)': 'equal', 'gold spells with an OUT week (15 of 19)': 'equal', 'OUT weeks with gold BUY / SELL (74 / 39)': 'equal', 'R3: 210 decisions, first OUT, 7 round trips': 'equal'}
+Number of allowed tuples (count_table.json, exact):
+     book window timing state  k   S  bounds            n_ways
+SCMO_0003   full   gold   buy 10 132 [2, 36] 6,835,192,844,305
+SCMO_0003   full   gold  sell  9  96 [2, 19]     4,976,743,356
+SCMO_0003   full     io    in  9 115 [2, 30]   120,432,707,298
+SCMO_0003   full     io   out  9 113 [2, 33]   144,224,745,588
+SCMO_0003     r3   gold   buy  9 130 [2, 36]   426,468,399,525
+SCMO_0003     r3   gold  sell  9  80 [2, 15]       644,288,463
+SCMO_0003     r3     io    in  7 101 [2, 30]       271,511,233
+SCMO_0003     r3     io   out  8 109 [2, 33]     8,485,744,608
+SCMO_0007   full   gold   buy 10 132 [2, 36] 6,835,192,844,305
+SCMO_0007   full   gold  sell  9  96 [2, 19]     4,976,743,356
+SCMO_0007   full     io    in  9 115 [2, 30]   120,432,707,298
+SCMO_0007   full     io   out  9 113 [2, 33]   144,224,745,588
+SCMO_0007     r3   gold   buy  9 130 [2, 36]   426,468,399,525
+SCMO_0007     r3   gold  sell  9  80 [2, 15]       644,288,463
+SCMO_0007     r3     io    in  7 101 [2, 30]       271,511,233
+SCMO_0007     r3     io   out  8 109 [2, 33]     8,485,744,608
+SCMO_0010   full   gold   buy 10 132 [2, 36] 6,835,192,844,305
+SCMO_0010   full   gold  sell  9  96 [2, 19]     4,976,743,356
+SCMO_0010   full     io    in  9 115 [2, 30]   120,432,707,298
+SCMO_0010   full     io   out  9 113 [2, 33]   144,224,745,588
+SCMO_0010     r3   gold   buy  9 130 [2, 36]   426,468,399,525
+SCMO_0010     r3   gold  sell  9  80 [2, 15]       644,288,463
+SCMO_0010     r3     io    in  7 101 [2, 30]       271,511,233
+SCMO_0010     r3     io   out  8 109 [2, 33]     8,485,744,608
+SCMO_0029   full   gold   buy 10 132 [2, 36] 6,835,192,844,305
+SCMO_0029   full   gold  sell  9  96 [2, 19]     4,976,743,356
+SCMO_0029   full     io    in  9 115 [2, 30]   120,432,707,298
+SCMO_0029   full     io   out  9 113 [2, 33]   144,224,745,588
+SCMO_0029     r3   gold   buy  9 130 [2, 36]   426,468,399,525
+SCMO_0029     r3   gold  sell  9  80 [2, 15]       644,288,463
+SCMO_0029     r3     io    in  7 101 [2, 30]       271,511,233
+SCMO_0029     r3     io   out  8 109 [2, 33]     8,485,744,608
+Cash: {'file_last': '2026-11-05', 'accrued_sessions': 0, 'cash': 'lbes'} | data: {'window': ['2014-09-01', '2019-01-02'], 'goldbees': {'goldbees_first_bar': '2014-07-01', 'goldbees_file_last': '2026-11-04', 'mcx_file_last': '2026-11-06', 'sessions_without_mcx_range_(raw OHLC4 fill)_in_window': ['2014-10-23', '2015-01-01', '2015-11-11'], 'sessions_without_own_gold_bar_(previous close used)': ['2016-10-30']}}
+
+====================================================================================================
+4.0a  THE WORKED EXAMPLE (SCMO_0003, 20.8 bps): an exit, a gold flip (sleeve rebalance), an entry, a basket change, one F1 draw and one F3 draw
+====================================================================================================
+The rule: hold the parent when at least two of the three weekly index signals (Nifty 100, Midcap 100, Smallcap 100) are BUY; T11 required all three.
+EXIT. One decision: week 16, decision date 2014-12-19. Latest Master rows: Nifty100 SELL (2014-12-19), MC100 BUY (2014-12-19), SC100 SELL (2014-12-19); MAUc1 SELL (2014-12-19). Index signs BUY: 1 of 3; at least two BUY (the T13 rule): False (all three, T11's rule: False) -> target sleeve: 20% GOLDBEES / 80% cash (gold signal SELL); previous week: state 1, gold signal SELL. Trade session: 2014-12-22.
+   Trade (switch_out) on 2014-12-22 at OHLC4: value before 1.206955, traded 2.413910, cost 0.002510 = traded x 20.8/2/10,000; GOLDBEES value before 0.000000 -> after 0.240889, cash value before 0.000000 -> after 0.963556; gold weight after 0.20 (check: 0.200000); NAV at the close after: 1.205137; GOLDBEES filled at the raw OHLC4 (no MCX range that session): False
+   Units before (2014-12-01): 15 stock lines (first three: AARTIDRUGS.NS 0.000823, JBMA.NS 0.001943, FINCABLES.NS 0.000310), GOLDBEES 0.00000000, LBES 0.00000000 | units after (2014-12-22): 0 stock lines, GOLDBEES 0.00975614, LBES 0.00065299
+GOLD FLIP. One decision: week 37, decision date 2015-05-15. Latest Master rows: Nifty100 SELL (2015-05-15), MC100 SELL (2015-05-15), SC100 SELL (2015-05-15); MAUc1 BUY (2015-05-15). Index signs BUY: 0 of 3; at least two BUY (the T13 rule): False (all three, T11's rule: False) -> target sleeve: 80% GOLDBEES / 20% cash (gold signal BUY); previous week: state 0, gold signal SELL. Trade session: 2015-05-18.
+   Trade (sleeve_rebalance) on 2015-05-18 at OHLC4: value before 1.324729, traded 1.580565, cost 0.001644 = traded x 20.8/2/10,000; GOLDBEES value before 0.269501 -> after 1.058468, cash value before 1.055228 -> after 0.264617; gold weight after 0.80 (check: 0.800000); NAV at the close after: 1.327757; GOLDBEES filled at the raw OHLC4 (no MCX range that session): False
+   Units before (2015-05-11): 0 stock lines, GOLDBEES 0.01069289, LBES 0.00070028 | units after (2015-05-18): 0 stock lines, GOLDBEES 0.04199645, LBES 0.00017561 | implied GOLDBEES fill price before 25.203750, after 25.203750; cash level before 1506.876616, after 1506.876616 (the same session, so equal)
+ENTRY. One decision: week 9, decision date 2014-10-31. Latest Master rows: Nifty100 BUY (2014-10-31), MC100 BUY (2014-10-31), SC100 SELL (2014-10-31); MAUc1 SELL (2014-10-31). Index signs BUY: 2 of 3; at least two BUY (the T13 rule): True (all three, T11's rule: False) -> target the parent basket in force; previous week: state 0, gold signal SELL. Trade session: 2014-11-03.
+   Trade (switch_in) on 2014-11-03 at OHLC4: value before 1.144799, traded 2.289599, cost 0.002381 = traded x 20.8/2/10,000; value after cost 1.142418 split at the basket's listed weights (basket in force: availableDate 2014-09-01); NAV at the close after: 1.149786
+   Units before (2014-10-20): 0 stock lines, GOLDBEES 0.00917179, LBES 0.00062926 | units after (2014-11-03): 15 stock lines (first three: AARTIDRUGS.NS 0.000817, JBMA.NS 0.001332, FINCABLES.NS 0.000332), GOLDBEES 0.00000000, LBES 0.00000000
+BASKET CHANGE. While the book holds the parent a basket takes effect on the first session on or after its availableDate. Basket 1 (availableDate 2014-12-01, session 2014-12-01, 15 stocks, listed weight sum 1.0005) replaces the one in force; on 2014-12-01 (no decision trade on it) at OHLC4 the old basket is sold and the new one bought: value before 1.220219, traded 0.943589, cost 0.000981 = traded x 20.8/2/10,000, NAV at the close after: 1.210526
+   Units before (2014-11-03): 15 stock lines (first three: AARTIDRUGS.NS 0.000817, JBMA.NS 0.001332, FINCABLES.NS 0.000332), GOLDBEES 0.00000000, LBES 0.00000000 | units after: 15 stock lines (first three: AARTIDRUGS.NS 0.000823, JBMA.NS 0.001943, FINCABLES.NS 0.000310), GOLDBEES 0.00000000, LBES 0.00000000 | stocks sold out: ['ARVIND.NS', 'CCL.NS', 'CENTUM.NS', 'TVSSRICHAK.NS', 'VSTTILLERS.NS']; stocks newly bought: ['BANCOINDIA.NS', 'BBTC.NS', 'JKTYRE.NS', 'KRBL.NS', 'MINDACORP.NS']; stocks kept and resized: 10 of 10
+NAV around the exit (strategy, 20.8 bps):
+      date      nav
+2014-12-18 1.175765
+2014-12-19 1.201640
+2014-12-22 1.205137
+2014-12-23 1.202452
+2014-12-24 1.201745
+One path: start 1.000000 on 2014-09-01, end 1.470136 on 2019-01-02, 1070 sessions -> years 4.2421, CAGR 9.510%, max drawdown -28.55%; 33 trades of which 8 sleeve rebalances and 8 basket changes. The rule with the fixed 50/50 sleeve (Part A): end 1.505811, CAGR 10.130%, max drawdown -28.76%, 25 trades (8 basket changes)
+One F1 draw (draw_id 0; seed numpy default_rng([16, 6, 0]); in-spell lengths first, then the other state's from the same generator):
+  sampler: in-spells k = 9, total S = 115 weeks, each an integer in [2, 30]; allowed ordered tuples c(k, S) = 120,432,707,298 (inclusion-exclusion here: 120,432,707,298)
+           other state k = 9, S = 113, each in [2, 33]; c(k, S) = 144,224,745,588 (inclusion-exclusion here: 144,224,745,588)
+One F3 draw (draw_id 0; seed numpy default_rng([16, 11, 6, 0]); buy-spell lengths first, then the other state's from the same generator):
+  sampler: buy-spells k = 10, total S = 132 weeks, each an integer in [2, 36]; allowed ordered tuples c(k, S) = 6,835,192,844,305 (inclusion-exclusion here: 6,835,192,844,305)
+           other state k = 9, S = 96, each in [2, 19]; c(k, S) = 4,976,743,356 (inclusion-exclusion here: 4,976,743,356)
+  the rule's in-spell lengths: [7, 7, 15, 6, 30, 28, 14, 3, 5]; F1 draw 0's: [30, 3, 5, 22, 14, 18, 6, 11, 6]; out-spells [2, 5, 10, 33, 11, 11, 12, 13, 16]; F1 draw 0's: [18, 11, 8, 4, 5, 25, 20, 8, 14]
+  the real gold BUY lengths: [2, 4, 8, 12, 36, 15, 17, 24, 9, 5]; F3 draw 0's: [4, 36, 12, 36, 5, 4, 19, 4, 10, 2]; SELL [19, 12, 6, 11, 15, 14, 5, 12, 2]; F3 draw 0's: [9, 13, 10, 5, 16, 11, 8, 18, 6]
+The first 20 weekly states (in-or-out: 1 = the parent's basket, 0 = sleeve; gold: 1 = BUY, 0 = SELL): the real series, F2 (N4.9 draw 0, seed [16, 3, 0]), F1 (N4.10 draw 0), F4 (N4.9-g draw 0, seed [16, 11, 3, 0]) and F3 (N4.10-g draw 0):
+ j decision_date  real io  F2 draw 0  F1 draw 0  real gold  F4 draw 0  F3 draw 0
+ 0    2014-09-01        1          1          1          1          1          1
+ 1    2014-09-05        1          1          1          1          1          1
+ 2    2014-09-12        1          1          1          0          0          1
+ 3    2014-09-19        1          0          1          0          0          1
+ 4    2014-09-26        1          0          1          0          0          0
+ 5    2014-10-01        1          0          1          0          0          0
+ 6    2014-10-10        1          0          1          0          0          0
+ 7    2014-10-17        0          0          1          0          0          0
+ 8    2014-10-23        0          0          1          0          0          0
+ 9    2014-10-31        1          0          1          0          0          0
+10    2014-11-07        1          0          1          0          0          0
+11    2014-11-14        1          0          1          0          0          0
+12    2014-11-21        1          0          1          0          0          0
+13    2014-11-28        1          0          1          0          1          1
+14    2014-12-05        1          0          1          0          1          1
+15    2014-12-12        1          1          1          0          1          1
+16    2014-12-19        0          1          1          0          1          1
+17    2014-12-26        0          1          1          0          1          1
+18    2015-01-02        0          1          1          0          1          1
+19    2015-01-09        0          1          1          0          1          1
+  F1 (in-or-out N4.10; 50/50 sleeve) draw 0: CAGR 9.205%, max drawdown -32.70%, invested weeks 115 (rule 115), BUY weeks 132 (real 132), spells 9 in / 9 out, 10 BUY / 9 SELL, sessions invested 540 (rule 543), sleeve trades 0 (rule 0)
+  One ranking against F1 (50/50 sleeve; CAGR, 2000 draws): below 234, equal 0, above 1766 -> percentile 11.70, p-value 0.88306; null median 18.91%, edge -8.77 pp
+  F2 (in-or-out N4.9; 50/50 sleeve) draw 0: CAGR 12.349%, max drawdown -34.09%, invested weeks 115 (rule 115), BUY weeks 132 (real 132), spells 9 in / 9 out, 10 BUY / 9 SELL, sessions invested 547 (rule 543), sleeve trades 0 (rule 0)
+  One ranking against F2 (50/50 sleeve; CAGR, 2000 draws): below 340, equal 0, above 1660 -> percentile 17.00, p-value 0.83008; null median 17.85%, edge -7.72 pp
+  F1 (in-or-out N4.10; timed sleeve) draw 0: CAGR 8.167%, max drawdown -32.89%, invested weeks 115 (rule 115), BUY weeks 132 (real 132), spells 9 in / 9 out, 10 BUY / 9 SELL, sessions invested 540 (rule 543), sleeve trades 9 (rule 8)
+  One ranking against F1 (timed sleeve; CAGR, 2000 draws): below 277, equal 0, above 1723 -> percentile 13.85, p-value 0.86157; null median 17.59%, edge -8.08 pp
+  F2 (in-or-out N4.9; timed sleeve) draw 0: CAGR 11.663%, max drawdown -36.16%, invested weeks 115 (rule 115), BUY weeks 132 (real 132), spells 9 in / 9 out, 10 BUY / 9 SELL, sessions invested 547 (rule 543), sleeve trades 9 (rule 8)
+  One ranking against F2 (timed sleeve; CAGR, 2000 draws): below 400, equal 0, above 1600 -> percentile 20.00, p-value 0.80010; null median 16.46%, edge -6.96 pp
+  F3 (gold N4.10-g, real in-or-out; timed sleeve) draw 0: CAGR 8.595%, max drawdown -28.44%, invested weeks 115 (rule 115), BUY weeks 132 (real 132), spells 9 in / 9 out, 10 BUY / 9 SELL, sessions invested 543 (rule 543), sleeve trades 10 (rule 8)
+  One ranking against F3 (timed sleeve; CAGR, 2000 draws): below 840, equal 0, above 1160 -> percentile 42.00, p-value 0.58021; null median 9.80%, edge -0.29 pp
+  F4 (gold N4.9-g, real in-or-out; timed sleeve) draw 0: CAGR 10.627%, max drawdown -32.18%, invested weeks 115 (rule 115), BUY weeks 132 (real 132), spells 9 in / 9 out, 10 BUY / 9 SELL, sessions invested 543 (rule 543), sleeve trades 10 (rule 8)
+  One ranking against F4 (timed sleeve; CAGR, 2000 draws): below 858, equal 0, above 1142 -> percentile 42.90, p-value 0.57121; null median 9.80%, edge -0.29 pp
+
+====================================================================================================
+4.1  HEADLINE: A1, A2, C1 to C4 per book and cost, rule against each null (full window 2014-09-01 -> 2019-01-02, LBES cash; 2,000 draws each)
+====================================================================================================
+
+A1 (CAGR): strategy_fixed50 against F1 (in-or-out N4.10, deciding; run with the 50/50 sleeve, the rule's sleeve fixed 50/50) and F2 (in-or-out N4.9, beside); Holm = Holm-adjusted p over the six criteria, per book and cost
+ cost      book rule% F1_med% F1_edge_pp F1_pct    F1_p F1_Holm_p F2_med% F2_pct    F2_p
+  0.0 SCMO_0003 11.29   20.17      -8.87  11.65 0.88356   1.00000   19.09  16.95 0.83058
+  0.0 SCMO_0007  7.47   11.90      -4.42  16.65 0.83358   1.00000   10.67  24.00 0.76012
+  0.0 SCMO_0010  4.70   14.74     -10.05   5.90 0.94103   1.00000   14.22   7.60 0.92404
+  0.0 SCMO_0029 10.43   16.30      -5.87  19.60 0.80410   1.00000   15.47  23.55 0.76462
+ 20.8 SCMO_0003 10.13   18.91      -8.77  11.70 0.88306   1.00000   17.85  17.00 0.83008
+ 20.8 SCMO_0007  6.26   10.62      -4.37  16.85 0.83158   1.00000    9.40  24.10 0.75912
+ 20.8 SCMO_0010  3.53   13.48      -9.95   5.90 0.94103   1.00000   12.94   7.45 0.92554
+ 20.8 SCMO_0029  9.23   15.07      -5.84  19.55 0.80460   1.00000   14.21  23.60 0.76412
+ 50.0 SCMO_0003  8.51   17.20      -8.69  11.65 0.88356   1.00000   16.14  17.10 0.82909
+ 50.0 SCMO_0007  4.57    8.90      -4.33  16.95 0.83058   1.00000    7.66  24.25 0.75762
+ 50.0 SCMO_0010  1.91   11.70      -9.79   5.90 0.94103   1.00000   11.17   7.45 0.92554
+ 50.0 SCMO_0029  7.56   13.34      -5.78  19.50 0.80510   1.00000   12.50  23.70 0.76312
+
+A2 (maximum drawdown, shallower is better): strategy_fixed50 against F1 (in-or-out N4.10, deciding; run with the 50/50 sleeve, the rule's sleeve fixed 50/50) and F2 (in-or-out N4.9, beside); Holm = Holm-adjusted p over the six criteria, per book and cost
+ cost      book  rule% F1_med% F1_edge_pp F1_pct    F1_p F1_Holm_p F2_med% F2_pct    F2_p
+  0.0 SCMO_0003 -27.55  -25.81      -1.74  39.30 0.60720   1.00000  -28.13  52.65 0.47376
+  0.0 SCMO_0007 -15.98  -15.18      -0.80  25.60 0.74413   1.00000  -15.26  35.75 0.64268
+  0.0 SCMO_0010 -24.99  -22.54      -2.45  26.30 0.73713   1.00000  -22.54  29.60 0.70415
+  0.0 SCMO_0029 -28.71  -24.30      -4.41  25.00 0.75012   1.00000  -26.01  29.80 0.70215
+ 20.8 SCMO_0003 -28.76  -26.24      -2.51  36.75 0.63268   1.00000  -28.61  48.85 0.51174
+ 20.8 SCMO_0007 -16.42  -15.65      -0.77  27.80 0.72214   1.00000  -15.92  37.50 0.62519
+ 20.8 SCMO_0010 -25.89  -22.62      -3.27  24.85 0.75162   1.00000  -22.63  28.45 0.71564
+ 20.8 SCMO_0029 -29.56  -24.94      -4.62  23.85 0.76162   1.00000  -26.53  29.15 0.70865
+ 50.0 SCMO_0003 -30.46  -27.23      -3.22  32.50 0.67516   1.00000  -29.03  41.90 0.58121
+ 50.0 SCMO_0007 -17.05  -16.28      -0.77  32.75 0.67266   1.00000  -16.32  42.30 0.57721
+ 50.0 SCMO_0010 -27.13  -23.30      -3.83  24.05 0.75962   1.00000  -23.48  28.10 0.71914
+ 50.0 SCMO_0029 -30.73  -25.77      -4.96  21.75 0.78261   1.00000  -27.68  27.85 0.72164
+
+C1 (CAGR): strategy against F1 (in-or-out N4.10, deciding; the rule's sleeve timed by MAUc1, real gold signal) and F2 (in-or-out N4.9, beside); Holm = Holm-adjusted p over the six criteria, per book and cost
+ cost      book rule% F1_med% F1_edge_pp F1_pct    F1_p F1_Holm_p F2_med% F2_pct    F2_p
+  0.0 SCMO_0003 10.93   19.10      -8.18  13.80 0.86207   1.00000   17.99  19.90 0.80110
+  0.0 SCMO_0007  7.12   11.03      -3.92  19.95 0.80060   1.00000    9.60  28.25 0.71764
+  0.0 SCMO_0010  4.35   13.78      -9.43   7.50 0.92504   1.00000   13.14   9.75 0.90255
+  0.0 SCMO_0029 10.06   15.22      -5.16  23.20 0.76812   1.00000   14.37  26.80 0.73213
+ 20.8 SCMO_0003  9.51   17.59      -8.08  13.85 0.86157   1.00000   16.46  20.00 0.80010
+ 20.8 SCMO_0007  5.66    9.49      -3.84  19.90 0.80110   1.00000    8.12  28.30 0.71714
+ 20.8 SCMO_0010  2.95   12.25      -9.30   7.65 0.92354   1.00000   11.60   9.95 0.90055
+ 20.8 SCMO_0029  8.61   13.71      -5.09  23.10 0.76912   1.00000   12.86  26.65 0.73363
+ 50.0 SCMO_0003  7.55   15.50      -7.95  13.85 0.86157   1.00000   14.42  20.05 0.79960
+ 50.0 SCMO_0007  3.64    7.37      -3.74  19.95 0.80060   1.00000    6.02  28.50 0.71514
+ 50.0 SCMO_0010  1.00   10.10      -9.10   7.70 0.92304   1.00000    9.46  10.10 0.89905
+ 50.0 SCMO_0029  6.61   11.60      -4.99  23.20 0.76812   1.00000   10.79  26.65 0.73363
+
+C2 (maximum drawdown, shallower is better): strategy against F1 (in-or-out N4.10, deciding; the rule's sleeve timed by MAUc1, real gold signal) and F2 (in-or-out N4.9, beside); Holm = Holm-adjusted p over the six criteria, per book and cost
+ cost      book  rule% F1_med% F1_edge_pp F1_pct    F1_p F1_Holm_p F2_med% F2_pct    F2_p
+  0.0 SCMO_0003 -27.22  -26.29      -0.93  44.95 0.55072   1.00000  -28.53  57.50 0.42529
+  0.0 SCMO_0007 -17.84  -15.85      -1.99  17.35 0.82659   1.00000  -15.89  22.15 0.77861
+  0.0 SCMO_0010 -24.63  -22.61      -2.02  32.40 0.67616   1.00000  -22.81  37.70 0.62319
+  0.0 SCMO_0029 -28.37  -25.08      -3.29  30.00 0.70015   1.00000  -26.80  38.40 0.61619
+ 20.8 SCMO_0003 -28.55  -27.06      -1.49  41.70 0.58321   1.00000  -28.92  55.35 0.44678
+ 20.8 SCMO_0007 -18.65  -16.07      -2.58  20.30 0.79710   1.00000  -16.11  24.00 0.76012
+ 20.8 SCMO_0010 -25.63  -23.22      -2.40  30.60 0.69415   1.00000  -23.48  37.05 0.62969
+ 20.8 SCMO_0029 -29.31  -25.71      -3.60  28.90 0.71114   1.00000  -27.67  34.10 0.65917
+ 50.0 SCMO_0003 -30.46  -28.20      -2.25  37.15 0.62869   1.00000  -30.22  48.85 0.51174
+ 50.0 SCMO_0007 -19.81  -16.81      -3.00  23.60 0.76412   1.00000  -17.58  27.40 0.72614
+ 50.0 SCMO_0010 -27.09  -24.24      -2.84  29.20 0.70815   1.00000  -24.70  36.55 0.63468
+ 50.0 SCMO_0029 -30.69  -26.74      -3.95  27.55 0.72464   1.00000  -28.53  33.65 0.66367
+
+C3 (CAGR): strategy against F3 (gold N4.10-g, real in-or-out, deciding; the rule's sleeve timed by MAUc1) and F4 (gold N4.9-g, real in-or-out, beside); Holm = Holm-adjusted p over the six criteria, per book and cost
+ cost      book rule% F3_med% F3_edge_pp F3_pct    F3_p F3_Holm_p F4_med% F4_pct    F4_p
+  0.0 SCMO_0003 10.93   11.22      -0.30  42.45 0.57571   1.00000   11.21  42.50 0.57521
+  0.0 SCMO_0007  7.12    7.40      -0.29  42.45 0.57571   1.00000    7.39  42.50 0.57521
+  0.0 SCMO_0010  4.35    4.63      -0.28  42.45 0.57571   1.00000    4.62  42.50 0.57521
+  0.0 SCMO_0029 10.06   10.36      -0.29  42.45 0.57571   1.00000   10.34  42.50 0.57521
+ 20.8 SCMO_0003  9.51    9.80      -0.29  42.00 0.58021   1.00000    9.80  42.90 0.57121
+ 20.8 SCMO_0007  5.66    5.93      -0.28  42.00 0.58021   1.00000    5.94  42.90 0.57121
+ 20.8 SCMO_0010  2.95    3.21      -0.27  42.00 0.58021   1.00000    3.22  42.90 0.57121
+ 20.8 SCMO_0029  8.61    8.90      -0.28  42.00 0.58021   1.00000    8.90  42.90 0.57121
+ 50.0 SCMO_0003  7.55    7.82      -0.28  42.10 0.57921   1.00000    7.81  42.95 0.57071
+ 50.0 SCMO_0007  3.64    3.90      -0.27  42.10 0.57921   1.00000    3.89  42.95 0.57071
+ 50.0 SCMO_0010  1.00    1.26      -0.26  42.10 0.57921   1.00000    1.25  42.95 0.57071
+ 50.0 SCMO_0029  6.61    6.88      -0.28  42.10 0.57921   1.00000    6.87  42.95 0.57071
+
+C4 (maximum drawdown, shallower is better): strategy against F3 (gold N4.10-g, real in-or-out, deciding; the rule's sleeve timed by MAUc1) and F4 (gold N4.9-g, real in-or-out, beside); Holm = Holm-adjusted p over the six criteria, per book and cost
+ cost      book  rule% F3_med% F3_edge_pp F3_pct    F3_p F3_Holm_p F4_med% F4_pct    F4_p
+  0.0 SCMO_0003 -27.22  -28.36      +1.14  76.85 0.23188   1.00000  -28.39  75.52 0.24538
+  0.0 SCMO_0007 -17.84  -17.00      -0.84  19.65 0.80360   1.00000  -16.88  20.80 0.79210
+  0.0 SCMO_0010 -24.63  -25.71      +1.08  75.22 0.24938   1.00000  -25.67  71.75 0.28336
+  0.0 SCMO_0029 -28.37  -29.39      +1.03  75.22 0.24938   1.00000  -29.35  71.75 0.28336
+ 20.8 SCMO_0003 -28.55  -29.71      +1.16  77.45 0.22589   1.00000  -29.70  75.48 0.24588
+ 20.8 SCMO_0007 -18.65  -17.77      -0.87  22.55 0.77461   1.00000  -17.67  22.30 0.77711
+ 20.8 SCMO_0010 -25.63  -26.81      +1.18  77.45 0.22689   1.00000  -26.75  74.35 0.25737
+ 20.8 SCMO_0029 -29.31  -30.43      +1.12  77.45 0.22689   1.00000  -30.37  74.35 0.25737
+ 50.0 SCMO_0003 -30.46  -31.74      +1.28  79.45 0.20590   1.00000  -31.70  78.38 0.21689
+ 50.0 SCMO_0007 -19.81  -19.18      -0.63  36.80 0.63218   1.00000  -19.04  33.75 0.66267
+ 50.0 SCMO_0010 -27.09  -28.33      +1.25  78.85 0.21189   1.00000  -28.32  76.80 0.23288
+ 50.0 SCMO_0029 -30.69  -31.87      +1.18  78.85 0.21189   1.00000  -31.86  76.80 0.23288
+pct = percentile of the rule among the draws; p = (1 + draws at least as good) / (2000 + 1); Holm = Holm step-down over the six criteria (m = 6) of the same book and cost (unadjusted p decides at the pass mark; Holm is printed beside it).
+
+Secondary statistics at 20.8 bps, percentile against each null's draws (each statistic's better direction):
+  strategy_fixed50 against F1 (in-or-out N4.10; 50/50 sleeve):
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 11.7   36.8   15.0 45.6  14.8             11.6               19.5
+SCMO_0007 16.9   27.8   17.3 72.0   5.2              4.5               37.8
+SCMO_0010  5.9   24.9    6.7 62.0   4.3              1.7               13.9
+SCMO_0029 19.6   23.8   19.3 60.2   7.0             10.2               29.9
+  strategy_fixed50 against F2 (in-or-out N4.9; 50/50 sleeve):
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 17.0   48.9   21.1 47.3  19.6             15.1               24.6
+SCMO_0007 24.1   37.5   25.7 77.4   3.9              3.3               33.5
+SCMO_0010  7.4   28.4    8.4 59.2   6.0              2.6               16.2
+SCMO_0029 23.6   29.1   24.2 56.9   9.0             12.2               30.3
+  strategy against F1 (in-or-out N4.10; timed sleeve):
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 13.9   41.7   17.8 44.5  18.2             10.1               21.1
+SCMO_0007 19.9   20.3   18.9 68.7   7.3              7.1               42.2
+SCMO_0010  7.6   30.6    8.5 59.9   5.2              2.6               16.4
+SCMO_0029 23.1   28.9   22.2 58.0   7.8              6.3               35.8
+  strategy against F2 (in-or-out N4.9; timed sleeve):
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 20.0   55.4   25.2 45.2  23.7             14.4               25.2
+SCMO_0007 28.3   24.0   27.5 71.0   6.3              5.7               39.2
+SCMO_0010 10.0   37.0   11.1 57.4   7.0              3.2               19.7
+SCMO_0029 26.7   34.1   27.2 54.5   9.8              7.1               34.4
+  strategy against F3 (gold N4.10-g, real in-or-out; timed sleeve):
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 42.0   77.5   52.5 25.9  70.5             18.9               44.4
+SCMO_0007 42.0   22.6   35.3 25.9  45.5             58.4               67.5
+SCMO_0010 42.0   77.5   46.0 25.2  50.3             47.5               33.3
+SCMO_0029 42.0   77.5   51.8 27.0  43.3             21.2               34.4
+  strategy against F4 (gold N4.9-g, real in-or-out; timed sleeve):
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 42.9   75.5   52.4 25.4  70.0             20.9               44.2
+SCMO_0007 42.9   22.3   35.8 25.6  43.5             57.0               65.7
+SCMO_0010 42.9   74.4   46.2 24.9  52.0             49.6               34.0
+SCMO_0029 42.9   74.4   50.8 26.7  43.5             20.2               34.4
+
+====================================================================================================
+4.2  COMPARATORS (benchmarks, not nulls), same window, T0 = 1.000; every NAV here is REBUILT from the parent's baskets and Eikon prices, not validated against a published NAV before 2019-01-02
+====================================================================================================
+CAGR (%), 2014-09-01 -> 2019-01-02:
+ cost      book strategy_CAGR% strategy_fixed50_CAGR% hold_parent_CAGR% constant_mix_CAGR% constant_mix_timed_CAGR% sleeve_only_CAGR% sleeve_only_timed_CAGR%
+  0.0 SCMO_0003          10.93                  11.29             32.75              18.03                    17.03              3.41                    1.72
+  0.0 SCMO_0007           7.12                   7.47             18.21              10.87                     9.93              3.41                    1.72
+  0.0 SCMO_0010           4.35                   4.70             22.79              13.82                    12.86              3.41                    1.72
+  0.0 SCMO_0029          10.06                  10.43             26.36              15.78                    14.81              3.41                    1.72
+ 20.8 SCMO_0003           9.51                  10.13             32.16              17.60                    16.31              3.41                    1.19
+ 20.8 SCMO_0007           5.66                   6.26             17.45              10.39                     9.18              3.41                    1.19
+ 20.8 SCMO_0010           2.95                   3.53             22.05              13.32                    12.07              3.41                    1.19
+ 20.8 SCMO_0029           8.61                   9.23             25.69              15.31                    14.05              3.41                    1.19
+ 50.0 SCMO_0003           7.55                   8.51             31.32              17.00                    15.30              3.41                    0.44
+ 50.0 SCMO_0007           3.64                   4.57             16.38               9.73                     8.13              3.41                    0.44
+ 50.0 SCMO_0010           1.00                   1.91             21.03              12.62                    10.98              3.41                    0.44
+ 50.0 SCMO_0029           6.61                   7.56             24.75              14.66                    12.99              3.41                    0.44
+Maximum drawdown (%), 2014-09-01 -> 2019-01-02:
+ cost      book strategy_DD% strategy_fixed50_DD% hold_parent_DD% constant_mix_DD% constant_mix_timed_DD% sleeve_only_DD% sleeve_only_timed_DD%
+  0.0 SCMO_0003       -27.22               -27.55          -39.38           -19.99                 -19.69           -6.64                 -9.63
+  0.0 SCMO_0007       -17.84               -15.98          -15.95            -7.21                  -7.29           -6.64                 -9.63
+  0.0 SCMO_0010       -24.63               -24.99          -28.99           -13.73                 -14.27           -6.64                 -9.63
+  0.0 SCMO_0029       -28.37               -28.71          -33.81           -16.61                 -16.59           -6.64                 -9.63
+ 20.8 SCMO_0003       -28.55               -28.76          -39.67           -20.27                 -20.12           -6.64                -10.07
+ 20.8 SCMO_0007       -18.65               -16.42          -16.11            -7.29                  -7.57           -6.64                -10.07
+ 20.8 SCMO_0010       -25.63               -25.89          -29.47           -14.14                 -14.88           -6.64                -10.07
+ 20.8 SCMO_0029       -29.31               -29.56          -34.12           -16.89                 -16.97           -6.64                -10.07
+ 50.0 SCMO_0003       -30.46               -30.46          -40.08           -20.66                 -20.72           -6.64                -10.74
+ 50.0 SCMO_0007       -19.81               -17.05          -16.32            -7.42                  -7.96           -6.64                -10.74
+ 50.0 SCMO_0010       -27.09               -27.13          -30.15           -14.71                 -15.74           -6.64                -10.74
+ 50.0 SCMO_0029       -30.69               -30.73          -34.54           -17.28                 -17.50           -6.64                -10.74
+Trades (sleeve rebalances / basket changes in brackets) and cost paid at 20.8 bps:
+     book           strategy   strategy_fixed50         hold_parent         constant_mix   constant_mix_timed       sleeve_only   sleeve_only_timed
+SCMO_0003 33 (8/8) / 0.07858 25 (0/8) / 0.06591 18 (0/18) / 0.05677 240 (0/13) / 0.02726 240 (0/13) / 0.04470 0 (0/0) / 0.00000 18 (18/0) / 0.02232
+SCMO_0007 33 (8/8) / 0.06841 25 (0/8) / 0.05793 18 (0/18) / 0.04480 240 (0/13) / 0.02408 240 (0/13) / 0.03723 0 (0/0) / 0.00000 18 (18/0) / 0.02232
+SCMO_0010 33 (8/8) / 0.06327 25 (0/8) / 0.05367 18 (0/18) / 0.04918 240 (0/13) / 0.02715 240 (0/13) / 0.04156 0 (0/0) / 0.00000 18 (18/0) / 0.02232
+SCMO_0029 34 (8/9) / 0.07231 26 (0/9) / 0.06100 18 (0/18) / 0.04748 240 (0/13) / 0.02603 240 (0/13) / 0.04114 0 (0/0) / 0.00000 18 (18/0) / 0.02232
+The constant mixes hold 50.4% in the parent's basket (the rule's average share: invested weeks / weeks) all the time; constant_mix has a 50/50 non-stock share, constant_mix_timed splits it by the MAUc1 weight, both rebalanced at each decision's next session and at each basket change; sleeve_only holds the sleeve alone (50/50), sleeve_only_timed the sleeve alone split by the MAUc1 weight; strategy_fixed50 is Part A's rule (T06's rule on the real parents); hold_parent is the engine with the decision fixed IN (it follows every basket change). There is no published-NAV comparator in this test (the parents' published NAVs start on 2019-01-02).
+
+Per-year returns at 20.8 bps (calendar years; the first and last years are partial: the window runs from the first date to the last):
+ year       from         to strategy% strategy_fixed50% hold_parent%
+ 2014 2014-09-01 2014-12-31     20.53             19.24        32.93
+ 2015 2014-12-31 2015-12-31      4.75              8.75        95.27
+ 2016 2015-12-31 2016-12-30     16.80             14.04         3.90
+ 2017 2016-12-30 2017-12-29     26.23             28.71        71.89
+ 2018 2017-12-29 2018-12-31    -21.62            -21.28       -29.09
+ 2019 2018-12-31 2019-01-02      0.77              0.49        -0.72
+  (SCMO_0003; every book has the same signals, so the per-year pattern differs between books only through the baskets and the stock prices)
+
+THE ALL-3 RULE BESIDE THE 2-OF-3 RULE (descriptive: no null, no percentile, no pass mark; T13.md section 2 'Descriptive only' and section 3 step 10). The all-3 rule is T11's rule (hold the parent only when all three index signals are BUY), run by this engine on the same prices, baskets, sleeves and costs (runs strategy_all3 = timed sleeve, strategy_all3_fixed50 = 50/50 sleeve; gate V4(a1): they equal T11's stored runs). Window 2014-09-01 -> 2019-01-02. Gap = 2-of-3 minus all-3, in percentage points (drawdown: positive = the 2-of-3 rule's worst fall is shallower).
+Decisions (decisions.csv: state = 2-of-3, state_all3 = all three BUY, n_buy = number of the three index signs that are BUY):
+     book  weeks  IN_2of3  IN_all3  IN_2of3_not_all3  IN_all3_not_2of3  stretches_differ n_buy_0/1/2/3  round_trips_2of3  round_trips_all3  sleeve_trades_2of3  sleeve_trades_all3
+SCMO_0003    228      115       93                22                 0                 8   78/35/22/93                 9                 8                   8                   9
+SCMO_0007    228      115       93                22                 0                 8   78/35/22/93                 9                 8                   8                   9
+SCMO_0010    228      115       93                22                 0                 8   78/35/22/93                 9                 8                   8                   9
+SCMO_0029    228      115       93                22                 0                 8   78/35/22/93                 9                 8                   8                   9
+  (every week in which the 2-of-3 rule holds the parent and the all-3 rule does not is a week with exactly two of the three signs BUY; IN_all3_not_2of3 is 0 by construction: all three BUY implies at least two)
+The stretches in which only the 2-of-3 rule holds the parent (SCMO_0003; the same weeks in every book), with the parent (always IN) and the 50/50 sleeve over the sessions held, before cost:
+first decision last decision  weeks  held from         to parent_0bps% sleeve_50/50_0bps%
+    2014-10-31    2014-11-28      5 2014-11-03 2014-12-08        +6.47              +0.29
+    2014-12-12    2014-12-12      1 2014-12-15 2014-12-22        +0.09              -0.04
+    2015-01-23    2015-02-06      3 2015-01-27 2015-02-16        +4.58              -0.85
+    2015-03-27    2015-04-30      6 2015-03-30 2015-05-11        +4.68              +1.31
+    2016-04-13    2016-04-13      1 2016-04-18 2016-04-25        +0.13              -0.05
+    2016-11-04    2016-11-04      1 2016-11-07 2016-11-15       -11.85              -0.35
+    2018-04-27    2018-05-11      3 2018-04-30 2018-05-21       -16.23              -0.12
+    2018-08-17    2018-08-24      2 2018-08-20 2018-09-03        +2.12              +1.26
+Part B (MAUc1-timed sleeve): the 2-of-3 rule (strategy) against the all-3 rule (strategy_all3), 2014-09-01 -> 2019-01-02:
+ cost      book B_2of3_CAGR% B_all3_CAGR% B_gap_CAGR_pp B_2of3_DD% B_all3_DD% B_gap_DD_pp
+  0.0 SCMO_0003        10.93        12.05         -1.12     -27.22     -16.97      -10.25
+  0.0 SCMO_0007         7.12         4.91         +2.21     -17.84     -18.42       +0.58
+  0.0 SCMO_0010         4.35         7.82         -3.47     -24.63     -23.07       -1.56
+  0.0 SCMO_0029        10.06        12.67         -2.61     -28.37     -23.32       -5.05
+ 20.8 SCMO_0003         9.51        10.71         -1.20     -28.55     -18.15      -10.40
+ 20.8 SCMO_0007         5.66         3.58         +2.08     -18.65     -20.05       +1.41
+ 20.8 SCMO_0010         2.95         6.47         -3.52     -25.63     -24.42       -1.21
+ 20.8 SCMO_0029         8.61        11.29         -2.68     -29.31     -24.01       -5.30
+ 50.0 SCMO_0003         7.55         8.86         -1.32     -30.46     -19.87      -10.59
+ 50.0 SCMO_0007         3.64         1.73         +1.90     -19.81     -22.90       +3.09
+ 50.0 SCMO_0010         1.00         4.59         -3.59     -27.09     -26.26       -0.82
+ 50.0 SCMO_0029         6.61         9.38         -2.77     -30.69     -25.06       -5.63
+Part A (50/50 sleeve): the 2-of-3 rule (strategy_fixed50) against the all-3 rule (strategy_all3_fixed50), 2014-09-01 -> 2019-01-02:
+ cost      book A_2of3_CAGR% A_all3_CAGR% A_gap_CAGR_pp A_2of3_DD% A_all3_DD% A_gap_DD_pp
+  0.0 SCMO_0003        11.29        12.65         -1.35     -27.55     -16.60      -10.95
+  0.0 SCMO_0007         7.47         5.47         +2.00     -15.98     -16.36       +0.38
+  0.0 SCMO_0010         4.70         8.40         -3.70     -24.99     -21.33       -3.66
+  0.0 SCMO_0029        10.43        13.27         -2.84     -28.71     -23.02       -5.69
+ 20.8 SCMO_0003        10.13        11.60         -1.47     -28.76     -17.68      -11.08
+ 20.8 SCMO_0007         6.26         4.41         +1.85     -16.42     -17.78       +1.36
+ 20.8 SCMO_0010         3.53         7.32         -3.79     -25.89     -22.42       -3.47
+ 20.8 SCMO_0029         9.23        12.18         -2.95     -29.56     -23.62       -5.94
+ 50.0 SCMO_0003         8.51        10.14         -1.63     -30.46     -19.17      -11.28
+ 50.0 SCMO_0007         4.57         2.93         +1.64     -17.05     -20.02       +2.97
+ 50.0 SCMO_0010         1.91         5.82         -3.92     -27.13     -23.92       -3.22
+ 50.0 SCMO_0029         7.56        10.66         -3.10     -30.73     -24.45       -6.28
+Trades of the all-3 runs at 20.8 bps (sleeve rebalances / basket changes in brackets) and cost paid:
+     book           strategy      strategy_all3   strategy_fixed50 strategy_all3_fixed50
+SCMO_0003 33 (8/8) / 0.07858 31 (9/7) / 0.06699 25 (0/8) / 0.06591    22 (0/7) / 0.05377
+SCMO_0007 33 (8/8) / 0.06841 31 (9/7) / 0.05723 25 (0/8) / 0.05793    22 (0/7) / 0.04651
+SCMO_0010 33 (8/8) / 0.06327 31 (9/7) / 0.06074 25 (0/8) / 0.05367    22 (0/7) / 0.04939
+SCMO_0029 34 (8/9) / 0.07231 32 (9/8) / 0.06580 26 (0/9) / 0.06100    23 (0/8) / 0.05313
+  No null is built for the difference between the two entry rules (T13.md section 1: 'Whether 2-of-3 beats all-3 in a statistical sense' is not asked); the gap is what the looser entry changed in money terms on these weeks.
+
+====================================================================================================
+4.3  POWER: round trips, the minimum detectable edge (MDE = 2.8 x null SD; 80% power, two-sided 5%) per null, sessions invested and sleeve trades per draw
+====================================================================================================
+     book  round_trips  gold_spells_with_OUT F1_sd_CAGR_pp F1_MDE_CAGR_pp F1_sd_DD_pp F1_MDE_DD_pp F2_sd_CAGR_pp F2_MDE_CAGR_pp F2_sd_DD_pp F2_MDE_DD_pp F3_sd_CAGR_pp F3_MDE_CAGR_pp F3_sd_DD_pp F3_MDE_DD_pp F4_sd_CAGR_pp F4_MDE_CAGR_pp F4_sd_DD_pp F4_MDE_DD_pp F5_sd_CAGR_pp F5_MDE_CAGR_pp F5_sd_DD_pp F5_MDE_DD_pp F1f_sd_CAGR_pp F1f_MDE_CAGR_pp F1f_sd_DD_pp F1f_MDE_DD_pp F2f_sd_CAGR_pp F2f_MDE_CAGR_pp F2f_sd_DD_pp F2f_MDE_DD_pp
+SCMO_0003            9                    15          7.44          20.83        6.31        17.68          8.09          22.66        6.60        18.49          1.31           3.66        1.40         3.91          1.33           3.73        1.35         3.78          7.54          21.12        6.21        17.39           7.41           20.75         6.13         17.17           8.03           22.48         6.43         17.99
+SCMO_0007            9                    15          4.47          12.51        3.47         9.71          4.40          12.32        3.45         9.65          1.26           3.53        1.26         3.52          1.29           3.60        1.37         3.84          4.71          13.18        3.44         9.62           4.53           12.67         3.19          8.92           4.45           12.47         3.14          8.79
+SCMO_0010            9                    15          6.66          18.64        4.57        12.79          6.79          19.00        4.72        13.22          1.23           3.44        1.26         3.52          1.25           3.51        1.25         3.49          6.73          18.84        4.54        12.71           6.61           18.52         4.38         12.26           6.70           18.77         4.46         12.48
+SCMO_0029            9                    15          6.83          19.11        5.61        15.70          7.26          20.33        5.78        16.19          1.30           3.63        1.19         3.35          1.32           3.70        1.19         3.32          6.90          19.33        5.60        15.69           6.79           19.01         5.50         15.41           7.20           20.15         5.65         15.82
+(F1f and F2f are the in-or-out nulls run with the sleeve fixed at 50/50, the nulls of A1 and A2.) T13.md section 3 step 12: the thresholds in section 2 do not depend on these numbers, which did not exist when it was written; T11's values on this window are the priors.
+T11's null SD of CAGR on the same window (the all-3 rule's own draws, 20.8 bps; reference only), pp: 0003: F1f 7.02 (MDE 19.7), F1 7.07 (MDE 19.8), F3 1.38 (MDE 3.9); 0007: F1f 4.65 (MDE 13.0), F1 4.62 (MDE 12.9), F3 1.29 (MDE 3.6); 0010: F1f 6.31 (MDE 17.7), F1 6.40 (MDE 17.9), F3 1.33 (MDE 3.7); 0029: F1f 6.48 (MDE 18.1), F1 6.54 (MDE 18.3), F3 1.39 (MDE 3.9)
+
+Sessions invested per draw (full window, LBES, 20.8 bps; of 1,069 sessions; weeks are held exactly, sessions are not; F3 and F4 hold the real switch, so sessions equal the rule's; the fixed-50/50 draws use the same states):
+     book  rule   of  F1_min F1_median  F1_max  F1_equal_to_rule  F2_min F2_median  F2_max  F2_equal_to_rule  F3_min F3_median  F3_max  F3_equal_to_rule  F4_min F4_median  F4_max  F4_equal_to_rule
+SCMO_0003   543 1069     530     543.0     557               188     534     543.0     554               212     543     543.0     543              2000     543     543.0     543              2000
+SCMO_0007   543 1069     530     543.0     557               188     534     543.0     554               212     543     543.0     543              2000     543     543.0     543              2000
+SCMO_0010   543 1069     530     543.0     557               188     534     543.0     554               212     543     543.0     543              2000     543     543.0     543              2000
+SCMO_0029   543 1069     530     543.0     557               188     534     543.0     554               212     543     543.0     543              2000     543     543.0     543              2000
+
+Sleeve trades per gold draw (F3 and F4; the rule has 8 on SCMO_0003; draws that flip in IN weeks never trade, so the count varies):
+     book  rule  F3_min F3_median  F3_max  F4_min F4_median  F4_max
+SCMO_0003     8       3       8.0      14       3       8.0      14
+SCMO_0007     8       3       8.0      14       3       8.0      14
+SCMO_0010     8       3       8.0      14       3       8.0      14
+SCMO_0029     8       3       8.0      14       3       8.0      14
+
+====================================================================================================
+4.4  VERDICT against the pre-registered criteria (after cost, 20.8 bps; F1 decides A1, A2, C1, C2, F3 decides C3, C4; unadjusted, Holm beside)
+====================================================================================================
+  A1 equity timing, fixed 50/50 sleeve (H-A1)    FAIL   percentile >= 90 in >= 3 of 4 books against F1: 0 of 4 (0003 11.7, 0007 16.9, 0010 5.9, 0029 19.6); Holm-adjusted p: 0003 1.000, 0007 1.000, 0010 1.000, 0029 1.000   beside, against F2: 0 of 4 (0003 17.0, 0007 24.1, 0010 7.4, 0029 23.6)   MDE: 0003: undetectable below 20.7 pp; 0007: undetectable below 12.7 pp; 0010: undetectable below 18.5 pp; 0029: undetectable below 19.0 pp
+  A2 protection, fixed sleeve (H-A2)             FAIL   percentile >= 90 in >= 3 of 4 books against F1: 0 of 4 (0003 36.8, 0007 27.8, 0010 24.9, 0029 23.8); Holm-adjusted p: 0003 1.000, 0007 1.000, 0010 1.000, 0029 1.000   beside, against F2: 0 of 4 (0003 48.9, 0007 37.5, 0010 28.4, 0029 29.1)   MDE: 0003: undetectable below 17.2 pp; 0007: undetectable below 8.9 pp; 0010: undetectable below 12.3 pp; 0029: undetectable below 15.4 pp
+  C1 equity timing, timed sleeve (H1)            FAIL   percentile >= 90 in >= 3 of 4 books against F1: 0 of 4 (0003 13.9, 0007 19.9, 0010 7.6, 0029 23.1); Holm-adjusted p: 0003 1.000, 0007 1.000, 0010 1.000, 0029 1.000   beside, against F2: 0 of 4 (0003 20.0, 0007 28.3, 0010 10.0, 0029 26.7)   MDE: 0003: undetectable below 20.8 pp; 0007: undetectable below 12.5 pp; 0010: undetectable below 18.6 pp; 0029: undetectable below 19.1 pp
+  C2 protection, timed sleeve (H2)               FAIL   percentile >= 90 in >= 3 of 4 books against F1: 0 of 4 (0003 41.7, 0007 20.3, 0010 30.6, 0029 28.9); Holm-adjusted p: 0003 1.000, 0007 1.000, 0010 1.000, 0029 1.000   beside, against F2: 0 of 4 (0003 55.4, 0007 24.0, 0010 37.0, 0029 34.1)   MDE: 0003: undetectable below 17.7 pp; 0007: undetectable below 9.7 pp; 0010: undetectable below 12.8 pp; 0029: undetectable below 15.7 pp
+  C3 gold timing (H3)                            FAIL   percentile >= 90 in >= 3 of 4 books against F3: 0 of 4 (0003 42.0, 0007 42.0, 0010 42.0, 0029 42.0); Holm-adjusted p: 0003 1.000, 0007 1.000, 0010 1.000, 0029 1.000   beside, against F4: 0 of 4 (0003 42.9, 0007 42.9, 0010 42.9, 0029 42.9)   MDE: 0003: undetectable below 3.7 pp; 0007: undetectable below 3.5 pp; 0010: undetectable below 3.4 pp; 0029: undetectable below 3.6 pp
+  C4 gold-timing protection (H4)                 FAIL   percentile >= 90 in >= 3 of 4 books against F3: 0 of 4 (0003 77.5, 0007 22.6, 0010 77.5, 0029 77.5); Holm-adjusted p: 0003 1.000, 0007 1.000, 0010 1.000, 0029 1.000   beside, against F4: 0 of 4 (0003 75.5, 0007 22.3, 0010 74.4, 0029 74.4)   MDE: 0003: undetectable below 3.9 pp; 0007: undetectable below 3.5 pp; 0010: undetectable below 3.5 pp; 0029: undetectable below 3.3 pp
+
+T11 on the same weeks, parents, prices, costs and nulls (the all-3 entry; stored evidence C:\Users\manur\Repos\wm-AA\AA\tests\T11\evidence\headline; reference only, percentiles of T11's rule against T11's own draws): books at the 90th percentile against F1/F3: A1 0 of 4, A2 0 of 4, C1 0 of 4, C2 0 of 4, C3 0 of 4, C4 0 of 4 | percentiles: A1 0003 24.6, 0007 13.0, 0010 22.3, 0029 42.6; A2 0003 88.9, 0007 12.2, 0010 42.4, 0029 45.1; C1 0003 28.0, 0007 15.8, 0010 26.2, 0029 45.6; C2 0003 86.8, 0007 12.2, 0010 31.9, 0029 44.9; C3 0003 37.2, 0007 37.2, 0010 37.2, 0029 37.2; C4 0003 62.8, 0007 45.4, 0010 24.4, 0029 63.5
+  cross-check: these percentiles equal verify_t11.json's 'criteria' (T11's independent verifier, to its rounding of 0.05): True
+
+Outcome map (T13.md section 2), every row that applies (a pattern can match more than one row; the pre-registered text does not rank them):
+  - all FAIL: no timing edge over chance on this stretch for the 2-of-3 entry either: with T11, neither entry rule shows an edge on 2014-09 -> 2019-01, subject to the power note (T11's stored result: all three pairs failed too)
+  - agreement of the paired nulls: F1 and F2 agree on A1, A2, C1 and C2, F3 and F4 agree on C3 and C4
+A1-C4 are T11's criteria with the 2-of-3 entry; only C3 and C4 bear on the gold timing. T13 is a post-hoc variant of T11 on the same weeks (two entry rules have now been tried on this window; no adjustment is made for that). T13 alone cannot upgrade F-AA-S04 or F-AA-S07, and any new finding is PROVISIONAL at most whatever the outcome (the whole window is seen; there is no hold-out).
+
+====================================================================================================
+4.5  ROBUSTNESS R1-R7 (decide a finding's status, not the verdicts)
+====================================================================================================
+R1 at 0 bps, A1 against F1 (50/50 sleeve): 0 of 4 -> FAIL (0003 11.7, 0007 16.7, 0010 5.9, 0029 19.6)
+R1 at 0 bps, A1 against F2 (50/50 sleeve): 0 of 4 -> FAIL (0003 17.0, 0007 24.0, 0010 7.6, 0029 23.5)
+R1 at 0 bps, A2 against F1 (50/50 sleeve): 0 of 4 -> FAIL (0003 39.3, 0007 25.6, 0010 26.3, 0029 25.0)
+R1 at 0 bps, A2 against F2 (50/50 sleeve): 0 of 4 -> FAIL (0003 52.6, 0007 35.8, 0010 29.6, 0029 29.8)
+R1 at 0 bps, C1 against F1: 0 of 4 -> FAIL (0003 13.8, 0007 20.0, 0010 7.5, 0029 23.2)
+R1 at 0 bps, C1 against F2: 0 of 4 -> FAIL (0003 19.9, 0007 28.2, 0010 9.8, 0029 26.8)
+R1 at 0 bps, C2 against F1: 0 of 4 -> FAIL (0003 45.0, 0007 17.3, 0010 32.4, 0029 30.0)
+R1 at 0 bps, C2 against F2: 0 of 4 -> FAIL (0003 57.5, 0007 22.1, 0010 37.7, 0029 38.4)
+R1 at 0 bps, C3 against F3: 0 of 4 -> FAIL (0003 42.4, 0007 42.4, 0010 42.4, 0029 42.4)
+R1 at 0 bps, C3 against F4: 0 of 4 -> FAIL (0003 42.5, 0007 42.5, 0010 42.5, 0029 42.5)
+R1 at 0 bps, C4 against F3: 0 of 4 -> FAIL (0003 76.8, 0007 19.7, 0010 75.2, 0029 75.2)
+R1 at 0 bps, C4 against F4: 0 of 4 -> FAIL (0003 75.5, 0007 20.8, 0010 71.8, 0029 71.8)
+R1 at 50 bps, A1 against F1 (50/50 sleeve): 0 of 4 -> FAIL (0003 11.7, 0007 17.0, 0010 5.9, 0029 19.5)
+R1 at 50 bps, A1 against F2 (50/50 sleeve): 0 of 4 -> FAIL (0003 17.1, 0007 24.2, 0010 7.4, 0029 23.7)
+R1 at 50 bps, A2 against F1 (50/50 sleeve): 0 of 4 -> FAIL (0003 32.5, 0007 32.8, 0010 24.1, 0029 21.8)
+R1 at 50 bps, A2 against F2 (50/50 sleeve): 0 of 4 -> FAIL (0003 41.9, 0007 42.3, 0010 28.1, 0029 27.9)
+R1 at 50 bps, C1 against F1: 0 of 4 -> FAIL (0003 13.9, 0007 20.0, 0010 7.7, 0029 23.2)
+R1 at 50 bps, C1 against F2: 0 of 4 -> FAIL (0003 20.1, 0007 28.5, 0010 10.1, 0029 26.7)
+R1 at 50 bps, C2 against F1: 0 of 4 -> FAIL (0003 37.1, 0007 23.6, 0010 29.2, 0029 27.6)
+R1 at 50 bps, C2 against F2: 0 of 4 -> FAIL (0003 48.9, 0007 27.4, 0010 36.5, 0029 33.7)
+R1 at 50 bps, C3 against F3: 0 of 4 -> FAIL (0003 42.1, 0007 42.1, 0010 42.1, 0029 42.1)
+R1 at 50 bps, C3 against F4: 0 of 4 -> FAIL (0003 43.0, 0007 43.0, 0010 43.0, 0029 43.0)
+R1 at 50 bps, C4 against F3: 0 of 4 -> FAIL (0003 79.5, 0007 36.8, 0010 78.8, 0029 78.8)
+R1 at 50 bps, C4 against F4: 0 of 4 -> FAIL (0003 78.4, 0007 33.8, 0010 76.8, 0029 76.8)
+
+R2 LIQUIDCASE as the cash leg (full window, 20.8 bps; A1 against F1 run with the 50/50 sleeve, C1 against F1, C3 against F3):
+  A1 against F1 (50/50 sleeve): CAGR percentiles [11.7, 16.9, 5.9, 19.6] (rule's CAGR ['10.13%', '6.26%', '3.53%', '9.23%']) -> 0 of 4 >= 90 -> FAIL
+  C1 against F1: CAGR percentiles [13.9, 19.9, 7.6, 23.1] (rule's CAGR ['9.51%', '5.66%', '2.95%', '8.61%']) -> 0 of 4 >= 90 -> FAIL
+  C3 against F3: CAGR percentiles [42.0, 42.0, 42.0, 42.0] (rule's CAGR ['9.51%', '5.66%', '2.95%', '8.61%']) -> 0 of 4 >= 90 -> FAIL
+  R2 is a null result by construction: LIQUIDCASE's daily returns equal LBES's in this window to the maximum daily-return difference printed here (audit.json: 1.2934631143934894e-10), so the cash leg cannot change a number. Largest |CAGR(LIQ) - CAGR(LBES)| over the rule's two runs and over every draw of F1 (both sleeves) and F3 on the same ids: 2.49e-11 (rule), 1.24e-10 (draws).
+
+R3 window 2015-01-02 -> 2019-01-02 (own spells, totals and nulls, bounds from that window's series, 20.8 bps; A1 against F1 run with the 50/50 sleeve, C1 against F1, C3 against F3):
+  A1 against F1 (50/50 sleeve): CAGR percentiles [16.3, 21.1, 10.4, 29.5] (rule's CAGR ['6.20%', '4.23%', '3.97%', '8.32%']) -> 0 of 4 >= 90 -> FAIL
+  C1 against F1: CAGR percentiles [19.1, 24.9, 13.1, 32.5] (rule's CAGR ['5.22%', '3.27%', '3.01%', '7.32%']) -> 0 of 4 >= 90 -> FAIL
+  C3 against F3: CAGR percentiles [36.9, 36.9, 36.9, 36.9] (rule's CAGR ['5.22%', '3.27%', '3.01%', '7.32%']) -> 0 of 4 >= 90 -> FAIL
+
+R4 agreement of the paired nulls (20.8 bps; no pass mark). Per book: the rule's percentile under each null of a pair, and each null's spread of after-cost CAGR:
+  (A_F1 and A_F2: the 50/50-sleeve rule against F1 and F2 run with the 50/50 sleeve; F1 to F4: the timed rule against the timed nulls)
+     book A_F1_pct A_F1_DD_pct A_F1_median% A_F1_sd_pp A_F1_p5% A_F1_p95% A_F2_pct A_F2_DD_pct A_F2_median% A_F2_sd_pp A_F2_p5% A_F2_p95% F1_pct F1_DD_pct F1_median% F1_sd_pp F1_p5% F1_p95% F2_pct F2_DD_pct F2_median% F2_sd_pp F2_p5% F2_p95% F3_pct F3_DD_pct F3_median% F3_sd_pp F3_p5% F3_p95% F4_pct F4_DD_pct F4_median% F4_sd_pp F4_p5% F4_p95% gap(A_F2-A_F1) gap(F2-F1) gap(F4-F3)
+SCMO_0003    11.70       36.75        18.91       7.41     6.79     31.50    17.00       48.85        17.85       8.03     5.41     31.51  13.85     41.70      17.59     7.44   5.45   30.03  20.00     55.35      16.46     8.09   4.00   30.25  42.00     77.45       9.80     1.31   7.59   11.87  42.90     75.48       9.80     1.33   7.56   11.95           5.30       6.15       0.90
+SCMO_0007    16.85       27.80        10.62       4.53     3.53     18.37    24.10       37.50         9.40       4.45     2.47     16.92  19.90     20.30       9.49     4.47   2.37   17.05  28.30     24.00       8.12     4.40   1.13   15.43  42.00     22.55       5.93     1.26   3.80    7.94  42.90     22.30       5.94     1.29   3.77    8.01           7.25       8.40       0.90
+SCMO_0010     5.90       24.85        13.48       6.61     3.10     24.95     7.45       28.45        12.94       6.70     2.41     24.64   7.65     30.60      12.25     6.66   1.95   23.65   9.95     37.05      11.60     6.79   0.89   23.51  42.00     77.45       3.21     1.23   1.14    5.17  42.90     74.35       3.22     1.25   1.11    5.24           1.55       2.30       0.90
+SCMO_0029    19.55       23.85        15.07       6.79     4.54     26.69    23.60       29.15        14.21       7.20     2.85     26.95  23.10     28.90      13.71     6.83   3.03   25.50  26.65     34.10      12.86     7.26   1.51   25.52  42.00     77.45       8.90     1.30   6.71   10.96  42.90     74.35       8.90     1.32   6.68   11.03           4.05       3.55       0.90
+T11's stored percentiles (THE SAME WINDOW, PARENTS, PRICES, COSTS AND NULL DESIGN, the all-3 entry; stored evidence C:\Users\manur\Repos\wm-AA\AA\tests\T11\evidence\headline; T11's rule against T11's own draws, seeds starting 14; reference only, no pass mark):
+     book T11_timed_rule_CAGR% T11_50/50_rule_CAGR% T11_F1f_cagr T11_F1f_dd T11_F2f_cagr T11_F2f_dd T11_F1_cagr T11_F1_dd T11_F2_cagr T11_F2_dd T11_F3_cagr T11_F3_dd T11_F4_cagr T11_F4_dd
+SCMO_0003                10.71                11.60        24.55      88.95        28.45      91.25       27.95     86.80       31.20     88.40       37.25     62.85       37.80     62.10
+SCMO_0007                 3.58                 4.41        13.00      12.15        12.80      13.15       15.80     12.20       15.60     11.10       37.25     45.35       37.80     42.80
+SCMO_0010                 6.47                 7.32        22.30      42.40        23.70      43.15       26.20     31.95       26.25     31.80       37.25     24.45       37.80     20.95
+SCMO_0029                11.29                12.18        42.65      45.05        43.50      50.80       45.60     44.85       46.30     48.20       37.25     63.55       37.80     61.58
+  (T11_<tag>_cagr / _dd = the percentile of T11's rule's CAGR / maximum drawdown against T11's own null; F1f and F2f with the 50/50 sleeve against the 50/50 rule, F1 to F4 timed)
+Historical reference (a different window and real parents; stored percentiles of the rules' own draws; NOT comparable draw for draw, and no pass mark). Omitted below if the evidence files do not exist:
+  T06 (stored evidence tests/T06/evidence/headline; 2019-01-02 -> 2026 on the real parents):
+     book T06_CAGR% T06_N10_pct T06_N10_DD_pct T06_N9_pct T06_N9_DD_pct
+SCMO_0003     28.64       97.40          97.90      96.85         98.15
+SCMO_0007     20.96       94.10          97.78      92.80         96.92
+SCMO_0010     30.41       96.75          97.20      96.00         98.15
+SCMO_0029     26.61       94.60          98.75      94.75         98.35
+  T08 (stored evidence tests/T08/evidence/headline; 2019-01-02 -> 2026 on the real parents):
+     book T08_CAGR% T08_F1_pct T08_F1_DD_pct T08_F2_pct T08_F2_DD_pct T08_F3_pct T08_F3_DD_pct T08_F4_pct T08_F4_DD_pct
+SCMO_0003     30.37      97.15         96.35      97.30         95.85      61.90         53.80      60.50         53.30
+SCMO_0007     22.61      94.25         97.80      93.20         96.67      61.05         52.80      59.10         58.00
+SCMO_0010     32.15      97.00         84.00      96.85         84.20      61.90          0.65      60.50          0.57
+SCMO_0029     28.31      95.05         93.60      94.95         92.30      61.90         52.85      60.50         52.23
+  T09 (stored evidence tests/T09/evidence/headline; 2011-11-25 -> 2019-01-02 on a three-index PROXY, the same weekly series from 2014-09-01; the rule's percentile against T09's own draws; A_F1 = the 50/50 rule against F1 with the 50/50 sleeve):
+     book T09_A_F1_pct T09_A_F1_DD_pct T09_F1_pct T09_F1_DD_pct T09_timed_rule_CAGR% T09_F2_pct T09_F2_DD_pct T09_F3_pct T09_F3_DD_pct T09_F4_pct T09_F4_DD_pct
+SCMO_0003        50.05           61.35      59.95         56.60                 6.45      62.65         60.80      56.75         19.45      57.85         16.45
+SCMO_0007        51.25           61.85      60.45         57.55                 6.52      63.60         61.00      56.75         18.90      57.85         15.95
+SCMO_0010        45.25           57.00      56.55         53.50                 6.13      59.60         56.60      56.75         20.45      57.85         18.15
+SCMO_0029        42.95           54.30      54.95         50.30                 6.05      58.10         52.40      56.75         21.00      57.85         18.70
+
+R5 both timings random (F5: an F1 draw and an F3 draw of the same id; 20.8 bps; reported only):
+     book CAGR% F5_med% F5_sd_pp CAGR_pct  CAGR_p DD_pct    DD_p
+SCMO_0003  9.51   18.56     7.54    11.40 0.88606  40.25 0.59770
+SCMO_0007  5.66   10.33     4.71    15.40 0.84608  17.25 0.82759
+SCMO_0010  2.95   13.21     6.73     5.25 0.94753  29.40 0.70615
+SCMO_0029  8.61   14.65     6.90    18.80 0.81209  27.55 0.72464
+
+R6 paired contrast (descriptive, no pass mark): every F1 and F2 draw also run with the sleeve fixed at 50/50; the change from 50/50 to the timed sleeve, in the rule and in the draws (full window, 20.8 bps):
+     book rule_dCAGR_pp rule_dDD_pp F1_med_dCAGR_pp F1_dCAGR_pct F1_share_dCAGR>0 F1_med_dDD_pp F1_dDD_pct F1_share_dDD>0 F2_med_dCAGR_pp F2_dCAGR_pct F2_share_dCAGR>0 F2_med_dDD_pp F2_dDD_pct F2_share_dDD>0
+SCMO_0003         -0.62        0.21           -1.28        78.60             0.07         -0.37      88.05           0.24           -1.35        79.55             0.06         -0.71      92.25           0.18
+SCMO_0007         -0.60       -2.22           -1.20        77.30             0.07         -0.57      15.90           0.22           -1.26        78.75             0.06         -0.60      12.10           0.18
+SCMO_0010         -0.58        0.26           -1.23        79.00             0.07         -0.21      86.70           0.30           -1.29        79.95             0.06         -0.44      92.15           0.22
+SCMO_0029         -0.62        0.25           -1.24        77.80             0.07         -0.27      86.85           0.28           -1.31        79.05             0.06         -0.42      92.60           0.20
+  dCAGR = CAGR(timed sleeve) - CAGR(50/50) on the same states; dDD = max drawdown (timed) - max drawdown (50/50), positive = shallower with timing. The percentile ranks the rule's change among the draws' changes (higher = the rule gains more from timing than the draws do).
+
+R7 price-quality sensitivity (descriptive, no pass mark; 2014-09-01 -> 2019-01-02, LBES cash): the rule (Part B), the 50/50 rule (Part A) and hold-the-parent re-run (a) with the return of every listed stock-day set to zero (flagged: a held stock with an absolute one-day close-to-close return of 20% or more in D18, listed in r7_flagged_days.csv) and (b) with the return of every held stock-day priced from a manual Eikon export set to zero (noexport):
+  flagged stock-days (1): 
+     book       date    stock  prev_close  close     ret w_prev  w_cur src
+SCMO_0010 2017-10-23 PURVA.NS       80.15  96.85 +0.2084 0.0667 0.0667  db
+     book  cost                  run CAGR%    DD% flag_CAGR% flag_dCAGR_pp flag_DD% flag_dDD_pp noexp_CAGR% noexp_dCAGR_pp noexp_DD% noexp_dDD_pp
+SCMO_0003   0.0 rule, timed (Part B) 10.93 -27.22      10.93        +0.000   -27.22      +0.000       10.27         -0.653    -26.55       +0.675
+SCMO_0003   0.0 rule, 50/50 (Part A) 11.29 -27.55      11.29        +0.000   -27.55      +0.000       10.64         -0.655    -26.88       +0.672
+SCMO_0003   0.0      hold the parent 32.75 -39.38      32.75        +0.000   -39.38      +0.000       31.06         -1.691    -39.59       -0.203
+SCMO_0003  20.8 rule, timed (Part B)  9.51 -28.55       9.51        +0.000   -28.55      +0.000        8.86         -0.645    -27.89       +0.663
+SCMO_0003  20.8 rule, 50/50 (Part A) 10.13 -28.76      10.13        +0.000   -28.76      +0.000        9.48         -0.648    -28.10       +0.661
+SCMO_0003  20.8      hold the parent 32.16 -39.67      32.16        +0.000   -39.67      +0.000       30.47         -1.683    -39.88       -0.202
+SCMO_0007   0.0 rule, timed (Part B)  7.12 -17.84       7.12        +0.000   -17.84      +0.000        6.70         -0.422    -17.84       +0.000
+SCMO_0007   0.0 rule, 50/50 (Part A)  7.47 -15.98       7.47        +0.000   -15.98      +0.000        7.05         -0.423    -15.98       +0.000
+SCMO_0007   0.0      hold the parent 18.21 -15.95      18.21        +0.000   -15.95      +0.000       17.67         -0.547    -15.95       -0.000
+SCMO_0007  20.8 rule, timed (Part B)  5.66 -18.65       5.66        +0.000   -18.65      +0.000        5.24         -0.416    -18.65       +0.000
+SCMO_0007  20.8 rule, 50/50 (Part A)  6.26 -16.42       6.26        +0.000   -16.42      +0.000        5.84         -0.418    -16.42       +0.000
+SCMO_0007  20.8      hold the parent 17.45 -16.11      17.45        +0.000   -16.11      +0.000       16.91         -0.544    -16.11       +0.000
+SCMO_0010   0.0 rule, timed (Part B)  4.35 -24.63       4.35        +0.000   -24.63      +0.000        3.78         -0.572    -24.45       +0.183
+SCMO_0010   0.0 rule, 50/50 (Part A)  4.70 -24.99       4.70        +0.000   -24.99      +0.000        4.12         -0.574    -24.81       +0.182
+SCMO_0010   0.0      hold the parent 22.79 -28.99      22.28        -0.505   -28.99      +0.000       21.09         -1.693    -29.72       -0.730
+SCMO_0010  20.8 rule, timed (Part B)  2.95 -25.63       2.95        +0.000   -25.63      +0.000        2.38         -0.564    -25.45       +0.180
+SCMO_0010  20.8 rule, 50/50 (Part A)  3.53 -25.89       3.53        +0.000   -25.89      +0.000        2.96         -0.568    -25.71       +0.180
+SCMO_0010  20.8      hold the parent 22.05 -29.47      21.55        -0.502   -29.47      +0.000       20.37         -1.684    -30.20       -0.725
+SCMO_0029   0.0 rule, timed (Part B) 10.06 -28.37      10.06        +0.000   -28.37      +0.000       10.06         -0.007    -28.37       -0.000
+SCMO_0029   0.0 rule, 50/50 (Part A) 10.43 -28.71      10.43        +0.000   -28.71      +0.000       10.42         -0.007    -28.71       -0.000
+SCMO_0029   0.0      hold the parent 26.36 -33.81      26.36        +0.000   -33.81      +0.000       26.10         -0.258    -33.81       +0.000
+SCMO_0029  20.8 rule, timed (Part B)  8.61 -29.31       8.61        +0.000   -29.31      +0.000        8.61         -0.007    -29.31       +0.000
+SCMO_0029  20.8 rule, 50/50 (Part A)  9.23 -29.56       9.23        +0.000   -29.56      +0.000        9.22         -0.007    -29.56       +0.000
+SCMO_0029  20.8      hold the parent 25.69 -34.12      25.69        +0.000   -34.12      +0.000       25.43         -0.257    -34.12       -0.000
+  dCAGR / dDD = the re-run's value minus the baseline's, in percentage points (a negative dDD = a deeper worst fall).
+Contribution of the manual-export stocks (r7_export.csv): held stock-sessions priced from an export, and the always-in 0-cost end NAV with and without the returns of every export-priced held stock-day:
+     book                                                                                                    export_stocks  held_export_sessions hold_end_nav hold_end_nav_noexport hold_CAGR% noexport_CAGR% change_pp
+SCMO_0003                                                                 GEOM.NS 42, DISH.NS 164, OSCM.NS 122, MOL.NS 246                   574       3.3263                3.1502      32.75          31.06    -1.691
+SCMO_0007                                                                                     LAKSHVILAS.NS 61, HEXT.NS 62                   123       2.0336                1.9939      18.21          17.67    -0.547
+SCMO_0010 DISH.NS 62, GEOM.NS 42, PEL.NS 42, MOL.NS 102, OSCM.NS 60, LAKSHVILAS.NS 62, PIRAMALFIN.NS 124, JMCPROJECT.NS 62                   556       2.3888                2.2521      22.79          21.09    -1.693
+SCMO_0029                                                                                                      GEOM.NS 122                   122       2.6979                2.6746      26.36          26.10    -0.258
+  the rule's 17 exits and sleeve rebalances at 20.8 bps (SCMO_0003): 0 have a GOLDBEES fill at the raw OHLC4 (no MCX range that session), 17 at the de-spiked OHLC4.
+
+====================================================================================================
+4.6  THE REBUILT PARENT NAV AND THE DATA CAVEATS (descriptive; 2014-09-01 -> 2019-01-02)
+====================================================================================================
+Caption of parent_nav_2014-09-01_2019-01-02.csv (its sidecar .md, quoted): "rebuilt from the parent's baskets and Eikon prices, not validated against a published NAV before 2019-01-02"
+The file holds, per parent and session (1070 sessions per book, 2014-09-01 -> 2019-01-02, base 1.000 at 2014-09-01's close): the hold-the-parent NAV (always IN) at 0 and 20.8 bps and the Part A (50/50 sleeve) and Part B (timed sleeve) NAV at 20.8 bps. It is NOT approved data and no other test may read it. Every value equals the corresponding run of daily_nav.csv (gate V4).
+     book       from         to hold 0bps end hold 0bps CAGR% hold 0bps DD% hold 20.8 end hold 20.8 CAGR% hold 20.8 DD% Part A 20.8 end Part A 20.8 CAGR% Part A 20.8 DD% Part B 20.8 end Part B 20.8 CAGR% Part B 20.8 DD%
+SCMO_0003 2014-09-01 2019-01-02        3.3263           32.75        -39.38        3.2633           32.16        -39.67          1.5058             10.13          -28.76          1.4701              9.51          -28.55
+SCMO_0007 2014-09-01 2019-01-02        2.0336           18.21        -15.95        1.9784           17.45        -16.11          1.2936              6.26          -16.42          1.2629              5.66          -18.65
+SCMO_0010 2014-09-01 2019-01-02        2.3888           22.79        -28.99        2.3290           22.05        -29.47          1.1585              3.53          -25.89          1.1310              2.95          -25.63
+SCMO_0029 2014-09-01 2019-01-02        2.6979           26.36        -33.81        2.6376           25.69        -34.12          1.4542              9.23          -29.56          1.4198              8.61          -29.31
+
+Data caveats, counted from the evidence (the same counts are in T13.md section 3, T11's unchanged; this is a check, not a result):
+     book  held_export_stock_sessions                                                                                                    export_stocks  carried_bars  held_stock_sessions_without_a_bar  stock_days_|ret|>=20%
+SCMO_0003                         574                                                                 GEOM.NS 42, DISH.NS 164, OSCM.NS 122, MOL.NS 246             0                                 11                      0
+SCMO_0007                         123                                                                                     LAKSHVILAS.NS 61, HEXT.NS 62             0                                  6                      0
+SCMO_0010                         556 DISH.NS 62, GEOM.NS 42, PEL.NS 42, MOL.NS 102, OSCM.NS 60, LAKSHVILAS.NS 62, PIRAMALFIN.NS 124, JMCPROJECT.NS 62             3                                 15                      1
+SCMO_0029                         122                                                                                                      GEOM.NS 122             0                                 15                      0
+Sessions without any D18 bar in the window (SCMO_0003): ['2017-10-19'] (the previous close stands in; no trade falls on it: 0 trades on stand-in sessions); sessions with a held stock lacking a bar: 1; GOLDBEES sessions without an own bar: ['2016-10-30']; sessions without an MCX range (raw OHLC4 fill): ['2014-10-23', '2015-01-01', '2015-11-11']
+
+Hypotheses: H-A1 (equity timing, fixed sleeve) FALSIFIED against F1 | H-A2 (protection, fixed sleeve) FALSIFIED against F1 | H1 (equity timing, timed sleeve) FALSIFIED against F1 | H2 (protection, timed sleeve) FALSIFIED against F1 | H3 (gold timing) FALSIFIED against F3 | H4 (gold-timing protection) FALSIFIED against F3
+Gates: all pass
+wrote C:\Users\manur\Repos\wm-AA\AA\tests\T13\analysis.log
+filled section 4 of T13.md from analysis.log; sections 1-3 and 5-8 unchanged (frozen hash ab1d6f4747e6a122)
+OK   ab1d6f4747e6a122c9f1d9ea3291192f595be5c973a7e5248b508de961436bdd recorded ab1d6f4747e6a122c9f1d9ea3291192f595be5c973a7e5248b508de961436bdd
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "c:\Users\manur\Repos\wm-AA\AA\tests\T13\plot_parent_vs_partb.py", line 21, in <module>
+    import pandas as pd                # noqa: E402
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+wrote parent_vs_partb_0bps.png
+wrote parent_vs_partb_20.8bps.png
+wrote parent_vs_partb_50bps.png
+wrote parent_vs_parta_0bps.png
+wrote parent_vs_parta_20.8bps.png
+wrote parent_vs_parta_50bps.png
+
+End of window (2019-01-02), index points, 100 = 2014-09-01:  parent / rule / gap
+Part B    0 bps  0003: 333/155/+177  0007: 203/134/+69  0010: 239/120/+119  0029: 270/150/+120
+Part B 20.8 bps  0003: 326/147/+179  0007: 198/126/+72  0010: 233/113/+120  0029: 264/142/+122
+Part B   50 bps  0003: 318/136/+182  0007: 190/116/+74  0010: 225/104/+120  0029: 256/131/+124
+Part A    0 bps  0003: 333/157/+175  0007: 203/136/+68  0010: 239/122/+117  0029: 270/152/+117
+Part A 20.8 bps  0003: 326/151/+176  0007: 198/129/+68  0010: 233/116/+117  0029: 264/145/+118
+Part A   50 bps  0003: 318/141/+176  0007: 190/121/+69  0010: 225/108/+116  0029: 256/136/+119
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "c:\Users\manur\Repos\wm-AA\AA\tests\T13\report.py", line 33, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+wrote C:\Users\manur\Repos\wm-AA\AA\tests\T13\evidence\report.html (2308 kB)
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "c:\Users\manur\Repos\wm-AA\AA\tests\T13\check_page.py", line 47, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+check_page: 2464 checks, 0 failures
+OK   ab1d6f4747e6a122c9f1d9ea3291192f595be5c973a7e5248b508de961436bdd recorded ab1d6f4747e6a122c9f1d9ea3291192f595be5c973a7e5248b508de961436bdd

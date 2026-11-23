@@ -1,0 +1,179 @@
+{
+ "decisions": {
+  "SCMO_0003": {
+   "compared": 228,
+   "only_one_side": 0,
+   "mismatches": 0,
+   "pass": true
+  }
+ },
+ "rows": [
+  {
+   "book": "SCMO_0003",
+   "run": "strategy_all3",
+   "t11_run": "strategy",
+   "cost_bps": 0.0,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  {
+   "book": "SCMO_0003",
+   "run": "strategy_all3",
+   "t11_run": "strategy",
+   "cost_bps": 20.8,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  {
+   "book": "SCMO_0003",
+   "run": "strategy_all3",
+   "t11_run": "strategy",
+   "cost_bps": 50.0,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  {
+   "book": "SCMO_0003",
+   "run": "strategy_all3_fixed50",
+   "t11_run": "strategy_fixed50",
+   "cost_bps": 0.0,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  {
+   "book": "SCMO_0003",
+   "run": "strategy_all3_fixed50",
+   "t11_run": "strategy_fixed50",
+   "cost_bps": 20.8,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  {
+   "book": "SCMO_0003",
+   "run": "strategy_all3_fixed50",
+   "t11_run": "strategy_fixed50",
+   "cost_bps": 50.0,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  {
+   "book": "SCMO_0003",
+   "run": "hold_parent",
+   "t11_run": "hold_parent",
+   "cost_bps": 0.0,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  {
+   "book": "SCMO_0003",
+   "run": "hold_parent",
+   "t11_run": "hold_parent",
+   "cost_bps": 20.8,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  {
+   "book": "SCMO_0003",
+   "run": "hold_parent",
+   "t11_run": "hold_parent",
+   "cost_bps": 50.0,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  {
+   "book": "SCMO_0003",
+   "run": "sleeve_only",
+   "t11_run": "sleeve_only",
+   "cost_bps": 0.0,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  {
+   "book": "SCMO_0003",
+   "run": "sleeve_only",
+   "t11_run": "sleeve_only",
+   "cost_bps": 20.8,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  {
+   "book": "SCMO_0003",
+   "run": "sleeve_only",
+   "t11_run": "sleeve_only",
+   "cost_bps": 50.0,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  {
+   "book": "SCMO_0003",
+   "run": "sleeve_only_timed",
+   "t11_run": "sleeve_only_timed",
+   "cost_bps": 0.0,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  {
+   "book": "SCMO_0003",
+   "run": "sleeve_only_timed",
+   "t11_run": "sleeve_only_timed",
+   "cost_bps": 20.8,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  {
+   "book": "SCMO_0003",
+   "run": "sleeve_only_timed",
+   "t11_run": "sleeve_only_timed",
+   "cost_bps": 50.0,
+   "dates_compared": 1070,
+   "sessions": 1070,
+   "max_rel_diff": 0.0,
+   "pass": true
+  }
+ ],
+ "tolerance_rel": 1e-12,
+ "pairs": {
+  "strategy_all3": "strategy",
+  "strategy_all3_fixed50": "strategy_fixed50",
+  "hold_parent": "hold_parent",
+  "sleeve_only": "sleeve_only",
+  "sleeve_only_timed": "sleeve_only_timed"
+ },
+ "worst_rel_diff_by_run": {
+  "strategy_all3": 0.0,
+  "strategy_all3_fixed50": 0.0,
+  "hold_parent": 0.0,
+  "sleeve_only": 0.0,
+  "sleeve_only_timed": 0.0
+ },
+ "rows_compared": 15,
+ "pass": true
+}
