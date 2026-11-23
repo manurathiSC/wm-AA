@@ -1,0 +1,3 @@
+parent,isin,stock,name,holding_days,first,last,max_weight,weight_share_pct_of_parent,snapshots,why
+SCMO_0010,INE202B01038,PIRAMALFIN.NS,Piramal Finance Ltd,125,2017-06-01,2017-11-29,0.0667,0.8837584436693169,"2017-05-31,2017-06-30,2017-07-31,2017-08-31,2017-09-29,2017-10-31","ISIN not in D20b; symbology: class ['ordinary'], quote_id ['236798428431'], ric ['PIRL.NS']"
+SCMO_0029,INE093A01041,HEXT.NS,Hexaware Technologies Ltd,58,2014-03-04,2014-05-30,0.0667,0.4105946277546727,"2014-02-28,2014-03-31,2014-04-30,2014-05-30","ISIN not in D20b; symbology: class ['ordinary'], quote_id ['236783369047'], ric ['HEXW.NS']"

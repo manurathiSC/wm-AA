@@ -1,0 +1,28 @@
+{
+  "retrieved_at": "2026-11-17T09:34:43+00:00",
+  "source": "postgres windmill, read-only session",
+  "script": "data/pull_mcap_pre2018.py",
+  "script_sha256": "373c2fd94b6f4ed73db0533ac6e3944436b3207899cdd37718c4518e6a8d36ba",
+  "query": "SELECT * FROM public.mcap_based_universe WHERE date >= %(start)s AND date < %(end)s AND instrument_class = 'ordinary' -- params: start=2013-12-01, end=2018-01-01",
+  "overlap_check": "DB rows 2018-01-01..2026-11-11 byte-identical to D20 (sha256 f0288a5b09a604ecebb148bae50c5baeaa743f7924adc8adc688c4718b7683ba)",
+  "inputs": {
+    "D20 mcap_universe_ordinary.csv": "f0288a5b09a604ecebb148bae50c5baeaa743f7924adc8adc688c4718b7683ba",
+    "D23 mcap_rank_panel.csv": "e7c98ec5e0cc144c2986530f156b8a561f5c2df92d3ccc11a0ddce335f90cbf0"
+  },
+  "status": "CANDIDATE (PENDING): off-limits until Manu approves it and APPROVED_DATA.md is updated",
+  "files": {
+    "mcap_universe_ordinary_2013-12_2017-12.csv": {
+      "rows": 74729,
+      "sha256": "8b5b657c0911a97b0a56554d2c67a7f6a1ccac5085826192103f7d5866194177"
+    },
+    "mcap_rank_panel_2013-12_2017-12.csv": {
+      "rows": 74679,
+      "sha256": "fdc99de8d6fcb62c4e324d0280afcaf57f59c48a6554aff813c2c19e3687796a"
+    },
+    "mcap_rank_panel_from_2013-12.csv": {
+      "rows": 862744,
+      "sha256": "ba2ce96cf71b907f70ab7d0c9f04d43d899bee194bca83259af6260316525b6b",
+      "note": "rows 2013-12-31..2017-12-29 ranked here by build_tag_panels.build_rank_panel; rows from 2018-01-31 are D23's mcap_rank_panel.csv copied byte for byte. Read it with analysis/tag_lookup.py in place of D23's rank panel."
+    }
+  }
+}

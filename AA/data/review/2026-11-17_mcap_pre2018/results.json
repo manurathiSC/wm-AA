@@ -1,0 +1,4220 @@
+{
+ "check1": {
+  "rows": 74729,
+  "columns": [
+   "date",
+   "quote_id",
+   "instrument_id",
+   "ric",
+   "ticker",
+   "full_name",
+   "isin",
+   "close",
+   "mcap",
+   "mcap_scaled_in_cr",
+   "updated_at",
+   "instrument_type",
+   "instrument_class"
+  ],
+  "columns_identical_to_D20": true,
+  "instrument_class_values": {
+   "ordinary": 74729
+  },
+  "instrument_type_values": {
+   "Fully Paid Ordinary Shares": 62762,
+   "Ordinary Shares": 11967
+  },
+  "nulls_per_column": {
+   "date": 0,
+   "quote_id": 0,
+   "instrument_id": 0,
+   "ric": 0,
+   "ticker": 0,
+   "full_name": 0,
+   "isin": 0,
+   "close": 0,
+   "mcap": 50,
+   "mcap_scaled_in_cr": 50,
+   "updated_at": 0,
+   "instrument_type": 0,
+   "instrument_class": 0
+  },
+  "null_mcap_rows_by_year": {
+   "2014": 15,
+   "2015": 4,
+   "2016": 31
+  },
+  "null_mcap_quote_ids": [
+   "21475110728",
+   "21476958141",
+   "21543158592",
+   "21563174438",
+   "21566613064",
+   "21569796193",
+   "21569999631",
+   "21589728537"
+  ],
+  "null_mcap_tickers": [
+   "ASPINWALL",
+   "CAPLIPOINT",
+   "ELITE",
+   "GIRRESORTS",
+   "HIRAFERRO",
+   "HUSYSLTD",
+   "OSWALMIN",
+   "RAMASTEEL"
+  ],
+  "null_mcap_stocks_rank_elsewhere": {
+   "21475110728": {
+    "ticker": "OSWALMIN",
+    "null_dates": [
+     "2014-07-31",
+     "2014-09-30",
+     "2014-10-31",
+     "2014-11-28",
+     "2014-12-31"
+    ],
+    "best_rank_other_snapshots": null
+   },
+   "21476958141": {
+    "ticker": "HIRAFERRO",
+    "null_dates": [
+     "2014-01-31",
+     "2014-02-28",
+     "2014-03-31",
+     "2014-04-30",
+     "2014-05-30",
+     "2014-06-30",
+     "2014-07-31"
+    ],
+    "best_rank_other_snapshots": null
+   },
+   "21543158592": {
+    "ticker": "CAPLIPOINT",
+    "null_dates": [
+     "2014-06-30",
+     "2014-07-31",
+     "2014-08-28"
+    ],
+    "best_rank_other_snapshots": 334,
+    "median_rank": 449.0,
+    "n_ranked_snapshots": 40
+   },
+   "21563174438": {
+    "ticker": "ELITE",
+    "null_dates": [
+     "2015-11-30",
+     "2015-12-31",
+     "2016-01-29",
+     "2016-02-29",
+     "2016-03-31",
+     "2016-04-29",
+     "2016-05-31",
+     "2016-06-30",
+     "2016-07-29",
+     "2016-08-31",
+     "2016-09-30",
+     "2016-10-30",
+     "2016-11-30",
+     "2016-12-30"
+    ],
+    "best_rank_other_snapshots": 1618,
+    "median_rank": 1622.5,
+    "n_ranked_snapshots": 2
+   },
+   "21566613064": {
+    "ticker": "GIRRESORTS",
+    "null_dates": [
+     "2015-12-31",
+     "2016-01-29",
+     "2016-02-29",
+     "2016-03-31",
+     "2016-04-29",
+     "2016-05-31",
+     "2016-06-30",
+     "2016-07-29"
+    ],
+    "best_rank_other_snapshots": 863,
+    "median_rank": 913.5,
+    "n_ranked_snapshots": 10
+   },
+   "21569796193": {
+    "ticker": "RAMASTEEL",
+    "null_dates": [
+     "2015-08-31"
+    ],
+    "best_rank_other_snapshots": 1074,
+    "median_rank": 1119.5,
+    "n_ranked_snapshots": 28
+   },
+   "21569999631": {
+    "ticker": "HUSYSLTD",
+    "null_dates": [
+     "2016-03-31",
+     "2016-04-29",
+     "2016-05-31",
+     "2016-06-30",
+     "2016-07-29",
+     "2016-08-31",
+     "2016-09-30",
+     "2016-10-30",
+     "2016-11-30",
+     "2016-12-30"
+    ],
+    "best_rank_other_snapshots": 1534,
+    "median_rank": 1561.0,
+    "n_ranked_snapshots": 9
+   },
+   "21589728537": {
+    "ticker": "ASPINWALL",
+    "null_dates": [
+     "2016-06-30",
+     "2016-07-29"
+    ],
+    "best_rank_other_snapshots": 1070,
+    "median_rank": 1168.0,
+    "n_ranked_snapshots": 17
+   }
+  },
+  "null_mcap_neighbour_ranks_min": 672,
+  "null_mcap_any_top250_on_neighbour": false,
+  "null_isin_rows": 0,
+  "null_ticker_rows": 0,
+  "dup_date_quote_id": 0,
+  "dup_date_isin_nonnull": 0,
+  "dup_full_rows": 0,
+  "dup_date_instrument_id": 0,
+  "dup_date_ticker_nonnull": 0,
+  "mcap_le_0": 0,
+  "close_le_0": 0,
+  "close_null": 0,
+  "mcap_vs_scaled_max_rel_diff": 8.448800270360678e-05,
+  "mcap_vs_scaled_max_abs_diff_cr": 5.0000002374872565e-05,
+  "mcap_vs_scaled_null_mismatch": 0,
+  "mcap_min_cr": 0.5918,
+  "mcap_max_cr": 595846.4605,
+  "n_snapshots": 49,
+  "months_with_more_than_one": [],
+  "months_missing": [],
+  "months_extra": [],
+  "snapshot_calendar": [
+   {
+    "date": "2013-12-31",
+    "weekday": "Tuesday",
+    "is_session": true,
+    "last_session_of_month": "2013-12-31",
+    "ok": true,
+    "n_rows": 1368
+   },
+   {
+    "date": "2014-01-31",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2014-01-31",
+    "ok": true,
+    "n_rows": 1388
+   },
+   {
+    "date": "2014-02-28",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2014-02-28",
+    "ok": true,
+    "n_rows": 1428
+   },
+   {
+    "date": "2014-03-31",
+    "weekday": "Monday",
+    "is_session": true,
+    "last_session_of_month": "2014-03-31",
+    "ok": true,
+    "n_rows": 1448
+   },
+   {
+    "date": "2014-04-30",
+    "weekday": "Wednesday",
+    "is_session": true,
+    "last_session_of_month": "2014-04-30",
+    "ok": true,
+    "n_rows": 1450
+   },
+   {
+    "date": "2014-05-30",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2014-05-30",
+    "ok": true,
+    "n_rows": 1479
+   },
+   {
+    "date": "2014-06-30",
+    "weekday": "Monday",
+    "is_session": true,
+    "last_session_of_month": "2014-06-30",
+    "ok": true,
+    "n_rows": 1488
+   },
+   {
+    "date": "2014-07-31",
+    "weekday": "Thursday",
+    "is_session": true,
+    "last_session_of_month": "2014-07-31",
+    "ok": true,
+    "n_rows": 1463
+   },
+   {
+    "date": "2014-08-28",
+    "weekday": "Thursday",
+    "is_session": true,
+    "last_session_of_month": "2014-08-28",
+    "ok": true,
+    "n_rows": 1479
+   },
+   {
+    "date": "2014-09-30",
+    "weekday": "Tuesday",
+    "is_session": true,
+    "last_session_of_month": "2014-09-30",
+    "ok": true,
+    "n_rows": 1486
+   },
+   {
+    "date": "2014-10-31",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2014-10-31",
+    "ok": true,
+    "n_rows": 1496
+   },
+   {
+    "date": "2014-11-28",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2014-11-28",
+    "ok": true,
+    "n_rows": 1492
+   },
+   {
+    "date": "2014-12-31",
+    "weekday": "Wednesday",
+    "is_session": true,
+    "last_session_of_month": "2014-12-31",
+    "ok": true,
+    "n_rows": 1463
+   },
+   {
+    "date": "2015-01-30",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2015-01-30",
+    "ok": true,
+    "n_rows": 1437
+   },
+   {
+    "date": "2015-02-28",
+    "weekday": "Saturday",
+    "is_session": false,
+    "last_session_of_month": "2015-02-27",
+    "ok": false,
+    "n_rows": 1412
+   },
+   {
+    "date": "2015-03-31",
+    "weekday": "Tuesday",
+    "is_session": true,
+    "last_session_of_month": "2015-03-31",
+    "ok": true,
+    "n_rows": 1429
+   },
+   {
+    "date": "2015-04-30",
+    "weekday": "Thursday",
+    "is_session": true,
+    "last_session_of_month": "2015-04-30",
+    "ok": true,
+    "n_rows": 1422
+   },
+   {
+    "date": "2015-05-29",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2015-05-29",
+    "ok": true,
+    "n_rows": 1435
+   },
+   {
+    "date": "2015-06-30",
+    "weekday": "Tuesday",
+    "is_session": true,
+    "last_session_of_month": "2015-06-30",
+    "ok": true,
+    "n_rows": 1445
+   },
+   {
+    "date": "2015-07-31",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2015-07-31",
+    "ok": true,
+    "n_rows": 1447
+   },
+   {
+    "date": "2015-08-31",
+    "weekday": "Monday",
+    "is_session": true,
+    "last_session_of_month": "2015-08-31",
+    "ok": true,
+    "n_rows": 1446
+   },
+   {
+    "date": "2015-09-30",
+    "weekday": "Wednesday",
+    "is_session": true,
+    "last_session_of_month": "2015-09-30",
+    "ok": true,
+    "n_rows": 1446
+   },
+   {
+    "date": "2015-10-30",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2015-10-30",
+    "ok": true,
+    "n_rows": 1464
+   },
+   {
+    "date": "2015-11-30",
+    "weekday": "Monday",
+    "is_session": true,
+    "last_session_of_month": "2015-11-30",
+    "ok": true,
+    "n_rows": 1531
+   },
+   {
+    "date": "2015-12-31",
+    "weekday": "Thursday",
+    "is_session": true,
+    "last_session_of_month": "2015-12-31",
+    "ok": true,
+    "n_rows": 1541
+   },
+   {
+    "date": "2016-01-29",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2016-01-29",
+    "ok": true,
+    "n_rows": 1545
+   },
+   {
+    "date": "2016-02-29",
+    "weekday": "Monday",
+    "is_session": true,
+    "last_session_of_month": "2016-02-29",
+    "ok": true,
+    "n_rows": 1548
+   },
+   {
+    "date": "2016-03-31",
+    "weekday": "Thursday",
+    "is_session": true,
+    "last_session_of_month": "2016-03-31",
+    "ok": true,
+    "n_rows": 1560
+   },
+   {
+    "date": "2016-04-29",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2016-04-29",
+    "ok": true,
+    "n_rows": 1563
+   },
+   {
+    "date": "2016-05-31",
+    "weekday": "Tuesday",
+    "is_session": true,
+    "last_session_of_month": "2016-05-31",
+    "ok": true,
+    "n_rows": 1568
+   },
+   {
+    "date": "2016-06-30",
+    "weekday": "Thursday",
+    "is_session": true,
+    "last_session_of_month": "2016-06-30",
+    "ok": true,
+    "n_rows": 1582
+   },
+   {
+    "date": "2016-07-29",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2016-07-29",
+    "ok": true,
+    "n_rows": 1599
+   },
+   {
+    "date": "2016-08-31",
+    "weekday": "Wednesday",
+    "is_session": true,
+    "last_session_of_month": "2016-08-31",
+    "ok": true,
+    "n_rows": 1606
+   },
+   {
+    "date": "2016-09-30",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2016-09-30",
+    "ok": true,
+    "n_rows": 1615
+   },
+   {
+    "date": "2016-10-30",
+    "weekday": "Sunday",
+    "is_session": true,
+    "last_session_of_month": "2016-10-30",
+    "ok": true,
+    "n_rows": 1630
+   },
+   {
+    "date": "2016-11-30",
+    "weekday": "Wednesday",
+    "is_session": true,
+    "last_session_of_month": "2016-11-30",
+    "ok": true,
+    "n_rows": 1641
+   },
+   {
+    "date": "2016-12-30",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2016-12-30",
+    "ok": true,
+    "n_rows": 1649
+   },
+   {
+    "date": "2017-01-31",
+    "weekday": "Tuesday",
+    "is_session": true,
+    "last_session_of_month": "2017-01-31",
+    "ok": true,
+    "n_rows": 1654
+   },
+   {
+    "date": "2017-02-28",
+    "weekday": "Tuesday",
+    "is_session": true,
+    "last_session_of_month": "2017-02-28",
+    "ok": true,
+    "n_rows": 1662
+   },
+   {
+    "date": "2017-03-31",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2017-03-31",
+    "ok": true,
+    "n_rows": 1562
+   },
+   {
+    "date": "2017-04-28",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2017-04-28",
+    "ok": true,
+    "n_rows": 1575
+   },
+   {
+    "date": "2017-05-31",
+    "weekday": "Wednesday",
+    "is_session": true,
+    "last_session_of_month": "2017-05-31",
+    "ok": true,
+    "n_rows": 1575
+   },
+   {
+    "date": "2017-06-30",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2017-06-30",
+    "ok": true,
+    "n_rows": 1564
+   },
+   {
+    "date": "2017-07-31",
+    "weekday": "Monday",
+    "is_session": true,
+    "last_session_of_month": "2017-07-31",
+    "ok": true,
+    "n_rows": 1600
+   },
+   {
+    "date": "2017-08-31",
+    "weekday": "Thursday",
+    "is_session": true,
+    "last_session_of_month": "2017-08-31",
+    "ok": true,
+    "n_rows": 1576
+   },
+   {
+    "date": "2017-09-29",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2017-09-29",
+    "ok": true,
+    "n_rows": 1586
+   },
+   {
+    "date": "2017-10-31",
+    "weekday": "Tuesday",
+    "is_session": true,
+    "last_session_of_month": "2017-10-31",
+    "ok": true,
+    "n_rows": 1623
+   },
+   {
+    "date": "2017-11-30",
+    "weekday": "Thursday",
+    "is_session": true,
+    "last_session_of_month": "2017-11-30",
+    "ok": true,
+    "n_rows": 1613
+   },
+   {
+    "date": "2017-12-29",
+    "weekday": "Friday",
+    "is_session": true,
+    "last_session_of_month": "2017-12-29",
+    "ok": true,
+    "n_rows": 1650
+   }
+  ],
+  "snapshots_not_last_session": [
+   {
+    "date": "2015-02-28",
+    "weekday": "Saturday",
+    "is_session": false,
+    "last_session_of_month": "2015-02-27",
+    "ok": false,
+    "n_rows": 1412
+   }
+  ],
+  "snapshots_not_weekday": [
+   {
+    "date": "2015-02-28",
+    "weekday": "Saturday",
+    "is_session": false,
+    "last_session_of_month": "2015-02-27",
+    "ok": false,
+    "n_rows": 1412
+   },
+   {
+    "date": "2016-10-30",
+    "weekday": "Sunday",
+    "is_session": true,
+    "last_session_of_month": "2016-10-30",
+    "ok": true,
+    "n_rows": 1630
+   }
+  ],
+  "tied_rows": 10,
+  "tied_rows_rank_le_260": 0,
+  "ties_straddling_band_edge": [],
+  "tied_min_rank": 1055,
+  "min_rel_gap_100_101": 0.0014965700709759157,
+  "min_rel_gap_250_251": 0.0002387521604533893
+ },
+ "check2": {
+  "updated_at_min": "2026-01-03 05:59:06.276157",
+  "updated_at_max": "2026-01-03 07:05:32.996712",
+  "updated_at_distinct_days": [
+   "2026-01-03"
+  ],
+  "updated_at_distinct_values": 49,
+  "lag_by_year": [
+   {
+    "year": "2013",
+    "rows": 1368,
+    "lag_min": 4386,
+    "lag_median": 4386.0,
+    "lag_max": 4386,
+    "written_from": "2026-01-03 05:59:06.276157",
+    "written_to": "2026-01-03 05:59:06.276157"
+   },
+   {
+    "year": "2014",
+    "rows": 17560,
+    "lag_min": 4021,
+    "lag_median": 4174.0,
+    "lag_max": 4355,
+    "written_from": "2026-01-03 06:00:23.584185",
+    "written_to": "2026-01-03 06:15:24.165526"
+   },
+   {
+    "year": "2015",
+    "rows": 17455,
+    "lag_min": 3656,
+    "lag_median": 3809.0,
+    "lag_max": 3991,
+    "written_from": "2026-01-03 06:16:43.071570",
+    "written_to": "2026-01-03 06:31:32.087945"
+   },
+   {
+    "year": "2016",
+    "rows": 19106,
+    "lag_min": 3291,
+    "lag_median": 3445.0,
+    "lag_max": 3627,
+    "written_from": "2026-01-03 06:32:54.392102",
+    "written_to": "2026-01-03 06:48:26.430338"
+   },
+   {
+    "year": "2017",
+    "rows": 19240,
+    "lag_min": 2927,
+    "lag_median": 3078.0,
+    "lag_max": 3259,
+    "written_from": "2026-01-03 06:49:54.133752",
+    "written_to": "2026-01-03 07:05:32.996712"
+   }
+  ],
+  "per_snapshot_updated_at_nunique_max": 1,
+  "per_snapshot_write_order_monotone": true,
+  "first_snapshot_written": "2026-01-03 05:59:06.276157",
+  "last_snapshot_written": "2026-01-03 07:05:32.996712",
+  "D20_2018_written_from": "2026-01-03 07:06:57.555592",
+  "D20_2018_written_to": "2026-01-03 07:23:24.112431",
+  "universe_size_min": {
+   "date": "2013-12-31",
+   "n": 1368
+  },
+  "universe_size_max": {
+   "date": "2017-02-28",
+   "n": 1662
+  },
+  "universe_size_by_date": {
+   "2013-12-31": 1368,
+   "2014-01-31": 1388,
+   "2014-02-28": 1428,
+   "2014-03-31": 1448,
+   "2014-04-30": 1450,
+   "2014-05-30": 1479,
+   "2014-06-30": 1488,
+   "2014-07-31": 1463,
+   "2014-08-28": 1479,
+   "2014-09-30": 1486,
+   "2014-10-31": 1496,
+   "2014-11-28": 1492,
+   "2014-12-31": 1463,
+   "2015-01-30": 1437,
+   "2015-02-28": 1412,
+   "2015-03-31": 1429,
+   "2015-04-30": 1422,
+   "2015-05-29": 1435,
+   "2015-06-30": 1445,
+   "2015-07-31": 1447,
+   "2015-08-31": 1446,
+   "2015-09-30": 1446,
+   "2015-10-30": 1464,
+   "2015-11-30": 1531,
+   "2015-12-31": 1541,
+   "2016-01-29": 1545,
+   "2016-02-29": 1548,
+   "2016-03-31": 1560,
+   "2016-04-29": 1563,
+   "2016-05-31": 1568,
+   "2016-06-30": 1582,
+   "2016-07-29": 1599,
+   "2016-08-31": 1606,
+   "2016-09-30": 1615,
+   "2016-10-30": 1630,
+   "2016-11-30": 1641,
+   "2016-12-30": 1649,
+   "2017-01-31": 1654,
+   "2017-02-28": 1662,
+   "2017-03-31": 1562,
+   "2017-04-28": 1575,
+   "2017-05-31": 1575,
+   "2017-06-30": 1564,
+   "2017-07-31": 1600,
+   "2017-08-31": 1576,
+   "2017-09-29": 1586,
+   "2017-10-31": 1623,
+   "2017-11-30": 1613,
+   "2017-12-29": 1650
+  },
+  "universe_size_max_month_change_pct": {
+   "date": "2017-03-31",
+   "pct": 6.01684717208183
+  },
+  "D20_first_snapshot_size": {
+   "date": "2018-01-31",
+   "n": 1659
+  },
+  "join_size_change_pct": 0.5454545454545379,
+  "D20_monthly_2018_size_range": [
+   1655,
+   1709
+  ],
+  "delisted_ric_share_by_year": {
+   "2013": 0.19809941520467836,
+   "2014": 0.19988610478359908,
+   "2015": 0.16058435978229735,
+   "2016": 0.15926933947451064,
+   "2017": 0.11793139293139293
+  },
+  "first_snapshot_delisted_ric": 271,
+  "join_qids_leaving": 27,
+  "join_qids_entering": 36,
+  "monthly_entries_median_max": [
+   27.5,
+   75
+  ],
+  "monthly_exits_median_max": [
+   22.5,
+   115
+  ],
+  "D20_monthly_entries_median_max_2018_2025": [
+   49.5,
+   102
+  ],
+  "D20_monthly_exits_median_max_2018_2025": [
+   37.5,
+   91
+  ],
+  "rows_with_isin_differing_from_latest_D20_isin": 721,
+  "quote_ids_with_isin_differing_from_latest": 20,
+  "quote_ids_with_more_than_one_isin_within_D20b": 0
+ },
+ "check3": {
+  "rebuild_vs_pre2018": {
+   "label": "D23b pre-2018 vs my rebuild from D20b",
+   "rows_mine": 74679,
+   "rows_theirs": 74679,
+   "columns_theirs": [
+    "date",
+    "quote_id",
+    "isin",
+    "ticker",
+    "mcap",
+    "rank",
+    "n_ranked",
+    "band"
+   ],
+   "columns_ok": true,
+   "dup_keys_theirs": 0,
+   "dup_keys_mine": 0,
+   "only_mine": 0,
+   "only_theirs": 0,
+   "field_diffs": {
+    "isin": 0,
+    "ticker": 0,
+    "mcap": 0,
+    "rank": 0,
+    "n_ranked": 0,
+    "band": 0
+   },
+   "mcap_max_abs_diff": 0.0,
+   "row_order_identical": true,
+   "their_band_vs_their_rank_bad": 0,
+   "total_differences": 0
+  },
+  "my_rebuild_sha256": "fdc99de8d6fcb62c4e324d0280afcaf57f59c48a6554aff813c2c19e3687796a",
+  "my_rebuild_bytes_equal_candidate": true,
+  "headers_equal": true,
+  "line_ending_crlf_any": false,
+  "pre_ends_with_newline": true,
+  "combined_len": 71315144,
+  "pre_len_plus_d23_body_len": 71315144,
+  "combined_equals_pre_plus_d23_body": true,
+  "sha256_combined_first_part": "fdc99de8d6fcb62c4e324d0280afcaf57f59c48a6554aff813c2c19e3687796a",
+  "sha256_pre_file": "fdc99de8d6fcb62c4e324d0280afcaf57f59c48a6554aff813c2c19e3687796a",
+  "sha256_combined_second_part": "f0e1b82cda3435aa4f913ec4bfa49c42c92f72301df43a829b0bafcdabfeb7fa",
+  "sha256_d23_body": "f0e1b82cda3435aa4f913ec4bfa49c42c92f72301df43a829b0bafcdabfeb7fa",
+  "parts_match": true,
+  "combined_rows": 862744,
+  "pre_rows": 74679,
+  "d23_rows": 788065,
+  "sha256": {
+   "Historical Data/extended_2026-11-17/mcap_universe_from_2013-12/mcap_universe_ordinary_2013-12_2017-12.csv": {
+    "sha256": "8b5b657c0911a97b0a56554d2c67a7f6a1ccac5085826192103f7d5866194177",
+    "registry": {
+     "status": "PENDING",
+     "id": "D20b",
+     "sha16": "8b5b657c0911a97b",
+     "through": "2017-12-29"
+    },
+    "registry_match": true,
+    "manifest_sha256": "8b5b657c0911a97b0a56554d2c67a7f6a1ccac5085826192103f7d5866194177",
+    "manifest_match": true,
+    "manifest_rows": 74729
+   },
+   "Historical Data/extended_2026-11-17/mcap_universe_from_2013-12/mcap_rank_panel_2013-12_2017-12.csv": {
+    "sha256": "fdc99de8d6fcb62c4e324d0280afcaf57f59c48a6554aff813c2c19e3687796a",
+    "registry": {
+     "status": "PENDING",
+     "id": "D23b",
+     "sha16": "fdc99de8d6fcb62c",
+     "through": "2017-12-29"
+    },
+    "registry_match": true,
+    "manifest_sha256": "fdc99de8d6fcb62c4e324d0280afcaf57f59c48a6554aff813c2c19e3687796a",
+    "manifest_match": true,
+    "manifest_rows": 74679
+   },
+   "Historical Data/extended_2026-11-17/mcap_universe_from_2013-12/mcap_rank_panel_from_2013-12.csv": {
+    "sha256": "ba2ce96cf71b907f70ab7d0c9f04d43d899bee194bca83259af6260316525b6b",
+    "registry": {
+     "status": "PENDING",
+     "id": "D23b",
+     "sha16": "ba2ce96cf71b907f",
+     "through": "2026-11-11"
+    },
+    "registry_match": true,
+    "manifest_sha256": "ba2ce96cf71b907f70ab7d0c9f04d43d899bee194bca83259af6260316525b6b",
+    "manifest_match": true,
+    "manifest_rows": 862744
+   },
+   "Historical Data/extended_2026-11-12/mcap_universe/mcap_universe_ordinary.csv": {
+    "sha256": "f0288a5b09a604ecebb148bae50c5baeaa743f7924adc8adc688c4718b7683ba",
+    "registry": {
+     "status": "APPROVED",
+     "id": "D20",
+     "sha16": "f0288a5b09a604ec",
+     "through": "2026-11-11"
+    },
+    "registry_match": true
+   },
+   "Historical Data/extended_2026-11-12/tags/mcap_rank_panel.csv": {
+    "sha256": "e7c98ec5e0cc144c2986530f156b8a561f5c2df92d3ccc11a0ddce335f90cbf0",
+    "registry": {
+     "status": "APPROVED",
+     "id": "D23",
+     "sha16": "e7c98ec5e0cc144c",
+     "through": "2026-11-11"
+    },
+    "registry_match": true
+   },
+   "manifest_inputs": {
+    "D20 mcap_universe_ordinary.csv": "f0288a5b09a604ecebb148bae50c5baeaa743f7924adc8adc688c4718b7683ba",
+    "D23 mcap_rank_panel.csv": "e7c98ec5e0cc144c2986530f156b8a561f5c2df92d3ccc11a0ddce335f90cbf0"
+   },
+   "manifest_inputs_match": true
+  },
+  "manifest_rows_match": true,
+  "hard_gate_zero_differences": true
+ },
+ "check4": {
+  "session_read_only": "on",
+  "db_rows_all_classes_2013-12-01_2017-12-31": 77332,
+  "db_class_counts": {
+   "ordinary": 74729,
+   "etf": 2277,
+   "special": 282,
+   "unknown": 29,
+   "trust": 15
+  },
+  "db_null_mcap_sql_null": 50,
+  "db_null_mcap_numeric_nan": 0,
+  "db_isin_null": 0,
+  "db_isin_empty": 0,
+  "table_min_date": "2005-01-31",
+  "table_max_date": "2026-11-16",
+  "table_rows_now": 1091304,
+  "table_rows_before_2013-12-01": [
+   131994,
+   107
+  ],
+  "table_rows_between_2017-12-29_and_2018-01-31": 0,
+  "non_ordinary_non_etf_rows": 326,
+  "non_ordinary_by_stock": [
+   {
+    "ticker": "TATAMTRDVR",
+    "name": "Tata Motors Passenger Vehicles Ltd",
+    "class": "special",
+    "type": "Differential Voting Rights Sha",
+    "min": 11.0,
+    "size": 49
+   },
+   {
+    "ticker": "VEDL",
+    "name": "Vedanta Ltd",
+    "class": "special",
+    "type": "Preference Shares",
+    "min": 23.0,
+    "size": 5
+   },
+   {
+    "ticker": "ZEEL",
+    "name": "Zee Entertainment Enterprises Ltd",
+    "class": "special",
+    "type": "Preference Shares",
+    "min": 43.0,
+    "size": 46
+   },
+   {
+    "ticker": "JSWSTEEL",
+    "name": "JSW Steel Ltd",
+    "class": "special",
+    "type": "Convertible Preference Shares",
+    "min": 65.0,
+    "size": 2
+   },
+   {
+    "ticker": "JISLDVREQS",
+    "name": "Jain Irrigation Systems Ltd",
+    "class": "special",
+    "type": "Differential Voting Rights Sha",
+    "min": 206.0,
+    "size": 49
+   },
+   {
+    "ticker": "FELDVR",
+    "name": "Future Enterprises Ltd",
+    "class": "special",
+    "type": "Differential Voting Rights Sha",
+    "min": 209.0,
+    "size": 49
+   },
+   {
+    "ticker": "IRBINVIT",
+    "name": "IRB InvIT Fund",
+    "class": "trust",
+    "type": "Unit",
+    "min": 311.0,
+    "size": 8
+   },
+   {
+    "ticker": "INDIGRID",
+    "name": "IndiGrid Infrastructure Trust",
+    "class": "trust",
+    "type": "Unit",
+    "min": 479.0,
+    "size": 7
+   },
+   {
+    "ticker": "GUJNREDVR",
+    "name": "Gujarat NRE Coke Ltd",
+    "class": "special",
+    "type": "Differential Voting Rights Sha",
+    "min": 536.0,
+    "size": 49
+   },
+   {
+    "ticker": "MUKANDLTD",
+    "name": "Mukand Ltd",
+    "class": "special",
+    "type": "Convertible Preference Shares",
+    "min": 631.0,
+    "size": 30
+   },
+   {
+    "ticker": "GATECHDVR",
+    "name": "GACM Technologies Ltd",
+    "class": "special",
+    "type": "Differential Voting Rights Sha",
+    "min": 1195.0,
+    "size": 3
+   },
+   {
+    "ticker": "549",
+    "name": "Sundaram Top 100 Series III (3Yrs)-Growth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 2
+   },
+   {
+    "ticker": "DWSHYD13GP",
+    "name": "DHFL Pramerica Hybrid Fixed Term-13-Growth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 1
+   },
+   {
+    "ticker": "DWSHYN5GR",
+    "name": "DHFL Pramerica Hybrid Fixed Term-5-Growth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 1
+   },
+   {
+    "ticker": "FTFTF12CDV",
+    "name": "Franklin India Fixed Tenure Fd-Series XII C-5Y-Gth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 1
+   },
+   {
+    "ticker": "FTFTF12CGR",
+    "name": "Franklin India Fixed Tenure Fd-Series XII C-5Y-Gth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 2
+   },
+   {
+    "ticker": "HEOFRG1100",
+    "name": "HDFC Equity Opps-II-1100D June17 (1)-Growth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 1
+   },
+   {
+    "ticker": "IPRU2397",
+    "name": "ICICI Prudential Cap Prot Ortd VI-Pl A-1825D-Gth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 1
+   },
+   {
+    "ticker": "IPRU2605",
+    "name": "ICICI Prudential Cap Prot Ortd VII-Pl G-1285D-Gth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 1
+   },
+   {
+    "ticker": "M14RG",
+    "name": "Sundaram Select Micro Cap Sr XIV-Regular-Growth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 1
+   },
+   {
+    "ticker": "M15RG",
+    "name": "Sundaram Select Micro Cap Sr XV-Regular-Growth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 1
+   },
+   {
+    "ticker": "RDAFIIIDGO",
+    "name": "Reliance Dual Advantage Fx Tenure Fd-III-D-Growth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 2
+   },
+   {
+    "ticker": "RSDAFIIIGR",
+    "name": "SBI Dual Advantage Fund-Srs III-Growth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 1
+   },
+   {
+    "ticker": "SMCSRVIRG",
+    "name": "Sundaram Select Micro Cap Sr VI-Regular-Growth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 7
+   },
+   {
+    "ticker": "SMCSRVRG",
+    "name": "Sundaram Select Micro Cap Sr V-Regular-Growth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 3
+   },
+   {
+    "ticker": "UTIFEFRDP2",
+    "name": "UTI Focussed Equity Fund-Sr 2 (1102 Days)-Growth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 1
+   },
+   {
+    "ticker": "UTIFEFRGR2",
+    "name": "UTI Focussed Equity Fund-Sr 2 (1102 Days)-Growth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 1
+   },
+   {
+    "ticker": "UTRFEFRGR1",
+    "name": "UTI Focussed Equity-Sr I (2195 Days)-Gth",
+    "class": "unknown",
+    "type": "Closed-Ended Fund",
+    "min": NaN,
+    "size": 2
+   }
+  ],
+  "non_ordinary_best_would_rank": 11,
+  "D20b_vs_db": {
+   "label": "D20b vs DB 2013-12-01..2017-12-31 ordinary",
+   "rows_file": 74729,
+   "rows_db": 74729,
+   "columns_file": [
+    "date",
+    "quote_id",
+    "instrument_id",
+    "ric",
+    "ticker",
+    "full_name",
+    "isin",
+    "close",
+    "mcap",
+    "mcap_scaled_in_cr",
+    "updated_at",
+    "instrument_type",
+    "instrument_class"
+   ],
+   "columns_db": [
+    "date",
+    "quote_id",
+    "instrument_id",
+    "ric",
+    "ticker",
+    "full_name",
+    "isin",
+    "close",
+    "mcap",
+    "mcap_scaled_in_cr",
+    "updated_at",
+    "instrument_type",
+    "instrument_class"
+   ],
+   "columns_equal_in_order": true,
+   "dup_keys_db": 0,
+   "only_in_file": 0,
+   "only_in_db": 0,
+   "value_diffs_per_column": {
+    "instrument_id": 0,
+    "ric": 0,
+    "ticker": 0,
+    "full_name": 0,
+    "isin": 0,
+    "close": 0,
+    "mcap": 0,
+    "mcap_scaled_in_cr": 0,
+    "updated_at": 0,
+    "instrument_type": 0,
+    "instrument_class": 0
+   },
+   "examples": {},
+   "cells_compared": 822019,
+   "identical": true
+  },
+  "db_rows_after_2026-11-11": {
+   "rows": 9279,
+   "dates": 3,
+   "max_updated_at": "2026-11-16 17:48:24.293610"
+  },
+  "db_max_updated_at_through_2026-11-11": "2026-11-11 17:47:55.416489",
+  "D20_vs_db": {
+   "label": "D20 vs DB 2018-01-01..2026-11-11 ordinary",
+   "rows_file": 788112,
+   "rows_db": 788112,
+   "columns_file": [
+    "date",
+    "quote_id",
+    "instrument_id",
+    "ric",
+    "ticker",
+    "full_name",
+    "isin",
+    "close",
+    "mcap",
+    "mcap_scaled_in_cr",
+    "updated_at",
+    "instrument_type",
+    "instrument_class"
+   ],
+   "columns_db": [
+    "date",
+    "quote_id",
+    "instrument_id",
+    "ric",
+    "ticker",
+    "full_name",
+    "isin",
+    "close",
+    "mcap",
+    "mcap_scaled_in_cr",
+    "updated_at",
+    "instrument_type",
+    "instrument_class"
+   ],
+   "columns_equal_in_order": true,
+   "dup_keys_db": 0,
+   "only_in_file": 0,
+   "only_in_db": 0,
+   "value_diffs_per_column": {
+    "instrument_id": 0,
+    "ric": 0,
+    "ticker": 0,
+    "full_name": 0,
+    "isin": 0,
+    "close": 0,
+    "mcap": 0,
+    "mcap_scaled_in_cr": 0,
+    "updated_at": 0,
+    "instrument_type": 0,
+    "instrument_class": 0
+   },
+   "examples": {},
+   "cells_compared": 8669232,
+   "identical": true
+  },
+  "hard_gate_D20b_equals_db": true
+ },
+ "check5": {
+  "population": {
+   "holding_days": 50555,
+   "distinct_isin_date": 42984,
+   "mismatches": 0,
+   "distinct_isins": 259,
+   "sessions": 965,
+   "first": "2014-03-03",
+   "last": "2018-01-31",
+   "per_parent_holding_days": {
+    "SCMO_0003": 13507,
+    "SCMO_0007": 8241,
+    "SCMO_0010": 14411,
+    "SCMO_0029": 14396
+   },
+   "seconds": 0.6
+  },
+  "edge_dates_used": 169,
+  "renamed_isins": 40,
+  "random_other_isin_x_edge_dates": {
+   "lookups": 40000,
+   "mismatches": 0
+  },
+  "random_D20b_isin_x_sessions": {
+   "lookups": 30000,
+   "mismatches": 0
+  },
+  "symbology_only_isins_x_edge_dates": {
+   "lookups": 5000,
+   "mismatches": 0
+  },
+  "renamed_isins_x_snapshots": {
+   "lookups": 680,
+   "mismatches": 0
+  },
+  "unknown_isins": {
+   "lookups": 3,
+   "mismatches": 0
+  },
+  "total_lookups": 118667,
+  "total_mismatches": 0,
+  "my_ambiguous_cases": 0,
+  "population_sources_distinct_pairs": {
+   "rank": 42801,
+   "unranked": 183
+  },
+  "population_via_distinct_pairs": {
+   "isin": 42801,
+   "None": 183
+  },
+  "hard_gate_zero_mismatches": true
+ },
+ "check6": {
+  "window": [
+   "2014-03-03",
+   "2017-12-29"
+  ],
+  "holding_days": 49455,
+  "overall_weighted_pct": 99.6764030652857,
+  "overall_count_pct": 99.62996663633606,
+  "per_parent": {
+   "SCMO_0003": {
+    "holding_days": 13287,
+    "weighted_pct": 100.0,
+    "count_pct": 100.0
+   },
+   "SCMO_0007": {
+    "holding_days": 8021,
+    "weighted_pct": 100.0,
+    "count_pct": 100.0
+   },
+   "SCMO_0010": {
+    "holding_days": 14081,
+    "weighted_pct": 99.11624155633069,
+    "count_pct": 99.1122789574604
+   },
+   "SCMO_0029": {
+    "holding_days": 14066,
+    "weighted_pct": 99.58940537224532,
+    "count_pct": 99.58765818285227
+   }
+  },
+  "thresholds": "PASS if overall >= 99% and every parent >= 98% (weight-weighted); a single unranked holding above 2% weight is listed",
+  "pass": true,
+  "unranked": [
+   {
+    "parent": "SCMO_0010",
+    "isin": "INE202B01038",
+    "stock": "PIRAMALFIN.NS",
+    "name": "Piramal Finance Ltd",
+    "holding_days": 125,
+    "first": "2017-06-01",
+    "last": "2017-11-29",
+    "max_weight": 0.0667,
+    "weight_share_pct_of_parent": 0.8837584436693169,
+    "snapshots": "2017-05-31,2017-06-30,2017-07-31,2017-08-31,2017-09-29,2017-10-31",
+    "why": "ISIN not in D20b; symbology: class ['ordinary'], quote_id ['236798428431'], ric ['PIRL.NS']"
+   },
+   {
+    "parent": "SCMO_0029",
+    "isin": "INE093A01041",
+    "stock": "HEXT.NS",
+    "name": "Hexaware Technologies Ltd",
+    "holding_days": 58,
+    "first": "2014-03-04",
+    "last": "2014-05-30",
+    "max_weight": 0.0667,
+    "weight_share_pct_of_parent": 0.4105946277546727,
+    "snapshots": "2014-02-28,2014-03-31,2014-04-30,2014-05-30",
+    "why": "ISIN not in D20b; symbology: class ['ordinary'], quote_id ['236783369047'], ric ['HEXW.NS']"
+   }
+  ],
+  "unranked_above_2pct_weight": [
+   {
+    "parent": "SCMO_0010",
+    "isin": "INE202B01038",
+    "stock": "PIRAMALFIN.NS",
+    "name": "Piramal Finance Ltd",
+    "holding_days": 125,
+    "first": "2017-06-01",
+    "last": "2017-11-29",
+    "max_weight": 0.0667,
+    "weight_share_pct_of_parent": 0.8837584436693169,
+    "snapshots": "2017-05-31,2017-06-30,2017-07-31,2017-08-31,2017-09-29,2017-10-31",
+    "why": "ISIN not in D20b; symbology: class ['ordinary'], quote_id ['236798428431'], ric ['PIRL.NS']"
+   },
+   {
+    "parent": "SCMO_0029",
+    "isin": "INE093A01041",
+    "stock": "HEXT.NS",
+    "name": "Hexaware Technologies Ltd",
+    "holding_days": 58,
+    "first": "2014-03-04",
+    "last": "2014-05-30",
+    "max_weight": 0.0667,
+    "weight_share_pct_of_parent": 0.4105946277546727,
+    "snapshots": "2014-02-28,2014-03-31,2014-04-30,2014-05-30",
+    "why": "ISIN not in D20b; symbology: class ['ordinary'], quote_id ['236783369047'], ric ['HEXW.NS']"
+   }
+  ],
+  "identity_sid_vs_ric": {
+   "matched_holding_days": 49272,
+   "sid_ne_ric_root_holding_days": 2370,
+   "pairs": [
+    {
+     "parent": "SCMO_0003",
+     "stock": "EPL.NS",
+     "isin": "INE255A01020",
+     "sid": "ESSL",
+     "ric": "EPLI.NS",
+     "ticker": "EPL",
+     "full_name": "EPL Ltd",
+     "holding_days": 306
+    },
+    {
+     "parent": "SCMO_0003",
+     "stock": "TVSHLTD.NS",
+     "isin": "INE105A01035",
+     "sid": "SUND",
+     "ric": "TVSH.NS",
+     "ticker": "TVSHLTD",
+     "full_name": "TVS Holdings Ltd",
+     "holding_days": 185
+    },
+    {
+     "parent": "SCMO_0003",
+     "stock": "UNOMINDA.NS",
+     "isin": "INE405E01023",
+     "sid": "MNDA",
+     "ric": "UNOI.NS",
+     "ticker": "UNOMINDA",
+     "full_name": "UNO Minda Ltd",
+     "holding_days": 186
+    },
+    {
+     "parent": "SCMO_0007",
+     "stock": "INDUSTOWER.NS",
+     "isin": "INE121J01017",
+     "sid": "BHRI",
+     "ric": "INUS.NS",
+     "ticker": "INDUSTOWER",
+     "full_name": "Indus Towers Ltd",
+     "holding_days": 62
+    },
+    {
+     "parent": "SCMO_0007",
+     "stock": "RHIM.NS",
+     "isin": "INE743M01012",
+     "sid": "ORRE",
+     "ric": "RHIM.NS",
+     "ticker": "RHIM",
+     "full_name": "RHI Magnesita India Ltd",
+     "holding_days": 60
+    },
+    {
+     "parent": "SCMO_0007",
+     "stock": "ZYDUSLIFE.NS",
+     "isin": "INE010B01027",
+     "sid": "CADI",
+     "ric": "ZYDU.NS",
+     "ticker": "ZYDUSLIFE",
+     "full_name": "Zydus Lifesciences Ltd",
+     "holding_days": 122
+    },
+    {
+     "parent": "SCMO_0010",
+     "stock": "EPL.NS",
+     "isin": "INE255A01020",
+     "sid": "ESSL",
+     "ric": "EPLI.NS",
+     "ticker": "EPL",
+     "full_name": "EPL Ltd",
+     "holding_days": 59
+    },
+    {
+     "parent": "SCMO_0010",
+     "stock": "NAVA.NS",
+     "isin": "INE725A01030",
+     "sid": "NABV",
+     "ric": "NAAL.NS",
+     "ticker": "NAVA",
+     "full_name": "Nava Limited",
+     "holding_days": 60
+    },
+    {
+     "parent": "SCMO_0010",
+     "stock": "RHIM.NS",
+     "isin": "INE743M01012",
+     "sid": "ORRE",
+     "ric": "RHIM.NS",
+     "ticker": "RHIM",
+     "full_name": "RHI Magnesita India Ltd",
+     "holding_days": 62
+    },
+    {
+     "parent": "SCMO_0010",
+     "stock": "UNOMINDA.NS",
+     "isin": "INE405E01023",
+     "sid": "MNDA",
+     "ric": "UNOI.NS",
+     "ticker": "UNOMINDA",
+     "full_name": "UNO Minda Ltd",
+     "holding_days": 249
+    },
+    {
+     "parent": "SCMO_0029",
+     "stock": "ASTRAL.NS",
+     "isin": "INE006I01046",
+     "sid": "ASPT",
+     "ric": "ASTL.NS",
+     "ticker": "ASTRAL",
+     "full_name": "Astral Ltd",
+     "holding_days": 261
+    },
+    {
+     "parent": "SCMO_0029",
+     "stock": "EPL.NS",
+     "isin": "INE255A01020",
+     "sid": "ESSL",
+     "ric": "EPLI.NS",
+     "ticker": "EPL",
+     "full_name": "EPL Ltd",
+     "holding_days": 185
+    },
+    {
+     "parent": "SCMO_0029",
+     "stock": "SAMMAANCAP.NS",
+     "isin": "INE148I01020",
+     "sid": "INBF",
+     "ric": "SMMN.NS",
+     "ticker": "SAMMAANCAP",
+     "full_name": "Sammaan Capital Ltd",
+     "holding_days": 59
+    },
+    {
+     "parent": "SCMO_0029",
+     "stock": "SECURKLOUD.NS",
+     "isin": "INE650K01021",
+     "sid": "8KMS",
+     "ric": "SECE.NS",
+     "ticker": "SECURKLOUD",
+     "full_name": "Securekloud Technologies Ltd",
+     "holding_days": 182
+    },
+    {
+     "parent": "SCMO_0029",
+     "stock": "UNOMINDA.NS",
+     "isin": "INE405E01023",
+     "sid": "MNDA",
+     "ric": "UNOI.NS",
+     "ticker": "UNOMINDA",
+     "full_name": "UNO Minda Ltd",
+     "holding_days": 332
+    }
+   ]
+  }
+ },
+ "check7": {
+  "blips_thr": "implied shares (mcap/close) move > 30% against both neighbouring snapshots, in opposite directions, and the neighbours agree within 10%",
+  "blips_pre_all": 4,
+  "blips_post_all_2018_2025": 14,
+  "blips_pre_top300": [
+   {
+    "date": "2016-02-29",
+    "quote_id": "21475855981",
+    "ticker": "DHANUKA",
+    "rank_prev": 371,
+    "rank": 245,
+    "rank_next": 344,
+    "band_prev": "Small and below",
+    "band": "Mid",
+    "band_next": "Small and below",
+    "shares_ratio_vs_prev": 1.7295602714941174,
+    "shares_ratio_next_vs": 0.5781816433237849,
+    "crosses_band": true
+   }
+  ],
+  "blips_post_top300_count": 1,
+  "blips_rate_top300_per_10k_obs": {
+   "2014_2017": 0.68,
+   "2018_2025": 0.35
+  },
+  "blips_pre_crossing_band": [
+   {
+    "date": "2016-02-29",
+    "quote_id": "21475855981",
+    "ticker": "DHANUKA",
+    "rank_prev": 371,
+    "rank": 245,
+    "rank_next": 344,
+    "band_prev": "Small and below",
+    "band": "Mid",
+    "band_next": "Small and below",
+    "shares_ratio_vs_prev": 1.7295602714941174,
+    "shares_ratio_next_vs": 0.5781816433237849,
+    "crosses_band": true
+   }
+  ],
+  "blips_pre_on_held_stocks": [
+   {
+    "date": "2015-01-30",
+    "quote_id": "21482801037",
+    "ticker": "MINDACORP",
+    "rank_prev": 446,
+    "rank": 963,
+    "rank_next": 433,
+    "band_prev": "Small and below",
+    "band": "Small and below",
+    "band_next": "Small and below",
+    "shares_ratio_vs_prev": 0.09999999999999998,
+    "shares_ratio_next_vs": 10.000000000000002,
+    "crosses_band": false
+   },
+   {
+    "date": "2016-02-29",
+    "quote_id": "21475855981",
+    "ticker": "DHANUKA",
+    "rank_prev": 371,
+    "rank": 245,
+    "rank_next": 344,
+    "band_prev": "Small and below",
+    "band": "Mid",
+    "band_next": "Small and below",
+    "shares_ratio_vs_prev": 1.7295602714941174,
+    "shares_ratio_next_vs": 0.5781816433237849,
+    "crosses_band": true
+   }
+  ],
+  "share_jumps_gt30pct_top300_pre": 17,
+  "share_jumps_gt30pct_top300_pre_list": [
+   {
+    "date": "2016-02-29",
+    "quote_id": "21475855981",
+    "ticker": "DHANUKA",
+    "rank": 245,
+    "ratio": 1.7295602714941174,
+    "mcap_ratio": 1.7428793940153653
+   },
+   {
+    "date": "2016-01-29",
+    "quote_id": "21526523223",
+    "ticker": "ABFRL",
+    "rank": 107,
+    "ratio": 8.285526252375085,
+    "mcap_ratio": 7.963127112264132
+   },
+   {
+    "date": "2016-01-29",
+    "quote_id": "55837397243",
+    "ticker": "ABIRLANUVO",
+    "rank": 138,
+    "ratio": 0.4694698143991872,
+    "mcap_ratio": 0.4030958690568176
+   },
+   {
+    "date": "2015-06-30",
+    "quote_id": "55837397289",
+    "ticker": "ADANIENT",
+    "rank": 154,
+    "ratio": 0.17229188304580378,
+    "mcap_ratio": 0.128628061730143
+   },
+   {
+    "date": "2015-11-30",
+    "quote_id": "55837400279",
+    "ticker": "IOB",
+    "rank": 243,
+    "ratio": 1.393101760129895,
+    "mcap_ratio": 1.2836437646911176
+   },
+   {
+    "date": "2016-01-29",
+    "quote_id": "55837402850",
+    "ticker": "MFSL",
+    "rank": 157,
+    "ratio": 0.706411392761265,
+    "mcap_ratio": 0.720052619318276
+   },
+   {
+    "date": "2015-01-30",
+    "quote_id": "55837402999",
+    "ticker": "CIEINDIA",
+    "rank": 201,
+    "ratio": 3.458470337459931,
+    "mcap_ratio": 3.5838185210252007
+   },
+   {
+    "date": "2016-09-30",
+    "quote_id": "55837403051",
+    "ticker": "NATIONALUM",
+    "rank": 191,
+    "ratio": 0.75,
+    "mcap_ratio": 0.7285031847133758
+   },
+   {
+    "date": "2016-06-30",
+    "quote_id": "55837403475",
+    "ticker": "HMT",
+    "rank": 263,
+    "ratio": 1.5836015233718508,
+    "mcap_ratio": 1.5836015233718508
+   },
+   {
+    "date": "2017-01-31",
+    "quote_id": "55837403475",
+    "ticker": "HMT",
+    "rank": 283,
+    "ratio": 2.5719070781740867,
+    "mcap_ratio": 2.729306532162709
+   },
+   {
+    "date": "2015-10-30",
+    "quote_id": "55837403606",
+    "ticker": "IDFC",
+    "rank": 163,
+    "ratio": 0.490252461709832,
+    "mcap_ratio": 0.4172279333569656
+   },
+   {
+    "date": "2014-12-31",
+    "quote_id": "55837404192",
+    "ticker": "PFIZER",
+    "rank": 160,
+    "ratio": 1.533026972884973,
+    "mcap_ratio": 1.8649238544171132
+   },
+   {
+    "date": "2014-02-28",
+    "quote_id": "55837406332",
+    "ticker": "UCOBANK",
+    "rank": 151,
+    "ratio": 1.348220337254983,
+    "mcap_ratio": 1.3196433732556345
+   },
+   {
+    "date": "2014-03-31",
+    "quote_id": "55837406548",
+    "ticker": "VIJAYABANK",
+    "rank": 237,
+    "ratio": 1.5494326998065253,
+    "mcap_ratio": 1.7663532777794388
+   },
+   {
+    "date": "2017-09-29",
+    "quote_id": "55837408756",
+    "ticker": "CHOLAHLDNG",
+    "rank": 203,
+    "ratio": 0.7116618365741966,
+    "mcap_ratio": 0.7270140366815954
+   },
+   {
+    "date": "2015-09-30",
+    "quote_id": "55837409899",
+    "ticker": "THOMASCOOK",
+    "rank": 191,
+    "ratio": 1.3409235630513925,
+    "mcap_ratio": 1.2821695489249143
+   },
+   {
+    "date": "2015-11-30",
+    "quote_id": "55837410417",
+    "ticker": "STAR",
+    "rank": 152,
+    "ratio": 1.3524883050046512,
+    "mcap_ratio": 1.4340881158599217
+   }
+  ],
+  "spikes_pre_count": 225,
+  "spikes_post_count_2018_2025": 467,
+  "spikes_rate_per_snapshot": {
+   "2014_2017": 4.79,
+   "2018_2025": 4.97
+  },
+  "spikes_pre_moves_over_100_ranks": [
+   {
+    "date": "2016-02-29",
+    "quote_id": "21475855981",
+    "isin": "INE435G01025",
+    "ticker": "DHANUKA",
+    "rank_prev": 371,
+    "rank": 245,
+    "rank_next": 344,
+    "band_prev": "Small and below",
+    "band": "Mid",
+    "band_next": "Small and below"
+   }
+  ],
+  "spikes_pre_on_held_stocks": 88,
+  "holes_count": 512,
+  "holes_by_date": {
+   "2014-01-31": 36,
+   "2014-02-28": 25,
+   "2014-03-31": 17,
+   "2014-04-30": 25,
+   "2014-05-30": 17,
+   "2014-06-30": 11,
+   "2014-07-31": 34,
+   "2014-08-28": 17,
+   "2014-09-30": 17,
+   "2014-10-31": 5,
+   "2014-11-28": 10,
+   "2014-12-31": 19,
+   "2015-01-30": 6,
+   "2015-02-28": 19,
+   "2015-03-31": 15,
+   "2015-04-30": 25,
+   "2015-05-29": 13,
+   "2015-06-30": 11,
+   "2015-07-31": 10,
+   "2015-08-31": 15,
+   "2015-09-30": 13,
+   "2015-10-30": 20,
+   "2016-09-30": 1,
+   "2017-01-31": 1,
+   "2017-03-31": 24,
+   "2017-04-28": 11,
+   "2017-05-31": 8,
+   "2017-06-30": 20,
+   "2017-07-31": 7,
+   "2017-08-31": 13,
+   "2017-09-29": 17,
+   "2017-10-31": 9,
+   "2017-11-30": 21
+  },
+  "holes_top250_neighbours": [
+   {
+    "date": "2014-02-28",
+    "quote_id": "55837398697",
+    "rank_prev": 81,
+    "rank_next": 89,
+    "null_mcap_row": false
+   },
+   {
+    "date": "2017-08-31",
+    "quote_id": "55837408756",
+    "rank_prev": 158,
+    "rank_next": 203,
+    "null_mcap_row": false
+   }
+  ],
+  "holes_on_held_stocks": [
+   {
+    "date": "2014-03-31",
+    "quote_id": "55854009329",
+    "rank_prev": 810,
+    "rank_next": 850,
+    "null_mcap_row": false
+   },
+   {
+    "date": "2017-08-31",
+    "quote_id": "55837408756",
+    "rank_prev": 158,
+    "rank_next": 203,
+    "null_mcap_row": false
+   }
+  ],
+  "drop_2017_03": {
+   "left": 115,
+   "came_back_later": 48,
+   "best_rank_on_2017_02_28": 225,
+   "median_rank_on_2017_02_28": 1537.0,
+   "delisted_ric_share": 0.5304347826086957
+  },
+  "turnover_top100": {
+   "2014_2017_median": 2.0,
+   "2014_2017_mean": 2.3958333333333335,
+   "2014_2017_max": [
+    "2014-07-31",
+    5
+   ],
+   "2018_2025_median": 4.0,
+   "2018_2025_mean": 3.8526315789473684,
+   "2018_2025_max": [
+    "2020-03-31",
+    8
+   ]
+  },
+  "turnover_top250": {
+   "2014_2017_median": 6.5,
+   "2014_2017_mean": 6.708333333333333,
+   "2014_2017_max": [
+    "2014-05-30",
+    11
+   ],
+   "2018_2025_median": 6.0,
+   "2018_2025_mean": 5.705263157894737,
+   "2018_2025_max": [
+    "2020-03-31",
+    14
+   ]
+  },
+  "turnover_monthly_pre": {
+   "2014-01-31": [
+    2,
+    5
+   ],
+   "2014-02-28": [
+    1,
+    6
+   ],
+   "2014-03-31": [
+    2,
+    8
+   ],
+   "2014-04-30": [
+    3,
+    8
+   ],
+   "2014-05-30": [
+    3,
+    11
+   ],
+   "2014-06-30": [
+    2,
+    6
+   ],
+   "2014-07-31": [
+    5,
+    7
+   ],
+   "2014-08-28": [
+    2,
+    8
+   ],
+   "2014-09-30": [
+    4,
+    8
+   ],
+   "2014-10-31": [
+    3,
+    5
+   ],
+   "2014-11-28": [
+    1,
+    8
+   ],
+   "2014-12-31": [
+    3,
+    4
+   ],
+   "2015-01-30": [
+    4,
+    8
+   ],
+   "2015-02-28": [
+    1,
+    8
+   ],
+   "2015-03-31": [
+    1,
+    10
+   ],
+   "2015-04-30": [
+    3,
+    5
+   ],
+   "2015-05-29": [
+    2,
+    8
+   ],
+   "2015-06-30": [
+    1,
+    7
+   ],
+   "2015-07-31": [
+    1,
+    6
+   ],
+   "2015-08-31": [
+    2,
+    7
+   ],
+   "2015-09-30": [
+    0,
+    5
+   ],
+   "2015-10-30": [
+    2,
+    5
+   ],
+   "2015-11-30": [
+    3,
+    7
+   ],
+   "2015-12-31": [
+    2,
+    6
+   ],
+   "2016-01-29": [
+    5,
+    6
+   ],
+   "2016-02-29": [
+    3,
+    5
+   ],
+   "2016-03-31": [
+    1,
+    6
+   ],
+   "2016-04-29": [
+    3,
+    5
+   ],
+   "2016-05-31": [
+    2,
+    7
+   ],
+   "2016-06-30": [
+    1,
+    5
+   ],
+   "2016-07-29": [
+    1,
+    7
+   ],
+   "2016-08-31": [
+    1,
+    7
+   ],
+   "2016-09-30": [
+    3,
+    6
+   ],
+   "2016-10-30": [
+    2,
+    6
+   ],
+   "2016-11-30": [
+    3,
+    11
+   ],
+   "2016-12-30": [
+    3,
+    4
+   ],
+   "2017-01-31": [
+    3,
+    6
+   ],
+   "2017-02-28": [
+    3,
+    5
+   ],
+   "2017-03-31": [
+    4,
+    8
+   ],
+   "2017-04-28": [
+    4,
+    6
+   ],
+   "2017-05-31": [
+    2,
+    8
+   ],
+   "2017-06-30": [
+    2,
+    7
+   ],
+   "2017-07-31": [
+    1,
+    6
+   ],
+   "2017-08-31": [
+    3,
+    10
+   ],
+   "2017-09-29": [
+    3,
+    6
+   ],
+   "2017-10-31": [
+    3,
+    7
+   ],
+   "2017-11-30": [
+    4,
+    9
+   ],
+   "2017-12-29": [
+    2,
+    3
+   ]
+  },
+  "join": {
+   "top100_changed": 1,
+   "top250_changed": 7,
+   "spearman_top500": 0.994311497245989,
+   "spearman_reference": [
+    {
+     "pair": [
+      "2016-12-30",
+      "2017-01-31"
+     ],
+     "spearman_top500": 0.9925894423577694
+    },
+    {
+     "pair": [
+      "2017-11-30",
+      "2017-12-29"
+     ],
+     "spearman_top500": 0.9925207060828243
+    },
+    {
+     "pair": [
+      "2018-01-31",
+      "2018-02-28"
+     ],
+     "spearman_top500": 0.9942124248496995
+    }
+   ],
+   "n_ranked": [
+    1650,
+    1659
+   ],
+   "total_mcap_lakh_cr": [
+    149.53698730217894,
+    151.10553405337353
+   ],
+   "implied_shares_unchanged_pct": 93.59211337030192,
+   "implied_shares_moved_gt10pct": 15,
+   "implied_shares_reference_prev_months": [
+    {
+     "pair": [
+      "2017-09-29",
+      "2017-10-31"
+     ],
+     "share_unchanged_pct": 93.41432225063939,
+     "moved_gt10pct": 19
+    },
+    {
+     "pair": [
+      "2017-10-31",
+      "2017-11-30"
+     ],
+     "share_unchanged_pct": 95.77553593947037,
+     "moved_gt10pct": 11
+    },
+    {
+     "pair": [
+      "2017-11-30",
+      "2017-12-29"
+     ],
+     "share_unchanged_pct": 96.0625,
+     "moved_gt10pct": 16
+    }
+   ],
+   "rank100_mcap_cr": [
+    31730.8328616,
+    30836.150845440003
+   ],
+   "rank250_mcap_cr": [
+    10116.082912725,
+    10007.5957464
+   ]
+  },
+  "edge_mcap_by_snapshot": [
+   {
+    "date": "2013-12-31",
+    "rank100_cr": 11818,
+    "rank250_cr": 2931,
+    "n": 1368
+   },
+   {
+    "date": "2014-01-31",
+    "rank100_cr": 10584,
+    "rank250_cr": 2691,
+    "n": 1387
+   },
+   {
+    "date": "2014-02-28",
+    "rank100_cr": 10654,
+    "rank250_cr": 2776,
+    "n": 1427
+   },
+   {
+    "date": "2014-03-31",
+    "rank100_cr": 12540,
+    "rank250_cr": 3204,
+    "n": 1447
+   },
+   {
+    "date": "2014-04-30",
+    "rank100_cr": 13176,
+    "rank250_cr": 3384,
+    "n": 1449
+   },
+   {
+    "date": "2014-05-30",
+    "rank100_cr": 15520,
+    "rank250_cr": 3800,
+    "n": 1478
+   },
+   {
+    "date": "2014-06-30",
+    "rank100_cr": 16520,
+    "rank250_cr": 4250,
+    "n": 1486
+   },
+   {
+    "date": "2014-07-31",
+    "rank100_cr": 16255,
+    "rank250_cr": 4269,
+    "n": 1460
+   },
+   {
+    "date": "2014-08-28",
+    "rank100_cr": 17217,
+    "rank250_cr": 4246,
+    "n": 1478
+   },
+   {
+    "date": "2014-09-30",
+    "rank100_cr": 16327,
+    "rank250_cr": 4465,
+    "n": 1485
+   },
+   {
+    "date": "2014-10-31",
+    "rank100_cr": 17823,
+    "rank250_cr": 4545,
+    "n": 1495
+   },
+   {
+    "date": "2014-11-28",
+    "rank100_cr": 18549,
+    "rank250_cr": 4758,
+    "n": 1491
+   },
+   {
+    "date": "2014-12-31",
+    "rank100_cr": 18811,
+    "rank250_cr": 4728,
+    "n": 1462
+   },
+   {
+    "date": "2015-01-30",
+    "rank100_cr": 20312,
+    "rank250_cr": 5228,
+    "n": 1437
+   },
+   {
+    "date": "2015-02-28",
+    "rank100_cr": 21014,
+    "rank250_cr": 5323,
+    "n": 1412
+   },
+   {
+    "date": "2015-03-31",
+    "rank100_cr": 20603,
+    "rank250_cr": 5195,
+    "n": 1429
+   },
+   {
+    "date": "2015-04-30",
+    "rank100_cr": 20338,
+    "rank250_cr": 4957,
+    "n": 1422
+   },
+   {
+    "date": "2015-05-29",
+    "rank100_cr": 20334,
+    "rank250_cr": 4979,
+    "n": 1435
+   },
+   {
+    "date": "2015-06-30",
+    "rank100_cr": 20271,
+    "rank250_cr": 4880,
+    "n": 1445
+   },
+   {
+    "date": "2015-07-31",
+    "rank100_cr": 20224,
+    "rank250_cr": 5237,
+    "n": 1447
+   },
+   {
+    "date": "2015-08-31",
+    "rank100_cr": 18447,
+    "rank250_cr": 4931,
+    "n": 1445
+   },
+   {
+    "date": "2015-09-30",
+    "rank100_cr": 19643,
+    "rank250_cr": 4833,
+    "n": 1446
+   },
+   {
+    "date": "2015-10-30",
+    "rank100_cr": 19040,
+    "rank250_cr": 4949,
+    "n": 1464
+   },
+   {
+    "date": "2015-11-30",
+    "rank100_cr": 19001,
+    "rank250_cr": 5323,
+    "n": 1530
+   },
+   {
+    "date": "2015-12-31",
+    "rank100_cr": 20138,
+    "rank250_cr": 5484,
+    "n": 1539
+   },
+   {
+    "date": "2016-01-29",
+    "rank100_cr": 18420,
+    "rank250_cr": 5072,
+    "n": 1543
+   },
+   {
+    "date": "2016-02-29",
+    "rank100_cr": 15670,
+    "rank250_cr": 4528,
+    "n": 1546
+   },
+   {
+    "date": "2016-03-31",
+    "rank100_cr": 18162,
+    "rank250_cr": 4999,
+    "n": 1557
+   },
+   {
+    "date": "2016-04-29",
+    "rank100_cr": 19068,
+    "rank250_cr": 5223,
+    "n": 1560
+   },
+   {
+    "date": "2016-05-31",
+    "rank100_cr": 18938,
+    "rank250_cr": 5358,
+    "n": 1565
+   },
+   {
+    "date": "2016-06-30",
+    "rank100_cr": 19154,
+    "rank250_cr": 5565,
+    "n": 1578
+   },
+   {
+    "date": "2016-07-29",
+    "rank100_cr": 21393,
+    "rank250_cr": 5948,
+    "n": 1595
+   },
+   {
+    "date": "2016-08-31",
+    "rank100_cr": 21655,
+    "rank250_cr": 6123,
+    "n": 1604
+   },
+   {
+    "date": "2016-09-30",
+    "rank100_cr": 23555,
+    "rank250_cr": 6147,
+    "n": 1613
+   },
+   {
+    "date": "2016-10-30",
+    "rank100_cr": 23719,
+    "rank250_cr": 6572,
+    "n": 1628
+   },
+   {
+    "date": "2016-11-30",
+    "rank100_cr": 21452,
+    "rank250_cr": 6134,
+    "n": 1639
+   },
+   {
+    "date": "2016-12-30",
+    "rank100_cr": 20612,
+    "rank250_cr": 6107,
+    "n": 1647
+   },
+   {
+    "date": "2017-01-31",
+    "rank100_cr": 21728,
+    "rank250_cr": 6334,
+    "n": 1654
+   },
+   {
+    "date": "2017-02-28",
+    "rank100_cr": 22979,
+    "rank250_cr": 6735,
+    "n": 1662
+   },
+   {
+    "date": "2017-03-31",
+    "rank100_cr": 24259,
+    "rank250_cr": 7185,
+    "n": 1562
+   },
+   {
+    "date": "2017-04-28",
+    "rank100_cr": 23920,
+    "rank250_cr": 7473,
+    "n": 1575
+   },
+   {
+    "date": "2017-05-31",
+    "rank100_cr": 23394,
+    "rank250_cr": 7445,
+    "n": 1575
+   },
+   {
+    "date": "2017-06-30",
+    "rank100_cr": 24102,
+    "rank250_cr": 7349,
+    "n": 1564
+   },
+   {
+    "date": "2017-07-31",
+    "rank100_cr": 25016,
+    "rank250_cr": 7771,
+    "n": 1600
+   },
+   {
+    "date": "2017-08-31",
+    "rank100_cr": 26212,
+    "rank250_cr": 7925,
+    "n": 1576
+   },
+   {
+    "date": "2017-09-29",
+    "rank100_cr": 26152,
+    "rank250_cr": 8006,
+    "n": 1586
+   },
+   {
+    "date": "2017-10-31",
+    "rank100_cr": 28957,
+    "rank250_cr": 9017,
+    "n": 1623
+   },
+   {
+    "date": "2017-11-30",
+    "rank100_cr": 30120,
+    "rank250_cr": 9626,
+    "n": 1613
+   },
+   {
+    "date": "2017-12-29",
+    "rank100_cr": 31731,
+    "rank250_cr": 10116,
+    "n": 1650
+   },
+   {
+    "date": "2018-01-31",
+    "rank100_cr": 30836,
+    "rank250_cr": 10008,
+    "n": 1659
+   },
+   {
+    "date": "2018-02-28",
+    "rank100_cr": 28498,
+    "rank250_cr": 9964,
+    "n": 1655
+   },
+   {
+    "date": "2018-03-28",
+    "rank100_cr": 28941,
+    "rank250_cr": 9669,
+    "n": 1678
+   },
+   {
+    "date": "2018-04-30",
+    "rank100_cr": 30956,
+    "rank250_cr": 10247,
+    "n": 1687
+   },
+   {
+    "date": "2018-05-31",
+    "rank100_cr": 29952,
+    "rank250_cr": 9300,
+    "n": 1668
+   },
+   {
+    "date": "2018-06-29",
+    "rank100_cr": 28527,
+    "rank250_cr": 8893,
+    "n": 1683
+   },
+   {
+    "date": "2018-07-31",
+    "rank100_cr": 30514,
+    "rank250_cr": 9475,
+    "n": 1675
+   },
+   {
+    "date": "2018-08-31",
+    "rank100_cr": 31396,
+    "rank250_cr": 9982,
+    "n": 1689
+   },
+   {
+    "date": "2018-09-28",
+    "rank100_cr": 27987,
+    "rank250_cr": 8223,
+    "n": 1709
+   },
+   {
+    "date": "2018-10-31",
+    "rank100_cr": 27106,
+    "rank250_cr": 8000,
+    "n": 1679
+   },
+   {
+    "date": "2018-11-30",
+    "rank100_cr": 27791,
+    "rank250_cr": 8477,
+    "n": 1686
+   },
+   {
+    "date": "2018-12-31",
+    "rank100_cr": 29119,
+    "rank250_cr": 8497,
+    "n": 1697
+   },
+   {
+    "date": "2019-01-31",
+    "rank100_cr": 26294,
+    "rank250_cr": 8301,
+    "n": 1657
+   },
+   {
+    "date": "2019-02-28",
+    "rank100_cr": 26119,
+    "rank250_cr": 8304,
+    "n": 1651
+   },
+   {
+    "date": "2019-03-29",
+    "rank100_cr": 29532,
+    "rank250_cr": 9065,
+    "n": 1689
+   },
+   {
+    "date": "2019-04-30",
+    "rank100_cr": 29689,
+    "rank250_cr": 9263,
+    "n": 1693
+   },
+   {
+    "date": "2019-05-31",
+    "rank100_cr": 28547,
+    "rank250_cr": 8995,
+    "n": 1681
+   },
+   {
+    "date": "2019-06-28",
+    "rank100_cr": 27316,
+    "rank250_cr": 8528,
+    "n": 1655
+   },
+   {
+    "date": "2019-07-31",
+    "rank100_cr": 24017,
+    "rank250_cr": 7603,
+    "n": 1670
+   },
+   {
+    "date": "2019-08-30",
+    "rank100_cr": 24768,
+    "rank250_cr": 7952,
+    "n": 1667
+   },
+   {
+    "date": "2019-09-30",
+    "rank100_cr": 25355,
+    "rank250_cr": 8436,
+    "n": 1698
+   },
+   {
+    "date": "2019-10-31",
+    "rank100_cr": 27853,
+    "rank250_cr": 8564,
+    "n": 1675
+   },
+   {
+    "date": "2019-11-29",
+    "rank100_cr": 27181,
+    "rank250_cr": 8330,
+    "n": 1681
+   },
+   {
+    "date": "2019-12-31",
+    "rank100_cr": 27785,
+    "rank250_cr": 8143,
+    "n": 1685
+   },
+   {
+    "date": "2020-01-31",
+    "rank100_cr": 28380,
+    "rank250_cr": 8699,
+    "n": 1664
+   },
+   {
+    "date": "2020-02-28",
+    "rank100_cr": 27901,
+    "rank250_cr": 8158,
+    "n": 1677
+   },
+   {
+    "date": "2020-03-31",
+    "rank100_cr": 21210,
+    "rank250_cr": 5695,
+    "n": 1661
+   },
+   {
+    "date": "2020-04-30",
+    "rank100_cr": 22750,
+    "rank250_cr": 6393,
+    "n": 1642
+   },
+   {
+    "date": "2020-05-29",
+    "rank100_cr": 23198,
+    "rank250_cr": 6278,
+    "n": 1643
+   },
+   {
+    "date": "2020-06-30",
+    "rank100_cr": 26682,
+    "rank250_cr": 6958,
+    "n": 1666
+   },
+   {
+    "date": "2020-07-31",
+    "rank100_cr": 25939,
+    "rank250_cr": 7405,
+    "n": 1662
+   },
+   {
+    "date": "2020-08-31",
+    "rank100_cr": 27858,
+    "rank250_cr": 8356,
+    "n": 1706
+   },
+   {
+    "date": "2020-09-30",
+    "rank100_cr": 27374,
+    "rank250_cr": 8405,
+    "n": 1671
+   },
+   {
+    "date": "2020-10-30",
+    "rank100_cr": 27736,
+    "rank250_cr": 8357,
+    "n": 1683
+   },
+   {
+    "date": "2020-11-27",
+    "rank100_cr": 32019,
+    "rank250_cr": 9480,
+    "n": 1705
+   },
+   {
+    "date": "2020-12-31",
+    "rank100_cr": 33440,
+    "rank250_cr": 10001,
+    "n": 1717
+   },
+   {
+    "date": "2021-01-29",
+    "rank100_cr": 33017,
+    "rank250_cr": 9989,
+    "n": 1684
+   },
+   {
+    "date": "2021-02-26",
+    "rank100_cr": 37824,
+    "rank250_cr": 11403,
+    "n": 1716
+   },
+   {
+    "date": "2021-03-31",
+    "rank100_cr": 38320,
+    "rank250_cr": 11172,
+    "n": 1723
+   },
+   {
+    "date": "2021-04-30",
+    "rank100_cr": 37753,
+    "rank250_cr": 11461,
+    "n": 1705
+   },
+   {
+    "date": "2021-05-31",
+    "rank100_cr": 40664,
+    "rank250_cr": 13088,
+    "n": 1778
+   },
+   {
+    "date": "2021-06-30",
+    "rank100_cr": 43196,
+    "rank250_cr": 13368,
+    "n": 1742
+   },
+   {
+    "date": "2021-07-30",
+    "rank100_cr": 44958,
+    "rank250_cr": 14212,
+    "n": 1740
+   },
+   {
+    "date": "2021-08-31",
+    "rank100_cr": 45146,
+    "rank250_cr": 14769,
+    "n": 1754
+   },
+   {
+    "date": "2021-09-30",
+    "rank100_cr": 46943,
+    "rank250_cr": 15151,
+    "n": 1786
+   },
+   {
+    "date": "2021-10-29",
+    "rank100_cr": 47554,
+    "rank250_cr": 15522,
+    "n": 1789
+   },
+   {
+    "date": "2021-11-30",
+    "rank100_cr": 47687,
+    "rank250_cr": 16599,
+    "n": 1812
+   },
+   {
+    "date": "2021-12-31",
+    "rank100_cr": 49194,
+    "rank250_cr": 17386,
+    "n": 1828
+   },
+   {
+    "date": "2022-01-31",
+    "rank100_cr": 48276,
+    "rank250_cr": 17461,
+    "n": 1873
+   },
+   {
+    "date": "2022-02-28",
+    "rank100_cr": 47311,
+    "rank250_cr": 16164,
+    "n": 1858
+   },
+   {
+    "date": "2022-03-31",
+    "rank100_cr": 48173,
+    "rank250_cr": 16229,
+    "n": 1850
+   },
+   {
+    "date": "2022-04-29",
+    "rank100_cr": 48598,
+    "rank250_cr": 16280,
+    "n": 1860
+   },
+   {
+    "date": "2022-05-31",
+    "rank100_cr": 45878,
+    "rank250_cr": 16099,
+    "n": 1873
+   },
+   {
+    "date": "2022-06-30",
+    "rank100_cr": 43397,
+    "rank250_cr": 14710,
+    "n": 1866
+   },
+   {
+    "date": "2022-07-29",
+    "rank100_cr": 46006,
+    "rank250_cr": 15511,
+    "n": 1875
+   },
+   {
+    "date": "2022-08-30",
+    "rank100_cr": 50026,
+    "rank250_cr": 17394,
+    "n": 1893
+   },
+   {
+    "date": "2022-09-30",
+    "rank100_cr": 49259,
+    "rank250_cr": 17021,
+    "n": 1903
+   },
+   {
+    "date": "2022-10-31",
+    "rank100_cr": 49983,
+    "rank250_cr": 16854,
+    "n": 1944
+   },
+   {
+    "date": "2022-11-30",
+    "rank100_cr": 51425,
+    "rank250_cr": 17697,
+    "n": 1934
+   },
+   {
+    "date": "2022-12-30",
+    "rank100_cr": 51317,
+    "rank250_cr": 17564,
+    "n": 1945
+   },
+   {
+    "date": "2023-01-31",
+    "rank100_cr": 49251,
+    "rank250_cr": 16791,
+    "n": 1960
+   },
+   {
+    "date": "2023-02-28",
+    "rank100_cr": 46615,
+    "rank250_cr": 16089,
+    "n": 1957
+   },
+   {
+    "date": "2023-03-31",
+    "rank100_cr": 46071,
+    "rank250_cr": 15751,
+    "n": 1975
+   },
+   {
+    "date": "2023-04-28",
+    "rank100_cr": 49739,
+    "rank250_cr": 16547,
+    "n": 1968
+   },
+   {
+    "date": "2023-05-31",
+    "rank100_cr": 53375,
+    "rank250_cr": 17505,
+    "n": 1984
+   },
+   {
+    "date": "2023-06-30",
+    "rank100_cr": 57806,
+    "rank250_cr": 18877,
+    "n": 2001
+   },
+   {
+    "date": "2023-07-31",
+    "rank100_cr": 60839,
+    "rank250_cr": 20526,
+    "n": 2054
+   },
+   {
+    "date": "2023-08-31",
+    "rank100_cr": 62842,
+    "rank250_cr": 21629,
+    "n": 2059
+   },
+   {
+    "date": "2023-09-29",
+    "rank100_cr": 66311,
+    "rank250_cr": 21298,
+    "n": 2063
+   },
+   {
+    "date": "2023-10-31",
+    "rank100_cr": 63315,
+    "rank250_cr": 21667,
+    "n": 2095
+   },
+   {
+    "date": "2023-11-30",
+    "rank100_cr": 67417,
+    "rank250_cr": 22741,
+    "n": 2131
+   },
+   {
+    "date": "2023-12-29",
+    "rank100_cr": 71000,
+    "rank250_cr": 25189,
+    "n": 2146
+   },
+   {
+    "date": "2024-01-31",
+    "rank100_cr": 76459,
+    "rank250_cr": 26225,
+    "n": 2160
+   },
+   {
+    "date": "2024-02-29",
+    "rank100_cr": 80775,
+    "rank250_cr": 25615,
+    "n": 2173
+   },
+   {
+    "date": "2024-03-28",
+    "rank100_cr": 84146,
+    "rank250_cr": 25585,
+    "n": 2212
+   },
+   {
+    "date": "2024-04-30",
+    "rank100_cr": 87758,
+    "rank250_cr": 27896,
+    "n": 2235
+   },
+   {
+    "date": "2024-05-31",
+    "rank100_cr": 89049,
+    "rank250_cr": 29061,
+    "n": 2233
+   },
+   {
+    "date": "2024-06-28",
+    "rank100_cr": 95003,
+    "rank250_cr": 30637,
+    "n": 2270
+   },
+   {
+    "date": "2024-07-31",
+    "rank100_cr": 104049,
+    "rank250_cr": 32103,
+    "n": 2295
+   },
+   {
+    "date": "2024-08-30",
+    "rank100_cr": 102184,
+    "rank250_cr": 32158,
+    "n": 2318
+   },
+   {
+    "date": "2024-09-30",
+    "rank100_cr": 104598,
+    "rank250_cr": 33770,
+    "n": 2401
+   },
+   {
+    "date": "2024-10-31",
+    "rank100_cr": 96324,
+    "rank250_cr": 32600,
+    "n": 2372
+   },
+   {
+    "date": "2024-11-29",
+    "rank100_cr": 96568,
+    "rank250_cr": 32883,
+    "n": 2400
+   },
+   {
+    "date": "2024-12-31",
+    "rank100_cr": 97776,
+    "rank250_cr": 32717,
+    "n": 2413
+   },
+   {
+    "date": "2025-01-31",
+    "rank100_cr": 92994,
+    "rank250_cr": 29989,
+    "n": 2423
+   },
+   {
+    "date": "2025-02-28",
+    "rank100_cr": 83726,
+    "rank250_cr": 27251,
+    "n": 2459
+   },
+   {
+    "date": "2025-03-28",
+    "rank100_cr": 89768,
+    "rank250_cr": 28638,
+    "n": 2503
+   },
+   {
+    "date": "2025-04-30",
+    "rank100_cr": 92064,
+    "rank250_cr": 29131,
+    "n": 2462
+   },
+   {
+    "date": "2025-05-30",
+    "rank100_cr": 96008,
+    "rank250_cr": 32643,
+    "n": 2477
+   },
+   {
+    "date": "2025-06-30",
+    "rank100_cr": 101306,
+    "rank250_cr": 33134,
+    "n": 2537
+   },
+   {
+    "date": "2025-07-31",
+    "rank100_cr": 98188,
+    "rank250_cr": 33862,
+    "n": 2506
+   },
+   {
+    "date": "2025-08-29",
+    "rank100_cr": 95917,
+    "rank250_cr": 32373,
+    "n": 2551
+   },
+   {
+    "date": "2025-09-30",
+    "rank100_cr": 101117,
+    "rank250_cr": 32560,
+    "n": 2574
+   },
+   {
+    "date": "2025-10-31",
+    "rank100_cr": 106336,
+    "rank250_cr": 33172,
+    "n": 2615
+   },
+   {
+    "date": "2025-11-28",
+    "rank100_cr": 106502,
+    "rank250_cr": 33726,
+    "n": 2638
+   },
+   {
+    "date": "2025-12-31",
+    "rank100_cr": 105997,
+    "rank250_cr": 33611,
+    "n": 2658
+   }
+  ],
+  "large_caps_2014": {
+   "RELIANCE": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 1,
+    "rank_max": 4,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE002A01018"
+    ]
+   },
+   "TCS": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 1,
+    "rank_max": 3,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE467B01029"
+    ]
+   },
+   "HDFCBANK": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 2,
+    "rank_max": 7,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE040A01034"
+    ]
+   },
+   "ITC": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 2,
+    "rank_max": 6,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE154A01025"
+    ]
+   },
+   "INFY": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 3,
+    "rank_max": 10,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE009A01021"
+    ]
+   },
+   "ONGC": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 2,
+    "rank_max": 11,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE213A01029"
+    ]
+   },
+   "ICICIBANK": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 8,
+    "rank_max": 16,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE090A01021"
+    ]
+   },
+   "HDFC": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 5,
+    "rank_max": 12,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE001A01036"
+    ]
+   },
+   "SBIN": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 5,
+    "rank_max": 15,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE062A01020"
+    ]
+   },
+   "COALINDIA": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 4,
+    "rank_max": 16,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE522F01014"
+    ]
+   },
+   "HINDUNILVR": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 5,
+    "rank_max": 15,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE030A01027"
+    ]
+   },
+   "LT": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 10,
+    "rank_max": 20,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE018A01030"
+    ]
+   },
+   "SUNPHARMA": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 6,
+    "rank_max": 23,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE044A01036"
+    ]
+   },
+   "WIPRO": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 8,
+    "rank_max": 22,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE075A01022"
+    ]
+   },
+   "BHARTIARTL": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 9,
+    "rank_max": 19,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE397D01024"
+    ]
+   },
+   "NTPC": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 13,
+    "rank_max": 22,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE733E01010"
+    ]
+   },
+   "TATAMOTORS": {
+    "present": false
+   },
+   "HCLTECH": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 15,
+    "rank_max": 25,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE860A01027"
+    ]
+   },
+   "AXISBANK": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 16,
+    "rank_max": 26,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE238A01034"
+    ]
+   },
+   "KOTAKBANK": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 11,
+    "rank_max": 29,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE237A01028"
+    ]
+   },
+   "MARUTI": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 6,
+    "rank_max": 31,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE585B01010"
+    ]
+   },
+   "NMDC": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 21,
+    "rank_max": 74,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE584A01023"
+    ]
+   },
+   "BAJAJ-AUTO": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 23,
+    "rank_max": 39,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE917I01010"
+    ]
+   },
+   "M&M": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 20,
+    "rank_max": 36,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE101A01026"
+    ]
+   },
+   "TECHM": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 32,
+    "rank_max": 72,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE669C01036"
+    ]
+   },
+   "ULTRACEMCO": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 22,
+    "rank_max": 32,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE481G01011"
+    ]
+   },
+   "ASIANPAINT": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 22,
+    "rank_max": 34,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE021A01026"
+    ]
+   },
+   "IOC": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 8,
+    "rank_max": 30,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE242A01010"
+    ]
+   },
+   "POWERGRID": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 23,
+    "rank_max": 31,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE752E01010"
+    ]
+   },
+   "BPCL": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 25,
+    "rank_max": 59,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE029A01011"
+    ]
+   },
+   "GAIL": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 30,
+    "rank_max": 52,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE129A01019"
+    ]
+   },
+   "CIPLA": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 36,
+    "rank_max": 65,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE059A01026"
+    ]
+   },
+   "DRREDDY": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 27,
+    "rank_max": 78,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE089A01031"
+    ]
+   },
+   "LUPIN": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 22,
+    "rank_max": 82,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE326A01037"
+    ]
+   },
+   "HEROMOTOCO": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 32,
+    "rank_max": 45,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE158A01026"
+    ]
+   },
+   "NESTLEIND": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 30,
+    "rank_max": 44,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE239A01024"
+    ]
+   },
+   "TATASTEEL": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 35,
+    "rank_max": 97,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE081A01020"
+    ]
+   },
+   "HINDZINC": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 19,
+    "rank_max": 38,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE267A01025"
+    ]
+   },
+   "BAJFINANCE": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 27,
+    "rank_max": 148,
+    "outside_top100": [
+     [
+      "2013-12-31",
+      142
+     ],
+     [
+      "2014-01-31",
+      135
+     ],
+     [
+      "2014-02-28",
+      135
+     ],
+     [
+      "2014-03-31",
+      128
+     ],
+     [
+      "2014-04-30",
+      131
+     ],
+     [
+      "2014-05-30",
+      134
+     ],
+     [
+      "2014-06-30",
+      148
+     ],
+     [
+      "2014-07-31",
+      134
+     ],
+     [
+      "2014-08-28",
+      123
+     ],
+     [
+      "2014-09-30",
+      120
+     ],
+     [
+      "2014-10-31",
+      118
+     ],
+     [
+      "2014-11-28",
+      112
+     ]
+    ],
+    "n_outside": 14,
+    "isins": [
+     "INE296A01032"
+    ]
+   },
+   "TITAN": {
+    "present": true,
+    "snapshots": 49,
+    "rank_min": 40,
+    "rank_max": 78,
+    "outside_top100": [],
+    "n_outside": 0,
+    "isins": [
+     "INE280A01028"
+    ]
+   }
+  },
+  "top100_names": {
+   "2014-03-31": [
+    "TCS",
+    "RELIANCE",
+    "ITC",
+    "ONGC",
+    "INFY",
+    "COALINDIA",
+    "HDFCBANK",
+    "ICICIBANK",
+    "SBIN",
+    "HDFC",
+    "WIPRO",
+    "HINDUNILVR",
+    "BHARTIARTL",
+    "SUNPHARMA",
+    "TMPV",
+    "LT",
+    "NTPC",
+    "HCLTECH",
+    "AXISBANK",
+    "IOC",
+    "CAIRN",
+    "M&M",
+    "BAJAJ-AUTO",
+    "KOTAKBANK",
+    "ULTRACEMCO",
+    "MARUTI",
+    "VEDL",
+    "NMDC",
+    "POWERGRID",
+    "HINDZINC",
+    "ASIANPAINT",
+    "NESTLEIND",
+    "BHEL",
+    "GAIL",
+    "IDEA",
+    "HEROMOTOCO",
+    "DRREDDY",
+    "TECHM",
+    "LUPIN",
+    "ADANIENT",
+    "ADANIPORTS",
+    "UNITDSPR",
+    "INDUSTOWER",
+    "TATASTEEL",
+    "BOSCHLTD",
+    "BPCL",
+    "DLF",
+    "DABUR",
+    "AMBUJACEM",
+    "BANKBARODA",
+    "CIPLA",
+    "SAIL",
+    "HINDALCO",
+    "GODREJCP",
+    "OIL",
+    "SIEMENS",
+    "PNB",
+    "JINDALSTEL",
+    "RCOM",
+    "GRASIM",
+    "INDUSINDBK",
+    "ACC",
+    "ZEEL",
+    "OFSS",
+    "PFC",
+    "JSWSTEEL",
+    "TITAN",
+    "TATAPOWER",
+    "RECLTD",
+    "MOTHERSON",
+    "GLAXO",
+    "UBL",
+    "NHPC",
+    "ZYDUSLIFE",
+    "RPOWER",
+    "SHREECEM",
+    "CONCOR",
+    "COLPAL",
+    "IDFC",
+    "DIVISLAB",
+    "ABB",
+    "GSKCONS",
+    "SHRIRAMFIN",
+    "CUMMINSIND",
+    "EICHERMOT",
+    "SUNTV",
+    "PIDILITIND",
+    "RANBAXY",
+    "CASTROLIND",
+    "GLENMARK",
+    "YESBANK",
+    "AUROPHARMA",
+    "BANKINDIA",
+    "M&MFIN",
+    "ABIRLANUVO",
+    "ADANIPOWER",
+    "MARICO",
+    "APOLLOHOSP",
+    "LTF",
+    "BAJAJFINSV"
+   ],
+   "2017-12-29": [
+    "RELIANCE",
+    "TCS",
+    "HDFCBANK",
+    "ITC",
+    "HINDUNILVR",
+    "MARUTI",
+    "HDFC",
+    "SBIN",
+    "ONGC",
+    "INFY",
+    "BHARTIARTL",
+    "ICICIBANK",
+    "KOTAKBANK",
+    "IOC",
+    "LT",
+    "COALINDIA",
+    "NTPC",
+    "AXISBANK",
+    "WIPRO",
+    "TMPV",
+    "SUNPHARMA",
+    "HINDZINC",
+    "HCLTECH",
+    "VEDL",
+    "ULTRACEMCO",
+    "BPCL",
+    "ASIANPAINT",
+    "POWERGRID",
+    "BAJFINANCE",
+    "INDUSINDBK",
+    "BAJAJ-AUTO",
+    "M&M",
+    "GAIL",
+    "ADANIPORTS",
+    "BAJAJFINSV",
+    "EICHERMOT",
+    "MOTHERSON",
+    "HDFCLIFE",
+    "GRASIM",
+    "TITAN",
+    "NESTLEIND",
+    "HEROMOTOCO",
+    "DMART",
+    "YESBANK",
+    "TATASTEEL",
+    "INDUSTOWER",
+    "SBILIFE",
+    "GODREJCP",
+    "GICRE",
+    "JSWSTEEL",
+    "HINDPETRO",
+    "SHREECEM",
+    "DABUR",
+    "BOSCHLTD",
+    "HINDALCO",
+    "BRITANNIA",
+    "ZEEL",
+    "ICICIPRULI",
+    "AMBUJACEM",
+    "UNITDSPR",
+    "SAMMAANCAP",
+    "PEL",
+    "NIACL",
+    "TECHM",
+    "CIPLA",
+    "INDIGO",
+    "DLF",
+    "PIDILITIND",
+    "BEL",
+    "VAKRANGEE",
+    "ZYDUSLIFE",
+    "SIEMENS",
+    "NMDC",
+    "MARICO",
+    "PNB",
+    "ABCAPITAL",
+    "AUROPHARMA",
+    "DRREDDY",
+    "LUPIN",
+    "SUNTV",
+    "IDEA",
+    "UPL",
+    "PETRONET",
+    "SAIL",
+    "BANKBARODA",
+    "TVSMOTOR",
+    "ICICIGI",
+    "HAVELLS",
+    "OFSS",
+    "ASHOKLEY",
+    "BHARATFORG",
+    "BHEL",
+    "CONCOR",
+    "SHRIRAMFIN",
+    "NHPC",
+    "ACC",
+    "BIOCON",
+    "PFC",
+    "BAJAJHLDNG",
+    "LTF"
+   ]
+  },
+  "ranks_101_120_on_2014-03-31": [
+   [
+    95,
+    "ABIRLANUVO",
+    14196.0
+   ],
+   [
+    96,
+    "ADANIPOWER",
+    13958.0
+   ],
+   [
+    97,
+    "MARICO",
+    13488.0
+   ],
+   [
+    98,
+    "APOLLOHOSP",
+    12750.0
+   ],
+   [
+    99,
+    "LTF",
+    12639.0
+   ],
+   [
+    100,
+    "BAJAJFINSV",
+    12540.0
+   ],
+   [
+    101,
+    "CANBK",
+    12193.0
+   ],
+   [
+    102,
+    "INGVYSYABK",
+    11976.0
+   ],
+   [
+    103,
+    "LICHSGFIN",
+    11918.0
+   ],
+   [
+    104,
+    "JPASSOCIAT",
+    11916.0
+   ],
+   [
+    105,
+    "HAVELLS",
+    11657.0
+   ],
+   [
+    106,
+    "BAJAJHLDNG",
+    11405.0
+   ],
+   [
+    107,
+    "RELINFRA",
+    11405.0
+   ],
+   [
+    108,
+    "JUSTDIAL",
+    10869.0
+   ],
+   [
+    109,
+    "IPCALAB",
+    10662.0
+   ],
+   [
+    110,
+    "GODREJIND",
+    10587.0
+   ]
+  ],
+  "parent_band_split_pct": {
+   "SCMO_0003|2014-2017|Large": 6.2,
+   "SCMO_0003|2014-2017|Mid": 9.5,
+   "SCMO_0003|2014-2017|Small and below": 84.3,
+   "SCMO_0003|2019-2026-03|Large": 9.4,
+   "SCMO_0003|2019-2026-03|Mid": 20.5,
+   "SCMO_0003|2019-2026-03|Small and below": 70.1,
+   "SCMO_0007|2014-2017|Large": 23.8,
+   "SCMO_0007|2014-2017|Mid": 35.4,
+   "SCMO_0007|2014-2017|Small and below": 40.8,
+   "SCMO_0007|2019-2026-03|Large": 5.4,
+   "SCMO_0007|2019-2026-03|Mid": 17.3,
+   "SCMO_0007|2019-2026-03|Small and below": 77.3,
+   "SCMO_0010|2014-2017|Large": 10.2,
+   "SCMO_0010|2014-2017|Mid": 14.1,
+   "SCMO_0010|2014-2017|Small and below": 74.9,
+   "SCMO_0010|2014-2017|unranked": 0.7,
+   "SCMO_0010|2019-2026-03|Large": 26.9,
+   "SCMO_0010|2019-2026-03|Mid": 19.8,
+   "SCMO_0010|2019-2026-03|Small and below": 53.3,
+   "SCMO_0029|2014-2017|Large": 8.5,
+   "SCMO_0029|2014-2017|Mid": 24.5,
+   "SCMO_0029|2014-2017|Small and below": 66.5,
+   "SCMO_0029|2014-2017|unranked": 0.4,
+   "SCMO_0029|2019-2026-03|Large": 30.0,
+   "SCMO_0029|2019-2026-03|Mid": 29.7,
+   "SCMO_0029|2019-2026-03|Small and below": 40.3
+  },
+  "sensitivity": {
+   "gaps_top260": [
+    {
+     "snapshot": "2014-02-28",
+     "holding_days_using_snapshot": 993,
+     "holding_days_band_changed": 0,
+     "changed": [],
+     "ticker": "CASTROLIND",
+     "rank_before": 81,
+     "rank_after": 89,
+     "gap_length": 1,
+     "estimated_rank": 84
+    },
+    {
+     "snapshot": "2015-09-30",
+     "holding_days_using_snapshot": 1100,
+     "holding_days_band_changed": 0,
+     "changed": [],
+     "ticker": "CMC",
+     "rank_before": 218,
+     "rank_after": 227,
+     "gap_length": 2,
+     "estimated_rank": 221
+    },
+    {
+     "snapshot": "2015-10-30",
+     "holding_days_using_snapshot": 1045,
+     "holding_days_band_changed": 0,
+     "changed": [],
+     "ticker": "CMC",
+     "rank_before": 218,
+     "rank_after": 227,
+     "gap_length": 2,
+     "estimated_rank": 220
+    },
+    {
+     "snapshot": "2015-05-29",
+     "holding_days_using_snapshot": 1069,
+     "holding_days_band_changed": 0,
+     "changed": [],
+     "ticker": "GUJGASLTD",
+     "rank_before": 162,
+     "rank_after": 195,
+     "gap_length": 4,
+     "estimated_rank": 174
+    },
+    {
+     "snapshot": "2015-06-30",
+     "holding_days_using_snapshot": 1104,
+     "holding_days_band_changed": 23,
+     "changed": [
+      {
+       "parent": "SCMO_0029",
+       "stock": "EROSMEDIA.NS",
+       "band": "Mid",
+       "days": 23,
+       "new_band": "Small and below"
+      }
+     ],
+     "ticker": "GUJGASLTD",
+     "rank_before": 162,
+     "rank_after": 195,
+     "gap_length": 4,
+     "estimated_rank": 180
+    },
+    {
+     "snapshot": "2015-07-31",
+     "holding_days_using_snapshot": 1008,
+     "holding_days_band_changed": 0,
+     "changed": [],
+     "ticker": "GUJGASLTD",
+     "rank_before": 162,
+     "rank_after": 195,
+     "gap_length": 4,
+     "estimated_rank": 192
+    },
+    {
+     "snapshot": "2015-08-31",
+     "holding_days_using_snapshot": 1093,
+     "holding_days_band_changed": 0,
+     "changed": [],
+     "ticker": "GUJGASLTD",
+     "rank_before": 162,
+     "rank_after": 195,
+     "gap_length": 4,
+     "estimated_rank": 186
+    },
+    {
+     "snapshot": "2017-08-31",
+     "holding_days_using_snapshot": 965,
+     "holding_days_band_changed": 0,
+     "changed": [],
+     "ticker": "CHOLAHLDNG",
+     "rank_before": 158,
+     "rank_after": 203,
+     "gap_length": 1,
+     "estimated_rank": 181
+    }
+   ],
+   "blips": [
+    {
+     "snapshot": "2016-02-29",
+     "holding_days_using_snapshot": 988,
+     "holding_days_band_changed": 0,
+     "changed": [],
+     "ticker": "DHANUKA",
+     "rank_as_stored": 245,
+     "rank_repaired": 334,
+     "own_holding_days": {}
+    }
+   ]
+  }
+ },
+ "check8": {
+  "rows": 20,
+  "all_agree": true,
+  "sources": {
+   "rank": 20
+  },
+  "bands": {
+   "Small and below": 10,
+   "Mid": 7,
+   "Large": 3
+  },
+  "years": {
+   "2014": 4,
+   "2015": 6,
+   "2016": 5,
+   "2017": 5
+  }
+ },
+ "check9": {
+  "drop_a_row": {
+   "what": "2016-09-30 DISHMAN rank 325",
+   "check3": {
+    "pre_differences": 2,
+    "pre_detail": {
+     "only_mine": 1,
+     "only_theirs": 0,
+     "dup_keys_theirs": 0,
+     "field_diffs": {
+      "isin": 0,
+      "ticker": 0,
+      "mcap": 0,
+      "rank": 0,
+      "n_ranked": 0,
+      "band": 0
+     },
+     "row_order_identical": false
+    },
+    "combined_part_differences": 2,
+    "concat_ok": true,
+    "sha_ok": false,
+    "flagged": true
+   },
+   "check5_population_mismatches": 19,
+   "check5_lookups": 42984,
+   "check5_examples": [
+    {
+     "isin": "INE353G01020",
+     "date": "2016-09-30",
+     "mine": [
+      "Small and below",
+      "rank",
+      "2016-09-30",
+      325,
+      "isin"
+     ],
+     "theirs": [
+      "Small and below",
+      "unranked",
+      "2016-09-30",
+      null,
+      null
+     ]
+    },
+    {
+     "isin": "INE353G01020",
+     "date": "2016-10-03",
+     "mine": [
+      "Small and below",
+      "rank",
+      "2016-09-30",
+      325,
+      "isin"
+     ],
+     "theirs": [
+      "Small and below",
+      "unranked",
+      "2016-09-30",
+      null,
+      null
+     ]
+    },
+    {
+     "isin": "INE353G01020",
+     "date": "2016-10-04",
+     "mine": [
+      "Small and below",
+      "rank",
+      "2016-09-30",
+      325,
+      "isin"
+     ],
+     "theirs": [
+      "Small and below",
+      "unranked",
+      "2016-09-30",
+      null,
+      null
+     ]
+    }
+   ]
+  },
+  "swap_two_ranks_and_bands": {
+   "what": "2016-06-30 RAMCOCEM rank 136 <-> GESHIP rank 273",
+   "check3": {
+    "pre_differences": 4,
+    "pre_detail": {
+     "only_mine": 0,
+     "only_theirs": 0,
+     "dup_keys_theirs": 0,
+     "field_diffs": {
+      "isin": 0,
+      "ticker": 0,
+      "mcap": 0,
+      "rank": 2,
+      "n_ranked": 0,
+      "band": 2
+     },
+     "row_order_identical": true
+    },
+    "combined_part_differences": 4,
+    "concat_ok": true,
+    "sha_ok": false,
+    "flagged": true
+   },
+   "check5_population_mismatches": 40,
+   "check5_lookups": 42984,
+   "check5_examples": [
+    {
+     "isin": "INE017A01032",
+     "date": "2016-06-30",
+     "mine": [
+      "Small and below",
+      "rank",
+      "2016-06-30",
+      273,
+      "isin"
+     ],
+     "theirs": [
+      "Mid",
+      "rank",
+      "2016-06-30",
+      136,
+      "isin"
+     ]
+    },
+    {
+     "isin": "INE017A01032",
+     "date": "2016-07-01",
+     "mine": [
+      "Small and below",
+      "rank",
+      "2016-06-30",
+      273,
+      "isin"
+     ],
+     "theirs": [
+      "Mid",
+      "rank",
+      "2016-06-30",
+      136,
+      "isin"
+     ]
+    },
+    {
+     "isin": "INE017A01032",
+     "date": "2016-07-04",
+     "mine": [
+      "Small and below",
+      "rank",
+      "2016-06-30",
+      273,
+      "isin"
+     ],
+     "theirs": [
+      "Mid",
+      "rank",
+      "2016-06-30",
+      136,
+      "isin"
+     ]
+    }
+   ]
+  },
+  "change_one_mcap_x1.5_rank_kept": {
+   "what": "2016-07-29 DISHMAN rank 423",
+   "check3": {
+    "pre_differences": 1,
+    "pre_detail": {
+     "only_mine": 0,
+     "only_theirs": 0,
+     "dup_keys_theirs": 0,
+     "field_diffs": {
+      "isin": 0,
+      "ticker": 0,
+      "mcap": 1,
+      "rank": 0,
+      "n_ranked": 0,
+      "band": 0
+     },
+     "row_order_identical": true
+    },
+    "combined_part_differences": 1,
+    "concat_ok": true,
+    "sha_ok": false,
+    "flagged": true
+   },
+   "check5_population_mismatches": 0,
+   "check5_lookups": 42984,
+   "check5_examples": []
+  },
+  "duplicate_a_row": {
+   "what": "2015-05-29 MOIL rank 289",
+   "check3": {
+    "pre_differences": 2,
+    "pre_detail": {
+     "only_mine": 0,
+     "only_theirs": 0,
+     "dup_keys_theirs": 1,
+     "field_diffs": {
+      "isin": 0,
+      "ticker": 0,
+      "mcap": 0,
+      "rank": 0,
+      "n_ranked": 0,
+      "band": 0
+     },
+     "row_order_identical": false
+    },
+    "combined_part_differences": 2,
+    "concat_ok": true,
+    "sha_ok": false,
+    "flagged": true
+   },
+   "check5_population_mismatches": 0,
+   "check5_lookups": 42984,
+   "check5_examples": []
+  },
+  "control_real_files": {
+   "check3": {
+    "pre_differences": 0,
+    "pre_detail": {
+     "only_mine": 0,
+     "only_theirs": 0,
+     "dup_keys_theirs": 0,
+     "field_diffs": {
+      "isin": 0,
+      "ticker": 0,
+      "mcap": 0,
+      "rank": 0,
+      "n_ranked": 0,
+      "band": 0
+     },
+     "row_order_identical": true
+    },
+    "combined_part_differences": 0,
+    "concat_ok": true,
+    "sha_ok": true,
+    "flagged": false
+   }
+  }
+ },
+ "runtime_s": 179.0
+}
