@@ -1,0 +1,534 @@
+{
+ "verifier": "analysis/verify_t10.py",
+ "run": "smoke",
+ "evidence": "C:\\Users\\manur\\Repos\\wm-AA\\AA\\tests\\T10\\evidence\\smoke",
+ "books": [
+  "SCMO_0003"
+ ],
+ "gate_compared": 79792,
+ "gate_failures_and_missing": 0,
+ "missing_evidence_files": [],
+ "checks": {
+  "C-data": {
+   "compared": 41,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "inputs rows: 41; files read by this verifier but not listed in inputs.csv: []"
+   ],
+   "parts": {
+    "inputs_rows": {
+     "compared": 41,
+     "failed": 0
+    }
+   }
+  },
+  "C-dec": {
+   "compared": 672,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [],
+   "parts": {
+    "decisions": {
+     "compared": 672,
+     "failed": 0
+    }
+   }
+  },
+  "C-tag": {
+   "compared": 7115,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "information (not gated): tag_via (all rows) and tag_detail (rank-sourced rows) compared on 13394 cells, 0 differ; multi-band membership rows seen: 0"
+   ],
+   "parts": {
+    "stock_reads": {
+     "compared": 7114,
+     "failed": 0
+    },
+    "row_order": {
+     "compared": 1,
+     "failed": 0
+    }
+   }
+  },
+  "C-fs": {
+   "compared": 690,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 2.4610855225688084e-16,
+   "first_fail": null,
+   "gate": true,
+   "notes": [],
+   "parts": {
+    "decision_columns": {
+     "compared": 672,
+     "failed": 0
+    },
+    "no_rule_out_while_switch_in": {
+     "compared": 2,
+     "failed": 0
+    },
+    "v4_exact_json_fields": {
+     "compared": 16,
+     "failed": 0
+    }
+   }
+  },
+  "C-events": {
+   "compared": 83,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 2.3414165336186874e-16,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "reading: a basket change on a session where the book is OUT after the latest decision is 'skipped' even when a state event (IN to OUT) falls on the same session; such coincident rows: 0 of 21"
+   ],
+   "parts": {
+    "events": {
+     "compared": 62,
+     "failed": 0
+    },
+    "skipped_baskets": {
+     "compared": 21,
+     "failed": 0
+    }
+   }
+  },
+  "C-nav": {
+   "compared": 31249,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 1.8030387505891324e-15,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "stats kinds not covered here: ['t07_rule'] (t07_rule is descriptive and is not verified)",
+    "daily_nav rows of t07_rule not verified: 5796"
+   ],
+   "parts": {
+    "stats_rows": {
+     "compared": 31,
+     "failed": 0
+    },
+    "daily_nav": {
+     "compared": 30912,
+     "failed": 0
+    },
+    "trades": {
+     "compared": 306,
+     "failed": 0
+    }
+   }
+  },
+  "C-thr": {
+   "compared": 5,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 4.531793290276744e-16,
+   "first_fail": null,
+   "gate": true,
+   "notes": [],
+   "parts": {
+    "threshold_rows": {
+     "compared": 5,
+     "failed": 0
+    }
+   }
+  },
+  "C-t06": {
+   "compared": 19668,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 4.0643978365663885e-16,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "T06 decisions shared with this verifier's: 408 of 409 (T06's last decision is on 2026-10-22, which is not a weekly decision date of the longer calendar)",
+    "engine's regression_t06.json compared sessions: 17334"
+   ],
+   "parts": {
+    "nav_strategy": {
+     "compared": 5778,
+     "failed": 0
+    },
+    "nav_hold_parent": {
+     "compared": 5778,
+     "failed": 0
+    },
+    "nav_sleeve_only": {
+     "compared": 5778,
+     "failed": 0
+    },
+    "nav_published_D17": {
+     "compared": 1926,
+     "failed": 0
+    },
+    "decisions": {
+     "compared": 408,
+     "failed": 0
+    }
+   }
+  },
+  "C-always-in": {
+   "compared": 10,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 2.6091953812945243e-14,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "SCMO_0003: CAGR gap +0.0449 pp/yr in calendar years (+0.0460 with years = (sessions - 1) / 252); worst year 2022 +0.4255 pp; 8 calendar years"
+   ],
+   "parts": {
+    "g_engine": {
+     "compared": 1,
+     "failed": 0
+    }
+   }
+  },
+  "C-r7": {
+   "compared": 15,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 1.545919053102927e-13,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "SCMO_0003 full: 8 stretches (reportability gate: at least 5)",
+    "SCMO_0003 live: 5 stretches (reportability gate: at least 5)"
+   ],
+   "parts": {
+    "stretches": {
+     "compared": 15,
+     "failed": 0
+    }
+   }
+  },
+  "C-boot": {
+   "compared": 2,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 5.5686335896090305e-14,
+   "first_fail": null,
+   "gate": true,
+   "notes": [],
+   "parts": {
+    "bootstrap": {
+     "compared": 2,
+     "failed": 0
+    }
+   }
+  },
+  "C-r4": {
+   "compared": 20,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "SCMO_0003: draws in the evidence 20; draws re-derived 20 (first 20 and the random 20: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 33, 37, 66, 82, 127, 297, 303, 390, 392, 394, 395, 413, 415, 416, 430, 453, 458, 465, 492])",
+    "random draw ids not present in a shorter evidence file (not compared): 19"
+   ],
+   "parts": {
+    "r4_draws": {
+     "compared": 20,
+     "failed": 0
+    }
+   }
+  },
+  "C-v5": {
+   "compared": 502,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "SCMO_0003: sample of 500 full-window (stock, week) reads; engine disagrees with the D23 read in 0; this verifier's own lookup disagrees with the D23 read in 0",
+    "all-sample disagreements between this verifier's lookup and the D23 read: 0"
+   ],
+   "parts": {
+    "sample_SCMO_0003": {
+     "compared": 500,
+     "failed": 0
+    },
+    "tag_reads_equal_sum_n_held": {
+     "compared": 2,
+     "failed": 0
+    }
+   }
+  },
+  "C-pit": {
+   "compared": 19720,
+   "failed": 0,
+   "missing": 0,
+   "worst_rel": 0.0,
+   "first_fail": null,
+   "gate": true,
+   "notes": [
+    "counts (verifier's derivation plus the evidence's own columns): {'decisions': 4032, 'decision_violations': 0, 'tags': 14228, 'tag_violations': 0, 'trades': 120, 'trade_violations': 0, 't0': 4, 'decision_trade': 1340, 'decision_trade_violations': 0}; T0 events (decision and trade on the same session, excluded) counted separately: 4"
+   ],
+   "parts": {
+    "decisions_label_dates": {
+     "compared": 4032,
+     "failed": 0
+    },
+    "tag_snapshot_dates": {
+     "compared": 14228,
+     "failed": 0
+    },
+    "trade_after_decision": {
+     "compared": 120,
+     "failed": 0
+    },
+    "decision_trade_after_decision": {
+     "compared": 1340,
+     "failed": 0
+    }
+   }
+  }
+ },
+ "anchor_c_t06": {
+  "compared": 19668,
+  "failed": 0,
+  "worst_rel": 4.0643978365663885e-16
+ },
+ "c_corrupt": {
+  "detected": true,
+  "corruptions": {
+   "flip_tag_band": {
+    "info": {
+     "file": "decision_stocks.csv",
+     "row": 2371,
+     "column": "band"
+    },
+    "relevant_checks": [
+     "C-tag"
+    ],
+    "failures_in_relevant_checks": {
+     "C-tag": 1
+    },
+    "detected": true
+   },
+   "flip_state_rule": {
+    "info": {
+     "file": "decisions.csv",
+     "row": 303,
+     "column": "state_rule 1 -> 0 (an extra week)"
+    },
+    "relevant_checks": [
+     "C-fs"
+    ],
+    "failures_in_relevant_checks": {
+     "C-fs": 2
+    },
+    "detected": true
+   },
+   "change_decision_basket_eff": {
+    "info": {
+     "file": "decisions.csv",
+     "row": 336,
+     "column": "basket_eff"
+    },
+    "relevant_checks": [
+     "C-dec"
+    ],
+    "failures_in_relevant_checks": {
+     "C-dec": 1
+    },
+    "detected": true
+   },
+   "change_trade_cost": {
+    "info": {
+     "file": "trades.csv",
+     "row": 120,
+     "column": "cost x 1.5"
+    },
+    "relevant_checks": [
+     "C-nav"
+    ],
+    "failures_in_relevant_checks": {
+     "C-nav": 1
+    },
+    "detected": true
+   },
+   "scale_nav": {
+    "info": {
+     "file": "daily_nav.csv",
+     "rows": 1932,
+     "what": "SCMO_0003 rule 20.8 bps x 1.001"
+    },
+    "relevant_checks": [
+     "C-nav"
+    ],
+    "failures_in_relevant_checks": {
+     "C-nav": 1932
+    },
+    "detected": true
+   },
+   "delete_event": {
+    "info": {
+     "file": "events.csv",
+     "row": 31
+    },
+    "relevant_checks": [
+     "C-events"
+    ],
+    "failures_in_relevant_checks": {
+     "C-events": 1
+    },
+    "detected": true
+   },
+   "change_stretch_span": {
+    "info": {
+     "file": "stretches.csv",
+     "row": 6,
+     "column": "span_end_date + 7 days"
+    },
+    "relevant_checks": [
+     "C-r7"
+    ],
+    "failures_in_relevant_checks": {
+     "C-r7": 1
+    },
+    "detected": true
+   },
+   "change_r4_cagr": {
+    "info": {
+     "file": "r4_tag_error.csv",
+     "row": 3,
+     "column": "cagr + 0.001"
+    },
+    "relevant_checks": [
+     "C-r4"
+    ],
+    "failures_in_relevant_checks": {
+     "C-r4": 1
+    },
+    "detected": true
+   },
+   "change_bootstrap_ci": {
+    "info": {
+     "file": "bootstrap.csv",
+     "row": 0,
+     "column": "ci_high + 0.01"
+    },
+    "relevant_checks": [
+     "C-boot"
+    ],
+    "failures_in_relevant_checks": {
+     "C-boot": 1
+    },
+    "detected": true
+   },
+   "change_threshold_stat": {
+    "info": {
+     "file": "stats.csv",
+     "row": 13,
+     "column": "end_nav of thr_2/5 x 1.01"
+    },
+    "relevant_checks": [
+     "C-thr"
+    ],
+    "failures_in_relevant_checks": {
+     "C-thr": 1
+    },
+    "detected": true
+   },
+   "change_input_sha": {
+    "info": {
+     "file": "inputs.csv",
+     "row": 3,
+     "column": "sha256"
+    },
+    "relevant_checks": [
+     "C-data"
+    ],
+    "failures_in_relevant_checks": {
+     "C-data": 1
+    },
+    "detected": true
+   },
+   "change_g_engine": {
+    "info": {
+     "file": "g_engine.csv",
+     "row": 0,
+     "column": "cagr_gap_pp_yr + 0.05"
+    },
+    "relevant_checks": [
+     "C-always-in"
+    ],
+    "failures_in_relevant_checks": {
+     "C-always-in": 1
+    },
+    "detected": true
+   },
+   "tag_snapshot_after_decision": {
+    "info": {
+     "file": "decision_stocks.csv",
+     "row": 4742,
+     "column": "tag_snapshot = decision date + 30 days"
+    },
+    "relevant_checks": [
+     "C-pit"
+    ],
+    "failures_in_relevant_checks": {
+     "C-pit": 1
+    },
+    "detected": true
+   },
+   "change_v5_audit_count": {
+    "info": {
+     "file": "audit.json",
+     "what": "v5 tag_reads + 1"
+    },
+    "relevant_checks": [
+     "C-v5"
+    ],
+    "failures_in_relevant_checks": {
+     "C-v5": 1
+    },
+    "detected": true
+   }
+  },
+  "combined_would_exit": 1,
+  "subprocess_exit_status": 1
+ },
+ "approved_data_files_read": [
+  "Historical Data/LBES_Adjusted_Price_data_extended_2026-11-05.csv",
+  "Historical Data/extended_2026-10-30/Master/Master_MC100.xlsx",
+  "Historical Data/extended_2026-10-30/Master/Master_Nifty100.xlsx",
+  "Historical Data/extended_2026-10-30/Master/Master_SC100.xlsx",
+  "Historical Data/extended_2026-11-06/published_nav/SCMO_0003.csv",
+  "Historical Data/extended_2026-11-06/published_nav/SCMO_0042.csv",
+  "Historical Data/extended_2026-11-12/mcap_universe/mcap_universe_ordinary.csv",
+  "Historical Data/extended_2026-11-12/membership/index_constituents_monthly.csv",
+  "Historical Data/extended_2026-11-12/symbology/symbology_changes.csv",
+  "Historical Data/extended_2026-11-12/tags/mcap_rank_panel.csv",
+  "Historical Data/extended_2026-11-12/tags/membership_panel.csv",
+  "Historical Data/liquidEtfFinal_extended_2026-11-05.csv",
+  "analysis/cache/why_gold_ohlc_eikon_extended_2026-11-04.parquet",
+  "analysis/evidence/final_strategy/mauc1/mauc1_daily_clean.csv",
+  "data/holdings_matrix/SCMO_0003_columns.csv",
+  "data/holdings_matrix/SCMO_0003_holding_weight_matrix.csv",
+  "data/holdings_matrix/SCMO_0003_holding_weight_sources.csv",
+  "data/holdings_matrix/SCMO_0003_ohlc.csv",
+  "data/holdings_matrix/price_corrections.csv"
+ ],
+ "real_run_ok": true,
+ "exit_ok": true,
+ "seconds": 22.8
+}

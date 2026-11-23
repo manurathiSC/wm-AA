@@ -1,0 +1,42 @@
+{
+ "books": {
+  "SCMO_0003": {
+   "full": {
+    "weeks": 410,
+    "rule_out_while_switch_in": 0,
+    "fs_identity_failures": 0,
+    "state_rule_failures": 0,
+    "float_differs_weeks": [],
+    "tie_weeks": 1,
+    "extra_weeks": 36,
+    "extra_stretches": [
+     1,
+     1,
+     16,
+     4,
+     5,
+     1,
+     5,
+     3
+    ]
+   },
+   "live": {
+    "weeks": 262,
+    "rule_out_while_switch_in": 0,
+    "fs_identity_failures": 0,
+    "state_rule_failures": 0,
+    "float_differs_weeks": [],
+    "tie_weeks": 0,
+    "extra_weeks": 18,
+    "extra_stretches": [
+     4,
+     5,
+     1,
+     5,
+     3
+    ]
+   }
+  }
+ },
+ "pass": true
+}

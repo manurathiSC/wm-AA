@@ -1,0 +1,316 @@
+{
+ "readings": {
+  "T1": "decision at d (every weekly decision, T0 included): basket in force at d = the latest non-skipped basket that has taken effect on or before d (bk.basket_at[decision_idx]); every stock with listed weight > 0 is tagged with tag_lookup.tag(ISIN, d) (as of the decision date itself); n = stocks held, k = stocks whose band's SIGN is BUY at d; state IN iff 5k >= 3n (integers). Weights are RENORMALISED to 1 per basket as in T06 (T06 E5; T10.md 3 step 6)",
+  "T2": "events: T0 (free; state of decision 0); a state event on the session after decision j >= 1 if state[j] differs from the state held; a basket event on the first session on or after a non-skipped basket's availableDate (Book.basket_events) if the state of the latest decision made before that session is IN; if it is OUT (and no state event) nothing is traded and the basket in force changes (skipped_baskets.csv). The targets at an event use the basket in force at the trade session (bk.basket_at[session]) and the state of the latest decision made before it; two events on one session are one event",
+  "T3": "the three-index switch = the same code with state = all three SIGN BUY; hold the parent = state 1 always; the 100% sleeve = state 0 always (T0 only); the constant mix: f = mean over sessions of (stock value / NAV) of the rule's path at the SAME cost and cash, stocks f x w_i, half of (1-f) in GOLDBEES and half in cash, rebalanced at every event of the rule (T0 free)",
+  "T4": "R5 thresholds: state IN iff k/n >= t as exact fractions (k*den >= num*n); R6 weight_fs: IN iff the listed weight of the stocks on is >= 0.60 - 1e-12; t07_rule (descriptive): T07.md 3 steps 4-7 with the copied event builder (per-stock tags read at events only)",
+  "T5": "float_fs_LMS / float_fs_SML: production's float formula, sum over the bands present of (count/n) * (1.0 if SIGN is BUY else 0.0), bands added in the order Large, Mid, Small and in the reverse order; float_differs if either >= 0.60 disagrees with the integer state",
+  "T6": "R4 tag error: default_rng([10, draw_id, book_no]); for each weekly decision in order, for each held stock in increasing ISIN string order whose tag source is 'rank' or 'nonmember_rank', two uniforms u1,u2; replace the band iff u1 < 0.0793, by the first of the other two bands (order Large, Mid, Small) if u2 < 0.5 else the second; membership and unranked tags are not perturbed; events and NAV are rebuilt from the perturbed states; full window, LBES, 20.8 bps",
+  "T7": "bootstrap: n = sessions-1 daily log returns; default_rng([11, resample_id, book_no]); starts = rng.integers(0, n-19, size=ceil(n/20)); blocks of 20 consecutive returns, concatenated and cut to n, the same indices for both series; CAGR = exp(sum log r / (n/252)) - 1; interval = numpy.percentile 2.5 and 97.5 (linear) of 1,000 CAGR differences (rule minus comparator); full window, LBES, 20.8 bps",
+  "T8": "R7 stretches: maximal runs of decisions with extra = (rule IN, switch OUT); span from the close of the first decision date to the close of the first decision date after the run (or the window's last session); log returns of the rule and the switch NAVs (20.8 bps, LBES) over the span; 'without the largest' drops the daily log returns of the span's sessions (start+1 .. end) of the stretch with the largest |diff| from both series and recomputes exp(sum/(n/252))-1",
+  "T9": "V5 sample seed default_rng([12, book_no]) over the book's full-window decision_stocks rows is drawn by the verifier; the engine reports tag reads = sum of stocks held over the decisions, per book and window",
+  "V2": "V2 counts: decisions with a Master label dated after the decision date; tags with a snapshot after the decision date; events whose decision used is not before the trade session (T0 excepted, counted separately); decision trade dates not after their decision",
+  "V3": "V3 compares the switch, parent and 100%-sleeve NAVs with T06's strategy, hold_parent and sleeve_only on every shared session to 2026-10-22 at 0, 20.8 and 50 bps (relative difference < 1e-12), the decisions' state on every shared date, and always-in at 0 cost against the published NAV (G0)"
+ },
+ "books": {
+  "SCMO_0003": {
+   "windows": {
+    "full": {
+     "t0": "2019-01-02",
+     "last_session": "2026-10-30",
+     "sessions": 1932,
+     "decisions": 410,
+     "initial_basket_switch_session": "2018-12-17",
+     "events": {
+      "rule": 38,
+      "switch": 35,
+      "parent": 32,
+      "sleeve100": 1,
+      "weight_fs": 38,
+      "thr_2/5": 44,
+      "thr_1/2": 40,
+      "thr_7/10": 38,
+      "thr_4/5": 38,
+      "t07_rule": 57
+     },
+     "skipped_basket_events": [
+      {
+       "trade_date": "2019-06-17",
+       "basket_eff": "2019-06-17"
+      },
+      {
+       "trade_date": "2019-09-16",
+       "basket_eff": "2019-09-16"
+      },
+      {
+       "trade_date": "2020-03-16",
+       "basket_eff": "2020-03-16"
+      },
+      {
+       "trade_date": "2021-12-16",
+       "basket_eff": "2021-12-16"
+      },
+      {
+       "trade_date": "2022-03-16",
+       "basket_eff": "2022-03-16"
+      },
+      {
+       "trade_date": "2022-06-16",
+       "basket_eff": "2022-06-16"
+      },
+      {
+       "trade_date": "2023-03-16",
+       "basket_eff": "2023-03-16"
+      },
+      {
+       "trade_date": "2024-12-04",
+       "basket_eff": "2024-12-04"
+      },
+      {
+       "trade_date": "2025-03-05",
+       "basket_eff": "2025-03-05"
+      },
+      {
+       "trade_date": "2025-09-03",
+       "basket_eff": "2025-09-03"
+      },
+      {
+       "trade_date": "2025-12-03",
+       "basket_eff": "2025-12-03"
+      },
+      {
+       "trade_date": "2026-03-17",
+       "basket_eff": "2026-03-17"
+      }
+     ],
+     "extra_stretches": 8,
+     "extra_weeks": 36,
+     "reportable_C3_C4": true,
+     "cash": {
+      "file_last": "2026-11-05",
+      "accrued_sessions": 0
+     },
+     "tag_source_holding_weeks": {
+      "rank": 3620,
+      "membership": 417,
+      "nonmember_rank": 33
+     }
+    },
+    "live": {
+     "t0": "2021-11-01",
+     "last_session": "2026-10-30",
+     "sessions": 1233,
+     "decisions": 262,
+     "initial_basket_switch_session": "2021-09-16",
+     "events": {
+      "rule": 24,
+      "switch": 21,
+      "parent": 21,
+      "sleeve100": 1,
+      "weight_fs": 24,
+      "thr_2/5": 28,
+      "thr_1/2": 24,
+      "thr_7/10": 24,
+      "thr_4/5": 24,
+      "t07_rule": 34
+     },
+     "skipped_basket_events": [
+      {
+       "trade_date": "2021-12-16",
+       "basket_eff": "2021-12-16"
+      },
+      {
+       "trade_date": "2022-03-16",
+       "basket_eff": "2022-03-16"
+      },
+      {
+       "trade_date": "2022-06-16",
+       "basket_eff": "2022-06-16"
+      },
+      {
+       "trade_date": "2023-03-16",
+       "basket_eff": "2023-03-16"
+      },
+      {
+       "trade_date": "2024-12-04",
+       "basket_eff": "2024-12-04"
+      },
+      {
+       "trade_date": "2025-03-05",
+       "basket_eff": "2025-03-05"
+      },
+      {
+       "trade_date": "2025-09-03",
+       "basket_eff": "2025-09-03"
+      },
+      {
+       "trade_date": "2025-12-03",
+       "basket_eff": "2025-12-03"
+      },
+      {
+       "trade_date": "2026-03-17",
+       "basket_eff": "2026-03-17"
+      }
+     ],
+     "extra_stretches": 5,
+     "extra_weeks": 18,
+     "reportable_C3_C4": true,
+     "cash": {
+      "file_last": "2026-11-05",
+      "accrued_sessions": 0
+     },
+     "tag_source_holding_weeks": {
+      "rank": 2594,
+      "membership": 417,
+      "nonmember_rank": 33
+     }
+    }
+   },
+   "seconds": 5
+  }
+ },
+ "v2": {
+  "decisions_checked": 672,
+  "decision_label_after_decision": 0,
+  "tags_checked": 7114,
+  "tag_snapshot_after_decision": 0,
+  "events_checked": 60,
+  "event_decision_not_before_trade": 0,
+  "t0_events": 2,
+  "decision_trades_checked": 670,
+  "decision_trade_not_after_decision": 0,
+  "violations": 0,
+  "checked": 8516,
+  "pass": true
+ },
+ "v3": {
+  "pass": true,
+  "max_rel_diff": 0.0,
+  "g0": [
+   {
+    "book": "SCMO_0003",
+    "cagr_gap_pp_yr": 0.04486851256428892,
+    "overall": "PASS",
+    "worst_year": 2022,
+    "worst_year_gap_pp": 0.42550398202618744,
+    "yearly": "PASS",
+    "window_first": "2019-01-02",
+    "window_last": "2026-10-30"
+   }
+  ]
+ },
+ "v4": {
+  "pass": true
+ },
+ "v5": {
+  "per_book_window": {
+   "SCMO_0003": {
+    "full": {
+     "tag_reads": 4070,
+     "rows": 4070
+    },
+    "live": {
+     "tag_reads": 3044,
+     "rows": 3044
+    }
+   }
+  },
+  "pass": true
+ },
+ "data": {
+  "approved_data_as_of": "2026-11-12",
+  "window_end": "2026-10-30",
+  "inputs": 41,
+  "registered_not_parsed": [
+   "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0003.csv",
+   "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0007.csv",
+   "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0010.csv",
+   "Historical Data/frozen_2026-09-25/Rebalance_history/Rebalance_history_by_scid_SCMO_0029.csv",
+   "Historical Data/extended_2026-11-12/mcap_universe/mcap_universe_ordinary.csv",
+   "Historical Data/extended_2026-11-12/membership/index_constituents_monthly.csv"
+  ],
+  "non_approved_open_raises": {
+   "superseded_master": {
+    "raised": true,
+    "message": "Historical Data/frozen_2026-09-25/Master/Master_Nifty100.xlsx: row D03 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "superseded_goldbees": {
+    "raised": true,
+    "message": "analysis/cache/why_gold_ohlc_eikon.parquet: row D09 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "superseded_lbes": {
+    "raised": true,
+    "message": "Historical Data/LBES_Adjusted_Price_data_2026_08_10.csv: row D11 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "not_in_table": {
+    "raised": true,
+    "message": "Historical Data/no_such_file.csv: not in the table of data/APPROVED_DATA.md, so not approved"
+   },
+   "off_limits_SOURCE_md": {
+    "raised": true,
+    "message": "Historical Data/extended_2026-11-12/SOURCE.md: not in the table of data/APPROVED_DATA.md, so not approved"
+   },
+   "pass": true
+  },
+  "cash_first_appended_row": {
+   "last_verbatim_row": "2026-08-09",
+   "last_session_before_it": "2026-08-07",
+   "first_appended_row": "2026-08-10",
+   "appended_rows": 61,
+   "weekend_accrual_counted_twice_(Sunday_level/last_session_level-1)": 0.00023386999796137786,
+   "within_claimed_bound_0.0002": false,
+   "note": "level[first appended] chains from the Sunday 2026-08-09 level, so the weekend accrual is earned again; the extension runs about 0.5 pp/yr rich against LIQUIDBEES (F-AA-D13); disclosed, not corrected"
+  },
+  "goldbees": {
+   "mcx_file_last": "2026-09-28",
+   "sessions_after_mcx_in_goldbees_file": [
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04"
+   ]
+  }
+ },
+ "tag_error_r4": {
+  "rate": 0.0793,
+  "draws_per_book": 20,
+  "source": "data/review/2026-11-12_tag_sources/REVIEW.md check 6: 92.07% agreement"
+ },
+ "run": {
+  "name": "smoke",
+  "quick": true,
+  "jobs": 1,
+  "seconds": 6,
+  "seeds": "R4 default_rng([10, draw_id, book_no]); bootstrap [11, resample_id, book_no]; V5 sample [12, book_no] (verifier)"
+ },
+ "prereg_sha256": "dcd2dbb3648f2d210681ba3397628d9cbeb06fb584843da053134ff93cacecd5",
+ "gates": {
+  "V2": true,
+  "V3": true,
+  "V4": true,
+  "V5": true,
+  "approved_data_selftest": true,
+  "all_that_ran": true
+ }
+}
