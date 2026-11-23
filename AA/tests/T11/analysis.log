@@ -1,0 +1,494 @@
+T11 analysis. Run: headline | draws per book, cost and null: 2,000 | deciding nulls: F1 (A1, A2 with the 50/50 sleeve; C1, C2 timed) and F3 (C3, C4); F2 and F4 beside them; F5 = robustness R5
+Window: 2014-09-01 -> 2019-01-02 (NAV from 2014-09-01 to 2019-01-02), 228 weekly decisions; R3 window from 2015-01-02
+Pre-registration sha256 in the header: 0ab77589acbd8a4b | recomputed now: 0ab77589acbd8a4b | match: True
+Bounds (per state, from each series' own spells; full window): in-spells [1, 28] weeks, out-spells [2, 34]; BUY [2, 36], SELL [2, 19]
+Evidence read: audit.json, baskets.csv, count_table.json, daily_nav.csv, decisions.csv, draw_curves_20.8.npz, draw_states.npz, draws.csv, gold_signal.csv, inputs.csv, parent_nav_2014-09-01_2019-01-02.csv, parent_nav_2014-09-01_2019-01-02.md, positions.csv, r7_export.csv, r7_flagged_days.csv, real_states.npz, regression.json, regression_d17.json, sampler_selftest.json, sleeve_trades.csv, stats.csv, trades.csv, verify_t11.json
+Books: the four real parents, each through its own baskets (19 baskets effective from T0 to the end, 18 changes after T0) and Eikon stock prices (D18); the rule starts IN.
+POWER NOTE: 8 round trips of the in-or-out switch and 9 sleeve trades per book (shared by the four books) give LOW POWER; a FAIL will mostly mean 'not distinguishable from chance'. The minimum detectable edge (2.8 x null SD) is printed beside every FAIL in 4.4.
+DATA CAVEATS: the rebuilt parent NAV is rebuilt from the parent's baskets and Eikon prices, not validated against a published NAV before 2019-01-02; the manual Eikon exports (nine stocks) and carried bars are held inside the window; the Muhurat sessions use stand-in bars; stock-days with a one-day move of 20% or more were never checked against a second source (R7); NO HOLD-OUT EXISTS and T09's result on the same weeks was seen before the design was frozen.
+
+====================================================================================================
+4.0b  GATES
+(V1 independent check, V2 point in time, V3 the nulls hold their tables, V4 identities and regressions, V5 the samplers are exact, V6 the sleeve, basket and cost identities)
+====================================================================================================
+V1 independent check (verify_t11.py):  PASS | gate comparisons 3,729,546, failures and missing 0, corrupted copy detected: True
+V2 point in time: engine counts: violations 0 of 1,820 checks; re-derived from decisions.csv: 0 Master labels (three indices and MAUc1) dated after their decision of 3,648, 0 trade dates not after their decision of 908; Smallcap 100 signal rows read from 2014-08-28 (rule 7: not before 2011-11-25), 0 earlier; restricted input files (1: Master_SC100.xlsx usable from 2011-11-25) read from 2014-09-01: 0 too early; audit.json v2 block: pass True, 0 violations of 3353
+V3 the nulls hold their tables: 64,000 saved draws checked over 32 state arrays (in-or-out and gold, full and R3 windows; weeks, first state, spell counts, sums, N4.9 sorted lengths, N4.10 per-state bounds), bad 0; 200,000 draws.csv rows checked (invested weeks, BUY weeks, spell counts, ids, no sleeve trades in fixed50 rows), bad 0; in/out and BUY/SELL length strings against the states: 0 differ 
+   sessions_invested recomputed from the states (full window, F1 and F2): 16,000 draws, 0 differ
+   audit.json v3 block (the engine's own check): 49 pass flags, all true: True
+   the real series' own lengths lie within the bounds (so every N4.9 draw is an allowed N4.10 configuration): all within
+V4 identities and regressions. regression.json (the engine's own check): 161 pass flags, all true: True; keys missing: none; (a) with D17's dates, 2019-01-02 to 2019-12-31, the engine reproduces the stored daily NAVs of T08 and T06 (132 book-run-cost rows): worst relative difference 2.2e-16; (b) a one-instrument always-in book against the stock's close / first close: worst relative difference 6.7e-16; (c) functions shared with t08_engine.py: 14 required identical, not identical [], unexpected changes []; (d) decision signals against the Master SIGN files and D24b's weekly csv: 0 mismatches; (e) D24b against T08's stored gold signal (D24) on 211 shared 2019 decision dates: 0 mismatches (partial by design: D24 is not opened by this test); (f) seam, hold-the-parent 0-cost NAV against the published D17 NAV over 2019, year gap in pp (limit 0.5): {'SCMO_0003': -0.22, 'SCMO_0007': 0.391, 'SCMO_0010': 0.447, 'SCMO_0029': 0.189}
+   re-derived here from the evidence: all 132 NAV series start at 1 (0 do not); end NAV of every run and cost equals stats.csv (0 differ); NAV on the date of every recorded trade equals nav_close_after (6,834 trades, 0 differ); the four books have the same in-or-out and gold decisions (0 differ); parent_nav_2014-09-01_2019-01-02.csv equals the hold_parent (0 and 20.8 bps), strategy_fixed50 and strategy runs of daily_nav.csv (17,120 values compared, 0 series differ); its sidecar caption is the pre-registered one: True; the always-in end NAV falls as the cost rises: 0 books violate it
+   sampler_selftest.json (the engine's own check): 35 pass flags, all true: True
+V5 the samplers are exact: (a) chi-square on k=3, S=12, bounds [2, 6]: p = 0.8280904016577683 with the seed of T06 and T08 and 0.09562660732709799 with a first element 14 (both need > 0.001; from sampler_selftest.json, which this script cannot recompute; its own pass flag: True); (b) count_table.json against inclusion-exclusion: 32 entries (in-or-out and gold, full and R3 windows), 0 differ or infeasible (per-state bounds from each window's own series, feasibility lo k <= S <= hi k); (c) mean length at each spell position over the draws against S/k (F1 and F3 draws): worst |z| = 2.51 over 32 sets (need < 4)
+V6 the sleeve, basket and cost identities: 204 sleeve-trade rows over the three costs; GOLDBEES / (GOLDBEES + cash) after the trade equals the target weight (0.8 or 0.2) and gw equals the signal's: 0 differ; cost = traded x cost_bps / 2 / 10,000 on the sleeve rows: 0 differ, on all 6,834 trade rows of every run: 0 differ; a sleeve rebalance conserves value after cost: 0 differ; sleeve rebalances 108 against 108 expected from the decisions (OUT on both sides, signal changed), exits 96 against 96, entries 84 against 84, trade dates differ 0; the raw-GOLDBEES-fill flag disagrees with the sessions without an MCX range: 0; gold_signal.csv differs from decisions.csv: 0; trades on a stand-in session (2016-10-30, 2017-10-19): 0
+   basket changes: 87 basket-change trades of the rule over the three costs against 87 expected (the baskets.csv sessions after T0 at which the book holds the parent and no decision trade falls); dates differ 0 (the rule's and hold_parent's), baskets.csv session and idx differ from the calendar on 0 books, basket in force (basket_eff) differs from baskets.csv on 0 trades, stock share after a change not 1: 0, cost identity 0 differ; hold_parent: 216 basket changes against 216 expected; positions.csv: stock lines after each entry and basket change equal the basket's n_held, none after an exit or sleeve trade, GOLDBEES present iff its weight is positive: 0 of 125 trades differ (20.8 bps)
+   audit.json v6 block (the engine's own check: targets to 1e-12 of NAV, cost identity, continuity at 0 cost, no trade while OUT with the signal constant, weights equal the basket's after an entry and a change): 1 pass flags, all true: True
+Gates: {'V1': 'PASS', 'V2': 'PASS', 'V3': 'PASS', 'V4': 'PASS', 'V5': 'PASS', 'V6': 'PASS'} -> ALL PASS
+Reportability: in-or-out round trips per book, full window (need 4): {'SCMO_0003': 8, 'SCMO_0007': 8, 'SCMO_0010': 8, 'SCMO_0029': 8} | R3 window: {'SCMO_0003': 6, 'SCMO_0007': 6, 'SCMO_0010': 6, 'SCMO_0029': 6} | gold spells containing an OUT week, full: {'SCMO_0003': 16, 'SCMO_0007': 16, 'SCMO_0010': 16, 'SCMO_0029': 16} | R3: {'SCMO_0003': 16, 'SCMO_0007': 16, 'SCMO_0010': 16, 'SCMO_0029': 16} | tables feasible (lo k <= S <= hi k), full / R3: True / True | NOT REPORTABLE (in-or-out, full): none | (gold, full): none | (R3, in-or-out): none | (R3, gold): none
+Spell structure, SCMO_0003: in-or-out first state IN, in-spells [7, 1, 6, 6, 28, 28, 14, 3] (sum 93), out-spells [7, 9, 16, 34, 12, 11, 30, 16] (sum 135); gold first state BUY, BUY spells [2, 4, 8, 12, 36, 15, 17, 24, 9, 5] (sum 132), SELL spells [19, 12, 6, 11, 15, 14, 5, 12, 2] (sum 96)
+Spell structure, SCMO_0007: in-or-out first state IN, in-spells [7, 1, 6, 6, 28, 28, 14, 3] (sum 93), out-spells [7, 9, 16, 34, 12, 11, 30, 16] (sum 135); gold first state BUY, BUY spells [2, 4, 8, 12, 36, 15, 17, 24, 9, 5] (sum 132), SELL spells [19, 12, 6, 11, 15, 14, 5, 12, 2] (sum 96)
+Number of allowed tuples (count_table.json, exact):
+     book window timing state  k   S  bounds            n_ways
+SCMO_0003   full   gold   buy 10 132 [2, 36] 6,835,192,844,305
+SCMO_0003   full   gold  sell  9  96 [2, 19]     4,976,743,356
+SCMO_0003   full     io    in  8  93 [1, 28]     4,024,559,144
+SCMO_0003   full     io   out  8 135 [2, 34]    19,406,343,528
+SCMO_0003     r3   gold   buy  9 130 [2, 36]   426,468,399,525
+SCMO_0003     r3   gold  sell  9  80 [2, 15]       644,288,463
+SCMO_0003     r3     io    in  6  85 [2, 28]         7,654,290
+SCMO_0003     r3     io   out  7 125 [2, 34]       659,773,128
+SCMO_0007   full   gold   buy 10 132 [2, 36] 6,835,192,844,305
+SCMO_0007   full   gold  sell  9  96 [2, 19]     4,976,743,356
+SCMO_0007   full     io    in  8  93 [1, 28]     4,024,559,144
+SCMO_0007   full     io   out  8 135 [2, 34]    19,406,343,528
+SCMO_0007     r3   gold   buy  9 130 [2, 36]   426,468,399,525
+SCMO_0007     r3   gold  sell  9  80 [2, 15]       644,288,463
+SCMO_0007     r3     io    in  6  85 [2, 28]         7,654,290
+SCMO_0007     r3     io   out  7 125 [2, 34]       659,773,128
+SCMO_0010   full   gold   buy 10 132 [2, 36] 6,835,192,844,305
+SCMO_0010   full   gold  sell  9  96 [2, 19]     4,976,743,356
+SCMO_0010   full     io    in  8  93 [1, 28]     4,024,559,144
+SCMO_0010   full     io   out  8 135 [2, 34]    19,406,343,528
+SCMO_0010     r3   gold   buy  9 130 [2, 36]   426,468,399,525
+SCMO_0010     r3   gold  sell  9  80 [2, 15]       644,288,463
+SCMO_0010     r3     io    in  6  85 [2, 28]         7,654,290
+SCMO_0010     r3     io   out  7 125 [2, 34]       659,773,128
+SCMO_0029   full   gold   buy 10 132 [2, 36] 6,835,192,844,305
+SCMO_0029   full   gold  sell  9  96 [2, 19]     4,976,743,356
+SCMO_0029   full     io    in  8  93 [1, 28]     4,024,559,144
+SCMO_0029   full     io   out  8 135 [2, 34]    19,406,343,528
+SCMO_0029     r3   gold   buy  9 130 [2, 36]   426,468,399,525
+SCMO_0029     r3   gold  sell  9  80 [2, 15]       644,288,463
+SCMO_0029     r3     io    in  6  85 [2, 28]         7,654,290
+SCMO_0029     r3     io   out  7 125 [2, 34]       659,773,128
+Cash: {'file_last': '2026-11-05', 'accrued_sessions': 0, 'cash': 'lbes'} | data: {'window': ['2014-09-01', '2019-01-02'], 'goldbees': {'goldbees_first_bar': '2014-07-01', 'goldbees_file_last': '2026-11-04', 'mcx_file_last': '2026-11-06', 'sessions_without_mcx_range_(raw OHLC4 fill)_in_window': ['2014-10-23', '2015-01-01', '2015-11-11'], 'sessions_without_own_gold_bar_(previous close used)': ['2016-10-30']}}
+
+====================================================================================================
+4.0a  THE WORKED EXAMPLE (SCMO_0003, 20.8 bps): an exit, a gold flip (sleeve rebalance), an entry, a basket change, one F1 draw and one F3 draw
+====================================================================================================
+EXIT. One decision: week 15, decision date 2014-12-12. Latest Master rows: Nifty100 SELL (2014-12-12), MC100 BUY (2014-12-12), SC100 BUY (2014-12-12); MAUc1 SELL (2014-12-12). All three BUY: False -> target sleeve: 20% GOLDBEES / 80% cash (gold signal SELL); previous week: state 1, gold signal SELL. Trade session: 2014-12-15.
+   Trade (switch_out) on 2014-12-15 at OHLC4: value before 1.113446, traded 2.226891, cost 0.002316 = traded x 20.8/2/10,000; GOLDBEES value before 0.000000 -> after 0.222226, cash value before 0.000000 -> after 0.888904; gold weight after 0.20 (check: 0.200000); NAV at the close after: 1.111122; GOLDBEES filled at the raw OHLC4 (no MCX range that session): False
+   Units before (2014-12-08): 15 stock lines (first three: AARTIDRUGS.NS 0.000758, JBMA.NS 0.002206, FINCABLES.NS 0.000289), GOLDBEES 0.00000000, LBES 0.00000000 | units after (2014-12-15): 0 stock lines, GOLDBEES 0.00895571, LBES 0.00060306
+GOLD FLIP. One decision: week 21, decision date 2015-01-23. Latest Master rows: Nifty100 BUY (2015-01-23), MC100 BUY (2015-01-23), SC100 SELL (2015-01-23); MAUc1 BUY (2015-01-23). All three BUY: False -> target sleeve: 80% GOLDBEES / 20% cash (gold signal BUY); previous week: state 0, gold signal SELL. Trade session: 2015-01-27.
+   Trade (sleeve_rebalance) on 2015-01-27 at OHLC4: value before 1.122423, traded 1.340384, cost 0.001394 = traded x 20.8/2/10,000; GOLDBEES value before 0.227746 -> after 0.896823, cash value before 0.894677 -> after 0.224206; gold weight after 0.80 (check: 0.800000); NAV at the close after: 1.125957; GOLDBEES filled at the raw OHLC4 (no MCX range that session): False
+   Units before (2014-12-15): 0 stock lines, GOLDBEES 0.00895571, LBES 0.00060306 | units after (2015-01-27): 0 stock lines, GOLDBEES 0.03526599, LBES 0.00015113 | implied GOLDBEES fill price before 25.430250, after 25.430250; cash level before 1483.552788, after 1483.552788 (the same session, so equal)
+ENTRY. One decision: week 14, decision date 2014-12-05. Latest Master rows: Nifty100 BUY (2014-12-05), MC100 BUY (2014-12-05), SC100 BUY (2014-12-05); MAUc1 SELL (2014-12-05). All three BUY: True -> target the parent basket in force; previous week: state 0, gold signal SELL. Trade session: 2014-12-08.
+   Trade (switch_in) on 2014-12-08 at OHLC4: value before 1.148895, traded 2.297790, cost 0.002390 = traded x 20.8/2/10,000; value after cost 1.146506 split at the basket's listed weights (basket in force: availableDate 2014-12-01); NAV at the close after: 1.138311
+   Units before (2014-10-20): 0 stock lines, GOLDBEES 0.00917179, LBES 0.00062926 | units after (2014-12-08): 15 stock lines (first three: AARTIDRUGS.NS 0.000758, JBMA.NS 0.002206, FINCABLES.NS 0.000289), GOLDBEES 0.00000000, LBES 0.00000000
+BASKET CHANGE. While the book holds the parent a basket takes effect on the first session on or after its availableDate. Basket 2 (availableDate 2015-03-02, session 2015-03-02, 15 stocks, listed weight sum 1.0005) replaces the one in force; on 2015-03-02 (no decision trade on it) at OHLC4 the old basket is sold and the new one bought: value before 1.081567, traded 0.458139, cost 0.000476 = traded x 20.8/2/10,000, NAV at the close after: 1.088657
+   Units before (2015-02-16): 15 stock lines (first three: AARTIDRUGS.NS 0.000448, JBMA.NS 0.001812, FINCABLES.NS 0.000270), GOLDBEES 0.00000000, LBES 0.00000000 | units after: 15 stock lines (first three: AARTIDRUGS.NS 0.000449, UPL.NS 0.000268, JBMA.NS 0.001586), GOLDBEES 0.00000000, LBES 0.00000000 | stocks sold out: ['AUROPHARMA.NS', 'JTEKTINDIA.NS', 'MINDACORP.NS']; stocks newly bought: ['EROSMEDIA.NS', 'PCJEWELLER.NS', 'UPL.NS']; stocks kept and resized: 12 of 12
+NAV around the exit (strategy, 20.8 bps):
+      date      nav
+2014-12-11 1.113778
+2014-12-12 1.109065
+2014-12-15 1.111122
+2014-12-16 1.110815
+2014-12-17 1.110880
+One path: start 1.000000 on 2014-09-01, end 1.539952 on 2019-01-02, 1070 sessions -> years 4.2421, CAGR 10.714%, max drawdown -18.15%; 31 trades of which 9 sleeve rebalances and 7 basket changes. The rule with the fixed 50/50 sleeve (Part A): end 1.592890, CAGR 11.599%, max drawdown -17.68%, 22 trades (7 basket changes)
+One F1 draw (draw_id 0; seed numpy default_rng([14, 6, 0]); in-spell lengths first, then the other state's from the same generator):
+  sampler: in-spells k = 8, total S = 93 weeks, each an integer in [1, 28]; allowed ordered tuples c(k, S) = 4,024,559,144 (inclusion-exclusion here: 4,024,559,144)
+           other state k = 8, S = 135, each in [2, 34]; c(k, S) = 19,406,343,528 (inclusion-exclusion here: 19,406,343,528)
+One F3 draw (draw_id 0; seed numpy default_rng([14, 11, 6, 0]); buy-spell lengths first, then the other state's from the same generator):
+  sampler: buy-spells k = 10, total S = 132 weeks, each an integer in [2, 36]; allowed ordered tuples c(k, S) = 6,835,192,844,305 (inclusion-exclusion here: 6,835,192,844,305)
+           other state k = 9, S = 96, each in [2, 19]; c(k, S) = 4,976,743,356 (inclusion-exclusion here: 4,976,743,356)
+  the rule's in-spell lengths: [7, 1, 6, 6, 28, 28, 14, 3]; F1 draw 0's: [5, 18, 9, 23, 21, 7, 7, 3]; out-spells [7, 9, 16, 34, 12, 11, 30, 16]; F1 draw 0's: [19, 7, 24, 7, 34, 4, 26, 14]
+  the real gold BUY lengths: [2, 4, 8, 12, 36, 15, 17, 24, 9, 5]; F3 draw 0's: [4, 8, 14, 29, 23, 3, 9, 8, 18, 16]; SELL [19, 12, 6, 11, 15, 14, 5, 12, 2]; F3 draw 0's: [2, 17, 15, 5, 14, 19, 5, 4, 15]
+The first 20 weekly states (in-or-out: 1 = the parent's basket, 0 = sleeve; gold: 1 = BUY, 0 = SELL): the real series, F2 (N4.9 draw 0, seed [14, 3, 0]), F1 (N4.10 draw 0), F4 (N4.9-g draw 0, seed [14, 11, 3, 0]) and F3 (N4.10-g draw 0):
+ j decision_date  real io  F2 draw 0  F1 draw 0  real gold  F4 draw 0  F3 draw 0
+ 0    2014-09-01        1          1          1          1          1          1
+ 1    2014-09-05        1          1          1          1          1          1
+ 2    2014-09-12        1          1          1          0          1          1
+ 3    2014-09-19        1          1          1          0          1          1
+ 4    2014-09-26        1          1          1          0          1          0
+ 5    2014-10-01        1          1          0          0          0          0
+ 6    2014-10-10        1          1          0          0          0          1
+ 7    2014-10-17        0          1          0          0          0          1
+ 8    2014-10-23        0          1          0          0          0          1
+ 9    2014-10-31        0          1          0          0          0          1
+10    2014-11-07        0          1          0          0          0          1
+11    2014-11-14        0          1          0          0          0          1
+12    2014-11-21        0          1          0          0          0          1
+13    2014-11-28        0          1          0          0          0          1
+14    2014-12-05        1          1          0          0          0          0
+15    2014-12-12        0          1          0          0          0          0
+16    2014-12-19        0          1          0          0          0          0
+17    2014-12-26        0          1          0          0          0          0
+18    2015-01-02        0          1          0          0          0          0
+19    2015-01-09        0          1          0          0          0          0
+  F1 (in-or-out N4.10; 50/50 sleeve) draw 0: CAGR 5.893%, max drawdown -23.16%, invested weeks 93 (rule 93), BUY weeks 132 (real 132), spells 8 in / 8 out, 10 BUY / 9 SELL, sessions invested 440 (rule 443), sleeve trades 0 (rule 0)
+  One ranking against F1 (50/50 sleeve; CAGR, 2000 draws): below 491, equal 0, above 1509 -> percentile 24.55, p-value 0.75462; null median 16.74%, edge -5.14 pp
+  F2 (in-or-out N4.9; 50/50 sleeve) draw 0: CAGR 18.340%, max drawdown -23.31%, invested weeks 93 (rule 93), BUY weeks 132 (real 132), spells 8 in / 8 out, 10 BUY / 9 SELL, sessions invested 432 (rule 443), sleeve trades 0 (rule 0)
+  One ranking against F2 (50/50 sleeve; CAGR, 2000 draws): below 569, equal 0, above 1431 -> percentile 28.45, p-value 0.71564; null median 16.21%, edge -4.61 pp
+  F1 (in-or-out N4.10; timed sleeve) draw 0: CAGR 4.916%, max drawdown -24.17%, invested weeks 93 (rule 93), BUY weeks 132 (real 132), spells 8 in / 8 out, 10 BUY / 9 SELL, sessions invested 440 (rule 443), sleeve trades 11 (rule 9)
+  One ranking against F1 (timed sleeve; CAGR, 2000 draws): below 559, equal 0, above 1441 -> percentile 27.95, p-value 0.72064; null median 15.18%, edge -4.47 pp
+  F2 (in-or-out N4.9; timed sleeve) draw 0: CAGR 15.987%, max drawdown -23.31%, invested weeks 93 (rule 93), BUY weeks 132 (real 132), spells 8 in / 8 out, 10 BUY / 9 SELL, sessions invested 432 (rule 443), sleeve trades 9 (rule 9)
+  One ranking against F2 (timed sleeve; CAGR, 2000 draws): below 624, equal 0, above 1376 -> percentile 31.20, p-value 0.68816; null median 14.70%, edge -3.98 pp
+  F3 (gold N4.10-g, real in-or-out; timed sleeve) draw 0: CAGR 11.871%, max drawdown -16.45%, invested weeks 93 (rule 93), BUY weeks 132 (real 132), spells 8 in / 8 out, 10 BUY / 9 SELL, sessions invested 443 (rule 443), sleeve trades 6 (rule 9)
+  One ranking against F3 (timed sleeve; CAGR, 2000 draws): below 745, equal 0, above 1255 -> percentile 37.25, p-value 0.62769; null median 11.21%, edge -0.49 pp
+  F4 (gold N4.9-g, real in-or-out; timed sleeve) draw 0: CAGR 11.443%, max drawdown -18.72%, invested weeks 93 (rule 93), BUY weeks 132 (real 132), spells 8 in / 8 out, 10 BUY / 9 SELL, sessions invested 443 (rule 443), sleeve trades 8 (rule 9)
+  One ranking against F4 (timed sleeve; CAGR, 2000 draws): below 756, equal 0, above 1244 -> percentile 37.80, p-value 0.62219; null median 11.16%, edge -0.45 pp
+
+====================================================================================================
+4.1  HEADLINE: A1, A2, C1 to C4 per book and cost, rule against each null (full window 2014-09-01 -> 2019-01-02, LBES cash; 2,000 draws each)
+====================================================================================================
+
+A1 (CAGR): strategy_fixed50 against F1 (in-or-out N4.10, deciding; run with the 50/50 sleeve, the rule's sleeve fixed 50/50) and F2 (in-or-out N4.9, beside); Holm = Holm-adjusted p over the six criteria, per book and cost
+ cost      book rule% F1_med% F1_edge_pp F1_pct    F1_p F1_Holm_p F2_med% F2_pct    F2_p
+  0.0 SCMO_0003 12.65   17.80      -5.15  24.60 0.75412   1.00000   17.28  28.60 0.71414
+  0.0 SCMO_0007  5.47   10.87      -5.40  13.10 0.86907   1.00000   10.72  13.00 0.87006
+  0.0 SCMO_0010  8.40   13.48      -5.08  22.50 0.77511   1.00000   13.26  23.75 0.76262
+  0.0 SCMO_0029 13.27   14.67      -1.40  42.80 0.57221   1.00000   14.46  43.50 0.56522
+ 20.8 SCMO_0003 11.60   16.74      -5.14  24.55 0.75462   1.00000   16.21  28.45 0.71564
+ 20.8 SCMO_0007  4.41    9.79      -5.39  13.00 0.87006   1.00000    9.62  12.80 0.87206
+ 20.8 SCMO_0010  7.32   12.37      -5.05  22.30 0.77711   1.00000   12.19  23.70 0.76312
+ 20.8 SCMO_0029 12.18   13.60      -1.42  42.65 0.57371   1.00000   13.39  43.50 0.56522
+ 50.0 SCMO_0003 10.14   15.25      -5.11  24.35 0.75662   1.00000   14.74  28.20 0.71814
+ 50.0 SCMO_0007  2.93    8.29      -5.36  12.85 0.87156   1.00000    8.10  12.65 0.87356
+ 50.0 SCMO_0010  5.82   10.87      -5.05  21.95 0.78061   1.00000   10.66  23.25 0.76762
+ 50.0 SCMO_0029 10.66   12.08      -1.42  42.40 0.57621   1.00000   11.89  43.10 0.56922
+
+A2 (maximum drawdown, shallower is better): strategy_fixed50 against F1 (in-or-out N4.10, deciding; run with the 50/50 sleeve, the rule's sleeve fixed 50/50) and F2 (in-or-out N4.9, beside); Holm = Holm-adjusted p over the six criteria, per book and cost
+ cost      book  rule% F1_med% F1_edge_pp F1_pct    F1_p F1_Holm_p F2_med% F2_pct    F2_p
+  0.0 SCMO_0003 -16.60  -23.31      +6.72  92.15 0.07896   0.44378  -23.31  93.15 0.06897
+  0.0 SCMO_0007 -16.36  -13.41      -2.95  17.15 0.82859   1.00000  -13.16  19.60 0.80410
+  0.0 SCMO_0010 -21.33  -21.64      +0.31  61.85 0.38181   1.00000  -21.64  66.00 0.34033
+  0.0 SCMO_0029 -23.02  -22.30      -0.72  46.25 0.53773   1.00000  -23.31  54.30 0.45727
+ 20.8 SCMO_0003 -17.68  -23.37      +5.70  88.95 0.11094   0.66567  -23.75  91.25 0.08796
+ 20.8 SCMO_0007 -17.78  -14.10      -3.68  12.15 0.87856   1.00000  -13.57  13.15 0.86857
+ 20.8 SCMO_0010 -22.42  -21.64      -0.78  42.40 0.57621   1.00000  -21.85  43.15 0.56872
+ 20.8 SCMO_0029 -23.62  -22.81      -0.81  45.05 0.54973   1.00000  -23.87  50.80 0.49225
+ 50.0 SCMO_0003 -19.17  -24.15      +4.98  82.15 0.17891   1.00000  -24.54  84.80 0.15242
+ 50.0 SCMO_0007 -20.02  -15.11      -4.91   9.35 0.90655   1.00000  -14.68   9.45 0.90555
+ 50.0 SCMO_0010 -23.92  -22.18      -1.74  31.75 0.68266   1.00000  -22.39  31.35 0.68666
+ 50.0 SCMO_0029 -24.45  -23.51      -0.94  39.35 0.60670   1.00000  -23.87  43.20 0.56822
+
+C1 (CAGR): strategy against F1 (in-or-out N4.10, deciding; the rule's sleeve timed by MAUc1, real gold signal) and F2 (in-or-out N4.9, beside); Holm = Holm-adjusted p over the six criteria, per book and cost
+ cost      book rule% F1_med% F1_edge_pp F1_pct    F1_p F1_Holm_p F2_med% F2_pct    F2_p
+  0.0 SCMO_0003 12.05   16.58      -4.53  27.85 0.72164   1.00000   16.08  31.10 0.68916
+  0.0 SCMO_0007  4.91    9.68      -4.77  15.70 0.84308   1.00000    9.69  15.45 0.84558
+  0.0 SCMO_0010  7.82   12.35      -4.53  26.35 0.73663   1.00000   12.02  26.40 0.73613
+  0.0 SCMO_0029 12.67   13.44      -0.77  45.75 0.54273   1.00000   13.41  46.15 0.53873
+ 20.8 SCMO_0003 10.71   15.18      -4.47  27.95 0.72064   1.00000   14.70  31.20 0.68816
+ 20.8 SCMO_0007  3.58    8.29      -4.71  15.80 0.84208   1.00000    8.30  15.60 0.84408
+ 20.8 SCMO_0010  6.47   11.01      -4.55  26.20 0.73813   1.00000   10.64  26.25 0.73763
+ 20.8 SCMO_0029 11.29   12.04      -0.75  45.60 0.54423   1.00000   12.00  46.30 0.53723
+ 50.0 SCMO_0003  8.86   13.24      -4.37  28.00 0.72014   1.00000   12.83  31.45 0.68566
+ 50.0 SCMO_0007  1.73    6.38      -4.64  16.00 0.84008   1.00000    6.36  15.85 0.84158
+ 50.0 SCMO_0010  4.59    9.05      -4.46  26.10 0.73913   1.00000    8.77  26.30 0.73713
+ 50.0 SCMO_0029  9.38   10.12      -0.74  45.75 0.54273   1.00000   10.07  46.55 0.53473
+
+C2 (maximum drawdown, shallower is better): strategy against F1 (in-or-out N4.10, deciding; the rule's sleeve timed by MAUc1, real gold signal) and F2 (in-or-out N4.9, beside); Holm = Holm-adjusted p over the six criteria, per book and cost
+ cost      book  rule% F1_med% F1_edge_pp F1_pct    F1_p F1_Holm_p F2_med% F2_pct    F2_p
+  0.0 SCMO_0003 -16.97  -23.69      +6.72  92.65 0.07396   0.44378  -24.24  93.20 0.06847
+  0.0 SCMO_0007 -18.42  -14.61      -3.81  13.75 0.86257   1.00000  -14.11  13.15 0.86857
+  0.0 SCMO_0010 -23.07  -21.79      -1.28  36.05 0.63968   1.00000  -21.99  34.60 0.65417
+  0.0 SCMO_0029 -23.32  -23.13      -0.19  48.35 0.51674   1.00000  -23.87  53.05 0.46977
+ 20.8 SCMO_0003 -18.15  -24.32      +6.18  86.80 0.13243   0.66567  -24.92  88.40 0.11644
+ 20.8 SCMO_0007 -20.05  -15.35      -4.70  12.20 0.87806   1.00000  -15.09  11.10 0.88906
+ 20.8 SCMO_0010 -24.42  -22.40      -2.01  31.95 0.68066   1.00000  -22.54  31.80 0.68216
+ 20.8 SCMO_0029 -24.01  -23.63      -0.38  44.85 0.55172   1.00000  -23.87  48.20 0.51824
+ 50.0 SCMO_0003 -19.87  -25.33      +5.46  82.75 0.17291   1.00000  -26.21  85.45 0.14593
+ 50.0 SCMO_0007 -22.90  -16.32      -6.58   9.70 0.90305   1.00000  -16.32   8.70 0.91304
+ 50.0 SCMO_0010 -26.26  -22.78      -3.49  27.05 0.72964   1.00000  -22.80  28.70 0.71314
+ 50.0 SCMO_0029 -25.06  -24.04      -1.01  44.50 0.55522   1.00000  -24.73  48.60 0.51424
+
+C3 (CAGR): strategy against F3 (gold N4.10-g, real in-or-out, deciding; the rule's sleeve timed by MAUc1) and F4 (gold N4.9-g, real in-or-out, beside); Holm = Holm-adjusted p over the six criteria, per book and cost
+ cost      book rule% F3_med% F3_edge_pp F3_pct    F3_p F3_Holm_p F4_med% F4_pct    F4_p
+  0.0 SCMO_0003 12.05   12.60      -0.55  36.50 0.63518   1.00000   12.54  36.85 0.63168
+  0.0 SCMO_0007  4.91    5.42      -0.51  36.50 0.63518   1.00000    5.37  36.85 0.63168
+  0.0 SCMO_0010  7.82    8.35      -0.53  36.50 0.63518   1.00000    8.29  36.85 0.63168
+  0.0 SCMO_0029 12.67   13.22      -0.55  36.50 0.63518   1.00000   13.16  36.85 0.63168
+ 20.8 SCMO_0003 10.71   11.21      -0.49  37.25 0.62769   1.00000   11.16  37.80 0.62219
+ 20.8 SCMO_0007  3.58    4.04      -0.46  37.25 0.62769   1.00000    4.00  37.80 0.62219
+ 20.8 SCMO_0010  6.47    6.94      -0.47  37.25 0.62769   1.00000    6.90  37.80 0.62219
+ 20.8 SCMO_0029 11.29   11.78      -0.49  37.25 0.62769   1.00000   11.74  37.80 0.62219
+ 50.0 SCMO_0003  8.86    9.31      -0.44  38.90 0.61119   1.00000    9.27  38.85 0.61169
+ 50.0 SCMO_0007  1.73    2.15      -0.41  38.90 0.61119   1.00000    2.11  38.85 0.61169
+ 50.0 SCMO_0010  4.59    5.02      -0.42  38.90 0.61119   1.00000    4.99  38.85 0.61169
+ 50.0 SCMO_0029  9.38    9.82      -0.44  38.90 0.61119   1.00000    9.79  38.85 0.61169
+
+C4 (maximum drawdown, shallower is better): strategy against F3 (gold N4.10-g, real in-or-out, deciding; the rule's sleeve timed by MAUc1) and F4 (gold N4.9-g, real in-or-out, beside); Holm = Holm-adjusted p over the six criteria, per book and cost
+ cost      book  rule% F3_med% F3_edge_pp F3_pct    F3_p F3_Holm_p F4_med% F4_pct    F4_p
+  0.0 SCMO_0003 -16.97  -17.39      +0.42  60.75 0.39280   1.00000  -17.43  60.85 0.39180
+  0.0 SCMO_0007 -18.42  -18.13      -0.28  44.90 0.55122   1.00000  -17.94  40.20 0.59820
+  0.0 SCMO_0010 -23.07  -21.96      -1.11  26.80 0.73213   1.00000  -21.66  24.15 0.75862
+  0.0 SCMO_0029 -23.32  -23.67      +0.35  59.55 0.40530   1.00000  -23.61  57.38 0.42829
+ 20.8 SCMO_0003 -18.15  -18.69      +0.54  62.85 0.37181   1.00000  -18.67  62.10 0.37931
+ 20.8 SCMO_0007 -20.05  -19.78      -0.27  45.35 0.54673   1.00000  -19.60  42.80 0.57221
+ 20.8 SCMO_0010 -24.42  -23.24      -1.18  24.45 0.75562   1.00000  -22.91  20.95 0.79060
+ 20.8 SCMO_0029 -24.01  -24.48      +0.48  63.55 0.36532   1.00000  -24.47  61.58 0.38631
+ 50.0 SCMO_0003 -19.87  -20.64      +0.77  67.10 0.32934   1.00000  -20.59  66.55 0.33483
+ 50.0 SCMO_0007 -22.90  -22.13      -0.77  39.40 0.60620   1.00000  -21.99  37.95 0.62069
+ 50.0 SCMO_0010 -26.26  -25.04      -1.22  22.80 0.77211   1.00000  -24.78  18.70 0.81309
+ 50.0 SCMO_0029 -25.06  -25.68      +0.62  67.40 0.32634   1.00000  -25.62  64.65 0.35382
+pct = percentile of the rule among the draws; p = (1 + draws at least as good) / (2000 + 1); Holm = Holm step-down over the six criteria (m = 6) of the same book and cost (unadjusted p decides at the pass mark; Holm is printed beside it).
+
+Secondary statistics at 20.8 bps, percentile against each null's draws (each statistic's better direction):
+  strategy_fixed50 against F1 (in-or-out N4.10; 50/50 sleeve):
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 24.6   88.9   46.6 65.0  47.6             21.5               24.1
+SCMO_0007 13.0   12.2   12.0 71.7   7.1             11.3               23.5
+SCMO_0010 22.3   42.4   24.3 71.8   8.5              3.4               18.8
+SCMO_0029 42.6   45.1   42.0 76.2  17.8             15.4               19.2
+  strategy_fixed50 against F2 (in-or-out N4.9; 50/50 sleeve):
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 28.4   91.2   51.4 64.6  51.7             22.3               25.6
+SCMO_0007 12.8   13.2   11.2 74.9   4.8              7.3               20.4
+SCMO_0010 23.7   43.1   25.4 71.9   8.3              3.8               18.8
+SCMO_0029 43.5   50.8   44.2 75.8  20.5             16.0               18.3
+  strategy against F1 (in-or-out N4.10; timed sleeve):
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 28.0   86.8   47.6 65.1  52.0             25.3               27.0
+SCMO_0007 15.8   12.2   14.0 72.0   9.4             14.6               29.4
+SCMO_0010 26.2   31.9   27.1 71.9   8.6              5.4               22.4
+SCMO_0029 45.6   44.9   45.6 76.6  18.2             10.8               23.0
+  strategy against F2 (in-or-out N4.9; timed sleeve):
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 31.2   88.4   52.2 64.5  55.7             23.4               28.5
+SCMO_0007 15.6   11.1   13.2 74.3   6.6             10.0               25.2
+SCMO_0010 26.2   31.8   26.6 71.7   9.2              5.4               22.7
+SCMO_0029 46.3   48.2   46.8 75.6  20.0             11.3               22.3
+  strategy against F3 (gold N4.10-g, real in-or-out; timed sleeve):
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 37.2   62.8   47.5 52.5  64.3             50.5               44.2
+SCMO_0007 37.2   45.4   38.5 53.5  36.6             50.2               36.5
+SCMO_0010 37.2   24.4   30.6 53.0  35.5             72.8               29.9
+SCMO_0029 37.2   63.5   43.2 54.2  41.4             39.0               33.8
+  strategy against F4 (gold N4.9-g, real in-or-out; timed sleeve):
+     book cagr max_dd calmar  vol ulcer days_below_10pct longest_underwater
+SCMO_0003 37.8   62.1   46.6 51.8  65.9             50.0               44.5
+SCMO_0007 37.8   42.8   38.0 52.7  35.1             45.8               35.4
+SCMO_0010 37.8   20.9   31.1 52.0  32.5             69.8               28.7
+SCMO_0029 37.8   61.6   44.6 53.8  38.3             36.3               33.5
+
+====================================================================================================
+4.2  COMPARATORS (benchmarks, not nulls), same window, T0 = 1.000; every NAV here is REBUILT from the parent's baskets and Eikon prices, not validated against a published NAV before 2019-01-02
+====================================================================================================
+CAGR (%), 2014-09-01 -> 2019-01-02:
+ cost      book strategy_CAGR% strategy_fixed50_CAGR% hold_parent_CAGR% constant_mix_CAGR% constant_mix_timed_CAGR% sleeve_only_CAGR% sleeve_only_timed_CAGR%
+  0.0 SCMO_0003          12.05                  12.65             32.75              15.26                    14.10              3.41                    1.72
+  0.0 SCMO_0007           4.91                   5.47             18.21               9.49                     8.39              3.41                    1.72
+  0.0 SCMO_0010           7.82                   8.40             22.79              11.91                    10.78              3.41                    1.72
+  0.0 SCMO_0029          12.67                  13.27             26.36              13.47                    12.33              3.41                    1.72
+ 20.8 SCMO_0003          10.71                  11.60             32.16              14.91                    13.40              3.41                    1.19
+ 20.8 SCMO_0007           3.58                   4.41             17.45               9.10                     7.67              3.41                    1.19
+ 20.8 SCMO_0010           6.47                   7.32             22.05              11.50                    10.04              3.41                    1.19
+ 20.8 SCMO_0029          11.29                  12.18             25.69              13.08                    11.60              3.41                    1.19
+ 50.0 SCMO_0003           8.86                  10.14             31.32              14.43                    12.44              3.41                    0.44
+ 50.0 SCMO_0007           1.73                   2.93             16.38               8.56                     6.67              3.41                    0.44
+ 50.0 SCMO_0010           4.59                   5.82             21.03              10.93                     9.00              3.41                    0.44
+ 50.0 SCMO_0029           9.38                  10.66             24.75              12.55                    10.59              3.41                    0.44
+Maximum drawdown (%), 2014-09-01 -> 2019-01-02:
+ cost      book strategy_DD% strategy_fixed50_DD% hold_parent_DD% constant_mix_DD% constant_mix_timed_DD% sleeve_only_DD% sleeve_only_timed_DD%
+  0.0 SCMO_0003       -16.97               -16.60          -39.38           -15.67                 -15.31           -6.64                 -9.63
+  0.0 SCMO_0007       -18.42               -16.36          -15.95            -6.62                  -6.13           -6.64                 -9.63
+  0.0 SCMO_0010       -23.07               -21.33          -28.99           -10.53                 -11.20           -6.64                 -9.63
+  0.0 SCMO_0029       -23.32               -23.02          -33.81           -13.13                 -13.24           -6.64                 -9.63
+ 20.8 SCMO_0003       -18.15               -17.68          -39.67           -15.91                 -15.88           -6.64                -10.07
+ 20.8 SCMO_0007       -20.05               -17.78          -16.11            -6.69                  -6.40           -6.64                -10.07
+ 20.8 SCMO_0010       -24.42               -22.42          -29.47           -10.88                 -11.81           -6.64                -10.07
+ 20.8 SCMO_0029       -24.01               -23.62          -34.12           -13.37                 -13.60           -6.64                -10.07
+ 50.0 SCMO_0003       -19.87               -19.17          -40.08           -16.25                 -16.68           -6.64                -10.74
+ 50.0 SCMO_0007       -22.90               -20.02          -16.32            -6.79                  -6.78           -6.64                -10.74
+ 50.0 SCMO_0010       -26.26               -23.92          -30.15           -11.37                 -12.65           -6.64                -10.74
+ 50.0 SCMO_0029       -25.06               -24.45          -34.54           -13.70                 -14.11           -6.64                -10.74
+Trades (sleeve rebalances / basket changes in brackets) and cost paid at 20.8 bps:
+     book           strategy   strategy_fixed50         hold_parent         constant_mix   constant_mix_timed       sleeve_only   sleeve_only_timed
+SCMO_0003 31 (9/7) / 0.06699 22 (0/7) / 0.05377 18 (0/18) / 0.05677 240 (0/13) / 0.02069 240 (0/13) / 0.03975 0 (0/0) / 0.00000 18 (18/0) / 0.02232
+SCMO_0007 31 (9/7) / 0.05723 22 (0/7) / 0.04651 18 (0/18) / 0.04480 240 (0/13) / 0.01915 240 (0/13) / 0.03431 0 (0/0) / 0.00000 18 (18/0) / 0.02232
+SCMO_0010 31 (9/7) / 0.06074 22 (0/7) / 0.04939 18 (0/18) / 0.04918 240 (0/13) / 0.02127 240 (0/13) / 0.03760 0 (0/0) / 0.00000 18 (18/0) / 0.02232
+SCMO_0029 32 (9/8) / 0.06580 23 (0/8) / 0.05313 18 (0/18) / 0.04748 240 (0/13) / 0.02025 240 (0/13) / 0.03723 0 (0/0) / 0.00000 18 (18/0) / 0.02232
+The constant mixes hold 40.8% in the parent's basket (the rule's average share: invested weeks / weeks) all the time; constant_mix has a 50/50 non-stock share, constant_mix_timed splits it by the MAUc1 weight, both rebalanced at each decision's next session and at each basket change; sleeve_only holds the sleeve alone (50/50), sleeve_only_timed the sleeve alone split by the MAUc1 weight; strategy_fixed50 is Part A's rule (T06's rule on the real parents); hold_parent is the engine with the decision fixed IN (it follows every basket change). There is no published-NAV comparator in this test (the parents' published NAVs start on 2019-01-02).
+
+Per-year returns at 20.8 bps (calendar years; the first and last years are partial: the window runs from the first date to the last):
+ year       from         to strategy% strategy_fixed50% hold_parent%
+ 2014 2014-09-01 2014-12-31     11.18              9.52        32.93
+ 2015 2014-12-31 2015-12-31     -4.35              0.36        95.27
+ 2016 2015-12-31 2016-12-30     26.80             23.18         3.90
+ 2017 2016-12-30 2017-12-29     26.22             28.70        71.89
+ 2018 2017-12-29 2018-12-31    -10.21             -9.03       -29.09
+ 2019 2018-12-31 2019-01-02      0.77              0.49        -0.72
+  (SCMO_0003; every book has the same signals, so the per-year pattern differs between books only through the baskets and the stock prices)
+
+====================================================================================================
+4.3  POWER: round trips, the minimum detectable edge (MDE = 2.8 x null SD; 80% power, two-sided 5%) per null, sessions invested and sleeve trades per draw
+====================================================================================================
+     book  round_trips  gold_spells_with_OUT F1_sd_CAGR_pp F1_MDE_CAGR_pp F1_sd_DD_pp F1_MDE_DD_pp F2_sd_CAGR_pp F2_MDE_CAGR_pp F2_sd_DD_pp F2_MDE_DD_pp F3_sd_CAGR_pp F3_MDE_CAGR_pp F3_sd_DD_pp F3_MDE_DD_pp F4_sd_CAGR_pp F4_MDE_CAGR_pp F4_sd_DD_pp F4_MDE_DD_pp F5_sd_CAGR_pp F5_MDE_CAGR_pp F5_sd_DD_pp F5_MDE_DD_pp F1f_sd_CAGR_pp F1f_MDE_CAGR_pp F1f_sd_DD_pp F1f_MDE_DD_pp F2f_sd_CAGR_pp F2f_MDE_CAGR_pp F2f_sd_DD_pp F2f_MDE_DD_pp
+SCMO_0003            8                    16          7.07          19.80        6.03        16.87          8.00          22.39        6.68        18.71          1.38           3.87        1.62         4.53          1.41           3.94        1.64         4.58          7.12          19.95        5.84        16.35           7.02           19.66         5.72         16.03           7.93           22.19         6.42         17.97
+SCMO_0007            8                    16          4.62          12.94        3.81        10.68          4.49          12.57        3.78        10.57          1.29           3.62        2.33         6.53          1.32           3.68        2.35         6.57          4.86          13.60        3.67        10.28           4.65           13.02         3.35          9.37           4.54           12.72         3.33          9.31
+SCMO_0010            8                    16          6.40          17.91        4.82        13.50          6.54          18.30        4.93        13.81          1.33           3.73        1.49         4.18          1.35           3.79        1.44         4.03          6.40          17.93        4.69        13.13           6.31           17.67         4.49         12.57           6.44           18.02         4.59         12.84
+SCMO_0029            8                    16          6.54          18.30        5.69        15.93          6.99          19.58        5.99        16.77          1.39           3.89        1.35         3.78          1.41           3.96        1.38         3.86          6.57          18.41        5.51        15.42           6.48           18.15         5.34         14.95           6.94           19.43         5.72         16.02
+(F1f and F2f are the in-or-out nulls run with the sleeve fixed at 50/50, the nulls of A1 and A2.) T11.md section 3 step 12: the thresholds in section 2 do not depend on these numbers, which did not exist when it was written. T06's N4.10 null SD of CAGR was 5.4 to 6.9 pp (MDE 15 to 19 pp), the prior for A1; for C3 and C4 there is no prior: the gold nulls move only the sleeve's split.
+
+Sessions invested per draw (full window, LBES, 20.8 bps; of 1,069 sessions; weeks are held exactly, sessions are not; F3 and F4 hold the real switch, so sessions equal the rule's; the fixed-50/50 draws use the same states):
+     book  rule   of  F1_min F1_median  F1_max  F1_equal_to_rule  F2_min F2_median  F2_max  F2_equal_to_rule  F3_min F3_median  F3_max  F3_equal_to_rule  F4_min F4_median  F4_max  F4_equal_to_rule
+SCMO_0003   443 1069     427     438.0     452               116     428     439.0     449               107     443     443.0     443              2000     443     443.0     443              2000
+SCMO_0007   443 1069     427     438.0     452               116     428     439.0     449               107     443     443.0     443              2000     443     443.0     443              2000
+SCMO_0010   443 1069     427     438.0     452               116     428     439.0     449               107     443     443.0     443              2000     443     443.0     443              2000
+SCMO_0029   443 1069     427     438.0     452               116     428     439.0     449               107     443     443.0     443              2000     443     443.0     443              2000
+
+Sleeve trades per gold draw (F3 and F4; the rule has 9 on SCMO_0003; draws that flip in IN weeks never trade, so the count varies):
+     book  rule  F3_min F3_median  F3_max  F4_min F4_median  F4_max
+SCMO_0003     9       4      10.0      15       3      10.0      16
+SCMO_0007     9       4      10.0      15       3      10.0      16
+SCMO_0010     9       4      10.0      15       3      10.0      16
+SCMO_0029     9       4      10.0      15       3      10.0      16
+
+====================================================================================================
+4.4  VERDICT against the pre-registered criteria (after cost, 20.8 bps; F1 decides A1, A2, C1, C2, F3 decides C3, C4; unadjusted, Holm beside)
+====================================================================================================
+  A1 equity timing, fixed 50/50 sleeve (H-A1)    FAIL   percentile >= 90 in >= 3 of 4 books against F1: 0 of 4 (0003 24.6, 0007 13.0, 0010 22.3, 0029 42.6); Holm-adjusted p: 0003 1.000, 0007 1.000, 0010 1.000, 0029 1.000   beside, against F2: 0 of 4 (0003 28.4, 0007 12.8, 0010 23.7, 0029 43.5)   MDE: 0003: undetectable below 19.7 pp; 0007: undetectable below 13.0 pp; 0010: undetectable below 17.7 pp; 0029: undetectable below 18.1 pp
+  A2 protection, fixed sleeve (H-A2)             FAIL   percentile >= 90 in >= 3 of 4 books against F1: 0 of 4 (0003 88.9, 0007 12.2, 0010 42.4, 0029 45.1); Holm-adjusted p: 0003 0.666, 0007 1.000, 0010 1.000, 0029 1.000   beside, against F2: 1 of 4 (0003 91.2, 0007 13.2, 0010 43.1, 0029 50.8)   MDE: 0003: undetectable below 16.0 pp; 0007: undetectable below 9.4 pp; 0010: undetectable below 12.6 pp; 0029: undetectable below 14.9 pp
+  C1 equity timing, timed sleeve (H1)            FAIL   percentile >= 90 in >= 3 of 4 books against F1: 0 of 4 (0003 28.0, 0007 15.8, 0010 26.2, 0029 45.6); Holm-adjusted p: 0003 1.000, 0007 1.000, 0010 1.000, 0029 1.000   beside, against F2: 0 of 4 (0003 31.2, 0007 15.6, 0010 26.2, 0029 46.3)   MDE: 0003: undetectable below 19.8 pp; 0007: undetectable below 12.9 pp; 0010: undetectable below 17.9 pp; 0029: undetectable below 18.3 pp
+  C2 protection, timed sleeve (H2)               FAIL   percentile >= 90 in >= 3 of 4 books against F1: 0 of 4 (0003 86.8, 0007 12.2, 0010 31.9, 0029 44.9); Holm-adjusted p: 0003 0.666, 0007 1.000, 0010 1.000, 0029 1.000   beside, against F2: 0 of 4 (0003 88.4, 0007 11.1, 0010 31.8, 0029 48.2)   MDE: 0003: undetectable below 16.9 pp; 0007: undetectable below 10.7 pp; 0010: undetectable below 13.5 pp; 0029: undetectable below 15.9 pp
+  C3 gold timing (H3)                            FAIL   percentile >= 90 in >= 3 of 4 books against F3: 0 of 4 (0003 37.2, 0007 37.2, 0010 37.2, 0029 37.2); Holm-adjusted p: 0003 1.000, 0007 1.000, 0010 1.000, 0029 1.000   beside, against F4: 0 of 4 (0003 37.8, 0007 37.8, 0010 37.8, 0029 37.8)   MDE: 0003: undetectable below 3.9 pp; 0007: undetectable below 3.6 pp; 0010: undetectable below 3.7 pp; 0029: undetectable below 3.9 pp
+  C4 gold-timing protection (H4)                 FAIL   percentile >= 90 in >= 3 of 4 books against F3: 0 of 4 (0003 62.8, 0007 45.4, 0010 24.4, 0029 63.5); Holm-adjusted p: 0003 1.000, 0007 1.000, 0010 1.000, 0029 1.000   beside, against F4: 0 of 4 (0003 62.1, 0007 42.8, 0010 20.9, 0029 61.6)   MDE: 0003: undetectable below 4.5 pp; 0007: undetectable below 6.5 pp; 0010: undetectable below 4.2 pp; 0029: undetectable below 3.8 pp
+
+T09 on the same weeks (a three-index proxy, 2011-11-25 -> 2019-01-02; stored evidence C:\Users\manur\Repos\wm-AA\AA\tests\T09\evidence\headline; reference only): books at the 90th percentile against F1/F3: A1 0 of 4, A2 0 of 4, C1 0 of 4, C2 0 of 4, C3 0 of 4, C4 0 of 4
+
+Outcome map (T11.md section 2), every row that applies (a pattern can match more than one row; the pre-registered text does not rank them):
+  - all FAIL: no timing edge over chance on this stretch for the real parents; READ BESIDE T09'S PROXY RESULT (same weeks): T09's proxy also failed all three pairs, so the failure is not due to the proxy, subject to the power note
+  - agreement of the paired nulls: F1 and F2 agree on A1, A2, C1 and C2, F3 and F4 agree on C3 and C4
+A1/A2 replicate T06 and C1/C2 replicate T08 on an earlier stretch; only C3 and C4 bear on the gold timing. T11 alone cannot upgrade F-AA-S04 or F-AA-S07, and any new finding is PROVISIONAL whatever the outcome (the whole window is seen; there is no hold-out).
+
+====================================================================================================
+4.5  ROBUSTNESS R1-R7 (decide a finding's status, not the verdicts)
+====================================================================================================
+R1 at 0 bps, A1 against F1 (50/50 sleeve): 0 of 4 -> FAIL (0003 24.6, 0007 13.1, 0010 22.5, 0029 42.8)
+R1 at 0 bps, A1 against F2 (50/50 sleeve): 0 of 4 -> FAIL (0003 28.6, 0007 13.0, 0010 23.8, 0029 43.5)
+R1 at 0 bps, A2 against F1 (50/50 sleeve): 1 of 4 -> FAIL (0003 92.2, 0007 17.2, 0010 61.9, 0029 46.2)
+R1 at 0 bps, A2 against F2 (50/50 sleeve): 1 of 4 -> FAIL (0003 93.2, 0007 19.6, 0010 66.0, 0029 54.3)
+R1 at 0 bps, C1 against F1: 0 of 4 -> FAIL (0003 27.9, 0007 15.7, 0010 26.4, 0029 45.8)
+R1 at 0 bps, C1 against F2: 0 of 4 -> FAIL (0003 31.1, 0007 15.4, 0010 26.4, 0029 46.2)
+R1 at 0 bps, C2 against F1: 1 of 4 -> FAIL (0003 92.7, 0007 13.8, 0010 36.0, 0029 48.4)
+R1 at 0 bps, C2 against F2: 1 of 4 -> FAIL (0003 93.2, 0007 13.2, 0010 34.6, 0029 53.0)
+R1 at 0 bps, C3 against F3: 0 of 4 -> FAIL (0003 36.5, 0007 36.5, 0010 36.5, 0029 36.5)
+R1 at 0 bps, C3 against F4: 0 of 4 -> FAIL (0003 36.9, 0007 36.9, 0010 36.9, 0029 36.9)
+R1 at 0 bps, C4 against F3: 0 of 4 -> FAIL (0003 60.8, 0007 44.9, 0010 26.8, 0029 59.6)
+R1 at 0 bps, C4 against F4: 0 of 4 -> FAIL (0003 60.9, 0007 40.2, 0010 24.1, 0029 57.4)
+R1 at 50 bps, A1 against F1 (50/50 sleeve): 0 of 4 -> FAIL (0003 24.3, 0007 12.8, 0010 21.9, 0029 42.4)
+R1 at 50 bps, A1 against F2 (50/50 sleeve): 0 of 4 -> FAIL (0003 28.2, 0007 12.7, 0010 23.2, 0029 43.1)
+R1 at 50 bps, A2 against F1 (50/50 sleeve): 0 of 4 -> FAIL (0003 82.2, 0007 9.3, 0010 31.8, 0029 39.4)
+R1 at 50 bps, A2 against F2 (50/50 sleeve): 0 of 4 -> FAIL (0003 84.8, 0007 9.4, 0010 31.4, 0029 43.2)
+R1 at 50 bps, C1 against F1: 0 of 4 -> FAIL (0003 28.0, 0007 16.0, 0010 26.1, 0029 45.8)
+R1 at 50 bps, C1 against F2: 0 of 4 -> FAIL (0003 31.4, 0007 15.8, 0010 26.3, 0029 46.6)
+R1 at 50 bps, C2 against F1: 0 of 4 -> FAIL (0003 82.8, 0007 9.7, 0010 27.1, 0029 44.5)
+R1 at 50 bps, C2 against F2: 0 of 4 -> FAIL (0003 85.5, 0007 8.7, 0010 28.7, 0029 48.6)
+R1 at 50 bps, C3 against F3: 0 of 4 -> FAIL (0003 38.9, 0007 38.9, 0010 38.9, 0029 38.9)
+R1 at 50 bps, C3 against F4: 0 of 4 -> FAIL (0003 38.9, 0007 38.9, 0010 38.9, 0029 38.9)
+R1 at 50 bps, C4 against F3: 0 of 4 -> FAIL (0003 67.1, 0007 39.4, 0010 22.8, 0029 67.4)
+R1 at 50 bps, C4 against F4: 0 of 4 -> FAIL (0003 66.5, 0007 38.0, 0010 18.7, 0029 64.6)
+
+R2 LIQUIDCASE as the cash leg (full window, 20.8 bps; A1 against F1 run with the 50/50 sleeve, C1 against F1, C3 against F3):
+  A1 against F1 (50/50 sleeve): CAGR percentiles [24.6, 13.0, 22.3, 42.6] (rule's CAGR ['11.60%', '4.41%', '7.32%', '12.18%']) -> 0 of 4 >= 90 -> FAIL
+  C1 against F1: CAGR percentiles [28.0, 15.8, 26.2, 45.6] (rule's CAGR ['10.71%', '3.58%', '6.47%', '11.29%']) -> 0 of 4 >= 90 -> FAIL
+  C3 against F3: CAGR percentiles [37.2, 37.2, 37.2, 37.2] (rule's CAGR ['10.71%', '3.58%', '6.47%', '11.29%']) -> 0 of 4 >= 90 -> FAIL
+  R2 is a null result by construction: LIQUIDCASE's daily returns equal LBES's in this window to the maximum daily-return difference printed here (audit.json: 1.2934631143934894e-10), so the cash leg cannot change a number. Largest |CAGR(LIQ) - CAGR(LBES)| over the rule's two runs and over every draw of F1 (both sleeves) and F3 on the same ids: 1.69e-11 (rule), 1.17e-10 (draws).
+
+R3 window 2015-01-02 -> 2019-01-02 (own spells, totals and nulls, bounds from that window's series, 20.8 bps; A1 against F1 run with the 50/50 sleeve, C1 against F1, C3 against F3):
+  A1 against F1 (50/50 sleeve): CAGR percentiles [42.0, 34.1, 33.6, 65.3] (rule's CAGR ['10.10%', '5.62%', '8.66%', '13.72%']) -> 0 of 4 >= 90 -> FAIL
+  C1 against F1: CAGR percentiles [44.3, 36.8, 35.9, 66.0] (rule's CAGR ['8.69%', '4.27%', '7.27%', '12.27%']) -> 0 of 4 >= 90 -> FAIL
+  C3 against F3: CAGR percentiles [27.3, 27.3, 27.3, 27.3] (rule's CAGR ['8.69%', '4.27%', '7.27%', '12.27%']) -> 0 of 4 >= 90 -> FAIL
+
+R4 agreement of the paired nulls (20.8 bps; no pass mark). Per book: the rule's percentile under each null of a pair, and each null's spread of after-cost CAGR:
+  (A_F1 and A_F2: the 50/50-sleeve rule against F1 and F2 run with the 50/50 sleeve; F1 to F4: the timed rule against the timed nulls)
+     book A_F1_pct A_F1_DD_pct A_F1_median% A_F1_sd_pp A_F1_p5% A_F1_p95% A_F2_pct A_F2_DD_pct A_F2_median% A_F2_sd_pp A_F2_p5% A_F2_p95% F1_pct F1_DD_pct F1_median% F1_sd_pp F1_p5% F1_p95% F2_pct F2_DD_pct F2_median% F2_sd_pp F2_p5% F2_p95% F3_pct F3_DD_pct F3_median% F3_sd_pp F3_p5% F3_p95% F4_pct F4_DD_pct F4_median% F4_sd_pp F4_p5% F4_p95% gap(A_F2-A_F1) gap(F2-F1) gap(F4-F3)
+SCMO_0003    24.55       88.95        16.74       7.02     5.26     28.56    28.45       91.25        16.21       7.93     3.33     29.38  27.95     86.80      15.18     7.07   3.71   27.21  31.20     88.40      14.70     8.00   1.78   28.17  37.25     62.85      11.21     1.38   8.96   13.53  37.80     62.10      11.16     1.41   8.87   13.49           3.90       3.25       0.55
+SCMO_0007    13.00       12.15         9.79       4.65     2.13     17.53    12.80       13.15         9.62       4.54     2.24     17.13  15.80     12.20       8.29     4.62   0.81   15.90  15.60     11.10       8.30     4.49   0.61   15.47  37.25     45.35       4.04     1.29   1.94    6.21  37.80     42.80       4.00     1.32   1.85    6.18          -0.20      -0.20       0.55
+SCMO_0010    22.30       42.40        12.37       6.31     2.17     22.89    23.70       43.15        12.19       6.44     1.91     22.94  26.20     31.95      11.01     6.40   0.60   21.46  26.25     31.80      10.64     6.54   0.22   21.47  37.25     24.45       6.94     1.33   4.78    9.17  37.80     20.95       6.90     1.35   4.69    9.14           1.40       0.05       0.55
+SCMO_0029    42.65       45.05        13.60       6.48     2.87     24.17    43.50       50.80        13.39       6.94     1.79     24.86  45.60     44.85      12.04     6.54   1.44   22.74  46.30     48.20      12.00     6.99   0.35   23.32  37.25     63.55      11.78     1.39   9.53   14.12  37.80     61.58      11.74     1.41   9.43   14.08           0.85       0.70       0.55
+Historical reference (a different window and real parents; stored percentiles of the rules' own draws; NOT comparable draw for draw, and no pass mark). Omitted below if the evidence files do not exist:
+  T06 (stored evidence tests/T06/evidence/headline; 2019-01-02 -> 2026 on the real parents):
+     book T06_CAGR% T06_N10_pct T06_N10_DD_pct T06_N9_pct T06_N9_DD_pct
+SCMO_0003     28.64       97.40          97.90      96.85         98.15
+SCMO_0007     20.96       94.10          97.78      92.80         96.92
+SCMO_0010     30.41       96.75          97.20      96.00         98.15
+SCMO_0029     26.61       94.60          98.75      94.75         98.35
+  T08 (stored evidence tests/T08/evidence/headline; 2019-01-02 -> 2026 on the real parents):
+     book T08_CAGR% T08_F1_pct T08_F1_DD_pct T08_F2_pct T08_F2_DD_pct T08_F3_pct T08_F3_DD_pct T08_F4_pct T08_F4_DD_pct
+SCMO_0003     30.37      97.15         96.35      97.30         95.85      61.90         53.80      60.50         53.30
+SCMO_0007     22.61      94.25         97.80      93.20         96.67      61.05         52.80      59.10         58.00
+SCMO_0010     32.15      97.00         84.00      96.85         84.20      61.90          0.65      60.50          0.57
+SCMO_0029     28.31      95.05         93.60      94.95         92.30      61.90         52.85      60.50         52.23
+  T09 (stored evidence tests/T09/evidence/headline; 2011-11-25 -> 2019-01-02 on a three-index PROXY, the same weekly series from 2014-09-01; the rule's percentile against T09's own draws; A_F1 = the 50/50 rule against F1 with the 50/50 sleeve):
+     book T09_A_F1_pct T09_A_F1_DD_pct T09_F1_pct T09_F1_DD_pct T09_timed_rule_CAGR% T09_F2_pct T09_F2_DD_pct T09_F3_pct T09_F3_DD_pct T09_F4_pct T09_F4_DD_pct
+SCMO_0003        50.05           61.35      59.95         56.60                 6.45      62.65         60.80      56.75         19.45      57.85         16.45
+SCMO_0007        51.25           61.85      60.45         57.55                 6.52      63.60         61.00      56.75         18.90      57.85         15.95
+SCMO_0010        45.25           57.00      56.55         53.50                 6.13      59.60         56.60      56.75         20.45      57.85         18.15
+SCMO_0029        42.95           54.30      54.95         50.30                 6.05      58.10         52.40      56.75         21.00      57.85         18.70
+
+R5 both timings random (F5: an F1 draw and an F3 draw of the same id; 20.8 bps; reported only):
+     book CAGR% F5_med% F5_sd_pp CAGR_pct  CAGR_p DD_pct    DD_p
+SCMO_0003 10.71   16.35     7.12    22.35 0.77661  86.60 0.13443
+SCMO_0007  3.58    9.40     4.86    10.95 0.89055   8.60 0.91404
+SCMO_0010  6.47   11.90     6.40    20.05 0.79960  26.85 0.73163
+SCMO_0029 11.29   13.39     6.57    39.45 0.60570  40.20 0.59820
+
+R6 paired contrast (descriptive, no pass mark): every F1 and F2 draw also run with the sleeve fixed at 50/50; the change from 50/50 to the timed sleeve, in the rule and in the draws (full window, 20.8 bps):
+     book rule_dCAGR_pp rule_dDD_pp F1_med_dCAGR_pp F1_dCAGR_pct F1_share_dCAGR>0 F1_med_dDD_pp F1_dDD_pct F1_share_dDD>0 F2_med_dCAGR_pp F2_dCAGR_pct F2_share_dCAGR>0 F2_med_dDD_pp F2_dDD_pct F2_share_dDD>0
+SCMO_0003         -0.89       -0.47           -1.56        80.00             0.03         -0.42      48.15           0.23           -1.48        76.50             0.03         -0.44      49.15           0.24
+SCMO_0007         -0.83       -2.27           -1.46        80.15             0.03         -0.94      24.00           0.15           -1.41        76.75             0.03         -0.84      17.15           0.17
+SCMO_0010         -0.85       -2.00           -1.50        80.00             0.03         -0.36      17.35           0.24           -1.43        76.75             0.03         -0.32      15.55           0.25
+SCMO_0029         -0.89       -0.39           -1.51        78.85             0.03         -0.36      48.75           0.24           -1.45        75.25             0.03         -0.38      49.70           0.21
+  dCAGR = CAGR(timed sleeve) - CAGR(50/50) on the same states; dDD = max drawdown (timed) - max drawdown (50/50), positive = shallower with timing. The percentile ranks the rule's change among the draws' changes (higher = the rule gains more from timing than the draws do).
+
+R7 price-quality sensitivity (descriptive, no pass mark; 2014-09-01 -> 2019-01-02, LBES cash): the rule (Part B), the 50/50 rule (Part A) and hold-the-parent re-run (a) with the return of every listed stock-day set to zero (flagged: a held stock with an absolute one-day close-to-close return of 20% or more in D18, listed in r7_flagged_days.csv) and (b) with the return of every held stock-day priced from a manual Eikon export set to zero (noexport):
+  flagged stock-days (1): 
+     book       date    stock  prev_close  close     ret w_prev  w_cur src
+SCMO_0010 2017-10-23 PURVA.NS       80.15  96.85 +0.2084 0.0667 0.0667  db
+     book  cost                  run CAGR%    DD% flag_CAGR% flag_dCAGR_pp flag_DD% flag_dDD_pp noexp_CAGR% noexp_dCAGR_pp noexp_DD% noexp_dDD_pp
+SCMO_0003   0.0 rule, timed (Part B) 12.05 -16.97      12.05        +0.000   -16.97      +0.000       10.53         -1.517    -16.97       -0.000
+SCMO_0003   0.0 rule, 50/50 (Part A) 12.65 -16.60      12.65        +0.000   -16.60      +0.000       11.12         -1.525    -16.60       +0.000
+SCMO_0003   0.0      hold the parent 32.75 -39.38      32.75        +0.000   -39.38      +0.000       31.06         -1.691    -39.59       -0.203
+SCMO_0003  20.8 rule, timed (Part B) 10.71 -18.15      10.71        +0.000   -18.15      +0.000        9.21         -1.499    -18.15       +0.000
+SCMO_0003  20.8 rule, 50/50 (Part A) 11.60 -17.68      11.60        +0.000   -17.68      +0.000       10.09         -1.511    -17.68       +0.000
+SCMO_0003  20.8      hold the parent 32.16 -39.67      32.16        +0.000   -39.67      +0.000       30.47         -1.683    -39.88       -0.202
+SCMO_0007   0.0 rule, timed (Part B)  4.91 -18.42       4.91        +0.000   -18.42      +0.000        4.39         -0.523    -18.42       +0.000
+SCMO_0007   0.0 rule, 50/50 (Part A)  5.47 -16.36       5.47        +0.000   -16.36      +0.000        4.95         -0.525    -16.36       +0.000
+SCMO_0007   0.0      hold the parent 18.21 -15.95      18.21        +0.000   -15.95      +0.000       17.67         -0.547    -15.95       -0.000
+SCMO_0007  20.8 rule, timed (Part B)  3.58 -20.05       3.58        +0.000   -20.05      +0.000        3.06         -0.516    -20.05       +0.000
+SCMO_0007  20.8 rule, 50/50 (Part A)  4.41 -17.78       4.41        +0.000   -17.78      +0.000        3.89         -0.520    -17.78       +0.000
+SCMO_0007  20.8      hold the parent 17.45 -16.11      17.45        +0.000   -16.11      +0.000       16.91         -0.544    -16.11       +0.000
+SCMO_0010   0.0 rule, timed (Part B)  7.82 -23.07       7.82        +0.000   -23.07      +0.000        6.58         -1.243    -23.07       +0.000
+SCMO_0010   0.0 rule, 50/50 (Part A)  8.40 -21.33       8.40        +0.000   -21.33      +0.000        7.15         -1.250    -21.33       +0.000
+SCMO_0010   0.0      hold the parent 22.79 -28.99      22.28        -0.505   -28.99      +0.000       21.09         -1.693    -29.72       -0.730
+SCMO_0010  20.8 rule, timed (Part B)  6.47 -24.42       6.47        +0.000   -24.42      +0.000        5.24         -1.228    -24.42       +0.000
+SCMO_0010  20.8 rule, 50/50 (Part A)  7.32 -22.42       7.32        +0.000   -22.42      +0.000        6.08         -1.238    -22.42       +0.000
+SCMO_0010  20.8      hold the parent 22.05 -29.47      21.55        -0.502   -29.47      +0.000       20.37         -1.684    -30.20       -0.725
+SCMO_0029   0.0 rule, timed (Part B) 12.67 -23.32      12.67        +0.000   -23.32      +0.000       12.58         -0.094    -23.32       -0.000
+SCMO_0029   0.0 rule, 50/50 (Part A) 13.27 -23.02      13.27        +0.000   -23.02      +0.000       13.18         -0.094    -23.02       +0.000
+SCMO_0029   0.0      hold the parent 26.36 -33.81      26.36        +0.000   -33.81      +0.000       26.10         -0.258    -33.81       +0.000
+SCMO_0029  20.8 rule, timed (Part B) 11.29 -24.01      11.29        +0.000   -24.01      +0.000       11.20         -0.093    -24.01       -0.000
+SCMO_0029  20.8 rule, 50/50 (Part A) 12.18 -23.62      12.18        +0.000   -23.62      +0.000       12.09         -0.093    -23.62       -0.000
+SCMO_0029  20.8      hold the parent 25.69 -34.12      25.69        +0.000   -34.12      +0.000       25.43         -0.257    -34.12       -0.000
+  dCAGR / dDD = the re-run's value minus the baseline's, in percentage points (a negative dDD = a deeper worst fall).
+Contribution of the manual-export stocks (r7_export.csv): held stock-sessions priced from an export, and the always-in 0-cost end NAV with and without the returns of every export-priced held stock-day:
+     book                                                                                                    export_stocks  held_export_sessions hold_end_nav hold_end_nav_noexport hold_CAGR% noexport_CAGR% change_pp
+SCMO_0003                                                                 GEOM.NS 42, DISH.NS 164, OSCM.NS 122, MOL.NS 246                   574       3.3263                3.1502      32.75          31.06    -1.691
+SCMO_0007                                                                                     LAKSHVILAS.NS 61, HEXT.NS 62                   123       2.0336                1.9939      18.21          17.67    -0.547
+SCMO_0010 DISH.NS 62, GEOM.NS 42, PEL.NS 42, MOL.NS 102, OSCM.NS 60, LAKSHVILAS.NS 62, PIRAMALFIN.NS 124, JMCPROJECT.NS 62                   556       2.3888                2.2521      22.79          21.09    -1.693
+SCMO_0029                                                                                                      GEOM.NS 122                   122       2.6979                2.6746      26.36          26.10    -0.258
+  the rule's 17 exits and sleeve rebalances at 20.8 bps (SCMO_0003): 0 have a GOLDBEES fill at the raw OHLC4 (no MCX range that session), 17 at the de-spiked OHLC4.
+
+====================================================================================================
+4.6  THE REBUILT PARENT NAV AND THE DATA CAVEATS (descriptive; 2014-09-01 -> 2019-01-02)
+====================================================================================================
+Caption of parent_nav_2014-09-01_2019-01-02.csv (its sidecar .md, quoted): "rebuilt from the parent's baskets and Eikon prices, not validated against a published NAV before 2019-01-02"
+The file holds, per parent and session (1070 sessions per book, 2014-09-01 -> 2019-01-02, base 1.000 at 2014-09-01's close): the hold-the-parent NAV (always IN) at 0 and 20.8 bps and the Part A (50/50 sleeve) and Part B (timed sleeve) NAV at 20.8 bps. It is NOT approved data and no other test may read it. Every value equals the corresponding run of daily_nav.csv (gate V4).
+     book       from         to hold 0bps end hold 0bps CAGR% hold 0bps DD% hold 20.8 end hold 20.8 CAGR% hold 20.8 DD% Part A 20.8 end Part A 20.8 CAGR% Part A 20.8 DD% Part B 20.8 end Part B 20.8 CAGR% Part B 20.8 DD%
+SCMO_0003 2014-09-01 2019-01-02        3.3263           32.75        -39.38        3.2633           32.16        -39.67          1.5929             11.60          -17.68          1.5400             10.71          -18.15
+SCMO_0007 2014-09-01 2019-01-02        2.0336           18.21        -15.95        1.9784           17.45        -16.11          1.2008              4.41          -17.78          1.1609              3.58          -20.05
+SCMO_0010 2014-09-01 2019-01-02        2.3888           22.79        -28.99        2.3290           22.05        -29.47          1.3494              7.32          -22.42          1.3045              6.47          -24.42
+SCMO_0029 2014-09-01 2019-01-02        2.6979           26.36        -33.81        2.6376           25.69        -34.12          1.6284             12.18          -23.62          1.5742             11.29          -24.01
+
+Data caveats, counted from the evidence (the same counts are in T11.md section 3; this is a check, not a result):
+     book  held_export_stock_sessions                                                                                                    export_stocks  carried_bars  held_stock_sessions_without_a_bar  stock_days_|ret|>=20%
+SCMO_0003                         574                                                                 GEOM.NS 42, DISH.NS 164, OSCM.NS 122, MOL.NS 246             0                                 11                      0
+SCMO_0007                         123                                                                                     LAKSHVILAS.NS 61, HEXT.NS 62             0                                  6                      0
+SCMO_0010                         556 DISH.NS 62, GEOM.NS 42, PEL.NS 42, MOL.NS 102, OSCM.NS 60, LAKSHVILAS.NS 62, PIRAMALFIN.NS 124, JMCPROJECT.NS 62             3                                 15                      1
+SCMO_0029                         122                                                                                                      GEOM.NS 122             0                                 15                      0
+Sessions without any D18 bar in the window (SCMO_0003): ['2017-10-19'] (the previous close stands in; no trade falls on it: 0 trades on stand-in sessions); sessions with a held stock lacking a bar: 1; GOLDBEES sessions without an own bar: ['2016-10-30']; sessions without an MCX range (raw OHLC4 fill): ['2014-10-23', '2015-01-01', '2015-11-11']
+
+Hypotheses: H-A1 (equity timing, fixed sleeve) FALSIFIED against F1 | H-A2 (protection, fixed sleeve) FALSIFIED against F1 | H1 (equity timing, timed sleeve) FALSIFIED against F1 | H2 (protection, timed sleeve) FALSIFIED against F1 | H3 (gold timing) FALSIFIED against F3 | H4 (gold-timing protection) FALSIFIED against F3
+Gates: all pass

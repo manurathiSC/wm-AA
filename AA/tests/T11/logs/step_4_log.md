@@ -1,0 +1,27 @@
+# T11 Step 4 log (test scripts), 2026-11-17
+
+## What was built (all in `AA/tests/T11/`)
+`analyse.py` (reads only `evidence/<run>/`, plus T06/T08/T09 stored evidence for the R4 reference; prints every table to `analysis.log`; exit 1 if V1-V6 fail), `fill_writeup.py` (fills §4 between its markers; blocks 4.0a to 4.6), `report.py` (`evidence/report.html`), `check_page.py`, `rerun_draw.py`, `run.sh` (check_approved_data, check_prereg, engine, verifier, analyse, fill_writeup, check_prereg, report, check_page, check_prereg; `set -euo pipefail`; evidence `headline`). Forked from T09's scripts (rerun_draw by sed; analyse, report and check_page by splicing new blocks into the forks).
+
+Changes against T09: real parents (no typed weights, no proxy_units, no quarterly resets, no D09b or proxy-R7 kinds); basket changes are trades (checked in V6 against `baskets.csv`, `trades.csv`, `positions.csv`); the rule starts IN; seeds 14; bounds and counts from `count_table.json`; 4.0a worked example = exit, gold flip, entry, basket change (units from `positions.csv`, which lists only non-zero lines, so the first exit has no units before and the example uses the first exit with an earlier trade); R7 = flagged days and export counterfactual (tables from `r7_flagged_days.csv`, `r7_export.csv`, stats R7 kinds); 4.6 the rebuilt parent NAV and data caveats; T09 added to the R4 reference and to the outcome map ("read beside T09" rows; omitted with a note if T09's evidence is absent). Page: up-front box (low power with this run's round trips and sleeve trades, MDE beside every FAIL, data caveats, no hold-out, T09 seen), 4 rebuilt-NAV charts (one per parent), the sidecar caption under every growth chart (4 rebuilt, 4 comparator, 1 regime), the outcome-map table with an "Applies to this run" column. `sessions_invested`: the T09 formula (states times sessions per week, week 0 from T0's own session) already equals the engine's convention; verified (0 differences).
+
+## Tests (all on copies in the scratchpad; the real T11.md and the smoke evidence were never written)
+- `python -m py_compile` on all five scripts: ok. `check_prereg.py` OK (`0ab77589acbd...`) before and after.
+- Real smoke evidence copy with the real `verify_t11.json` (94,784 comparisons): analyse exit 0, gates V1-V6 PASS; report built; check_page 983 checks, 0 failures.
+- Four-book 100-draw run from the engine (`--outdir` scratch; the engine's own V2-V6 true): analyse exit 0, check_page 2,270 checks, 0 failures (with a mock `verify_t11.json` copied from T09's shape). Page also built and checked with T06/T08/T09 evidence absent (omission notes present, 2,209 checks) and with an Amendments block in the T11.md copy.
+- Synthetic "all PASS" variant (draws and curves shifted so the rule beats every null): outcome-map rows, chips and counts render; check_page 2,219 checks, 0 failures.
+- fill_writeup on a copy of T11.md (CRLF) and an LF copy: §1-§3 and §5-§8 byte-identical, second run byte-identical (idempotent), `check_prereg.py` OK on the copy; refuses on a log missing a block, duplicated markers, a missing heading; an Amendments block after the END marker survives; an edited §2 is flagged CHANGED.
+- rerun_draw: 9 cases EQUAL (F1, F2 fixed50, F3, F4, F5, R3 window, liq cash, 0 bps, 50 bps fixed50), curves to 5e-8.
+- Planted corruptions: 64 (31 evidence files, 1 extra R3-cell draw string, 17 page edits, 15 analyse cases). First pass caught 57 of 63; the six misses (a draws.csv length string, a positions.csv units change, a dropped positions line, a percentile digit in a table, an outcome-map answer, a baskets.csv session) led to new checks (draws strings against the states for every row, positions identities, exact table rows, outcome rows, basket sessions in V6), and one analyse crash became a clean V3 FAIL. Final: 64 of 64 caught (non-zero exit). Two cases (flipped MAUc1 sign, which changes the bounds, and a `#` line in the parent-NAV csv) stop check_page with an exception or a one-line FAIL before the summary.
+- Browser (Playwright, Chromium): light, dark and 390 px phone: no console errors, no horizontal scroll, every line chart (8), sampled bar charts and the regime chart show a tooltip with dates; 9 caption blocks.
+
+## Silent or inaccurate points
+1. Contract: `positions.csv` lists only non-zero lines and omits the initial position (no units before the first exit).
+2. T11.md header lists `METHODS.md` as part of the results page set; it is Step 6's and not written here (the page links to it).
+3. The outcome-map row "equity criteria PASS here where T09's proxy failed" needs T09's verdicts; they are recomputed from T09's stored evidence (percentile of T09's rule against its own F1/F3 draws), as R4 allows.
+4. check_page types the frozen counts (1,070 sessions, 228 decisions, bounds, tuple counts, 19 baskets) from T11.md; it does not open raw files (verifier's job).
+5. Smoke covers one book; four-book paths were tested on the engine's 100-draw scratch run.
+
+## AFFECTS STEP 5/6
+- Step 5: run `bash tests/T11/run.sh` from `AA/`; `verify_t11.json` must exist before analyse. check_page expects more than 100,000 verifier comparisons at 2,000 draws.
+- Step 6: no performance figure is typed in the scripts; §4 is filled only by `fill_writeup.py`. Amendments (if any) go in a `### Amendments before the run` block between the §4 END marker and `## 5. Findings` (the page shows them or says none). METHODS.md is still to write.

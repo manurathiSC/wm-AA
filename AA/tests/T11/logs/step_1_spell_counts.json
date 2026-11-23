@@ -1,0 +1,547 @@
+{
+ "window": [
+  "2014-09-01",
+  "2019-01-02"
+ ],
+ "r3_start": "2015-01-02",
+ "g_first_row": "2003-12-19",
+ "g_last_row": "2026-11-06",
+ "sc100_signal_rows_read_from": "2011-11-25",
+ "seeds": {
+  "N4.9": [
+   14,
+   3,
+   "draw_id"
+  ],
+  "N4.10": [
+   14,
+   6,
+   "draw_id"
+  ],
+  "N4.9-g": [
+   14,
+   11,
+   3,
+   "draw_id"
+  ],
+  "N4.10-g": [
+   14,
+   11,
+   6,
+   "draw_id"
+  ]
+ },
+ "baskets": {
+  "SCMO_0003": {
+   "basket_in_force_on_2014-07-01": {
+    "decision": "2014-05-31",
+    "effective": "2014-06-02"
+   },
+   "first_effective_on_or_after_2014-07-01": {
+    "decision": "2014-08-31",
+    "effective": "2014-09-01"
+   },
+   "baskets_effective_T0_to_END_inclusive": 19,
+   "basket_changes_after_T0": 18,
+   "skipped_in_window": 0,
+   "last_effective_in_window": "2018-12-17",
+   "effective_dates": [
+    "2014-09-01",
+    "2014-12-01",
+    "2015-03-02",
+    "2015-06-01",
+    "2015-09-01",
+    "2015-12-01",
+    "2016-03-01",
+    "2016-04-05",
+    "2016-06-01",
+    "2016-09-01",
+    "2016-12-01",
+    "2017-03-01",
+    "2017-06-01",
+    "2017-09-01",
+    "2017-11-30",
+    "2018-02-28",
+    "2018-05-31",
+    "2018-09-17",
+    "2018-12-17"
+   ]
+  },
+  "SCMO_0007": {
+   "basket_in_force_on_2014-07-01": {
+    "decision": "2014-05-31",
+    "effective": "2014-06-02"
+   },
+   "first_effective_on_or_after_2014-07-01": {
+    "decision": "2014-08-31",
+    "effective": "2014-09-01"
+   },
+   "baskets_effective_T0_to_END_inclusive": 19,
+   "basket_changes_after_T0": 18,
+   "skipped_in_window": 0,
+   "last_effective_in_window": "2018-12-17",
+   "effective_dates": [
+    "2014-09-01",
+    "2014-12-01",
+    "2015-03-02",
+    "2015-06-01",
+    "2015-09-01",
+    "2015-12-01",
+    "2016-03-01",
+    "2016-04-05",
+    "2016-06-01",
+    "2016-09-01",
+    "2016-12-01",
+    "2017-03-01",
+    "2017-06-01",
+    "2017-09-01",
+    "2017-11-30",
+    "2018-02-28",
+    "2018-05-31",
+    "2018-09-17",
+    "2018-12-17"
+   ]
+  },
+  "SCMO_0010": {
+   "basket_in_force_on_2014-07-01": {
+    "decision": "2014-05-31",
+    "effective": "2014-06-02"
+   },
+   "first_effective_on_or_after_2014-07-01": {
+    "decision": "2014-08-31",
+    "effective": "2014-09-01"
+   },
+   "baskets_effective_T0_to_END_inclusive": 19,
+   "basket_changes_after_T0": 18,
+   "skipped_in_window": 0,
+   "last_effective_in_window": "2018-12-17",
+   "effective_dates": [
+    "2014-09-01",
+    "2014-12-01",
+    "2015-03-02",
+    "2015-06-01",
+    "2015-09-01",
+    "2015-12-01",
+    "2016-03-01",
+    "2016-04-05",
+    "2016-06-01",
+    "2016-09-01",
+    "2016-12-01",
+    "2017-03-01",
+    "2017-06-01",
+    "2017-09-01",
+    "2017-11-30",
+    "2018-02-28",
+    "2018-05-31",
+    "2018-09-17",
+    "2018-12-17"
+   ]
+  },
+  "SCMO_0029": {
+   "basket_in_force_on_2014-07-01": {
+    "decision": "2014-05-31",
+    "effective": "2014-06-02"
+   },
+   "first_effective_on_or_after_2014-07-01": {
+    "decision": "2014-08-31",
+    "effective": "2014-09-01"
+   },
+   "baskets_effective_T0_to_END_inclusive": 19,
+   "basket_changes_after_T0": 18,
+   "skipped_in_window": 0,
+   "last_effective_in_window": "2018-12-17",
+   "effective_dates": [
+    "2014-09-01",
+    "2014-12-01",
+    "2015-03-02",
+    "2015-06-01",
+    "2015-09-01",
+    "2015-12-01",
+    "2016-03-01",
+    "2016-06-01",
+    "2016-09-01",
+    "2016-12-01",
+    "2017-03-01",
+    "2017-03-07",
+    "2017-06-01",
+    "2017-09-01",
+    "2017-11-30",
+    "2018-02-28",
+    "2018-05-31",
+    "2018-09-17",
+    "2018-12-17"
+   ]
+  }
+ },
+ "full": {
+  "start": "2014-09-01",
+  "end": "2019-01-02",
+  "sessions": 1070,
+  "weeks": 228,
+  "first_state": 1,
+  "last_state": 0,
+  "in_spells": 8,
+  "out_spells": 8,
+  "S_in": 93,
+  "S_out": 135,
+  "in_lengths": [
+   7,
+   1,
+   6,
+   6,
+   28,
+   28,
+   14,
+   3
+  ],
+  "out_lengths": [
+   7,
+   9,
+   16,
+   34,
+   12,
+   11,
+   30,
+   16
+  ],
+  "weeks_in": 93,
+  "weeks_out": 135,
+  "round_trips": 8,
+  "g_first_state": 1,
+  "g_last_state": 1,
+  "g_buy_spells": 10,
+  "g_sell_spells": 9,
+  "g_S_buy": 132,
+  "g_S_sell": 96,
+  "g_buy_lengths": [
+   2,
+   4,
+   8,
+   12,
+   36,
+   15,
+   17,
+   24,
+   9,
+   5
+  ],
+  "g_sell_lengths": [
+   19,
+   12,
+   6,
+   11,
+   15,
+   14,
+   5,
+   12,
+   2
+  ],
+  "g_shortest": 2,
+  "g_flips": 18,
+  "g_flips_while_out_both_sides": 9,
+  "g_flips_on_an_exit_decision": 2,
+  "g_flips_while_in": 7,
+  "g_flip_dates_while_out": [
+   "2015-01-23",
+   "2015-05-15",
+   "2015-07-10",
+   "2015-11-13",
+   "2016-01-29",
+   "2017-01-20",
+   "2018-06-29",
+   "2018-11-22",
+   "2018-12-07"
+  ],
+  "g_spells_with_an_out_week": 16,
+  "g_weeks_buy_while_out": 81,
+  "g_weeks_sell_while_out": 54,
+  "io_tables": {
+   "in": {
+    "k": 8,
+    "S": 93,
+    "lengths": [
+     7,
+     1,
+     6,
+     6,
+     28,
+     28,
+     14,
+     3
+    ],
+    "shortest": 1,
+    "longest": 28,
+    "lo": 1,
+    "hi": 28,
+    "feasible": true,
+    "rule_inside_bounds": true,
+    "n_ways": "4024559144"
+   },
+   "out": {
+    "k": 8,
+    "S": 135,
+    "lengths": [
+     7,
+     9,
+     16,
+     34,
+     12,
+     11,
+     30,
+     16
+    ],
+    "shortest": 7,
+    "longest": 34,
+    "lo": 2,
+    "hi": 34,
+    "feasible": true,
+    "rule_inside_bounds": true,
+    "n_ways": "19406343528"
+   }
+  },
+  "gold_tables": {
+   "in": {
+    "k": 10,
+    "S": 132,
+    "lengths": [
+     2,
+     4,
+     8,
+     12,
+     36,
+     15,
+     17,
+     24,
+     9,
+     5
+    ],
+    "shortest": 2,
+    "longest": 36,
+    "lo": 2,
+    "hi": 36,
+    "feasible": true,
+    "rule_inside_bounds": true,
+    "n_ways": "6835192844305"
+   },
+   "out": {
+    "k": 9,
+    "S": 96,
+    "lengths": [
+     19,
+     12,
+     6,
+     11,
+     15,
+     14,
+     5,
+     12,
+     2
+    ],
+    "shortest": 2,
+    "longest": 19,
+    "lo": 2,
+    "hi": 19,
+    "feasible": true,
+    "rule_inside_bounds": true,
+    "n_ways": "4976743356"
+   }
+  },
+  "g_vs_weekly_csv_mismatches": 0,
+  "decision_dates_first5": [
+   "2014-09-01",
+   "2014-09-05",
+   "2014-09-12",
+   "2014-09-19",
+   "2014-09-26"
+  ],
+  "decision_dates_last3": [
+   "2018-12-21",
+   "2018-12-28",
+   "2019-01-02"
+  ],
+  "weeks_per_decision_gap_over_7_days": 18,
+  "in_or_out_switches": 15
+ },
+ "r3": {
+  "start": "2015-01-02",
+  "end": "2019-01-02",
+  "sessions": 989,
+  "weeks": 210,
+  "first_state": 0,
+  "last_state": 0,
+  "in_spells": 6,
+  "out_spells": 7,
+  "S_in": 85,
+  "S_out": 125,
+  "in_lengths": [
+   6,
+   6,
+   28,
+   28,
+   14,
+   3
+  ],
+  "out_lengths": [
+   6,
+   16,
+   34,
+   12,
+   11,
+   30,
+   16
+  ],
+  "weeks_in": 85,
+  "weeks_out": 125,
+  "round_trips": 6,
+  "g_first_state": 0,
+  "g_last_state": 1,
+  "g_buy_spells": 9,
+  "g_sell_spells": 9,
+  "g_S_buy": 130,
+  "g_S_sell": 80,
+  "g_buy_lengths": [
+   4,
+   8,
+   12,
+   36,
+   15,
+   17,
+   24,
+   9,
+   5
+  ],
+  "g_sell_lengths": [
+   3,
+   12,
+   6,
+   11,
+   15,
+   14,
+   5,
+   12,
+   2
+  ],
+  "g_shortest": 2,
+  "g_flips": 17,
+  "g_flips_while_out_both_sides": 9,
+  "g_flips_on_an_exit_decision": 2,
+  "g_flips_while_in": 6,
+  "g_flip_dates_while_out": [
+   "2015-01-23",
+   "2015-05-15",
+   "2015-07-10",
+   "2015-11-13",
+   "2016-01-29",
+   "2017-01-20",
+   "2018-06-29",
+   "2018-11-22",
+   "2018-12-07"
+  ],
+  "g_spells_with_an_out_week": 16,
+  "g_weeks_buy_while_out": 81,
+  "g_weeks_sell_while_out": 44,
+  "io_tables": {
+   "in": {
+    "k": 6,
+    "S": 85,
+    "lengths": [
+     6,
+     6,
+     28,
+     28,
+     14,
+     3
+    ],
+    "shortest": 3,
+    "longest": 28,
+    "lo": 2,
+    "hi": 28,
+    "feasible": true,
+    "rule_inside_bounds": true,
+    "n_ways": "7654290"
+   },
+   "out": {
+    "k": 7,
+    "S": 125,
+    "lengths": [
+     6,
+     16,
+     34,
+     12,
+     11,
+     30,
+     16
+    ],
+    "shortest": 6,
+    "longest": 34,
+    "lo": 2,
+    "hi": 34,
+    "feasible": true,
+    "rule_inside_bounds": true,
+    "n_ways": "659773128"
+   }
+  },
+  "gold_tables": {
+   "in": {
+    "k": 9,
+    "S": 130,
+    "lengths": [
+     4,
+     8,
+     12,
+     36,
+     15,
+     17,
+     24,
+     9,
+     5
+    ],
+    "shortest": 4,
+    "longest": 36,
+    "lo": 2,
+    "hi": 36,
+    "feasible": true,
+    "rule_inside_bounds": true,
+    "n_ways": "426468399525"
+   },
+   "out": {
+    "k": 9,
+    "S": 80,
+    "lengths": [
+     3,
+     12,
+     6,
+     11,
+     15,
+     14,
+     5,
+     12,
+     2
+    ],
+    "shortest": 2,
+    "longest": 15,
+    "lo": 2,
+    "hi": 15,
+    "feasible": true,
+    "rule_inside_bounds": true,
+    "n_ways": "644288463"
+   }
+  },
+  "g_vs_weekly_csv_mismatches": 0,
+  "decision_dates_first5": [
+   "2015-01-02",
+   "2015-01-09",
+   "2015-01-16",
+   "2015-01-23",
+   "2015-01-30"
+  ],
+  "decision_dates_last3": [
+   "2018-12-21",
+   "2018-12-28",
+   "2019-01-02"
+  ],
+  "weeks_per_decision_gap_over_7_days": 16,
+  "in_or_out_switches": 12
+ },
+ "problems": []
+}

@@ -1,0 +1,1664 @@
+{
+ "a_d17_regression": {
+  "t08": {
+   "rows": [
+    {
+     "book": "SCMO_0003",
+     "stored_run": "constant_mix",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "constant_mix",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "constant_mix",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "constant_mix_timed",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "constant_mix_timed",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "constant_mix_timed",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "hold_parent",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "hold_parent",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 1.1102230246251565e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "hold_parent",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 1.1102230246251565e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "sleeve_only",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "sleeve_only",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "sleeve_only",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "sleeve_only_timed",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "sleeve_only_timed",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "sleeve_only_timed",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "strategy",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "strategy",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "strategy",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "strategy_fixed50",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "strategy_fixed50",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "strategy_fixed50",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "constant_mix",
+     "cost_bps": 0.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "constant_mix",
+     "cost_bps": 20.8,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 1.1102230246251565e-16,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "constant_mix",
+     "cost_bps": 50.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "constant_mix_timed",
+     "cost_bps": 0.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "constant_mix_timed",
+     "cost_bps": 20.8,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "constant_mix_timed",
+     "cost_bps": 50.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "hold_parent",
+     "cost_bps": 0.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "hold_parent",
+     "cost_bps": 20.8,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "hold_parent",
+     "cost_bps": 50.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "sleeve_only",
+     "cost_bps": 0.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "sleeve_only",
+     "cost_bps": 20.8,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "sleeve_only",
+     "cost_bps": 50.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "sleeve_only_timed",
+     "cost_bps": 0.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "sleeve_only_timed",
+     "cost_bps": 20.8,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "sleeve_only_timed",
+     "cost_bps": 50.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "strategy",
+     "cost_bps": 0.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "strategy",
+     "cost_bps": 20.8,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "strategy",
+     "cost_bps": 50.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "strategy_fixed50",
+     "cost_bps": 0.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "strategy_fixed50",
+     "cost_bps": 20.8,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "strategy_fixed50",
+     "cost_bps": 50.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "constant_mix",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "constant_mix",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "constant_mix",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "constant_mix_timed",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "constant_mix_timed",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "constant_mix_timed",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "hold_parent",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "hold_parent",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "hold_parent",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 1.1102230246251565e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "sleeve_only",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "sleeve_only",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "sleeve_only",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "sleeve_only_timed",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "sleeve_only_timed",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "sleeve_only_timed",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "strategy",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "strategy",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "strategy",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "strategy_fixed50",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "strategy_fixed50",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "strategy_fixed50",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "constant_mix",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "constant_mix",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "constant_mix",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "constant_mix_timed",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "constant_mix_timed",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "constant_mix_timed",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.4902439024390244
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "hold_parent",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "hold_parent",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "hold_parent",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "sleeve_only",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "sleeve_only",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "sleeve_only",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "sleeve_only_timed",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "sleeve_only_timed",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "sleeve_only_timed",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "strategy",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "strategy",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "strategy",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "strategy_fixed50",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "strategy_fixed50",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "strategy_fixed50",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    }
+   ],
+   "rows_compared": 84,
+   "worst_rel_diff_by_run": {
+    "constant_mix": 2.220446049250313e-16,
+    "constant_mix_timed": 2.220446049250313e-16,
+    "hold_parent": 2.220446049250313e-16,
+    "sleeve_only": 0.0,
+    "sleeve_only_timed": 0.0,
+    "strategy": 2.220446049250313e-16,
+    "strategy_fixed50": 2.220446049250313e-16
+   },
+   "pass": true
+  },
+  "t06": {
+   "rows": [
+    {
+     "book": "SCMO_0003",
+     "stored_run": "constant_mix",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "constant_mix",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "constant_mix",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "hold_parent",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "hold_parent",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 1.1102230246251565e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "hold_parent",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 1.1102230246251565e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "sleeve_only",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "sleeve_only",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "sleeve_only",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "strategy",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "strategy",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0003",
+     "stored_run": "strategy",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "constant_mix",
+     "cost_bps": 0.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.49264705882352944
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "constant_mix",
+     "cost_bps": 20.8,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": 0.49264705882352944
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "constant_mix",
+     "cost_bps": 50.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.49264705882352944
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "hold_parent",
+     "cost_bps": 0.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "hold_parent",
+     "cost_bps": 20.8,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "hold_parent",
+     "cost_bps": 50.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "sleeve_only",
+     "cost_bps": 0.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "sleeve_only",
+     "cost_bps": 20.8,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "sleeve_only",
+     "cost_bps": 50.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "strategy",
+     "cost_bps": 0.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "strategy",
+     "cost_bps": 20.8,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0007",
+     "stored_run": "strategy",
+     "cost_bps": 50.0,
+     "dates_compared": 241,
+     "sessions": 241,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "constant_mix",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "constant_mix",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "constant_mix",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "hold_parent",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "hold_parent",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "hold_parent",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 1.1102230246251565e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "sleeve_only",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "sleeve_only",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "sleeve_only",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "strategy",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "strategy",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0010",
+     "stored_run": "strategy",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "constant_mix",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "constant_mix",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "constant_mix",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": 0.49144254278728605
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "hold_parent",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "hold_parent",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "hold_parent",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "sleeve_only",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "sleeve_only",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "sleeve_only",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "strategy",
+     "cost_bps": 0.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "strategy",
+     "cost_bps": 20.8,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 2.220446049250313e-16,
+     "pass": true,
+     "f_used": null
+    },
+    {
+     "book": "SCMO_0029",
+     "stored_run": "strategy",
+     "cost_bps": 50.0,
+     "dates_compared": 243,
+     "sessions": 243,
+     "max_rel_diff": 0.0,
+     "pass": true,
+     "f_used": null
+    }
+   ],
+   "rows_compared": 48,
+   "worst_rel_diff_by_run": {
+    "constant_mix": 2.220446049250313e-16,
+    "hold_parent": 2.220446049250313e-16,
+    "sleeve_only": 0.0,
+    "strategy": 2.220446049250313e-16
+   },
+   "pass": true
+  },
+  "b_decisions": {
+   "SCMO_0003|t08": {
+    "compared": 53,
+    "mismatches": 0,
+    "unmatched_dates_in_engine": [
+     "2019-12-31"
+    ],
+    "pass": true
+   },
+   "SCMO_0003|t06": {
+    "compared": 53,
+    "mismatches": 0,
+    "unmatched_dates_in_engine": [
+     "2019-12-31"
+    ],
+    "pass": true
+   },
+   "SCMO_0007|t08": {
+    "compared": 52,
+    "mismatches": 0,
+    "unmatched_dates_in_engine": [
+     "2019-12-31"
+    ],
+    "pass": true
+   },
+   "SCMO_0007|t06": {
+    "compared": 52,
+    "mismatches": 0,
+    "unmatched_dates_in_engine": [
+     "2019-12-31"
+    ],
+    "pass": true
+   },
+   "SCMO_0010|t08": {
+    "compared": 53,
+    "mismatches": 0,
+    "unmatched_dates_in_engine": [
+     "2019-12-31"
+    ],
+    "pass": true
+   },
+   "SCMO_0010|t06": {
+    "compared": 53,
+    "mismatches": 0,
+    "unmatched_dates_in_engine": [
+     "2019-12-31"
+    ],
+    "pass": true
+   },
+   "SCMO_0029|t08": {
+    "compared": 53,
+    "mismatches": 0,
+    "unmatched_dates_in_engine": [
+     "2019-12-31"
+    ],
+    "pass": true
+   },
+   "SCMO_0029|t06": {
+    "compared": 53,
+    "mismatches": 0,
+    "unmatched_dates_in_engine": [
+     "2019-12-31"
+    ],
+    "pass": true
+   }
+  },
+  "window": {
+   "SCMO_0003": {
+    "t0": "2019-01-02",
+    "last": "2019-12-31",
+    "sessions": 243,
+    "decisions": 54
+   },
+   "SCMO_0007": {
+    "t0": "2019-01-04",
+    "last": "2019-12-31",
+    "sessions": 241,
+    "decisions": 53
+   },
+   "SCMO_0010": {
+    "t0": "2019-01-02",
+    "last": "2019-12-31",
+    "sessions": 243,
+    "decisions": 54
+   },
+   "SCMO_0029": {
+    "t0": "2019-01-02",
+    "last": "2019-12-31",
+    "sessions": 243,
+    "decisions": 54
+   }
+  },
+  "tolerance_rel": 1e-12,
+  "pass": true
+ },
+ "b_one_instrument": {
+  "SCMO_0003": {
+   "stocks_checked": 15,
+   "max_rel_diff": 4.440892098500626e-16,
+   "worst_stock": "CENTUM.NS",
+   "pass": true
+  },
+  "SCMO_0007": {
+   "stocks_checked": 15,
+   "max_rel_diff": 4.440892098500626e-16,
+   "worst_stock": "DBCORP.NS",
+   "pass": true
+  },
+  "SCMO_0010": {
+   "stocks_checked": 15,
+   "max_rel_diff": 6.661338147750939e-16,
+   "worst_stock": "SIMPLEXINF.NS",
+   "pass": true
+  },
+  "SCMO_0029": {
+   "stocks_checked": 15,
+   "max_rel_diff": 4.440892098500626e-16,
+   "worst_stock": "PIIND.NS",
+   "pass": true
+  }
+ },
+ "d_signals": {
+  "SCMO_0003": {
+   "decisions": 228,
+   "index_sign": 0,
+   "mauc1_sign": 0,
+   "mauc1_weekly_signal": 0,
+   "mauc1_weekly_label": 0,
+   "index_label": 0,
+   "pass": true
+  },
+  "SCMO_0007": {
+   "decisions": 228,
+   "index_sign": 0,
+   "mauc1_sign": 0,
+   "mauc1_weekly_signal": 0,
+   "mauc1_weekly_label": 0,
+   "index_label": 0,
+   "pass": true
+  },
+  "SCMO_0010": {
+   "decisions": 228,
+   "index_sign": 0,
+   "mauc1_sign": 0,
+   "mauc1_weekly_signal": 0,
+   "mauc1_weekly_label": 0,
+   "index_label": 0,
+   "pass": true
+  },
+  "SCMO_0029": {
+   "decisions": 228,
+   "index_sign": 0,
+   "mauc1_sign": 0,
+   "mauc1_weekly_signal": 0,
+   "mauc1_weekly_label": 0,
+   "index_label": 0,
+   "pass": true
+  }
+ },
+ "e_d24b_vs_d24": {
+  "SCMO_0003": {
+   "decisions_compared": 53,
+   "mismatches": 0,
+   "pass": true
+  },
+  "SCMO_0007": {
+   "decisions_compared": 52,
+   "mismatches": 0,
+   "pass": true
+  },
+  "SCMO_0010": {
+   "decisions_compared": 53,
+   "mismatches": 0,
+   "pass": true
+  },
+  "SCMO_0029": {
+   "decisions_compared": 53,
+   "mismatches": 0,
+   "pass": true
+  }
+ },
+ "f_seam": {
+  "SCMO_0003": {
+   "first": "2019-01-02",
+   "last": "2019-12-31",
+   "year_gap_pp": -0.21950615822005082,
+   "limit_pp": 0.5,
+   "pass": true
+  },
+  "SCMO_0007": {
+   "first": "2019-01-04",
+   "last": "2019-12-31",
+   "year_gap_pp": 0.3909223497191472,
+   "limit_pp": 0.5,
+   "pass": true
+  },
+  "SCMO_0010": {
+   "first": "2019-01-02",
+   "last": "2019-12-31",
+   "year_gap_pp": 0.4469434456772836,
+   "limit_pp": 0.5,
+   "pass": true
+  },
+  "SCMO_0029": {
+   "first": "2019-01-02",
+   "last": "2019-12-31",
+   "year_gap_pp": 0.18888038964059994,
+   "limit_pp": 0.5,
+   "pass": true
+  }
+ },
+ "c_shared_code": {
+  "compared": [
+   "simulate",
+   "stats",
+   "sessions_invested",
+   "spells",
+   "spell_sig",
+   "count_table",
+   "draw_lengths",
+   "ie_count",
+   "lens_of",
+   "chi2_sf_even",
+   "n_sleeve_trades",
+   "gold_spells_with_out",
+   "flip_counts",
+   "flush_draws"
+  ],
+  "identical_required": [
+   "simulate",
+   "stats",
+   "sessions_invested",
+   "spells",
+   "spell_sig",
+   "count_table",
+   "draw_lengths",
+   "ie_count",
+   "lens_of",
+   "chi2_sf_even",
+   "n_sleeve_trades",
+   "gold_spells_with_out",
+   "flip_counts",
+   "flush_draws"
+  ],
+  "required_not_identical": [],
+  "changed_functions": [
+   "ap",
+   "cash_levels",
+   "common",
+   "free_length_draw",
+   "main",
+   "make_states_gold",
+   "make_states_io",
+   "raw_parent",
+   "read_pub",
+   "run_book",
+   "sampler_selftest_small",
+   "spell_shuffle",
+   "trade",
+   "v3_check",
+   "v6_check"
+  ],
+  "unexpected_changes": [],
+  "expected_changes": [
+   "ap",
+   "trade",
+   "spell_shuffle",
+   "free_length_draw",
+   "v3_check",
+   "make_states_io",
+   "make_states_gold",
+   "sampler_selftest_small",
+   "run_book",
+   "common",
+   "cash_levels",
+   "v6_check",
+   "main",
+   "raw_parent",
+   "read_pub"
+  ],
+  "dropped_from_t08": [
+   "_read_index_masters",
+   "cash_note",
+   "d24_weekly",
+   "rule_bounds",
+   "v4_regression"
+  ],
+  "new_in_t11": [
+   "baskets_table",
+   "d17_regression",
+   "flagged_days",
+   "held_either",
+   "held_src_counts",
+   "one_instrument_identity",
+   "r7_runs",
+   "seam_check",
+   "series_bounds",
+   "shared_code_diff",
+   "v4_identities",
+   "window_check",
+   "zero_return_book"
+  ],
+  "sleeve_arithmetic_lines_in_both": {
+   "Tg = (1 - e_new) * gw_new * V": true,
+   "Tc = (1 - e_new) * (1 - gw_new) * V": true,
+   "traded = np.abs(Te - held_s).sum() + abs(Tg - gu * gp) + abs(Tc - cu * lv)": true,
+   "cost = ow * traded": true,
+   "k = (V - cost) / V": true,
+   "Te = e_new * V * w": true,
+   "new_u[pos] = k * Te[pos] / ps[pos]": true
+  },
+  "pass": true
+ },
+ "pass": true
+}
