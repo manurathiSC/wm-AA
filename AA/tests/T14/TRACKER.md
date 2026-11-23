@@ -11,7 +11,7 @@ Status values: `NOT_STARTED` → `IN_PROGRESS` → `DONE` (or `DONE_WITH_NOTES`)
 |---|---|---|---|---|
 | 0 Plan written, tracker created | DONE | — | Claude / 2026-11-23 | `PLAN.md` written directly (no plan-mode file exists to copy), this file created. Awaiting Manu's approval and D1–D4 |
 | 1 Pre-registration | DONE | — | Claude / 2026-11-23 | `spell_counts.py` run (counts equal PLAN §3.1: W1 93/81/54 weeks, 8 OUT-SELL spells; W2 201/163/46, 8 spells; all reportable); `T14.md` §1–§3 written and frozen, sha256 `99fe0f3a…` (`python tests/T14/check_prereg.py`) |
-| 2 Engine | IN_PROGRESS | 1 | | |
+| 2 Engine | DONE | 1 | Claude / 2026-11-23 | `analysis/t14_engine.py` (fork of t11_engine.py; 25 functions copied verbatim and AST-checked); smoke run (1 book, 20 draws) exits 0 on W1 and W2, V4(a) exact (max rel diff 0.0), V2-V6 pass; `logs/{step_2_log,evidence_contract,verifier_spec}.md`; about 10-15 min per window at 2,000 draws |
 | 3 Independent verifier | NOT_STARTED | 1 | | |
 | 4 Test scripts | NOT_STARTED | 1 | | |
 | 5 Run and gate | NOT_STARTED | 2, 3, 4 | | |
@@ -22,6 +22,9 @@ Status values: `NOT_STARTED` → `IN_PROGRESS` → `DONE` (or `DONE_WITH_NOTES`)
 - **Step 0 (2026-11-23).** OUT-SELL week counts in the plan (§3.1) were read from the stored `decisions.csv` of T08 and T11 (switch state and gold signal only, no price or return). Step 1 recomputes them from the signal files.
 
 ## Files created or modified
+
+### Step 2
+- `AA/analysis/t14_engine.py`, `AA/tests/T14/logs/{step_2_log.md, evidence_contract.md, verifier_spec.md}`, `.gitignore` (draws.csv)
 
 ### Step 1
 - `AA/tests/T14/{T14.md, check_prereg.py, spell_counts.py, logs/step_1_spell_counts.json}`; `CLAUDE.md` (test-in-progress line)
