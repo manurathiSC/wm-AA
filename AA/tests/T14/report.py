@@ -142,6 +142,47 @@ def svg_lines(series: dict, dates, key: str, title: str, w=720, h=270):
     return "".join(out), data
 
 
+REL_PAIR = ("80-half", "80-liq")
+
+
+def svg_rel(num, den, dates, key: str, w=720, h=270):
+    """outperformance of REL_PAIR[0] over REL_PAIR[1]: ratio of the two growth-of-1 curves (1.0 = level), linear axis, every 5th session plus the last."""
+    idx = np.arange(0, len(dates), 5)
+    if idx[-1] != len(dates) - 1:
+        idx = np.append(idx, len(dates) - 1)
+    r = num / den
+    v = r[idx]
+    lo, hi = min(float(v.min()), 1.0), max(float(v.max()), 1.0)
+    pad = 0.06 * (hi - lo) if hi > lo else 0.01
+    lo, hi = lo - pad, hi + pad
+    L, R, T, B = 44, 8, 8, 24
+    x = lambda i: L + (w - L - R) * i / (len(idx) - 1)
+    y = lambda t: T + (h - T - B) * (1 - (t - lo) / (hi - lo))
+    step = nice_ticks(hi - lo, 5)[1]
+    out = [f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{E(key)} {REL_PAIR[0]} over {REL_PAIR[1]}" class="chart rc" data-rel="{E(key)}">']
+    t = math.ceil(lo / step) * step
+    while t <= hi:
+        out.append(f'<line x1="{L}" x2="{w - R}" y1="{y(t):.1f}" y2="{y(t):.1f}" class="grid"/><text x="{L - 4}" y="{y(t) + 3:.1f}" text-anchor="end" class="ax">{t:.3g}×</text>')
+        t += step
+    out.append(f'<line x1="{L}" x2="{w - R}" y1="{y(1.0):.1f}" y2="{y(1.0):.1f}" stroke="var(--fg)" stroke-width="1" stroke-dasharray="4 3"/>')
+    years = sorted({pd.Timestamp(d).year for d in dates})
+    for yr in years[::2]:
+        i = int(np.argmax([pd.Timestamp(d).year == yr for d in dates]))
+        j = int(np.argmin(np.abs(idx - i)))
+        out.append(f'<text x="{x(j):.1f}" y="{h - 6}" text-anchor="middle" class="ax">{yr}</text>')
+    pts = " ".join(f"{x(j):.1f},{y(v[j]):.1f}" for j in range(len(idx)))
+    out.append(f'<polyline points="{pts}" fill="none" stroke="{COL[REL_PAIR[0]]}" stroke-width="2.2" stroke-linejoin="round"/>')
+    out.append(f'<text x="{w - R - 4}" y="{y(v[-1]) - 6:.1f}" text-anchor="end" class="ax">end {float(r[-1]):.3f}×</text>')
+    bot = h - B
+    out.append('<g class="rc-hv" style="display:none" pointer-events="none">'
+               f'<line class="rc-v" y1="{T}" y2="{bot}" stroke="var(--muted)" stroke-width="1"/>'
+               f'<circle class="rc-c" r="3.2" fill="{COL[REL_PAIR[0]]}" stroke="var(--card)" stroke-width="1.5"/></g>')
+    out.append(f'<rect class="rc-ov" x="{L}" y="{T}" width="{w - L - R}" height="{bot - T}" fill="transparent" style="cursor:crosshair;touch-action:none"/></svg>')
+    data = {"w": w, "h": h, "L": L, "R": R, "T": T, "B": B, "lo": lo, "hi": hi, "n": len(idx), "num": REL_PAIR[0], "den": REL_PAIR[1],
+            "dates": [pd.Timestamp(dates[i]).strftime("%Y-%m-%d (%a)") for i in idx], "v": [round(float(r[i]), 5) for i in idx], "end": round(float(r[-1]), 5)}
+    return "".join(out), data
+
+
 def hist_bins(draws: np.ndarray, real: float, nb=NB):
     lo, hi = float(min(draws.min(), real)), float(max(draws.max(), real))
     pad = 0.02 * (hi - lo) if hi > lo else 1e-6
@@ -215,6 +256,34 @@ Array.prototype.forEach.call(document.querySelectorAll('svg.lc'),function(svg){
 });
 })();"""
 
+REL_JS = """(function(){
+var el=document.getElementById('rel-data');if(!el)return;
+var all=JSON.parse(el.textContent);
+Array.prototype.forEach.call(document.querySelectorAll('select.vsel'),function(sel){
+ var fig=sel.closest('figure'),a=fig.querySelector('.view-all'),r=fig.querySelector('.view-rel');
+ sel.addEventListener('change',function(){a.hidden=(sel.value!=='all');r.hidden=(sel.value!=='rel')});
+});
+Array.prototype.forEach.call(document.querySelectorAll('svg.rc'),function(svg){
+ var d=all[svg.getAttribute('data-rel')],fig=svg.parentNode,tip=fig.querySelector('.tip'),g=svg.querySelector('.rc-hv'),ov=svg.querySelector('.rc-ov'),q=function(c){return svg.querySelector(c)};
+ function Y(v){return d.T+(d.h-d.T-d.B)*(1-(v-d.lo)/(d.hi-d.lo))}
+ function move(e){
+  var r=svg.getBoundingClientRect(),k=d.w/r.width,vx=(e.clientX-r.left)*k;
+  var j=Math.max(0,Math.min(d.n-1,Math.round((vx-d.L)/(d.w-d.L-d.R)*(d.n-1)))),x=d.L+(d.w-d.L-d.R)*j/(d.n-1);
+  g.style.display='';q('.rc-v').setAttribute('x1',x);q('.rc-v').setAttribute('x2',x);
+  q('.rc-c').setAttribute('cx',x);q('.rc-c').setAttribute('cy',Y(d.v[j]));
+  var pc=(d.v[j]-1)*100;
+  tip.innerHTML='<b>'+d.dates[j]+'</b><br>'+d.num+' \\u00f7 '+d.den+': <b>'+d.v[j].toFixed(3)+'\\u00d7</b><br>'+d.num+(pc>=0?' ahead by ':' behind by ')+'<b>'+Math.abs(pc).toFixed(1)+'%</b>';
+  tip.hidden=false;
+  var fr=fig.getBoundingClientRect(),px=e.clientX-fr.left+14,py=e.clientY-fr.top+14;
+  if(px+tip.offsetWidth>fr.width)px=e.clientX-fr.left-tip.offsetWidth-14;
+  if(py+tip.offsetHeight>fr.height)py=Math.max(0,e.clientY-fr.top-tip.offsetHeight-14);
+  tip.style.left=px+'px';tip.style.top=py+'px';
+ }
+ function out(){g.style.display='none';tip.hidden=true}
+ ov.addEventListener('pointermove',move);ov.addEventListener('pointerdown',move);ov.addEventListener('pointerleave',out);
+});
+})();"""
+
 BARS_JS = """(function(){
 var all=JSON.parse(document.getElementById('bars-data').textContent);
 function f(k,v){if(k==='pct')return (100*v).toFixed(2)+'%';return Math.round(v).toLocaleString('en-US')}
@@ -255,7 +324,7 @@ table.wrap td,table.wrap th{white-space:normal;text-align:left;vertical-align:to
 .card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:10px 0}.chart{width:100%;height:auto}.grid{stroke:var(--line)}.ax{fill:var(--muted);font-size:10px}
 .pass{color:var(--ok);font-weight:600}.fail{color:var(--bad);font-weight:600}.warn{color:var(--warn)}
 .formula{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px 12px;font:12.5px/1.5 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-x:auto;margin:6px 0}
-.hv{position:relative}.tip{position:absolute;z-index:5;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 9px;font-size:12px;line-height:1.5;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.18);font-variant-numeric:tabular-nums}.tip i{display:inline-block;width:10px;height:3px;margin-right:6px;vertical-align:middle}
+[hidden]{display:none!important}.vsel{font:inherit;font-size:12.5px;margin-left:4px}.hv{position:relative}.tip{position:absolute;z-index:5;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 9px;font-size:12px;line-height:1.5;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.18);font-variant-numeric:tabular-nums}.tip i{display:inline-block;width:10px;height:3px;margin-right:6px;vertical-align:middle}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;margin:6px 0}.legend i{display:inline-block;width:14px;height:3px;margin-right:6px;vertical-align:middle}
 .answer{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:6px;padding:12px 16px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 details{margin:.4em 0}summary{cursor:pointer;color:var(--muted)}@media (max-width:700px){.grid2{grid-template-columns:1fr}h1{font-size:21px}}
@@ -491,7 +560,7 @@ def section_dtable(W, crit_rows) -> str:
     return "".join(h)
 
 
-def section_curves(Ws, lines_data) -> str:
+def section_curves(Ws, lines_data, rel_data) -> str:
     h = ['<h2 id="curves">5. The curves: the six rules and the parent, per book</h2><p class="mini">Growth of 1 invested at the close of the first session of the window, log scale, 20.8 bps, daily marks (every 5th session drawn, hover reads the same arrays). '
          'The two originals are dashed.</p>']
     for w, W in Ws.items():
@@ -504,8 +573,15 @@ def section_curves(Ws, lines_data) -> str:
             key = f"{w}|{b}"
             svg, data = svg_lines(ser, dts, key, f"{b} growth of 1")
             lines_data[key] = data
+            rsvg, rdata = svg_rel(ser[REL_PAIR[0]], ser[REL_PAIR[1]], dts, key)
+            rel_data[key] = rdata
+            sel = (f'<label class="mini">View: <select class="vsel" aria-label="chart view for {b}"><option value="all">All curves</option>'
+                   f'<option value="rel">{REL_PAIR[0]} vs {REL_PAIR[1]}: outperformance</option></select></label>')
             h.append(f'<figure class="card hv needs-dates" data-formulas="nav" style="margin:10px 0"><figcaption><b>{b}</b>: growth of 1 invested at the close of {aa}, log scale, {PRIMARY} bps '
-                     f'<span class="mini">{DT(w, b, "full", aa, zz)}; end values ' + ", ".join(f"{LAB[k]} " + V(f"st:{keyp(w, b)}|{k}|end_nav", W.S(b, k)["end_nav"], "x", 2) + "×" for k in CURVE_KINDS) + f'</span></figcaption>{svg}<div class="tip" hidden></div>'
+                     f'<span class="mini">{DT(w, b, "full", aa, zz)}; end values ' + ", ".join(f"{LAB[k]} " + V(f"st:{keyp(w, b)}|{k}|end_nav", W.S(b, k)["end_nav"], "x", 2) + "×" for k in CURVE_KINDS) + f'</span> {sel}</figcaption>'
+                     f'<div class="view-all hv">{svg}<div class="tip" hidden></div></div>'
+                     f'<div class="view-rel hv" hidden>{rsvg}<div class="tip" hidden></div>'
+                     f'<p class="mini">Outperformance = {REL_PAIR[0]} growth of 1 ÷ {REL_PAIR[1]} growth of 1 on the same sessions: above the dashed line (1.0×) {REL_PAIR[0]} is ahead, below it {REL_PAIR[1]} is.</p></div>'
                      f'<p class="mini">{fref("nav")}</p></figure>')
     return "".join(h)
 
@@ -682,12 +758,12 @@ def main() -> int:
         orig_by[w] = A.compute_criteria(W, rules=["50-orig", "80-orig"], with_holm=False)
         r6_by[w] = A.compute_r6(W)
         out_by[w] = A.outcome_rows(W, crit_by[w], r6_by[w], orig_by[w])
-    lines_data, bars_data = {}, {}
+    lines_data, bars_data, rel_data = {}, {}, {}
     doc_hash = A.prereg_hash(HERE / "T14.md")
     parts = [section_answer(Ws, crit_by, r6_by, out_by), section_data(Ws), section_example(Ws)]
     parts.append(section_headline(Ws, crit_by, bars_data))
     parts.append("<h2 id=\"desc\">The descriptive headline: D-table, regime ledger, comparators</h2>" + "".join(section_dtable(W, crit_by[w]) for w, W in Ws.items()))
-    parts.append(section_curves(Ws, lines_data))
+    parts.append(section_curves(Ws, lines_data, rel_data))
     parts.append(section_r6(Ws, r6_by, bars_data))
     parts.append(section_robust(Ws, crit_by))
     parts.append(section_power(Ws, crit_by))
@@ -701,7 +777,8 @@ def main() -> int:
             f'<a href="#robust">robustness</a>, <a href="#power">power</a>, <a href="#defs">definitions</a>.</p>{note}')
     page = (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>T14 OUT-SELL regime results</title><style>{CSS}</style></head>'
             f'<body><main>{head}{"".join(parts)}</main><script id="lines-data" type="application/json">{json.dumps(lines_data)}</script><script id="bars-data" type="application/json">{json.dumps(bars_data)}</script>'
-            f'<script>{LINES_JS}</script><script>{BARS_JS}</script></body></html>')
+            f'<script id="rel-data" type="application/json">{json.dumps(rel_data)}</script>'
+            f'<script>{LINES_JS}</script><script>{BARS_JS}</script><script>{REL_JS}</script></body></html>')
     outdir.mkdir(parents=True, exist_ok=True)
     (outdir / "report.html").write_text(page, encoding="utf-8")
     nv_ = page.count('class="v"')

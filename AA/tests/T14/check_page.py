@@ -89,7 +89,7 @@ class Page(HTMLParser):
         if tag == "div" and "formula" in cls.split():
             self._fbox = {"id": a.get("id", ""), "t": ""}
         if tag == "svg":
-            self.svgs.append({"cls": cls, "id": a.get("data-id") or a.get("data-book") or ""})
+            self.svgs.append({"cls": cls, "id": a.get("data-id") or a.get("data-book") or a.get("data-rel") or ""})
 
     def handle_endtag(self, tag):
         if tag == "style":
@@ -506,6 +506,23 @@ def main() -> int:
             _, v = E.nv(b, 20.8, s["k"])
             chk(f"curve {key} {s['k']}", s["v"] == [round(float(v[i]), 4) for i in idx], "values differ")
         chk(f"curve window {key}", dd["n"] == len(idx), "length")
+    # the outperformance view (80-half over 80-liq): ratio of the two growth-of-1 curves, recomputed here from the evidence
+    rel = json.loads(pg.scripts.get("rel-data", "{}") or "{}")
+    svg_r = [s["id"] for s in pg.svgs if "rc" in s["cls"].split()]
+    chk("every outperformance chart has its data and every data set its chart", sorted(svg_r) == sorted(rel) and sorted(rel) == sorted(lines), f"svg {sorted(svg_r)} data {sorted(rel)}")
+    for key, dd in rel.items():
+        w, b = key.split("|")
+        E = EV[w]
+        dts, hv_ = E.nv(b, 20.8, dd["num"])
+        _, lv_ = E.nv(b, 20.8, dd["den"])
+        idx = np.arange(0, len(dts), 5)
+        if idx[-1] != len(dts) - 1:
+            idx = np.append(idx, len(dts) - 1)
+        r_ = hv_ / lv_
+        chk(f"outperformance pair {key}", (dd["num"], dd["den"]) == ("80-half", "80-liq"), f"{dd['num']} / {dd['den']}")
+        chk(f"outperformance dates {key}", dd["dates"] == [pd.Timestamp(dts[i]).strftime("%Y-%m-%d (%a)") for i in idx], "dates differ")
+        chk(f"outperformance values {key}", dd["v"] == [round(float(r_[i]), 5) for i in idx] and dd["n"] == len(idx), "values differ")
+        chk(f"outperformance end {key}", dd["end"] == round(float(r_[-1]), 5), "end differs")
     for did, dd in bars.items():
         kind, rest = did.split(":", 1)
         p = rest.split("|")
