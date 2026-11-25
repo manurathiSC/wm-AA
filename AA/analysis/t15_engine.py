@@ -1256,7 +1256,7 @@ def process_book(job: dict) -> dict:
         run_book(bk, dec, "full", f"r4_s{k + 1}", (PRIMARY,), out, False, spell_cash=(j0, j1))
     bk5 = Book(p, win, idx_mode="drag")
     run_book(bk5, dec, "full", "r5_drag", (PRIMARY,), out, False)
-    return {"book": p, "out": out, "dec": dec, "dec4": dec4, "seconds": time.time() - t1, "stand_in": stand_in, "g0": g0, "sessions": sessions, "vb": vb, "vc": vc, "cal": bk.cal,
+    return {"book": p, "used": dict(USED), "out": out, "dec": dec, "dec4": dec4, "seconds": time.time() - t1, "stand_in": stand_in, "g0": g0, "sessions": sessions, "vb": vb, "vc": vc, "cal": bk.cal,
             "bk_summary": {"t0": str(bk.t0.date()), "last": str(bk.cal[-1].date()), "T": bk.T, "T4": bk4.T, "basket_events": sorted(bk.basket_events), "bidx": [int(x) for x in bk.bidx],
                            "eff": [str(d.date()) for d in bk.eff], "b0": bk.b0, "initial_basket_switch_session": bk.initial_basket_switch_session, "gold_no_own_bar": bk.gold_no_own_bar,
                            "gold_norange_sessions": [str(d.date()) for d in bk.cal[bk.gold_norange]], "cash_info": bk.cash_info, "stocks": bk.stocks,
@@ -1325,6 +1325,8 @@ def run_window(win: str, a, outdir: Path) -> dict:
     out = {"rows": [], "vrows": [], "nav": {}, "vnav": {}, "trades": [], "positions": [], "v2_trades": 0, "v2_basket_trades": 0, "ledger": [], "cmix_params": {}}
     decs, decs4, g0s, vb, vc, sess = {}, {}, {}, {}, {}, {}
     for r in results:
+        for k_, v_ in r["used"].items():     # the files a worker opened are this window's inputs too (workers have their own USED)
+            USED.setdefault(k_, v_)
         o = r["out"]
         for k in ("rows", "vrows", "trades", "positions", "ledger"):
             out[k] += o[k]
@@ -1419,6 +1421,7 @@ def run_window(win: str, a, outdir: Path) -> dict:
             "Columns: `hold_parent_*` (always IN) and the eight rules at 20.8 bps, base 1.0 at 2014-09-01's close. Not approved data; no other test may read it.\n", encoding="utf-8")
     pd.concat([r["dec"][["book", "decision_date", "decision_idx", "regime", "B", "k"]] for r in results]).to_csv(outdir / "regimes.csv", index=False)
 
+    used_window = dict(USED)           # inputs.csv lists this window's own files; the W1 seam check reads W2's, listed apart in inputs_seam.csv
     g0_for_v4 = {p: seam_2019(p) for p in books} if win == "w1" else g0s
     reg4 = v4_identities(win, books, bks, decs, out, g0_for_v4, vb, vc)
     if win == "w1":
@@ -1430,14 +1433,17 @@ def run_window(win: str, a, outdir: Path) -> dict:
     audit["v3"] = v3
     audit["v4"] = {"pass": reg4["pass"]}
     audit["v5"] = v5
-    write_inputs = pd.DataFrame([{k: v.get(k) for k in ("file", "through", "bytes", "sha256", "approved_row", "usable_from")} for v in USED.values()])
-    write_inputs.to_csv(outdir / "inputs.csv", index=False)
-    for rel, r_ in USED.items():
+    cols_in = ("file", "through", "bytes", "sha256", "approved_row", "usable_from")
+    pd.DataFrame([{k: v.get(k) for k in cols_in} for v in used_window.values()]).to_csv(outdir / "inputs.csv", index=False)
+    extra = {k: v for k, v in USED.items() if k not in used_window}
+    if extra:
+        pd.DataFrame([{k: v.get(k) for k in cols_in} for v in extra.values()]).to_csv(outdir / "inputs_seam.csv", index=False)
+    for rel, r_ in used_window.items():
         if r_["id"] in ("D26", "D03", "D09", "D11", "D24b", "D24", "D18", "D25c") and str(r_["through"])[:1].isdigit():
             assert str(r_["through"]) >= str(end.date()), f"{rel}: approved through {r_['through']}, before the window's end {end.date()}: stop and ask Manu"
         if r_["id"] == "D25" and win == "w1":      # D25 is read by W2 only for the V3 tie on labels before 2019-01-01
             assert str(r_["through"]) >= str(end.date()), f"{rel}: approved through {r_['through']}, before the window's end {end.date()}: stop and ask Manu"
-    audit["data"] = {"approved_data_as_of": AD.as_of(), "window_end": str(end.date()), "inputs": int(len(USED)), "non_approved_open_and_guards": selftest,
+    audit["data"] = {"approved_data_as_of": AD.as_of(), "window_end": str(end.date()), "inputs": int(len(used_window)), "non_approved_open_and_guards": selftest,
                      "master_rows_after_END_dropped": c0["master_rows_after_end"], "mauc1_rows_after_END_dropped": int(c0["gold_master_rows_after_end"]),
                      "goldbees_first_bar": str(c0["gold_first"].date()), "goldbees_file_last": str(c0["gold_last"].date()), "mcx_file_last": str(c0["mcx_last"].date()),
                      "cash": {"lbes_last": str(c0["lbes_last"].date()), "liq_last": str(c0["liq_last"].date()), "accrued_sessions": 0},
