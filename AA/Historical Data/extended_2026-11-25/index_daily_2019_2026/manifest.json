@@ -1,0 +1,240 @@
+{
+  "what": "daily index prices copied verbatim from production (read only), 2019-01-01 to --last, extending D25",
+  "source": "G:\\.shortcut-targets-by-id\\0B7f_UMMZHM_JNXljMVVXY2VPcHM\\Investment Research_N\\Shubham_Shreshtha\\Friday Rebalance Automation\\Data\\indices_ohlcv.xlsx",
+  "source_sha256": "ec627edd94228809648f310ae12b74eda4ea41786d4aff3e3a2ac9d56bb13623",
+  "rows_from": "2019-01-01",
+  "copied_to": "2026-11-04",
+  "d25_folder": "Historical Data\\extended_2026-11-12\\index_daily_pre2019",
+  "checks": {
+    "Nifty100": {
+      "overlap_with_d25": {
+        "d25_rows": 3237,
+        "shared": 3237,
+        "max_abs_diff": {
+          "open": 0.0,
+          "high": 0.0,
+          "low": 0.0,
+          "close": 0.0,
+          "volume": 0.0
+        },
+        "dates_only_in_d25": [],
+        "dates_only_in_production_up_to_d25_end": [],
+        "pass": true
+      },
+      "new_rows": {
+        "new_rows": 1936,
+        "first_new": "2019-01-07",
+        "last_new": "2026-11-04",
+        "duplicate_dates": 0,
+        "nan_prices": 0,
+        "non_positive_prices": 0,
+        "flat_bars_by_year": {},
+        "bars_open_or_close_outside_high_low": [],
+        "gaps_over_5_calendar_days": [],
+        "w2_d17_sessions": 1932,
+        "w2_d17_sessions_without_a_bar": [
+          "2020-02-01",
+          "2025-02-01",
+          "2026-02-01"
+        ],
+        "w2_bars_not_d17_sessions": [
+          "2019-10-27",
+          "2020-11-14",
+          "2021-11-04",
+          "2022-10-24",
+          "2024-05-18",
+          "2024-11-01",
+          "2025-10-21"
+        ],
+        "largest_one_day_close_moves": [
+          [
+            "2020-03-23",
+            -0.128
+          ],
+          [
+            "2020-04-07",
+            0.0843
+          ],
+          [
+            "2020-03-12",
+            -0.0836
+          ],
+          [
+            "2020-03-16",
+            -0.073
+          ],
+          [
+            "2024-06-04",
+            -0.0659
+          ]
+        ],
+        "daily_close_sd_new_rows": 0.01082,
+        "daily_close_sd_d25_history": 0.01424,
+        "volume_zero_share_new_rows": 0.003
+      },
+      "weekly_close_vs_d03": {
+        "d03_weeks_from_2019": 409,
+        "weeks_with_a_bar": 409,
+        "d03_weeks_without_a_bar": [],
+        "max_abs_diff_index_vs_close": 0.0,
+        "weeks_differing": 0,
+        "pass": true
+      }
+    },
+    "MC100": {
+      "overlap_with_d25": {
+        "d25_rows": 3329,
+        "shared": 3329,
+        "max_abs_diff": {
+          "open": 0.0,
+          "high": 0.0,
+          "low": 0.0,
+          "close": 0.0,
+          "volume": 0.0
+        },
+        "dates_only_in_d25": [],
+        "dates_only_in_production_up_to_d25_end": [],
+        "pass": true
+      },
+      "new_rows": {
+        "new_rows": 1936,
+        "first_new": "2019-01-07",
+        "last_new": "2026-11-04",
+        "duplicate_dates": 0,
+        "nan_prices": 0,
+        "non_positive_prices": 0,
+        "flat_bars_by_year": {},
+        "bars_open_or_close_outside_high_low": [],
+        "gaps_over_5_calendar_days": [],
+        "w2_d17_sessions": 1932,
+        "w2_d17_sessions_without_a_bar": [
+          "2020-02-01",
+          "2025-02-01",
+          "2026-02-01"
+        ],
+        "w2_bars_not_d17_sessions": [
+          "2019-10-27",
+          "2020-11-14",
+          "2021-11-04",
+          "2022-10-24",
+          "2024-05-18",
+          "2024-11-01",
+          "2025-10-21"
+        ],
+        "largest_one_day_close_moves": [
+          [
+            "2020-03-23",
+            -0.1319
+          ],
+          [
+            "2020-03-12",
+            -0.0808
+          ],
+          [
+            "2024-06-04",
+            -0.0788
+          ],
+          [
+            "2020-03-16",
+            -0.0625
+          ],
+          [
+            "2019-09-20",
+            0.0586
+          ]
+        ],
+        "daily_close_sd_new_rows": 0.01231,
+        "daily_close_sd_d25_history": 0.01399,
+        "volume_zero_share_new_rows": 0.997
+      },
+      "weekly_close_vs_d03": {
+        "d03_weeks_from_2019": 409,
+        "weeks_with_a_bar": 409,
+        "d03_weeks_without_a_bar": [],
+        "max_abs_diff_index_vs_close": 0.0,
+        "weeks_differing": 0,
+        "pass": true
+      }
+    },
+    "SC100": {
+      "overlap_with_d25": {
+        "d25_rows": 1791,
+        "shared": 1791,
+        "max_abs_diff": {
+          "open": 0.0,
+          "high": 0.0,
+          "low": 0.0,
+          "close": 0.0,
+          "volume": 0.0
+        },
+        "dates_only_in_d25": [],
+        "dates_only_in_production_up_to_d25_end": [],
+        "pass": true
+      },
+      "new_rows": {
+        "new_rows": 1936,
+        "first_new": "2019-01-07",
+        "last_new": "2026-11-04",
+        "duplicate_dates": 0,
+        "nan_prices": 0,
+        "non_positive_prices": 0,
+        "flat_bars_by_year": {},
+        "bars_open_or_close_outside_high_low": [],
+        "gaps_over_5_calendar_days": [],
+        "w2_d17_sessions": 1932,
+        "w2_d17_sessions_without_a_bar": [
+          "2020-02-01",
+          "2025-02-01",
+          "2026-02-01"
+        ],
+        "w2_bars_not_d17_sessions": [
+          "2019-10-27",
+          "2020-11-14",
+          "2021-11-04",
+          "2022-10-24",
+          "2024-05-18",
+          "2024-11-01",
+          "2025-10-21"
+        ],
+        "largest_one_day_close_moves": [
+          [
+            "2020-03-23",
+            -0.1319
+          ],
+          [
+            "2020-03-12",
+            -0.0955
+          ],
+          [
+            "2024-06-04",
+            -0.0823
+          ],
+          [
+            "2020-03-16",
+            -0.0641
+          ],
+          [
+            "2020-03-18",
+            -0.0627
+          ]
+        ],
+        "daily_close_sd_new_rows": 0.01337,
+        "daily_close_sd_d25_history": 0.01275,
+        "volume_zero_share_new_rows": 0.997
+      },
+      "weekly_close_vs_d03": {
+        "d03_weeks_from_2019": 409,
+        "weeks_with_a_bar": 409,
+        "d03_weeks_without_a_bar": [],
+        "max_abs_diff_index_vs_close": 0.0,
+        "weeks_differing": 0,
+        "pass": true
+      }
+    }
+  },
+  "outputs": {
+    "MC100_daily_ohlcv.csv": "cbea666d098ec4ad200e552458433e1d9bce6ad175605aeb5f780d9c4d8f9de7",
+    "Nifty100_daily_ohlcv.csv": "f5e8f7408c198087a84df027c43c01d7f7451d0707596ce1de93a4e297f93815",
+    "SC100_daily_ohlcv.csv": "26a9140c0e995734035915f07cf813bf5d85736bf93256b6e9e9246cd8343aab"
+  }
+}
