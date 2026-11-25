@@ -1,0 +1,1695 @@
+{
+ "readings": {
+  "E1": "calendar: W1 = D26's dates 2014-09-01 -> 2019-01-02 (1,070 sessions); W2 = each book's D17 dates of the EXTENDED published NAV from its first date (SCMO_0007: 2019-01-04) to END = the last row of the three D03 Master files (2026-10-30); rows after END are never used. As T14 E1",
+  "E2": "decision dates = T0 and the last session of every later ISO week; the decision at the last session is made and not traded (T14 E2)",
+  "E3": "label = latest Master row dated <= decision date, per index and for MAUc1 (W1: D24b, W2: D24); regime IN / OUT-BUY / OUT-SELL from the three SIGNs and g; B = the indices whose own SIGN is BUY, k = |B|; the Smallcap 100 rows are sliced to >= 2011-11-25",
+  "E4": "targets per rule from T15.md 2.1: absolute shares (parent e, GOLDBEES, cash, one per index); the six T14 rules map (e, gw) to e, (1-e)gw, (1-e)(1-gw), 0 so their path is T14's; -idx in OUT-SELL = cash and each index of B at 1/(k+1); one function `rule_targets` serves every run",
+  "E5": "initial position at T0's close, no cost: the target of the decision at T0 (IN: the basket in force, drifted from its availableDate, scaled to NAV 1; OUT: the sleeve; e = 0.5: half the drifted basket and half GOLDBEES; -idx in OUT-SELL: cash and each index of B at its T0 close)",
+  "E6": "stock fill = OHLC4 of the Eikon bar (close if open/high/low is blank; the last close if no bar); GOLDBEES fill = T03's de-spike with the MCX range of the window's file (W1: D24b daily, W2: D12), raw OHLC4 where the range is missing; index fill = OHLC4 of the index's own bar (D25 in W1, D25c in W2); an index trade on a session without a bar stops the run",
+  "E7": "costs: T14's `trade` generalised to index lines (cost = ow x value traded over every line, stocks, GOLDBEES, cash and each index, then every target scaled by (V-cost)/V)",
+  "E8": "a basket takes effect on the first session on or after its availableDate; skipped baskets dropped; weights renormalised. While e = 1 a basket change is the full reset trade; while 0 < e < 1 (the -half comparators) it is T14's D1 partial trade; while e = 0 (-idx in OUT-SELL included) nothing is traded",
+  "E9": "trade kinds: switch_in / switch_out (e crosses 0 or 1 between IN and OUT-BUY; for -orig also IN <-> OUT-SELL), sleeve_rebalance, regime_in / regime_out (into / out of OUT-SELL, rules other than -orig), index_set_change (-idx: B changed while OUT-SELL on both sides), basket_change",
+  "E10": "cash level: the extended LBES (D11) as-of on sessions; R2 'liq': W1 liquidEtfFinal (LIQUIDCASE) over the whole window, W2 LBES to the session before 2024-01-24 then LIQUIDCASE returns; no accrual",
+  "E11": "constant mix at each rule's own average shares: parent f_p = mean of e over the weekly decisions, GOLDBEES f_g, cash f_c and each index f_i = the means of the rule's target shares; rebalanced at every decision date's next session and at every basket change while f_p > 0 (T14 E11 generalised); initial stock holding = drifted basket scaled by f_p",
+  "E12": "R3: W1 starts at the first D26 session on or after 2015-01-02, W2 'live' at the first D17 session on or after 2021-11-01, each with its own first state (both start in OUT-SELL, so -idx starts holding cash and the indices of B at their closes)",
+  "E13": "ledger span (T15.md 2.4, 'first fill to last fill'): a = the session on which the first decision of the span is traded (the session after it; T0 for the window's first decision), b = the session on which the decision that ends the span is traded (or the last session); returns are close[b] / close[a] - 1 of each instrument and of each rule's 20.8 bps NAV (parent = hold-parent 0-cost NAV)",
+  "E14": "R4: for each OUT-SELL spell s, -idx runs with B = empty (its target is -liq's) on the decisions of spell s only; every other week is the real rule; 20.8 bps, full window, LBES",
+  "E15": "R5: every index's OHLC4 and close of session i (i = 0 at T0 on the book's calendar) multiplied by (1 - 0.005 / 252)^i, for -idx and every other rule (the others hold no index); 20.8 bps",
+  "E16": "index bars: a calendar session with no bar carries the last close (marking only); counted per index; a trade that involves an index line on such a session stops the run"
+ },
+ "books": {
+  "SCMO_0003": {
+   "weeks": 410,
+   "sessions": 1932,
+   "first_state": 0,
+   "weeks_IN": 201,
+   "weeks_OUT_BUY": 163,
+   "weeks_OUT_SELL": 46,
+   "OUT_SELL_lengths": [
+    1,
+    4,
+    10,
+    2,
+    12,
+    11,
+    4,
+    2
+   ],
+   "k0": 24,
+   "k1": 2,
+   "k2": 20,
+   "index_weeks": 22,
+   "index_spells": 6,
+   "B_changes": 6,
+   "g_flips": 17,
+   "g_first_state": 1,
+   "start": "2019-01-02",
+   "end": "2026-10-30",
+   "B_sequences": [
+    [
+     [
+      "MC100+SC100",
+      1
+     ]
+    ],
+    [
+     [
+      "cash",
+      2
+     ],
+     [
+      "Nifty100",
+      1
+     ],
+     [
+      "Nifty100+MC100",
+      1
+     ]
+    ],
+    [
+     [
+      "MC100+SC100",
+      10
+     ]
+    ],
+    [
+     [
+      "Nifty100+MC100",
+      2
+     ]
+    ],
+    [
+     [
+      "cash",
+      10
+     ],
+     [
+      "Nifty100+MC100",
+      2
+     ]
+    ],
+    [
+     [
+      "cash",
+      3
+     ],
+     [
+      "SC100",
+      1
+     ],
+     [
+      "MC100+SC100",
+      4
+     ],
+     [
+      "cash",
+      3
+     ]
+    ],
+    [
+     [
+      "cash",
+      4
+     ]
+    ],
+    [
+     [
+      "cash",
+      2
+     ]
+    ]
+   ],
+   "trades_due_per_rule": {
+    "50-orig": 18,
+    "50-half": 27,
+    "50-liq": 27,
+    "50-idx": 33,
+    "80-orig": 27,
+    "80-half": 27,
+    "80-liq": 27,
+    "80-idx": 33
+   },
+   "sessions_by_state": {
+    "IN": 961,
+    "OUT-BUY": 757,
+    "OUT-SELL": 214,
+    "OUT-SELL_k0": 111,
+    "OUT-SELL_k1": 10,
+    "OUT-SELL_k2": 93
+   },
+   "v2_decisions_checked": 410,
+   "v2_violations": 0,
+   "v2_trades_checked": 409,
+   "v2_sc100_signal_first_label_date": "2018-12-28",
+   "stale_label_weeks(age>=5d, excluding T0)": 5,
+   "cash": {
+    "file_last": "2026-11-05",
+    "accrued_sessions": 0,
+    "cash": "lbes"
+   },
+   "stand_in": {
+    "stock_lines_priced_by_stand_in_in_trades": 0,
+    "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 53,
+    "goldbees_trades_priced_at_previous_close_no_gold_bar": 0
+   },
+   "index_sessions_without_a_bar": {
+    "Nifty100": [
+     "2020-02-01",
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "MC100": [
+     "2020-02-01",
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "SC100": [
+     "2020-02-01",
+     "2025-02-01",
+     "2026-02-01"
+    ]
+   },
+   "r3_index_sessions_without_a_bar": {
+    "Nifty100": [
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "MC100": [
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "SC100": [
+     "2025-02-01",
+     "2026-02-01"
+    ]
+   },
+   "baskets": {
+    "effective_dates_in_window": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-03-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-09-16",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-15",
+     "2026-09-10"
+    ],
+    "basket_changes": 31,
+    "initial_basket_session": "2018-12-17",
+    "change_sessions": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-03-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-09-16",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-15",
+     "2026-09-10"
+    ]
+   },
+   "gold_sessions_without_own_bar": [
+    "2020-02-01",
+    "2024-01-20"
+   ],
+   "gold_sessions_without_mcx_range": [
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30"
+   ],
+   "window_sessions_where_a_held_stock_has_no_bar": 0,
+   "src_counts": {
+    "held_stock_sessions_by_src": {
+     "db": 19153,
+     "export": 0,
+     "carried": 2,
+     "none": 0
+    },
+    "export_by_stock": {},
+    "carried_bars_in_window_all_stocks": 2,
+    "carried_bars": [
+     "PRIVISCL 2026-02-01",
+     "TDPOWERSYS 2026-02-01"
+    ],
+    "held_stock_sessions_without_a_bar_by_session": {}
+   },
+   "index_nobar_sessions_not_decision_sessions": {
+    "Nifty100": [],
+    "MC100": [],
+    "SC100": []
+   }
+  },
+  "SCMO_0007": {
+   "weeks": 409,
+   "sessions": 1930,
+   "first_state": 0,
+   "weeks_IN": 201,
+   "weeks_OUT_BUY": 162,
+   "weeks_OUT_SELL": 46,
+   "OUT_SELL_lengths": [
+    1,
+    4,
+    10,
+    2,
+    12,
+    11,
+    4,
+    2
+   ],
+   "k0": 24,
+   "k1": 2,
+   "k2": 20,
+   "index_weeks": 22,
+   "index_spells": 6,
+   "B_changes": 6,
+   "g_flips": 17,
+   "g_first_state": 1,
+   "start": "2019-01-04",
+   "end": "2026-10-30",
+   "B_sequences": [
+    [
+     [
+      "MC100+SC100",
+      1
+     ]
+    ],
+    [
+     [
+      "cash",
+      2
+     ],
+     [
+      "Nifty100",
+      1
+     ],
+     [
+      "Nifty100+MC100",
+      1
+     ]
+    ],
+    [
+     [
+      "MC100+SC100",
+      10
+     ]
+    ],
+    [
+     [
+      "Nifty100+MC100",
+      2
+     ]
+    ],
+    [
+     [
+      "cash",
+      10
+     ],
+     [
+      "Nifty100+MC100",
+      2
+     ]
+    ],
+    [
+     [
+      "cash",
+      3
+     ],
+     [
+      "SC100",
+      1
+     ],
+     [
+      "MC100+SC100",
+      4
+     ],
+     [
+      "cash",
+      3
+     ]
+    ],
+    [
+     [
+      "cash",
+      4
+     ]
+    ],
+    [
+     [
+      "cash",
+      2
+     ]
+    ]
+   ],
+   "trades_due_per_rule": {
+    "50-orig": 18,
+    "50-half": 27,
+    "50-liq": 27,
+    "50-idx": 33,
+    "80-orig": 27,
+    "80-half": 27,
+    "80-liq": 27,
+    "80-idx": 33
+   },
+   "sessions_by_state": {
+    "IN": 961,
+    "OUT-BUY": 755,
+    "OUT-SELL": 214,
+    "OUT-SELL_k0": 111,
+    "OUT-SELL_k1": 10,
+    "OUT-SELL_k2": 93
+   },
+   "v2_decisions_checked": 409,
+   "v2_violations": 0,
+   "v2_trades_checked": 408,
+   "v2_sc100_signal_first_label_date": "2019-01-04",
+   "stale_label_weeks(age>=5d, excluding T0)": 5,
+   "cash": {
+    "file_last": "2026-11-05",
+    "accrued_sessions": 0,
+    "cash": "lbes"
+   },
+   "stand_in": {
+    "stock_lines_priced_by_stand_in_in_trades": 0,
+    "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 53,
+    "goldbees_trades_priced_at_previous_close_no_gold_bar": 0
+   },
+   "index_sessions_without_a_bar": {
+    "Nifty100": [
+     "2020-02-01",
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "MC100": [
+     "2020-02-01",
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "SC100": [
+     "2020-02-01",
+     "2025-02-01",
+     "2026-02-01"
+    ]
+   },
+   "r3_index_sessions_without_a_bar": {
+    "Nifty100": [
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "MC100": [
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "SC100": [
+     "2025-02-01",
+     "2026-02-01"
+    ]
+   },
+   "baskets": {
+    "effective_dates_in_window": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-15",
+     "2026-09-16"
+    ],
+    "basket_changes": 29,
+    "initial_basket_session": "2018-12-17",
+    "change_sessions": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-15",
+     "2026-09-16"
+    ]
+   },
+   "gold_sessions_without_own_bar": [
+    "2020-02-01",
+    "2024-01-20"
+   ],
+   "gold_sessions_without_mcx_range": [
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30"
+   ],
+   "window_sessions_where_a_held_stock_has_no_bar": 0,
+   "src_counts": {
+    "held_stock_sessions_by_src": {
+     "db": 21146,
+     "export": 0,
+     "carried": 7,
+     "none": 0
+    },
+    "export_by_stock": {},
+    "carried_bars_in_window_all_stocks": 7,
+    "carried_bars": [
+     "COALINDIA 2020-02-01",
+     "ENGINERSIN 2020-02-01",
+     "NMDC 2020-02-01",
+     "ROUTE 2024-01-20",
+     "TCI 2024-01-20",
+     "TCI 2025-02-01",
+     "TCI 2026-02-01"
+    ],
+    "held_stock_sessions_without_a_bar_by_session": {}
+   },
+   "index_nobar_sessions_not_decision_sessions": {
+    "Nifty100": [],
+    "MC100": [],
+    "SC100": []
+   }
+  },
+  "SCMO_0010": {
+   "weeks": 410,
+   "sessions": 1932,
+   "first_state": 0,
+   "weeks_IN": 201,
+   "weeks_OUT_BUY": 163,
+   "weeks_OUT_SELL": 46,
+   "OUT_SELL_lengths": [
+    1,
+    4,
+    10,
+    2,
+    12,
+    11,
+    4,
+    2
+   ],
+   "k0": 24,
+   "k1": 2,
+   "k2": 20,
+   "index_weeks": 22,
+   "index_spells": 6,
+   "B_changes": 6,
+   "g_flips": 17,
+   "g_first_state": 1,
+   "start": "2019-01-02",
+   "end": "2026-10-30",
+   "B_sequences": [
+    [
+     [
+      "MC100+SC100",
+      1
+     ]
+    ],
+    [
+     [
+      "cash",
+      2
+     ],
+     [
+      "Nifty100",
+      1
+     ],
+     [
+      "Nifty100+MC100",
+      1
+     ]
+    ],
+    [
+     [
+      "MC100+SC100",
+      10
+     ]
+    ],
+    [
+     [
+      "Nifty100+MC100",
+      2
+     ]
+    ],
+    [
+     [
+      "cash",
+      10
+     ],
+     [
+      "Nifty100+MC100",
+      2
+     ]
+    ],
+    [
+     [
+      "cash",
+      3
+     ],
+     [
+      "SC100",
+      1
+     ],
+     [
+      "MC100+SC100",
+      4
+     ],
+     [
+      "cash",
+      3
+     ]
+    ],
+    [
+     [
+      "cash",
+      4
+     ]
+    ],
+    [
+     [
+      "cash",
+      2
+     ]
+    ]
+   ],
+   "trades_due_per_rule": {
+    "50-orig": 18,
+    "50-half": 27,
+    "50-liq": 27,
+    "50-idx": 33,
+    "80-orig": 27,
+    "80-half": 27,
+    "80-liq": 27,
+    "80-idx": 33
+   },
+   "sessions_by_state": {
+    "IN": 961,
+    "OUT-BUY": 757,
+    "OUT-SELL": 214,
+    "OUT-SELL_k0": 111,
+    "OUT-SELL_k1": 10,
+    "OUT-SELL_k2": 93
+   },
+   "v2_decisions_checked": 410,
+   "v2_violations": 0,
+   "v2_trades_checked": 409,
+   "v2_sc100_signal_first_label_date": "2018-12-28",
+   "stale_label_weeks(age>=5d, excluding T0)": 5,
+   "cash": {
+    "file_last": "2026-11-05",
+    "accrued_sessions": 0,
+    "cash": "lbes"
+   },
+   "stand_in": {
+    "stock_lines_priced_by_stand_in_in_trades": 0,
+    "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 53,
+    "goldbees_trades_priced_at_previous_close_no_gold_bar": 0
+   },
+   "index_sessions_without_a_bar": {
+    "Nifty100": [
+     "2020-02-01",
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "MC100": [
+     "2020-02-01",
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "SC100": [
+     "2020-02-01",
+     "2025-02-01",
+     "2026-02-01"
+    ]
+   },
+   "r3_index_sessions_without_a_bar": {
+    "Nifty100": [
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "MC100": [
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "SC100": [
+     "2025-02-01",
+     "2026-02-01"
+    ]
+   },
+   "baskets": {
+    "effective_dates_in_window": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-03-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-09-16",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-23",
+     "2026-09-16"
+    ],
+    "basket_changes": 31,
+    "initial_basket_session": "2018-12-17",
+    "change_sessions": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-03-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-09-16",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-23",
+     "2026-09-16"
+    ]
+   },
+   "gold_sessions_without_own_bar": [
+    "2020-02-01",
+    "2024-01-20"
+   ],
+   "gold_sessions_without_mcx_range": [
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30"
+   ],
+   "window_sessions_where_a_held_stock_has_no_bar": 0,
+   "src_counts": {
+    "held_stock_sessions_by_src": {
+     "db": 25651,
+     "export": 0,
+     "carried": 2,
+     "none": 0
+    },
+    "export_by_stock": {},
+    "carried_bars_in_window_all_stocks": 2,
+    "carried_bars": [
+     "GODREJCP 2020-02-01",
+     "INFY 2025-02-01"
+    ],
+    "held_stock_sessions_without_a_bar_by_session": {}
+   },
+   "index_nobar_sessions_not_decision_sessions": {
+    "Nifty100": [],
+    "MC100": [],
+    "SC100": []
+   }
+  },
+  "SCMO_0029": {
+   "weeks": 410,
+   "sessions": 1932,
+   "first_state": 0,
+   "weeks_IN": 201,
+   "weeks_OUT_BUY": 163,
+   "weeks_OUT_SELL": 46,
+   "OUT_SELL_lengths": [
+    1,
+    4,
+    10,
+    2,
+    12,
+    11,
+    4,
+    2
+   ],
+   "k0": 24,
+   "k1": 2,
+   "k2": 20,
+   "index_weeks": 22,
+   "index_spells": 6,
+   "B_changes": 6,
+   "g_flips": 17,
+   "g_first_state": 1,
+   "start": "2019-01-02",
+   "end": "2026-10-30",
+   "B_sequences": [
+    [
+     [
+      "MC100+SC100",
+      1
+     ]
+    ],
+    [
+     [
+      "cash",
+      2
+     ],
+     [
+      "Nifty100",
+      1
+     ],
+     [
+      "Nifty100+MC100",
+      1
+     ]
+    ],
+    [
+     [
+      "MC100+SC100",
+      10
+     ]
+    ],
+    [
+     [
+      "Nifty100+MC100",
+      2
+     ]
+    ],
+    [
+     [
+      "cash",
+      10
+     ],
+     [
+      "Nifty100+MC100",
+      2
+     ]
+    ],
+    [
+     [
+      "cash",
+      3
+     ],
+     [
+      "SC100",
+      1
+     ],
+     [
+      "MC100+SC100",
+      4
+     ],
+     [
+      "cash",
+      3
+     ]
+    ],
+    [
+     [
+      "cash",
+      4
+     ]
+    ],
+    [
+     [
+      "cash",
+      2
+     ]
+    ]
+   ],
+   "trades_due_per_rule": {
+    "50-orig": 18,
+    "50-half": 27,
+    "50-liq": 27,
+    "50-idx": 33,
+    "80-orig": 27,
+    "80-half": 27,
+    "80-liq": 27,
+    "80-idx": 33
+   },
+   "sessions_by_state": {
+    "IN": 961,
+    "OUT-BUY": 757,
+    "OUT-SELL": 214,
+    "OUT-SELL_k0": 111,
+    "OUT-SELL_k1": 10,
+    "OUT-SELL_k2": 93
+   },
+   "v2_decisions_checked": 410,
+   "v2_violations": 0,
+   "v2_trades_checked": 409,
+   "v2_sc100_signal_first_label_date": "2018-12-28",
+   "stale_label_weeks(age>=5d, excluding T0)": 5,
+   "cash": {
+    "file_last": "2026-11-05",
+    "accrued_sessions": 0,
+    "cash": "lbes"
+   },
+   "stand_in": {
+    "stock_lines_priced_by_stand_in_in_trades": 0,
+    "goldbees_trades_filled_at_raw_OHLC4_no_MCX_range": 53,
+    "goldbees_trades_priced_at_previous_close_no_gold_bar": 0
+   },
+   "index_sessions_without_a_bar": {
+    "Nifty100": [
+     "2020-02-01",
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "MC100": [
+     "2020-02-01",
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "SC100": [
+     "2020-02-01",
+     "2025-02-01",
+     "2026-02-01"
+    ]
+   },
+   "r3_index_sessions_without_a_bar": {
+    "Nifty100": [
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "MC100": [
+     "2025-02-01",
+     "2026-02-01"
+    ],
+    "SC100": [
+     "2025-02-01",
+     "2026-02-01"
+    ]
+   },
+   "baskets": {
+    "effective_dates_in_window": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-09-16",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-23",
+     "2026-09-16"
+    ],
+    "basket_changes": 30,
+    "initial_basket_session": "2018-12-17",
+    "change_sessions": [
+     "2019-03-18",
+     "2019-06-17",
+     "2019-09-16",
+     "2019-12-16",
+     "2020-06-18",
+     "2020-09-17",
+     "2020-12-17",
+     "2021-03-18",
+     "2021-06-17",
+     "2021-09-16",
+     "2021-12-16",
+     "2022-03-16",
+     "2022-06-16",
+     "2022-09-15",
+     "2022-12-16",
+     "2023-03-16",
+     "2023-06-16",
+     "2023-09-15",
+     "2023-12-04",
+     "2024-03-05",
+     "2024-06-03",
+     "2024-09-04",
+     "2024-12-04",
+     "2025-03-05",
+     "2025-06-03",
+     "2025-09-03",
+     "2025-12-03",
+     "2026-03-17",
+     "2026-06-23",
+     "2026-09-16"
+    ]
+   },
+   "gold_sessions_without_own_bar": [
+    "2020-02-01",
+    "2024-01-20"
+   ],
+   "gold_sessions_without_mcx_range": [
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30"
+   ],
+   "window_sessions_where_a_held_stock_has_no_bar": 0,
+   "src_counts": {
+    "held_stock_sessions_by_src": {
+     "db": 23479,
+     "export": 0,
+     "carried": 8,
+     "none": 0
+    },
+    "export_by_stock": {},
+    "carried_bars_in_window_all_stocks": 8,
+    "carried_bars": [
+     "360ONE 2025-02-01",
+     "IGL 2020-02-01",
+     "KIRLPNU 2025-02-01",
+     "NAM-INDIA 2026-02-01",
+     "PVRINOX 2020-02-01",
+     "VBL 2020-02-01",
+     "VBL 2024-01-20",
+     "VBL 2025-02-01"
+    ],
+    "held_stock_sessions_without_a_bar_by_session": {}
+   },
+   "index_nobar_sessions_not_decision_sessions": {
+    "Nifty100": [],
+    "MC100": [],
+    "SC100": []
+   }
+  }
+ },
+ "v2": {
+  "checks": 15673,
+  "violations": 0,
+  "recorded_trades_after_their_decision": 6964,
+  "recorded_basket_changes_on_or_after_availableDate": 3792,
+  "sc100_rule7_checks": 4,
+  "sc100_signal_rows_read_from": "2011-11-25",
+  "pass": true
+ },
+ "v3": {
+  "labels_checked": 1215,
+  "violations": 0,
+  "labels_without_an_index_bar": 0,
+  "worst_rel_diff": 0.0,
+  "pass": true,
+  "index_trade_sessions_without_bar_in_trades": 0,
+  "index_sessions_without_a_bar_total": {
+   "SCMO_0003": {
+    "Nifty100": 3,
+    "MC100": 3,
+    "SC100": 3
+   },
+   "SCMO_0007": {
+    "Nifty100": 3,
+    "MC100": 3,
+    "SC100": 3
+   },
+   "SCMO_0010": {
+    "Nifty100": 3,
+    "MC100": 3,
+    "SC100": 3
+   },
+   "SCMO_0029": {
+    "Nifty100": 3,
+    "MC100": 3,
+    "SC100": 3
+   }
+  }
+ },
+ "v4": {
+  "pass": true
+ },
+ "v5": {
+  "trades_checked": 4503,
+  "trades_checked_at_0_cost": 1501,
+  "idx_trades_into_or_inside_OUT_SELL_checked": 336,
+  "idx_trades_outside_OUT_SELL_checked": 816,
+  "kinds": {
+   "50-half|basket_change": 216,
+   "50-half|regime_in": 96,
+   "50-half|regime_out": 84,
+   "50-half|switch_in": 72,
+   "50-half|switch_out": 72,
+   "50-idx|basket_change": 180,
+   "50-idx|index_set_change": 72,
+   "50-idx|regime_in": 96,
+   "50-idx|regime_out": 84,
+   "50-idx|switch_in": 72,
+   "50-idx|switch_out": 72,
+   "50-liq|basket_change": 180,
+   "50-liq|regime_in": 96,
+   "50-liq|regime_out": 84,
+   "50-liq|switch_in": 72,
+   "50-liq|switch_out": 72,
+   "50-orig|basket_change": 180,
+   "50-orig|switch_in": 108,
+   "50-orig|switch_out": 108,
+   "80-half|basket_change": 216,
+   "80-half|regime_in": 96,
+   "80-half|regime_out": 84,
+   "80-half|switch_in": 72,
+   "80-half|switch_out": 72,
+   "80-idx|basket_change": 180,
+   "80-idx|index_set_change": 72,
+   "80-idx|regime_in": 96,
+   "80-idx|regime_out": 84,
+   "80-idx|switch_in": 72,
+   "80-idx|switch_out": 72,
+   "80-liq|basket_change": 180,
+   "80-liq|regime_in": 96,
+   "80-liq|regime_out": 84,
+   "80-liq|switch_in": 72,
+   "80-liq|switch_out": 72,
+   "80-orig|basket_change": 180,
+   "80-orig|sleeve_rebalance": 108,
+   "80-orig|switch_in": 108,
+   "80-orig|switch_out": 108,
+   "hold_parent|basket_change": 363
+  },
+  "worst": {
+   "cost_identity": 0.0,
+   "value_conservation": 5.801387291749392e-16,
+   "stock_target_gap": 5.801387291749392e-16,
+   "gold_target_gap": 2.537464931387581e-16,
+   "cash_target_gap": 1.8985325718226497e-16,
+   "index_target_gap": 1.152406092489658e-16,
+   "traded_identity": 0.0,
+   "continuity_0cost": 5.193786124970019e-16,
+   "stock_weight_gap_after_entry_or_full_basket_change": 8.326672684688674e-17,
+   "idx_os_equal_parts_gap": 1.8756391968314267e-16,
+   "idx_os_parent_gold_after": 0.0,
+   "idx_outside_os_index_after": 0.0
+  },
+  "tolerance": 1e-12,
+  "recorded_trades_equal_expected_from_states_at_every_cost": true,
+  "basket_changes_equal_expected_at_every_cost": true,
+  "expected_per_book_rule": {
+   "SCMO_0003|50-orig": {
+    "regime_switch_sleeve_index_trades": 18,
+    "basket_changes": 16
+   },
+   "SCMO_0003|50-half": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 19
+   },
+   "SCMO_0003|50-liq": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 16
+   },
+   "SCMO_0003|50-idx": {
+    "regime_switch_sleeve_index_trades": 33,
+    "basket_changes": 16
+   },
+   "SCMO_0003|80-orig": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 16
+   },
+   "SCMO_0003|80-half": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 19
+   },
+   "SCMO_0003|80-liq": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 16
+   },
+   "SCMO_0003|80-idx": {
+    "regime_switch_sleeve_index_trades": 33,
+    "basket_changes": 16
+   },
+   "SCMO_0007|50-orig": {
+    "regime_switch_sleeve_index_trades": 18,
+    "basket_changes": 14
+   },
+   "SCMO_0007|50-half": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 17
+   },
+   "SCMO_0007|50-liq": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 14
+   },
+   "SCMO_0007|50-idx": {
+    "regime_switch_sleeve_index_trades": 33,
+    "basket_changes": 14
+   },
+   "SCMO_0007|80-orig": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 14
+   },
+   "SCMO_0007|80-half": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 17
+   },
+   "SCMO_0007|80-liq": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 14
+   },
+   "SCMO_0007|80-idx": {
+    "regime_switch_sleeve_index_trades": 33,
+    "basket_changes": 14
+   },
+   "SCMO_0010|50-orig": {
+    "regime_switch_sleeve_index_trades": 18,
+    "basket_changes": 15
+   },
+   "SCMO_0010|50-half": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 18
+   },
+   "SCMO_0010|50-liq": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 15
+   },
+   "SCMO_0010|50-idx": {
+    "regime_switch_sleeve_index_trades": 33,
+    "basket_changes": 15
+   },
+   "SCMO_0010|80-orig": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 15
+   },
+   "SCMO_0010|80-half": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 18
+   },
+   "SCMO_0010|80-liq": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 15
+   },
+   "SCMO_0010|80-idx": {
+    "regime_switch_sleeve_index_trades": 33,
+    "basket_changes": 15
+   },
+   "SCMO_0029|50-orig": {
+    "regime_switch_sleeve_index_trades": 18,
+    "basket_changes": 15
+   },
+   "SCMO_0029|50-half": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 18
+   },
+   "SCMO_0029|50-liq": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 15
+   },
+   "SCMO_0029|50-idx": {
+    "regime_switch_sleeve_index_trades": 33,
+    "basket_changes": 15
+   },
+   "SCMO_0029|80-orig": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 15
+   },
+   "SCMO_0029|80-half": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 18
+   },
+   "SCMO_0029|80-liq": {
+    "regime_switch_sleeve_index_trades": 27,
+    "basket_changes": 15
+   },
+   "SCMO_0029|80-idx": {
+    "regime_switch_sleeve_index_trades": 33,
+    "basket_changes": 15
+   }
+  },
+  "worked_examples": {
+   "50-idx|regime_in": {
+    "decision_date": "2019-03-08",
+    "trade_date": "2019-03-11",
+    "idx": 47,
+    "regime": "OUT-SELL",
+    "B": "MC100+SC100",
+    "k": 2,
+    "V": 1.0077955821065157,
+    "traded": 1.3437274428086876,
+    "cost": 0.0013974765405210352,
+    "stock_before": 0.0,
+    "gold_before": 0.5039569966594198,
+    "cash_before": 0.5038385854470959,
+    "Nifty100_before": 0.0,
+    "MC100_before": 0.0,
+    "SC100_before": 0.0,
+    "stock_after": 0.0,
+    "gold_after": 0.0,
+    "cash_after": 0.3354660351886648,
+    "Nifty100_after": 0.0,
+    "MC100_after": 0.33546603518866475,
+    "SC100_after": 0.3354660351886648,
+    "V_after": 1.0063981055659945,
+    "index_fill_prices": {
+     "Nifty100": 11318.8625,
+     "MC100": 17591.912500000002,
+     "SC100": 6437.199999999999
+    }
+   },
+   "50-idx|index_set_change": {
+    "decision_date": "2019-05-24",
+    "trade_date": "2019-05-27",
+    "idx": 97,
+    "regime": "OUT-SELL",
+    "B": "Nifty100",
+    "k": 1,
+    "V": 0.9675284618021948,
+    "traded": 0.9675284618021948,
+    "cost": 0.0010062296002742827,
+    "stock_before": 0.0,
+    "gold_before": 0.0,
+    "cash_before": 0.9675284618021948,
+    "Nifty100_before": 0.0,
+    "MC100_before": 0.0,
+    "SC100_before": 0.0,
+    "stock_after": 0.0,
+    "gold_after": 0.0,
+    "cash_after": 0.4832611161009603,
+    "Nifty100_after": 0.48326111610096023,
+    "MC100_after": 0.0,
+    "SC100_after": 0.0,
+    "V_after": 0.9665222322019205,
+    "index_fill_prices": {
+     "Nifty100": 11983.9375,
+     "MC100": 17868.025,
+     "SC100": 6612.225
+    }
+   },
+   "50-idx|regime_out": {
+    "decision_date": "2019-03-15",
+    "trade_date": "2019-03-18",
+    "idx": 52,
+    "regime": "IN",
+    "B": "Nifty100+MC100+SC100",
+    "k": 3,
+    "V": 1.0179971300422086,
+    "traded": 2.0359942600844168,
+    "cost": 0.0021174340304877938,
+    "stock_before": 0.0,
+    "gold_before": 0.0,
+    "cash_before": 0.3357241435419736,
+    "Nifty100_before": 0.0,
+    "MC100_before": 0.3407806582580485,
+    "SC100_before": 0.34149232824218645,
+    "stock_after": 1.015879696011721,
+    "gold_after": 0.0,
+    "cash_after": 0.0,
+    "Nifty100_after": 0.0,
+    "MC100_after": 0.0,
+    "SC100_after": 0.0,
+    "V_after": 1.015879696011721,
+    "index_fill_prices": {
+     "Nifty100": 11636.462500000001,
+     "MC100": 17870.6125,
+     "SC100": 6552.8375
+    }
+   },
+   "80-idx|regime_in": {
+    "decision_date": "2019-03-08",
+    "trade_date": "2019-03-11",
+    "idx": 47,
+    "regime": "OUT-SELL",
+    "B": "MC100+SC100",
+    "k": 2,
+    "V": 1.0078666288339102,
+    "traded": 1.6126623893101435,
+    "cost": 0.0016771688848825495,
+    "stock_before": 0.0,
+    "gold_before": 0.8063311946550719,
+    "cash_before": 0.20153543417883832,
+    "Nifty100_before": 0.0,
+    "MC100_before": 0.0,
+    "SC100_before": 0.0,
+    "stock_after": 0.0,
+    "gold_after": 0.0,
+    "cash_after": 0.33539648664967586,
+    "Nifty100_after": 0.0,
+    "MC100_after": 0.33539648664967586,
+    "SC100_after": 0.33539648664967586,
+    "V_after": 1.0061894599490275,
+    "index_fill_prices": {
+     "Nifty100": 11318.8625,
+     "MC100": 17591.912500000002,
+     "SC100": 6437.199999999999
+    }
+   },
+   "80-idx|index_set_change": {
+    "decision_date": "2019-05-24",
+    "trade_date": "2019-05-27",
+    "idx": 97,
+    "regime": "OUT-SELL",
+    "B": "Nifty100",
+    "k": 1,
+    "V": 0.9673278746073966,
+    "traded": 0.9673278746073966,
+    "cost": 0.0010060209895916925,
+    "stock_before": 0.0,
+    "gold_before": 0.0,
+    "cash_before": 0.9673278746073966,
+    "Nifty100_before": 0.0,
+    "MC100_before": 0.0,
+    "SC100_before": 0.0,
+    "stock_after": 0.0,
+    "gold_after": 0.0,
+    "cash_after": 0.4831609268089024,
+    "Nifty100_after": 0.48316092680890244,
+    "MC100_after": 0.0,
+    "SC100_after": 0.0,
+    "V_after": 0.9663218536178049,
+    "index_fill_prices": {
+     "Nifty100": 11983.9375,
+     "MC100": 17868.025,
+     "SC100": 6612.225
+    }
+   },
+   "80-idx|regime_out": {
+    "decision_date": "2019-03-15",
+    "trade_date": "2019-03-18",
+    "idx": 52,
+    "regime": "IN",
+    "B": "Nifty100+MC100+SC100",
+    "k": 3,
+    "V": 1.0177860797251488,
+    "traded": 2.0355721594502976,
+    "cost": 0.00211699504582831,
+    "stock_before": 0.0,
+    "gold_before": 0.0,
+    "cash_before": 0.3356545414921759,
+    "Nifty100_before": 0.0,
+    "MC100_before": 0.3407100078958316,
+    "SC100_before": 0.34142153033714123,
+    "stock_after": 1.0156690846793202,
+    "gold_after": 0.0,
+    "cash_after": 0.0,
+    "Nifty100_after": 0.0,
+    "MC100_after": 0.0,
+    "SC100_after": 0.0,
+    "V_after": 1.0156690846793202,
+    "index_fill_prices": {
+     "Nifty100": 11636.462500000001,
+     "MC100": 17870.6125,
+     "SC100": 6552.8375
+    }
+   }
+  },
+  "not_checked_here": "weights drift between trades by construction (units are constant between trade sessions); the initial position at T0 is built without a trade record",
+  "pass": true
+ },
+ "data": {
+  "approved_data_as_of": "2026-11-25",
+  "window_end": "2026-10-30",
+  "inputs": 40,
+  "non_approved_open_and_guards": {
+   "superseded_master": {
+    "raised": true,
+    "message": "Historical Data/frozen_2026-09-25/Master/Master_Nifty100.xlsx: row D03 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "superseded_goldbees": {
+    "raised": true,
+    "message": "analysis/cache/why_gold_ohlc_eikon.parquet: row D09 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "superseded_lbes": {
+    "raised": true,
+    "message": "Historical Data/LBES_Adjusted_Price_data_2026_08_10.csv: row D11 is SUPERSEDED, not APPROVED; do not read it"
+   },
+   "pending_candidate_d03b": {
+    "raised": true,
+    "message": "Historical Data/extended_2026-11-12/SC100_signal_from_2011-10-03/Master_SC100.xlsx: row D03b is PENDING, not APPROVED; do not read it"
+   },
+   "not_in_table": {
+    "raised": true,
+    "message": "Historical Data/no_such_file.csv: not in the table of data/APPROVED_DATA.md, so not approved"
+   },
+   "guard_sc100_signal_before_usable_from": {
+    "raised": true,
+    "message": "Historical Data/extended_2026-10-30/Master/Master_SC100.xlsx: usable from 2011-11-25 only (APPROVED_DATA.md rule 7); the window reads it from 2011-11-24"
+   },
+   "guard_sc100_prices_before_usable_from": {
+    "raised": true,
+    "message": "Historical Data/extended_2026-11-12/index_daily_pre2019/SC100_daily_ohlcv.csv: usable from 2011-10-03 only (APPROVED_DATA.md rule 7); the window reads it from 2011-10-02"
+   },
+   "guards_at_usable_from_pass": {
+    "raised": false,
+    "ok": true
+   },
+   "pass": true
+  },
+  "master_rows_after_END_dropped": {
+   "Nifty100": 0,
+   "MC100": 0,
+   "SC100": 0
+  },
+  "mauc1_rows_after_END_dropped": 1,
+  "goldbees_first_bar": "2014-07-01",
+  "goldbees_file_last": "2026-11-04",
+  "mcx_file_last": "2026-09-28",
+  "cash": {
+   "lbes_last": "2026-11-05",
+   "liq_last": "2026-11-05",
+   "accrued_sessions": 0
+  },
+  "index_files": {
+   "Nifty100": {
+    "first_bar": "2019-01-01",
+    "last_bar": "2026-10-30",
+    "bars_to_end": 1937
+   },
+   "MC100": {
+    "first_bar": "2019-01-01",
+    "last_bar": "2026-10-30",
+    "bars_to_end": 1937
+   },
+   "SC100": {
+    "first_bar": "2019-01-01",
+    "last_bar": "2026-10-30",
+    "bars_to_end": 1937
+   }
+  }
+ },
+ "step1_counts_reproduced": {
+  "pass": true,
+  "detail": {
+   "SCMO_0003|full": true,
+   "SCMO_0003|r3": true,
+   "SCMO_0007|full": true,
+   "SCMO_0007|r3": true,
+   "SCMO_0010|full": true,
+   "SCMO_0010|r3": true,
+   "SCMO_0029|full": true,
+   "SCMO_0029|r3": true
+  },
+  "file": "tests/T15/logs/step_1_spell_counts.json"
+ },
+ "run": {
+  "window": "w2",
+  "name": "headline",
+  "command": "analysis/t15_engine.py --window both --run headline --workers 4",
+  "books": [
+   "SCMO_0003",
+   "SCMO_0007",
+   "SCMO_0010",
+   "SCMO_0029"
+  ],
+  "seconds": 15,
+  "quick": false,
+  "python": "3.11.2",
+  "numpy": "2.4.6",
+  "pandas": "3.1.1",
+  "draws": 0,
+  "seeds": "none"
+ },
+ "prereg_sha256": "343566ddab004aa6cb5a88e1fa131d428afad969ec79926187b9130473695482",
+ "gates": {
+  "V2": true,
+  "V3": true,
+  "V4": true,
+  "V5": true,
+  "approved_data_selftest": true,
+  "step1_counts": true,
+  "all": true
+ }
+}

@@ -1,6 +1,6 @@
 # T15 Progress Tracker
 
-**Overall status: IN PROGRESS (2026-11-25). Approved by Manu ("lets execute the T15", D1-D3 defaults); Steps 1-4 DONE (pre-registration frozen; engine, verifier and scripts written); Step 5 (headline run) next.** Plan: `AA/tests/T15/PLAN.md`. The frozen design will be `T15.md` §1-§3 (Step 1).
+**Overall status: COMPLETE (2026-11-25). Approved by Manu ("lets execute the T15", D1-D3 defaults); All steps DONE; findings PROVISIONAL, IDs pending.** Plan: `AA/tests/T15/PLAN.md`. The frozen design will be `T15.md` §1-§3 (Step 1).
 Status values: `NOT_STARTED` → `IN_PROGRESS` → `DONE` (or `DONE_WITH_NOTES`).
 **Data boundary:** read `AA/data/APPROVED_DATA.md`; use only its `APPROVED` rows; run `python data/check_approved_data.py` first (exit 0 on 2026-11-25: 70 approved rows, 0 problems); if anything is stale, missing or unclear, stop and ask Manu. Index prices: D25 (W1) and D25c (W2, approved by Manu 2026-11-25).
 **What T15 is:** T14's setup with one more holding for the OUT-SELL regime (three-index switch OUT **and** MAUc1 SELL): the liquid ETF plus each index whose own SIGN is BUY, in equal parts (k = 0: 100% cash; k = 1: 1/2 cash, 1/2 the index; k = 2: 1/3 each). A change of the BUY set inside the regime is a rebalance trade. Rules `50-idx`, `80-idx` beside T14's six (`-orig`, `-liq`, `-half` on both bases; comparators and the regression gate). W1 2014-09-01 → 2019-01-02, W2 2019-01-02 → 2026-10-30, four real parents, 20.8 bps. **No null and no chance check (Manu's waiver, chat 2026-11-25)**: descriptive comparisons C1-C4 (vs `-orig` CAGR and drawdown, vs `-liq`, vs `-half`), R1-R5.
@@ -13,8 +13,8 @@ Status values: `NOT_STARTED` → `IN_PROGRESS` → `DONE` (or `DONE_WITH_NOTES`)
 | 2 Engine | DONE | 1 | Claude / 2026-11-25 | `analysis/t15_engine.py`; smoke (4 books, both windows, 43 s): V2-V5 and step-1 counts pass; V4(a) exact (worst rel diff 0.0 vs T14's NAVs and trades); `logs/{step_2_log,evidence_contract,verifier_spec}.md` |
 | 3 Independent verifier | DONE | 1 | separate agent / 2026-11-25 | `analysis/verify_t15.py` (never opened the engine); smoke evidence: 603,123 (W1) and 954,208 (W2) gate comparisons, 0 failures, every planted corruption caught; one AFFECTS STEP 2 finding (inputs.csv per window) fixed; `logs/step_3_log.md` |
 | 4 Test scripts | DONE | 1 | Claude + page agent / 2026-11-25 | `analyse.py`, `fill_writeup.py`, `run.sh`, `report.py`, `check_page.py`; page checker 14,443 checks 0 failures on smoke evidence, fails on tampering; `logs/step_4_log.md` |
-| 5 Run and gate | NOT_STARTED | 2, 3, 4 | | |
-| 6 Analyse, report, write-up | NOT_STARTED | 5 | | |
+| 5 Run and gate | DONE | 2, 3, 4 | Claude / 2026-11-25 | `bash tests/T15/run.sh` 2 min 11 s, all exit 0; V1 603,123 / 954,208 comparisons 0 failures; check_page 14,651 checks 0 failures; `logs/step_5_log.md` |
+| 6 Analyse, report, write-up | DONE | 5 | Claude / 2026-11-25 | `T15.md` section 4 generated, sections 5-8 written (4 of 16 comparisons pass; two windows disagree; W2 passes rest on the 2021-01-29 stretch; `-idx` never beats `-half`); `evidence/METHODS.md`; finding IDs pending |
 
 ## Step-level notes
 
@@ -36,3 +36,6 @@ Status values: `NOT_STARTED` → `IN_PROGRESS` → `DONE` (or `DONE_WITH_NOTES`)
 
 ### Step 4
 - `AA/tests/T15/{analyse.py, fill_writeup.py, report.py, check_page.py, run.sh}`, `logs/step_4_log.md`; `T15.md` placeholders for sections 5-8
+
+### Steps 5-6
+- `AA/tests/T15/evidence/{headline/{w1,w2}/, analysis.log, report.html, METHODS.md}`, `logs/{step_5_log.md, step_5_run.log, step_5_runsh.log}`; `T15.md` sections 4-8; `AA/CLAUDE.md` (completed-test line)

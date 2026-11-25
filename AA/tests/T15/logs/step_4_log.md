@@ -8,3 +8,6 @@ Files: `analyse.py` (Claude), `fill_writeup.py`, `run.sh` (Claude; forks of T14'
 - `run.sh`: check_approved_data, check_prereg, engine (under a minute), verifier, analyse, fill_writeup, check_prereg, report, check_page, check_prereg.
 - Engine fix found by Step 3 (AFFECTS STEP 2, done): `inputs.csv` now lists each window's own files (worker processes' files merged in; W1's seam files in `inputs_seam.csv`).
 - Open: `METHODS.md` is written at Step 6; the evidence CSVs are 22 MB (W1) and 36 MB (W2), under the 100 MB limit.
+
+## Disclosure (added at Step 5)
+The page-builder agent developed `report.py` and `check_page.py` on the engine's smoke evidence before the verifier had run on the headline directory; the smoke evidence is identical to the headline evidence (deterministic engine, no draws), and the verifier had passed on it (Step 3). After seeing the C2 comparisons I added the tie listing to `analyse.py` (reporting only; the frozen rule, unrounded, was not changed, and no verdict depends on it). No design element (comparisons, windows, rules, robustness definitions) was changed after any number was seen.
