@@ -202,5 +202,8 @@ if __name__ == "__main__":
     g.add_argument("--check", action="store_true")
     g.add_argument("--signal-check", action="store_true")
     ap.add_argument("--last", default="2026-11-04")
+    ap.add_argument("--out", default=None, help="output folder relative to AA/ (default: the D25c folder); refuses to overwrite")
     a = ap.parse_args()
+    if a.out:
+        OUT = AA / a.out
     sys.exit(main("check" if a.check else "signal" if a.signal_check else "write", a.last))
