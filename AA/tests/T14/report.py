@@ -105,14 +105,20 @@ def si(v):
 
 
 # ── charts ────────────────────────────────────────────────────────────────────
-def svg_lines(series: dict, dates, key: str, title: str, w=720, h=270):
-    """series: {kind: NAV array}; every 5th session plus the last; log scale; hover read from lines-data[key]."""
+REL_PAIR = ("80-half", "80-liq")
+REL_COL = "#7b3fb5"
+
+
+def svg_lines(series: dict, dates, key: str, title: str, w=720, h=270, rel=None):
+    """series: {kind: NAV array}; every 5th session plus the last; log scale; hover read from lines-data[key].
+    rel = (numerator NAV, denominator NAV): adds a hidden overlay (shown by the page's selector) of numerator / denominator on its own linear right-hand axis;
+    returns (svg, data, rel_data or None)."""
     idx = np.arange(0, len(dates), 5)
     if idx[-1] != len(dates) - 1:
         idx = np.append(idx, len(dates) - 1)
     allv = np.concatenate([v[idx] for v in series.values()])
     ymin, ymax = math.log(allv.min() * 0.97), math.log(allv.max() * 1.03)
-    L, R, T, B = 44, 8, 8, 24
+    L, R, T, B = 44, 46, 8, 24
     x = lambda i: L + (w - L - R) * i / (len(idx) - 1)
     y = lambda v: T + (h - T - B) * (1 - (math.log(v) - ymin) / (ymax - ymin))
     out = [f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{E(title)}" class="chart lc" data-book="{E(key)}">']
@@ -129,8 +135,29 @@ def svg_lines(series: dict, dates, key: str, title: str, w=720, h=270):
         dash = f' stroke-dasharray="{DASH[k]}"' if k in DASH and DASH[k] != "1 0" else ""
         out.append(f'<polyline points="{pts}" fill="none" stroke="{COL[k]}" stroke-width="{1.3 if k in ("hold_parent", "50-orig", "80-orig") else 2.2}"{dash} stroke-linejoin="round"/>')
     bot = h - B
+    rdata = None
+    if rel is not None:
+        r = rel[0] / rel[1]
+        rv = r[idx]
+        rlo, rhi = min(float(rv.min()), 1.0), max(float(rv.max()), 1.0)
+        pad = 0.06 * (rhi - rlo) if rhi > rlo else 0.01
+        rlo, rhi = rlo - pad, rhi + pad
+        y2 = lambda t: T + (h - T - B) * (1 - (t - rlo) / (rhi - rlo))
+        step = nice_ticks(rhi - rlo, 5)[1]
+        g = [f'<g class="rl" style="display:none" pointer-events="none"><text x="{w - R + 4}" y="{T + 4}" class="ax" style="fill:{REL_COL}">ratio</text>']
+        t = math.ceil(rlo / step) * step
+        while t <= rhi:
+            g.append(f'<text x="{w - R + 4}" y="{y2(t) + 3:.1f}" class="ax" style="fill:{REL_COL}">{t:.3g}×</text>')
+            t += step
+        g.append(f'<line x1="{L}" x2="{w - R}" y1="{y2(1.0):.1f}" y2="{y2(1.0):.1f}" stroke="{REL_COL}" stroke-width="1" stroke-dasharray="2 4"/>')
+        g.append('<polyline points="' + " ".join(f"{x(j):.1f},{y2(rv[j]):.1f}" for j in range(len(idx))) + f'" fill="none" stroke="{REL_COL}" stroke-width="2.2" stroke-linejoin="round"/>')
+        g.append(f'<text x="{w - R - 4}" y="{y2(rv[-1]) - 6:.1f}" text-anchor="end" class="ax" style="fill:{REL_COL}">end {float(r[-1]):.3f}×</text></g>')
+        out.append("".join(g))
+        rdata = {"lo": rlo, "hi": rhi, "n": len(idx), "num": REL_PAIR[0], "den": REL_PAIR[1], "col": REL_COL,
+                 "dates": [pd.Timestamp(dates[i]).strftime("%Y-%m-%d (%a)") for i in idx], "v": [round(float(r[i]), 5) for i in idx], "end": round(float(r[-1]), 5)}
     out.append('<g class="lc-hv" style="display:none" pointer-events="none">'
                f'<line class="lc-v" y1="{T}" y2="{bot}" stroke="var(--muted)" stroke-width="1"/>'
+               + (f'<circle class="lc-rc" r="3.2" fill="{REL_COL}" stroke="var(--card)" stroke-width="1.5" style="display:none"/>' if rel is not None else "") +
                f'<line class="lc-h" x1="{L}" x2="{w - R}" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 3"/>'
                + "".join(f'<circle class="lc-c" r="3.2" fill="{COL[k]}" stroke="var(--card)" stroke-width="1.5"/>' for k in series)
                + f'<g class="lc-yc"><rect x="0" y="-8" width="{L - 3}" height="16" rx="3" fill="var(--fg)"/><text x="{L - 7}" y="3.5" text-anchor="end" font-size="10" fill="var(--bg)" class="lc-yt"></text></g>'
@@ -139,48 +166,7 @@ def svg_lines(series: dict, dates, key: str, title: str, w=720, h=270):
     data = {"w": w, "h": h, "L": L, "R": R, "T": T, "B": B, "lo": ymin, "hi": ymax, "log": True, "n": len(idx),
             "dates": [pd.Timestamp(dates[i]).strftime("%Y-%m-%d (%a)") for i in idx],
             "series": [{"k": k, "label": LAB[k], "col": COL[k], "v": [round(float(v[i]), 4) for i in idx]} for k, v in series.items()]}
-    return "".join(out), data
-
-
-REL_PAIR = ("80-half", "80-liq")
-
-
-def svg_rel(num, den, dates, key: str, w=720, h=270):
-    """outperformance of REL_PAIR[0] over REL_PAIR[1]: ratio of the two growth-of-1 curves (1.0 = level), linear axis, every 5th session plus the last."""
-    idx = np.arange(0, len(dates), 5)
-    if idx[-1] != len(dates) - 1:
-        idx = np.append(idx, len(dates) - 1)
-    r = num / den
-    v = r[idx]
-    lo, hi = min(float(v.min()), 1.0), max(float(v.max()), 1.0)
-    pad = 0.06 * (hi - lo) if hi > lo else 0.01
-    lo, hi = lo - pad, hi + pad
-    L, R, T, B = 44, 8, 8, 24
-    x = lambda i: L + (w - L - R) * i / (len(idx) - 1)
-    y = lambda t: T + (h - T - B) * (1 - (t - lo) / (hi - lo))
-    step = nice_ticks(hi - lo, 5)[1]
-    out = [f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{E(key)} {REL_PAIR[0]} over {REL_PAIR[1]}" class="chart rc" data-rel="{E(key)}">']
-    t = math.ceil(lo / step) * step
-    while t <= hi:
-        out.append(f'<line x1="{L}" x2="{w - R}" y1="{y(t):.1f}" y2="{y(t):.1f}" class="grid"/><text x="{L - 4}" y="{y(t) + 3:.1f}" text-anchor="end" class="ax">{t:.3g}×</text>')
-        t += step
-    out.append(f'<line x1="{L}" x2="{w - R}" y1="{y(1.0):.1f}" y2="{y(1.0):.1f}" stroke="var(--fg)" stroke-width="1" stroke-dasharray="4 3"/>')
-    years = sorted({pd.Timestamp(d).year for d in dates})
-    for yr in years[::2]:
-        i = int(np.argmax([pd.Timestamp(d).year == yr for d in dates]))
-        j = int(np.argmin(np.abs(idx - i)))
-        out.append(f'<text x="{x(j):.1f}" y="{h - 6}" text-anchor="middle" class="ax">{yr}</text>')
-    pts = " ".join(f"{x(j):.1f},{y(v[j]):.1f}" for j in range(len(idx)))
-    out.append(f'<polyline points="{pts}" fill="none" stroke="{COL[REL_PAIR[0]]}" stroke-width="2.2" stroke-linejoin="round"/>')
-    out.append(f'<text x="{w - R - 4}" y="{y(v[-1]) - 6:.1f}" text-anchor="end" class="ax">end {float(r[-1]):.3f}×</text>')
-    bot = h - B
-    out.append('<g class="rc-hv" style="display:none" pointer-events="none">'
-               f'<line class="rc-v" y1="{T}" y2="{bot}" stroke="var(--muted)" stroke-width="1"/>'
-               f'<circle class="rc-c" r="3.2" fill="{COL[REL_PAIR[0]]}" stroke="var(--card)" stroke-width="1.5"/></g>')
-    out.append(f'<rect class="rc-ov" x="{L}" y="{T}" width="{w - L - R}" height="{bot - T}" fill="transparent" style="cursor:crosshair;touch-action:none"/></svg>')
-    data = {"w": w, "h": h, "L": L, "R": R, "T": T, "B": B, "lo": lo, "hi": hi, "n": len(idx), "num": REL_PAIR[0], "den": REL_PAIR[1],
-            "dates": [pd.Timestamp(dates[i]).strftime("%Y-%m-%d (%a)") for i in idx], "v": [round(float(r[i]), 5) for i in idx], "end": round(float(r[-1]), 5)}
-    return "".join(out), data
+    return "".join(out), data, rdata
 
 
 def hist_bins(draws: np.ndarray, real: float, nb=NB):
@@ -226,10 +212,14 @@ def svg_bars(did: str, edges, counts, marks, label: str, xk="pct", w=420, h=180,
 
 LINES_JS = """(function(){
 var all=JSON.parse(document.getElementById('lines-data').textContent);
+var rels=JSON.parse((document.getElementById('rel-data')||{textContent:'{}'}).textContent);
 function fx(v){return v.toFixed(2)+'\\u00d7'}
 Array.prototype.forEach.call(document.querySelectorAll('svg.lc'),function(svg){
  var d=all[svg.getAttribute('data-book')],fig=svg.parentNode,tip=fig.querySelector('.tip'),g=svg.querySelector('.lc-hv'),ov=svg.querySelector('.lc-ov'),
  cs=svg.querySelectorAll('.lc-c'),q=function(c){return svg.querySelector(c)};
+ var rd=rels[svg.getAttribute('data-book')],rg=svg.querySelector('.rl'),rc=svg.querySelector('.lc-rc'),sel=fig.querySelector('select.vsel'),on=false;
+ if(sel)sel.addEventListener('change',function(){on=(sel.value==='rel');rg.style.display=on?'':'none'});
+ function Y2(v){return d.T+(d.h-d.T-d.B)*(1-(v-rd.lo)/(rd.hi-rd.lo))}
  function X(j){return d.L+(d.w-d.L-d.R)*j/(d.n-1)}
  function Y(v){return d.T+(d.h-d.T-d.B)*(1-((d.log?Math.log(v):v)-d.lo)/(d.hi-d.lo))}
  function move(e){
@@ -245,35 +235,10 @@ Array.prototype.forEach.call(document.querySelectorAll('svg.lc'),function(svg){
   xr.setAttribute('x',xl);q('.lc-xt').setAttribute('x',xl+46);q('.lc-xt').textContent=d.dates[j];
   var s='<b>'+d.dates[j]+'</b>';
   for(var n=0;n<d.series.length;n++)s+='<br><i style="background:'+d.series[n].col+'"></i>'+d.series[n].label+': <b>'+fx(d.series[n].v[j])+'</b>';
+  if(on&&rd){var pc=(rd.v[j]-1)*100;rc.style.display='';rc.setAttribute('cx',x);rc.setAttribute('cy',Y2(rd.v[j]));
+   s+='<br><i style="background:'+rd.col+'"></i>'+rd.num+' \u00f7 '+rd.den+': <b>'+rd.v[j].toFixed(3)+'\u00d7</b> ('+(pc>=0?'ahead ':'behind ')+Math.abs(pc).toFixed(1)+'%)'}
+  else if(rc)rc.style.display='none';
   tip.innerHTML=s;tip.hidden=false;
-  var fr=fig.getBoundingClientRect(),px=e.clientX-fr.left+14,py=e.clientY-fr.top+14;
-  if(px+tip.offsetWidth>fr.width)px=e.clientX-fr.left-tip.offsetWidth-14;
-  if(py+tip.offsetHeight>fr.height)py=Math.max(0,e.clientY-fr.top-tip.offsetHeight-14);
-  tip.style.left=px+'px';tip.style.top=py+'px';
- }
- function out(){g.style.display='none';tip.hidden=true}
- ov.addEventListener('pointermove',move);ov.addEventListener('pointerdown',move);ov.addEventListener('pointerleave',out);
-});
-})();"""
-
-REL_JS = """(function(){
-var el=document.getElementById('rel-data');if(!el)return;
-var all=JSON.parse(el.textContent);
-Array.prototype.forEach.call(document.querySelectorAll('select.vsel'),function(sel){
- var fig=sel.closest('figure'),a=fig.querySelector('.view-all'),r=fig.querySelector('.view-rel');
- sel.addEventListener('change',function(){a.hidden=(sel.value!=='all');r.hidden=(sel.value!=='rel')});
-});
-Array.prototype.forEach.call(document.querySelectorAll('svg.rc'),function(svg){
- var d=all[svg.getAttribute('data-rel')],fig=svg.parentNode,tip=fig.querySelector('.tip'),g=svg.querySelector('.rc-hv'),ov=svg.querySelector('.rc-ov'),q=function(c){return svg.querySelector(c)};
- function Y(v){return d.T+(d.h-d.T-d.B)*(1-(v-d.lo)/(d.hi-d.lo))}
- function move(e){
-  var r=svg.getBoundingClientRect(),k=d.w/r.width,vx=(e.clientX-r.left)*k;
-  var j=Math.max(0,Math.min(d.n-1,Math.round((vx-d.L)/(d.w-d.L-d.R)*(d.n-1)))),x=d.L+(d.w-d.L-d.R)*j/(d.n-1);
-  g.style.display='';q('.rc-v').setAttribute('x1',x);q('.rc-v').setAttribute('x2',x);
-  q('.rc-c').setAttribute('cx',x);q('.rc-c').setAttribute('cy',Y(d.v[j]));
-  var pc=(d.v[j]-1)*100;
-  tip.innerHTML='<b>'+d.dates[j]+'</b><br>'+d.num+' \\u00f7 '+d.den+': <b>'+d.v[j].toFixed(3)+'\\u00d7</b><br>'+d.num+(pc>=0?' ahead by ':' behind by ')+'<b>'+Math.abs(pc).toFixed(1)+'%</b>';
-  tip.hidden=false;
   var fr=fig.getBoundingClientRect(),px=e.clientX-fr.left+14,py=e.clientY-fr.top+14;
   if(px+tip.offsetWidth>fr.width)px=e.clientX-fr.left-tip.offsetWidth-14;
   if(py+tip.offsetHeight>fr.height)py=Math.max(0,e.clientY-fr.top-tip.offsetHeight-14);
@@ -571,17 +536,14 @@ def section_curves(Ws, lines_data, rel_data) -> str:
             ser = {k: W.curve(b, PRIMARY, k)[1] for k in CURVE_KINDS}
             aa, zz = W.start_end(b)
             key = f"{w}|{b}"
-            svg, data = svg_lines(ser, dts, key, f"{b} growth of 1")
+            svg, data, rdata = svg_lines(ser, dts, key, f"{b} growth of 1", rel=(ser[REL_PAIR[0]], ser[REL_PAIR[1]]))
             lines_data[key] = data
-            rsvg, rdata = svg_rel(ser[REL_PAIR[0]], ser[REL_PAIR[1]], dts, key)
             rel_data[key] = rdata
-            sel = (f'<label class="mini">View: <select class="vsel" aria-label="chart view for {b}"><option value="all">All curves</option>'
-                   f'<option value="rel">{REL_PAIR[0]} vs {REL_PAIR[1]}: outperformance</option></select></label>')
+            sel = (f'<label class="mini">Overlay: <select class="vsel" aria-label="chart overlay for {b}"><option value="none">none</option>'
+                   f'<option value="rel">{REL_PAIR[0]} vs {REL_PAIR[1]}: outperformance (right axis)</option></select></label>')
             h.append(f'<figure class="card hv needs-dates" data-formulas="nav" style="margin:10px 0"><figcaption><b>{b}</b>: growth of 1 invested at the close of {aa}, log scale, {PRIMARY} bps '
-                     f'<span class="mini">{DT(w, b, "full", aa, zz)}; end values ' + ", ".join(f"{LAB[k]} " + V(f"st:{keyp(w, b)}|{k}|end_nav", W.S(b, k)["end_nav"], "x", 2) + "×" for k in CURVE_KINDS) + f'</span> {sel}</figcaption>'
-                     f'<div class="view-all hv">{svg}<div class="tip" hidden></div></div>'
-                     f'<div class="view-rel hv" hidden>{rsvg}<div class="tip" hidden></div>'
-                     f'<p class="mini">Outperformance = {REL_PAIR[0]} growth of 1 ÷ {REL_PAIR[1]} growth of 1 on the same sessions: above the dashed line (1.0×) {REL_PAIR[0]} is ahead, below it {REL_PAIR[1]} is.</p></div>'
+                     f'<span class="mini">{DT(w, b, "full", aa, zz)}; end values ' + ", ".join(f"{LAB[k]} " + V(f"st:{keyp(w, b)}|{k}|end_nav", W.S(b, k)["end_nav"], "x", 2) + "×" for k in CURVE_KINDS) + f'</span> {sel}</figcaption>{svg}<div class="tip" hidden></div>'
+                     f'<p class="mini">Overlay (when selected, purple line, right axis): {REL_PAIR[0]} growth of 1 ÷ {REL_PAIR[1]} growth of 1 on the same sessions; above the dotted 1.0× line {REL_PAIR[0]} is ahead.</p>'
                      f'<p class="mini">{fref("nav")}</p></figure>')
     return "".join(h)
 
@@ -778,7 +740,7 @@ def main() -> int:
     page = (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>T14 OUT-SELL regime results</title><style>{CSS}</style></head>'
             f'<body><main>{head}{"".join(parts)}</main><script id="lines-data" type="application/json">{json.dumps(lines_data)}</script><script id="bars-data" type="application/json">{json.dumps(bars_data)}</script>'
             f'<script id="rel-data" type="application/json">{json.dumps(rel_data)}</script>'
-            f'<script>{LINES_JS}</script><script>{BARS_JS}</script><script>{REL_JS}</script></body></html>')
+            f'<script>{LINES_JS}</script><script>{BARS_JS}</script></body></html>')
     outdir.mkdir(parents=True, exist_ok=True)
     (outdir / "report.html").write_text(page, encoding="utf-8")
     nv_ = page.count('class="v"')

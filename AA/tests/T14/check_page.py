@@ -508,8 +508,7 @@ def main() -> int:
         chk(f"curve window {key}", dd["n"] == len(idx), "length")
     # the outperformance view (80-half over 80-liq): ratio of the two growth-of-1 curves, recomputed here from the evidence
     rel = json.loads(pg.scripts.get("rel-data", "{}") or "{}")
-    svg_r = [s["id"] for s in pg.svgs if "rc" in s["cls"].split()]
-    chk("every outperformance chart has its data and every data set its chart", sorted(svg_r) == sorted(rel) and sorted(rel) == sorted(lines), f"svg {sorted(svg_r)} data {sorted(rel)}")
+    chk("every curve chart has its outperformance overlay data and the overlay is on that chart", sorted(rel) == sorted(lines) and raw.count('class="rl"') == len(lines) and "select" in raw, f"overlay data {sorted(rel)}, overlays {raw.count('class=' + chr(34) + 'rl' + chr(34))}")
     for key, dd in rel.items():
         w, b = key.split("|")
         E = EV[w]
