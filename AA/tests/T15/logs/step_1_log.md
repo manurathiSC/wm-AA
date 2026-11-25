@@ -1,0 +1,9 @@
+# T15 Step 1 log: pre-registration (2026-11-25)
+
+- Manu's "lets execute the T15" taken as approval of PLAN.md and of the defaults of D1-D3 (C1-C4 at 3 of 4 books; six T14 rules re-run as comparators and regression gate; an index turning SELL inside the regime is sold and the rest re-equalised).
+- `python data/check_approved_data.py` exit 0 (70 approved rows, 0 problems, 5 PENDING, 5 superseded; numpy/numexpr warning on import is noise, not an error).
+- `tests/T15/spell_counts.py` (fork of T14's; adds B, k, B stretches, `-idx` trade count) -> `logs/step_1_spell_counts.json`. Equals PLAN section 3.1 exactly: W1 228 decisions, IN 93 / OUT-BUY 81 / OUT-SELL 54 in 8 spells, k0/k1/k2 21/18/15, index weeks 33 in 6 spells, B changes 8; W2 410 decisions, 201 / 163 / 46 in 8 spells, k0/k1/k2 24/2/20, index weeks 22 in 6 spells, B changes 6. Trades: `-idx` W1 32, W2 33 (T14's `-liq` 24 / 27).
+- **Found while counting (AFFECTS STEPS 2-5):** both R3 windows start inside OUT-SELL (W1 from 2015-01-02, W2-live from 2021-11-01: switch OUT, gold SELL on the first decision). So `-idx` has an OUT-SELL initial position in R3 (cash + each index of B at T0's close, free). Written into T15.md section 3 item 7 before the freeze. R3 counts: W1 44 OUT-SELL weeks, 23 holding an index (k 21/14/9); W2-live 31 OUT-SELL weeks, 9 holding an index in 3 spells (k 22/1/8), B changes 6 / 4.
+- Stated in PLAN section 3.1 as 24 / 21 "trades that involve the regime": reproduced as `-idx` minus the IN<->OUT-BUY trades (W1 32 - 8 = 24; W2 33 - 12 = 21).
+- `T15.md` section 1-3 written (T14.md layout; null and chance sections replaced by the C1-C4 comparisons and the waiver; R5 fund-drag fully specified: index OHLC4 and close of session i multiplied by (1 - 0.005/252)^i). `check_prereg.py --freeze`: sha256 `343566ddab004aa6cb5a88e1fa131d428afad969ec79926187b9130473695482`.
+- `AA/CLAUDE.md`: test-in-progress line added.
