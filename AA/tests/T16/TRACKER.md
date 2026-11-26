@@ -1,15 +1,15 @@
 # T16 Progress Tracker
 
-**Overall status: PLAN v2 DRAFTED (2026-11-26), D1-D4 settled, awaiting Manu's go-ahead.** Plan: `AA/tests/T16/PLAN_v2.md` (supersedes `PLAN.md`, kept beside it). W2 extended to **2026-11-20** (the latest date every role reaches). The frozen design will be `T16.md` §1-§3 (Step 1).
+**Overall status: IN PROGRESS (2026-11-26). Manu's "lets execute T16" approved PLAN_v2; Step 1 DONE (frozen); Steps 2-4 next.** Plan: `AA/tests/T16/PLAN_v2.md` (supersedes `PLAN.md`, kept beside it). W2 extended to **2026-11-20** (the latest date every role reaches). The frozen design will be `T16.md` §1-§3 (Step 1).
 Status values: `NOT_STARTED` → `IN_PROGRESS` → `DONE` (or `DONE_WITH_NOTES`).
-**Data boundary:** read `AA/data/APPROVED_DATA.md`; use only its `APPROVED` rows; run `python data/check_approved_data.py` first (exit 0 on 2026-11-26: 84 approved rows, 0 problems); inputs are exactly T15's `inputs.csv` per window. If anything is stale, missing or unclear, stop and ask Manu.
-**What T16 is:** T15's setup with a different OUT-SELL holding (three-index switch OUT **and** MAUc1 SELL): **Nifty 100, Midcap 100, Smallcap 100 and the liquid ETF, 25% each, whatever each index's own SIGN** (`50-all`, `80-all`). Set on entry, drift, no trade until the exit (D3 default). T15's eight rules (`-orig`, `-liq`, `-half`, `-idx` on both bases) are comparators and the regression gate. W1 2014-09-01 → 2019-01-02, W2 2019-01-02 → 2026-10-30, four real parents, 20.8 bps. **No null and no chance check**: descriptive comparisons C1-C6 (vs `-orig` CAGR and drawdown, vs `-liq`, vs `-half`, vs `-idx` CAGR and drawdown), R1-R5.
+**Data boundary:** read `AA/data/APPROVED_DATA.md`; use only its `APPROVED` rows; run `python data/check_approved_data.py` first (exit 0 on 2026-11-26: 98 approved rows, 0 problems); inputs are T15's `inputs.csv` for W1 and the §3 files of `T16.md` for W2. If anything is stale, missing or unclear, stop and ask Manu.
+**What T16 is:** T15's setup with a different OUT-SELL holding (three-index switch OUT **and** MAUc1 SELL): **Nifty 100, Midcap 100, Smallcap 100 and the liquid ETF, 25% each, whatever each index's own SIGN** (`50-all`, `80-all`). Set on entry, drift, no trade until the exit (D3 default). T15's eight rules (`-orig`, `-liq`, `-half`, `-idx` on both bases) are comparators and the regression gate. W1 2014-09-01 → 2019-01-02, W2 2019-01-02 → 2026-11-20, four real parents, 20.8 bps. **No null and no chance check**: descriptive comparisons C1-C6 (vs `-orig` CAGR and drawdown, vs `-liq`, vs `-half`, vs `-idx` CAGR and drawdown), R1-R5.
 **Stop rule:** any input stale, PENDING or with a changed sha256 → stop and ask Manu.
 
 | Step | Status | Blocked by | Agent / Date | Output summary |
 |---|---|---|---|---|
 | 0 Plan written, tracker created | DONE | — | Claude / 2026-11-26 | `PLAN.md` written directly (no plan-mode file to copy); counts taken from T15's `logs/step_1_spell_counts.json` (signals only). Manu 2026-11-26: **D1 = (a)** C1-C6; **D3 = (a)** 25% on entry, drift, trade only on leaving OUT-SELL; D2 answered with a request to define every rule in words (now a standing rule, AGENT.md R10 item 1, glossary in `AA/CLAUDE.md`); **D4: extend W2 to 2026-11-20 — blocked**: stock prices D18 (2026-11-04), cash D11 (2026-11-05) and the D17 calendar (2026-11-06) end earlier; asked Manu whether to refresh them. **Same day:** Manu approved D17/D18/D11 to 2026-11-25; checked (98 approved rows, 0 problems; every calendar session to 11-20 has index and GOLDBEES bars); `PLAN_v2.md` written with W2 to 2026-11-20 (earliest of D03/D25d/D24c) |
-| 1 Pre-registration | NOT_STARTED | 0 + approval | | |
+| 1 Pre-registration | DONE | — | Claude / 2026-11-26 | `spell_counts.py` -> `logs/step_1_spell_counts.json` (W2 1,946 sessions, 413 decisions, OUT-SELL 49 weeks in 8 spells, k 24/3/22; W1 as T15); `T16.md` §1-§3 frozen, sha256 `eda7321d…`; `AA/CLAUDE.md` test-in-progress line. Plan's 1,947 W2 sessions corrected to 1,946 (the count wins). |
 | 2 Engine | NOT_STARTED | 1 | | |
 | 3 Independent verifier | NOT_STARTED | 1 | | |
 | 4 Test scripts | NOT_STARTED | 1 | | |
@@ -20,3 +20,6 @@ Status values: `NOT_STARTED` → `IN_PROGRESS` → `DONE` (or `DONE_WITH_NOTES`)
 
 ### Step 0
 - `AA/tests/T16/PLAN.md`, `AA/tests/T16/TRACKER.md`
+
+### Step 1
+- `AA/tests/T16/{T16.md, check_prereg.py, spell_counts.py, logs/step_1_log.md, logs/step_1_spell_counts.json}`; `AA/CLAUDE.md` (test-in-progress line); this tracker.
