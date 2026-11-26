@@ -4,7 +4,7 @@
 
 ---
 
-## 0. Manu's request, in his words
+## 0. Manu's request, in his words, and what was agreed
 
 > "can you plan a T16. just the plan without the null, where in the out-sell weeks we will buy the Nifty 100, MC100, SC100 and Liquid ETF in equal weight ie. 25% each. its the same as the T15 but the buy conditions changes during the out sell weeks"
 
@@ -48,7 +48,7 @@ A target is the split parent / GOLDBEES / cash / Nifty 100 / Midcap 100 / Smallc
 
 `-all` holds no parent and no GOLDBEES in the regime, and 75% in the three indices. Since the switch is OUT in every OUT-SELL week, **at least one of the indices `-all` holds is on its own SELL signal in every regime week, and all three are in the k = 0 weeks.**
 
-### 2.1 Execution (to be frozen in §3)
+### 2.1 Execution of the new states (to be frozen in §3)
 
 Everything not listed is T15 §2.2 / T14 §3 unchanged (decide on the last session of each ISO week and T0; read the latest D03 and MAUc1 rows dated on or before the decision; trade on the next session at OHLC4; 10.4 bps a side on every value traded, 20.8 bps round trip primary, 0 and 50 as robustness; initial position free; the last decision is made, not traded).
 
@@ -174,15 +174,15 @@ Known contaminants: T15's §3 list unchanged (rebuilt 2014-2018 parent with no p
 
 ## 10. What the engine changes (`analysis/t16_engine.py`, a fork of `t15_engine.py`; copy, do not import)
 
-0. **W2 inputs and end date.** W2 reads the §3 files (D17/D18/D11 2026-11-25, D03/D25d/D24c 2026-11-20, D09 2026-11-23) and ends at 2026-11-20; W1 is unchanged. The data self-test and `inputs.csv` follow.
-1. **Rules and targets.** `RULES` = T15's eight + `50-all`, `80-all`; `targets()` returns `(cash 0.25, each index 0.25)` for `-all` in OUT-SELL and T15's mapping for every other rule (V4(a)).
-2. **Trigger** unchanged (any change of the target vector); for `-all` that is only regime entries and exits.
-3. **Ledger** gains the `-all` − `-idx` split by k.
-4. **R4** switches `-all` to cash for one spell; **R6** only if D3 = b.
-5. **Outputs** as T15 under `evidence/<run>/<window>/`: `decisions.csv`, `trades.csv`, `positions.csv`, `daily_nav.csv`, `stats.csv`, `regime_ledger.csv`, `robustness.csv`, `constant_mix_params.csv`, `audit.json`, `inputs.csv`, `regression.json`.
-6. **Run time:** about two minutes (T15: 2 min 11 s for eight rules).
+1. **W2 inputs and end date.** W2 reads the §3 files (D17/D18/D11 2026-11-25, D03/D25d/D24c 2026-11-20, D09 2026-11-23) and ends at 2026-11-20; W1 is unchanged. The data self-test and `inputs.csv` follow.
+2. **Rules and targets.** `RULES` = T15's eight + `50-all`, `80-all`; `targets()` returns `(cash 0.25, each index 0.25)` for `-all` in OUT-SELL and T15's mapping for every other rule (V4(a)).
+3. **Trigger** unchanged (any change of the target vector); for `-all` that is only regime entries and exits.
+4. **Ledger** gains the `-all` − `-idx` split by k.
+5. **R4** switches `-all` to cash for one spell (no R6: D3 = a).
+6. **Outputs** as T15 under `evidence/<run>/<window>/`: `decisions.csv`, `trades.csv`, `positions.csv`, `daily_nav.csv`, `stats.csv`, `regime_ledger.csv`, `robustness.csv`, `constant_mix_params.csv`, `audit.json`, `inputs.csv`, `regression.json`.
+7. **Run time:** about two minutes (T15: 2 min 11 s for eight rules).
 
-## 11. Steps (tracker `tests/T16/TRACKER.md`)
+## 11. Steps (same hand-off rules as T15; tracker `tests/T16/TRACKER.md`)
 
 Read `TRACKER.md` before any step; update it when you finish; write `logs/step_<n>_log.md` per step; flag anything that changes a later step as **AFFECTS STEP n**. Commit at every milestone of `AA/CLAUDE.md` (subject `T16: <outcome>`, explicit paths, never `git add -A`); push only when Manu asks.
 
