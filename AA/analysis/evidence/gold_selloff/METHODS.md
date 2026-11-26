@@ -8,13 +8,13 @@
 
 | Role | Row | File | Through |
 |---|---|---|---|
-| Gold history | D24b | `Historical Data/extended_2026-11-12/MAUc1_from_2003/mauc1_daily_clean_extended.csv` | 2026-11-06 |
-| Gold, last two weeks | D09 | `analysis/cache/why_gold_ohlc_eikon_extended_2026-11-23.parquet` (weekly returns chained onto MAUc1 after 2026-11-06) | 2026-11-20 used |
-| Gold signal | D24b | `.../MAUc1_from_2003/mauc1_supertrend_weekly_extended.csv` | 2026-11-06 |
+| Gold history | D24c | `Historical Data/extended_2026-11-20/MAUc1_from_2003/mauc1_daily_clean_extended.csv` | 2026-11-20 |
+| Gold signal | D24c | `.../MAUc1_from_2003/mauc1_supertrend_weekly_extended.csv` | 2026-11-20 |
+| GOLDBEES (premium check only) | D09 | `analysis/cache/why_gold_ohlc_eikon_extended_2026-11-23.parquet` | 2026-11-20 used |
 | Equity prices | D25 + D25d | `index_daily_pre2019/` and `extended_2026-11-20/index_daily_2019_2026/` | 2026-11-20 |
 | Equity signals | D03 | `extended_2026-11-20/Master/Master_{Nifty100,MC100,SC100}.xlsx` | 2026-11-20 |
 
-D09, D25d and the 2026-11-20 D03 files were auto-approved on Manu's instruction on 2026-11-25 (see the registry's change log). Smallcap 100 prices are read only from 2011-10-03 and its signal only from 2011-11-25 (rule 7). Before 2011-11-25 the three-index switch state is reported as `n/a`.
+D09, D25d, the 2026-11-20 D03 files and D24c were auto-approved on Manu's instruction (2026-11-25; D24c on 2026-11-26) (see the registry's change log). Smallcap 100 prices are read only from 2011-10-03 and its signal only from 2011-11-25 (rule 7). Before 2011-11-25 the three-index switch state is reported as `n/a`.
 
 ## Definitions
 
@@ -25,7 +25,7 @@ D09, D25d and the 2026-11-20 D03 files were auto-approved on Manu's instruction 
 - **Events.** The first week meeting a condition. Further qualifying weeks within 26 weeks of a trigger belong to the same event. Conditions are swept: 8-week z ≤ −1.5, −1.75 (main), −2.0, −2.5; 52-week drawdown ≤ −12%, −15%, −20%. The current week is excluded, since it has no future.
 - **Forward results.** Gold's change over 4, 13, 26 and 52 weeks; the lowest close in the next 26 weeks; weeks to regain the 52-week high; weeks until MAUc1 turns BUY again, and gold's change until then; Nifty 100, Midcap 100 and Smallcap 100 changes over 13 and 26 weeks.
 - **Buckets.** All weeks grouped by 8-week z, with mean forward returns. The windows overlap, so the week counts overstate independent cases.
-- **Indicative gold band.** For the weeks after the MAUc1 export ends, GOLDBEES' weekly high, low and close are scaled by MAUc1 / GOLDBEES on 2026-11-06. They are run through the desk rule: TR, 5-week linearly weighted ATR, bands (H+L)/2 ± 2 ATR, FUB ratcheting down. This reproduces the stored wATR on 2026-11-06 exactly from its inputs. It is an estimate, not the production signal.
+- **Gold band.** Read from D24c (real ST on 2026-11-20). The first version of this study (commit d6b3531), before D24c, estimated it: for the weeks after the MAUc1 export ends, GOLDBEES' weekly high, low and close are scaled by MAUc1 / GOLDBEES on 2026-11-06. They are run through the desk rule: TR, 5-week linearly weighted ATR, bands (H+L)/2 ± 2 ATR, FUB ratcheting down. This reproduces the stored wATR on 2026-11-06 exactly from its inputs. It is an estimate, not the production signal.
 
 ## Limits
 

@@ -9,10 +9,11 @@ Questions
 
 Descriptive only: no null, no pre-registration, thresholds shown as a sweep, overlapping events de-clustered.
 Every input is an APPROVED row of data/APPROVED_DATA.md (as of 2026-11-25):
-  gold    D24b MAUc1 cleaned daily 2003-11-10 -> 2026-11-06 (MCX gold futures, continuous, Rs/10 g),
-          chained with D09 GOLDBEES weekly returns 2026-11-06 -> 2026-11-20 (MAUc1 export ends 2026-11-06);
+  gold    D24c MAUc1 cleaned daily 2003-11-10 -> 2026-11-20 (MCX gold futures, continuous, Rs/10 g; Manu's export,
+          then Postgres ohlcv_eikon_futures from 2026-11-12). Before D24c existed the last two weeks were chained from
+          GOLDBEES (commit d6b3531); the chaining code stays and now adds nothing;
           GOLDBEES itself is not used for history: it traded ~6% rich to MCX gold at the January 2026 peak.
-  signal  D24b MAUc1 weekly supertrend (SIGN) to 2026-11-06
+  signal  D24c MAUc1 weekly supertrend (SIGN) to 2026-11-20
   equity  D25 + D25d Nifty 100 / Midcap 100 / Smallcap 100 daily closes; D03 (2026-11-20) weekly SIGNs
           (Smallcap 100 signal used only from 2011-11-25, prices only from 2011-10-03: rule 7)
 The last complete week is the one ending Friday 2026-11-20.
@@ -35,8 +36,8 @@ LAST = pd.Timestamp("2026-11-20")
 SC_PRICE_FROM, SC_SIGN_FROM = pd.Timestamp("2011-10-03"), pd.Timestamp("2011-11-25")
 HD = AA / "Historical Data"
 F = dict(
-    mau=HD / "extended_2026-11-12/MAUc1_from_2003/mauc1_daily_clean_extended.csv",
-    mau_w=HD / "extended_2026-11-12/MAUc1_from_2003/mauc1_supertrend_weekly_extended.csv",
+    mau=HD / "extended_2026-11-20/MAUc1_from_2003/mauc1_daily_clean_extended.csv",
+    mau_w=HD / "extended_2026-11-20/MAUc1_from_2003/mauc1_supertrend_weekly_extended.csv",
     gb=AA / "analysis/cache/why_gold_ohlc_eikon_extended_2026-11-23.parquet",
     **{f"px_{n}_old": HD / f"extended_2026-11-12/index_daily_pre2019/{n}_daily_ohlcv.csv" for n in ("Nifty100", "MC100", "SC100")},
     **{f"px_{n}_new": HD / f"extended_2026-11-20/index_daily_2019_2026/{n}_daily_ohlcv.csv" for n in ("Nifty100", "MC100", "SC100")},
@@ -268,6 +269,11 @@ def main() -> int:
         band.append({"week": str(d.date()), "high": float(row.high), "low": float(row.low), "close": float(row.close), "TR": float(t),
                      "wATR": float(watr), "BUB": float(bub), "FUB": float(fub), "rise_needed_to_flip_buy": float(fub / row.close - 1)})
         close_prev = row.close
+    if not band:      # MAUc1 itself reaches LAST: report the real band, not an estimate
+        last = wt.iloc[-1]
+        band = [{"week": str(wt.index[-1].date()), "high": float(last["high"]), "low": float(last["low"]), "close": float(last["close"]),
+                 "TR": float(last["TR"]), "wATR": float(last["wATR"]), "BUB": float(last["BUB"]), "FUB": float(last["FUB"]),
+                 "ST": float(last["ST"]), "rise_needed_to_flip_buy": float(last["ST"] / last["close"] - 1), "actual": True}]
     current["mauc1_band_indicative"] = band
     sc = pd.read_excel(F["sig_SC100"], parse_dates=["Date"]).set_index("Date")
     current["sc100_band"] = {"week": str(sc.index[-1].date()), "close": float(sc["Index"].iloc[-1]), "ST": float(sc["ST"].iloc[-1]),
