@@ -70,7 +70,9 @@ def connect():
     return c
 
 
-def build(parent: str, conn) -> None:
+def build(parent: str, conn, out_dir: Path = OUT) -> None:
+    """Inputs are always read from OUT; the three output files go to out_dir (default OUT, as before).
+    data/extend_stock_ohlc.py passes a staging folder so the approved D18 files are never overwritten."""
     print(f"\n===== {parent} =====")
     mat = pd.read_csv(OUT / f"{parent}_holdings_matrix.csv", parse_dates=["rebalance_date"]).set_index("rebalance_date")
     cols = pd.read_csv(OUT / f"{parent}_columns.csv")
@@ -165,9 +167,9 @@ def build(parent: str, conn) -> None:
     long.columns = ["date", "stock"] + FIELDS + ["src"]
     stock_order = {s: i for i, s in enumerate(mat.columns)}
     long = long.sort_values(["stock", "date"], key=lambda c: c.map(stock_order) if c.name == "stock" else c)
-    long.round(6).to_csv(OUT / f"{parent}_ohlc.csv", index=False, date_format="%Y-%m-%d")
+    long.round(6).to_csv(out_dir / f"{parent}_ohlc.csv", index=False, date_format="%Y-%m-%d")
     fc = long[long["src"] == "carried"][["date", "stock", "close"]].rename(columns={"close": "carried_close"})
-    fc.to_csv(OUT / f"{parent}_ohlc_filled_cells.csv", index=False, date_format="%Y-%m-%d")
+    fc.to_csv(out_dir / f"{parent}_ohlc_filled_cells.csv", index=False, date_format="%Y-%m-%d")
 
     rows = []
     for s_ in mat.columns:
@@ -179,7 +181,7 @@ def build(parent: str, conn) -> None:
                      "carried": car, "missing": int(n.sum()) - full - part - car,
                      "first_bar": P["close"][s_].first_valid_index(), "last_bar": P["close"][s_].last_valid_index()})
     av = pd.DataFrame(rows)
-    av.to_csv(OUT / f"{parent}_ohlc_availability.csv", index=False, date_format="%Y-%m-%d")
+    av.to_csv(out_dir / f"{parent}_ohlc_availability.csv", index=False, date_format="%Y-%m-%d")
     tot = int(av["needed_sessions"].sum())
     raw = int(av["complete_bars"].sum())
     allv = tot - int(av["missing"].sum()) - int(av["partial_bars"].sum())
