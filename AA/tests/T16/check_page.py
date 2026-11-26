@@ -732,7 +732,22 @@ def main() -> int:
     svg_l = [s["id"] for s in pg.svgs if "lc" in s["cls"].split()]
     chk("every curve chart has its data and every data set its chart", sorted(svg_l) == sorted(lines), f"svg {sorted(svg_l)} data {sorted(lines)}")
     chk("charts exist", len(lines) > 0, "no charts")
-    chk("every curve chart has its overlay data and six overlay groups", sorted(rel) == sorted(lines) and raw.count('class="rl"') == 6 * len(lines) and "<select" in raw, f"overlay data {sorted(rel)}")
+    chk("every curve chart has its overlay data and six overlay groups", sorted(rel) == sorted(lines) and raw.count('class="rl"') == 6 * len(lines), f"overlay data {sorted(rel)}")
+    # the chip bars: one per window, a chip for each of the eleven curves, each of the six ratio overlays, the shading, the presets; some curve pressed when the page opens
+    import re as _re
+    for w_ in sorted({k.split("|")[0] for k in lines}):
+        m_ = _re.search(r'<div class="chips" data-win="' + w_ + r'".*?</div>', raw, _re.S)
+        chk(f"chip bar {w_} exists", m_ is not None, "no chip bar")
+        if m_ is None:
+            continue
+        blk = m_.group(0)
+        chk(f"chip bar {w_}: a chip for each of the eleven curves", sorted(_re.findall(r'data-k="([^"]+)"', blk)) == sorted(CURVE_KINDS), "the curve chips differ from the eleven curves")
+        chk(f"chip bar {w_}: a chip for each of the six ratio overlays", sorted(int(x) for x in _re.findall(r'data-pair="(\d+)"', blk)) == list(range(len(REL_PAIRS))), "overlay chips")
+        chk(f"chip bar {w_}: shading chip and the four presets", "data-sh" in blk and all(f'data-pre="{x}"' in blk for x in ("reset", "all", "alls", "none")), "shading or presets missing")
+        chk(f"chip bar {w_}: every chip is a button with aria-pressed", blk.count("<button") == blk.count("aria-pressed=") == blk.count("</button>") and blk.count("<button") >= len(CURVE_KINDS) + len(REL_PAIRS) + 1 + 4, "chip markup")
+        chk(f"chip bar {w_}: at least one curve is drawn when the page opens", bool(_re.search(r'data-k="[^"]+"[^>]*aria-pressed="true"', blk)), "no curve pressed")
+    for w_ in sorted({k.split("|")[0] for k in lines}):
+        chk(f"every {w_} chart is tied to its chip bar (data-win)", all(f'data-win="{w_}"' in raw[raw.find(f'data-book="{k}"'):raw.find(f'data-book="{k}"') + 200] for k in lines if k.startswith(w_ + "|")), "data-win")
     for key, dd in lines.items():
         w, b = key.split("|")
         E = EV[w]
@@ -759,7 +774,7 @@ def main() -> int:
             r_ = nu / de
             chk(f"overlay values {key} {x['num']}/{x['den']}", x["v"] == [round(float(r_[i]), 5) for i in idx] and x["end"] == round(float(r_[-1]), 5), "values differ")
             chk(f"overlay axis {key} {x['num']}/{x['den']}", x["lo"] <= min(x["v"] + [1.0]) and x["hi"] >= max(x["v"] + [1.0]), "axis does not cover the data")
-    for needle, why in (("lc-ov", "curve hover overlay"), ("lc-xt", "timestamp chip"), ("lc-yt", "level chip"), ("lc-h", "horizontal guide"), ("pointermove", "pointer handler"), ("tip", "tooltip"), ("vsel", "overlay menu")):
+    for needle, why in (("lc-ov", "curve hover overlay"), ("lc-xt", "timestamp chip"), ("lc-yt", "level chip"), ("lc-h", "horizontal guide"), ("pointermove", "pointer handler"), ("tip", "tooltip"), ("button.chip", "chip styling"), ("aria-pressed", "chip state"), ("rescale", "y-axis rescale note")):
         chk(f"hover: {why}", needle in raw, "missing")
     for w, E in EV.items():
         for b in E.books:

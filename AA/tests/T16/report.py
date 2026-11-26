@@ -46,6 +46,7 @@ DASH = {"50-orig": "4 3", "80-orig": "4 3"}
 THICK = {"50-all": 3.0, "80-all": 3.0, "hold_parent": 1.4}
 REL_PAIRS = [("50-all", "50-liq"), ("50-all", "50-orig"), ("50-all", "50-idx"), ("80-all", "80-liq"), ("80-all", "80-orig"), ("80-all", "80-idx")]
 REL_COL = "#d6336c"
+DEFAULT_ON = ["hold_parent", "50-orig", "50-all"]      # the curves drawn when the page opens; the chips switch any of the eleven on and off
 REG_NAMES = ("IN", "OUT-BUY", "OUT-SELL")
 KS_LABELS = [("k0", "k = 0"), ("k1", "k = 1"), ("k2", "k = 2"), ("kge1", "k >= 1"), ("all", "all OUT-SELL weeks")]
 VAR_TXT = {"headline": "headline", "r2_liq": "R2 (LIQUIDCASE cash leg)", "r3": "R3 (own window)", "r5_drag": "R5 (index leg minus 0.5 pp a year)"}
@@ -224,7 +225,7 @@ def svg_lines(series: dict, dates, key: str, title: str, st_reg, st_k, st_B, w=7
     """series: {kind: NAV array}; every 5th session plus the last; log scale; hover read from lines-data[key]; OUT-SELL stretches shaded (grey = k = 0: -all holds the three indices, -idx only cash;
     amber = k >= 1: -idx holds an index too); six hidden overlays (-all / -liq, -all / -orig and -all / -idx on each base, selected from the page's menu) on their own right-hand linear axis."""
     idx = sampled(len(dates))
-    allv = np.concatenate([v[idx] for v in series.values()])
+    allv = np.concatenate([series[k][idx] for k in DEFAULT_ON])        # the first scale fits the curves shown on opening; the chips rescale it
     ymin, ymax = math.log(allv.min() * 0.97), math.log(allv.max() * 1.03)
     L, R, T, B = 44, 46, 8, 24
     n = len(idx)
@@ -232,7 +233,7 @@ def svg_lines(series: dict, dates, key: str, title: str, st_reg, st_k, st_B, w=7
     y = lambda v: T + (h - T - B) * (1 - (math.log(v) - ymin) / (ymax - ymin))
     dx = (w - L - R) / (n - 1)
     bot = h - B
-    out = [f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{E(title)}" class="chart lc" data-book="{E(key)}">']
+    out = [f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{E(title)}" class="chart lc" data-book="{E(key)}" data-win="{E(key.split("|")[0])}">', '<g class="lc-sh">']
     j = 0
     while j < n:
         if st_reg[j] == "OUT-SELL":
@@ -245,9 +246,11 @@ def svg_lines(series: dict, dates, key: str, title: str, st_reg, st_k, st_B, w=7
             j = e + 1
         else:
             j += 1
-    for t in (0.5, 1, 2, 4, 8, 16, 32, 64):
+    out.append('</g><g class="lc-gr">')
+    for t in (0.25, 0.5, 1, 2, 4, 8, 16, 32, 64):
         if allv.min() * 0.97 <= t <= allv.max() * 1.03:
             out.append(f'<line x1="{L}" x2="{w - R}" y1="{y(t):.1f}" y2="{y(t):.1f}" class="grid"/><text x="{L - 4}" y="{y(t) + 3:.1f}" text-anchor="end" class="ax">{t:g}×</text>')
+    out.append('</g>')
     years = sorted({pd.Timestamp(d).year for d in dates})
     for yr in years[::2]:
         i = int(np.argmax([pd.Timestamp(d).year == yr for d in dates]))
@@ -256,7 +259,8 @@ def svg_lines(series: dict, dates, key: str, title: str, st_reg, st_k, st_B, w=7
     for k, v in series.items():
         pts = " ".join(f"{x(j_):.1f},{y(v[i]):.1f}" for j_, i in enumerate(idx))
         dash = f' stroke-dasharray="{DASH[k]}"' if k in DASH else ""
-        out.append(f'<polyline points="{pts}" fill="none" stroke="{COL[k]}" stroke-width="{THICK.get(k, 1.6)}"{dash} stroke-linejoin="round"/>')
+        hide = "" if k in DEFAULT_ON else ' style="display:none"'
+        out.append(f'<polyline class="lc-l" data-k="{E(k)}" points="{pts}" fill="none" stroke="{COL[k]}" stroke-width="{THICK.get(k, 1.6)}"{dash} stroke-linejoin="round"{hide}/>')
     pairs = []
     for pi, (num, den) in enumerate(REL_PAIRS):
         r = series[num] / series[den]
@@ -280,7 +284,7 @@ def svg_lines(series: dict, dates, key: str, title: str, st_reg, st_k, st_B, w=7
                f'<line class="lc-v" y1="{T}" y2="{bot}" stroke="var(--muted)" stroke-width="1"/>'
                f'<circle class="lc-rc" r="3.2" fill="{REL_COL}" stroke="var(--card)" stroke-width="1.5" style="display:none"/>'
                f'<line class="lc-h" x1="{L}" x2="{w - R}" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 3"/>'
-               + "".join(f'<circle class="lc-c" r="3.2" fill="{COL[k]}" stroke="var(--card)" stroke-width="1.5"/>' for k in series)
+               + "".join(f'<circle class="lc-c" data-k="{E(k)}" r="3.2" fill="{COL[k]}" stroke="var(--card)" stroke-width="1.5"/>' for k in series)
                + f'<g class="lc-yc"><rect x="0" y="-8" width="{L - 3}" height="16" rx="3" fill="var(--fg)"/><text x="{L - 7}" y="3.5" text-anchor="end" font-size="10" fill="var(--bg)" class="lc-yt"></text></g>'
                f'<g class="lc-xc"><rect y="{h - 19}" width="92" height="16" rx="3" fill="var(--fg)" class="lc-xr"/><text y="{h - 7.5}" text-anchor="middle" font-size="10" fill="var(--bg)" class="lc-xt"></text></g></g>')
     out.append(f'<rect class="lc-ov" x="{L}" y="{T}" width="{w - L - R}" height="{bot - T}" fill="transparent" style="cursor:crosshair;touch-action:none"/></svg>')
@@ -294,28 +298,45 @@ def svg_lines(series: dict, dates, key: str, title: str, st_reg, st_k, st_B, w=7
 LINES_JS = """(function(){
 var all=JSON.parse(document.getElementById('lines-data').textContent);
 var rels=JSON.parse((document.getElementById('rel-data')||{textContent:'{}'}).textContent);
+var TICKS=[0.25,0.5,1,2,4,8,16,32,64],NS='http://www.w3.org/2000/svg',charts=[];
 function fx(v){return v.toFixed(2)+'\\u00d7'}
+function el(n,a,t){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(t!=null)e.textContent=t;return e}
 Array.prototype.forEach.call(document.querySelectorAll('svg.lc'),function(svg){
- var d=all[svg.getAttribute('data-book')],fig=svg.parentNode,tip=fig.querySelector('.tip'),g=svg.querySelector('.lc-hv'),ov=svg.querySelector('.lc-ov'),
- cs=svg.querySelectorAll('.lc-c'),q=function(c){return svg.querySelector(c)};
- var rd=rels[svg.getAttribute('data-book')],rgs=svg.querySelectorAll('.rl'),rc=svg.querySelector('.lc-rc'),sel=fig.querySelector('select.vsel'),on=-1;
- if(sel)sel.addEventListener('change',function(){on=(sel.value==='none')?-1:parseInt(sel.value,10);Array.prototype.forEach.call(rgs,function(r){r.style.display=(parseInt(r.getAttribute('data-pair'),10)===on)?'':'none'})});
+ var key=svg.getAttribute('data-book'),d=all[key],fig=svg.parentNode,tip=fig.querySelector('.tip'),g=svg.querySelector('.lc-hv'),ov=svg.querySelector('.lc-ov'),
+ cs=svg.querySelectorAll('.lc-c'),ls=svg.querySelectorAll('.lc-l'),rgs=svg.querySelectorAll('.rl'),rc=svg.querySelector('.lc-rc'),gr=svg.querySelector('.lc-gr'),sh=svg.querySelector('.lc-sh'),
+ q=function(c){return svg.querySelector(c)},rd=rels[key];
+ var c={win:svg.getAttribute('data-win'),lo:d.lo,hi:d.hi,vis:{},on:-1,shade:true};
+ d.series.forEach(function(s,n){c.vis[s.k]=ls[n].style.display!=='none'});
  function X(j){return d.L+(d.w-d.L-d.R)*j/(d.n-1)}
- function Y(v){return d.T+(d.h-d.T-d.B)*(1-((d.log?Math.log(v):v)-d.lo)/(d.hi-d.lo))}
+ function Y(v){return d.T+(d.h-d.T-d.B)*(1-(Math.log(v)-c.lo)/(c.hi-c.lo))}
+ function redraw(){
+  var lo=1e9,hi=-1e9,any=false;
+  d.series.forEach(function(s){if(c.vis[s.k]){any=true;s.v.forEach(function(v){if(v<lo)lo=v;if(v>hi)hi=v})}});
+  if(!any)d.series.forEach(function(s){s.v.forEach(function(v){if(v<lo)lo=v;if(v>hi)hi=v})});
+  c.lo=Math.log(lo*0.97);c.hi=Math.log(hi*1.03);
+  Array.prototype.forEach.call(ls,function(p,n){var s=d.series[n],on=!!c.vis[s.k];p.style.display=on?'':'none';
+   if(on){var pts=[];for(var j=0;j<d.n;j++)pts.push(X(j).toFixed(1)+','+Y(s.v[j]).toFixed(1));p.setAttribute('points',pts.join(' '))}});
+  while(gr.firstChild)gr.removeChild(gr.firstChild);
+  TICKS.forEach(function(t){if(t>=lo*0.97&&t<=hi*1.03){var yy=Y(t);gr.appendChild(el('line',{x1:d.L,x2:d.w-d.R,y1:yy,y2:yy,'class':'grid'}));gr.appendChild(el('text',{x:d.L-4,y:yy+3,'text-anchor':'end','class':'ax'},t+'\\u00d7'))}});
+  sh.style.display=c.shade?'':'none';
+  Array.prototype.forEach.call(rgs,function(r){r.style.display=(parseInt(r.getAttribute('data-pair'),10)===c.on)?'':'none'});
+  g.style.display='none';tip.hidden=true;
+ }
+ charts.push({c:c,redraw:redraw});
  function move(e){
   var r=svg.getBoundingClientRect(),k=d.w/r.width,vx=(e.clientX-r.left)*k,vy=(e.clientY-r.top)*k;
   var j=Math.max(0,Math.min(d.n-1,Math.round((vx-d.L)/(d.w-d.L-d.R)*(d.n-1)))),x=X(j);
   g.style.display='';
   q('.lc-v').setAttribute('x1',x);q('.lc-v').setAttribute('x2',x);
-  for(var n=0;n<cs.length;n++){cs[n].setAttribute('cx',x);cs[n].setAttribute('cy',Y(d.series[n].v[j]))}
+  for(var n=0;n<cs.length;n++){var on=!!c.vis[d.series[n].k];cs[n].style.display=on?'':'none';if(on){cs[n].setAttribute('cx',x);cs[n].setAttribute('cy',Y(d.series[n].v[j]))}}
   var top=d.T,hgt=d.h-d.T-d.B,hl=q('.lc-h'),yc=q('.lc-yc');
   hl.setAttribute('y1',vy);hl.setAttribute('y2',vy);yc.setAttribute('transform','translate(0,'+vy+')');
-  var f=1-(vy-top)/hgt,lv=d.lo+f*(d.hi-d.lo);q('.lc-yt').textContent=fx(d.log?Math.exp(lv):lv);
+  var f=1-(vy-top)/hgt,lv=c.lo+f*(c.hi-c.lo);q('.lc-yt').textContent=fx(Math.exp(lv));
   var xr=q('.lc-xr'),xl=Math.max(0,Math.min(d.w-92,x-46));
   xr.setAttribute('x',xl);q('.lc-xt').setAttribute('x',xl+46);q('.lc-xt').textContent=d.dates[j];
   var s='<b>'+d.dates[j]+'</b><br>state held: <b>'+d.state[j]+'</b>';
-  for(var n=0;n<d.series.length;n++)s+='<br><i style="background:'+d.series[n].col+'"></i>'+d.series[n].label+': <b>'+fx(d.series[n].v[j])+'</b>';
-  if(on>=0&&rd){var p=rd.pairs[on],pc=(p.v[j]-1)*100,y2=d.T+(d.h-d.T-d.B)*(1-(p.v[j]-p.lo)/(p.hi-p.lo));rc.style.display='';rc.setAttribute('cx',x);rc.setAttribute('cy',y2);
+  for(var n=0;n<d.series.length;n++)if(c.vis[d.series[n].k])s+='<br><i style="background:'+d.series[n].col+'"></i>'+d.series[n].label+': <b>'+fx(d.series[n].v[j])+'</b>';
+  if(c.on>=0&&rd){var p=rd.pairs[c.on],pc=(p.v[j]-1)*100,y2=d.T+(d.h-d.T-d.B)*(1-(p.v[j]-p.lo)/(p.hi-p.lo));rc.style.display='';rc.setAttribute('cx',x);rc.setAttribute('cy',y2);
    s+='<br><i style="background:'+rd.col+'"></i>'+p.num+' \\u00f7 '+p.den+': <b>'+p.v[j].toFixed(3)+'\\u00d7</b> ('+(pc>=0?'ahead ':'behind ')+Math.abs(pc).toFixed(1)+'%)'}
   else if(rc)rc.style.display='none';
   tip.innerHTML=s;tip.hidden=false;
@@ -326,6 +347,32 @@ Array.prototype.forEach.call(document.querySelectorAll('svg.lc'),function(svg){
  }
  function out(){g.style.display='none';tip.hidden=true}
  ov.addEventListener('pointermove',move);ov.addEventListener('pointerdown',move);ov.addEventListener('pointerleave',out);
+});
+Array.prototype.forEach.call(document.querySelectorAll('.chips'),function(bar){
+ var win=bar.getAttribute('data-win'),bs=bar.querySelectorAll('button.chip');
+ function set(b,p){b.setAttribute('aria-pressed',p?'true':'false')}
+ function pressed(b){return b.getAttribute('aria-pressed')==='true'}
+ function apply(){
+  var vis={},on=-1,shade=false;
+  Array.prototype.forEach.call(bs,function(b){var p=pressed(b);
+   if(b.hasAttribute('data-k'))vis[b.getAttribute('data-k')]=p;
+   else if(b.hasAttribute('data-pair')){if(p)on=parseInt(b.getAttribute('data-pair'),10)}
+   else if(b.hasAttribute('data-sh'))shade=p});
+  charts.forEach(function(x){if(x.c.win===win){x.c.vis=vis;x.c.on=on;x.c.shade=shade;x.redraw()}});
+ }
+ Array.prototype.forEach.call(bs,function(b){b.addEventListener('click',function(){
+  if(b.hasAttribute('data-pre')){
+   var m=b.getAttribute('data-pre');
+   Array.prototype.forEach.call(bs,function(o){
+    if(o.hasAttribute('data-k')){var k=o.getAttribute('data-k');set(o,m==='all'||(m==='reset'&&o.getAttribute('data-def')==='1')||(m==='alls'&&/-all$/.test(k)))}
+    else if(m==='reset'&&o.hasAttribute('data-pair'))set(o,false);
+    else if(m==='reset'&&o.hasAttribute('data-sh'))set(o,true)});
+  }else if(b.hasAttribute('data-pair')){
+   var was=pressed(b);Array.prototype.forEach.call(bs,function(o){if(o.hasAttribute('data-pair'))set(o,false)});set(b,!was);
+  }else set(b,!pressed(b));
+  apply();
+ })});
+ apply();
 });
 })();"""
 
@@ -343,6 +390,12 @@ table.wrap td,table.wrap th{white-space:normal;text-align:left;vertical-align:to
 .formula{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px 12px;font:12.5px/1.5 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-x:auto;margin:6px 0}
 [hidden]{display:none!important}.vsel{font:inherit;font-size:12.5px;margin-left:4px;max-width:100%}.hv{position:relative}.tip{position:absolute;z-index:5;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 9px;font-size:12px;line-height:1.5;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.18);font-variant-numeric:tabular-nums}.tip i{display:inline-block;width:10px;height:3px;margin-right:6px;vertical-align:middle}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;margin:6px 0}.legend i{display:inline-block;width:14px;height:3px;margin-right:6px;vertical-align:middle}.legend b.sw{display:inline-block;width:14px;height:10px;margin-right:6px;vertical-align:middle}
+.chips{display:flex;flex-wrap:wrap;gap:6px 8px;margin:8px 0;align-items:center}.chips .gap{flex-basis:100%;height:0}
+button.chip{font:inherit;font-size:12.5px;display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;line-height:1.3}
+button.chip:hover{border-color:var(--muted)}button.chip:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+button.chip i.sw{display:inline-block;width:11px;height:11px;border-radius:2px;border:1.5px solid var(--sw,var(--muted));background:transparent;flex:none}
+button.chip[aria-pressed=true]{color:var(--fg);border-color:var(--sw,var(--fg));box-shadow:inset 0 0 0 1px var(--sw,var(--fg))}button.chip[aria-pressed=true] i.sw{background:var(--sw,var(--fg))}
+button.chip.pre{border-style:dashed}.chips .lbl{font-size:12px;color:var(--muted);margin-right:2px}
 .answer{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:6px;padding:12px 16px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .caveat{border-left:3px solid var(--warn);padding:2px 12px;margin:8px 0;background:var(--card)}
 details{margin:.4em 0}summary{cursor:pointer;color:var(--muted)}@media (max-width:700px){.grid2{grid-template-columns:1fr}h1{font-size:21px}}
@@ -861,14 +914,34 @@ def section_desc(Ws) -> str:
 
 
 # ── section 5: curves ────────────────────────────────────────────────────────
+def chips_html(w: str) -> str:
+    """one chip bar per window: a chip per curve (the ten rules and the parent), the six outperformance overlays (one at a time, right-hand axis), the OUT-SELL shading, and four presets. Clicking a chip
+    shows or hides that curve in the four charts of the window; the y axis rescales to the curves shown."""
+    def chip(attrs, sw, text, pressed, extra=""):
+        return (f'<button type="button" class="chip{extra}" {attrs} aria-pressed="{"true" if pressed else "false"}" style="--sw:{sw}">'
+                f'<i class="sw"></i>{E(text)}</button>')
+    h = [f'<div class="chips" data-win="{w}" role="group" aria-label="curves to draw in the {w} charts"><span class="lbl">Curves (click to show or hide):</span>']
+    for k in CURVE_KINDS:
+        h.append(chip(f'data-k="{E(k)}"' + (' data-def="1"' if k in DEFAULT_ON else ""), COL[k], LAB[k], k in DEFAULT_ON))
+    h.append('<span class="gap"></span><span class="lbl">Ratio on the right axis (one at a time):</span>')
+    for i, (n_, d_) in enumerate(REL_PAIRS):
+        h.append(chip(f'data-pair="{i}"', REL_COL, f"{n_} ÷ {d_}", False))
+    h.append('<span class="gap"></span><span class="lbl">Also:</span>')
+    h.append(chip('data-sh="1"', "#e8b45c", "OUT-SELL stretches shaded", True))
+    for pre, txt in (("reset", "reset"), ("all", "all eleven"), ("alls", "only the two -all rules"), ("none", "none")):
+        h.append(chip(f'data-pre="{pre}"', "var(--muted)", txt, False, " pre"))
+    h.append("</div>")
+    return "".join(h)
+
+
 def section_curves(Ws, lines_data, rel_data) -> str:
     h = ['<h2 id="curves">5. The curves: the ten rules and the parent, per book</h2><p class="mini">Growth of 1 invested at the close of the first session of the window, log scale, 20.8 bps, daily marks (every 5th session drawn; the hover reads the same arrays). '
-         'The two originals are dashed; the two -all rules are thick. Shaded: OUT-SELL stretches held (grey = k = 0, every index on SELL: -all holds the three indices, -idx only cash; amber = k ≥ 1: -idx holds an index too). '
-         'The overlay menu draws the growth ratio of an -all rule over its -liq, -orig or -idx rule on a right-hand axis (above the dotted 1.0× line the -all rule is ahead).</p>']
+         '<b>Click a chip to show or hide that curve</b> in all four charts of the window; the vertical axis rescales to the curves shown, and the hover lists only those. The page opens with the parent, 50-orig and 50-all. '
+         'The two originals are dashed when drawn; the two -all rules are thick. Shaded: OUT-SELL stretches held (grey = k = 0, every index on SELL: -all holds the three indices, -idx only cash; amber = k ≥ 1: -idx holds an index too). '
+         'A ratio chip draws the growth ratio of an -all rule over its -liq, -orig or -idx rule on a right-hand axis (above the dotted 1.0× line the -all rule is ahead); the end values of every curve are in each caption whether it is drawn or not.</p>']
     for w, W in Ws.items():
         a, z = dates_of(W, W.books[0])
-        h.append(f'<h3>{A.WIN_TXT[w]}</h3><div class="legend">' + "".join(f'<span><i style="background:{COL[k]}"></i>{E(LAB[k])}</span>' for k in CURVE_KINDS)
-                 + '<span><b class="sw" style="background:#8a8f98;opacity:.4"></b>OUT-SELL, k = 0</span><span><b class="sw" style="background:#e8b45c;opacity:.6"></b>OUT-SELL, k ≥ 1</span></div>')
+        h.append(f'<h3>{A.WIN_TXT[w]}</h3>' + chips_html(w) + '<div class="grid2">')
         for b in W.books:
             dts, _ = W.curve_for(b, PRIMARY, "50-all")
             ser = {k: W.curve_for(b, PRIMARY, k)[1] for k in CURVE_KINDS}
@@ -882,11 +955,10 @@ def section_curves(Ws, lines_data, rel_data) -> str:
             svg, data, rdata = svg_lines(ser, dts, key, f"{b} growth of 1", st_reg, st_k, st_B)
             lines_data[key] = data
             rel_data[key] = rdata
-            opts = '<option value="none">none</option>' + "".join(f'<option value="{i}">{n} ÷ {d_}: outperformance (right axis)</option>' for i, (n, d_) in enumerate(REL_PAIRS))
-            sel = f'<label class="mini">Overlay: <select class="vsel" aria-label="chart overlay for {b}">{opts}</select></label>'
-            h.append(f'<figure class="card hv needs-dates" data-formulas="nav" style="margin:10px 0"><figcaption><b>{b}</b>: growth of 1 invested at the close of {aa}, log scale, {PRIMARY} bps '
-                     f'<span class="mini">{DT(w, b, "full", aa, zz)}; end values ' + ", ".join(f"{LAB[k]} " + V(stk(w, b, "headline", PRIMARY, k, "end_nav"), W.get("headline", "full", PRIMARY, b, k)["end_nav"], "x", 2) + "×" for k in CURVE_KINDS)
-                     + f'</span> {sel}</figcaption>{svg}<div class="tip" hidden></div><p class="mini">{fref("nav")}</p></figure>')
+            h.append(f'<figure class="card hv needs-dates" data-formulas="nav" style="margin:0"><figcaption><b>{b}</b>: growth of 1 invested at the close of {aa}, log scale, {PRIMARY} bps '
+                     f'<span class="mini">{DT(w, b, "full", aa, zz)}</span><details><summary class="mini">end values of all eleven curves (drawn or not)</summary><span class="mini">' + ", ".join(f"{LAB[k]} " + V(stk(w, b, "headline", PRIMARY, k, "end_nav"), W.get("headline", "full", PRIMARY, b, k)["end_nav"], "x", 2) + "×" for k in CURVE_KINDS)
+                     + f'</span></details></figcaption>{svg}<div class="tip" hidden></div><p class="mini">{fref("nav")}</p></figure>')
+        h.append("</div>")
     return "".join(h)
 
 

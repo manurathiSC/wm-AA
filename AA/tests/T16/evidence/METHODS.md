@@ -18,4 +18,4 @@ Pre-registration: `tests/T16/T16.md` §1-§3 (frozen 2026-11-26, sha256 `eda7321
 
 **Known limits.** The index leg is a price index (no dividends, no fund cost), not a tradable instrument; W1's parent is a rebuild with no published NAV to check it against; the four books share one market, so "3 of 4" is a consistency check; both windows and T14 / T15 were seen before the variant was proposed (post-hoc, no hold-out; the three new W2 weeks are not a hold-out); no null was run, so nothing here is a statement about chance. One verifier reading was decided after a first mismatch (R5 on sessions without an index bar) and moves 8 R5 rows by 1.5e-5 relative.
 
-**Files.** `headline/{w1,w2}/` (evidence contract: `logs/evidence_contract.md`), `analysis.log` (every table of §4), `report.html` (the page; `check_page.py` re-derives every number and date on it: 19,903 checks, 0 failures), this file.
+**Files.** `headline/{w1,w2}/` (evidence contract: `logs/evidence_contract.md`), `analysis.log` (every table of §4), `report.html` (the page; `check_page.py` re-derives every number and date on it: 19,919 checks, 0 failures), this file.
