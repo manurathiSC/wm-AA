@@ -66,6 +66,50 @@ def read_export() -> pd.DataFrame:
     return pd.DataFrame(cols).sort_index()
 
 
+ENV = AA.parents[1] / "wm-aiReports" / ".env"
+
+
+def read_db() -> pd.DataFrame:
+    """MAUc1 daily bars from Postgres windmill.public.ohlcv_eikon_futures (ric 'MAUc1', the same Eikon continuation
+    series as Manu's export), read-only session."""
+    import psycopg2
+    env = {}
+    for line in ENV.read_text().splitlines():
+        if "=" in line and not line.startswith("#"):
+            k, v = line.strip().split("=", 1)
+            env[k] = v.strip("\"'")
+    c = psycopg2.connect(host=env["PG_PRICE_HOST"], port=env["PG_PRICE_PORT"], dbname=env["PG_PRICE_DBNAME"],
+                         user=env["PG_PRICE_USER"], password=env["PG_PRICE_PASSWORD"], connect_timeout=20)
+    c.set_session(readonly=True)
+    cur = c.cursor()
+    cur.execute("select date, open, high, low, close, volume from ohlcv_eikon_futures where ric = 'MAUc1' order by date")
+    d = pd.DataFrame(cur.fetchall(), columns=["date", "open", "high", "low", "close", "volume"])
+    c.close()
+    d["date"] = pd.to_datetime(d["date"])
+    for k in ["open", "high", "low", "close", "volume"]:
+        d[k] = pd.to_numeric(d[k], errors="coerce").astype(float)
+    return d.set_index("date").sort_index()
+
+
+def splice_db(raw: pd.DataFrame, db_from: pd.Timestamp) -> tuple[pd.DataFrame, dict]:
+    """Export rows before db_from, Postgres rows from db_from on. STOPS unless every export row the DB also has,
+    before db_from, is identical in open/high/low/close (the DB starts 2005-01-01; the export starts 2003-11-10)."""
+    db = read_db()
+    pre = raw[raw.index < db_from]
+    both = pre.index.intersection(db.index)
+    diff = {k: float((pre.loc[both, k] - db.loc[both, k]).abs().max()) for k in ["open", "high", "low", "close"]}
+    only_db = db.index[(db.index >= pre.index.min()) & (db.index < db_from)].difference(pre.index)
+    rep = {"db_rows": len(db), "db_first": str(db.index.min().date()), "db_last": str(db.index.max().date()),
+           "export_rows_before_db_from": len(pre), "shared_before_db_from": len(both), "max_abs_diff_before_db_from": diff,
+           "dates_only_in_db_before_db_from": [str(x.date()) for x in only_db],
+           "export_rows_replaced_from_db_from": [str(x.date()) for x in raw.index[raw.index >= db_from]],
+           "db_rows_used": len(db[db.index >= db_from])}
+    print("splice:", json.dumps(rep, indent=1))
+    if max(diff.values()) > 0 or len(only_db):
+        raise SystemExit("STOP: the export and ohlcv_eikon_futures disagree before --db-from; nothing written.")
+    return pd.concat([pre, db[db.index >= db_from]]).sort_index(), rep
+
+
 def clean(d: pd.DataFrame) -> tuple[pd.DataFrame, list]:
     """The rules of mauc1_signal.load_clean, in memory (nothing is written)."""
     d = d.copy()
@@ -87,7 +131,7 @@ def clean(d: pd.DataFrame) -> tuple[pd.DataFrame, list]:
     return d, log
 
 
-def main(check_only: bool, last: str, first: str, out_dir_arg: str | None = None) -> int:
+def main(check_only: bool, last: str, first: str, out_dir_arg: str | None = None, db_from: str | None = None) -> int:
     hashes = check_vendor()
     qd, run, build_master = mp.import_production()
     cal = mp.PROD / "Data" / "TradingDays.xlsx"
@@ -97,6 +141,9 @@ def main(check_only: bool, last: str, first: str, out_dir_arg: str | None = None
         raise SystemExit(f"STOP: --last {last.date()} is after the NSE calendar's last day {cal_last.date()}")
 
     raw = read_export()
+    splice_rep = None
+    if db_from:
+        raw, splice_rep = splice_db(raw, pd.Timestamp(db_from))
     d, log = clean(raw)
     d = d.loc[first:last]
     print(f"input {SRC.name} sha256 {sha(SRC)[:16]}; raw {raw.index.min().date()} -> {raw.index.max().date()} "
@@ -176,6 +223,8 @@ def main(check_only: bool, last: str, first: str, out_dir_arg: str | None = None
     manifest = {"what": "MAUc1 weekly supertrend, recomputed with the vendored production code (F-AA-D13 manner)",
                 "call": "ST.run(scrip, 'W', 2, True, ...) + analysis_master.build_analysis_master",
                 "input": str(SRC), "input_sha256": sha(SRC), "cut_at": str(last.date()),
+                "db_from": db_from, "db_source": "Postgres windmill.public.ohlcv_eikon_futures, ric MAUc1" if db_from else None,
+                "splice_check": splice_rep,
                 "first_bar": str(first.date()), "input_rows_after_cleaning": len(d), "calendar": str(cal), "calendar_sha256": sha(cal),
                 "calendar_last": str(cal_last.date()), "code_sha256": hashes,
                 "stored_master": str(STORED_MASTER), "stored_master_sha256": sha(STORED_MASTER),
@@ -193,5 +242,7 @@ if __name__ == "__main__":
     ap.add_argument("--last", default="2026-11-06")
     ap.add_argument("--first", default="2015-02-02", help="the stored run starts here; a different start changes the band seeding")
     ap.add_argument("--out", default=None, help="output folder (default Historical Data/extended_<last row>/MAUc1); refuses to overwrite")
+    ap.add_argument("--db-from", default=None, help="take bars on/after this date from Postgres ohlcv_eikon_futures (ric MAUc1); "
+                                                    "earlier export rows must equal the DB exactly, or the run stops")
     a = ap.parse_args()
-    sys.exit(main(a.check, a.last, a.first, a.out))
+    sys.exit(main(a.check, a.last, a.first, a.out, a.db_from))
