@@ -1,6 +1,8 @@
 """T16 ad-hoc analysis (Manu, chat 2026-11-26: "give analysis regime basis, what data discovers"): every instrument and every rule broken down by the regime held.
 
-    python tests/T16/regime_basis.py [--run headline]      (from AA/)  ->  tests/T16/evidence/regime_basis.csv, regime_basis_spans.csv, regime_basis.md
+    python tests/T16/regime_basis.py [--run headline]      (from AA/)  ->  tests/T16/evidence/regime_basis.csv, regime_basis_spans.csv, regime_basis.md,
+                                                               and evidence/<run>/<window>/regime_basis_levels.csv (the GOLDBEES close and cash level per session, which the engine's
+                                                               evidence holds only per ledger span; check_page.py ties them to the ledger at every spell and stretch)
 
 DESCRIPTIVE ONLY, post-hoc, after the headline results were read; not part of the frozen design (T16.md sections 1-3); no null, no chance claim.
 Reads the headline evidence (`daily_nav.csv`: the rules at 20.8 bps, hold_parent at 0 bps, the price indices) and, for GOLDBEES and cash (which the evidence holds only per ledger span), the
@@ -67,6 +69,7 @@ def main():
     rows, span_rows = [], []
     for w in ("w1", "w2"):
         nav = pd.read_csv(ev / w / "daily_nav.csv")
+        lev = []
         for b in BOOKS:
             bk = EN.Book(b, w)
             dec = bk.decisions()
@@ -79,6 +82,7 @@ def main():
                 return s["nav"].to_numpy()
             ser = {"parent": series("hold_parent", 0.0), "GOLDBEES": bk.g, "cash": bk.L, **{n: bk.I[:, q] for q, n in enumerate(INDICES)},
                    "eq3_index_basket": series("eq3_index_basket", 20.8), **{r: series(r, 20.8) for r in RULES}}
+            lev.append(pd.DataFrame({"book": b, "date": [str(x.date()) for x in bk.cal], "GOLDBEES": bk.g, "cash": bk.L}))
             for name, lv in ser.items():
                 res = per_regime(np.asarray(lv, dtype=float), sp)
                 for reg, v in res.items():
@@ -87,6 +91,7 @@ def main():
                 for j, lo, hi, lab, dd in sp:
                     span_rows.append({"window": w, "decision_date": dd, "regime": lab, "a_session": str(bk.cal[lo].date()), "b_session": str(bk.cal[hi].date()),
                                       **{f"ret_{n}": float(ser[n][hi] / ser[n][lo] - 1) for n in ("GOLDBEES", "cash") + tuple(INDICES)}})
+        pd.concat(lev).to_csv(ev / w / "regime_basis_levels.csv", index=False)
     df = pd.DataFrame(rows)
     df.to_csv(ev.parent / "regime_basis.csv", index=False)
     pd.DataFrame(span_rows).to_csv(ev.parent / "regime_basis_spans.csv", index=False)

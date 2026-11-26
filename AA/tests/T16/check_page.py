@@ -43,6 +43,12 @@ KEY grammar (w = w1|w2, b = book, win = full|r3, var = headline|r2_liq|r3|r4_s<n
   cm:w|b|rule|field                      constant_mix_params.csv
   in:w|file|field                        inputs.csv (through, approved_row, sha, usable_from)
   gt:w|engine|v5|v4a|v1                  gate results recorded in audit.json, regression.json, verify_t16.json
+  rg:w|b|series|code|field                results by regime (section 5, ad hoc): code IN | OB | OS0 | OS1 | ALL, series parent | an index | GOLDBEES | cash | a rule, field sessions | spans | share | growth | ann |
+                                         log | up_spans; spans re-derived here from decisions.csv (each decision governs close of its trade session -> close of the next decision's trade session);
+                                         the parent, the indices and the rules from daily_nav.csv; GOLDBEES and cash from <window>/regime_basis_levels.csv, which is tied to regime_ledger.csv at every spell and
+                                         stretch (their prices are not in the engine's evidence)
+  rgm:w|series|code|field  rgd:w|A|B|code mean over the books of rg; mean over the books of log growth(A) - log growth(B)
+  kz:w|b|spell|stretch  kzn:w|b|up|n      mean of the three index returns over a k = 0 stretch of the ledger; how many k = 0 stretches there are and in how many that mean rose
 """
 from __future__ import annotations
 
@@ -74,7 +80,7 @@ DD_IDS = ("C2", "C6")
 EXPECT_END = {"w1": "2019-01-02", "w2": "2026-11-20"}
 CURVE_KINDS = ["hold_parent"] + RULES
 REL_PAIRS = [("50-all", "50-liq"), ("50-all", "50-orig"), ("50-all", "50-idx"), ("80-all", "80-liq"), ("80-all", "80-orig"), ("80-all", "80-idx")]
-NEED_FORMULAS = ["nav", "cost", "regime", "targets", "cagr", "maxdd", "calmar", "vol", "diff", "cmp", "ledger", "ksplit", "cmix", "state", "r4", "r5"]
+NEED_FORMULAS = ["nav", "cost", "regime", "targets", "cagr", "maxdd", "calmar", "vol", "diff", "cmp", "ledger", "ksplit", "cmix", "state", "r4", "r5", "rbasis"]
 RULE_IDS = list(RULES)
 BENCH_IDS = ["hold_parent", "hold_Nifty100", "hold_MC100", "hold_SC100", "eq3_index_basket", "cmix_"]
 RUN_LABELS = ["W1", "W2", "live", "R1", "R2", "R3", "R4", "R5", "C1", "C2", "C3", "C4", "C5", "C6"]
@@ -198,6 +204,7 @@ class Ev:
         self.audit = json.loads((d / "audit.json").read_text(encoding="utf-8"))
         self.regr = json.loads((d / "regression.json").read_text(encoding="utf-8"))
         self.verify = json.loads((d / "verify_t16.json").read_text(encoding="utf-8")) if (d / "verify_t16.json").exists() else None
+        self.rbl = pd.read_csv(d / "regime_basis_levels.csv") if (d / "regime_basis_levels.csv").exists() else None
         self._ng = {k: g.sort_values("date") for k, g in self.nav.groupby(["book", "cost_bps", "run"])}
         self._S = {}
         for r in self.st.to_dict("records"):
@@ -462,6 +469,65 @@ def state_str(reg, B, k) -> str:
     return reg if reg != "OUT-SELL" else f"OUT-SELL, B = {B} (k = {k})"
 
 
+# ── results by regime (section 5, ad hoc) ──────────────────────────────────────
+_RBC: dict = {}
+
+
+def rb_spans(E: Ev, b: str):
+    """[(lo, hi, code)] per decision: the span from the close of its trade session (T0 for decision 0) to the close of the next decision's trade session (the last session for the last decision)."""
+    key = (id(E), b)
+    if key not in _RBC:
+        d = E.dbook(b)
+        cal = E.cal(b, "full")
+        T = len(cal)
+        pos = {x: i for i, x in enumerate(cal)}
+        tds = [str(x) for x in d["trade_date"]]
+        a = [0] + [(pos[tds[j]] if valid_td(tds[j]) else T - 1) for j in range(1, len(d))]
+        out = []
+        for j in range(len(d)):
+            r, k = d["reg_d"].iloc[j], int(d["k_d"].iloc[j])
+            code = "IN" if r == "IN" else ("OB" if r == "OUT-BUY" else ("OS0" if k == 0 else "OS1"))
+            out.append((a[j], a[j + 1] if j + 1 < len(d) else T - 1, code))
+        _RBC[key] = out
+    return _RBC[key]
+
+
+def rb_level(E: Ev, b: str, series: str) -> np.ndarray:
+    if series in ("GOLDBEES", "cash"):
+        x = E.rbl[E.rbl.book == b]
+        assert [str(v) for v in x["date"]] == E.cal(b, "full"), "regime_basis_levels.csv dates differ from the book's calendar"
+        return x[series].to_numpy(dtype=float)
+    if series == "parent":
+        return E.nv(b, 0.0, "hold_parent")[1]
+    if series in INDS:
+        return E.nv(b, 20.8, f"hold_{series}")[1]
+    return E.nv(b, 20.8, series)[1]
+
+
+def rb_stat(E: Ev, b: str, series: str, code: str, field: str) -> float:
+    lv = np.asarray(rb_level(E, b, series), dtype=float)
+    lr = np.diff(np.log(lv))
+    sp = rb_spans(E, b)
+    ss = [(lo, hi) for lo, hi, c in sp if (code == "ALL" or c == code) and hi > lo]
+    n = sum(hi - lo for lo, hi in ss)
+    L = float(sum(lr[lo:hi].sum() for lo, hi in ss))
+    if field == "sessions":
+        return float(n)
+    if field == "spans":
+        return float(len(ss))
+    if field == "share":
+        return n / len(lr)
+    if field == "log":
+        return L
+    if field == "growth":
+        return math.exp(L) - 1
+    if field == "ann":
+        return math.exp(L * 252 / n) - 1
+    if field == "up_spans":
+        return float(np.mean([lv[hi] > lv[lo] for lo, hi in ss]))
+    raise KeyError(field)
+
+
 # ── resolvers ─────────────────────────────────────────────────────────────────
 def num(EV: dict, key: str) -> float:
     kind, rest = key.split(":", 1)
@@ -574,6 +640,21 @@ def num(EV: dict, key: str) -> float:
             nxt = bn_example(E, b)["next_session"]
             return float(((E.tr.book == b) & (E.tr.run == run) & (E.tr.cost_bps == 20.8) & (E.tr.date == nxt)).sum())
         raise KeyError(key)
+    if kind == "rg":
+        return rb_stat(E, p[1], p[2], p[3], p[4])
+    if kind == "rgm":
+        return float(np.mean([rb_stat(E, b, p[1], p[2], p[3]) for b in E.books]))
+    if kind == "rgd":
+        return float(np.mean([rb_stat(E, b, p[1], p[3], "log") - rb_stat(E, b, p[2], p[3], "log") for b in E.books]))
+    if kind == "kz":
+        r = ledger_row(E, p[1], "stretch", int(p[2]), int(p[3]))
+        assert r["k"] == 0, "kz is defined on k = 0 stretches only"
+        return float(np.mean([r[f"{i}_return"] for i in INDS]))
+    if kind == "kzn":
+        rows = ks_rows(E, p[1])["k0"]
+        if p[2] == "n":
+            return float(len(rows))
+        return float(sum(float(np.mean([r[f"{i}_return"] for i in INDS])) > 0 for r in rows))
     if kind == "cm":
         r = E.cm[(E.cm.book == p[1]) & (E.cm.rule == p[2])]
         assert len(r) == 1
@@ -776,6 +857,22 @@ def main() -> int:
             chk(f"overlay axis {key} {x['num']}/{x['den']}", x["lo"] <= min(x["v"] + [1.0]) and x["hi"] >= max(x["v"] + [1.0]), "axis does not cover the data")
     for needle, why in (("lc-ov", "curve hover overlay"), ("lc-xt", "timestamp chip"), ("lc-yt", "level chip"), ("lc-h", "horizontal guide"), ("pointermove", "pointer handler"), ("tip", "tooltip"), ("button.chip", "chip styling"), ("aria-pressed", "chip state"), ("rescale", "y-axis rescale note")):
         chk(f"hover: {why}", needle in raw, "missing")
+    # the GOLDBEES and cash levels used by the results-by-regime section equal the engine's ledger returns on every spell and stretch
+    if 'id="regimes"' in raw:
+        for w, E in EV.items():
+            chk(f"regime_basis_levels.csv exists {w}", E.rbl is not None, "missing: run tests/T16/regime_basis.py")
+            if E.rbl is None:
+                continue
+            for b in E.books:
+                cal = E.cal(b, "full")
+                pos = {x: i for i, x in enumerate(cal)}
+                for col, lc in (("GOLDBEES", "goldbees_return"), ("cash", "cash_return")):
+                    lv = rb_level(E, b, col)
+                    L = E.led[(E.led.book == b) & (E.led.window == "full")]
+                    worst = max(abs(lv[pos[str(r.b_session)]] / lv[pos[str(r.a_session)]] - 1 - float(getattr(r, lc))) for r in L.itertuples())
+                    chk(f"{col} levels tie to the ledger {w} {b}", len(L) > 0 and worst < 1e-12, f"worst {worst:.2e} over {len(L)} ledger rows")
+                sp = rb_spans(E, b)
+                chk(f"regime spans tile the window {w} {b}", sp[0][0] == 0 and sp[-1][1] == len(cal) - 1 and all(sp[i][1] == sp[i + 1][0] for i in range(len(sp) - 1)), "spans do not tile")
     for w, E in EV.items():
         for b in E.books:
             for win in ("full", "r3"):
@@ -805,7 +902,7 @@ def main() -> int:
     for s in ("no null", "no claim about chance", "provisional", "best of the ten rules", "four books are one market seen four times", "price index with no dividends and no fund cost"):
         chk(f"fixed statement on the page: {s}", s in low, "missing")
     chk("no null-based statistic on the page", "percentile" not in low.replace("no percentile", "") and "p-value" not in low.replace("no p-value", "").replace("no percentile and no p-value", ""), "a percentile or p-value is mentioned")
-    chk("the page states the answer first", 'id="answer"' in raw and raw.find('id="answer"') < raw.find('id="rules-runs"') < raw.find('id="data"') < raw.find('id="example"') < raw.find('id="desc"') < raw.find('id="curves"') < raw.find('id="robust"') < raw.find('id="defs"'), "section order")
+    chk("the page states the answer first", 'id="answer"' in raw and raw.find('id="answer"') < raw.find('id="rules-runs"') < raw.find('id="data"') < raw.find('id="example"') < raw.find('id="desc"') < raw.find('id="regimes"') < raw.find('id="curves"') < raw.find('id="robust"') < raw.find('id="defs"'), "section order")
     # 8: T16-specific checks
     unesc = html.unescape
     # 8a the rules-and-runs table: first table, first block, every id defined in words, nothing used before or without it

@@ -16,6 +16,7 @@ python analysis/verify_t16.py --run "$RUN"  # writes evidence/$RUN/{w1,w2}/verif
 python tests/T16/analyse.py --run "$RUN" --require-v1   # reads only evidence/$RUN; prints every table and writes evidence/analysis.log; exits 1 if a gate fails (V1 included: a missing verify_t16.json fails) and then prints no result
 python tests/T16/fill_writeup.py            # fills section 4 of T16.md between its markers from evidence/analysis.log; refuses unless sections 1-3 stay byte-identical
 python tests/T16/check_prereg.py            # fill_writeup.py must not have touched sections 1-3
+python tests/T16/regime_basis.py --run "$RUN"   # ad hoc (added after the results were read): results by regime -> evidence/regime_basis.{md,csv}, evidence/$RUN/{w1,w2}/regime_basis_levels.csv (section 5 of the page)
 python tests/T16/report.py --run "$RUN"     # evidence/report.html: the answer first, the rules-and-runs table, every number with its provenance, every chart hoverable
 python tests/T16/check_page.py --run "$RUN" # re-derives every number and every date on the page from the evidence; exits 1 on any failure
 python tests/T16/check_prereg.py            # last look: the frozen text is still the frozen text
