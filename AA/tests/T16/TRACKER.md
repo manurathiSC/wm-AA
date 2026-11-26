@@ -13,7 +13,7 @@ Status values: `NOT_STARTED` → `IN_PROGRESS` → `DONE` (or `DONE_WITH_NOTES`)
 | 2 Engine | DONE | — | Claude / 2026-11-26 | `analysis/t16_engine.py` (fork of t15_engine.py; 27 shared functions byte-identical). Smoke (4 books, both windows, scratch `smoke4`, 35 s): V2-V5 pass; **V4(a): the eight T15 rules reproduce T15's NAVs and trades (W1 0.0; W2 to 2026-10-30, 2.2e-16 / 0.0)**; `-all` entries 25% each to 5e-17, no trade inside a spell. `logs/{step_2_log, evidence_contract, verifier_spec}.md` |
 | 3 Independent verifier | DONE_WITH_NOTES | — | separate agent / 2026-11-26 | `analysis/verify_t16.py` (3,087 lines, never opened the engine, imports nothing from analysis/ or data/). On smoke4: W1 737,400 and W2 1,174,789 comparisons, 0 failures; 22 corruptions per window each caught by its own check (also 42 real corrupted folders exit 1); 47 s. **Note:** one reading changed after a first mismatch: R5 on a session with no index bar (3 Budget weekend sessions) uses the carried close times the session-i drag factor, as the engine does; the first reading differed by ~1.5e-5 relative on 8 R5 `-all` rows; disclose in the write-up. `logs/step_3_log.md` |
 | 4 Test scripts | DONE | — | separate agent / 2026-11-26 | `analyse.py`, `fill_writeup.py` (§1-§3 byte-identical, tested on copies), `report.py`, `check_page.py`, `run.sh`, `logs/step_4_log.md`. On scratch smoke evidence: gates PASS incl. V1 on the real verifier json; page check 19,903 checks 0 failures; 11 tampered pages each fail. Rules-and-runs table is the page's first table (AGENT.md R10 item 1). Not run end to end (that is Step 5). |
-| 5 Run and gate | NOT_STARTED | 2, 3, 4 | | |
+| 5 Run and gate | DONE | — | Claude / 2026-11-26 | `bash tests/T16/run.sh` exit 0 in 2 min 51 s, headline run `evidence/headline/{w1,w2}`: V1 (737,400 W1 / 1,174,789 W2 comparisons, 0 failures, corruptions all detected), V2-V5, step-1 counts, window ends all PASS; `check_page.py` 19,903 checks 0 failures; T16.md §4 filled, §1-§3 hash unchanged. `logs/step_5_run.log`, `logs/step_5_runsh.log` |
 | 6 Analyse, report, write-up | NOT_STARTED | 5 | | |
 
 ## Files created or modified
@@ -32,3 +32,6 @@ Status values: `NOT_STARTED` → `IN_PROGRESS` → `DONE` (or `DONE_WITH_NOTES`)
 
 ### Step 4
 - `AA/tests/T16/{analyse,fill_writeup,report,check_page}.py`, `run.sh`, `logs/step_4_log.md`.
+
+### Step 5
+- `AA/tests/T16/evidence/` (headline run, report.html, analysis.log), `logs/step_5_run.log`, `logs/step_5_runsh.log`; `T16.md` §4 generated.

@@ -1,0 +1,2635 @@
+{
+ "a_nav_regression": {
+  "reference": "T15",
+  "boundary": "2026-10-30",
+  "rows": [
+   {
+    "book": "SCMO_0003",
+    "mine": "50-orig",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "50-orig",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "50-orig",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "50-half",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "50-half",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "50-half",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 1.1102230246251565e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "50-liq",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "50-liq",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "50-liq",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "50-idx",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "50-idx",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "50-idx",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "80-orig",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "80-orig",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "80-orig",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "80-half",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "80-half",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "80-half",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "80-liq",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "80-liq",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "80-liq",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "80-idx",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "80-idx",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "80-idx",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "hold_parent",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "hold_parent",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "mine": "hold_parent",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 1.1102230246251565e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "50-orig",
+    "cost_bps": 0.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "50-orig",
+    "cost_bps": 20.8,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "50-orig",
+    "cost_bps": 50.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "50-half",
+    "cost_bps": 0.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "50-half",
+    "cost_bps": 20.8,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "50-half",
+    "cost_bps": 50.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 2.220446049250313e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "50-liq",
+    "cost_bps": 0.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "50-liq",
+    "cost_bps": 20.8,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "50-liq",
+    "cost_bps": 50.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "50-idx",
+    "cost_bps": 0.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "50-idx",
+    "cost_bps": 20.8,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "50-idx",
+    "cost_bps": 50.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "80-orig",
+    "cost_bps": 0.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "80-orig",
+    "cost_bps": 20.8,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "80-orig",
+    "cost_bps": 50.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "80-half",
+    "cost_bps": 0.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "80-half",
+    "cost_bps": 20.8,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "80-half",
+    "cost_bps": 50.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 2.220446049250313e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "80-liq",
+    "cost_bps": 0.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "80-liq",
+    "cost_bps": 20.8,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "80-liq",
+    "cost_bps": 50.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "80-idx",
+    "cost_bps": 0.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "80-idx",
+    "cost_bps": 20.8,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "80-idx",
+    "cost_bps": 50.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "hold_parent",
+    "cost_bps": 0.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 2.220446049250313e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "hold_parent",
+    "cost_bps": 20.8,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 2.220446049250313e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "mine": "hold_parent",
+    "cost_bps": 50.0,
+    "dates_compared": 1930,
+    "stored_dates": 1930,
+    "max_rel_diff": 2.220446049250313e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "50-orig",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "50-orig",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "50-orig",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "50-half",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "50-half",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 2.220446049250313e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "50-half",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 2.220446049250313e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "50-liq",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "50-liq",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "50-liq",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "50-idx",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "50-idx",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "50-idx",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "80-orig",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "80-orig",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "80-orig",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "80-half",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "80-half",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 1.1102230246251565e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "80-half",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 2.220446049250313e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "80-liq",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "80-liq",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "80-liq",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "80-idx",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "80-idx",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "80-idx",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "hold_parent",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 2.220446049250313e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "hold_parent",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 1.1102230246251565e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "mine": "hold_parent",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 2.220446049250313e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "50-orig",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "50-orig",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "50-orig",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "50-half",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 2.220446049250313e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "50-half",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "50-half",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "50-liq",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "50-liq",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "50-liq",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "50-idx",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "50-idx",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "50-idx",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "80-orig",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "80-orig",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "80-orig",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "80-half",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "80-half",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "80-half",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "80-liq",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "80-liq",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "80-liq",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "80-idx",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "80-idx",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "80-idx",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "hold_parent",
+    "cost_bps": 0.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 2.220446049250313e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "hold_parent",
+    "cost_bps": 20.8,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 2.220446049250313e-16,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "mine": "hold_parent",
+    "cost_bps": 50.0,
+    "dates_compared": 1932,
+    "stored_dates": 1932,
+    "max_rel_diff": 2.220446049250313e-16,
+    "pass": true
+   }
+  ],
+  "trades": [
+   {
+    "book": "SCMO_0003",
+    "run": "50-orig",
+    "cost_bps": 0.0,
+    "stored_trades": 34,
+    "mine": 34,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "50-orig",
+    "cost_bps": 20.8,
+    "stored_trades": 34,
+    "mine": 34,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "50-orig",
+    "cost_bps": 50.0,
+    "stored_trades": 34,
+    "mine": 34,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "50-half",
+    "cost_bps": 0.0,
+    "stored_trades": 46,
+    "mine": 46,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "50-half",
+    "cost_bps": 20.8,
+    "stored_trades": 46,
+    "mine": 46,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "50-half",
+    "cost_bps": 50.0,
+    "stored_trades": 46,
+    "mine": 46,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "50-liq",
+    "cost_bps": 0.0,
+    "stored_trades": 43,
+    "mine": 43,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "50-liq",
+    "cost_bps": 20.8,
+    "stored_trades": 43,
+    "mine": 43,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "50-liq",
+    "cost_bps": 50.0,
+    "stored_trades": 43,
+    "mine": 43,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "50-idx",
+    "cost_bps": 0.0,
+    "stored_trades": 49,
+    "mine": 49,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "50-idx",
+    "cost_bps": 20.8,
+    "stored_trades": 49,
+    "mine": 49,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "50-idx",
+    "cost_bps": 50.0,
+    "stored_trades": 49,
+    "mine": 49,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "80-orig",
+    "cost_bps": 0.0,
+    "stored_trades": 43,
+    "mine": 43,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "80-orig",
+    "cost_bps": 20.8,
+    "stored_trades": 43,
+    "mine": 43,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "80-orig",
+    "cost_bps": 50.0,
+    "stored_trades": 43,
+    "mine": 43,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "80-half",
+    "cost_bps": 0.0,
+    "stored_trades": 46,
+    "mine": 46,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "80-half",
+    "cost_bps": 20.8,
+    "stored_trades": 46,
+    "mine": 46,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "80-half",
+    "cost_bps": 50.0,
+    "stored_trades": 46,
+    "mine": 46,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "80-liq",
+    "cost_bps": 0.0,
+    "stored_trades": 43,
+    "mine": 43,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "80-liq",
+    "cost_bps": 20.8,
+    "stored_trades": 43,
+    "mine": 43,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "80-liq",
+    "cost_bps": 50.0,
+    "stored_trades": 43,
+    "mine": 43,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "80-idx",
+    "cost_bps": 0.0,
+    "stored_trades": 49,
+    "mine": 49,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "80-idx",
+    "cost_bps": 20.8,
+    "stored_trades": 49,
+    "mine": 49,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "80-idx",
+    "cost_bps": 50.0,
+    "stored_trades": 49,
+    "mine": 49,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "hold_parent",
+    "cost_bps": 0.0,
+    "stored_trades": 31,
+    "mine": 31,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "hold_parent",
+    "cost_bps": 20.8,
+    "stored_trades": 31,
+    "mine": 31,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0003",
+    "run": "hold_parent",
+    "cost_bps": 50.0,
+    "stored_trades": 31,
+    "mine": 31,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "50-orig",
+    "cost_bps": 0.0,
+    "stored_trades": 32,
+    "mine": 32,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "50-orig",
+    "cost_bps": 20.8,
+    "stored_trades": 32,
+    "mine": 32,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "50-orig",
+    "cost_bps": 50.0,
+    "stored_trades": 32,
+    "mine": 32,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "50-half",
+    "cost_bps": 0.0,
+    "stored_trades": 44,
+    "mine": 44,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "50-half",
+    "cost_bps": 20.8,
+    "stored_trades": 44,
+    "mine": 44,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "50-half",
+    "cost_bps": 50.0,
+    "stored_trades": 44,
+    "mine": 44,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "50-liq",
+    "cost_bps": 0.0,
+    "stored_trades": 41,
+    "mine": 41,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "50-liq",
+    "cost_bps": 20.8,
+    "stored_trades": 41,
+    "mine": 41,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "50-liq",
+    "cost_bps": 50.0,
+    "stored_trades": 41,
+    "mine": 41,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "50-idx",
+    "cost_bps": 0.0,
+    "stored_trades": 47,
+    "mine": 47,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "50-idx",
+    "cost_bps": 20.8,
+    "stored_trades": 47,
+    "mine": 47,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "50-idx",
+    "cost_bps": 50.0,
+    "stored_trades": 47,
+    "mine": 47,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "80-orig",
+    "cost_bps": 0.0,
+    "stored_trades": 41,
+    "mine": 41,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "80-orig",
+    "cost_bps": 20.8,
+    "stored_trades": 41,
+    "mine": 41,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "80-orig",
+    "cost_bps": 50.0,
+    "stored_trades": 41,
+    "mine": 41,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "80-half",
+    "cost_bps": 0.0,
+    "stored_trades": 44,
+    "mine": 44,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "80-half",
+    "cost_bps": 20.8,
+    "stored_trades": 44,
+    "mine": 44,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "80-half",
+    "cost_bps": 50.0,
+    "stored_trades": 44,
+    "mine": 44,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "80-liq",
+    "cost_bps": 0.0,
+    "stored_trades": 41,
+    "mine": 41,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "80-liq",
+    "cost_bps": 20.8,
+    "stored_trades": 41,
+    "mine": 41,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "80-liq",
+    "cost_bps": 50.0,
+    "stored_trades": 41,
+    "mine": 41,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "80-idx",
+    "cost_bps": 0.0,
+    "stored_trades": 47,
+    "mine": 47,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "80-idx",
+    "cost_bps": 20.8,
+    "stored_trades": 47,
+    "mine": 47,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "80-idx",
+    "cost_bps": 50.0,
+    "stored_trades": 47,
+    "mine": 47,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "hold_parent",
+    "cost_bps": 0.0,
+    "stored_trades": 29,
+    "mine": 29,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "hold_parent",
+    "cost_bps": 20.8,
+    "stored_trades": 29,
+    "mine": 29,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0007",
+    "run": "hold_parent",
+    "cost_bps": 50.0,
+    "stored_trades": 29,
+    "mine": 29,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "50-orig",
+    "cost_bps": 0.0,
+    "stored_trades": 33,
+    "mine": 33,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "50-orig",
+    "cost_bps": 20.8,
+    "stored_trades": 33,
+    "mine": 33,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "50-orig",
+    "cost_bps": 50.0,
+    "stored_trades": 33,
+    "mine": 33,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "50-half",
+    "cost_bps": 0.0,
+    "stored_trades": 45,
+    "mine": 45,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "50-half",
+    "cost_bps": 20.8,
+    "stored_trades": 45,
+    "mine": 45,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "50-half",
+    "cost_bps": 50.0,
+    "stored_trades": 45,
+    "mine": 45,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "50-liq",
+    "cost_bps": 0.0,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "50-liq",
+    "cost_bps": 20.8,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "50-liq",
+    "cost_bps": 50.0,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "50-idx",
+    "cost_bps": 0.0,
+    "stored_trades": 48,
+    "mine": 48,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "50-idx",
+    "cost_bps": 20.8,
+    "stored_trades": 48,
+    "mine": 48,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "50-idx",
+    "cost_bps": 50.0,
+    "stored_trades": 48,
+    "mine": 48,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "80-orig",
+    "cost_bps": 0.0,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "80-orig",
+    "cost_bps": 20.8,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "80-orig",
+    "cost_bps": 50.0,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "80-half",
+    "cost_bps": 0.0,
+    "stored_trades": 45,
+    "mine": 45,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "80-half",
+    "cost_bps": 20.8,
+    "stored_trades": 45,
+    "mine": 45,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "80-half",
+    "cost_bps": 50.0,
+    "stored_trades": 45,
+    "mine": 45,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "80-liq",
+    "cost_bps": 0.0,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "80-liq",
+    "cost_bps": 20.8,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "80-liq",
+    "cost_bps": 50.0,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "80-idx",
+    "cost_bps": 0.0,
+    "stored_trades": 48,
+    "mine": 48,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "80-idx",
+    "cost_bps": 20.8,
+    "stored_trades": 48,
+    "mine": 48,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "80-idx",
+    "cost_bps": 50.0,
+    "stored_trades": 48,
+    "mine": 48,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "hold_parent",
+    "cost_bps": 0.0,
+    "stored_trades": 31,
+    "mine": 31,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "hold_parent",
+    "cost_bps": 20.8,
+    "stored_trades": 31,
+    "mine": 31,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0010",
+    "run": "hold_parent",
+    "cost_bps": 50.0,
+    "stored_trades": 31,
+    "mine": 31,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "50-orig",
+    "cost_bps": 0.0,
+    "stored_trades": 33,
+    "mine": 33,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "50-orig",
+    "cost_bps": 20.8,
+    "stored_trades": 33,
+    "mine": 33,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "50-orig",
+    "cost_bps": 50.0,
+    "stored_trades": 33,
+    "mine": 33,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "50-half",
+    "cost_bps": 0.0,
+    "stored_trades": 45,
+    "mine": 45,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "50-half",
+    "cost_bps": 20.8,
+    "stored_trades": 45,
+    "mine": 45,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "50-half",
+    "cost_bps": 50.0,
+    "stored_trades": 45,
+    "mine": 45,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "50-liq",
+    "cost_bps": 0.0,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "50-liq",
+    "cost_bps": 20.8,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "50-liq",
+    "cost_bps": 50.0,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "50-idx",
+    "cost_bps": 0.0,
+    "stored_trades": 48,
+    "mine": 48,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "50-idx",
+    "cost_bps": 20.8,
+    "stored_trades": 48,
+    "mine": 48,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "50-idx",
+    "cost_bps": 50.0,
+    "stored_trades": 48,
+    "mine": 48,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "80-orig",
+    "cost_bps": 0.0,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "80-orig",
+    "cost_bps": 20.8,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "80-orig",
+    "cost_bps": 50.0,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "80-half",
+    "cost_bps": 0.0,
+    "stored_trades": 45,
+    "mine": 45,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "80-half",
+    "cost_bps": 20.8,
+    "stored_trades": 45,
+    "mine": 45,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "80-half",
+    "cost_bps": 50.0,
+    "stored_trades": 45,
+    "mine": 45,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "80-liq",
+    "cost_bps": 0.0,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "80-liq",
+    "cost_bps": 20.8,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "80-liq",
+    "cost_bps": 50.0,
+    "stored_trades": 42,
+    "mine": 42,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "80-idx",
+    "cost_bps": 0.0,
+    "stored_trades": 48,
+    "mine": 48,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "80-idx",
+    "cost_bps": 20.8,
+    "stored_trades": 48,
+    "mine": 48,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "80-idx",
+    "cost_bps": 50.0,
+    "stored_trades": 48,
+    "mine": 48,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "hold_parent",
+    "cost_bps": 0.0,
+    "stored_trades": 30,
+    "mine": 30,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "hold_parent",
+    "cost_bps": 20.8,
+    "stored_trades": 30,
+    "mine": 30,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   },
+   {
+    "book": "SCMO_0029",
+    "run": "hold_parent",
+    "cost_bps": 50.0,
+    "stored_trades": 30,
+    "mine": 30,
+    "kinds_equal": true,
+    "dates_equal": true,
+    "max_rel_diff": 0.0,
+    "pass": true
+   }
+  ],
+  "decisions": {
+   "SCMO_0003": {
+    "compared": 410,
+    "stored": 410,
+    "mismatches": 0,
+    "unmatched_dates_in_engine": [
+     "2026-11-06",
+     "2026-11-13",
+     "2026-11-20"
+    ],
+    "pass": true
+   },
+   "SCMO_0007": {
+    "compared": 409,
+    "stored": 409,
+    "mismatches": 0,
+    "unmatched_dates_in_engine": [
+     "2026-11-06",
+     "2026-11-13",
+     "2026-11-20"
+    ],
+    "pass": true
+   },
+   "SCMO_0010": {
+    "compared": 410,
+    "stored": 410,
+    "mismatches": 0,
+    "unmatched_dates_in_engine": [
+     "2026-11-06",
+     "2026-11-13",
+     "2026-11-20"
+    ],
+    "pass": true
+   },
+   "SCMO_0029": {
+    "compared": 410,
+    "stored": 410,
+    "mismatches": 0,
+    "unmatched_dates_in_engine": [
+     "2026-11-06",
+     "2026-11-13",
+     "2026-11-20"
+    ],
+    "pass": true
+   }
+  },
+  "tolerance_rel": 1e-12,
+  "rows_compared": 108,
+  "trade_rows_compared": 108,
+  "worst_rel_diff": 2.220446049250313e-16,
+  "worst_trade_rel_diff": 0.0,
+  "pass": true
+ },
+ "b_index_priced_as_cash": {
+  "SCMO_0003|50": {
+   "max_rel_diff": 9.992007221626409e-16,
+   "sessions": 1946,
+   "pass": true
+  },
+  "SCMO_0003|50|all": {
+   "max_rel_diff": 0.0,
+   "sessions": 1946,
+   "pass": true
+  },
+  "SCMO_0003|80": {
+   "max_rel_diff": 8.881784197001252e-16,
+   "sessions": 1946,
+   "pass": true
+  },
+  "SCMO_0003|80|all": {
+   "max_rel_diff": 0.0,
+   "sessions": 1946,
+   "pass": true
+  },
+  "SCMO_0007|50": {
+   "max_rel_diff": 4.440892098500626e-16,
+   "sessions": 1944,
+   "pass": true
+  },
+  "SCMO_0007|50|all": {
+   "max_rel_diff": 0.0,
+   "sessions": 1944,
+   "pass": true
+  },
+  "SCMO_0007|80": {
+   "max_rel_diff": 8.881784197001252e-16,
+   "sessions": 1944,
+   "pass": true
+  },
+  "SCMO_0007|80|all": {
+   "max_rel_diff": 0.0,
+   "sessions": 1944,
+   "pass": true
+  },
+  "SCMO_0010|50": {
+   "max_rel_diff": 6.661338147750939e-16,
+   "sessions": 1946,
+   "pass": true
+  },
+  "SCMO_0010|50|all": {
+   "max_rel_diff": 0.0,
+   "sessions": 1946,
+   "pass": true
+  },
+  "SCMO_0010|80": {
+   "max_rel_diff": 2.220446049250313e-15,
+   "sessions": 1946,
+   "pass": true
+  },
+  "SCMO_0010|80|all": {
+   "max_rel_diff": 0.0,
+   "sessions": 1946,
+   "pass": true
+  },
+  "SCMO_0029|50": {
+   "max_rel_diff": 6.661338147750939e-16,
+   "sessions": 1946,
+   "pass": true
+  },
+  "SCMO_0029|50|all": {
+   "max_rel_diff": 0.0,
+   "sessions": 1946,
+   "pass": true
+  },
+  "SCMO_0029|80": {
+   "max_rel_diff": 1.1102230246251565e-15,
+   "sessions": 1946,
+   "pass": true
+  },
+  "SCMO_0029|80|all": {
+   "max_rel_diff": 0.0,
+   "sessions": 1946,
+   "pass": true
+  }
+ },
+ "c_idx_equals_liq_before_first_index_trade": {
+  "SCMO_0003|50": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 47,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0003|50|all": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 47,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0003|80": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 47,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0003|80|all": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 47,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0007|50": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 45,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0007|50|all": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 45,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0007|80": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 45,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0007|80|all": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 45,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0010|50": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 47,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0010|50|all": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 47,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0010|80": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 47,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0010|80|all": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 47,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0029|50": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 47,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0029|50|all": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 47,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0029|80": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 47,
+   "max_rel_diff": 0.0,
+   "pass": true
+  },
+  "SCMO_0029|80|all": {
+   "first_index_trade_session": "2019-03-11",
+   "sessions_compared": 47,
+   "max_rel_diff": 0.0,
+   "pass": true
+  }
+ },
+ "e_signals": {
+  "SCMO_0003": {
+   "decisions": 413,
+   "index_sign": 0,
+   "mauc1_sign": 0,
+   "mauc1_weekly_signal": 0,
+   "mauc1_weekly_label": 0,
+   "index_label": 0,
+   "B_vs_signs": 0,
+   "rule_targets_vs_scalar_targets": 0,
+   "pass": true
+  },
+  "SCMO_0007": {
+   "decisions": 412,
+   "index_sign": 0,
+   "mauc1_sign": 0,
+   "mauc1_weekly_signal": 0,
+   "mauc1_weekly_label": 0,
+   "index_label": 0,
+   "B_vs_signs": 0,
+   "rule_targets_vs_scalar_targets": 0,
+   "pass": true
+  },
+  "SCMO_0010": {
+   "decisions": 413,
+   "index_sign": 0,
+   "mauc1_sign": 0,
+   "mauc1_weekly_signal": 0,
+   "mauc1_weekly_label": 0,
+   "index_label": 0,
+   "B_vs_signs": 0,
+   "rule_targets_vs_scalar_targets": 0,
+   "pass": true
+  },
+  "SCMO_0029": {
+   "decisions": 413,
+   "index_sign": 0,
+   "mauc1_sign": 0,
+   "mauc1_weekly_signal": 0,
+   "mauc1_weekly_label": 0,
+   "index_label": 0,
+   "B_vs_signs": 0,
+   "rule_targets_vs_scalar_targets": 0,
+   "pass": true
+  }
+ },
+ "f_one_instrument": {
+  "SCMO_0003": {
+   "stocks_checked": 10,
+   "max_rel_diff": 6.661338147750939e-16,
+   "worst_stock": "KEC.NS",
+   "pass": true
+  },
+  "SCMO_0007": {
+   "stocks_checked": 9,
+   "max_rel_diff": 6.661338147750939e-16,
+   "worst_stock": "CCL.NS",
+   "pass": true
+  },
+  "SCMO_0010": {
+   "stocks_checked": 8,
+   "max_rel_diff": 4.440892098500626e-16,
+   "worst_stock": "AARTIDRUGS.NS",
+   "pass": true
+  },
+  "SCMO_0029": {
+   "stocks_checked": 11,
+   "max_rel_diff": 4.440892098500626e-16,
+   "worst_stock": "GAEL.NS",
+   "pass": true
+  }
+ },
+ "f_g0": {
+  "SCMO_0003": {
+   "first": "2019-01-02",
+   "last": "2026-11-20",
+   "overall_pp_per_year": 0.045924189657742254,
+   "yearly_pp": {
+    "2019": -0.21950615822005082,
+    "2020": 0.0014024161535175494,
+    "2021": 0.06469384756249141,
+    "2022": 0.42550398202620965,
+    "2023": -1.8526183920286599e-06,
+    "2024": -0.00011901684988657735,
+    "2025": 0.007878470365518808,
+    "2026": -1.2846190777793254e-08
+   },
+   "year_2019_gap_pp": -0.21950615822005082,
+   "limits": {
+    "overall_pp_per_year": 0.25,
+    "each_year_pp": 0.5
+   },
+   "pass": true
+  },
+  "SCMO_0007": {
+   "first": "2019-01-04",
+   "last": "2026-11-20",
+   "overall_pp_per_year": 0.10479935589562395,
+   "yearly_pp": {
+    "2019": 0.3909223497191472,
+    "2020": 0.15804658735203425,
+    "2021": 0.16758308971938085,
+    "2022": 0.01133534056425578,
+    "2023": -0.00016779464211413853,
+    "2024": 0.00010537217094430673,
+    "2025": -0.00018587053743912563,
+    "2026": 4.633959882482941e-09
+   },
+   "year_2019_gap_pp": 0.3909223497191472,
+   "limits": {
+    "overall_pp_per_year": 0.25,
+    "each_year_pp": 0.5
+   },
+   "pass": true
+  },
+  "SCMO_0010": {
+   "first": "2019-01-02",
+   "last": "2026-11-20",
+   "overall_pp_per_year": 0.10263308960083428,
+   "yearly_pp": {
+    "2019": 0.4469434456772836,
+    "2020": -0.10969098209052675,
+    "2021": 0.20551634977210576,
+    "2022": 0.025682053261477655,
+    "2023": 0.06396266719548294,
+    "2024": 6.42333806144535e-05,
+    "2025": -6.69798534858046e-05,
+    "2026": -1.1700307389617137e-08
+   },
+   "year_2019_gap_pp": 0.4469434456772836,
+   "limits": {
+    "overall_pp_per_year": 0.25,
+    "each_year_pp": 0.5
+   },
+   "pass": true
+  },
+  "SCMO_0029": {
+   "first": "2019-01-02",
+   "last": "2026-11-20",
+   "overall_pp_per_year": 0.03938221481749604,
+   "yearly_pp": {
+    "2019": 0.18888038964059994,
+    "2020": 0.04959458079181189,
+    "2021": 0.009261594765153092,
+    "2022": -2.1166103247871604e-05,
+    "2023": 0.014794709254317695,
+    "2024": 0.013501010094341126,
+    "2025": 0.014188450913843464,
+    "2026": 1.0414424878035788e-08
+   },
+   "year_2019_gap_pp": 0.18888038964059994,
+   "limits": {
+    "overall_pp_per_year": 0.25,
+    "each_year_pp": 0.5
+   },
+   "pass": true
+  }
+ },
+ "d_shared_code": {
+  "compared_with_t15": [
+   "sha",
+   "ap",
+   "regime_codes",
+   "trades_due",
+   "out_sell_spells",
+   "read_pub",
+   "cash_levels",
+   "stats",
+   "held_either",
+   "baskets_table",
+   "held_src_counts",
+   "targets",
+   "targets_idx",
+   "trade",
+   "trade_basket_partial",
+   "simulate",
+   "const_targets",
+   "one_instrument_identity",
+   "arrays_of",
+   "stretches",
+   "bname",
+   "sessions_by_state",
+   "g0_check",
+   "seam_2019",
+   "v3_index_tie",
+   "build_counts",
+   "window_check"
+  ],
+  "required_not_identical": [],
+  "changed_functions": [
+   "common",
+   "data_selftest",
+   "due_list",
+   "end_of",
+   "index_bars",
+   "main",
+   "process_book",
+   "raw_parent",
+   "regime_ledger",
+   "regression_nav",
+   "rule_targets",
+   "run_book",
+   "run_window",
+   "shared_code_diff",
+   "v4_identities",
+   "v5_check"
+  ],
+  "unexpected_changes": [],
+  "expected_changes": [
+   "end_of",
+   "common",
+   "index_bars",
+   "raw_parent",
+   "rule_targets",
+   "due_list",
+   "regime_ledger",
+   "run_book",
+   "shared_code_diff",
+   "regression_nav",
+   "v4_identities",
+   "v5_check",
+   "process_book",
+   "data_selftest",
+   "run_window",
+   "main"
+  ],
+  "dropped_from_t15": [],
+  "new_in_t16": [
+   "targets_all"
+  ],
+  "pass": true
+ },
+ "pass": true
+}

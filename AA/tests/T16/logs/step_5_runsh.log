@@ -1,0 +1,1525 @@
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "c:\Users\manur\Repos\wm-AA\AA\data\check_approved_data.py", line 16, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+approved rows checked OK: 98; problems: 0; PENDING rows (not usable): 5; superseded rows: 5
+RESTRICTION D03 Historical Data/extended_2026-10-30/Master/Master_SC100.xlsx: read rows dated 2011-11-25 or later ONLY (Smallcap 100 OHLCV before 2011-10-03 is corrupt: open=high=low=close)
+RESTRICTION D25 Historical Data/extended_2026-11-12/index_daily_pre2019/SC100_daily_ohlcv.csv: read rows dated 2011-10-03 or later ONLY (Smallcap 100 OHLCV before 2011-10-03 is corrupt: open=high=low=close)
+RESTRICTION D03 Historical Data/extended_2026-11-20/Master/Master_SC100.xlsx: read rows dated 2011-11-25 or later ONLY (Smallcap 100 OHLCV before 2011-10-03 is corrupt: open=high=low=close)
+OFF-LIMITS (not in the table): Historical Data/extended_2026-11-12/SOURCE.md
+OK   eda7321d73b71455f1df8442e99989f4bbb376912e8ee22a80cc4c08862f1ebc recorded eda7321d73b71455f1df8442e99989f4bbb376912e8ee22a80cc4c08862f1ebc
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "c:\Users\manur\Repos\wm-AA\AA\analysis\verify_t16.py", line 41, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+[w1    2.7s] SCMO_0003: derived (sessions 1070, decisions 228, stocks 103, baskets 19, OUT-SELL weeks 54 in 8 spells, index weeks 33)
+[w1    4.2s] SCMO_0007: derived (sessions 1070, decisions 228, stocks 81, baskets 19, OUT-SELL weeks 54 in 8 spells, index weeks 33)
+[w1    6.2s] SCMO_0010: derived (sessions 1070, decisions 228, stocks 154, baskets 19, OUT-SELL weeks 54 in 8 spells, index weeks 33)
+[w1    8.0s] SCMO_0029: derived (sessions 1070, decisions 228, stocks 128, baskets 19, OUT-SELL weeks 54 in 8 spells, index weeks 33)
+[w1    8.1s] derivation complete (books ['SCMO_0003', 'SCMO_0007', 'SCMO_0010', 'SCMO_0029'])
+[w1   10.4s] comparison complete
+
+=== w1: verifier vs evidence in C:\Users\manur\Repos\wm-AA\AA\tests\T16\evidence\headline\w1 ===
+check                                compared   failed  missing      worst  gate
+C-data                                    825        0        0   0.00e+00  yes
+C-inputs-per-window(info)                  37        0        0   0.00e+00  info
+C-sc100-restriction                        17        0        0   0.00e+00  yes
+C-frozen-counts                           444        0        0   0.00e+00  yes
+C-dec                                    1752        0        0   0.00e+00  yes
+C-regimes                                 912        0        0   0.00e+00  yes
+C-pit                                   21703        0        0   0.00e+00  yes
+C-signals-D03-D24                        4843        0        0   0.00e+00  yes
+C-v3-index-tie                           2727        0        0   0.00e+00  yes
+C-index-bars                             1808        0        0   0.00e+00  yes
+C-stats                                   188        0        0   2.08e-14  yes
+C-nav                                  201160        0        0   6.84e-15  yes
+C-robust-stats                            185        0        0   5.86e-15  yes
+C-robust-nav                           193640        0        0   1.60e-15  yes
+C-parent-nav                            51410        0        0   1.54e-15  yes
+C-cmix-params                              80        0        0   1.86e-16  yes
+C-ledger                                   96        0        0   2.48e-12  yes
+C-trades                                 4375        0        0   1.56e-15  yes
+C-positions                              9744        0        0   1.44e-15  yes
+C-v5-identities                         45536        0        0   5.20e-16  yes
+C-v5-idx                                 1711        0        0   4.21e-16  yes
+C-v5-all                                 2671        0        0   4.47e-16  yes
+C-v5-units                              53170        0        0   4.82e-16  yes
+C-v4a-regression-T15                   119844        0        0   1.56e-15  yes
+C-v4b-idx-all-priced-as-cash            17120        0        0   1.71e-15  yes
+C-v4c-idx-all-equals-liq                 1008        0        0   0.00e+00  yes
+C-v4f-one-instrument                       60        0        0   7.71e-16  yes
+C-v4f-g0-or-seam                            8        0        0   4.47e-01  yes
+C-engine-files                            363        0        0   0.00e+00  yes
+
+=== SELF-TEST w1: corrupted copy in C:\Users\manur\AppData\Local\Temp\verify_t16_x6eisg6f\corrupt_evidence_t16_w1 ===
+check                                compared   failed  missing      worst  gate
+C-data                                    826        1        0   0.00e+00  yes
+    first problem: usable_from of Historical Data/extended_2026-10-30/Master/Master_SC100.xlsx in inputs.csv (2004-01-01) differs from the registry's marker (2011-11-25)
+C-inputs-per-window(info)                  38        0        0   0.00e+00  info
+C-sc100-restriction                        17        0        0   0.00e+00  yes
+C-frozen-counts                           444        0        0   0.00e+00  yes
+C-dec                                    1752        1        0   1.00e+00  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'j': np.int64(118)} col buy_MC100: verifier=np.float64(0.0) evidence=np.float64(1.0)
+C-regimes                                 912        1        0   0.00e+00  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'decision_date': '2014-10-17'} col regime: verifier='OUT-SELL' evidence='OUT-BUY'
+C-pit                                   21702        0        0   0.00e+00  yes
+C-signals-D03-D24                        4843        0        0   0.00e+00  yes
+C-v3-index-tie                           2727        0        0   0.00e+00  yes
+C-index-bars                             1808        0        0   0.00e+00  yes
+C-stats                                   188        1        0   1.00e-04  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'window': 'full', 'variant': 'headline', 'cash': 'lbes', 'cost_bps': np.float64(20.8), 'run': '50-idx'} col cagr: verifier=np.float64(0.1140845307143723) evidence=np.float64(0.11409593916744373)
+C-nav                                  201160     2140        0   9.99e-04  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'date': '2014-09-01', 'cost_bps': np.float64(0.0), 'run': '80-idx'} col nav: verifier=np.float64(1.0) evidence=np.float64(1.001)
+C-robust-stats                            185        1        0   1.00e-04  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'window': 'full', 'variant': 'r5_drag', 'cost_bps': np.float64(20.8), 'run': '50-idx'} col cagr: verifier=np.float64(0.11361899882248294) evidence=np.float64(0.1136303607223652)
+C-robust-nav                           193640     1070        0   1.00e-04  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'window': 'full', 'variant': 'r4_s1', 'cost_bps': np.float64(20.8), 'run': '50-all', 'date': '2014-09-01'} col nav: verifier=np.float64(1.0) evidence=np.float64(1.0001)
+C-parent-nav                            51410        0        0   1.54e-15  yes
+C-cmix-params                              80        0        0   1.86e-16  yes
+C-ledger                                   96        2        0   3.57e-01  yes
+    first problem: first differing row {'window': 'full', 'book': 'SCMO_0003', 'level': 'spell', 'spell_no': np.int64(1), 'stretch_no': np.int64(0)} col parent_return: verifier=np.float64(0.1498682629005741) evidence=np.float64(0.15236694552958005)
+C-trades                                 4373       62        3   1.71e+12  yes
+    first problem: missing row (evidence only): {'book': 'SCMO_0003', 'cost_bps': np.float64(20.8), 'run': '50-all', 'seq': np.int64(31)}
+C-positions                              9744        0        1   1.44e-15  yes
+    first problem: missing row (evidence only): {'book': 'SCMO_0003', 'cost_bps': np.float64(20.8), 'run': '80-all', 'date': '2014-10-20', 'instrument': 'GOLDBEES'}
+C-v5-identities                         45525       17        0   2.49e-01  yes
+    first problem: value not conserved (lines after != V - cost): first at {'book': 'SCMO_0003', 'run': '50-idx', 'cost_bps': 20.8, 'date': '2014-10-20', 'kind': 'regime_in'}
+C-v5-idx                                 1710        3        0   1.66e-01  yes
+    first problem: -idx post-trade legs differ from the regime's split by 4.99e-02 of V at SCMO_0003 50-idx 20.8 2014-10-20 regime_in (OUT-SELL, k=1.0)
+C-v5-all                                 2675        8        0   2.49e-01  yes
+    first problem: -all post-trade legs differ from the regime's split by 2.49e-01 of V at SCMO_0003 50-all 20.8 2014-10-20 regime_in (OUT-SELL)
+C-v5-units                              53141       99        1   2.18e-01  yes
+    first problem: units held after the trade SCMO_0003 50-idx 2014-10-20 do not reproduce the evidence NAV (rel 2.84e-03 at session 62)
+C-v4a-regression-T15                   119844        0        0   1.56e-15  yes
+C-v4b-idx-all-priced-as-cash            17120        0        0   1.71e-15  yes
+C-v4c-idx-all-equals-liq                 1008        0        0   0.00e+00  yes
+C-v4f-one-instrument                       60        0        0   7.71e-16  yes
+C-v4f-g0-or-seam                            8        0        0   4.47e-01  yes
+C-engine-files                            363        0        0   0.00e+00  yes
+[w1] corruption alone, B_week_flipped: applied True; caught by C-dec: True
+[w1] corruption alone, regime_changed: applied True; caught by C-regimes: True
+[w1] corruption alone, B_change_not_traded: applied True; caught by C-trades: True
+[w1] corruption alone, index_leg_at_half_where_k2: applied True; caught by C-v5-idx: True
+[w1] corruption alone, idx_regime_trade_holds_goldbees: applied True; caught by C-v5-idx: True
+[w1] corruption alone, idx_regime_week_goldbees_units: applied True; caught by C-v5-units: True
+[w1] corruption alone, all_regime_week_at_one_third_each: applied True; caught by C-v5-all: True
+[w1] corruption alone, all_regime_entry_without_one_index: applied True; caught by C-v5-all: True
+[w1] corruption alone, all_trade_inside_the_regime_on_an_index_sign_change: applied True; caught by C-v5-all: True
+[w1] corruption alone, all_regime_trade_holds_goldbees: applied True; caught by C-v5-all: True
+[w1] corruption alone, all_regime_week_goldbees_units: applied True; caught by C-v5-units: True
+[w1] corruption alone, eq3_index_basket_nav_altered: applied True; caught by C-nav: True
+[w1] corruption alone, ledger_all_minus_idx_altered: applied True; caught by C-ledger: True
+[w1] corruption alone, nav_scaled: applied True; caught by C-nav: True
+[w1] corruption alone, trade_removed: applied True; caught by C-trades: True
+[w1] corruption alone, half_basket_trade_as_full_reset: applied True; caught by C-v5-identities: True
+[w1] corruption alone, ledger_return_altered: applied True; caught by C-ledger: True
+[w1] corruption alone, stats_cagr_altered: applied True; caught by C-stats: True
+[w1] corruption alone, robustness_stat_altered: applied True; caught by C-robust-stats: True
+[w1] corruption alone, r4_nav_altered: applied True; caught by C-robust-nav: True
+[w1] corruption alone, sc100_usable_from_lowered: applied True; caught by C-data: True
+[w1] index prices shifted by one session (SCMO_0003): C-nav failures 21020; C-stats 20; C-trades 420
+[w1] corrupted copy detected: True (failures 3411; applied {'B_week_flipped': True, 'regime_changed': True, 'B_change_not_traded': True, 'index_leg_at_half_where_k2': True, 'idx_regime_trade_holds_goldbees': True, 'idx_regime_week_goldbees_units': True, 'all_regime_week_at_one_third_each': True, 'all_regime_entry_without_one_index': True, 'all_trade_inside_the_regime_on_an_index_sign_change': True, 'all_regime_trade_holds_goldbees': True, 'all_regime_week_goldbees_units': True, 'eq3_index_basket_nav_altered': True, 'ledger_all_minus_idx_altered': True, 'nav_scaled': True, 'trade_removed': True, 'half_basket_trade_as_full_reset': True, 'ledger_return_altered': True, 'stats_cagr_altered': True, 'robustness_stat_altered': True, 'r4_nav_altered': True, 'sc100_usable_from_lowered': True, 'index_price_shifted_one_session': True}; detected by {'B_week_flipped': True, 'regime_changed': True, 'B_change_not_traded': True, 'index_leg_at_half_where_k2': True, 'idx_regime_trade_holds_goldbees': True, 'idx_regime_week_goldbees_units': True, 'all_regime_week_at_one_third_each': True, 'all_regime_entry_without_one_index': True, 'all_trade_inside_the_regime_on_an_index_sign_change': True, 'all_regime_trade_holds_goldbees': True, 'all_regime_week_goldbees_units': True, 'eq3_index_basket_nav_altered': True, 'ledger_all_minus_idx_altered': True, 'nav_scaled': True, 'trade_removed': True, 'half_basket_trade_as_full_reset': True, 'ledger_return_altered': True, 'stats_cagr_altered': True, 'robustness_stat_altered': True, 'r4_nav_altered': True, 'sc100_usable_from_lowered': True, 'index_price_shifted_one_session': True})
+wrote C:\Users\manur\Repos\wm-AA\AA\tests\T16\evidence\headline\w1\verify_t16.json
+
+[w1] rows compared (gate checks): 737400; failures + missing: 0; real run ok: True; exit ok: True; time 21.1 s
+[w2    2.7s] SCMO_0003: derived (sessions 1946, decisions 413, stocks 197, baskets 31, OUT-SELL weeks 49 in 8 spells, index weeks 25)
+[w2    4.5s] SCMO_0007: derived (sessions 1944, decisions 412, stocks 154, baskets 29, OUT-SELL weeks 49 in 8 spells, index weeks 25)
+[w2    6.7s] SCMO_0010: derived (sessions 1946, decisions 413, stocks 250, baskets 31, OUT-SELL weeks 49 in 8 spells, index weeks 25)
+[w2    8.9s] SCMO_0029: derived (sessions 1946, decisions 413, stocks 229, baskets 30, OUT-SELL weeks 49 in 8 spells, index weeks 25)
+[w2    9.1s] derivation complete (books ['SCMO_0003', 'SCMO_0007', 'SCMO_0010', 'SCMO_0029'])
+[w2   11.5s] comparison complete
+
+=== w2: verifier vs evidence in C:\Users\manur\Repos\wm-AA\AA\tests\T16\evidence\headline\w2 ===
+check                                compared   failed  missing      worst  gate
+C-data                                    793        0        0   0.00e+00  yes
+C-inputs-per-window(info)                  39        0        0   0.00e+00  info
+C-sc100-restriction                        18        0        0   0.00e+00  yes
+C-frozen-counts                           419        0        0   0.00e+00  yes
+C-dec                                    2711        0        0   0.00e+00  yes
+C-regimes                                1651        0        0   0.00e+00  yes
+C-pit                                   32775        0        0   0.00e+00  yes
+C-signals-D03-D24                        7801        0        0   0.00e+00  yes
+C-v3-index-tie                           4896        0        0   0.00e+00  yes
+C-index-bars                             1784        0        0   0.00e+00  yes
+C-stats                                   188        0        0   4.38e-15  yes
+C-nav                                  365754        0        0   4.65e-15  yes
+C-robust-stats                            185        0        0   2.20e-15  yes
+C-robust-nav                           330032        0        0   1.76e-15  yes
+C-parent-nav                                0        0        0   0.00e+00  yes
+C-cmix-params                              80        0        0   3.90e-16  yes
+C-ledger                                   96        0        0   9.68e-13  yes
+C-trades                                 5812        0        0   9.84e-16  yes
+C-positions                             13502        0        0   8.91e-16  yes
+C-v5-identities                         61343        0        0   5.80e-16  yes
+C-v5-idx                                 2041        0        0   4.94e-16  yes
+C-v5-all                                 3145        0        0   4.80e-16  yes
+C-v5-units                              91910        0        0   4.73e-16  yes
+C-v4a-regression-T15                   214748        0        0   9.84e-16  yes
+C-v4b-idx-all-priced-as-cash            31128        0        0   2.32e-15  yes
+C-v4c-idx-all-equals-liq                 1504        0        0   0.00e+00  yes
+C-v4f-one-instrument                       38        0        0   6.81e-16  yes
+C-v4f-g0-or-seam                           76        0        0   4.47e-01  yes
+C-engine-files                            359        0        0   0.00e+00  yes
+
+=== SELF-TEST w2: corrupted copy in C:\Users\manur\AppData\Local\Temp\verify_t16_x6eisg6f\corrupt_evidence_t16_w2 ===
+check                                compared   failed  missing      worst  gate
+C-data                                    794        1        0   0.00e+00  yes
+    first problem: usable_from of Historical Data/extended_2026-11-20/Master/Master_SC100.xlsx in inputs.csv (2004-01-01) differs from the registry's marker (2011-11-25)
+C-inputs-per-window(info)                  40        0        0   0.00e+00  info
+C-sc100-restriction                        18        0        0   0.00e+00  yes
+C-frozen-counts                           419        0        0   0.00e+00  yes
+C-dec                                    2711        1        0   1.00e+00  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'j': np.int64(307)} col buy_MC100: verifier=np.float64(0.0) evidence=np.float64(1.0)
+C-regimes                                1651        1        0   0.00e+00  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'decision_date': '2019-03-08'} col regime: verifier='OUT-SELL' evidence='OUT-BUY'
+C-pit                                   32774        0        0   0.00e+00  yes
+C-signals-D03-D24                        7801        0        0   0.00e+00  yes
+C-v3-index-tie                           4896        0        0   0.00e+00  yes
+C-index-bars                             1785        0        0   0.00e+00  yes
+C-stats                                   188        1        0   1.00e-04  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'window': 'full', 'variant': 'headline', 'cash': 'lbes', 'cost_bps': np.float64(20.8), 'run': '50-idx'} col cagr: verifier=np.float64(0.273677803372234) evidence=np.float64(0.27370517115257126)
+C-nav                                  365754     3892        0   9.99e-04  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'date': '2019-01-02', 'cost_bps': np.float64(0.0), 'run': '80-idx'} col nav: verifier=np.float64(1.0) evidence=np.float64(1.001)
+C-robust-stats                            185        1        0   1.00e-04  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'window': 'full', 'variant': 'r5_drag', 'cost_bps': np.float64(20.8), 'run': '50-idx'} col cagr: verifier=np.float64(0.27344067600696587) evidence=np.float64(0.27346802007456655)
+C-robust-nav                           330032     1946        0   1.00e-04  yes
+    first problem: first differing row {'book': 'SCMO_0003', 'window': 'full', 'variant': 'r4_s1', 'cost_bps': np.float64(20.8), 'run': '50-all', 'date': '2019-01-02'} col nav: verifier=np.float64(1.0) evidence=np.float64(1.0001)
+C-parent-nav                                0        0        0   0.00e+00  yes
+C-cmix-params                              80        0        0   3.90e-16  yes
+C-ledger                                   96        2        0   1.34e+00  yes
+    first problem: first differing row {'window': 'full', 'book': 'SCMO_0003', 'level': 'spell', 'spell_no': np.int64(1), 'stretch_no': np.int64(0)} col parent_return: verifier=np.float64(-0.0002548420243836391) evidence=np.float64(0.0007426095553724123)
+C-trades                                 5810       90        3   8.20e+12  yes
+    first problem: missing row (evidence only): {'book': 'SCMO_0003', 'cost_bps': np.float64(20.8), 'run': '50-all', 'seq': np.int64(43)}
+C-positions                             13502        0        1   8.91e-16  yes
+    first problem: missing row (evidence only): {'book': 'SCMO_0003', 'cost_bps': np.float64(20.8), 'run': '80-all', 'date': '2019-03-11', 'instrument': 'GOLDBEES'}
+C-v5-identities                         61332       14        0   2.50e-01  yes
+    first problem: value not conserved (lines after != V - cost): first at {'book': 'SCMO_0003', 'run': '50-idx', 'cost_bps': 20.8, 'date': '2019-03-11', 'kind': 'regime_in'}
+C-v5-idx                                 2040        2        0   1.66e-01  yes
+    first problem: -idx post-trade legs differ from the regime's split by 1.66e-01 of V at SCMO_0003 50-idx 20.8 2019-03-11 regime_in (OUT-SELL, k=2.0)
+C-v5-all                                 3149        8        0   2.50e-01  yes
+    first problem: -all post-trade legs differ from the regime's split by 2.50e-01 of V at SCMO_0003 50-all 20.8 2019-03-11 regime_in (OUT-SELL)
+C-v5-units                              91895       73        1   2.82e-01  yes
+    first problem: units held after the trade SCMO_0003 50-idx 2019-05-13 do not reproduce the evidence NAV (rel 2.05e-03 at session 99)
+C-v4a-regression-T15                   214748        0        0   9.84e-16  yes
+C-v4b-idx-all-priced-as-cash            31128        0        0   2.32e-15  yes
+C-v4c-idx-all-equals-liq                 1504        0        0   0.00e+00  yes
+C-v4f-one-instrument                       38        0        0   6.81e-16  yes
+C-v4f-g0-or-seam                           76        0        0   4.47e-01  yes
+C-engine-files                            359        0        0   0.00e+00  yes
+[w2] corruption alone, B_week_flipped: applied True; caught by C-dec: True
+[w2] corruption alone, regime_changed: applied True; caught by C-regimes: True
+[w2] corruption alone, B_change_not_traded: applied True; caught by C-trades: True
+[w2] corruption alone, index_leg_at_half_where_k2: applied True; caught by C-v5-idx: True
+[w2] corruption alone, idx_regime_trade_holds_goldbees: applied True; caught by C-v5-idx: True
+[w2] corruption alone, idx_regime_week_goldbees_units: applied True; caught by C-v5-units: True
+[w2] corruption alone, all_regime_week_at_one_third_each: applied True; caught by C-v5-all: True
+[w2] corruption alone, all_regime_entry_without_one_index: applied True; caught by C-v5-all: True
+[w2] corruption alone, all_trade_inside_the_regime_on_an_index_sign_change: applied True; caught by C-v5-all: True
+[w2] corruption alone, all_regime_trade_holds_goldbees: applied True; caught by C-v5-all: True
+[w2] corruption alone, all_regime_week_goldbees_units: applied True; caught by C-v5-units: True
+[w2] corruption alone, eq3_index_basket_nav_altered: applied True; caught by C-nav: True
+[w2] corruption alone, ledger_all_minus_idx_altered: applied True; caught by C-ledger: True
+[w2] corruption alone, nav_scaled: applied True; caught by C-nav: True
+[w2] corruption alone, trade_removed: applied True; caught by C-trades: True
+[w2] corruption alone, half_basket_trade_as_full_reset: applied True; caught by C-v5-identities: True
+[w2] corruption alone, ledger_return_altered: applied True; caught by C-ledger: True
+[w2] corruption alone, stats_cagr_altered: applied True; caught by C-stats: True
+[w2] corruption alone, robustness_stat_altered: applied True; caught by C-robust-stats: True
+[w2] corruption alone, r4_nav_altered: applied True; caught by C-robust-nav: True
+[w2] corruption alone, sc100_usable_from_lowered: applied True; caught by C-data: True
+[w2] index prices shifted by one session (SCMO_0003): C-nav failures 38348; C-stats 20; C-trades 564
+[w2] corrupted copy detected: True (failures 6037; applied {'B_week_flipped': True, 'regime_changed': True, 'B_change_not_traded': True, 'index_leg_at_half_where_k2': True, 'idx_regime_trade_holds_goldbees': True, 'idx_regime_week_goldbees_units': True, 'all_regime_week_at_one_third_each': True, 'all_regime_entry_without_one_index': True, 'all_trade_inside_the_regime_on_an_index_sign_change': True, 'all_regime_trade_holds_goldbees': True, 'all_regime_week_goldbees_units': True, 'eq3_index_basket_nav_altered': True, 'ledger_all_minus_idx_altered': True, 'nav_scaled': True, 'trade_removed': True, 'half_basket_trade_as_full_reset': True, 'ledger_return_altered': True, 'stats_cagr_altered': True, 'robustness_stat_altered': True, 'r4_nav_altered': True, 'sc100_usable_from_lowered': True, 'index_price_shifted_one_session': True}; detected by {'B_week_flipped': True, 'regime_changed': True, 'B_change_not_traded': True, 'index_leg_at_half_where_k2': True, 'idx_regime_trade_holds_goldbees': True, 'idx_regime_week_goldbees_units': True, 'all_regime_week_at_one_third_each': True, 'all_regime_entry_without_one_index': True, 'all_trade_inside_the_regime_on_an_index_sign_change': True, 'all_regime_trade_holds_goldbees': True, 'all_regime_week_goldbees_units': True, 'eq3_index_basket_nav_altered': True, 'ledger_all_minus_idx_altered': True, 'nav_scaled': True, 'trade_removed': True, 'half_basket_trade_as_full_reset': True, 'ledger_return_altered': True, 'stats_cagr_altered': True, 'robustness_stat_altered': True, 'r4_nav_altered': True, 'sc100_usable_from_lowered': True, 'index_price_shifted_one_session': True})
+wrote C:\Users\manur\Repos\wm-AA\AA\tests\T16\evidence\headline\w2\verify_t16.json
+
+[w2] rows compared (gate checks): 1174789; failures + missing: 0; real run ok: True; exit ok: True; time 30.9 s
+
+==== summary ====
+w1: rows compared (gate checks) 737400; failures + missing 0; exit ok True
+w2: rows compared (gate checks) 1174789; failures + missing 0; exit ok True
+total time 52.2 s; exit 0
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "c:\Users\manur\Repos\wm-AA\AA\tests\T16\analyse.py", line 26, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+T16 analysis (generated by tests/T16/analyse.py from the shipped evidence; nothing typed). W1 (T11's / T14's / T15's inputs) 2014-09-01 -> 2019-01-02, W2 (T08's inputs, extended) 2019-01-02 -> 2026-11-20
+Books: SCMO_0003, SCMO_0007, SCMO_0010, SCMO_0029. Costs 0.0, 20.8, 50.0 bps round trip (primary 20.8). No null, no chance claim (waiver).
+
+====================================================================================================
+4.0 The rules and the runs in words (read this first)
+====================================================================================================
+States, read every Friday: IN = the Nifty 100, Midcap 100 and Smallcap 100 weekly supertrend SIGNs are all BUY (the book holds the parent's basket); otherwise the switch is OUT and the book holds a sleeve: OUT-BUY = OUT and the weekly MAUc1 gold SIGN is BUY; OUT-SELL = OUT and MAUc1 is SELL. B = the indices whose own SIGN is BUY in an OUT week and k = how many (0, 1 or 2; 3 would be IN). Base sleeve: 50 = 50% GOLDBEES / 50% cash; 80 = 80% GOLDBEES / 20% cash when gold is BUY and 20% / 80% when gold is SELL. Cash = the LBES liquid-ETF level. The ten rules differ only in what they hold in OUT-SELL. A rule id is <base>-<its OUT-SELL holding>, such as 50-all; a bare suffix (-orig, -half, -liq, -idx, -all) means that holding on both bases.
+
+Rules (what each book holds in each state; they differ only in OUT-SELL):
+  50-orig  base 50/50.  IN: the parent's own basket.  OUT-BUY: 50% GOLDBEES, 50% liquid ETF (cash).  OUT-SELL: 50% GOLDBEES, 50% cash (the same sleeve).  Role: comparator; regression.  From: T06 / T11 Part A.
+  50-half  base 50/50.  IN: the parent's own basket.  OUT-BUY: 50% GOLDBEES, 50% cash.  OUT-SELL: 50% the parent's basket, 50% GOLDBEES.  Role: comparator; regression.  From: T14.
+  50-liq   base 50/50.  IN: the parent's own basket.  OUT-BUY: 50% GOLDBEES, 50% cash.  OUT-SELL: 100% liquid ETF.  Role: comparator; regression.  From: T14.
+  50-idx   base 50/50.  IN: the parent's own basket.  OUT-BUY: 50% GOLDBEES, 50% cash.  OUT-SELL: liquid ETF plus each index whose own SIGN is BUY, in equal parts 1 / (k + 1) (k = how many are BUY), rebalanced when that set changes.  Role: comparator; regression.  From: T15.
+  50-all   base 50/50.  IN: the parent's own basket.  OUT-BUY: 50% GOLDBEES, 50% cash.  OUT-SELL: 25% each of Nifty 100, Midcap 100, Smallcap 100 and the liquid ETF, whatever each index's own SIGN is; set on entry, left to drift, traded only when the book leaves OUT-SELL.  Role: NEW.  From: T16 (Manu, 2026-11-26).
+  80-orig  base 80/20.  IN: the parent's own basket.  OUT-BUY: 80% GOLDBEES, 20% cash.  OUT-SELL: 20% GOLDBEES, 80% cash.  Role: comparator; regression.  From: T08 / T11 Part B.
+  80-half  base 80/20.  IN: the parent's own basket.  OUT-BUY: 80% GOLDBEES, 20% cash.  OUT-SELL: 50% the parent's basket, 50% GOLDBEES.  Role: comparator; regression.  From: T14.
+  80-liq   base 80/20.  IN: the parent's own basket.  OUT-BUY: 80% GOLDBEES, 20% cash.  OUT-SELL: 100% liquid ETF.  Role: comparator; regression.  From: T14.
+  80-idx   base 80/20.  IN: the parent's own basket.  OUT-BUY: 80% GOLDBEES, 20% cash.  OUT-SELL: liquid ETF plus each index whose own SIGN is BUY, in equal parts 1 / (k + 1), rebalanced when that set changes.  Role: comparator; regression.  From: T15.
+  80-all   base 80/20.  IN: the parent's own basket.  OUT-BUY: 80% GOLDBEES, 20% cash.  OUT-SELL: 25% each of Nifty 100, Midcap 100, Smallcap 100 and the liquid ETF, whatever each index's own SIGN is; set on entry, left to drift, traded only when the book leaves OUT-SELL.  Role: NEW.  From: T16 (Manu, 2026-11-26).
+
+Benchmarks printed beside the rules:
+  hold_parent: hold the book's own parent from the first session (no timing; the parent's rebalances only). Role: comparator (benchmark).
+  hold_Nifty100, hold_MC100, hold_SC100: buy that price index at the first session's close and hold it, no trades (hold each index alone). Role: comparator (benchmark).
+  eq3_index_basket: one third each of Nifty 100, Midcap 100 and Smallcap 100, rebalanced at every weekly decision, 20.8 bps. Role: comparator (benchmark).
+  cmix_<rule>  (cmix_50-all, cmix_80-all, ...): the constant mix at that rule's own average shares of parent, GOLDBEES, cash and each index (the mean over the weekly decisions of the rule's target shares), rebalanced at every decision. Role: comparator (benchmark).
+
+Runs and windows (dates from the evidence):
+  W1    the parent rebuilt from its baskets and stock prices (no published NAV exists before 2019-01-02). 2014-09-01 -> 2019-01-02, 228 weekly decisions. Role: window. From: T11's / T14's / T15's inputs, pinned.
+  W2    the published NAVs' calendar (SCMO_0007 starts two days later). 2019-01-02 -> 2026-11-20, 413 weekly decisions. Role: window. From: T08's inputs, extended from T15's 2026-10-30.
+  live  W2's decisions from 2021-11-01, the AA books' live period (R3 on W2). Role: robustness. From: T14.
+  R1    round-trip cost 0 and 50 bps instead of 20.8. Role: robustness. From: T14.
+  R2    LIQUIDCASE as the cash leg instead of the LBES level (W1 the whole window; W2 from 2024-01-24). Role: robustness. From: T14.
+  R3    a later start: W1 from 2015-01-02, W2 live from 2021-11-01, each with its own first state (both start in OUT-SELL). Role: robustness. From: T14.
+  R4    leave one OUT-SELL spell out: the two -all rules hold 100% cash in that spell only (as -liq), everything else unchanged. Role: robustness. From: T14 / T15, here applied to -all.
+  R5    a fund-cost drag of 0.5 pp a year on each index leg (index prices times (1 - 0.005 / 252) per session). Role: robustness. From: T15.
+
+The six comparisons (each about the -all rule of a base b against the comparator of the same base and book; passes when the stated sign holds in at least 3 of the 4 books; unrounded statistics, 20.8 bps, whole window):
+  C1: -all earns more than the original rule (CAGR higher than -orig).
+  C2: -all's worst fall no deeper than the original's (max drawdown shallower or equal to -orig).
+  C3: holding the three indices adds to holding only cash in the regime (CAGR higher than -liq).
+  C4: -all does better than half parent + half GOLDBEES in the regime (CAGR higher than -half).
+  C5: ignoring the index signals in the regime earns more than following them (CAGR higher than -idx).
+  C6: ignoring the signals does not deepen the worst fall (max drawdown shallower or equal to -idx).
+
+====================================================================================================
+4.0a The worked example: one -all entry, one exit, one decision row, the series, and an index SIGN change that -all does not trade
+====================================================================================================
+-- W1 (T11's / T14's / T15's inputs), book SCMO_0003, 20.8 bps, rule `50-all`: real trades (values at the fill prices; shares of the value after cost)
+   (W1's parent is rebuilt from the parent's baskets and Eikon prices, not validated against a published NAV before 2019-01-02)
+   50-all|regime_in: decided 2014-12-12 (regime OUT-SELL, B = MC100+SC100, k = 2), traded 2014-12-15 (session idx 68); V = 1.198990, traded 2.397981, cost 0.00249390
+      before: stocks 1.198990  GOLDBEES 0.000000  cash 0.000000  Nifty100 0.000000  MC100 0.000000  SC100 0.000000
+      after : stocks 0.000000  GOLDBEES 0.000000  cash 0.299124  Nifty100 0.299124  MC100 0.299124  SC100 0.299124   (V after 1.196496)
+      shares after cost: Nifty100 0.250000  MC100 0.250000  SC100 0.250000  cash 0.250000   (every line a quarter, whatever the index SIGNs; no parent, no GOLDBEES)
+      index fill prices (OHLC4): Nifty100 8171.81  MC100 12143.74  SC100 5110.93
+   50-all|regime_in_k0: decided 2015-07-10 (regime OUT-SELL, B = cash, k = 0), traded 2015-07-13 (session idx 210); V = 1.219450, traded 1.829175, cost 0.00190234
+      before: stocks 0.000000  GOLDBEES 0.590400  cash 0.629049  Nifty100 0.000000  MC100 0.000000  SC100 0.000000
+      after : stocks 0.000000  GOLDBEES 0.000000  cash 0.304387  Nifty100 0.304387  MC100 0.304387  SC100 0.304387   (V after 1.217547)
+      shares after cost: Nifty100 0.250000  MC100 0.250000  SC100 0.250000  cash 0.250000   (every line a quarter, whatever the index SIGNs; no parent, no GOLDBEES)
+      index fill prices (OHLC4): Nifty100 8521.67  MC100 13369.15  SC100 5541.01
+   50-all|regime_in_k1: decided 2014-10-17 (regime OUT-SELL, B = MC100, k = 1), traded 2014-10-20 (session idx 31); V = 1.152374, traded 2.304747, cost 0.00239694
+      before: stocks 1.152374  GOLDBEES 0.000000  cash 0.000000  Nifty100 0.000000  MC100 0.000000  SC100 0.000000
+      after : stocks 0.000000  GOLDBEES 0.000000  cash 0.287494  Nifty100 0.287494  MC100 0.287494  SC100 0.287494   (V after 1.149977)
+      shares after cost: Nifty100 0.250000  MC100 0.250000  SC100 0.250000  cash 0.250000   (every line a quarter, whatever the index SIGNs; no parent, no GOLDBEES)
+      index fill prices (OHLC4): Nifty100 7825.34  MC100 11234.11  SC100 4869.52
+   50-all|regime_out: decided 2014-12-05 (regime IN, B = Nifty100+MC100+SC100, k = 3), traded 2014-12-08 (session idx 63); V = 1.237164, traded 2.474327, cost 0.00257330
+      before: stocks 0.000000  GOLDBEES 0.000000  cash 0.289553  Nifty100 0.311117  MC100 0.322486  SC100 0.314008
+      after : stocks 1.234590  GOLDBEES 0.000000  cash 0.000000  Nifty100 0.000000  MC100 0.000000  SC100 0.000000   (V after 1.234590)
+      shares after cost: Nifty100 0.000000  MC100 0.000000  SC100 0.000000  cash 0.000000   (the exit: the whole book moves to the parent's basket or the base sleeve, whichever the decision that ends OUT-SELL sets)
+      index fill prices (OHLC4): Nifty100 8468.33  MC100 12601.45  SC100 5318.61
+   50-all|B_change_not_traded: decided 2014-10-31: the set of BUY indices changed from B = MC100 to B = Nifty100+MC100 inside OUT-SELL; on the next session 2014-11-03 -all made 0 trades (it holds all three indices whatever B), -idx made 1 (it rebalances when B changes)
+   one decision row (first OUT-SELL week with at least one index on SELL (k = 2)): j 9, decided 2014-10-31, signs N100 BUY, MC100 BUY, SC100 SELL, MAUc1 SELL; regime OUT-SELL, B = Nifty100+MC100, k = 2; target of 50-all: parent 0.0000, GOLDBEES 0.0000, cash 0.2500, N100 0.2500, MC100 0.2500, SC100 0.2500; target of 50-idx: cash 0.3333, N100 0.3333, MC100 0.3333, SC100 0.0000; traded 2014-11-03
+   one decision row (first OUT-SELL week with all three indices on SELL (k = 0)): j 36, decided 2015-05-08, signs N100 SELL, MC100 SELL, SC100 SELL, MAUc1 SELL; regime OUT-SELL, B = cash, k = 0; target of 50-all: parent 0.0000, GOLDBEES 0.0000, cash 0.2500, N100 0.2500, MC100 0.2500, SC100 0.2500; target of 50-idx: cash 1.0000, N100 0.0000, MC100 0.0000, SC100 0.0000; traded 2015-05-11
+   the path: 1070 sessions 2014-09-01 -> 2019-01-02; 50-all NAV 1.000000 -> 1.789352; index closes first -> last are in the engine's index files (inputs.csv lists them: index_daily_pre2019/Nifty100_daily_ohlcv.csv, index_daily_pre2019/MC100_daily_ohlcv.csv, index_daily_pre2019/SC100_daily_ohlcv.csv)
+
+-- W2 (T08's inputs, extended), book SCMO_0003, 20.8 bps, rule `50-all`: real trades (values at the fill prices; shares of the value after cost)
+   50-all|regime_in: decided 2019-03-08 (regime OUT-SELL, B = MC100+SC100, k = 2), traded 2019-03-11 (session idx 47); V = 1.007796, traded 1.511693, cost 0.00157216
+      before: stocks 0.000000  GOLDBEES 0.503957  cash 0.503839  Nifty100 0.000000  MC100 0.000000  SC100 0.000000
+      after : stocks 0.000000  GOLDBEES 0.000000  cash 0.251556  Nifty100 0.251556  MC100 0.251556  SC100 0.251556   (V after 1.006223)
+      shares after cost: Nifty100 0.250000  MC100 0.250000  SC100 0.250000  cash 0.250000   (every line a quarter, whatever the index SIGNs; no parent, no GOLDBEES)
+      index fill prices (OHLC4): Nifty100 11318.86  MC100 17591.91  SC100 6437.20
+   50-all|regime_in_k0: decided 2019-05-10 (regime OUT-SELL, B = cash, k = 0), traded 2019-05-13 (session idx 87); V = 0.971914, traded 1.943828, cost 0.00202158
+      before: stocks 0.971914  GOLDBEES 0.000000  cash 0.000000  Nifty100 0.000000  MC100 0.000000  SC100 0.000000
+      after : stocks 0.000000  GOLDBEES 0.000000  cash 0.242473  Nifty100 0.242473  MC100 0.242473  SC100 0.242473   (V after 0.969893)
+      shares after cost: Nifty100 0.250000  MC100 0.250000  SC100 0.250000  cash 0.250000   (every line a quarter, whatever the index SIGNs; no parent, no GOLDBEES)
+      index fill prices (OHLC4): Nifty100 11313.75  MC100 16816.86  SC100 6177.25
+   50-all|regime_out: decided 2019-03-15 (regime IN, B = Nifty100+MC100+SC100, k = 3), traded 2019-03-18 (session idx 52); V = 1.021980, traded 2.043959, cost 0.00212572
+      before: stocks 0.000000  GOLDBEES 0.000000  cash 0.251749  Nifty100 0.258614  MC100 0.255541  SC100 0.256075
+      after : stocks 1.019854  GOLDBEES 0.000000  cash 0.000000  Nifty100 0.000000  MC100 0.000000  SC100 0.000000   (V after 1.019854)
+      shares after cost: Nifty100 0.000000  MC100 0.000000  SC100 0.000000  cash 0.000000   (the exit: the whole book moves to the parent's basket or the base sleeve, whichever the decision that ends OUT-SELL sets)
+      index fill prices (OHLC4): Nifty100 11636.46  MC100 17870.61  SC100 6552.84
+   50-all|B_change_not_traded: decided 2019-05-24: the set of BUY indices changed from B = cash to B = Nifty100 inside OUT-SELL; on the next session 2019-05-27 -all made 0 trades (it holds all three indices whatever B), -idx made 1 (it rebalances when B changes)
+   one decision row (first OUT-SELL week with at least one index on SELL (k = 2)): j 10, decided 2019-03-08, signs N100 SELL, MC100 BUY, SC100 BUY, MAUc1 SELL; regime OUT-SELL, B = MC100+SC100, k = 2; target of 50-all: parent 0.0000, GOLDBEES 0.0000, cash 0.2500, N100 0.2500, MC100 0.2500, SC100 0.2500; target of 50-idx: cash 0.3333, N100 0.0000, MC100 0.3333, SC100 0.3333; traded 2019-03-11
+   one decision row (first OUT-SELL week with all three indices on SELL (k = 0)): j 19, decided 2019-05-10, signs N100 SELL, MC100 SELL, SC100 SELL, MAUc1 SELL; regime OUT-SELL, B = cash, k = 0; target of 50-all: parent 0.0000, GOLDBEES 0.0000, cash 0.2500, N100 0.2500, MC100 0.2500, SC100 0.2500; target of 50-idx: cash 1.0000, N100 0.0000, MC100 0.0000, SC100 0.0000; traded 2019-05-13
+   the path: 1946 sessions 2019-01-02 -> 2026-11-20; 50-all NAV 1.000000 -> 8.451279; index closes first -> last are in the engine's index files (inputs.csv lists them: index_daily_2019_2026/Nifty100_daily_ohlcv.csv, index_daily_pre2019/Nifty100_daily_ohlcv.csv, index_daily_2019_2026/MC100_daily_ohlcv.csv, index_daily_pre2019/MC100_daily_ohlcv.csv, index_daily_2019_2026/SC100_daily_ohlcv.csv, index_daily_pre2019/SC100_daily_ohlcv.csv)
+
+
+====================================================================================================
+4.0b Gates, regime counts and reportability
+====================================================================================================
+-- W1 (T11's / T14's / T15's inputs): evidence tests/T16/evidence/headline/w1
+   PASS  engine gates (audit.json)  V2 True V3 True V4 True V5 True approved_data_selftest True step1_counts True all True
+   PASS  V2 point in time  12404 checks, 0 violations
+   PASS  V3 index tie (Master Index = D25/D25d close)  681 labels, 0 violations, worst rel 0.0e+00
+   PASS  V4(a) the eight T15 rules reproduce T15  nav rows 108 (worst 0.0e+00), trade rows 108 (worst 0.0e+00), boundary None
+   PASS  V4(b) -idx and -all on cash equal -liq  16 book-base-rule entries, worst 1.8e-15
+   PASS  V4(c) -idx and -all equal -liq before the first index trade  16 entries, worst 0.0e+00
+   PASS  V4(d) shared code  changed: common, data_selftest, due_list, end_of, index_bars, main, process_book, raw_parent, regime_ledger, regression_nav, rule_targets, run_book, run_window, shared_code_diff, v4_identities, v5_check
+   PASS  V4(e) signals and B equal the Master / weekly files  912 decisions
+   PASS  V4(f) one-instrument identity, G0 / seam  
+   PASS  V5 trade and cost identities (incl. the all_* identities)  4122 trades, 192 -all trades into OUT-SELL (quarters to 4.7e-17), 0 -all trades inside a spell, worst 5.2e-16
+   PASS  step 1 counts reproduced  8 book-windows
+   PASS  prereg sha256 in audit equals T16.md header  eda7321d73b71455
+   PASS  window end equals the pre-registered 2019-01-02  0003 2019-01-02, 0007 2019-01-02, 0010 2019-01-02, 0029 2019-01-02
+   PASS  daily_nav.csv ends on the window end  4 books, 0 differ
+   PASS  stats.csv end NAV equals daily_nav.csv  120 runs, 0 differ
+   PASS  R4 rows: one run per OUT-SELL spell, only the two -all rules  8 spells, runs ['50-all', '80-all']
+   PASS  ledger weeks per k equal the audit's k counts (the k split of -all minus -idx covers every OUT-SELL week)  4 books, 0 differ
+   PASS  V1 independent verifier  737,400 comparisons, 0 failures or missing, corruptions all detected
+-- W2 (T08's inputs, extended): evidence tests/T16/evidence/headline/w2
+   PASS  engine gates (audit.json)  V2 True V3 True V4 True V5 True approved_data_selftest True step1_counts True all True
+   PASS  V2 point in time  17351 checks, 0 violations
+   PASS  V3 index tie (Master Index = D25/D25d close)  1224 labels, 0 violations, worst rel 0.0e+00
+   PASS  V4(a) the eight T15 rules reproduce T15  nav rows 108 (worst 2.2e-16), trade rows 108 (worst 0.0e+00), boundary 2026-10-30
+   PASS  V4(b) -idx and -all on cash equal -liq  16 book-base-rule entries, worst 2.2e-15
+   PASS  V4(c) -idx and -all equal -liq before the first index trade  16 entries, worst 0.0e+00
+   PASS  V4(d) shared code  changed: common, data_selftest, due_list, end_of, index_bars, main, process_book, raw_parent, regime_ledger, regression_nav, rule_targets, run_book, run_window, shared_code_diff, v4_identities, v5_check
+   PASS  V4(e) signals and B equal the Master / weekly files  1651 decisions
+   PASS  V4(f) one-instrument identity, G0 / seam  
+   PASS  V5 trade and cost identities (incl. the all_* identities)  5559 trades, 192 -all trades into OUT-SELL (quarters to 5.0e-17), 0 -all trades inside a spell, worst 5.8e-16
+   PASS  step 1 counts reproduced  8 book-windows
+   PASS  prereg sha256 in audit equals T16.md header  eda7321d73b71455
+   PASS  window end equals the pre-registered 2026-11-20  0003 2026-11-20, 0007 2026-11-20, 0010 2026-11-20, 0029 2026-11-20
+   PASS  daily_nav.csv ends on the window end  4 books, 0 differ
+   PASS  stats.csv end NAV equals daily_nav.csv  120 runs, 0 differ
+   PASS  R4 rows: one run per OUT-SELL spell, only the two -all rules  8 spells, runs ['50-all', '80-all']
+   PASS  ledger weeks per k equal the audit's k counts (the k split of -all minus -idx covers every OUT-SELL week)  4 books, 0 differ
+   PASS  V1 independent verifier  1,174,789 comparisons, 0 failures or missing, corruptions all detected
+
+-- W1 (T11's / T14's / T15's inputs): regime counts from the engine's own series (equal to logs/step_1_spell_counts.json); -all holds the three indices in every OUT-SELL week
+     book      start        end  sessions  decisions  IN  OUT-BUY  OUT-SELL (-all weeks)  OS spells  k0  k1  k2  -idx index weeks  -idx index spells  B changes
+SCMO_0003 2014-09-01 2019-01-02      1070        228  93       81                     54          8  21  18  15                33                  6          8
+SCMO_0007 2014-09-01 2019-01-02      1070        228  93       81                     54          8  21  18  15                33                  6          8
+SCMO_0010 2014-09-01 2019-01-02      1070        228  93       81                     54          8  21  18  15                33                  6          8
+SCMO_0029 2014-09-01 2019-01-02      1070        228  93       81                     54          8  21  18  15                33                  6          8
+   trades from regime, gold and B changes per rule (SCMO_0003): 50-orig 15, 50-half 24, 50-liq 24, 50-idx 32, 50-all 24, 80-orig 24, 80-half 24, 80-liq 24, 80-idx 32, 80-all 24
+   OUT-SELL spells and their B sequences (SCMO_0003; B x weeks; -all holds the same four lines through all of them):
+     spell  1,  7 weeks: MC100 2, Nifty100+MC100 5
+     spell  2,  6 weeks: MC100+SC100 1, MC100 5
+     spell  3,  7 weeks: MC100+SC100 6, cash 1
+     spell  4,  1 weeks: cash 1
+     spell  5, 11 weeks: cash 6, SC100 3, cash 2
+     spell  6, 11 weeks: MC100+SC100 1, cash 9, SC100 1
+     spell  7,  9 weeks: Nifty100 7, Nifty100+MC100 2
+     spell  8,  2 weeks: cash 2
+   sessions held in each state (the decision's target is held from the session after the decision), per book: 0003: IN 443, OUT-BUY 371, OUT-SELL 256, OUT-SELL_k0 101, OUT-SELL_k1 87, OUT-SELL_k2 68; 0007: IN 443, OUT-BUY 371, OUT-SELL 256, OUT-SELL_k0 101, OUT-SELL_k1 87, OUT-SELL_k2 68; 0010: IN 443, OUT-BUY 371, OUT-SELL 256, OUT-SELL_k0 101, OUT-SELL_k1 87, OUT-SELL_k2 68; 0029: IN 443, OUT-BUY 371, OUT-SELL 256, OUT-SELL_k0 101, OUT-SELL_k1 87, OUT-SELL_k2 68
+   calendar sessions without an index bar (last close carried; decision sessions only): Nifty100: [], MC100: [], SC100: []
+
+-- W2 (T08's inputs, extended): regime counts from the engine's own series (equal to logs/step_1_spell_counts.json); -all holds the three indices in every OUT-SELL week
+     book      start        end  sessions  decisions  IN  OUT-BUY  OUT-SELL (-all weeks)  OS spells  k0  k1  k2  -idx index weeks  -idx index spells  B changes
+SCMO_0003 2019-01-02 2026-11-20      1946        413 201      163                     49          8  24   3  22                25                  7          8
+SCMO_0007 2019-01-04 2026-11-20      1944        412 201      162                     49          8  24   3  22                25                  7          8
+SCMO_0010 2019-01-02 2026-11-20      1946        413 201      163                     49          8  24   3  22                25                  7          8
+SCMO_0029 2019-01-02 2026-11-20      1946        413 201      163                     49          8  24   3  22                25                  7          8
+   trades from regime, gold and B changes per rule (SCMO_0003): 50-orig 18, 50-half 27, 50-liq 27, 50-idx 35, 50-all 27, 80-orig 27, 80-half 27, 80-liq 27, 80-idx 35, 80-all 27
+   OUT-SELL spells and their B sequences (SCMO_0003; B x weeks; -all holds the same four lines through all of them):
+     spell  1,  1 weeks: MC100+SC100 1
+     spell  2,  4 weeks: cash 2, Nifty100 1, Nifty100+MC100 1
+     spell  3, 10 weeks: MC100+SC100 10
+     spell  4,  2 weeks: Nifty100+MC100 2
+     spell  5, 12 weeks: cash 10, Nifty100+MC100 2
+     spell  6, 11 weeks: cash 3, SC100 1, MC100+SC100 4, cash 3
+     spell  7,  4 weeks: cash 4
+     spell  8,  5 weeks: cash 2, Nifty100 1, Nifty100+MC100 2
+   sessions held in each state (the decision's target is held from the session after the decision), per book: 0003: IN 961, OUT-BUY 757, OUT-SELL 228, OUT-SELL_k0 116, OUT-SELL_k1 14, OUT-SELL_k2 98; 0007: IN 961, OUT-BUY 755, OUT-SELL 228, OUT-SELL_k0 116, OUT-SELL_k1 14, OUT-SELL_k2 98; 0010: IN 961, OUT-BUY 757, OUT-SELL 228, OUT-SELL_k0 116, OUT-SELL_k1 14, OUT-SELL_k2 98; 0029: IN 961, OUT-BUY 757, OUT-SELL 228, OUT-SELL_k0 116, OUT-SELL_k1 14, OUT-SELL_k2 98
+   calendar sessions without an index bar (last close carried; decision sessions only): Nifty100: ['2020-02-01', '2025-02-01', '2026-02-01'], MC100: ['2020-02-01', '2025-02-01', '2026-02-01'], SC100: ['2020-02-01', '2025-02-01', '2026-02-01']
+
+
+====================================================================================================
+4.1 Headline: the twenty-four comparisons C1-C6 and the verdict table
+====================================================================================================
+Pass mark per comparison: the stated difference has the stated sign in at least 3 of the 4 books (T16.md 2.3). A description of seen weeks; no null, no percentile, no p-value, no claim about chance.
+The four books share one market; in OUT-SELL weeks -all holds the same four lines in every book, so '3 of 4' is weaker here than in earlier tests.
+
+== W1 (T11's / T14's / T15's inputs), after 20.8 bps, whole window 2014-09-01 -> 2019-01-02
+   50/50 base (`50-all` against `50-orig`, `50-liq`, `50-half`, `50-idx`):
+     C1  vs orig cagr   diff pp (all - comparator; * = counts toward pass): 0003 +3.10*  0007 +2.90*  0010 +2.98*  0029 +3.12*   -> 4 of 4  PASS
+     C2  vs orig max_dd diff pp (all - comparator; * = counts toward pass): 0003 +0.80*  0007 +0.43*  0010 +5.12*  0029 +3.35*   -> 4 of 4  PASS
+     C3  vs liq  cagr   diff pp (all - comparator; * = counts toward pass): 0003 +3.17*  0007 +2.97*  0010 +3.05*  0029 +3.19*   -> 4 of 4  PASS
+     C4  vs half cagr   diff pp (all - comparator; * = counts toward pass): 0003 -2.55   0007 -1.30   0010 -0.43   0029 -0.20    -> 0 of 4  FAIL
+     C5  vs idx  cagr   diff pp (all - comparator; * = counts toward pass): 0003 +3.29*  0007 +3.08*  0010 +3.17*  0029 +3.31*   -> 4 of 4  PASS
+     C6  vs idx  max_dd diff pp (all - comparator; * = counts toward pass): 0003 +0.42*  0007 +5.19*  0010 +1.78*  0029 -0.74    -> 3 of 4  PASS
+   80/20 base (`80-all` against `80-orig`, `80-liq`, `80-half`, `80-idx`):
+     C1  vs orig cagr   diff pp (all - comparator; * = counts toward pass): 0003 +3.23*  0007 +3.02*  0010 +3.11*  0029 +3.25*   -> 4 of 4  PASS
+     C2  vs orig max_dd diff pp (all - comparator; * = counts toward pass): 0003 +0.09*  0007 +0.66*  0010 +5.54*  0029 +2.75*   -> 4 of 4  PASS
+     C3  vs liq  cagr   diff pp (all - comparator; * = counts toward pass): 0003 +3.27*  0007 +3.06*  0010 +3.15*  0029 +3.29*   -> 4 of 4  PASS
+     C4  vs half cagr   diff pp (all - comparator; * = counts toward pass): 0003 -2.56   0007 -1.31   0010 -0.45   0029 -0.23    -> 0 of 4  FAIL
+     C5  vs idx  cagr   diff pp (all - comparator; * = counts toward pass): 0003 +3.39*  0007 +3.18*  0010 +3.26*  0029 +3.41*   -> 4 of 4  PASS
+     C6  vs idx  max_dd diff pp (all - comparator; * = counts toward pass): 0003 +0.46*  0007 +4.12*  0010 +3.48*  0029 -0.75    -> 3 of 4  PASS
+   beside each comparison: CAGR, max drawdown, Calmar, volatility, trades and cost paid (cost as a share of the starting NAV), -all next to the comparator, 20.8 bps, 2014-09-01 -> 2019-01-02:
+   50-all against 50-orig:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 14.70% | 11.60%        +3.10 -16.87% | -17.68%          +0.80     0.871 | 0.656 16.63% | 15.67%           31 | 22    0.07999 | 0.05377
+   SCMO_0007   7.31% | 4.41%        +2.90 -17.35% | -17.78%          +0.43     0.421 | 0.248 12.76% | 11.49%           31 | 22    0.06809 | 0.04651
+   SCMO_0010  10.30% | 7.32%        +2.98 -17.29% | -22.42%          +5.12     0.596 | 0.326 16.20% | 15.21%           31 | 22    0.07229 | 0.04939
+   SCMO_0029 15.30% | 12.18%        +3.12 -20.27% | -23.62%          +3.35     0.755 | 0.516 15.08% | 14.01%           32 | 23    0.07853 | 0.05313
+   50-all against 50-liq:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 14.70% | 11.53%        +3.17 -16.87% | -17.09%          +0.22     0.871 | 0.675 16.63% | 15.44%           31 | 31    0.07999 | 0.06605
+   SCMO_0007   7.31% | 4.34%        +2.97 -17.35% | -19.12%          +1.77     0.421 | 0.227 12.76% | 11.16%           31 | 31    0.06809 | 0.05649
+   SCMO_0010  10.30% | 7.25%        +3.05 -17.29% | -22.40%          +5.11     0.596 | 0.324 16.20% | 14.97%           31 | 31    0.07229 | 0.05998
+   SCMO_0029 15.30% | 12.11%        +3.19 -20.27% | -23.07%          +2.80     0.755 | 0.525 15.08% | 13.75%           32 | 32    0.07853 | 0.06495
+   50-all against 50-half:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 14.70% | 17.25%        -2.55 -16.87% | -16.84%          -0.03     0.871 | 1.025 16.63% | 16.79%           31 | 34    0.07999 | 0.07090
+   SCMO_0007   7.31% | 8.61%        -1.30 -17.35% | -12.05%          -5.30     0.421 | 0.714 12.76% | 12.20%           31 | 34    0.06809 | 0.05786
+   SCMO_0010 10.30% | 10.73%        -0.43 -17.29% | -16.45%          -0.84     0.596 | 0.652 16.20% | 16.29%           31 | 34    0.07229 | 0.06037
+   SCMO_0029 15.30% | 15.50%        -0.20 -20.27% | -20.55%          +0.28     0.755 | 0.754 15.08% | 15.00%           32 | 35    0.07853 | 0.06504
+   50-all against 50-idx:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 14.70% | 11.41%        +3.29 -16.87% | -17.30%          +0.42     0.871 | 0.660 16.63% | 16.04%           31 | 39    0.07999 | 0.07614
+   SCMO_0007   7.31% | 4.23%        +3.08 -17.35% | -22.54%          +5.19     0.421 | 0.188 12.76% | 11.96%           31 | 39    0.06809 | 0.06505
+   SCMO_0010  10.30% | 7.14%        +3.17 -17.29% | -19.08%          +1.78     0.596 | 0.374 16.20% | 15.58%           31 | 39    0.07229 | 0.06873
+   SCMO_0029 15.30% | 11.99%        +3.31 -20.27% | -19.53%          -0.74     0.755 | 0.614 15.08% | 14.42%           32 | 40    0.07853 | 0.07418
+   80-all against 80-orig:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 13.94% | 10.71%        +3.23 -18.06% | -18.15%          +0.09     0.772 | 0.590 17.08% | 15.96%           31 | 31    0.07972 | 0.06699
+   SCMO_0007   6.60% | 3.58%        +3.02 -19.39% | -20.05%          +0.66     0.340 | 0.178 13.33% | 11.87%           31 | 31    0.06784 | 0.05723
+   SCMO_0010   9.57% | 6.47%        +3.11 -18.88% | -24.42%          +5.54     0.507 | 0.265 16.66% | 15.50%           31 | 31    0.07201 | 0.06074
+   SCMO_0029 14.54% | 11.29%        +3.25 -21.25% | -24.01%          +2.75     0.684 | 0.470 15.57% | 14.33%           32 | 32    0.07822 | 0.06580
+   80-all against 80-liq:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 13.94% | 10.67%        +3.27 -18.06% | -18.15%          +0.09     0.772 | 0.588 17.08% | 15.92%           31 | 31    0.07972 | 0.07180
+   SCMO_0007   6.60% | 3.54%        +3.06 -19.39% | -20.63%          +1.23     0.340 | 0.172 13.33% | 11.82%           31 | 31    0.06784 | 0.06114
+   SCMO_0010   9.57% | 6.42%        +3.15 -18.88% | -24.44%          +5.56     0.507 | 0.263 16.66% | 15.46%           31 | 31    0.07201 | 0.06489
+   SCMO_0029 14.54% | 11.25%        +3.29 -21.25% | -24.01%          +2.76     0.684 | 0.468 15.57% | 14.29%           32 | 32    0.07822 | 0.07042
+   80-all against 80-half:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 13.94% | 16.51%        -2.56 -18.06% | -17.88%          -0.17     0.772 | 0.923 17.08% | 17.23%           31 | 34    0.07972 | 0.06931
+   SCMO_0007   6.60% | 7.92%        -1.31 -19.39% | -14.43%          -4.96     0.340 | 0.549 13.33% | 12.80%           31 | 34    0.06784 | 0.05657
+   SCMO_0010  9.57% | 10.03%        -0.45 -18.88% | -17.37%          -1.51     0.507 | 0.577 16.66% | 16.75%           31 | 34    0.07201 | 0.05906
+   SCMO_0029 14.54% | 14.77%        -0.23 -21.25% | -21.34%          +0.09     0.684 | 0.692 15.57% | 15.49%           32 | 35    0.07822 | 0.06358
+   80-all against 80-idx:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 13.94% | 10.55%        +3.39 -18.06% | -18.52%          +0.46     0.772 | 0.570 17.08% | 16.50%           31 | 39    0.07972 | 0.08175
+   SCMO_0007   6.60% | 3.43%        +3.18 -19.39% | -23.52%          +4.12     0.340 | 0.146 13.33% | 12.57%           31 | 39    0.06784 | 0.06960
+   SCMO_0010   9.57% | 6.31%        +3.26 -18.88% | -22.36%          +3.48     0.507 | 0.282 16.66% | 16.06%           31 | 39    0.07201 | 0.07352
+   SCMO_0029 14.54% | 11.13%        +3.41 -21.25% | -20.51%          -0.75     0.684 | 0.543 15.57% | 14.93%           32 | 40    0.07822 | 0.07951
+
+== W2 (T08's inputs, extended), after 20.8 bps, whole window 2019-01-02 -> 2026-11-20
+   50/50 base (`50-all` against `50-orig`, `50-liq`, `50-half`, `50-idx`):
+     C1  vs orig cagr   diff pp (all - comparator; * = counts toward pass): 0003 +4.57*  0007 +4.30*  0010 +4.63*  0029 +4.50*   -> 4 of 4  PASS
+     C2  vs orig max_dd diff pp (all - comparator; * = counts toward pass): 0003 +0.00*  0007 +0.00*  0010 -0.02   0029 -0.02    -> 2 of 4  FAIL
+     C3  vs liq  cagr   diff pp (all - comparator; * = counts toward pass): 0003 +5.37*  0007 +5.06*  0010 +5.45*  0029 +5.29*   -> 4 of 4  PASS
+     C4  vs half cagr   diff pp (all - comparator; * = counts toward pass): 0003 +2.18*  0007 +1.64*  0010 +1.17*  0029 +0.58*   -> 4 of 4  PASS
+     C5  vs idx  cagr   diff pp (all - comparator; * = counts toward pass): 0003 +4.49*  0007 +4.23*  0010 +4.55*  0029 +4.42*   -> 4 of 4  PASS
+     C6  vs idx  max_dd diff pp (all - comparator; * = counts toward pass): 0003 +0.00*  0007 +0.00*  0010 +2.33*  0029 +0.18*   -> 4 of 4  PASS
+   80/20 base (`80-all` against `80-orig`, `80-liq`, `80-half`, `80-idx`):
+     C1  vs orig cagr   diff pp (all - comparator; * = counts toward pass): 0003 +5.29*  0007 +4.99*  0010 +5.37*  0029 +5.21*   -> 4 of 4  PASS
+     C2  vs orig max_dd diff pp (all - comparator; * = counts toward pass): 0003 -0.49   0007 -0.00   0010 +0.59*  0029 -0.49    -> 1 of 4  FAIL
+     C3  vs liq  cagr   diff pp (all - comparator; * = counts toward pass): 0003 +5.58*  0007 +5.26*  0010 +5.66*  0029 +5.50*   -> 4 of 4  PASS
+     C4  vs half cagr   diff pp (all - comparator; * = counts toward pass): 0003 +2.22*  0007 +1.67*  0010 +1.18*  0029 +0.58*   -> 4 of 4  PASS
+     C5  vs idx  cagr   diff pp (all - comparator; * = counts toward pass): 0003 +4.65*  0007 +4.38*  0010 +4.71*  0029 +4.58*   -> 4 of 4  PASS
+     C6  vs idx  max_dd diff pp (all - comparator; * = counts toward pass): 0003 -0.48   0007 -0.00   0010 +2.21*  0029 +0.20*   -> 2 of 4  FAIL
+   beside each comparison: CAGR, max drawdown, Calmar, volatility, trades and cost paid (cost as a share of the starting NAV), -all next to the comparator, 20.8 bps, 2019-01-02 -> 2026-11-20:
+   50-all against 50-orig:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 31.85% | 27.28%        +4.57 -18.42% | -18.42%          +0.00     1.730 | 1.482 17.81% | 17.29%           43 | 34    0.22710 | 0.15340
+   SCMO_0007 24.06% | 19.76%        +4.30 -19.54% | -19.54%          +0.00     1.231 | 1.011 16.01% | 15.43%           41 | 32    0.14643 | 0.09745
+   SCMO_0010 33.65% | 29.02%        +4.63 -15.24% | -15.22%          -0.02     2.208 | 1.906 17.18% | 16.64%           42 | 33    0.25080 | 0.16692
+   SCMO_0029 29.79% | 25.29%        +4.50 -15.24% | -15.22%          -0.02     1.955 | 1.662 16.05% | 15.47%           42 | 33    0.19477 | 0.12834
+   50-all against 50-liq:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 31.85% | 26.48%        +5.37 -18.42% | -18.42%          +0.00     1.730 | 1.438 17.81% | 17.04%           43 | 43    0.22710 | 0.17706
+   SCMO_0007 24.06% | 19.00%        +5.06 -19.54% | -19.54%          +0.00     1.231 | 0.972 16.01% | 15.15%           41 | 41    0.14643 | 0.11453
+   SCMO_0010 33.65% | 28.20%        +5.45 -15.24% | -17.57%          +2.33     2.208 | 1.605 17.18% | 16.38%           42 | 42    0.25080 | 0.19506
+   SCMO_0029 29.79% | 24.50%        +5.29 -15.24% | -15.42%          +0.18     1.955 | 1.589 16.05% | 15.19%           42 | 42    0.19477 | 0.15148
+   50-all against 50-half:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 31.85% | 29.67%        +2.18 -18.42% | -18.42%          +0.00     1.730 | 1.611 17.81% | 17.93%           43 | 46    0.22710 | 0.18935
+   SCMO_0007 24.06% | 22.42%        +1.64 -19.54% | -19.54%          +0.00     1.231 | 1.147 16.01% | 15.88%           41 | 44    0.14643 | 0.12226
+   SCMO_0010 33.65% | 32.47%        +1.17 -15.24% | -15.78%          +0.54     2.208 | 2.058 17.18% | 17.19%           42 | 45    0.25080 | 0.21878
+   SCMO_0029 29.79% | 29.21%        +0.58 -15.24% | -15.63%          +0.39     1.955 | 1.869 16.05% | 16.08%           42 | 45    0.19477 | 0.16815
+   50-all against 50-idx:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 31.85% | 27.37%        +4.49 -18.42% | -18.42%          +0.00     1.730 | 1.486 17.81% | 17.29%           43 | 51    0.22710 | 0.22212
+   SCMO_0007 24.06% | 19.84%        +4.23 -19.54% | -19.54%          +0.00     1.231 | 1.015 16.01% | 15.43%           41 | 49    0.14643 | 0.14454
+   SCMO_0010 33.65% | 29.10%        +4.55 -15.24% | -17.57%          +2.33     2.208 | 1.656 17.18% | 16.64%           42 | 50    0.25080 | 0.24689
+   SCMO_0029 29.79% | 25.37%        +4.42 -15.24% | -15.42%          +0.18     1.955 | 1.645 16.05% | 15.47%           42 | 50    0.19477 | 0.19251
+   80-all against 80-orig:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 35.07% | 29.78%        +5.29 -20.87% | -20.38%          -0.49     1.680 | 1.461 19.68% | 19.02%           43 | 43    0.26252 | 0.20941
+   SCMO_0007 27.09% | 22.11%        +4.99 -20.93% | -20.93%          -0.00     1.294 | 1.056 18.07% | 17.35%           41 | 41    0.16838 | 0.13478
+   SCMO_0010 36.91% | 31.54%        +5.37 -20.87% | -21.46%          +0.59     1.768 | 1.470 19.10% | 18.42%           42 | 42    0.28995 | 0.23069
+   SCMO_0029 32.96% | 27.74%        +5.21 -20.87% | -20.38%          -0.49     1.579 | 1.361 18.10% | 17.38%           42 | 42    0.22489 | 0.17900
+   80-all against 80-liq:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 35.07% | 29.49%        +5.58 -20.87% | -20.39%          -0.48     1.680 | 1.446 19.68% | 18.98%           43 | 43    0.26252 | 0.21948
+   SCMO_0007 27.09% | 21.83%        +5.26 -20.93% | -20.93%          -0.00     1.294 | 1.043 18.07% | 17.30%           41 | 41    0.16838 | 0.14205
+   SCMO_0010 36.91% | 31.25%        +5.66 -20.87% | -23.08%          +2.21     1.768 | 1.354 19.10% | 18.38%           42 | 42    0.28995 | 0.24270
+   SCMO_0029 32.96% | 27.46%        +5.50 -20.87% | -21.07%          +0.20     1.579 | 1.303 18.10% | 17.34%           42 | 42    0.22489 | 0.18886
+   80-all against 80-half:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 35.07% | 32.86%        +2.22 -20.87% | -21.38%          +0.51     1.680 | 1.537 19.68% | 19.79%           43 | 46    0.26252 | 0.21455
+   SCMO_0007 27.09% | 25.43%        +1.67 -20.93% | -21.37%          +0.44     1.294 | 1.190 18.07% | 17.96%           41 | 44    0.16838 | 0.13776
+   SCMO_0010 36.91% | 35.73%        +1.18 -20.87% | -21.36%          +0.49     1.768 | 1.672 19.10% | 19.12%           42 | 45    0.28995 | 0.24736
+   SCMO_0029 32.96% | 32.38%        +0.58 -20.87% | -21.22%          +0.35     1.579 | 1.526 18.10% | 18.13%           42 | 45    0.22489 | 0.19004
+   80-all against 80-idx:
+        book CAGR all | comp CAGR diff pp max DD all | comp max DD diff pp Calmar all | comp  vol all | comp trades all | comp cost paid all | comp
+   SCMO_0003 35.07% | 30.42%        +4.65 -20.87% | -20.39%          -0.48     1.680 | 1.492 19.68% | 19.20%           43 | 51    0.26252 | 0.26927
+   SCMO_0007 27.09% | 22.71%        +4.38 -20.93% | -20.93%          -0.00     1.294 | 1.085 18.07% | 17.55%           41 | 49    0.16838 | 0.17462
+   SCMO_0010 36.91% | 32.20%        +4.71 -20.87% | -23.08%          +2.21     1.768 | 1.395 19.10% | 18.62%           42 | 50    0.28995 | 0.30034
+   SCMO_0029 32.96% | 28.38%        +4.58 -20.87% | -21.07%          +0.20     1.579 | 1.347 18.10% | 17.58%           42 | 50    0.22489 | 0.23413
+
+Verdict table (24 comparisons): w1 50: C1 PASS C2 PASS C3 PASS C4 FAIL C5 PASS C6 PASS; w1 80: C1 PASS C2 PASS C3 PASS C4 FAIL C5 PASS C6 PASS; w2 50: C1 PASS C2 FAIL C3 PASS C4 PASS C5 PASS C6 PASS; w2 80: C1 PASS C2 FAIL C3 PASS C4 PASS C5 PASS C6 FAIL
+Ties (|difference| <= 1e-12, the same number up to float noise; the frozen rule compares the unrounded values): w2 50-all C2 SCMO_0003 (diff +0.00e+00); w2 50-all C2 SCMO_0007 (diff +3.33e-16); w2 50-all C6 SCMO_0003 (diff +0.00e+00); w2 50-all C6 SCMO_0007 (diff +2.22e-16); w2 80-all C2 SCMO_0007 (diff -4.44e-16); w2 80-all C6 SCMO_0007 (diff -4.44e-16). Verdicts that would change if ties were counted as equal: [('w2', '80', 'C6')].
+19 of 24 comparisons pass. Choosing the best of the ten rules from these tables is a selection on seen data. Findings are PROVISIONAL at most.
+
+====================================================================================================
+4.2 The descriptive headline: the D-table, trades and cost, weeks and sessions in each regime and k
+====================================================================================================
+== W1 (T11's / T14's / T15's inputs) (W1's parent is rebuilt from the parent's baskets and Eikon prices, not validated against a published NAV before 2019-01-02)
+-- weeks (weekly decisions) and sessions in each regime and in each k (k = number of BUY indices in OUT-SELL)
+     book      start        end  sessions  wk IN  wk OUT-BUY  wk OUT-SELL  wk k0  wk k1  wk k2  sess IN  sess OUT-BUY  sess OUT-SELL  sess k0  sess k1  sess k2
+SCMO_0003 2014-09-01 2019-01-02      1070     93          81           54     21     18     15      443           371            256      101       87       68
+SCMO_0007 2014-09-01 2019-01-02      1070     93          81           54     21     18     15      443           371            256      101       87       68
+SCMO_0010 2014-09-01 2019-01-02      1070     93          81           54     21     18     15      443           371            256      101       87       68
+SCMO_0029 2014-09-01 2019-01-02      1070     93          81           54     21     18     15      443           371            256      101       87       68
+-- SCMO_0003, 20.8 bps, 2014-09-01 -> 2019-01-02, 1070 sessions
+        run   CAGR max drawdown Calmar    vol  trades cost paid  regime  B change  basket  switch
+    50-orig 11.60%      -17.68%  0.656 15.67%      22   0.05377       0         0       7      15
+    50-half 17.25%      -16.84%  1.025 16.79%      34   0.07090      16         0      10       8
+     50-liq 11.53%      -17.09%  0.675 15.44%      31   0.06605      16         0       7       8
+     50-idx 11.41%      -17.30%  0.660 16.04%      39   0.07614      16         8       7       8
+     50-all 14.70%      -16.87%  0.871 16.63%      31   0.07999      16         0       7       8
+    80-orig 10.71%      -18.15%  0.590 15.96%      31   0.06699       0         0       7      15
+    80-half 16.51%      -17.88%  0.923 17.23%      34   0.06931      16         0      10       8
+     80-liq 10.67%      -18.15%  0.588 15.92%      31   0.07180      16         0       7       8
+     80-idx 10.55%      -18.52%  0.570 16.50%      39   0.08175      16         8       7       8
+     80-all 13.94%      -18.06%  0.772 17.08%      31   0.07972      16         0       7       8
+hold_parent 32.16%      -39.67%  0.810 24.20%      18   0.05677       0         0      18       0
+   50-all minus 50-orig: CAGR +3.10 pp, max drawdown +0.80 pp, Calmar +0.215, vol +0.96 pp, trades +9, cost paid +0.02622
+   50-all minus 50-liq: CAGR +3.17 pp, max drawdown +0.22 pp, Calmar +0.197, vol +1.19 pp, trades +0, cost paid +0.01394
+   50-all minus 50-half: CAGR -2.55 pp, max drawdown -0.03 pp, Calmar -0.153, vol -0.16 pp, trades -3, cost paid +0.00910
+   50-all minus 50-idx: CAGR +3.29 pp, max drawdown +0.42 pp, Calmar +0.212, vol +0.60 pp, trades -8, cost paid +0.00385
+   80-all minus 80-orig: CAGR +3.23 pp, max drawdown +0.09 pp, Calmar +0.182, vol +1.12 pp, trades +0, cost paid +0.01273
+   80-all minus 80-liq: CAGR +3.27 pp, max drawdown +0.09 pp, Calmar +0.184, vol +1.16 pp, trades +0, cost paid +0.00792
+   80-all minus 80-half: CAGR -2.56 pp, max drawdown -0.17 pp, Calmar -0.151, vol -0.15 pp, trades -3, cost paid +0.01041
+   80-all minus 80-idx: CAGR +3.39 pp, max drawdown +0.46 pp, Calmar +0.203, vol +0.58 pp, trades -8, cost paid -0.00203
+
+-- SCMO_0007, 20.8 bps, 2014-09-01 -> 2019-01-02, 1070 sessions
+        run   CAGR max drawdown Calmar    vol  trades cost paid  regime  B change  basket  switch
+    50-orig  4.41%      -17.78%  0.248 11.49%      22   0.04651       0         0       7      15
+    50-half  8.61%      -12.05%  0.714 12.20%      34   0.05786      16         0      10       8
+     50-liq  4.34%      -19.12%  0.227 11.16%      31   0.05649      16         0       7       8
+     50-idx  4.23%      -22.54%  0.188 11.96%      39   0.06505      16         8       7       8
+     50-all  7.31%      -17.35%  0.421 12.76%      31   0.06809      16         0       7       8
+    80-orig  3.58%      -20.05%  0.178 11.87%      31   0.05723       0         0       7      15
+    80-half  7.92%      -14.43%  0.549 12.80%      34   0.05657      16         0      10       8
+     80-liq  3.54%      -20.63%  0.172 11.82%      31   0.06114      16         0       7       8
+     80-idx  3.43%      -23.52%  0.146 12.57%      39   0.06960      16         8       7       8
+     80-all  6.60%      -19.39%  0.340 13.33%      31   0.06784      16         0       7       8
+hold_parent 17.45%      -16.11%  1.083 17.48%      18   0.04480       0         0      18       0
+   50-all minus 50-orig: CAGR +2.90 pp, max drawdown +0.43 pp, Calmar +0.173, vol +1.27 pp, trades +9, cost paid +0.02158
+   50-all minus 50-liq: CAGR +2.97 pp, max drawdown +1.77 pp, Calmar +0.194, vol +1.59 pp, trades +0, cost paid +0.01159
+   50-all minus 50-half: CAGR -1.30 pp, max drawdown -5.30 pp, Calmar -0.293, vol +0.56 pp, trades -3, cost paid +0.01023
+   50-all minus 50-idx: CAGR +3.08 pp, max drawdown +5.19 pp, Calmar +0.234, vol +0.80 pp, trades -8, cost paid +0.00304
+   80-all minus 80-orig: CAGR +3.02 pp, max drawdown +0.66 pp, Calmar +0.162, vol +1.46 pp, trades +0, cost paid +0.01061
+   80-all minus 80-liq: CAGR +3.06 pp, max drawdown +1.23 pp, Calmar +0.169, vol +1.51 pp, trades +0, cost paid +0.00670
+   80-all minus 80-half: CAGR -1.31 pp, max drawdown -4.96 pp, Calmar -0.208, vol +0.53 pp, trades -3, cost paid +0.01127
+   80-all minus 80-idx: CAGR +3.18 pp, max drawdown +4.12 pp, Calmar +0.195, vol +0.76 pp, trades -8, cost paid -0.00176
+
+-- SCMO_0010, 20.8 bps, 2014-09-01 -> 2019-01-02, 1070 sessions
+        run   CAGR max drawdown Calmar    vol  trades cost paid  regime  B change  basket  switch
+    50-orig  7.32%      -22.42%  0.326 15.21%      22   0.04939       0         0       7      15
+    50-half 10.73%      -16.45%  0.652 16.29%      34   0.06037      16         0      10       8
+     50-liq  7.25%      -22.40%  0.324 14.97%      31   0.05998      16         0       7       8
+     50-idx  7.14%      -19.08%  0.374 15.58%      39   0.06873      16         8       7       8
+     50-all 10.30%      -17.29%  0.596 16.20%      31   0.07229      16         0       7       8
+    80-orig  6.47%      -24.42%  0.265 15.50%      31   0.06074       0         0       7      15
+    80-half 10.03%      -17.37%  0.577 16.75%      34   0.05906      16         0      10       8
+     80-liq  6.42%      -24.44%  0.263 15.46%      31   0.06489      16         0       7       8
+     80-idx  6.31%      -22.36%  0.282 16.06%      39   0.07352      16         8       7       8
+     80-all  9.57%      -18.88%  0.507 16.66%      31   0.07201      16         0       7       8
+hold_parent 22.05%      -29.47%  0.748 23.52%      18   0.04918       0         0      18       0
+   50-all minus 50-orig: CAGR +2.98 pp, max drawdown +5.12 pp, Calmar +0.269, vol +0.99 pp, trades +9, cost paid +0.02290
+   50-all minus 50-liq: CAGR +3.05 pp, max drawdown +5.11 pp, Calmar +0.272, vol +1.23 pp, trades +0, cost paid +0.01231
+   50-all minus 50-half: CAGR -0.43 pp, max drawdown -0.84 pp, Calmar -0.057, vol -0.09 pp, trades -3, cost paid +0.01192
+   50-all minus 50-idx: CAGR +3.17 pp, max drawdown +1.78 pp, Calmar +0.222, vol +0.62 pp, trades -8, cost paid +0.00356
+   80-all minus 80-orig: CAGR +3.11 pp, max drawdown +5.54 pp, Calmar +0.242, vol +1.15 pp, trades +0, cost paid +0.01127
+   80-all minus 80-liq: CAGR +3.15 pp, max drawdown +5.56 pp, Calmar +0.244, vol +1.19 pp, trades +0, cost paid +0.00712
+   80-all minus 80-half: CAGR -0.45 pp, max drawdown -1.51 pp, Calmar -0.070, vol -0.09 pp, trades -3, cost paid +0.01295
+   80-all minus 80-idx: CAGR +3.26 pp, max drawdown +3.48 pp, Calmar +0.225, vol +0.60 pp, trades -8, cost paid -0.00151
+
+-- SCMO_0029, 20.8 bps, 2014-09-01 -> 2019-01-02, 1070 sessions
+        run   CAGR max drawdown Calmar    vol  trades cost paid  regime  B change  basket  switch
+    50-orig 12.18%      -23.62%  0.516 14.01%      23   0.05313       0         0       8      15
+    50-half 15.50%      -20.55%  0.754 15.00%      35   0.06504      16         0      11       8
+     50-liq 12.11%      -23.07%  0.525 13.75%      32   0.06495      16         0       8       8
+     50-idx 11.99%      -19.53%  0.614 14.42%      40   0.07418      16         8       8       8
+     50-all 15.30%      -20.27%  0.755 15.08%      32   0.07853      16         0       8       8
+    80-orig 11.29%      -24.01%  0.470 14.33%      32   0.06580       0         0       8      15
+    80-half 14.77%      -21.34%  0.692 15.49%      35   0.06358      16         0      11       8
+     80-liq 11.25%      -24.01%  0.468 14.29%      32   0.07042      16         0       8       8
+     80-idx 11.13%      -20.51%  0.543 14.93%      40   0.07951      16         8       8       8
+     80-all 14.54%      -21.25%  0.684 15.57%      32   0.07822      16         0       8       8
+hold_parent 25.69%      -34.12%  0.753 21.80%      18   0.04748       0         0      18       0
+   50-all minus 50-orig: CAGR +3.12 pp, max drawdown +3.35 pp, Calmar +0.239, vol +1.06 pp, trades +9, cost paid +0.02540
+   50-all minus 50-liq: CAGR +3.19 pp, max drawdown +2.80 pp, Calmar +0.230, vol +1.33 pp, trades +0, cost paid +0.01358
+   50-all minus 50-half: CAGR -0.20 pp, max drawdown +0.28 pp, Calmar +0.000, vol +0.08 pp, trades -3, cost paid +0.01349
+   50-all minus 50-idx: CAGR +3.31 pp, max drawdown -0.74 pp, Calmar +0.141, vol +0.66 pp, trades -8, cost paid +0.00436
+   80-all minus 80-orig: CAGR +3.25 pp, max drawdown +2.75 pp, Calmar +0.214, vol +1.24 pp, trades +0, cost paid +0.01243
+   80-all minus 80-liq: CAGR +3.29 pp, max drawdown +2.76 pp, Calmar +0.216, vol +1.28 pp, trades +0, cost paid +0.00780
+   80-all minus 80-half: CAGR -0.23 pp, max drawdown +0.09 pp, Calmar -0.008, vol +0.07 pp, trades -3, cost paid +0.01465
+   80-all minus 80-idx: CAGR +3.41 pp, max drawdown -0.75 pp, Calmar +0.141, vol +0.64 pp, trades -8, cost paid -0.00129
+
+== W2 (T08's inputs, extended)
+-- weeks (weekly decisions) and sessions in each regime and in each k (k = number of BUY indices in OUT-SELL)
+     book      start        end  sessions  wk IN  wk OUT-BUY  wk OUT-SELL  wk k0  wk k1  wk k2  sess IN  sess OUT-BUY  sess OUT-SELL  sess k0  sess k1  sess k2
+SCMO_0003 2019-01-02 2026-11-20      1946    201         163           49     24      3     22      961           757            228      116       14       98
+SCMO_0007 2019-01-04 2026-11-20      1944    201         162           49     24      3     22      961           755            228      116       14       98
+SCMO_0010 2019-01-02 2026-11-20      1946    201         163           49     24      3     22      961           757            228      116       14       98
+SCMO_0029 2019-01-02 2026-11-20      1946    201         163           49     24      3     22      961           757            228      116       14       98
+-- SCMO_0003, 20.8 bps, 2019-01-02 -> 2026-11-20, 1946 sessions
+        run   CAGR max drawdown Calmar    vol  trades cost paid  regime  B change  basket  switch
+    50-orig 27.28%      -18.42%  1.482 17.29%      34   0.15340       0         0      16      18
+    50-half 29.67%      -18.42%  1.611 17.93%      46   0.18935      15         0      19      12
+     50-liq 26.48%      -18.42%  1.438 17.04%      43   0.17706      15         0      16      12
+     50-idx 27.37%      -18.42%  1.486 17.29%      51   0.22212      15         8      16      12
+     50-all 31.85%      -18.42%  1.730 17.81%      43   0.22710      15         0      16      12
+    80-orig 29.78%      -20.38%  1.461 19.02%      43   0.20941       0         0      16      18
+    80-half 32.86%      -21.38%  1.537 19.79%      46   0.21455      15         0      19      12
+     80-liq 29.49%      -20.39%  1.446 18.98%      43   0.21948      15         0      16      12
+     80-idx 30.42%      -20.39%  1.492 19.20%      51   0.26927      15         8      16      12
+     80-all 35.07%      -20.87%  1.680 19.68%      43   0.26252      15         0      16      12
+hold_parent 16.96%      -46.32%  0.366 24.46%      31   0.05683       0         0      31       0
+   50-all minus 50-orig: CAGR +4.57 pp, max drawdown +0.00 pp, Calmar +0.248, vol +0.52 pp, trades +9, cost paid +0.07370
+   50-all minus 50-liq: CAGR +5.37 pp, max drawdown +0.00 pp, Calmar +0.292, vol +0.77 pp, trades +0, cost paid +0.05004
+   50-all minus 50-half: CAGR +2.18 pp, max drawdown +0.00 pp, Calmar +0.118, vol -0.11 pp, trades -3, cost paid +0.03775
+   50-all minus 50-idx: CAGR +4.49 pp, max drawdown +0.00 pp, Calmar +0.244, vol +0.52 pp, trades -8, cost paid +0.00497
+   80-all minus 80-orig: CAGR +5.29 pp, max drawdown -0.49 pp, Calmar +0.220, vol +0.66 pp, trades +0, cost paid +0.05311
+   80-all minus 80-liq: CAGR +5.58 pp, max drawdown -0.48 pp, Calmar +0.234, vol +0.70 pp, trades +0, cost paid +0.04304
+   80-all minus 80-half: CAGR +2.22 pp, max drawdown +0.51 pp, Calmar +0.144, vol -0.11 pp, trades -3, cost paid +0.04797
+   80-all minus 80-idx: CAGR +4.65 pp, max drawdown -0.48 pp, Calmar +0.188, vol +0.48 pp, trades -8, cost paid -0.00675
+
+-- SCMO_0007, 20.8 bps, 2019-01-04 -> 2026-11-20, 1944 sessions
+        run   CAGR max drawdown Calmar    vol  trades cost paid  regime  B change  basket  switch
+    50-orig 19.76%      -19.54%  1.011 15.43%      32   0.09745       0         0      14      18
+    50-half 22.42%      -19.54%  1.147 15.88%      44   0.12226      15         0      17      12
+     50-liq 19.00%      -19.54%  0.972 15.15%      41   0.11453      15         0      14      12
+     50-idx 19.84%      -19.54%  1.015 15.43%      49   0.14454      15         8      14      12
+     50-all 24.06%      -19.54%  1.231 16.01%      41   0.14643      15         0      14      12
+    80-orig 22.11%      -20.93%  1.056 17.35%      41   0.13478       0         0      14      18
+    80-half 25.43%      -21.37%  1.190 17.96%      44   0.13776      15         0      17      12
+     80-liq 21.83%      -20.93%  1.043 17.30%      41   0.14205      15         0      14      12
+     80-idx 22.71%      -20.93%  1.085 17.55%      49   0.17462      15         8      14      12
+     80-all 27.09%      -20.93%  1.294 18.07%      41   0.16838      15         0      14      12
+hold_parent 10.85%      -54.65%  0.199 20.91%      29   0.03478       0         0      29       0
+   50-all minus 50-orig: CAGR +4.30 pp, max drawdown +0.00 pp, Calmar +0.220, vol +0.58 pp, trades +9, cost paid +0.04898
+   50-all minus 50-liq: CAGR +5.06 pp, max drawdown +0.00 pp, Calmar +0.259, vol +0.86 pp, trades +0, cost paid +0.03190
+   50-all minus 50-half: CAGR +1.64 pp, max drawdown +0.00 pp, Calmar +0.084, vol +0.13 pp, trades -3, cost paid +0.02417
+   50-all minus 50-idx: CAGR +4.23 pp, max drawdown +0.00 pp, Calmar +0.216, vol +0.58 pp, trades -8, cost paid +0.00189
+   80-all minus 80-orig: CAGR +4.99 pp, max drawdown -0.00 pp, Calmar +0.238, vol +0.72 pp, trades +0, cost paid +0.03361
+   80-all minus 80-liq: CAGR +5.26 pp, max drawdown -0.00 pp, Calmar +0.251, vol +0.76 pp, trades +0, cost paid +0.02633
+   80-all minus 80-half: CAGR +1.67 pp, max drawdown +0.44 pp, Calmar +0.105, vol +0.11 pp, trades -3, cost paid +0.03063
+   80-all minus 80-idx: CAGR +4.38 pp, max drawdown -0.00 pp, Calmar +0.209, vol +0.52 pp, trades -8, cost paid -0.00624
+
+-- SCMO_0010, 20.8 bps, 2019-01-02 -> 2026-11-20, 1946 sessions
+        run   CAGR max drawdown Calmar    vol  trades cost paid  regime  B change  basket  switch
+    50-orig 29.02%      -15.22%  1.906 16.64%      33   0.16692       0         0      15      18
+    50-half 32.47%      -15.78%  2.058 17.19%      45   0.21878      15         0      18      12
+     50-liq 28.20%      -17.57%  1.605 16.38%      42   0.19506      15         0      15      12
+     50-idx 29.10%      -17.57%  1.656 16.64%      50   0.24689      15         8      15      12
+     50-all 33.65%      -15.24%  2.208 17.18%      42   0.25080      15         0      15      12
+    80-orig 31.54%      -21.46%  1.470 18.42%      42   0.23069       0         0      15      18
+    80-half 35.73%      -21.36%  1.672 19.12%      45   0.24736      15         0      18      12
+     80-liq 31.25%      -23.08%  1.354 18.38%      42   0.24270      15         0      15      12
+     80-idx 32.20%      -23.08%  1.395 18.62%      50   0.30034      15         8      15      12
+     80-all 36.91%      -20.87%  1.768 19.10%      42   0.28995      15         0      15      12
+hold_parent 25.34%      -44.98%  0.563 23.26%      31   0.07879       0         0      31       0
+   50-all minus 50-orig: CAGR +4.63 pp, max drawdown -0.02 pp, Calmar +0.302, vol +0.54 pp, trades +9, cost paid +0.08388
+   50-all minus 50-liq: CAGR +5.45 pp, max drawdown +2.33 pp, Calmar +0.603, vol +0.80 pp, trades +0, cost paid +0.05574
+   50-all minus 50-half: CAGR +1.17 pp, max drawdown +0.54 pp, Calmar +0.150, vol -0.01 pp, trades -3, cost paid +0.03202
+   50-all minus 50-idx: CAGR +4.55 pp, max drawdown +2.33 pp, Calmar +0.552, vol +0.53 pp, trades -8, cost paid +0.00391
+   80-all minus 80-orig: CAGR +5.37 pp, max drawdown +0.59 pp, Calmar +0.299, vol +0.67 pp, trades +0, cost paid +0.05926
+   80-all minus 80-liq: CAGR +5.66 pp, max drawdown +2.21 pp, Calmar +0.414, vol +0.72 pp, trades +0, cost paid +0.04725
+   80-all minus 80-half: CAGR +1.18 pp, max drawdown +0.49 pp, Calmar +0.096, vol -0.02 pp, trades -3, cost paid +0.04259
+   80-all minus 80-idx: CAGR +4.71 pp, max drawdown +2.21 pp, Calmar +0.373, vol +0.48 pp, trades -8, cost paid -0.01039
+
+-- SCMO_0029, 20.8 bps, 2019-01-02 -> 2026-11-20, 1946 sessions
+        run   CAGR max drawdown Calmar    vol  trades cost paid  regime  B change  basket  switch
+    50-orig 25.29%      -15.22%  1.662 15.47%      33   0.12834       0         0      15      18
+    50-half 29.21%      -15.63%  1.869 16.08%      45   0.16815      15         0      18      12
+     50-liq 24.50%      -15.42%  1.589 15.19%      42   0.15148      15         0      15      12
+     50-idx 25.37%      -15.42%  1.645 15.47%      50   0.19251      15         8      15      12
+     50-all 29.79%      -15.24%  1.955 16.05%      42   0.19477      15         0      15      12
+    80-orig 27.74%      -20.38%  1.361 17.38%      42   0.17900       0         0      15      18
+    80-half 32.38%      -21.22%  1.526 18.13%      45   0.19004      15         0      18      12
+     80-liq 27.46%      -21.07%  1.303 17.34%      42   0.18886      15         0      15      12
+     80-idx 28.38%      -21.07%  1.347 17.58%      50   0.23413      15         8      15      12
+     80-all 32.96%      -20.87%  1.579 18.10%      42   0.22489      15         0      15      12
+hold_parent 24.65%      -36.92%  0.668 21.58%      30   0.07003       0         0      30       0
+   50-all minus 50-orig: CAGR +4.50 pp, max drawdown -0.02 pp, Calmar +0.293, vol +0.58 pp, trades +9, cost paid +0.06643
+   50-all minus 50-liq: CAGR +5.29 pp, max drawdown +0.18 pp, Calmar +0.366, vol +0.86 pp, trades +0, cost paid +0.04330
+   50-all minus 50-half: CAGR +0.58 pp, max drawdown +0.39 pp, Calmar +0.086, vol -0.03 pp, trades -3, cost paid +0.02662
+   50-all minus 50-idx: CAGR +4.42 pp, max drawdown +0.18 pp, Calmar +0.310, vol +0.58 pp, trades -8, cost paid +0.00227
+   80-all minus 80-orig: CAGR +5.21 pp, max drawdown -0.49 pp, Calmar +0.218, vol +0.72 pp, trades +0, cost paid +0.04589
+   80-all minus 80-liq: CAGR +5.50 pp, max drawdown +0.20 pp, Calmar +0.276, vol +0.76 pp, trades +0, cost paid +0.03603
+   80-all minus 80-half: CAGR +0.58 pp, max drawdown +0.35 pp, Calmar +0.053, vol -0.03 pp, trades -3, cost paid +0.03485
+   80-all minus 80-idx: CAGR +4.58 pp, max drawdown +0.20 pp, Calmar +0.232, vol +0.52 pp, trades -8, cost paid -0.00924
+
+
+====================================================================================================
+4.3 The regime ledger (with -all minus -idx by k) and the comparators
+====================================================================================================
+== W1 (T11's / T14's / T15's inputs): regime ledger (span: close of the session on which the span's first decision is traded -> close of the session on which the decision that ends it is traded; see evidence_contract.md)
+-- instruments over each span (identical in every book) and the parent per book (hold-the-parent, 0 cost)
+  level  spell_no  stretch_no              B  k first_decision last_decision  weeks entered_from exited_to goldbees_return cash_return Nifty100_return MC100_return SC100_return parent 0003 parent 0007 parent 0010 parent 0029
+  spell         1           0          MC100  1     2014-10-17    2014-11-28      7           IN        IN          -3.10%       0.72%           7.61%       11.56%        8.74%      14.99%      18.60%       8.12%      14.35%
+stretch         1           1          MC100  1     2014-10-17    2014-10-23      2           IN  OUT-SELL          -3.13%       0.19%           5.67%        6.48%        7.59%       7.99%       6.98%       9.30%       8.19%
+stretch         1           2 Nifty100+MC100  2     2014-10-31    2014-11-28      5     OUT-SELL        IN           0.03%       0.52%           1.84%        4.77%        1.07%       6.47%      10.86%      -1.08%       5.69%
+  spell         2           0    MC100+SC100  2     2014-12-12    2015-01-16      6           IN   OUT-BUY           3.05%       0.65%           8.39%        8.33%        7.68%       7.72%       8.77%       7.25%       6.51%
+stretch         2           1    MC100+SC100  2     2014-12-12    2014-12-12      1           IN  OUT-SELL          -0.21%       0.11%           1.28%        1.38%       -0.89%       0.09%       1.60%       0.56%       0.66%
+stretch         2           2          MC100  1     2014-12-19    2015-01-16      5     OUT-SELL   OUT-BUY           3.26%       0.54%           7.01%        6.85%        8.64%       7.63%       7.06%       6.65%       5.82%
+  spell         3           0    MC100+SC100  2     2015-03-27    2015-05-08      7           IN   OUT-BUY           4.99%       0.70%          -0.77%        1.01%       -1.76%       8.07%      -0.65%       5.24%      -0.03%
+stretch         3           1    MC100+SC100  2     2015-03-27    2015-04-30      6           IN  OUT-SELL           2.07%       0.61%          -1.72%       -1.31%       -2.34%       4.68%      -2.98%       1.80%      -0.91%
+stretch         3           2           cash  0     2015-05-08    2015-05-08      1     OUT-SELL   OUT-BUY           2.86%       0.10%           0.96%        2.36%        0.60%       3.23%       2.40%       3.38%       0.89%
+  spell         4           0           cash  0     2015-07-10    2015-07-10      1      OUT-BUY        IN          -2.10%       0.09%           1.76%        2.43%        2.54%       7.35%       4.44%       4.93%       4.16%
+stretch         4           1           cash  0     2015-07-10    2015-07-10      1      OUT-BUY        IN          -2.10%       0.09%           1.76%        2.43%        2.54%       7.35%       4.44%       4.93%       4.16%
+  spell         5           0           cash  0     2015-11-13    2016-01-22     11      OUT-BUY   OUT-BUY           4.39%       0.95%          -3.28%       -2.78%       -5.00%       5.27%       0.10%       0.58%       0.41%
+stretch         5           1           cash  0     2015-11-13    2015-12-18      6      OUT-BUY  OUT-SELL          -1.60%       0.51%           1.85%        3.58%        5.80%      16.34%       4.86%       7.11%       6.15%
+stretch         5           2          SC100  1     2015-12-24    2016-01-08      3     OUT-SELL  OUT-SELL           4.00%       0.26%          -7.55%       -9.51%      -14.54%     -15.80%      -9.77%     -13.64%     -12.32%
+stretch         5           3           cash  0     2016-01-15    2016-01-22      2     OUT-SELL   OUT-BUY           2.01%       0.17%           2.71%        3.73%        5.07%       7.46%       5.80%       8.73%       7.88%
+  spell         6           0    MC100+SC100  2     2016-11-04    2017-01-13     11           IN   OUT-BUY          -3.49%       0.83%          -0.99%       -1.08%        1.51%       2.05%      -2.37%      -4.02%      -3.94%
+stretch         6           1    MC100+SC100  2     2016-11-04    2016-11-04      1           IN  OUT-SELL          -0.79%       0.09%          -5.06%       -6.85%       -7.93%     -11.85%      -6.44%     -12.10%     -14.02%
+stretch         6           2           cash  0     2016-11-11    2017-01-06      9     OUT-SELL  OUT-SELL          -2.99%       0.67%           4.46%        6.55%       10.80%      14.54%       4.00%       8.87%      11.35%
+stretch         6           3          SC100  1     2017-01-13    2017-01-13      1     OUT-SELL   OUT-BUY           0.27%       0.07%          -0.17%       -0.33%       -0.48%       1.07%       0.34%       0.30%       0.34%
+  spell         7           0       Nifty100  1     2018-06-29    2018-08-24      9      OUT-BUY        IN          -0.97%       0.71%           8.92%        9.98%        7.31%       6.05%      15.72%       8.35%       9.10%
+stretch         7           1       Nifty100  1     2018-06-29    2018-08-10      7      OUT-BUY  OUT-SELL          -3.42%       0.55%           8.31%        8.50%        5.88%       3.86%      11.32%       5.06%       8.53%
+stretch         7           2 Nifty100+MC100  2     2018-08-17    2018-08-24      2     OUT-SELL        IN           2.54%       0.16%           0.56%        1.37%        1.35%       2.12%       3.95%       3.13%       0.53%
+  spell         8           0           cash  0     2018-11-22    2018-11-30      2      OUT-BUY   OUT-BUY           2.96%       0.16%          -1.57%       -3.95%       -4.28%      -4.63%      -3.97%      -1.73%      -1.96%
+stretch         8           1           cash  0     2018-11-22    2018-11-30      2      OUT-BUY   OUT-BUY           2.96%       0.16%          -1.57%       -3.95%       -4.28%      -4.63%      -3.97%      -1.73%      -1.96%
+-- SCMO_0003: each rule's return over each span (20.8 bps); the last two columns = ret_<base>-all minus ret_<base>-idx
+  level  spell_no  stretch_no              B  k  weeks 50-orig 50-half 50-liq 50-idx 50-all 80-orig 80-half 80-liq 80-idx 80-all all-idx 50 pp all-idx 80 pp
+  spell         1           0          MC100  1      7  -2.23%   5.72% -0.21%  5.08%  6.71%  -1.02%   5.72% -0.21%  5.08%  6.71%         +1.63         +1.63
+stretch         1           1          MC100  1      2  -1.47%   2.59%  0.19%  3.18%  4.98%  -0.47%   2.59%  0.19%  3.18%  4.98%         +1.80         +1.80
+stretch         1           2 Nifty100+MC100  2      5  -0.77%   3.05% -0.40%  1.84%  1.64%  -0.55%   3.05% -0.40%  1.84%  1.64%         -0.20         -0.20
+  spell         2           0    MC100+SC100  2      6   1.85%   5.41%  0.82%  3.80%  6.17%   1.34%   5.59%  0.92%  3.91%  6.33%         +2.36         +2.42
+stretch         2           1    MC100+SC100  2      1  -0.05%  -0.08%  0.11%  0.09%  0.47%   0.05%  -0.08%  0.11%  0.09%  0.47%         +0.38         +0.38
+stretch         2           2          MC100  1      5   1.90%   5.50%  0.71%  3.71%  5.67%   1.29%   5.67%  0.81%  3.82%  5.83%         +1.96         +2.01
+  spell         3           0    MC100+SC100  2      7   2.85%   6.19%  0.82% -1.16% -0.43%   1.70%   6.33%  0.89% -1.09% -0.31%         +0.73         +0.78
+stretch         3           1    MC100+SC100  2      6   1.34%   3.65%  0.61% -1.37% -1.20%   0.90%   3.65%  0.61% -1.37% -1.20%         +0.17         +0.17
+stretch         3           2           cash  0      1   1.49%   2.45%  0.21%  0.21%  0.78%   0.79%   2.59%  0.28%  0.28%  0.90%         +0.56         +0.62
+  spell         4           0           cash  0      1  -0.67%   2.71%  0.25%  0.25%  1.83%  -0.13%   2.71%  0.25%  0.25%  1.83%         +1.59         +1.59
+stretch         4           1           cash  0      1  -0.67%   2.71%  0.25%  0.25%  1.83%  -0.13%   2.71%  0.25%  0.25%  1.83%         +1.59         +1.59
+  spell         5           0           cash  0     11   2.63%   4.67%  0.90% -5.96% -2.53%   1.58%   4.70%  0.87% -5.99% -2.51%         +3.42         +3.47
+stretch         5           1           cash  0      6  -0.52%   7.36%  0.51%  0.36%  2.94%   0.09%   7.36%  0.51%  0.36%  2.94%         +2.58         +2.58
+stretch         5           2          SC100  1      3   2.07%  -6.74%  0.26% -6.41% -7.94%   1.00%  -6.74%  0.26% -6.41% -7.94%         -1.53         -1.53
+stretch         5           3           cash  0      2   1.07%   4.53%  0.12%  0.12%  2.85%   0.48%   4.56%  0.09%  0.09%  2.87%         +2.73         +2.78
+  spell         6           0    MC100+SC100  2     11  -1.33%  -0.87%  0.61% -3.69% -0.46%  -0.30%  -0.94%  0.48% -3.82% -0.54%         +3.23         +3.28
+stretch         6           1    MC100+SC100  2      1  -0.35%  -6.23%  0.09% -3.74% -4.94%  -0.09%  -6.23%  0.09% -3.74% -4.94%         -1.20         -1.20
+stretch         6           2           cash  0      9  -1.15%   5.37%  0.67%  0.69%  5.51%  -0.06%   5.37%  0.67%  0.69%  5.51%         +4.82         +4.82
+stretch         6           3          SC100  1      1   0.17%   0.33% -0.15% -0.63% -0.75%  -0.16%   0.26% -0.28% -0.76% -0.83%         -0.12         -0.07
+  spell         7           0       Nifty100  1      9  -0.73%   2.15%  0.10%  4.85%  6.50%  -0.24%   2.15%  0.10%  4.85%  6.50%         +1.65         +1.65
+stretch         7           1       Nifty100  1      7  -1.42%   0.15%  0.55%  4.37%  5.81%  -0.24%   0.15%  0.55%  4.37%  5.81%         +1.43         +1.43
+stretch         7           2 Nifty100+MC100  2      2   0.70%   2.00% -0.45%  0.45%  0.65%   0.01%   2.00% -0.45%  0.45%  0.65%         +0.20         +0.20
+  spell         8           0           cash  0      2   1.55%  -0.98%  0.30%  0.30% -2.20%   0.88%  -0.84%  0.38%  0.38% -2.07%         -2.50         -2.45
+stretch         8           1           cash  0      2   1.55%  -0.98%  0.30%  0.30% -2.20%   0.88%  -0.84%  0.38%  0.38% -2.07%         -2.50         -2.45
+-- SCMO_0007: each rule's return over each span (20.8 bps); the last two columns = ret_<base>-all minus ret_<base>-idx
+  level  spell_no  stretch_no              B  k  weeks 50-orig 50-half 50-liq 50-idx 50-all 80-orig 80-half 80-liq 80-idx 80-all all-idx 50 pp all-idx 80 pp
+  spell         1           0          MC100  1      7  -2.34%   6.99% -0.33%  4.95%  6.58%  -1.13%   6.99% -0.33%  4.95%  6.58%         +1.63         +1.63
+stretch         1           1          MC100  1      2  -1.47%   1.89%  0.19%  3.18%  4.98%  -0.47%   1.89%  0.19%  3.18%  4.98%         +1.80         +1.80
+stretch         1           2 Nifty100+MC100  2      5  -0.88%   5.00% -0.52%  1.72%  1.52%  -0.66%   5.00% -0.52%  1.72%  1.52%         -0.20         -0.20
+  spell         2           0    MC100+SC100  2      6   1.85%   5.71%  0.82%  3.80%  6.17%   1.34%   5.88%  0.92%  3.91%  6.33%         +2.36         +2.42
+stretch         2           1    MC100+SC100  2      1  -0.05%   0.70%  0.11%  0.09%  0.47%   0.05%   0.70%  0.11%  0.09%  0.47%         +0.38         +0.38
+stretch         2           2          MC100  1      5   1.90%   4.97%  0.71%  3.71%  5.67%   1.29%   5.14%  0.81%  3.82%  5.83%         +1.96         +2.01
+  spell         3           0    MC100+SC100  2      7   2.85%   2.03%  0.82% -1.16% -0.43%   1.70%   2.17%  0.89% -1.09% -0.31%         +0.73         +0.78
+stretch         3           1    MC100+SC100  2      6   1.34%  -0.37%  0.61% -1.37% -1.20%   0.90%  -0.37%  0.61% -1.37% -1.20%         +0.17         +0.17
+stretch         3           2           cash  0      1   1.49%   2.41%  0.21%  0.21%  0.78%   0.79%   2.55%  0.28%  0.28%  0.90%         +0.56         +0.62
+  spell         4           0           cash  0      1  -0.79%   1.37%  0.13%  0.13%  1.72%  -0.24%   1.37%  0.13%  0.13%  1.72%         +1.59         +1.59
+stretch         4           1           cash  0      1  -0.79%   1.37%  0.13%  0.13%  1.72%  -0.24%   1.37%  0.13%  0.13%  1.72%         +1.59         +1.59
+  spell         5           0           cash  0     11   2.63%   1.96%  0.90% -5.96% -2.53%   1.58%   2.00%  0.87% -5.99% -2.51%         +3.42         +3.47
+stretch         5           1           cash  0      6  -0.52%   1.31%  0.51%  0.36%  2.94%   0.09%   1.31%  0.51%  0.36%  2.94%         +2.58         +2.58
+stretch         5           2          SC100  1      3   2.07%  -3.08%  0.26% -6.41% -7.94%   1.00%  -3.08%  0.26% -6.41% -7.94%         -1.53         -1.53
+stretch         5           3           cash  0      2   1.07%   3.84%  0.12%  0.12%  2.85%   0.48%   3.88%  0.09%  0.09%  2.87%         +2.73         +2.78
+  spell         6           0    MC100+SC100  2     11  -1.33%  -3.10%  0.61% -3.69% -0.46%  -0.30%  -3.17%  0.48% -3.82% -0.54%         +3.23         +3.28
+stretch         6           1    MC100+SC100  2      1  -0.35%  -3.54%  0.09% -3.74% -4.94%  -0.09%  -3.54%  0.09% -3.74% -4.94%         -1.20         -1.20
+stretch         6           2           cash  0      9  -1.15%   0.28%  0.67%  0.69%  5.51%  -0.06%   0.28%  0.67%  0.69%  5.51%         +4.82         +4.82
+stretch         6           3          SC100  1      1   0.17%   0.17% -0.15% -0.63% -0.75%  -0.16%   0.10% -0.28% -0.76% -0.83%         -0.12         -0.07
+  spell         7           0       Nifty100  1      9  -0.67%   6.85%  0.16%  4.91%  6.56%  -0.18%   6.85%  0.16%  4.91%  6.56%         +1.65         +1.65
+stretch         7           1       Nifty100  1      7  -1.42%   3.67%  0.55%  4.37%  5.81%  -0.24%   3.67%  0.55%  4.37%  5.81%         +1.43         +1.43
+stretch         7           2 Nifty100+MC100  2      2   0.76%   3.07% -0.39%  0.51%  0.71%   0.07%   3.07% -0.39%  0.51%  0.71%         +0.20         +0.20
+  spell         8           0           cash  0      2   1.55%  -0.46%  0.30%  0.30% -2.20%   0.88%  -0.31%  0.38%  0.38% -2.07%         -2.50         -2.45
+stretch         8           1           cash  0      2   1.55%  -0.46%  0.30%  0.30% -2.20%   0.88%  -0.31%  0.38%  0.38% -2.07%         -2.50         -2.45
+-- SCMO_0010: each rule's return over each span (20.8 bps); the last two columns = ret_<base>-all minus ret_<base>-idx
+  level  spell_no  stretch_no              B  k  weeks 50-orig 50-half 50-liq 50-idx 50-all 80-orig 80-half 80-liq 80-idx 80-all all-idx 50 pp all-idx 80 pp
+  spell         1           0          MC100  1      7  -2.69%   2.12% -0.69%  4.58%  6.20%  -1.49%   2.12% -0.69%  4.58%  6.20%         +1.62         +1.62
+stretch         1           1          MC100  1      2  -1.47%   3.38%  0.19%  3.18%  4.98%  -0.47%   3.38%  0.19%  3.18%  4.98%         +1.80         +1.80
+stretch         1           2 Nifty100+MC100  2      5  -1.24%  -1.22% -0.87%  1.36%  1.16%  -1.02%  -1.22% -0.87%  1.36%  1.16%         -0.20         -0.20
+  spell         2           0    MC100+SC100  2      6   1.85%   5.11%  0.82%  3.80%  6.17%   1.34%   5.28%  0.92%  3.91%  6.33%         +2.36         +2.42
+stretch         2           1    MC100+SC100  2      1  -0.05%   0.13%  0.11%  0.09%  0.47%   0.05%   0.13%  0.11%  0.09%  0.47%         +0.38         +0.38
+stretch         2           2          MC100  1      5   1.90%   4.97%  0.71%  3.71%  5.67%   1.29%   5.15%  0.81%  3.82%  5.83%         +1.96         +2.01
+  spell         3           0    MC100+SC100  2      7   2.85%   4.95%  0.82% -1.16% -0.43%   1.70%   5.09%  0.89% -1.09% -0.31%         +0.73         +0.78
+stretch         3           1    MC100+SC100  2      6   1.34%   2.16%  0.61% -1.37% -1.20%   0.90%   2.16%  0.61% -1.37% -1.20%         +0.17         +0.17
+stretch         3           2           cash  0      1   1.49%   2.73%  0.21%  0.21%  0.78%   0.79%   2.87%  0.28%  0.28%  0.90%         +0.56         +0.62
+  spell         4           0           cash  0      1  -0.85%   1.48%  0.07%  0.07%  1.65%  -0.30%   1.48%  0.07%  0.07%  1.65%         +1.59         +1.59
+stretch         4           1           cash  0      1  -0.85%   1.48%  0.07%  0.07%  1.65%  -0.30%   1.48%  0.07%  0.07%  1.65%         +1.59         +1.59
+  spell         5           0           cash  0     11   2.63%   2.95%  0.90% -5.96% -2.53%   1.58%   2.99%  0.87% -5.99% -2.51%         +3.42         +3.47
+stretch         5           1           cash  0      6  -0.52%   3.25%  0.51%  0.36%  2.94%   0.09%   3.25%  0.51%  0.36%  2.94%         +2.58         +2.58
+stretch         5           2          SC100  1      3   2.07%  -5.25%  0.26% -6.41% -7.94%   1.00%  -5.25%  0.26% -6.41% -7.94%         -1.53         -1.53
+stretch         5           3           cash  0      2   1.07%   5.25%  0.12%  0.12%  2.85%   0.48%   5.28%  0.09%  0.09%  2.87%         +2.73         +2.78
+  spell         6           0    MC100+SC100  2     11  -1.33%  -3.96%  0.61% -3.69% -0.46%  -0.30%  -4.02%  0.48% -3.82% -0.54%         +3.23         +3.28
+stretch         6           1    MC100+SC100  2      1  -0.35%  -6.34%  0.09% -3.74% -4.94%  -0.09%  -6.34%  0.09% -3.74% -4.94%         -1.20         -1.20
+stretch         6           2           cash  0      9  -1.15%   2.48%  0.67%  0.69%  5.51%  -0.06%   2.48%  0.67%  0.69%  5.51%         +4.82         +4.82
+stretch         6           3          SC100  1      1   0.17%   0.06% -0.15% -0.63% -0.75%  -0.16%  -0.01% -0.28% -0.76% -0.83%         -0.12         -0.07
+  spell         7           0       Nifty100  1      9  -0.88%   3.25% -0.06%  4.69%  6.34%  -0.39%   3.25% -0.06%  4.69%  6.34%         +1.65         +1.65
+stretch         7           1       Nifty100  1      7  -1.42%   0.79%  0.55%  4.37%  5.81%  -0.24%   0.79%  0.55%  4.37%  5.81%         +1.43         +1.43
+stretch         7           2 Nifty100+MC100  2      2   0.55%   2.44% -0.60%  0.30%  0.50%  -0.14%   2.44% -0.60%  0.30%  0.50%         +0.20         +0.20
+  spell         8           0           cash  0      2   1.55%   0.47%  0.30%  0.30% -2.20%   0.88%   0.61%  0.38%  0.38% -2.07%         -2.50         -2.45
+stretch         8           1           cash  0      2   1.55%   0.47%  0.30%  0.30% -2.20%   0.88%   0.61%  0.38%  0.38% -2.07%         -2.50         -2.45
+-- SCMO_0029: each rule's return over each span (20.8 bps); the last two columns = ret_<base>-all minus ret_<base>-idx
+  level  spell_no  stretch_no              B  k  weeks 50-orig 50-half 50-liq 50-idx 50-all 80-orig 80-half 80-liq 80-idx 80-all all-idx 50 pp all-idx 80 pp
+  spell         1           0          MC100  1      7  -2.37%   5.12% -0.36%  4.92%  6.54%  -1.17%   5.12% -0.36%  4.92%  6.54%         +1.63         +1.63
+stretch         1           1          MC100  1      2  -1.47%   2.56%  0.19%  3.18%  4.98%  -0.47%   2.56%  0.19%  3.18%  4.98%         +1.80         +1.80
+stretch         1           2 Nifty100+MC100  2      5  -0.92%   2.50% -0.55%  1.69%  1.49%  -0.70%   2.50% -0.55%  1.69%  1.49%         -0.20         -0.20
+  spell         2           0    MC100+SC100  2      6   1.85%   5.02%  0.82%  3.80%  6.17%   1.34%   5.19%  0.92%  3.91%  6.33%         +2.36         +2.42
+stretch         2           1    MC100+SC100  2      1  -0.05%   0.28%  0.11%  0.09%  0.47%   0.05%   0.28%  0.11%  0.09%  0.47%         +0.38         +0.38
+stretch         2           2          MC100  1      5   1.90%   4.73%  0.71%  3.71%  5.67%   1.29%   4.90%  0.81%  3.82%  5.83%         +1.96         +2.01
+  spell         3           0    MC100+SC100  2      7   2.85%   2.31%  0.82% -1.16% -0.43%   1.70%   2.45%  0.89% -1.09% -0.31%         +0.73         +0.78
+stretch         3           1    MC100+SC100  2      6   1.34%   0.75%  0.61% -1.37% -1.20%   0.90%   0.75%  0.61% -1.37% -1.20%         +0.17         +0.17
+stretch         3           2           cash  0      1   1.49%   1.55%  0.21%  0.21%  0.78%   0.79%   1.68%  0.28%  0.28%  0.90%         +0.56         +0.62
+  spell         4           0           cash  0      1  -1.01%   1.04% -0.10% -0.10%  1.48%  -0.47%   1.04% -0.10% -0.10%  1.48%         +1.58         +1.58
+stretch         4           1           cash  0      1  -1.01%   1.04% -0.10% -0.10%  1.48%  -0.47%   1.04% -0.10% -0.10%  1.48%         +1.58         +1.58
+  spell         5           0           cash  0     11   2.63%   2.29%  0.90% -5.96% -2.53%   1.58%   2.32%  0.87% -5.99% -2.51%         +3.42         +3.47
+stretch         5           1           cash  0      6  -0.52%   2.18%  0.51%  0.36%  2.94%   0.09%   2.18%  0.51%  0.36%  2.94%         +2.58         +2.58
+stretch         5           2          SC100  1      3   2.07%  -4.47%  0.26% -6.41% -7.94%   1.00%  -4.47%  0.26% -6.41% -7.94%         -1.53         -1.53
+stretch         5           3           cash  0      2   1.07%   4.79%  0.12%  0.12%  2.85%   0.48%   4.82%  0.09%  0.09%  2.87%         +2.73         +2.78
+  spell         6           0    MC100+SC100  2     11  -1.33%  -3.91%  0.61% -3.69% -0.46%  -0.30%  -3.97%  0.48% -3.82% -0.54%         +3.23         +3.28
+stretch         6           1    MC100+SC100  2      1  -0.35%  -7.40%  0.09% -3.74% -4.94%  -0.09%  -7.40%  0.09% -3.74% -4.94%         -1.20         -1.20
+stretch         6           2           cash  0      9  -1.15%   3.64%  0.67%  0.69%  5.51%  -0.06%   3.64%  0.67%  0.69%  5.51%         +4.82         +4.82
+stretch         6           3          SC100  1      1   0.17%   0.12% -0.15% -0.63% -0.75%  -0.16%   0.05% -0.28% -0.76% -0.83%         -0.12         -0.07
+  spell         7           0       Nifty100  1      9  -0.76%   3.70%  0.06%  4.81%  6.46%  -0.27%   3.70%  0.06%  4.81%  6.46%         +1.65         +1.65
+stretch         7           1       Nifty100  1      7  -1.42%   2.59%  0.55%  4.37%  5.81%  -0.24%   2.59%  0.55%  4.37%  5.81%         +1.43         +1.43
+stretch         7           2 Nifty100+MC100  2      2   0.67%   1.08% -0.48%  0.42%  0.62%  -0.02%   1.08% -0.48%  0.42%  0.62%         +0.20         +0.20
+  spell         8           0           cash  0      2   1.55%   0.46%  0.30%  0.30% -2.20%   0.88%   0.60%  0.38%  0.38% -2.07%         -2.50         -2.45
+stretch         8           1           cash  0      2   1.55%   0.46%  0.30%  0.30% -2.20%   0.88%   0.60%  0.38%  0.38% -2.07%         -2.50         -2.45
+-- -all minus -idx by k (sum over the B stretches of each k of ret_<base>-all minus ret_<base>-idx, a simple sum of period returns; weeks = OUT-SELL decisions in those stretches), 20.8 bps:
+   SCMO_0003, 2014-09-01 -> 2019-01-02:
+         stretches of  n stretches  weeks sum 50-all - 50-idx (pp, summed over stretches) sum 80-all - 80-idx (pp)
+                k = 0            6     21                                           +9.78                    +9.93
+                k = 1            5     18                                           +3.54                    +3.65
+                k = 2            5     15                                           -0.64                    -0.64
+               k >= 1           10     33                                           +2.90                    +3.01
+   all OUT-SELL weeks           16     54                                          +12.68                   +12.94
+   SCMO_0007, 2014-09-01 -> 2019-01-02:
+         stretches of  n stretches  weeks sum 50-all - 50-idx (pp, summed over stretches) sum 80-all - 80-idx (pp)
+                k = 0            6     21                                           +9.78                    +9.93
+                k = 1            5     18                                           +3.54                    +3.65
+                k = 2            5     15                                           -0.64                    -0.64
+               k >= 1           10     33                                           +2.90                    +3.01
+   all OUT-SELL weeks           16     54                                          +12.68                   +12.94
+   SCMO_0010, 2014-09-01 -> 2019-01-02:
+         stretches of  n stretches  weeks sum 50-all - 50-idx (pp, summed over stretches) sum 80-all - 80-idx (pp)
+                k = 0            6     21                                           +9.78                    +9.93
+                k = 1            5     18                                           +3.54                    +3.65
+                k = 2            5     15                                           -0.64                    -0.64
+               k >= 1           10     33                                           +2.90                    +3.01
+   all OUT-SELL weeks           16     54                                          +12.68                   +12.94
+   SCMO_0029, 2014-09-01 -> 2019-01-02:
+         stretches of  n stretches  weeks sum 50-all - 50-idx (pp, summed over stretches) sum 80-all - 80-idx (pp)
+                k = 0            6     21                                           +9.78                    +9.93
+                k = 1            5     18                                           +3.54                    +3.65
+                k = 2            5     15                                           -0.64                    -0.64
+               k >= 1           10     33                                           +2.90                    +3.01
+   all OUT-SELL weeks           16     54                                          +12.68                   +12.93
+
+== W2 (T08's inputs, extended): regime ledger (span: close of the session on which the span's first decision is traded -> close of the session on which the decision that ends it is traded; see evidence_contract.md)
+-- instruments over each span (identical in every book) and the parent per book (hold-the-parent, 0 cost)
+  level  spell_no  stretch_no              B  k first_decision last_decision  weeks entered_from  exited_to goldbees_return cash_return Nifty100_return MC100_return SC100_return parent 0003 parent 0007 parent 0010 parent 0029
+  spell         1           0    MC100+SC100  2     2019-03-08    2019-03-08      1      OUT-BUY         IN          -1.36%       0.08%           2.23%        0.36%        0.68%      -0.03%      -2.04%      -1.01%      -0.57%
+stretch         1           1    MC100+SC100  2     2019-03-08    2019-03-08      1      OUT-BUY         IN          -1.36%       0.08%           2.23%        0.36%        0.68%      -0.03%      -2.04%      -1.01%      -0.57%
+  spell         2           0           cash  0     2019-05-10    2019-05-31      4           IN    OUT-BUY           1.89%       0.29%           6.73%        6.81%        4.90%       7.36%       1.77%      10.97%       8.72%
+stretch         2           1           cash  0     2019-05-10    2019-05-17      2           IN   OUT-SELL          -0.59%       0.15%           6.88%        8.04%        9.12%      11.08%       6.40%      13.14%       8.81%
+stretch         2           2       Nifty100  1     2019-05-24    2019-05-24      1     OUT-SELL   OUT-SELL           1.56%       0.07%           1.39%        0.76%       -1.34%      -2.15%      -2.29%       0.45%       0.38%
+stretch         2           3 Nifty100+MC100  2     2019-05-31    2019-05-31      1     OUT-SELL    OUT-BUY           0.91%       0.07%          -1.51%       -1.88%       -2.56%      -1.23%      -2.10%      -2.36%      -0.46%
+  spell         3           0    MC100+SC100  2     2021-01-29    2021-04-01     10           IN    OUT-BUY          -4.37%       0.34%           0.62%        7.01%       10.43%      11.27%      20.30%      15.31%      10.03%
+stretch         3           1    MC100+SC100  2     2021-01-29    2021-04-01     10           IN    OUT-BUY          -4.37%       0.34%           0.62%        7.01%       10.43%      11.27%      20.30%      15.31%      10.03%
+  spell         4           0 Nifty100+MC100  2     2021-10-29    2021-11-03      2           IN    OUT-BUY           3.32%       0.10%           1.47%        3.24%        2.66%       3.08%       0.78%       1.74%       5.26%
+stretch         4           1 Nifty100+MC100  2     2021-10-29    2021-11-03      2           IN    OUT-BUY           3.32%       0.10%           1.47%        3.24%        2.66%       3.08%       0.78%       1.74%       5.26%
+  spell         5           0           cash  0     2022-05-13    2022-07-29     12      OUT-BUY         IN           3.43%       0.90%          10.61%       10.72%        5.11%      -4.86%       3.02%       2.79%       6.43%
+stretch         5           1           cash  0     2022-05-13    2022-07-15     10      OUT-BUY   OUT-SELL           1.07%       0.73%           5.06%        5.82%        2.03%      -6.34%       1.74%       0.87%       5.02%
+stretch         5           2 Nifty100+MC100  2     2022-07-22    2022-07-29      2     OUT-SELL         IN           2.34%       0.16%           5.28%        4.64%        3.02%       1.58%       1.26%       1.90%       1.35%
+  spell         6           0           cash  0     2024-11-14    2025-01-24     11      OUT-BUY    OUT-BUY          10.72%       1.25%          -1.67%       -1.95%       -5.08%      -5.60%      -4.51%      -5.04%      -1.72%
+stretch         6           1           cash  0     2024-11-14    2024-11-29      3      OUT-BUY   OUT-SELL           2.21%       0.34%           5.32%        9.17%       11.55%       8.52%      11.33%       9.60%      15.09%
+stretch         6           2          SC100  1     2024-12-06    2024-12-06      1     OUT-SELL   OUT-SELL           0.30%       0.11%           0.23%        0.75%        0.01%      -1.10%      -0.77%      -1.25%       3.47%
+stretch         6           3    MC100+SC100  2     2024-12-13    2025-01-03      4     OUT-SELL   OUT-SELL           2.75%       0.45%          -8.05%      -11.86%      -13.36%      -8.98%     -14.36%      -9.03%     -11.81%
+stretch         6           4           cash  0     2025-01-10    2025-01-24      3     OUT-SELL    OUT-BUY           5.12%       0.33%           1.31%        1.14%       -1.80%      -3.37%       0.94%      -3.55%      -6.42%
+  spell         7           0           cash  0     2026-03-20    2026-04-10      4      OUT-BUY         IN          12.90%       0.34%           9.33%       13.42%       15.82%      15.06%      13.33%      12.12%      13.68%
+stretch         7           1           cash  0     2026-03-20    2026-04-10      4      OUT-BUY         IN          12.90%       0.34%           9.33%       13.42%       15.82%      15.06%      13.33%      12.12%      13.68%
+  spell         8           0           cash  0     2026-10-23    2026-11-20      5      OUT-BUY window end         -11.99%       0.39%          12.80%        9.86%        8.11%       6.32%       5.52%       8.17%       9.89%
+stretch         8           1           cash  0     2026-10-23    2026-10-30      2      OUT-BUY   OUT-SELL           0.63%       0.20%           9.97%        8.07%        6.67%       4.91%       4.66%       7.93%       8.50%
+stretch         8           2       Nifty100  1     2026-11-06    2026-11-06      1     OUT-SELL   OUT-SELL          -5.82%       0.09%           0.73%        0.91%        1.33%      -0.48%       1.16%       1.03%      -0.08%
+stretch         8           3 Nifty100+MC100  2     2026-11-13    2026-11-20      2     OUT-SELL window end          -7.13%       0.10%           1.83%        0.74%        0.01%       1.83%      -0.33%      -0.80%       1.36%
+-- SCMO_0003: each rule's return over each span (20.8 bps); the last two columns = ret_<base>-all minus ret_<base>-idx
+  level  spell_no  stretch_no              B  k  weeks 50-orig 50-half 50-liq 50-idx 50-all 80-orig 80-half 80-liq 80-idx 80-all all-idx 50 pp all-idx 80 pp
+  spell         1           0    MC100+SC100  2      1  -1.11%  -0.89% -0.47% -0.03%  0.41%  -0.73%  -0.89% -0.47% -0.03%  0.41%         +0.44         +0.44
+stretch         1           1    MC100+SC100  2      1  -1.11%  -0.89% -0.47% -0.03%  0.41%  -0.73%  -0.89% -0.47% -0.03%  0.41%         +0.44         +0.44
+  spell         2           0           cash  0      4   1.09%   4.41%  0.10% -0.31%  4.61%   0.38%   4.35% -0.02% -0.39%  4.54%         +4.92         +4.94
+stretch         2           1           cash  0      2  -0.22%   5.06%  0.15%  0.21%  6.03%  -0.00%   5.06%  0.15%  0.21%  6.03%         +5.82         +5.82
+stretch         2           2       Nifty100  1      1   0.82%  -0.23%  0.07%  0.75%  0.22%   0.37%  -0.23%  0.07%  0.75%  0.22%         -0.53         -0.53
+stretch         2           3 Nifty100+MC100  2      1   0.49%  -0.40% -0.12% -1.26% -1.56%   0.01%  -0.45% -0.24% -1.34% -1.62%         -0.30         -0.28
+  spell         3           0    MC100+SC100  2     10  -2.00%   4.21%  0.30%  7.27%  5.85%  -0.63%   4.26%  0.28%  7.29%  5.88%         -1.42         -1.41
+stretch         3           1    MC100+SC100  2     10  -2.00%   4.21%  0.30%  7.27%  5.85%  -0.63%   4.26%  0.28%  7.29%  5.88%         -1.42         -1.41
+  spell         4           0 Nifty100+MC100  2      2   1.71%   3.83%  0.01%  1.50%  1.82%   0.63%   3.84% -0.05%  1.48%  1.81%         +0.32         +0.33
+stretch         4           1 Nifty100+MC100  2      2   1.71%   3.83%  0.01%  1.50%  1.82%   0.63%   3.84% -0.05%  1.48%  1.81%         +0.32         +0.33
+  spell         5           0           cash  0     12   2.02%  -0.74%  0.65%  3.53%  6.37%   1.19%  -0.74%  0.65%  3.53%  6.37%         +2.84         +2.84
+stretch         5           1           cash  0     10   0.90%  -2.64%  0.73%  0.59%  3.41%   0.80%  -2.64%  0.73%  0.59%  3.41%         +2.82         +2.82
+stretch         5           2 Nifty100+MC100  2      2   1.11%   1.95% -0.08%  2.93%  2.86%   0.39%   1.95% -0.08%  2.93%  2.86%         -0.06         -0.06
+  spell         6           0           cash  0     11   5.86%   2.70%  1.22% -6.97% -1.85%   3.11%   2.76%  1.21% -6.99% -1.82%         +5.12         +5.17
+stretch         6           1           cash  0      3   1.25%   5.21%  0.34%  0.25%  6.59%   0.71%   5.21%  0.34%  0.25%  6.59%         +6.34         +6.34
+stretch         6           2          SC100  1      1   0.20%  -0.42%  0.11%  0.04%  0.28%   0.15%  -0.42%  0.11%  0.04%  0.28%         +0.24         +0.24
+stretch         6           3    MC100+SC100  2      4   1.58%  -3.23%  0.45% -7.54% -8.42%   0.92%  -3.23%  0.45% -7.54% -8.42%         -0.88         -0.88
+stretch         6           4           cash  0      3   2.72%   1.30%  0.31%  0.31%  0.26%   1.30%   1.36%  0.30%  0.30%  0.30%         -0.05         -0.00
+  spell         7           0           cash  0      4   6.64%  13.55% -0.35% -0.35%  9.02%   2.10%  13.55% -0.35% -0.35%  9.02%         +9.37         +9.37
+stretch         7           1           cash  0      4   6.64%  13.55% -0.35% -0.35%  9.02%   2.10%  13.55% -0.35% -0.35%  9.02%         +9.37         +9.37
+  spell         8           0           cash  0      5  -5.58%  -2.75%  0.39%  1.33%  7.80%  -2.09%  -2.75%  0.39%  1.33%  7.80%         +6.47         +6.47
+stretch         8           1           cash  0      2   0.41%   2.72%  0.20%  0.20%  6.24%   0.28%   2.72%  0.20%  0.20%  6.24%         +6.04         +6.04
+stretch         8           2       Nifty100  1      1  -2.77%  -3.07%  0.09%  0.23%  0.78%  -1.10%  -3.07%  0.09%  0.23%  0.78%         +0.54         +0.54
+stretch         8           3 Nifty100+MC100  2      2  -3.28%  -2.33%  0.10%  0.89%  0.69%  -1.28%  -2.33%  0.10%  0.89%  0.69%         -0.20         -0.20
+-- SCMO_0007: each rule's return over each span (20.8 bps); the last two columns = ret_<base>-all minus ret_<base>-idx
+  level  spell_no  stretch_no              B  k  weeks 50-orig 50-half 50-liq 50-idx 50-all 80-orig 80-half 80-liq 80-idx 80-all all-idx 50 pp all-idx 80 pp
+  spell         1           0    MC100+SC100  2      1  -1.35%  -2.00% -0.71% -0.28%  0.16%  -0.97%  -2.00% -0.71% -0.28%  0.16%         +0.44         +0.44
+stretch         1           1    MC100+SC100  2      1  -1.35%  -2.00% -0.71% -0.28%  0.16%  -0.97%  -2.00% -0.71% -0.28%  0.16%         +0.44         +0.44
+  spell         2           0           cash  0      4   1.09%   2.02%  0.10% -0.31%  4.61%   0.38%   1.97% -0.02% -0.39%  4.54%         +4.92         +4.94
+stretch         2           1           cash  0      2  -0.22%   3.03%  0.15%  0.21%  6.03%  -0.00%   3.03%  0.15%  0.21%  6.03%         +5.82         +5.82
+stretch         2           2       Nifty100  1      1   0.82%  -0.46%  0.07%  0.75%  0.22%   0.37%  -0.46%  0.07%  0.75%  0.22%         -0.53         -0.53
+stretch         2           3 Nifty100+MC100  2      1   0.49%  -0.53% -0.12% -1.26% -1.56%   0.01%  -0.58% -0.24% -1.34% -1.62%         -0.30         -0.28
+  spell         3           0    MC100+SC100  2     10  -2.00%   8.86%  0.30%  7.27%  5.85%  -0.63%   8.90%  0.28%  7.29%  5.88%         -1.42         -1.41
+stretch         3           1    MC100+SC100  2     10  -2.00%   8.86%  0.30%  7.27%  5.85%  -0.63%   8.90%  0.28%  7.29%  5.88%         -1.42         -1.41
+  spell         4           0 Nifty100+MC100  2      2   1.71%   2.01%  0.01%  1.50%  1.82%   0.63%   2.01% -0.05%  1.48%  1.81%         +0.32         +0.33
+stretch         4           1 Nifty100+MC100  2      2   1.71%   2.01%  0.01%  1.50%  1.82%   0.63%   2.01% -0.05%  1.48%  1.81%         +0.32         +0.33
+  spell         5           0           cash  0     12   1.49%   2.81%  0.12%  2.99%  5.81%   0.66%   2.81%  0.12%  2.99%  5.81%         +2.82         +2.82
+stretch         5           1           cash  0     10   0.90%   1.31%  0.73%  0.59%  3.41%   0.80%   1.31%  0.73%  0.59%  3.41%         +2.82         +2.82
+stretch         5           2 Nifty100+MC100  2      2   0.58%   1.48% -0.61%  2.38%  2.32%  -0.14%   1.48% -0.61%  2.38%  2.32%         -0.06         -0.06
+  spell         6           0           cash  0     11   5.86%   2.89%  1.22% -6.97% -1.85%   3.11%   2.95%  1.21% -6.99% -1.82%         +5.12         +5.17
+stretch         6           1           cash  0      3   1.25%   6.70%  0.34%  0.25%  6.59%   0.71%   6.70%  0.34%  0.25%  6.59%         +6.34         +6.34
+stretch         6           2          SC100  1      1   0.20%  -0.26%  0.11%  0.04%  0.28%   0.15%  -0.26%  0.11%  0.04%  0.28%         +0.24         +0.24
+stretch         6           3    MC100+SC100  2      4   1.58%  -6.09%  0.45% -7.54% -8.42%   0.92%  -6.09%  0.45% -7.54% -8.42%         -0.88         -0.88
+stretch         6           4           cash  0      3   2.72%   2.96%  0.31%  0.31%  0.26%   1.30%   3.02%  0.30%  0.30%  0.30%         -0.05         -0.00
+  spell         7           0           cash  0      4   7.16%  12.95%  0.13%  0.13%  9.55%   2.59%  12.95%  0.13%  0.13%  9.55%         +9.41         +9.41
+stretch         7           1           cash  0      4   7.16%  12.95%  0.13%  0.13%  9.55%   2.59%  12.95%  0.13%  0.13%  9.55%         +9.41         +9.41
+  spell         8           0           cash  0      5  -5.58%  -3.14%  0.39%  1.33%  7.80%  -2.09%  -3.14%  0.39%  1.33%  7.80%         +6.47         +6.47
+stretch         8           1           cash  0      2   0.41%   2.71%  0.20%  0.20%  6.24%   0.28%   2.71%  0.20%  0.20%  6.24%         +6.04         +6.04
+stretch         8           2       Nifty100  1      1  -2.77%  -2.23%  0.09%  0.23%  0.78%  -1.10%  -2.23%  0.09%  0.23%  0.78%         +0.54         +0.54
+stretch         8           3 Nifty100+MC100  2      2  -3.28%  -3.55%  0.10%  0.89%  0.69%  -1.28%  -3.55%  0.10%  0.89%  0.69%         -0.20         -0.20
+-- SCMO_0010: each rule's return over each span (20.8 bps); the last two columns = ret_<base>-all minus ret_<base>-idx
+  level  spell_no  stretch_no              B  k  weeks 50-orig 50-half 50-liq 50-idx 50-all 80-orig 80-half 80-liq 80-idx 80-all all-idx 50 pp all-idx 80 pp
+  spell         1           0    MC100+SC100  2      1  -0.85%  -1.29% -0.20%  0.24%  0.68%  -0.46%  -1.29% -0.20%  0.24%  0.68%         +0.44         +0.44
+stretch         1           1    MC100+SC100  2      1  -0.85%  -1.29% -0.20%  0.24%  0.68%  -0.46%  -1.29% -0.20%  0.24%  0.68%         +0.44         +0.44
+  spell         2           0           cash  0      4   1.09%   6.55%  0.10% -0.31%  4.61%   0.38%   6.49% -0.02% -0.39%  4.54%         +4.92         +4.94
+stretch         2           1           cash  0      2  -0.22%   6.26%  0.15%  0.21%  6.03%  -0.00%   6.26%  0.15%  0.21%  6.03%         +5.82         +5.82
+stretch         2           2       Nifty100  1      1   0.82%   0.92%  0.07%  0.75%  0.22%   0.37%   0.92%  0.07%  0.75%  0.22%         -0.53         -0.53
+stretch         2           3 Nifty100+MC100  2      1   0.49%  -0.65% -0.12% -1.26% -1.56%   0.01%  -0.70% -0.24% -1.34% -1.62%         -0.30         -0.28
+  spell         3           0    MC100+SC100  2     10  -2.00%   6.28%  0.30%  7.27%  5.85%  -0.63%   6.33%  0.28%  7.29%  5.88%         -1.42         -1.41
+stretch         3           1    MC100+SC100  2     10  -2.00%   6.28%  0.30%  7.27%  5.85%  -0.63%   6.33%  0.28%  7.29%  5.88%         -1.42         -1.41
+  spell         4           0 Nifty100+MC100  2      2   1.71%   2.64%  0.01%  1.50%  1.82%   0.63%   2.65% -0.05%  1.48%  1.81%         +0.32         +0.33
+stretch         4           1 Nifty100+MC100  2      2   1.71%   2.64%  0.01%  1.50%  1.82%   0.63%   2.65% -0.05%  1.48%  1.81%         +0.32         +0.33
+  spell         5           0           cash  0     12   2.50%   3.01%  1.13%  4.02%  6.88%   1.67%   3.01%  1.13%  4.02%  6.88%         +2.85         +2.85
+stretch         5           1           cash  0     10   0.90%   0.70%  0.73%  0.59%  3.41%   0.80%   0.70%  0.73%  0.59%  3.41%         +2.82         +2.82
+stretch         5           2 Nifty100+MC100  2      2   1.59%   2.30%  0.39%  3.41%  3.35%   0.86%   2.30%  0.39%  3.41%  3.35%         -0.06         -0.06
+  spell         6           0           cash  0     11   5.86%   2.73%  1.22% -6.97% -1.85%   3.11%   2.79%  1.21% -6.99% -1.82%         +5.12         +5.17
+stretch         6           1           cash  0      3   1.25%   5.80%  0.34%  0.25%  6.59%   0.71%   5.80%  0.34%  0.25%  6.59%         +6.34         +6.34
+stretch         6           2          SC100  1      1   0.20%  -0.50%  0.11%  0.04%  0.28%   0.15%  -0.50%  0.11%  0.04%  0.28%         +0.24         +0.24
+stretch         6           3    MC100+SC100  2      4   1.58%  -3.28%  0.45% -7.54% -8.42%   0.92%  -3.28%  0.45% -7.54% -8.42%         -0.88         -0.88
+stretch         6           4           cash  0      3   2.72%   0.90%  0.31%  0.31%  0.26%   1.30%   0.96%  0.30%  0.30%  0.30%         -0.05         -0.00
+  spell         7           0           cash  0      4   6.98%  12.35% -0.04% -0.04%  9.36%   2.42%  12.35% -0.04% -0.04%  9.36%         +9.40         +9.40
+stretch         7           1           cash  0      4   6.98%  12.35% -0.04% -0.04%  9.36%   2.42%  12.35% -0.04% -0.04%  9.36%         +9.40         +9.40
+  spell         8           0           cash  0      5  -5.58%  -1.86%  0.39%  1.33%  7.80%  -2.09%  -1.86%  0.39%  1.33%  7.80%         +6.47         +6.47
+stretch         8           1           cash  0      2   0.41%   4.34%  0.20%  0.20%  6.24%   0.28%   4.34%  0.20%  0.20%  6.24%         +6.04         +6.04
+stretch         8           2       Nifty100  1      1  -2.77%  -2.29%  0.09%  0.23%  0.78%  -1.10%  -2.29%  0.09%  0.23%  0.78%         +0.54         +0.54
+stretch         8           3 Nifty100+MC100  2      2  -3.28%  -3.73%  0.10%  0.89%  0.69%  -1.28%  -3.73%  0.10%  0.89%  0.69%         -0.20         -0.20
+-- SCMO_0029: each rule's return over each span (20.8 bps); the last two columns = ret_<base>-all minus ret_<base>-idx
+  level  spell_no  stretch_no              B  k  weeks 50-orig 50-half 50-liq 50-idx 50-all 80-orig 80-half 80-liq 80-idx 80-all all-idx 50 pp all-idx 80 pp
+  spell         1           0    MC100+SC100  2      1  -1.05%  -1.25% -0.41%  0.03%  0.47%  -0.67%  -1.25% -0.41%  0.03%  0.47%         +0.44         +0.44
+stretch         1           1    MC100+SC100  2      1  -1.05%  -1.25% -0.41%  0.03%  0.47%  -0.67%  -1.25% -0.41%  0.03%  0.47%         +0.44         +0.44
+  spell         2           0           cash  0      4   1.09%   5.07%  0.10% -0.31%  4.61%   0.38%   5.01% -0.02% -0.39%  4.54%         +4.92         +4.94
+stretch         2           1           cash  0      2  -0.22%   4.09%  0.15%  0.21%  6.03%  -0.00%   4.09%  0.15%  0.21%  6.03%         +5.82         +5.82
+stretch         2           2       Nifty100  1      1   0.82%   0.89%  0.07%  0.75%  0.22%   0.37%   0.89%  0.07%  0.75%  0.22%         -0.53         -0.53
+stretch         2           3 Nifty100+MC100  2      1   0.49%   0.05% -0.12% -1.26% -1.56%   0.01%  -0.01% -0.24% -1.34% -1.62%         -0.30         -0.28
+  spell         3           0    MC100+SC100  2     10  -2.00%   4.02%  0.30%  7.27%  5.85%  -0.63%   4.07%  0.28%  7.29%  5.88%         -1.42         -1.41
+stretch         3           1    MC100+SC100  2     10  -2.00%   4.02%  0.30%  7.27%  5.85%  -0.63%   4.07%  0.28%  7.29%  5.88%         -1.42         -1.41
+  spell         4           0 Nifty100+MC100  2      2   1.71%   4.20%  0.01%  1.50%  1.82%   0.63%   4.21% -0.05%  1.48%  1.81%         +0.32         +0.33
+stretch         4           1 Nifty100+MC100  2      2   1.71%   4.20%  0.01%  1.50%  1.82%   0.63%   4.21% -0.05%  1.48%  1.81%         +0.32         +0.33
+  spell         5           0           cash  0     12   2.13%   4.83%  0.76%  3.64%  6.48%   1.30%   4.83%  0.76%  3.64%  6.48%         +2.84         +2.84
+stretch         5           1           cash  0     10   0.90%   2.94%  0.73%  0.59%  3.41%   0.80%   2.94%  0.73%  0.59%  3.41%         +2.82         +2.82
+stretch         5           2 Nifty100+MC100  2      2   1.22%   1.84%  0.02%  3.03%  2.97%   0.49%   1.84%  0.02%  3.03%  2.97%         -0.06         -0.06
+  spell         6           0           cash  0     11   5.86%   4.14%  1.22% -6.97% -1.85%   3.11%   4.20%  1.21% -6.99% -1.82%         +5.12         +5.17
+stretch         6           1           cash  0      3   1.25%   8.54%  0.34%  0.25%  6.59%   0.71%   8.54%  0.34%  0.25%  6.59%         +6.34         +6.34
+stretch         6           2          SC100  1      1   0.20%   1.97%  0.11%  0.04%  0.28%   0.15%   1.97%  0.11%  0.04%  0.28%         +0.24         +0.24
+stretch         6           3    MC100+SC100  2      4   1.58%  -5.06%  0.45% -7.54% -8.42%   0.92%  -5.06%  0.45% -7.54% -8.42%         -0.88         -0.88
+stretch         6           4           cash  0      3   2.72%  -0.89%  0.31%  0.31%  0.26%   1.30%  -0.83%  0.30%  0.30%  0.30%         -0.05         -0.00
+  spell         7           0           cash  0      4   6.92%  13.05% -0.09% -0.09%  9.30%   2.36%  13.05% -0.09% -0.09%  9.30%         +9.39         +9.39
+stretch         7           1           cash  0      4   6.92%  13.05% -0.09% -0.09%  9.30%   2.36%  13.05% -0.09% -0.09%  9.30%         +9.39         +9.39
+  spell         8           0           cash  0      5  -5.58%  -0.85%  0.39%  1.33%  7.80%  -2.09%  -0.85%  0.39%  1.33%  7.80%         +6.47         +6.47
+stretch         8           1           cash  0      2   0.41%   4.63%  0.20%  0.20%  6.24%   0.28%   4.63%  0.20%  0.20%  6.24%         +6.04         +6.04
+stretch         8           2       Nifty100  1      1  -2.77%  -2.81%  0.09%  0.23%  0.78%  -1.10%  -2.81%  0.09%  0.23%  0.78%         +0.54         +0.54
+stretch         8           3 Nifty100+MC100  2      2  -3.28%  -2.49%  0.10%  0.89%  0.69%  -1.28%  -2.49%  0.10%  0.89%  0.69%         -0.20         -0.20
+-- -all minus -idx by k (sum over the B stretches of each k of ret_<base>-all minus ret_<base>-idx, a simple sum of period returns; weeks = OUT-SELL decisions in those stretches), 20.8 bps:
+   SCMO_0003, 2019-01-02 -> 2026-11-20:
+         stretches of  n stretches  weeks sum 50-all - 50-idx (pp, summed over stretches) sum 80-all - 80-idx (pp)
+                k = 0            6     24                                          +30.33                   +30.38
+                k = 1            3      3                                           +0.25                    +0.25
+                k = 2            7     22                                           -2.11                    -2.05
+               k >= 1           10     25                                           -1.86                    -1.80
+   all OUT-SELL weeks           16     49                                          +28.48                   +28.58
+   SCMO_0007, 2019-01-04 -> 2026-11-20:
+         stretches of  n stretches  weeks sum 50-all - 50-idx (pp, summed over stretches) sum 80-all - 80-idx (pp)
+                k = 0            6     24                                          +30.38                   +30.43
+                k = 1            3      3                                           +0.25                    +0.25
+                k = 2            7     22                                           -2.11                    -2.05
+               k >= 1           10     25                                           -1.86                    -1.80
+   all OUT-SELL weeks           16     49                                          +28.52                   +28.63
+   SCMO_0010, 2019-01-02 -> 2026-11-20:
+         stretches of  n stretches  weeks sum 50-all - 50-idx (pp, summed over stretches) sum 80-all - 80-idx (pp)
+                k = 0            6     24                                          +30.36                   +30.41
+                k = 1            3      3                                           +0.25                    +0.25
+                k = 2            7     22                                           -2.11                    -2.05
+               k >= 1           10     25                                           -1.85                    -1.80
+   all OUT-SELL weeks           16     49                                          +28.51                   +28.61
+   SCMO_0029, 2019-01-02 -> 2026-11-20:
+         stretches of  n stretches  weeks sum 50-all - 50-idx (pp, summed over stretches) sum 80-all - 80-idx (pp)
+                k = 0            6     24                                          +30.36                   +30.41
+                k = 1            3      3                                           +0.25                    +0.25
+                k = 2            7     22                                           -2.11                    -2.05
+               k >= 1           10     25                                           -1.86                    -1.80
+   all OUT-SELL weeks           16     49                                          +28.50                   +28.61
+
+== Comparators (benchmarks, not nulls), 20.8 bps, from the first session of each window to its last
+-- W1 (T11's / T14's / T15's inputs), 2014-09-01 -> 2019-01-02
+     book              run   CAGR max drawdown Calmar    vol
+SCMO_0003      hold_parent 32.16%      -39.67%  0.810 24.20%
+SCMO_0003    hold_Nifty100  7.97%      -21.49%  0.371 13.64%
+SCMO_0003       hold_MC100 11.04%      -26.36%  0.419 17.06%
+SCMO_0003       hold_SC100  5.57%      -40.00%  0.139 20.81%
+SCMO_0003 eq3_index_basket  8.36%      -25.70%  0.325 16.43%
+SCMO_0003      cmix_50-all 15.86%      -20.92%  0.758 12.03%
+SCMO_0003           50-all 14.70%      -16.87%  0.871 16.63%
+SCMO_0003      cmix_80-all 15.65%      -20.68%  0.757 12.05%
+SCMO_0003           80-all 13.94%      -18.06%  0.772 17.08%
+SCMO_0007      hold_parent 17.45%      -16.11%  1.083 17.48%
+SCMO_0007    hold_Nifty100  7.97%      -21.49%  0.371 13.64%
+SCMO_0007       hold_MC100 11.04%      -26.36%  0.419 17.06%
+SCMO_0007       hold_SC100  5.57%      -40.00%  0.139 20.81%
+SCMO_0007 eq3_index_basket  8.36%      -25.70%  0.325 16.43%
+SCMO_0007      cmix_50-all 10.12%       -9.17%  1.103  9.27%
+SCMO_0007           50-all  7.31%      -17.35%  0.421 12.76%
+SCMO_0007      cmix_80-all  9.91%       -9.00%  1.101  9.40%
+SCMO_0007           80-all  6.60%      -19.39%  0.340 13.33%
+SCMO_0010      hold_parent 22.05%      -29.47%  0.748 23.52%
+SCMO_0010    hold_Nifty100  7.97%      -21.49%  0.371 13.64%
+SCMO_0010       hold_MC100 11.04%      -26.36%  0.419 17.06%
+SCMO_0010       hold_SC100  5.57%      -40.00%  0.139 20.81%
+SCMO_0010 eq3_index_basket  8.36%      -25.70%  0.325 16.43%
+SCMO_0010      cmix_50-all 12.42%      -15.05%  0.826 11.88%
+SCMO_0010           50-all 10.30%      -17.29%  0.596 16.20%
+SCMO_0010      cmix_80-all 12.22%      -15.05%  0.812 11.93%
+SCMO_0010           80-all  9.57%      -18.88%  0.507 16.66%
+SCMO_0029      hold_parent 25.69%      -34.12%  0.753 21.80%
+SCMO_0029    hold_Nifty100  7.97%      -21.49%  0.371 13.64%
+SCMO_0029       hold_MC100 11.04%      -26.36%  0.419 17.06%
+SCMO_0029       hold_SC100  5.57%      -40.00%  0.139 20.81%
+SCMO_0029 eq3_index_basket  8.36%      -25.70%  0.325 16.43%
+SCMO_0029      cmix_50-all 14.02%      -18.20%  0.770 11.18%
+SCMO_0029           50-all 15.30%      -20.27%  0.755 15.08%
+SCMO_0029      cmix_80-all 13.81%      -18.21%  0.758 11.24%
+SCMO_0029           80-all 14.54%      -21.25%  0.684 15.57%
+   the rule against the constant mix at its own average shares (a different average exposure explains how much?):
+     book   rule CAGR minus its constant mix (pp) max DD minus its constant mix (pp) Calmar diff
+SCMO_0003 50-all                            -1.16                              +4.05      +0.113
+SCMO_0003 80-all                            -1.71                              +2.62      +0.015
+SCMO_0007 50-all                            -2.81                              -8.18      -0.682
+SCMO_0007 80-all                            -3.31                             -10.39      -0.761
+SCMO_0010 50-all                            -2.12                              -2.25      -0.230
+SCMO_0010 80-all                            -2.65                              -3.82      -0.305
+SCMO_0029 50-all                            +1.28                              -2.07      -0.016
+SCMO_0029 80-all                            +0.72                              -3.04      -0.074
+   constant-mix parameters (mean of the weekly target shares) per book and rule (-all rules):
+     book   rule f_parent f_goldbees f_cash f_Nifty100 f_MC100 f_SC100
+SCMO_0003 50-all   0.4079     0.1776 0.2368     0.0592  0.0592  0.0592
+SCMO_0003 80-all   0.4079     0.2842 0.1303     0.0592  0.0592  0.0592
+SCMO_0007 50-all   0.4079     0.1776 0.2368     0.0592  0.0592  0.0592
+SCMO_0007 80-all   0.4079     0.2842 0.1303     0.0592  0.0592  0.0592
+SCMO_0010 50-all   0.4079     0.1776 0.2368     0.0592  0.0592  0.0592
+SCMO_0010 80-all   0.4079     0.2842 0.1303     0.0592  0.0592  0.0592
+SCMO_0029 50-all   0.4079     0.1776 0.2368     0.0592  0.0592  0.0592
+SCMO_0029 80-all   0.4079     0.2842 0.1303     0.0592  0.0592  0.0592
+
+-- W2 (T08's inputs, extended), 2019-01-02 -> 2026-11-20
+     book              run   CAGR max drawdown Calmar    vol
+SCMO_0003      hold_parent 16.96%      -46.32%  0.366 24.46%
+SCMO_0003    hold_Nifty100 12.11%      -38.10%  0.318 17.18%
+SCMO_0003       hold_MC100 17.66%      -40.16%  0.440 19.53%
+SCMO_0003       hold_SC100 15.46%      -50.76%  0.305 21.20%
+SCMO_0003 eq3_index_basket 15.23%      -42.08%  0.362 18.43%
+SCMO_0003      cmix_50-all 14.52%      -27.86%  0.521 13.72%
+SCMO_0003           50-all 31.85%      -18.42%  1.730 17.81%
+SCMO_0003      cmix_80-all 16.29%      -27.92%  0.584 14.47%
+SCMO_0003           80-all 35.07%      -20.87%  1.680 19.68%
+SCMO_0007      hold_parent 10.85%      -54.65%  0.199 20.91%
+SCMO_0007    hold_Nifty100 12.21%      -38.10%  0.321 17.19%
+SCMO_0007       hold_MC100 17.72%      -40.16%  0.441 19.54%
+SCMO_0007       hold_SC100 15.55%      -50.76%  0.306 21.20%
+SCMO_0007 eq3_index_basket 15.31%      -42.08%  0.364 18.43%
+SCMO_0007      cmix_50-all 11.44%      -30.64%  0.373 12.03%
+SCMO_0007           50-all 24.06%      -19.54%  1.231 16.01%
+SCMO_0007      cmix_80-all 13.17%      -29.28%  0.450 12.84%
+SCMO_0007           80-all 27.09%      -20.93%  1.294 18.07%
+SCMO_0010      hold_parent 25.34%      -44.98%  0.563 23.26%
+SCMO_0010    hold_Nifty100 12.11%      -38.10%  0.318 17.18%
+SCMO_0010       hold_MC100 17.66%      -40.16%  0.440 19.53%
+SCMO_0010       hold_SC100 15.46%      -50.76%  0.305 21.20%
+SCMO_0010 eq3_index_basket 15.23%      -42.08%  0.362 18.43%
+SCMO_0010      cmix_50-all 18.00%      -27.29%  0.659 13.46%
+SCMO_0010           50-all 33.65%      -15.24%  2.208 17.18%
+SCMO_0010      cmix_80-all 19.79%      -27.54%  0.719 14.32%
+SCMO_0010           80-all 36.91%      -20.87%  1.768 19.10%
+SCMO_0029      hold_parent 24.65%      -36.92%  0.668 21.58%
+SCMO_0029    hold_Nifty100 12.11%      -38.10%  0.318 17.18%
+SCMO_0029       hold_MC100 17.66%      -40.16%  0.440 19.53%
+SCMO_0029       hold_SC100 15.46%      -50.76%  0.305 21.20%
+SCMO_0029 eq3_index_basket 15.23%      -42.08%  0.362 18.43%
+SCMO_0029      cmix_50-all 18.21%      -24.10%  0.755 12.53%
+SCMO_0029           50-all 29.79%      -15.24%  1.955 16.05%
+SCMO_0029      cmix_80-all 20.03%      -25.03%  0.800 13.37%
+SCMO_0029           80-all 32.96%      -20.87%  1.579 18.10%
+   the rule against the constant mix at its own average shares (a different average exposure explains how much?):
+     book   rule CAGR minus its constant mix (pp) max DD minus its constant mix (pp) Calmar diff
+SCMO_0003 50-all                           +17.33                              +9.45      +1.209
+SCMO_0003 80-all                           +18.78                              +7.04      +1.097
+SCMO_0007 50-all                           +12.62                             +11.10      +0.858
+SCMO_0007 80-all                           +13.92                              +8.35      +0.845
+SCMO_0010 50-all                           +15.65                             +12.05      +1.549
+SCMO_0010 80-all                           +17.12                              +6.67      +1.050
+SCMO_0029 50-all                           +11.58                              +8.86      +1.199
+SCMO_0029 80-all                           +12.93                              +4.16      +0.779
+   constant-mix parameters (mean of the weekly target shares) per book and rule (-all rules):
+     book   rule f_parent f_goldbees f_cash f_Nifty100 f_MC100 f_SC100
+SCMO_0003 50-all   0.4867     0.1973 0.2270     0.0297  0.0297  0.0297
+SCMO_0003 80-all   0.4867     0.3157 0.1086     0.0297  0.0297  0.0297
+SCMO_0007 50-all   0.4879     0.1966 0.2263     0.0297  0.0297  0.0297
+SCMO_0007 80-all   0.4879     0.3146 0.1084     0.0297  0.0297  0.0297
+SCMO_0010 50-all   0.4867     0.1973 0.2270     0.0297  0.0297  0.0297
+SCMO_0010 80-all   0.4867     0.3157 0.1086     0.0297  0.0297  0.0297
+SCMO_0029 50-all   0.4867     0.1973 0.2270     0.0297  0.0297  0.0297
+SCMO_0029 80-all   0.4867     0.3157 0.1086     0.0297  0.0297  0.0297
+
+
+====================================================================================================
+4.4 Robustness R1-R5 (R4: leave one spell out)
+====================================================================================================
+== W1 (T11's / T14's / T15's inputs), headline window 2014-09-01 -> 2019-01-02
+   R1 0.0 bps: 50: C1 PASS (4/4) C2 PASS (4/4) C3 PASS (4/4) C4 FAIL (1/4) C5 PASS (4/4) C6 PASS (3/4); 80: C1 PASS (4/4) C2 FAIL (2/4) C3 PASS (4/4) C4 FAIL (1/4) C5 PASS (4/4) C6 PASS (3/4)
+   R1 50.0 bps: 50: C1 PASS (4/4) C2 PASS (4/4) C3 PASS (4/4) C4 FAIL (0/4) C5 PASS (4/4) C6 PASS (3/4); 80: C1 PASS (4/4) C2 PASS (4/4) C3 PASS (4/4) C4 FAIL (0/4) C5 PASS (4/4) C6 PASS (3/4)
+   R2 LIQUIDCASE cash leg (r2_liq; 1070 sessions): 50: C1 PASS (4/4) C2 PASS (4/4) C3 PASS (4/4) C4 FAIL (0/4) C5 PASS (4/4) C6 PASS (3/4); 80: C1 PASS (4/4) C2 PASS (4/4) C3 PASS (4/4) C4 FAIL (0/4) C5 PASS (4/4) C6 PASS (3/4)
+   R3 own window (r3; 989 sessions): 50: C1 FAIL (0/4) C2 PASS (3/4) C3 PASS (4/4) C4 FAIL (0/4) C5 PASS (4/4) C6 PASS (3/4); 80: C1 PASS (4/4) C2 PASS (3/4) C3 PASS (4/4) C4 FAIL (0/4) C5 PASS (4/4) C6 PASS (3/4)
+   R5 index leg minus 0.5 pp a year (r5_drag; 1070 sessions): 50: C1 PASS (4/4) C2 PASS (4/4) C3 PASS (4/4) C4 FAIL (0/4) C5 PASS (4/4) C6 PASS (3/4); 80: C1 PASS (4/4) C2 PASS (4/4) C3 PASS (4/4) C4 FAIL (0/4) C5 PASS (4/4) C6 PASS (3/4)
+   CAGR differences (pp, all - comparator), per book, 20.8 bps:
+ variant base   vs  0003  0007  0010  0029
+headline   50 orig +3.10 +2.90 +2.98 +3.12
+headline   50  liq +3.17 +2.97 +3.05 +3.19
+headline   50 half -2.55 -1.30 -0.43 -0.20
+headline   50  idx +3.29 +3.08 +3.17 +3.31
+headline   80 orig +3.23 +3.02 +3.11 +3.25
+headline   80  liq +3.27 +3.06 +3.15 +3.29
+headline   80 half -2.56 -1.31 -0.45 -0.23
+headline   80  idx +3.39 +3.18 +3.26 +3.41
+      R2   50 orig +3.10 +2.90 +2.98 +3.12
+      R2   50  liq +3.17 +2.97 +3.05 +3.19
+      R2   50 half -2.55 -1.30 -0.43 -0.20
+      R2   50  idx +3.29 +3.08 +3.17 +3.31
+      R2   80 orig +3.23 +3.02 +3.11 +3.25
+      R2   80  liq +3.27 +3.06 +3.15 +3.29
+      R2   80 half -2.56 -1.31 -0.45 -0.23
+      R2   80  idx +3.39 +3.18 +3.26 +3.41
+      R3   50 orig -0.16 -0.15 -0.16 -0.16
+      R3   50  liq +0.69 +0.67 +0.69 +0.72
+      R3   50 half -2.87 -1.65 -1.62 -0.97
+      R3   50  idx +2.66 +2.55 +2.63 +2.75
+      R3   80 orig +0.46 +0.45 +0.46 +0.48
+      R3   80  liq +0.82 +0.79 +0.81 +0.85
+      R3   80 half -2.88 -1.67 -1.64 -1.00
+      R3   80  idx +2.77 +2.66 +2.74 +2.86
+      R5   50 orig +3.00 +2.81 +2.88 +3.01
+      R5   50  liq +3.07 +2.87 +2.95 +3.08
+      R5   50 half -2.65 -1.39 -0.53 -0.31
+      R5   50  idx +3.24 +3.03 +3.11 +3.25
+      R5   80 orig +3.13 +2.93 +3.01 +3.14
+      R5   80  liq +3.17 +2.97 +3.05 +3.19
+      R5   80 half -2.67 -1.41 -0.55 -0.33
+      R5   80  idx +3.34 +3.12 +3.21 +3.35
+   R4 leave one spell out (`-all` holds 100% cash only on that spell's decisions, `-liq`'s target; the comparators are the headline's); 8 OUT-SELL spells; the last spell is marked when it ends at the window end:
+ spell first decision last decision  weeks  k0 weeks entered from exited to base       C1       C2       C3       C4       C5       C6 all CAGR 0003 all CAGR 0007 all CAGR 0010 all CAGR 0029 flips vs headline
+     1     2014-10-17    2014-11-28      7         0           IN        IN   50 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 0/4 PASS 4/4 PASS 3/4        12.93%         5.65%         8.60%        13.52%                 -
+     1     2014-10-17    2014-11-28      7         0           IN        IN   80 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 0/4 PASS 4/4 PASS 3/4        12.19%         4.96%         7.88%        12.77%                 -
+     2     2014-12-12    2015-01-16      6         0           IN   OUT-BUY   50 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 0/4 PASS 4/4 PASS 3/4        13.30%         5.99%         8.95%        13.89%                 -
+     2     2014-12-12    2015-01-16      6         0           IN   OUT-BUY   80 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 0/4 PASS 4/4 PASS 3/4        12.53%         5.28%         8.22%        13.12%                 -
+     3     2015-03-27    2015-05-08      7         1           IN   OUT-BUY   50 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 1/4 PASS 4/4 PASS 3/4        14.91%         7.50%        10.50%        15.50%                 -
+     3     2015-03-27    2015-05-08      7         1           IN   OUT-BUY   80 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 0/4 PASS 4/4 PASS 3/4        14.13%         6.78%         9.75%        14.73%                 -
+     4     2015-07-10    2015-07-10      1         1      OUT-BUY        IN   50 PASS 4/4 PASS 3/4 PASS 4/4 FAIL 0/4 PASS 4/4 PASS 3/4        14.20%         6.84%         9.82%        14.80%                 -
+     4     2015-07-10    2015-07-10      1         1      OUT-BUY        IN   80 PASS 4/4 PASS 3/4 PASS 4/4 FAIL 0/4 PASS 4/4 PASS 3/4        13.43%         6.12%         9.08%        14.02%                 -
+     5     2015-11-13    2016-01-22     11         8      OUT-BUY   OUT-BUY   50 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 2/4 PASS 4/4 PASS 3/4        15.58%         8.13%        11.15%        16.18%                 -
+     5     2015-11-13    2016-01-22     11         8      OUT-BUY   OUT-BUY   80 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 2/4 PASS 4/4 PASS 3/4        14.79%         7.39%        10.39%        15.39%                 -
+     6     2016-11-04    2017-01-13     11         9           IN   OUT-BUY   50 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 1/4 PASS 4/4 PASS 3/4        15.03%         7.61%        10.61%        15.62%                 -
+     6     2016-11-04    2017-01-13     11         9           IN   OUT-BUY   80 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 1/4 PASS 4/4 PASS 3/4        14.25%         6.89%         9.87%        14.85%                 -
+     7     2018-06-29    2018-08-24      9         0      OUT-BUY        IN   50 PASS 4/4 FAIL 2/4 PASS 4/4 FAIL 0/4 PASS 4/4 FAIL 1/4        13.12%         5.83%         8.78%        13.71%             C2,C6
+     7     2018-06-29    2018-08-24      9         0      OUT-BUY        IN   80 PASS 4/4 FAIL 2/4 PASS 4/4 FAIL 0/4 PASS 4/4 FAIL 2/4        12.36%         5.12%         8.05%        12.94%             C2,C6
+     8     2018-11-22    2018-11-30      2         2      OUT-BUY   OUT-BUY   50 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 2/4 PASS 4/4 PASS 4/4        15.37%         7.94%        10.95%        15.97%                 -
+     8     2018-11-22    2018-11-30      2         2      OUT-BUY   OUT-BUY   80 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 2/4 PASS 4/4 PASS 4/4        14.58%         7.20%        10.19%        15.18%                 -
+   R4 flips in this window: 50-all, leaving out spell 7 (first decision 2018-06-29, 9 weeks) flips C2: PASS -> FAIL; 50-all, leaving out spell 7 (first decision 2018-06-29, 9 weeks) flips C6: PASS -> FAIL; 80-all, leaving out spell 7 (first decision 2018-06-29, 9 weeks) flips C2: PASS -> FAIL; 80-all, leaving out spell 7 (first decision 2018-06-29, 9 weeks) flips C6: PASS -> FAIL
+
+== W2 (T08's inputs, extended), headline window 2019-01-02 -> 2026-11-20
+   R1 0.0 bps: 50: C1 PASS (4/4) C2 PASS (3/4) C3 PASS (4/4) C4 PASS (4/4) C5 PASS (4/4) C6 PASS (3/4); 80: C1 PASS (4/4) C2 FAIL (2/4) C3 PASS (4/4) C4 PASS (4/4) C5 PASS (4/4) C6 FAIL (2/4)
+   R1 50.0 bps: 50: C1 PASS (4/4) C2 FAIL (1/4) C3 PASS (4/4) C4 PASS (4/4) C5 PASS (4/4) C6 PASS (3/4); 80: C1 PASS (4/4) C2 FAIL (1/4) C3 PASS (4/4) C4 PASS (4/4) C5 PASS (4/4) C6 PASS (3/4)
+   R2 LIQUIDCASE cash leg (r2_liq; 1946 sessions): 50: C1 PASS (4/4) C2 FAIL (2/4) C3 PASS (4/4) C4 PASS (4/4) C5 PASS (4/4) C6 PASS (4/4); 80: C1 PASS (4/4) C2 FAIL (1/4) C3 PASS (4/4) C4 PASS (4/4) C5 PASS (4/4) C6 FAIL (2/4)
+   R3 own window (r3; 1247 sessions): 50: C1 PASS (4/4) C2 FAIL (1/4) C3 PASS (4/4) C4 PASS (3/4) C5 PASS (4/4) C6 PASS (3/4); 80: C1 PASS (4/4) C2 FAIL (1/4) C3 PASS (4/4) C4 PASS (3/4) C5 PASS (4/4) C6 FAIL (2/4)
+   R5 index leg minus 0.5 pp a year (r5_drag; 1946 sessions): 50: C1 PASS (4/4) C2 FAIL (2/4) C3 PASS (4/4) C4 PASS (4/4) C5 PASS (4/4) C6 PASS (4/4); 80: C1 PASS (4/4) C2 FAIL (2/4) C3 PASS (4/4) C4 PASS (4/4) C5 PASS (4/4) C6 PASS (3/4)
+   CAGR differences (pp, all - comparator), per book, 20.8 bps:
+ variant base   vs  0003  0007  0010  0029
+headline   50 orig +4.57 +4.30 +4.63 +4.50
+headline   50  liq +5.37 +5.06 +5.45 +5.29
+headline   50 half +2.18 +1.64 +1.17 +0.58
+headline   50  idx +4.49 +4.23 +4.55 +4.42
+headline   80 orig +5.29 +4.99 +5.37 +5.21
+headline   80  liq +5.58 +5.26 +5.66 +5.50
+headline   80 half +2.22 +1.67 +1.18 +0.58
+headline   80  idx +4.65 +4.38 +4.71 +4.58
+      R2   50 orig +4.57 +4.30 +4.63 +4.50
+      R2   50  liq +5.36 +5.05 +5.43 +5.28
+      R2   50 half +2.19 +1.65 +1.18 +0.59
+      R2   50  idx +4.48 +4.22 +4.54 +4.41
+      R2   80 orig +5.29 +4.98 +5.36 +5.20
+      R2   80  liq +5.57 +5.25 +5.65 +5.48
+      R2   80 half +2.22 +1.67 +1.19 +0.58
+      R2   80  idx +4.64 +4.37 +4.70 +4.57
+      R3   50 orig +3.19 +3.05 +3.23 +3.20
+      R3   50  liq +5.08 +4.86 +5.14 +5.09
+      R3   50 half +2.08 +1.71 +1.52 -0.24
+      R3   50  idx +5.86 +5.62 +5.94 +5.88
+      R3   80 orig +4.55 +4.36 +4.61 +4.57
+      R3   80  liq +5.26 +5.04 +5.32 +5.27
+      R3   80 half +2.10 +1.72 +1.53 -0.27
+      R3   80  idx +6.05 +5.80 +6.13 +6.07
+      R5   50 orig +4.51 +4.25 +4.57 +4.44
+      R5   50  liq +5.32 +5.01 +5.39 +5.23
+      R5   50 half +2.12 +1.59 +1.11 +0.52
+      R5   50  idx +4.45 +4.19 +4.51 +4.38
+      R5   80 orig +5.23 +4.93 +5.31 +5.15
+      R5   80  liq +5.52 +5.20 +5.60 +5.44
+      R5   80 half +2.16 +1.61 +1.12 +0.52
+      R5   80  idx +4.61 +4.35 +4.68 +4.54
+   R4 leave one spell out (`-all` holds 100% cash only on that spell's decisions, `-liq`'s target; the comparators are the headline's); 8 OUT-SELL spells; the last spell is marked when it ends at the window end:
+ spell first decision last decision  weeks  k0 weeks entered from                           exited to base       C1       C2       C3       C4       C5       C6 all CAGR 0003 all CAGR 0007 all CAGR 0010 all CAGR 0029 flips vs headline
+     1     2019-03-08    2019-03-08      1         0      OUT-BUY                                  IN   50 PASS 4/4 FAIL 2/4 PASS 4/4 PASS 4/4 PASS 4/4 PASS 4/4        31.61%        23.83%        33.40%        29.55%                 -
+     1     2019-03-08    2019-03-08      1         0      OUT-BUY                                  IN   80 PASS 4/4 FAIL 1/4 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 2/4        34.81%        26.85%        36.65%        32.70%                 -
+     2     2019-05-10    2019-05-31      4         2           IN                             OUT-BUY   50 PASS 4/4 FAIL 2/4 PASS 4/4 PASS 3/4 PASS 4/4 PASS 4/4        31.22%        23.47%        33.01%        29.17%                 -
+     2     2019-05-10    2019-05-31      4         2           IN                             OUT-BUY   80 PASS 4/4 FAIL 1/4 PASS 4/4 PASS 3/4 PASS 4/4 FAIL 2/4        34.42%        26.47%        36.24%        32.31%                 -
+     3     2021-01-29    2021-04-01     10         0           IN                             OUT-BUY   50 PASS 4/4 FAIL 2/4 PASS 4/4 PASS 3/4 PASS 4/4 PASS 4/4        30.75%        23.02%        32.53%        28.70%                 -
+     3     2021-01-29    2021-04-01     10         0           IN                             OUT-BUY   80 PASS 4/4 FAIL 1/4 PASS 4/4 PASS 3/4 PASS 4/4 FAIL 2/4        33.93%        26.02%        35.76%        31.83%                 -
+     4     2021-10-29    2021-11-03      2         0           IN                             OUT-BUY   50 PASS 4/4 FAIL 2/4 PASS 4/4 PASS 4/4 PASS 4/4 PASS 4/4        31.49%        23.72%        33.28%        29.43%                 -
+     4     2021-10-29    2021-11-03      2         0           IN                             OUT-BUY   80 PASS 4/4 FAIL 1/4 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 2/4        34.69%        26.73%        36.52%        32.58%                 -
+     5     2022-05-13    2022-07-29     12        10      OUT-BUY                                  IN   50 PASS 4/4 FAIL 2/4 PASS 4/4 PASS 3/4 PASS 4/4 PASS 4/4        30.88%        23.14%        32.66%        28.82%                 -
+     5     2022-05-13    2022-07-29     12        10      OUT-BUY                                  IN   80 PASS 4/4 FAIL 1/4 PASS 4/4 PASS 3/4 PASS 4/4 FAIL 2/4        34.06%        26.14%        35.89%        31.96%                 -
+     6     2024-11-14    2025-01-24     11         6      OUT-BUY                             OUT-BUY   50 PASS 4/4 FAIL 2/4 PASS 4/4 PASS 4/4 PASS 4/4 PASS 4/4        32.42%        24.59%        34.22%        30.34%                 -
+     6     2024-11-14    2025-01-24     11         6      OUT-BUY                             OUT-BUY   80 PASS 4/4 FAIL 1/4 PASS 4/4 PASS 4/4 PASS 4/4 FAIL 2/4        35.63%        27.62%        37.48%        33.50%                 -
+     7     2026-03-20    2026-04-10      4         4      OUT-BUY                                  IN   50 PASS 4/4 FAIL 2/4 PASS 4/4 FAIL 2/4 PASS 4/4 FAIL 2/4        30.48%        22.77%        32.26%        28.44%             C4,C6
+     7     2026-03-20    2026-04-10      4         4      OUT-BUY                                  IN   80 PASS 4/4 FAIL 0/4 PASS 4/4 FAIL 2/4 PASS 4/4 FAIL 1/4        33.66%        25.76%        35.48%        31.57%                C4
+     8     2026-10-23    2026-11-20      5         2      OUT-BUY window end (open at the window end)   50 PASS 4/4 FAIL 2/4 PASS 4/4 FAIL 2/4 PASS 4/4 PASS 4/4        30.52%        22.81%        32.30%        28.48%                C4
+     8     2026-10-23    2026-11-20      5         2      OUT-BUY window end (open at the window end)   80 PASS 4/4 FAIL 1/4 PASS 4/4 FAIL 2/4 PASS 4/4 FAIL 2/4        33.70%        25.80%        35.52%        31.61%                C4
+   R4 flips in this window: 50-all, leaving out spell 7 (first decision 2026-03-20, 4 weeks) flips C4: PASS -> FAIL; 50-all, leaving out spell 7 (first decision 2026-03-20, 4 weeks) flips C6: PASS -> FAIL; 80-all, leaving out spell 7 (first decision 2026-03-20, 4 weeks) flips C4: PASS -> FAIL; 50-all, leaving out spell 8 (first decision 2026-10-23, 5 weeks) flips C4: PASS -> FAIL; 80-all, leaving out spell 8 (first decision 2026-10-23, 5 weeks) flips C4: PASS -> FAIL
+
+R1/R2/R3/R5 comparisons whose pass status differs from the headline's: w1 R1_0.0 80-all C2; w1 r3 50-all C1; w2 R1_0.0 50-all C2; w2 R1_50.0 80-all C6; w2 r5_drag 80-all C6
+R4 flips (a passing comparison that fails, or a failing one that passes, when one spell is left out): w1 50-all spell 7 C2: PASS -> FAIL; w1 50-all spell 7 C6: PASS -> FAIL; w1 80-all spell 7 C2: PASS -> FAIL; w1 80-all spell 7 C6: PASS -> FAIL; w2 50-all spell 7 C4: PASS -> FAIL; w2 50-all spell 7 C6: PASS -> FAIL; w2 80-all spell 7 C4: PASS -> FAIL; w2 50-all spell 8 C4: PASS -> FAIL; w2 80-all spell 8 C4: PASS -> FAIL
+
+====================================================================================================
+4.5 Outcome map (T16.md 2.5), applied mechanically
+====================================================================================================
+T16.md 2.5 applied mechanically to the headline (20.8 bps, whole window) per window and base (all V gates passed or nothing would be printed):
+   w1 50-all: C1 and C3 pass: holding the three indices with cash earned more than the original sleeve and more than cash alone on this window; PROVISIONAL (seen, post-hoc, no null); C5 passes: ignoring the index signals in the regime earned more than following them (-idx) on this window; the ledger's k = 0 / k >= 1 split says where; C6 passes: ignoring the signals did not deepen the worst fall against -idx; C4 fails: -all did not do better than T14 half-parent + GOLDBEES; C2 passes; R4: leaving out spell 7 flips C2 (PASS -> FAIL): the result rests on that spell; leaving out spell 7 flips C6 (PASS -> FAIL): the result rests on that spell; R3 (live): DISAGREES with the whole window: say so in the verdict and status note
+   w1 80-all: C1 and C3 pass: holding the three indices with cash earned more than the original sleeve and more than cash alone on this window; PROVISIONAL (seen, post-hoc, no null); C5 passes: ignoring the index signals in the regime earned more than following them (-idx) on this window; the ledger's k = 0 / k >= 1 split says where; C6 passes: ignoring the signals did not deepen the worst fall against -idx; C4 fails: -all did not do better than T14 half-parent + GOLDBEES; C2 passes; R4: leaving out spell 7 flips C2 (PASS -> FAIL): the result rests on that spell; leaving out spell 7 flips C6 (PASS -> FAIL): the result rests on that spell; R3 (live): agrees with the whole window
+   w2 50-all: C1 and C3 pass: holding the three indices with cash earned more than the original sleeve and more than cash alone on this window; PROVISIONAL (seen, post-hoc, no null); C5 passes: ignoring the index signals in the regime earned more than following them (-idx) on this window; the ledger's k = 0 / k >= 1 split says where; C6 passes: ignoring the signals did not deepen the worst fall against -idx; C4 passes: -all did better than T14 half-parent + GOLDBEES; C2 fails; R4: leaving out spell 7 flips C4 (PASS -> FAIL): the result rests on that spell; leaving out spell 7 flips C6 (PASS -> FAIL): the result rests on that spell; leaving out spell 8 flips C4 (PASS -> FAIL): the result rests on that spell; R3 (live): agrees with the whole window
+   w2 80-all: C1 and C3 pass: holding the three indices with cash earned more than the original sleeve and more than cash alone on this window; PROVISIONAL (seen, post-hoc, no null); C5 passes: ignoring the index signals in the regime earned more than following them (-idx) on this window; the ledger's k = 0 / k >= 1 split says where; C6 fails: ignoring the signals deepened the worst fall against -idx; C4 passes: -all did better than T14 half-parent + GOLDBEES; C2 fails; R4: leaving out spell 7 flips C4 (PASS -> FAIL): the result rests on that spell; leaving out spell 8 flips C4 (PASS -> FAIL): the result rests on that spell; R3 (live): agrees with the whole window
+   50-all: the two windows DISAGREE on C1-C6 ((True, True, True, False, True, True) vs (True, False, True, True, True, True)); 80-all: the two windows DISAGREE on C1-C6 ((True, True, True, False, True, True) vs (True, False, True, True, True, False)). If they disagree: report both; no general statement; the 2019-2026 window is the one the live product traded.
+   a V gate fails: no (the gate block above lists V1-V5 and every derived check as PASS).
+
+filled section 4 of T16.md from analysis.log; sections 1-3 and 5-8 unchanged (frozen hash eda7321d73b71455)
+OK   eda7321d73b71455f1df8442e99989f4bbb376912e8ee22a80cc4c08862f1ebc recorded eda7321d73b71455f1df8442e99989f4bbb376912e8ee22a80cc4c08862f1ebc
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "c:\Users\manur\Repos\wm-AA\AA\tests\T16\report.py", line 24, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+wrote C:\Users\manur\Repos\wm-AA\AA\tests\T16\evidence\report.html (2,450,207 bytes; 8,005 numbers with provenance, 8 curve charts)
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "c:\Users\manur\Repos\wm-AA\AA\tests\T16\check_page.py", line 61, in <module>
+    import pandas as pd
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\__init__.py", line 58, in <module>
+    from pandas.core.api import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\api.py", line 27, in <module>
+    from pandas.core.arrays import Categorical
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\__init__.py", line 1, in <module>
+    from pandas.core.arrays.arrow import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\__init__.py", line 5, in <module>
+    from pandas.core.arrays.arrow.array import ArrowExtensionArray
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arrays\arrow\array.py", line 83, in <module>
+    from pandas.core import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\arraylike.py", line 25, in <module>
+    from pandas.core.ops.common import unpack_zerodim_and_defer
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\__init__.py", line 9, in <module>
+    from pandas.core.ops.array_ops import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\ops\array_ops.py", line 55, in <module>
+    from pandas.core.computation import expressions
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\expressions.py", line 22, in <module>
+    from pandas.core.computation.check import (
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\computation\check.py", line 16, in <module>
+    ne = import_optional_dependency("numexpr", errors="warn")
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\compat\_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "C:\Users\manur\AppData\Local\Programs\Python\Python311\Lib\site-packages\numexpr\__init__.py", line 24, in <module>
+    from numexpr.interpreter import MAX_THREADS, use_vml, __BLOCK_SIZE1__
+AttributeError: _ARRAY_API not found
+note: METHODS.md beside the page: NOT YET WRITTEN (R8; the write-up step writes it)
+C:\Users\manur\Repos\wm-AA\AA\tests\T16\evidence\report.html: 8,005 numbers, 1,385 strings and 92 date spans traced to the evidence; 8 curve charts with 6 overlays each; 56 cards with dates; 19,903 checks, 0 failures
+OK   eda7321d73b71455f1df8442e99989f4bbb376912e8ee22a80cc4c08862f1ebc recorded eda7321d73b71455f1df8442e99989f4bbb376912e8ee22a80cc4c08862f1ebc
