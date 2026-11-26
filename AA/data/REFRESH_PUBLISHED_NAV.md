@@ -2,7 +2,7 @@
 
 **What:** the daily index (NAV) of SCMO_0003, 0007, 0010, 0029 (the parents) and SCMO_0042, 0043, 0044, 0045 (the AA books on them, in that order). **Source:** Redash query 2396, "scid Historical Indices" (`https://redash.util.smallcase.com/queries/2396`, data source 4, Mongo collection `smallcasesHistorical`; owner Dhruv Seth, whose account is disabled, so the query is read-only for us). One text parameter, `scids`, comma separated (the page URL calls it `p_scids`). It returns the **full history** of each scid every time, columns `_id.scid, _id.date (YYYY/MM/DD), index`.
 
-**Last refresh: 2026-11-09, through 2026-11-06, approved by Manu the same day.** Refreshing needs Manu's request, and the result stays a candidate until he approves it (CLAUDE.md "Data boundary", `APPROVED_DATA.md`).
+**Last refresh: 2026-11-26, through 2026-11-25, approved by Manu the same day** (`Historical Data/extended_2026-11-25/published_nav/`; the previous one, 2026-11-09 through 2026-11-06, stays APPROVED because T07-T15 read it). Note: the script's overlap check runs against the old D17 parents only; also check that the latest approved files (all 8, AA books included) are verbatim tails of the new ones. Refreshing needs Manu's request, and the result stays a candidate until he approves it (CLAUDE.md "Data boundary", `APPROVED_DATA.md`).
 
 ## Steps
 
