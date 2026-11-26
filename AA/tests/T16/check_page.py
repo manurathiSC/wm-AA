@@ -743,7 +743,7 @@ def main() -> int:
         blk = m_.group(0)
         chk(f"chip bar {w_}: a chip for each of the eleven curves", sorted(_re.findall(r'data-k="([^"]+)"', blk)) == sorted(CURVE_KINDS), "the curve chips differ from the eleven curves")
         chk(f"chip bar {w_}: a chip for each of the six ratio overlays", sorted(int(x) for x in _re.findall(r'data-pair="(\d+)"', blk)) == list(range(len(REL_PAIRS))), "overlay chips")
-        chk(f"chip bar {w_}: shading chip and the four presets", "data-sh" in blk and all(f'data-pre="{x}"' in blk for x in ("reset", "all", "alls", "none")), "shading or presets missing")
+        chk(f"chip bar {w_}: three shading chips (IN, OUT-BUY, OUT-SELL) and the four presets", all(f'data-sh="{x}"' in blk for x in ("IN", "OUT-BUY", "OUT-SELL")) and all(f'data-pre="{x}"' in blk for x in ("reset", "all", "alls", "none")), "shading or presets missing")
         chk(f"chip bar {w_}: every chip is a button with aria-pressed", blk.count("<button") == blk.count("aria-pressed=") == blk.count("</button>") and blk.count("<button") >= len(CURVE_KINDS) + len(REL_PAIRS) + 1 + 4, "chip markup")
         chk(f"chip bar {w_}: at least one curve is drawn when the page opens", bool(_re.search(r'data-k="[^"]+"[^>]*aria-pressed="true"', blk)), "no curve pressed")
     for w_ in sorted({k.split("|")[0] for k in lines}):

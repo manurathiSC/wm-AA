@@ -222,7 +222,7 @@ def state_text(reg: str, B: str, k: int) -> str:
 
 
 def svg_lines(series: dict, dates, key: str, title: str, st_reg, st_k, st_B, w=760, h=300):
-    """series: {kind: NAV array}; every 5th session plus the last; log scale; hover read from lines-data[key]; OUT-SELL stretches shaded (grey = k = 0: -all holds the three indices, -idx only cash;
+    """series: {kind: NAV array}; every 5th session plus the last; log scale; hover read from lines-data[key]; every regime shaded (green = IN, blue = OUT-BUY; OUT-SELL grey = k = 0: -all holds the three indices, -idx only cash;
     amber = k >= 1: -idx holds an index too); six hidden overlays (-all / -liq, -all / -orig and -all / -idx on each base, selected from the page's menu) on their own right-hand linear axis."""
     idx = sampled(len(dates))
     allv = np.concatenate([series[k][idx] for k in DEFAULT_ON])        # the first scale fits the curves shown on opening; the chips rescale it
@@ -233,20 +233,25 @@ def svg_lines(series: dict, dates, key: str, title: str, st_reg, st_k, st_B, w=7
     y = lambda v: T + (h - T - B) * (1 - (math.log(v) - ymin) / (ymax - ymin))
     dx = (w - L - R) / (n - 1)
     bot = h - B
-    out = [f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{E(title)}" class="chart lc" data-book="{E(key)}" data-win="{E(key.split("|")[0])}">', '<g class="lc-sh">']
-    j = 0
-    while j < n:
-        if st_reg[j] == "OUT-SELL":
-            cls = "bs1" if st_k[j] > 0 else "bs0"
-            e = j
-            while e + 1 < n and st_reg[e + 1] == "OUT-SELL" and ("bs1" if st_k[e + 1] > 0 else "bs0") == cls:
-                e += 1
-            x0, x1 = max(L, x(j) - dx / 2), min(w - R, x(e) + dx / 2)
-            out.append(f'<rect x="{x0:.1f}" y="{T}" width="{x1 - x0:.1f}" height="{bot - T}" class="{cls}"/>')
-            j = e + 1
-        else:
-            j += 1
-    out.append('</g><g class="lc-gr">')
+    out = [f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{E(title)}" class="chart lc" data-book="{E(key)}" data-win="{E(key.split("|")[0])}">']
+    def shade_cls(j_):
+        return "bsI" if st_reg[j_] == "IN" else "bsB" if st_reg[j_] == "OUT-BUY" else ("bs1" if st_k[j_] > 0 else "bs0")
+    for reg_name in ("IN", "OUT-BUY", "OUT-SELL"):          # one group per regime so the chips can switch each on and off
+        out.append(f'<g class="lc-sh" data-r="{reg_name}">')
+        j = 0
+        while j < n:
+            if st_reg[j] == reg_name:
+                cls = shade_cls(j)
+                e = j
+                while e + 1 < n and st_reg[e + 1] == reg_name and shade_cls(e + 1) == cls:
+                    e += 1
+                x0, x1 = max(L, x(j) - dx / 2), min(w - R, x(e) + dx / 2)
+                out.append(f'<rect x="{x0:.1f}" y="{T}" width="{x1 - x0:.1f}" height="{bot - T}" class="{cls}"/>')
+                j = e + 1
+            else:
+                j += 1
+        out.append('</g>')
+    out.append('<g class="lc-gr">')
     for t in (0.25, 0.5, 1, 2, 4, 8, 16, 32, 64):
         if allv.min() * 0.97 <= t <= allv.max() * 1.03:
             out.append(f'<line x1="{L}" x2="{w - R}" y1="{y(t):.1f}" y2="{y(t):.1f}" class="grid"/><text x="{L - 4}" y="{y(t) + 3:.1f}" text-anchor="end" class="ax">{t:g}×</text>')
@@ -303,9 +308,9 @@ function fx(v){return v.toFixed(2)+'\\u00d7'}
 function el(n,a,t){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(t!=null)e.textContent=t;return e}
 Array.prototype.forEach.call(document.querySelectorAll('svg.lc'),function(svg){
  var key=svg.getAttribute('data-book'),d=all[key],fig=svg.parentNode,tip=fig.querySelector('.tip'),g=svg.querySelector('.lc-hv'),ov=svg.querySelector('.lc-ov'),
- cs=svg.querySelectorAll('.lc-c'),ls=svg.querySelectorAll('.lc-l'),rgs=svg.querySelectorAll('.rl'),rc=svg.querySelector('.lc-rc'),gr=svg.querySelector('.lc-gr'),sh=svg.querySelector('.lc-sh'),
+ cs=svg.querySelectorAll('.lc-c'),ls=svg.querySelectorAll('.lc-l'),rgs=svg.querySelectorAll('.rl'),rc=svg.querySelector('.lc-rc'),gr=svg.querySelector('.lc-gr'),shs=svg.querySelectorAll('.lc-sh'),
  q=function(c){return svg.querySelector(c)},rd=rels[key];
- var c={win:svg.getAttribute('data-win'),lo:d.lo,hi:d.hi,vis:{},on:-1,shade:true};
+ var c={win:svg.getAttribute('data-win'),lo:d.lo,hi:d.hi,vis:{},on:-1,shade:{'IN':true,'OUT-BUY':true,'OUT-SELL':true}};
  d.series.forEach(function(s,n){c.vis[s.k]=ls[n].style.display!=='none'});
  function X(j){return d.L+(d.w-d.L-d.R)*j/(d.n-1)}
  function Y(v){return d.T+(d.h-d.T-d.B)*(1-(Math.log(v)-c.lo)/(c.hi-c.lo))}
@@ -318,7 +323,7 @@ Array.prototype.forEach.call(document.querySelectorAll('svg.lc'),function(svg){
    if(on){var pts=[];for(var j=0;j<d.n;j++)pts.push(X(j).toFixed(1)+','+Y(s.v[j]).toFixed(1));p.setAttribute('points',pts.join(' '))}});
   while(gr.firstChild)gr.removeChild(gr.firstChild);
   TICKS.forEach(function(t){if(t>=lo*0.97&&t<=hi*1.03){var yy=Y(t);gr.appendChild(el('line',{x1:d.L,x2:d.w-d.R,y1:yy,y2:yy,'class':'grid'}));gr.appendChild(el('text',{x:d.L-4,y:yy+3,'text-anchor':'end','class':'ax'},t+'\\u00d7'))}});
-  sh.style.display=c.shade?'':'none';
+  Array.prototype.forEach.call(shs,function(x){x.style.display=c.shade[x.getAttribute('data-r')]?'':'none'});
   Array.prototype.forEach.call(rgs,function(r){r.style.display=(parseInt(r.getAttribute('data-pair'),10)===c.on)?'':'none'});
   g.style.display='none';tip.hidden=true;
  }
@@ -353,11 +358,11 @@ Array.prototype.forEach.call(document.querySelectorAll('.chips'),function(bar){
  function set(b,p){b.setAttribute('aria-pressed',p?'true':'false')}
  function pressed(b){return b.getAttribute('aria-pressed')==='true'}
  function apply(){
-  var vis={},on=-1,shade=false;
+  var vis={},on=-1,shade={'IN':false,'OUT-BUY':false,'OUT-SELL':false};
   Array.prototype.forEach.call(bs,function(b){var p=pressed(b);
    if(b.hasAttribute('data-k'))vis[b.getAttribute('data-k')]=p;
    else if(b.hasAttribute('data-pair')){if(p)on=parseInt(b.getAttribute('data-pair'),10)}
-   else if(b.hasAttribute('data-sh'))shade=p});
+   else if(b.hasAttribute('data-sh'))shade[b.getAttribute('data-sh')]=p});
   charts.forEach(function(x){if(x.c.win===win){x.c.vis=vis;x.c.on=on;x.c.shade=shade;x.redraw()}});
  }
  Array.prototype.forEach.call(bs,function(b){b.addEventListener('click',function(){
@@ -386,7 +391,7 @@ main{max-width:1080px;margin:0 auto;padding:24px 16px 64px}h1{font-size:25px;lin
 table.wrap td,table.wrap th{white-space:normal;text-align:left;vertical-align:top}
 .card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:10px 0}.chart{width:100%;height:auto}.grid{stroke:var(--line)}.ax{fill:var(--muted);font-size:10px}
 .pass{color:var(--ok);font-weight:600}.fail{color:var(--bad);font-weight:600}.warn{color:var(--warn)}.pos{color:var(--ok)}.neg{color:var(--bad)}
-.bs0{fill:#8a8f98;opacity:.16}.bs1{fill:#e8b45c;opacity:.34}
+.bs0{fill:#8a8f98;opacity:.16}.bs1{fill:#e8b45c;opacity:.34}.bsI{fill:#2e9e63;opacity:.11}.bsB{fill:#3b7be0;opacity:.12}
 .formula{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px 12px;font:12.5px/1.5 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-x:auto;margin:6px 0}
 [hidden]{display:none!important}.vsel{font:inherit;font-size:12.5px;margin-left:4px;max-width:100%}.hv{position:relative}.tip{position:absolute;z-index:5;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 9px;font-size:12px;line-height:1.5;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.18);font-variant-numeric:tabular-nums}.tip i{display:inline-block;width:10px;height:3px;margin-right:6px;vertical-align:middle}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;margin:6px 0}.legend i{display:inline-block;width:14px;height:3px;margin-right:6px;vertical-align:middle}.legend b.sw{display:inline-block;width:14px;height:10px;margin-right:6px;vertical-align:middle}
@@ -927,7 +932,9 @@ def chips_html(w: str) -> str:
     for i, (n_, d_) in enumerate(REL_PAIRS):
         h.append(chip(f'data-pair="{i}"', REL_COL, f"{n_} ÷ {d_}", False))
     h.append('<span class="gap"></span><span class="lbl">Also:</span>')
-    h.append(chip('data-sh="1"', "#e8b45c", "OUT-SELL stretches shaded", True))
+    h.append(chip('data-sh="IN"', "#2e9e63", "IN shaded (parent held)", True))
+    h.append(chip('data-sh="OUT-BUY"', "#3b7be0", "OUT-BUY shaded (gold sleeve)", True))
+    h.append(chip('data-sh="OUT-SELL"', "#e8b45c", "OUT-SELL shaded (grey k = 0, amber k ≥ 1)", True))
     for pre, txt in (("reset", "reset"), ("all", "all eleven"), ("alls", "only the two -all rules"), ("none", "none")):
         h.append(chip(f'data-pre="{pre}"', "var(--muted)", txt, False, " pre"))
     h.append("</div>")
@@ -937,7 +944,7 @@ def chips_html(w: str) -> str:
 def section_curves(Ws, lines_data, rel_data) -> str:
     h = ['<h2 id="curves">5. The curves: the ten rules and the parent, per book</h2><p class="mini">Growth of 1 invested at the close of the first session of the window, log scale, 20.8 bps, daily marks (every 5th session drawn; the hover reads the same arrays). '
          '<b>Click a chip to show or hide that curve</b> in all four charts of the window; the vertical axis rescales to the curves shown, and the hover lists only those. The page opens with the parent, 50-orig and 50-all. '
-         'The two originals are dashed when drawn; the two -all rules are thick. Shaded: OUT-SELL stretches held (grey = k = 0, every index on SELL: -all holds the three indices, -idx only cash; amber = k ≥ 1: -idx holds an index too). '
+         'The two originals are dashed when drawn; the two -all rules are thick. Shaded by the state held (each switchable): green = IN (the parent), blue = OUT-BUY (the base sleeve), grey = OUT-SELL with k = 0 (every index on SELL: -all holds the three indices, -idx only cash), amber = OUT-SELL with k ≥ 1 (-idx holds an index too). '
          'A ratio chip draws the growth ratio of an -all rule over its -liq, -orig or -idx rule on a right-hand axis (above the dotted 1.0× line the -all rule is ahead); the end values of every curve are in each caption whether it is drawn or not.</p>']
     for w, W in Ws.items():
         a, z = dates_of(W, W.books[0])
