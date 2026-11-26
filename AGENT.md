@@ -1544,7 +1544,14 @@ was tested, on which data, over which dates, how every number was computed, and 
 **The page, in order:**
 
 1. **The answer.** The question, the verdict per hypothesis, the test ID and status, the run date, the
-   data review used.
+   data review used. **Then, before any table or chart that names a rule, the rules and runs table**
+   (standing rule, Manu 2026-11-26): one row per rule id and per run label the page uses (the new
+   rules, every comparator, every robustness variant such as R1-R6, every window label), giving the
+   id, what the book holds in each state in plain words ("switch OUT and gold SELL: 25% each of Nifty
+   100, Midcap 100, Smallcap 100 and the liquid ETF"), its role (new / comparator / regression /
+   robustness) and where it comes from (the test and request that introduced it). A reader must never
+   meet an id such as `50-half` or `R4` that the page has not defined in words. The write-up carries
+   the same table in §2.
 2. **The data.** One row per input: what it is, its source, its fetch date, the field used, what it is
    adjusted for, its first and last date (from the data review's component map).
 3. **One backtest, end to end.** One realisation — the reference setting, one book or start date, one
